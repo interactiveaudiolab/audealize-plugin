@@ -13,12 +13,27 @@
 
 
 //==============================================================================
-AudealizeeqAudioProcessor::AudealizeeqAudioProcessor()
+AudealizeeqAudioProcessor::AudealizeeqAudioProcessor() : mEqualizer(mFreqs, getSampleRate())
 {
+    mUndoManager = new UndoManager();
+    mState = new AudioProcessorValueTreeState(*this, mUndoManager);
+    
+    
+    //Create params for each EQ band gain
+    for (int i = 0; i < 40; i++){
+        std::string paramID = "paramGain" + std::to_string(i+1);
+        std::string paramName =  "Gain: " + std::to_string(mFreqs[i]) + " Hz";
+        mState->createAndAddParameter(paramID, paramName, TRANS(paramName), mGainRange, 0.0f, nullptr, nullptr);
+    }
+    
+    mState->state = ValueTree ("Audealize-EQ");
 }
+
 
 AudealizeeqAudioProcessor::~AudealizeeqAudioProcessor()
 {
+    mState = nullptr;
+    mUndoManager = nullptr;
 }
 
 //==============================================================================
@@ -131,8 +146,8 @@ void AudealizeeqAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuf
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
     {
         float* channelData = buffer.getWritePointer (channel);
-
-        // ..do something to the data...
+        
+        mEqualizer.processBlock(channelData, buffer.getNumSamples(), channel);
     }
 }
 

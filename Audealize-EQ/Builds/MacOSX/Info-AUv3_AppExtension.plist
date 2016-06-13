@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist>
+  <dict>
+    <key>CFBundleExecutable</key>
+    <string>${EXECUTABLE_NAME}</string>
+    <key>CFBundleIconFile</key>
+    <string></string>
+    <key>CFBundleIdentifier</key>
+    <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+    <key>CFBundleName</key>
+    <string>Audealize-EQ</string>
+    <key>CFBundleDisplayName</key>
+    <string>Audealize-EQ</string>
+    <key>CFBundlePackageType</key>
+    <string>XPC!</string>
+    <key>CFBundleSignature</key>
+    <string>????</string>
+    <key>CFBundleShortVersionString</key>
+    <string>0.0.1</string>
+    <key>CFBundleVersion</key>
+    <string>0.0.1</string>
+    <key>NSHumanReadableCopyright</key>
+    <string>Northwestern University Interactive Audio Lab</string>
+    <key>NSHighResolutionCapable</key>
+    <true/>
+    <key>NSExtension</key>
+    <dict>
+      <key>NSExtensionPrincipalClass</key>
+      <string>AudealizeEQAUFactoryAUv3</string>
+      <key>NSExtensionPointIdentifier</key>
+      <string>com.apple.AudioUnit-UI</string>
+      <key>NSExtensionAttributes</key>
+      <dict>
+        <key>AudioComponents</key>
+        <array>
+          <dict>
+            <key>name</key>
+            <string>Interactive Audio Lab: Audealize-EQ</string>
+            <key>description</key>
+            <string>Audealize-EQ</string>
+            <key>factoryFunction</key>
+            <string>AudealizeEQAUFactoryAUv3</string>
+            <key>manufacturer</key>
+            <string>IALx</string>
+            <key>type</key>
+            <string>aufx</string>
+            <key>subtype</key>
+            <string>adlz</string>
+            <key>version</key>
+            <integer>1</integer>
+            <key>sandboxSafe</key>
+            <true/>
+            <key>tags</key>
+            <array>
+              <string>Effects</string>
+            </array>
+          </dict>
+        </array>
+      </dict>
+    </dict>
+  </dict>
+</plist>

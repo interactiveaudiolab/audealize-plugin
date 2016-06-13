@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Audealize-EQ (AU).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Audealize-EQ (AUv3 AppExtension).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Audealize-EQ (AUv3 Standalone).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>Audealize-EQ (All).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>Audealize-EQ (Shared Code).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>Audealize-EQ (VST).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Audealize-EQ (VST3).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>30188AE817C21676F312FB07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>52E5AE0E51612E853F74B9E6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5DF0BB4FA372259F54E43C9C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6147E24959EBB5C3A502A516</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B66E6EBCC0FB1D30644D5AF0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BDB3DC20242ECE8884C692D5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D158BB88724CB9584A8BBEBF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

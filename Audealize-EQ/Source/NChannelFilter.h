@@ -75,6 +75,7 @@ public:
         mFc = Fc;
         mQ = Q;
         mGain = gainDB;
+        mSampleRate = sampleRate;
         
         calc();
     }
@@ -109,7 +110,7 @@ public:
      */
     void setGain(float gainDB){
         mGain = gainDB;
-        
+         
         calc();
     }
     

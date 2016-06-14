@@ -15,8 +15,9 @@ using std::vector;
 
 class Equalizer{
 public:
-    Equalizer(vector<float> freqs, float sampleRate) : mFilters(freqs.size()), mFreqs(freqs.size(), 0.0f)
+    Equalizer(vector<float> freqs, float sampleRate) : mFilters(freqs.size()), mFreqs(freqs.size(), 0.0f), mGains(freqs.size(), 0.0f)
     {
+        mQ = 4.31f;
         mChannels = 2;
         mNumBands = freqs.size();
         mSampleRate = sampleRate;
@@ -65,7 +66,7 @@ public:
     }
     
     /**
-     *  Sets the frequencies of the EQ bands, resets all gains to 0dB
+     *  Sets the frequencies of the EQ bands
      *
      *  @param freqs    Vector of floats containing the new eq band frequencies
      */
@@ -80,7 +81,7 @@ public:
             mFreqs[i] = freqs[i];
             
             mFilters[i].setNumChannels(mChannels);
-            mFilters[i].setFilter(bq_type_peak, freqs[i], mQ, 0.0f, mSampleRate);
+            mFilters[i].setFilter(bq_type_peak, freqs[i], mQ, mGains[i], mSampleRate);
         }
     }
     
@@ -116,10 +117,28 @@ public:
         setEqualizer(mFreqs, mGains);
     }
     
+    /**
+     *  Sets the sample rate of the filters
+     *
+     *  @param sampleRate Sample Rate
+     */
+    void setSampleRate(float sampleRate){
+        mSampleRate = sampleRate;
+        setFreqs(mFreqs);
+        setGains(mGains);
+    }
+    
     float getBandFreq(int bandIdx){
         return mFreqs[bandIdx];
     }
     
+    float getSampleRate(){
+        return mSampleRate;
+    }
+    
+    float getNumChannels(){
+        return mChannels;
+    }
     
 private:
     vector<NChannelFilter> mFilters;

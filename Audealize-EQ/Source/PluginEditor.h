@@ -15,6 +15,7 @@
 #include "PluginProcessor.h"
 
 
+
 //==============================================================================
 /**
 */
@@ -34,6 +35,10 @@ private:
     AudealizeeqAudioProcessor& processor;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeeqAudioProcessorEditor)
+    
+    ScopedPointer<Slider> mGainSliders[40];
+    
+    ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mGainSliderAttachment[40];
 };
 
 

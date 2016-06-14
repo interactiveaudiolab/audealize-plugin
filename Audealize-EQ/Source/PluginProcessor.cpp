@@ -13,17 +13,17 @@
 
 
 //==============================================================================
-AudealizeeqAudioProcessor::AudealizeeqAudioProcessor() : mEqualizer(mFreqs, getSampleRate())
+AudealizeeqAudioProcessor::AudealizeeqAudioProcessor() : mEqualizer(mFreqs, 0.0f)
 {
+    DBG(std::to_string(getSampleRate()));
     mUndoManager = new UndoManager();
     mState = new AudioProcessorValueTreeState(*this, mUndoManager);
-    
-    
+        
     //Create params for each EQ band gain
-    for (int i = 0; i < 40; i++){
-        std::string paramID = "paramGain" + std::to_string(i+1);
+    for (int i = 0; i < NUMBANDS; i++){
+        std::string paramID = "paramGain" + std::to_string(i);
         std::string paramName =  "Gain: " + std::to_string(mFreqs[i]) + " Hz";
-        mState->createAndAddParameter(paramID, paramName, TRANS(paramName), mGainRange, 0.0f, nullptr, nullptr);
+        mState->createAndAddParameter(paramID, paramName, TRANS(paramName), mGainRange, mGainRange.snapToLegalValue(0.0f), nullptr, nullptr);
     }
     
     mState->state = ValueTree ("Audealize-EQ");
@@ -94,6 +94,7 @@ void AudealizeeqAudioProcessor::prepareToPlay (double sampleRate, int samplesPer
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+    mEqualizer.setSampleRate(sampleRate);
 }
 
 void AudealizeeqAudioProcessor::releaseResources()
@@ -132,14 +133,10 @@ void AudealizeeqAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuf
     const int totalNumInputChannels  = getTotalNumInputChannels();
     const int totalNumOutputChannels = getTotalNumOutputChannels();
 
-    // In case we have more outputs than inputs, this code clears any output
-    // channels that didn't contain input data, (because these aren't
-    // guaranteed to be empty - they may contain garbage).
-    // This is here to avoid people getting screaming feedback
-    // when they first compile a plugin, but obviously you don't need to keep
-    // this code if your algorithm always overwrites all the output channels.
-    for (int i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
-        buffer.clear (i, 0, buffer.getNumSamples());
+    NormalisableRange<float> gainRange = mState->getParameterRange("paramGain0");
+    
+    
+    const int numSamples = buffer.getNumSamples();
 
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
@@ -147,7 +144,7 @@ void AudealizeeqAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuf
     {
         float* channelData = buffer.getWritePointer (channel);
         
-        mEqualizer.processBlock(channelData, buffer.getNumSamples(), channel);
+        mEqualizer.processBlock(channelData, numSamples, channel);
     }
 }
 
@@ -161,6 +158,12 @@ AudioProcessorEditor* AudealizeeqAudioProcessor::createEditor()
 {
     return new AudealizeeqAudioProcessorEditor (*this);
 }
+
+AudioProcessorValueTreeState& AudealizeeqAudioProcessor::getValueTreeState()
+{
+    return *mState;
+}
+
 
 //==============================================================================
 void AudealizeeqAudioProcessor::getStateInformation (MemoryBlock& destData)

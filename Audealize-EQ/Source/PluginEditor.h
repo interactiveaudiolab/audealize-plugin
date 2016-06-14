@@ -19,7 +19,7 @@
 //==============================================================================
 /**
 */
-class AudealizeeqAudioProcessorEditor  : public AudioProcessorEditor
+class AudealizeeqAudioProcessorEditor  : public AudioProcessorEditor, AudioProcessorValueTreeState::Listener
 {
 public:
     AudealizeeqAudioProcessorEditor (AudealizeeqAudioProcessor&);
@@ -28,7 +28,9 @@ public:
     //==============================================================================
     void paint (Graphics&) override;
     void resized() override;
-
+    
+    void parameterChanged(const String &parameterID, float newValue) override;
+    
 private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
@@ -36,9 +38,10 @@ private:
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeeqAudioProcessorEditor)
     
-    ScopedPointer<Slider> mGainSliders[40];
+    ScopedPointer<Slider> mGainSliders[NUMBANDS];
     
-    ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mGainSliderAttachment[40];
+    ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mGainSliderAttachment[NUMBANDS];
+    ScopedPointer<AudioProcessorValueTreeState::Listener> mGainListener[NUMBANDS];
 };
 
 

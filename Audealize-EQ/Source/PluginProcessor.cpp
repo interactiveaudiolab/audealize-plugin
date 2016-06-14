@@ -133,11 +133,8 @@ void AudealizeeqAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuf
     const int totalNumInputChannels  = getTotalNumInputChannels();
     const int totalNumOutputChannels = getTotalNumOutputChannels();
 
-    NormalisableRange<float> gainRange = mState->getParameterRange("paramGain0");
-    
-    
     const int numSamples = buffer.getNumSamples();
-
+    
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
@@ -146,6 +143,12 @@ void AudealizeeqAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuf
         
         mEqualizer.processBlock(channelData, numSamples, channel);
     }
+    
+    // In case we have more outputs than inputs, this code clears any output
+    // channels that didn't contain input data, (because these aren't
+    // guaranteed to be empty - they may contain garbage).
+    for (int i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
+        buffer.clear(i, 0, buffer.getNumSamples());
 }
 
 //==============================================================================
@@ -171,12 +174,33 @@ void AudealizeeqAudioProcessor::getStateInformation (MemoryBlock& destData)
     // You should use this method to store your parameters in the memory block.
     // You could do that either as raw data, or use the XML or ValueTree classes
     // as intermediaries to make it easy to save and load complex data.
+    MemoryOutputStream stream(destData, false);
+    mState->state.writeToStream (stream);
 }
 
 void AudealizeeqAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
+    ValueTree tree = ValueTree::readFromData (data, sizeInBytes);
+    if (tree.isValid()) {
+        mState->state = tree;
+    }
+}
+
+void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID){
+
+    //EQ gain slider changed
+    if (parameterID.substring(0, 9).equalsIgnoreCase("paramGain")){
+
+        int idx = parameterID.substring(9).getIntValue();
+        
+        NormalisableRange<float> gainRange = mState->getParameterRange("paramGain0");
+        float gain = gainRange.convertFrom0to1(mState->getParameter(parameterID)->getValue());
+    
+        mEqualizer.setBandGain(idx, gain);
+    }
+    
 }
 
 //==============================================================================

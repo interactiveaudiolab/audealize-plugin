@@ -17,10 +17,14 @@ AudealizeeqAudioProcessorEditor::AudealizeeqAudioProcessorEditor (AudealizeeqAud
     : AudioProcessorEditor (&p), processor (p)
 {
     for (int i = 0; i < NUMBANDS; i++){
+        String paramID = "paramGain"+std::to_string(i);
+        
         mGainSliders[i] = new Slider (Slider::LinearVertical, Slider::TextBoxBelow);
         addAndMakeVisible(mGainSliders[i]);
         
-        mGainSliderAttachment[i] = new AudioProcessorValueTreeState::SliderAttachment (p.getValueTreeState(), "paramGain"+std::to_string(i), *mGainSliders[i]);
+        mGainSliderAttachment[i] = new AudioProcessorValueTreeState::SliderAttachment (p.getValueTreeState(), paramID, *mGainSliders[i]);
+        
+        p.getValueTreeState().addParameterListener(paramID, this);
     }
     
     // Make sure that before the constructor has finished, you've set the
@@ -55,4 +59,8 @@ void AudealizeeqAudioProcessorEditor::resized()
         box.setX(box.getRight());
     }
     
+}
+
+void AudealizeeqAudioProcessorEditor::parameterChanged(const juce::String &parameterID, float newValue){
+    ((AudealizeeqAudioProcessor*)getAudioProcessor())->parameterChanged(parameterID);
 }

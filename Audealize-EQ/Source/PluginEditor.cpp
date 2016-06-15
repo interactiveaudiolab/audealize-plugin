@@ -1,13 +1,3 @@
-/*
-  ==============================================================================
-
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin editor.
-
-  ==============================================================================
-*/
-
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
@@ -16,13 +6,17 @@
 AudealizeeqAudioProcessorEditor::AudealizeeqAudioProcessorEditor (AudealizeeqAudioProcessor& p)
     : AudioProcessorEditor (&p), processor (p)
 {
+    mEqualizerComponent = new GraphicEQComponent(processor, NUMBANDS);
+    addAndMakeVisible(mEqualizerComponent);
+    
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
-    setSize (400, 300);
+    setSize (400, 200);
 }
 
 AudealizeeqAudioProcessorEditor::~AudealizeeqAudioProcessorEditor()
 {
+    mEqualizerComponent = nullptr;
 }
 
 //==============================================================================
@@ -30,13 +24,17 @@ void AudealizeeqAudioProcessorEditor::paint (Graphics& g)
 {
     g.fillAll (Colours::white);
 
-    g.setColour (Colours::black);
-    g.setFont (15.0f);
-    g.drawFittedText ("Hello World!", getLocalBounds(), Justification::centred, 1);
+    g.setColour (Colours::white);
 }
 
 void AudealizeeqAudioProcessorEditor::resized()
 {
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
+    Rectangle<int> box (getLocalBounds());
+    mEqualizerComponent->setBounds(box);
+}
+
+void AudealizeeqAudioProcessorEditor::parameterChanged(const juce::String &parameterID, float newValue){
+    ((AudealizeeqAudioProcessor*)getAudioProcessor())->parameterChanged(parameterID);
 }

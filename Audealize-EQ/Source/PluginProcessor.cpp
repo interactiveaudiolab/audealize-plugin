@@ -1,24 +1,29 @@
-/*
-  ==============================================================================
-
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin processor.
-
-  ==============================================================================
-*/
-
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
 
 //==============================================================================
-AudealizeeqAudioProcessor::AudealizeeqAudioProcessor()
+AudealizeeqAudioProcessor::AudealizeeqAudioProcessor() : mEqualizer(mFreqs, 0.0f)
 {
+    DBG(std::to_string(getSampleRate()));
+    mUndoManager = new UndoManager();
+    mState = new AudioProcessorValueTreeState(*this, mUndoManager);
+        
+    //Create params for each EQ band gain
+    for (int i = 0; i < NUMBANDS; i++){
+        std::string paramID = "paramGain" + std::to_string(i);
+        std::string paramName =  "Gain: " + std::to_string(mFreqs[i]) + " Hz";
+        mState->createAndAddParameter(paramID, paramName, TRANS(paramName), mGainRange, mGainRange.snapToLegalValue(0.0f), nullptr, nullptr);
+    }
+    
+    mState->state = ValueTree ("Audealize-EQ");
 }
+
 
 AudealizeeqAudioProcessor::~AudealizeeqAudioProcessor()
 {
+    mState = nullptr;
+    mUndoManager = nullptr;
 }
 
 //==============================================================================
@@ -79,6 +84,7 @@ void AudealizeeqAudioProcessor::prepareToPlay (double sampleRate, int samplesPer
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+    mEqualizer.setSampleRate(sampleRate);
 }
 
 void AudealizeeqAudioProcessor::releaseResources()
@@ -117,23 +123,22 @@ void AudealizeeqAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuf
     const int totalNumInputChannels  = getTotalNumInputChannels();
     const int totalNumOutputChannels = getTotalNumOutputChannels();
 
-    // In case we have more outputs than inputs, this code clears any output
-    // channels that didn't contain input data, (because these aren't
-    // guaranteed to be empty - they may contain garbage).
-    // This is here to avoid people getting screaming feedback
-    // when they first compile a plugin, but obviously you don't need to keep
-    // this code if your algorithm always overwrites all the output channels.
-    for (int i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
-        buffer.clear (i, 0, buffer.getNumSamples());
-
+    const int numSamples = buffer.getNumSamples();
+    
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
     {
         float* channelData = buffer.getWritePointer (channel);
-
-        // ..do something to the data...
+        
+        mEqualizer.processBlock(channelData, numSamples, channel);
     }
+    
+    // In case we have more outputs than inputs, this code clears any output
+    // channels that didn't contain input data, (because these aren't
+    // guaranteed to be empty - they may contain garbage).
+    for (int i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
+        buffer.clear(i, 0, buffer.getNumSamples());
 }
 
 //==============================================================================
@@ -147,19 +152,42 @@ AudioProcessorEditor* AudealizeeqAudioProcessor::createEditor()
     return new AudealizeeqAudioProcessorEditor (*this);
 }
 
+
 //==============================================================================
 void AudealizeeqAudioProcessor::getStateInformation (MemoryBlock& destData)
 {
     // You should use this method to store your parameters in the memory block.
     // You could do that either as raw data, or use the XML or ValueTree classes
     // as intermediaries to make it easy to save and load complex data.
+    MemoryOutputStream stream(destData, false);
+    mState->state.writeToStream (stream);
 }
 
 void AudealizeeqAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
+    ValueTree tree = ValueTree::readFromData (data, sizeInBytes);
+    if (tree.isValid()) {
+        mState->state = tree;
+    }
 }
+
+void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID){
+
+    //EQ gain slider changed
+    if (parameterID.substring(0, 9).equalsIgnoreCase("paramGain")){
+
+        int idx = parameterID.substring(9).getIntValue();
+        
+        NormalisableRange<float> gainRange = mState->getParameterRange("paramGain0");
+        float gain = gainRange.convertFrom0to1(mState->getParameter(parameterID)->getValue());
+    
+        mEqualizer.setBandGain(idx, gain);
+    }
+    
+}
+
 
 //==============================================================================
 // This creates new instances of the plugin..

@@ -1,25 +1,32 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "BE3D73CD9E9E58742152606C125C9ABA02A2DF20",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "659D184B21388247EEA9EA1AC0F758F66101694C",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "BE3D73CD9E9E58742152606C125C9ABA02A2DF20" : 0,
-    "DEBAC9C6799FD4E8074B3BAF720718E3C3499FA0" : 0
+    "DEBAC9C6799FD4E8074B3BAF720718E3C3499FA0" : 0,
+    "659D184B21388247EEA9EA1AC0F758F66101694C" : 0,
+    "33423835B021EF0D85C3E0D211CDA5FCB7775AEB" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0B7919B0-F1E7-441E-BBA0-F9FE96D80D23",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "BE3D73CD9E9E58742152606C125C9ABA02A2DF20" : "Audealize-EQ\/",
-    "DEBAC9C6799FD4E8074B3BAF720718E3C3499FA0" : ".."
+    "DEBAC9C6799FD4E8074B3BAF720718E3C3499FA0" : "..",
+    "659D184B21388247EEA9EA1AC0F758F66101694C" : "AudealizePlugins\/",
+    "33423835B021EF0D85C3E0D211CDA5FCB7775AEB" : "..\/..\/PluginDev\/json"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Audealize-EQ",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Builds\/MacOSX\/Audealize-EQ.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Audealize-EQ\/Builds\/MacOSX\/Audealize-EQ.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:michaeldonovan\/Audealize-EQ.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/github.com\/nlohmann\/json.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BE3D73CD9E9E58742152606C125C9ABA02A2DF20"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "33423835B021EF0D85C3E0D211CDA5FCB7775AEB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:michaeldonovan\/AudealizePlugins.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "659D184B21388247EEA9EA1AC0F758F66101694C"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/julianstorer\/JUCE",

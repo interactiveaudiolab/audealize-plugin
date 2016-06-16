@@ -3,7 +3,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "PluginProcessor.h"
-#include "ui_components/GraphicEQComponent.h"
+#include "../../common/ui_components/GraphicEQComponent.h"
 
 
 //==============================================================================
@@ -24,11 +24,8 @@ public:
 private:
     AudealizeeqAudioProcessor& processor;
     
-<<<<<<< HEAD
-=======
     ScopedPointer<GraphicEQComponent> mEqualizerComponent;
     
->>>>>>> master
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeeqAudioProcessorEditor)
     
     ScopedPointer<Slider> mGainSliders[NUMBANDS];

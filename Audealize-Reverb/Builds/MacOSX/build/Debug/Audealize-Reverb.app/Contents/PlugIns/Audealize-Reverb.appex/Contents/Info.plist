@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>BuildMachineOSBuild</key>
+	<string>15F34</string>
+	<key>CFBundleDisplayName</key>
+	<string>Audealize-Reverb</string>
+	<key>CFBundleExecutable</key>
+	<string>Audealize-Reverb</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.InteractiveAudioLab.AudealizeReverb.AudealizeReverbAUv3</string>
+	<key>CFBundleName</key>
+	<string>Audealize-Reverb</string>
+	<key>CFBundlePackageType</key>
+	<string>XPC!</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.0.1</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleSupportedPlatforms</key>
+	<array>
+		<string>MacOSX</string>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>0.0.1</string>
+	<key>DTCompiler</key>
+	<string>com.apple.compilers.llvm.clang.1_0</string>
+	<key>DTPlatformBuild</key>
+	<string>7D175</string>
+	<key>DTPlatformVersion</key>
+	<string>GM</string>
+	<key>DTSDKBuild</key>
+	<string>15E60</string>
+	<key>DTSDKName</key>
+	<string>macosx10.11</string>
+	<key>DTXcode</key>
+	<string>0730</string>
+	<key>DTXcodeBuild</key>
+	<string>7D175</string>
+	<key>NSExtension</key>
+	<dict>
+		<key>NSExtensionAttributes</key>
+		<dict>
+			<key>AudioComponents</key>
+			<array>
+				<dict>
+					<key>description</key>
+					<string>Audealize-Reverb</string>
+					<key>factoryFunction</key>
+					<string>AudealizeReverbAUFactoryAUv3</string>
+					<key>manufacturer</key>
+					<string>IALx</string>
+					<key>name</key>
+					<string>Interactive Audio Lab: Audealize-Reverb</string>
+					<key>sandboxSafe</key>
+					<true/>
+					<key>subtype</key>
+					<string>adlv</string>
+					<key>tags</key>
+					<array>
+						<string>Effects</string>
+					</array>
+					<key>type</key>
+					<string>aufx</string>
+					<key>version</key>
+					<integer>1</integer>
+				</dict>
+			</array>
+		</dict>
+		<key>NSExtensionPointIdentifier</key>
+		<string>com.apple.AudioUnit-UI</string>
+		<key>NSExtensionPrincipalClass</key>
+		<string>AudealizeReverbAUFactoryAUv3</string>
+	</dict>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSHumanReadableCopyright</key>
+	<string>Northwestern University Interactive Audio Lab</string>
+</dict>
+</plist>

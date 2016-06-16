@@ -12,36 +12,6 @@
               companyName="Northwestern University Interactive Audio Lab" companyWebsite="http://music.eecs.northwestern.edu">
   <MAINGROUP id="zCKhNw" name="Audealize-EQ">
     <GROUP id="{4E48FC2E-FC0A-72E1-7953-37D9CC5AA9E2}" name="Source">
-<<<<<<< HEAD
-      <GROUP id="{2CBA3557-CDDF-A371-3863-FEBC4A174584}" name="Effects">
-        <FILE id="N45tfK" name="NChannelFilter.h" compile="0" resource="0"
-              file="Source/NChannelFilter.h"/>
-        <FILE id="yAKgEY" name="Biquad.cpp" compile="1" resource="0" file="Source/Biquad.cpp"/>
-        <FILE id="d7bncu" name="Biquad.h" compile="0" resource="0" file="Source/Biquad.h"/>
-        <FILE id="Z8Yr9K" name="Equalizer.h" compile="0" resource="0" file="Source/Equalizer.h"/>
-=======
-      <GROUP id="{BB0D869F-C27F-B923-1DCA-6E7D3F31CDB6}" name="UI Components">
-        <FILE id="rdyn6X" name="AudealizeUI.cpp" compile="1" resource="0" file="Source/ui_components/AudealizeUI.cpp"/>
-        <FILE id="QMLIsS" name="AudealizeUI.h" compile="0" resource="0" file="Source/ui_components/AudealizeUI.h"/>
-        <FILE id="RslSQl" name="GraphicEQComponent.cpp" compile="1" resource="0"
-              file="Source/ui_components/GraphicEQComponent.cpp"/>
-        <FILE id="ISoCpF" name="GraphicEQComponent.h" compile="0" resource="0"
-              file="Source/ui_components/GraphicEQComponent.h"/>
-      </GROUP>
-      <GROUP id="{0D4901FD-69F2-25A5-2A0F-0F668F6E922F}" name="Data">
-        <FILE id="YpVsku" name="eqpoints.json" compile="0" resource="1" file="Source/Data/eqpoints.json"/>
-      </GROUP>
-      <GROUP id="{CDD58E64-CB4B-587A-E5B6-FC3EC671DB2E}" name="Libs">
-        <FILE id="yyl56P" name="json.hpp" compile="0" resource="0" file="Source/Libs/json.hpp"/>
-        <FILE id="xbufA2" name="Biquad.cpp" compile="1" resource="0" file="Source/Libs/Biquad.cpp"/>
-        <FILE id="h2Kr0S" name="Biquad.h" compile="0" resource="0" file="Source/Libs/Biquad.h"/>
-      </GROUP>
-      <GROUP id="{2CBA3557-CDDF-A371-3863-FEBC4A174584}" name="Effects">
-        <FILE id="ywrtlK" name="Equalizer.h" compile="0" resource="0" file="Source/Effects/Equalizer.h"/>
-        <FILE id="o4Go1G" name="NChannelFilter.h" compile="0" resource="0"
-              file="Source/Effects/NChannelFilter.h"/>
->>>>>>> master
-      </GROUP>
       <FILE id="y3j7Wn" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="OuArph" name="PluginProcessor.h" compile="0" resource="0"
@@ -49,8 +19,42 @@
       <FILE id="Q10pwN" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
       <FILE id="u6qewF" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
-      <FILE id="uTqJX3" name="AudealizeInterfaces.h" compile="0" resource="0"
-            file="Source/AudealizeInterfaces.h"/>
+    </GROUP>
+    <GROUP id="{6B8F906A-E4F1-45F3-045D-E46262240C97}" name="common">
+      <FILE id="UFuECi" name="common.h" compile="0" resource="0" file="../common/common.h"/>
+      <FILE id="B1JMvU" name="AudealizeInterfaces.h" compile="0" resource="0"
+            file="../common/AudealizeInterfaces.h"/>
+      <GROUP id="{BBE7C1B4-B3C1-B2E2-D285-7D14E4971902}" name="data">
+        <FILE id="fWLScq" name="eqpoints.json" compile="0" resource="1" file="../common/data/eqpoints.json"/>
+      </GROUP>
+      <GROUP id="{873F6D22-03F6-959F-CC0F-36F1D79AFB5C}" name="effects">
+        <FILE id="C32Z1C" name="Equalizer.h" compile="0" resource="0" file="../common/effects/Equalizer.h"/>
+        <FILE id="eutC0W" name="NChannelFilter.h" compile="0" resource="0"
+              file="../common/effects/NChannelFilter.h"/>
+        <FILE id="Te2FCR" name="AudioEffect.h" compile="0" resource="0" file="../common/effects/AudioEffect.h"/>
+        <FILE id="ZTkoxw" name="Reverb.h" compile="0" resource="0" file="../common/effects/Reverb.h"/>
+      </GROUP>
+      <GROUP id="{0AD31FBD-54C8-2004-629D-436A93DC55A1}" name="ui_components">
+        <FILE id="twrdup" name="AudealizeUI.cpp" compile="1" resource="0" file="../common/ui_components/AudealizeUI.cpp"/>
+        <FILE id="xc4VQs" name="AudealizeUI.h" compile="0" resource="0" file="../common/ui_components/AudealizeUI.h"/>
+        <FILE id="zxjXVb" name="GraphicEQComponent.cpp" compile="1" resource="0"
+              file="../common/ui_components/GraphicEQComponent.cpp"/>
+        <FILE id="AcSmZN" name="GraphicEQComponent.h" compile="0" resource="0"
+              file="../common/ui_components/GraphicEQComponent.h"/>
+      </GROUP>
+      <GROUP id="{AAFC2273-DD6A-2A34-154D-8B45CB5C9157}" name="libs">
+        <GROUP id="{DED588B0-4ED0-B9B3-DA23-827250EDA48F}" name="calf_dsp_library">
+          <FILE id="BcXZXl" name="buffer.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/buffer.h"/>
+          <FILE id="rGS9XQ" name="COPYING" compile="0" resource="1" file="../common/libs/calf_dsp_library/COPYING"/>
+          <FILE id="YSlzFC" name="delay.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/delay.h"/>
+          <FILE id="QuvhlM" name="onepole.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/onepole.h"/>
+          <FILE id="nTXJun" name="primitives.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/primitives.h"/>
+        </GROUP>
+        <FILE id="laoHb2" name="Biquad.cpp" compile="1" resource="0" file="../common/libs/Biquad.cpp"/>
+        <FILE id="G1dnYc" name="Biquad.h" compile="0" resource="0" file="../common/libs/Biquad.h"/>
+        <FILE id="OdCg5e" name="json.hpp" compile="0" resource="0" file="../common/libs/json.hpp"/>
+        <FILE id="dfxhw2" name="PrimeFactors.h" compile="0" resource="0" file="../common/libs/PrimeFactors.h"/>
+      </GROUP>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>

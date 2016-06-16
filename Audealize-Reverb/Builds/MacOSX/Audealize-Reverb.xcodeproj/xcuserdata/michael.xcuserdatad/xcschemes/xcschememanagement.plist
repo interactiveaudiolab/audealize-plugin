@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Audealize-Reverb (AAX).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>Audealize-Reverb (AU).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Audealize-Reverb (AUv3 AppExtension).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Audealize-Reverb (AUv3 Standalone).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>Audealize-Reverb (All).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>Audealize-Reverb (Shared Code).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
+		<key>Audealize-Reverb (VST).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Audealize-Reverb (VST3).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>12008E79040CB5BCF7E5ED90</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3D7D62630DE36238DCEC28E1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>55E5BFFF71A1A08320AFAD0B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>936384720783683D5FEE41E3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A4ACA0ED75F37D6DCFACC648</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B050302651D3A4B06D864E1B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C0E73F44F309322C14F6C2EA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E1035FE2D1F2AAD7C307E7CA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

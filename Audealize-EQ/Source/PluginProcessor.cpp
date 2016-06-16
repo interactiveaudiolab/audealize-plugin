@@ -1,13 +1,3 @@
-/*
-  ==============================================================================
-
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin processor.
-
-  ==============================================================================
-*/
-
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
@@ -162,11 +152,14 @@ AudioProcessorEditor* AudealizeeqAudioProcessor::createEditor()
     return new AudealizeeqAudioProcessorEditor (*this);
 }
 
+<<<<<<< HEAD
 AudioProcessorValueTreeState& AudealizeeqAudioProcessor::getValueTreeState()
 {
     return *mState;
 }
 
+=======
+>>>>>>> master
 
 //==============================================================================
 void AudealizeeqAudioProcessor::getStateInformation (MemoryBlock& destData)
@@ -186,6 +179,24 @@ void AudealizeeqAudioProcessor::setStateInformation (const void* data, int sizeI
     if (tree.isValid()) {
         mState->state = tree;
     }
+<<<<<<< HEAD
+}
+
+void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID){
+
+    //EQ gain slider changed
+    if (parameterID.substring(0, 9).equalsIgnoreCase("paramGain")){
+
+        int idx = parameterID.substring(9).getIntValue();
+        
+        NormalisableRange<float> gainRange = mState->getParameterRange("paramGain0");
+        float gain = gainRange.convertFrom0to1(mState->getParameter(parameterID)->getValue());
+    
+        mEqualizer.setBandGain(idx, gain);
+    }
+    
+=======
+>>>>>>> master
 }
 
 void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID){
@@ -202,6 +213,7 @@ void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID
     }
     
 }
+
 
 //==============================================================================
 // This creates new instances of the plugin..

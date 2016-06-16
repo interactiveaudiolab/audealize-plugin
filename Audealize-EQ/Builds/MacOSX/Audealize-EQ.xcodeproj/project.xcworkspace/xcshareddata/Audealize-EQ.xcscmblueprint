@@ -5,20 +5,40 @@
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "DEBAC9C6799FD4E8074B3BAF720718E3C3499FA0" : 0,
+<<<<<<< HEAD
     "659D184B21388247EEA9EA1AC0F758F66101694C" : 0
+=======
+    "659D184B21388247EEA9EA1AC0F758F66101694C" : 0,
+    "33423835B021EF0D85C3E0D211CDA5FCB7775AEB" : 0
+>>>>>>> master
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "0B7919B0-F1E7-441E-BBA0-F9FE96D80D23",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "DEBAC9C6799FD4E8074B3BAF720718E3C3499FA0" : "..",
+<<<<<<< HEAD
     "659D184B21388247EEA9EA1AC0F758F66101694C" : "AudealizePlugins\/"
+=======
+    "659D184B21388247EEA9EA1AC0F758F66101694C" : "AudealizePlugins\/",
+    "33423835B021EF0D85C3E0D211CDA5FCB7775AEB" : "..\/..\/PluginDev\/json"
+>>>>>>> master
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Audealize-EQ",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Audealize-EQ\/Builds\/MacOSX\/Audealize-EQ.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
+<<<<<<< HEAD
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:michaeldonovan\/AudealizePlugins.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+=======
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "git:\/\/github.com\/nlohmann\/json.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "33423835B021EF0D85C3E0D211CDA5FCB7775AEB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:michaeldonovan\/AudealizePlugins.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+>>>>>>> master
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "659D184B21388247EEA9EA1AC0F758F66101694C"
     },
     {

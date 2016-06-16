@@ -49,9 +49,16 @@ ifeq ($(CONFIG),Release)
 endif
 
 OBJECTS := \
+<<<<<<< HEAD
   $(OBJDIR)/Biquad_30591a97.o \
+=======
+  $(OBJDIR)/AudealizeUI_878b953b.o \
+  $(OBJDIR)/GraphicEQComponent_a3d78400.o \
+  $(OBJDIR)/Biquad_409c8fb0.o \
+>>>>>>> master
   $(OBJDIR)/PluginProcessor_a059e380.o \
   $(OBJDIR)/PluginEditor_94d4fb09.o \
+  $(OBJDIR)/BinaryData_ce4232d4.o \
   $(OBJDIR)/juce_audio_basics_6b797ca1.o \
   $(OBJDIR)/juce_audio_devices_a742c38b.o \
   $(OBJDIR)/juce_audio_formats_5a29c68a.o \
@@ -86,7 +93,21 @@ strip:
 	@echo Stripping Audealize-EQ
 	-@strip --strip-unneeded $(OUTDIR)/$(TARGET)
 
+<<<<<<< HEAD
 $(OBJDIR)/Biquad_30591a97.o: ../../Source/Biquad.cpp
+=======
+$(OBJDIR)/AudealizeUI_878b953b.o: ../../Source/ui_components/AudealizeUI.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling AudealizeUI.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/GraphicEQComponent_a3d78400.o: ../../Source/ui_components/GraphicEQComponent.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling GraphicEQComponent.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/Biquad_409c8fb0.o: ../../Source/Libs/Biquad.cpp
+>>>>>>> master
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling Biquad.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
@@ -99,6 +120,11 @@ $(OBJDIR)/PluginProcessor_a059e380.o: ../../Source/PluginProcessor.cpp
 $(OBJDIR)/PluginEditor_94d4fb09.o: ../../Source/PluginEditor.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling PluginEditor.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/BinaryData_ce4232d4.o: ../../JuceLibraryCode/BinaryData.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling BinaryData.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/juce_audio_basics_6b797ca1.o: ../../JuceLibraryCode/juce_audio_basics.cpp

@@ -8,6 +8,18 @@
     <Filter Include="Audealize-EQ\Source">
       <UniqueIdentifier>{72FC3AE6-ADD0-33A6-B2CF-C184BC27408B}</UniqueIdentifier>
     </Filter>
+<<<<<<< HEAD
+=======
+    <Filter Include="Audealize-EQ\Source\UI Components">
+      <UniqueIdentifier>{A40ED84D-91C4-E681-BA54-5E05932B7430}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audealize-EQ\Source\Data">
+      <UniqueIdentifier>{AA497635-5785-0B33-B87C-28D8B177CF0D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audealize-EQ\Source\Libs">
+      <UniqueIdentifier>{323D8AB2-680F-A749-490D-2969CFC99239}</UniqueIdentifier>
+    </Filter>
+>>>>>>> master
     <Filter Include="Audealize-EQ\Source\Effects">
       <UniqueIdentifier>{9D4BD864-A36D-E51D-F23B-13FD0357CB11}</UniqueIdentifier>
     </Filter>
@@ -397,8 +409,19 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="..\..\Source\Biquad.cpp">
       <Filter>Audealize-EQ\Source\Effects</Filter>
+=======
+    <ClCompile Include="..\..\Source\ui_components\AudealizeUI.cpp">
+      <Filter>Audealize-EQ\Source\UI Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ui_components\GraphicEQComponent.cpp">
+      <Filter>Audealize-EQ\Source\UI Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Libs\Biquad.cpp">
+      <Filter>Audealize-EQ\Source\Libs</Filter>
+>>>>>>> master
     </ClCompile>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp">
       <Filter>Audealize-EQ\Source</Filter>
@@ -2233,6 +2256,9 @@
     <ClCompile Include="..\..\..\..\..\modules\juce_video\juce_video.mm">
       <Filter>Juce Modules\juce_video</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData.cpp">
+      <Filter>Juce Library Code</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\juce_audio_basics.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
@@ -2286,6 +2312,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClInclude Include="..\..\Source\NChannelFilter.h">
       <Filter>Audealize-EQ\Source\Effects</Filter>
     </ClInclude>
@@ -2293,6 +2320,24 @@
       <Filter>Audealize-EQ\Source\Effects</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Equalizer.h">
+=======
+    <ClInclude Include="..\..\Source\ui_components\AudealizeUI.h">
+      <Filter>Audealize-EQ\Source\UI Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ui_components\GraphicEQComponent.h">
+      <Filter>Audealize-EQ\Source\UI Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Libs\json.hpp">
+      <Filter>Audealize-EQ\Source\Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Libs\Biquad.h">
+      <Filter>Audealize-EQ\Source\Libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Effects\Equalizer.h">
+      <Filter>Audealize-EQ\Source\Effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Effects\NChannelFilter.h">
+>>>>>>> master
       <Filter>Audealize-EQ\Source\Effects</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\PluginProcessor.h">
@@ -2301,6 +2346,12 @@
     <ClInclude Include="..\..\Source\PluginEditor.h">
       <Filter>Audealize-EQ\Source</Filter>
     </ClInclude>
+<<<<<<< HEAD
+=======
+    <ClInclude Include="..\..\Source\AudealizeInterfaces.h">
+      <Filter>Audealize-EQ\Source</Filter>
+    </ClInclude>
+>>>>>>> master
     <ClInclude Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
     </ClInclude>
@@ -4260,11 +4311,20 @@
     <ClInclude Include="..\..\JuceLibraryCode\AppConfig.h">
       <Filter>Juce Library Code</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\JuceLibraryCode\BinaryData.h">
+      <Filter>Juce Library Code</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h">
       <Filter>Juce Library Code</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <None Include="..\..\Source\Data\eqpoints.json">
+      <Filter>Audealize-EQ\Source\Data</Filter>
+    </None>
+>>>>>>> master
     <None Include="..\..\..\..\..\modules\juce_audio_formats\codecs\flac\Flac Licence.txt">
       <Filter>Juce Modules\juce_audio_formats\codecs\flac</Filter>
     </None>

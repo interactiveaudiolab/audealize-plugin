@@ -15,6 +15,11 @@
 #include "../common.h"
 #include <math.h>
 
+
+// INCLUDED FOR DEBUGGING
+// @TODO: remove when no longer needed
+#include "../../Audealize-Reverb/JuceLibraryCode/JuceHeader.h"
+
 #define ALLPASSGAIN 0.1f
 #define MINDELAY 0.01f
 #define PI 3.1415926535897f
@@ -36,8 +41,50 @@ namespace Audealize{
             da = 0.006f + MINDELAY;
         }
         
+        ~Reverb() {}
+        
         /**
-         *  Process a block of stereo audio samples
+         *  Process a block of mono audio
+         *
+         *  @param channelData Pointer to a block of samples
+         *  @param blockSize   Number of samples in the block
+         */
+        void processMonoBlock(float* channelData, int blockSize){
+            float samp, sampRev, sampDry;
+            
+            for (int i = 0; i < blockSize; i++){
+                sampDry = channelData[i];
+                
+                // Process sample through comb filter network
+                sampRev = processCombs(samp * wet);
+                
+                // Process allpass filter
+                sampRev = mAllpass[0].process_allpass_comb(sampRev, mDelayVal[0], ALLPASSGAIN);
+                
+                // Process lowpass filter
+                sampRev = mLowpass1.processSample(sampRev, 0);
+                
+                sampRev *= gain;
+                
+                // Delay unprocessed signal to match phase shift caused by the delayed comb filters
+                samp = wet * mDelay[0].process(sampDry, MINDELAY * mSampleRate);
+                
+                samp *= gainclean;
+                
+                // Average clean and filtered samples
+                samp = (samp + sampRev) * .5f;
+                
+                samp *= gainscale;
+                
+                sampDry *= dry;
+                
+                // Write processed sample back to the buffer
+                channelData[i] = 0.45f * (samp + sampDry);
+            }
+        }
+        
+        /**
+         *  Process a block of stereo audio
          *
          *  @param channelData1 Block of samples corresponding to channel 1
          *  @param channelData2 Block of samples corresponding to channel 2
@@ -50,36 +97,44 @@ namespace Audealize{
                 sampDryL = channelData1[i];
                 sampDryR = channelData2[i];
                 
-                //Average left and right channels for comb network
+                DBG("Samp dry L: " << sampDryL);
+                DBG("Samp dry R: " << sampDryR);
+                
+                // Average left and right channels for comb network
                 sampSum = sampDryL + sampDryR;
                 sampSum *= 0.5f;
                 sampSum *= wet;
                 
-                //Process sample through comb filter network
+                DBG("wet: " << wet);
+                
+                DBG("sampSum: " << sampSum);
+
+                // Process sample through comb filter network
                 sampRevL = sampRevR = processCombs(sampSum);
                 
-                //Process allpass filters
-                sampRevL = mAllpass[0].process_allpass_comb(sampL, mDelayVal[0], ALLPASSGAIN);
+                // Process allpass filters
+                sampRevL = mAllpass[0].process_allpass_comb(sampRevL, mDelayVal[0], ALLPASSGAIN);
                 
-                sampRevR = mAllpass[1].process_allpass_comb(sampR, mDelayVal[0], ALLPASSGAIN);
+                sampRevR = mAllpass[1].process_allpass_comb(sampRevR, mDelayVal[0], ALLPASSGAIN);
                 
-                //Process lowpass filters
-                sampRevL = mLowpass1.processSample(sampL, 0);
-                sampRevR = mLowpass1.processSample(sampR, 1);
+                // Process lowpass filters
+                sampRevL = mLowpass1.processSample(sampRevL, 0);
+                sampRevR = mLowpass1.processSample(sampRevR, 1);
                 
-                sampRevL = mLowpass2.processSample(sampL, 0);
-                sampRevR = mLowpass2.processSample(sampR, 1);
+                sampRevL = mLowpass2.processSample(sampRevL, 0);
+                sampRevR = mLowpass2.processSample(sampRevR, 1);
                 
                 sampRevL *= gain;
                 sampRevR *= gain;
                 
-                //Delay unprocessed signal to match phase shift caused by the delayed comb filters
+                // Delay unprocessed signal to match phase shift caused by the delayed comb filters
                 sampL = wet * mDelay[0].process(sampDryL, MINDELAY * mSampleRate);
                 sampR = wet * mDelay[1].process(sampDryR, MINDELAY * mSampleRate);
                 
                 sampL *= gainclean;
                 sampR *= gainclean;
                 
+                // Average clean and filtered samples
                 sampL = (sampL + sampRevL) * .5f;
                 sampR = (sampR + sampRevR) * .5f;
 
@@ -89,6 +144,7 @@ namespace Audealize{
                 sampDryL *= dry;
                 sampDryR *= dry;
                 
+                // Write processed sample back to the buffer
                 channelData1[i] = 0.45f * (sampDryL + sampR);
                 channelData2[i] = 0.45f * (sampDryR + sampR);
             }
@@ -98,7 +154,7 @@ namespace Audealize{
          *  Set all parameters at once. 
          *  (Intended to be called from JUCE::AudioProcessor::prepareToPlay)
          */
-        void init(float d_val, float g_val, float m_val, float f_val, float E_val, float sampleRate){
+        void init(float d_val, float g_val, float m_val, float f_val, float E_val, float wetdry_val, float sampleRate){
             mSampleRate = sampleRate;
             mLowpass1.setSampleRate(sampleRate);
             mLowpass2.setSampleRate(sampleRate);
@@ -107,6 +163,7 @@ namespace Audealize{
             set_m(m_val);
             set_f(f_val);
             set_E(E_val);
+            set_wetdry(wetdry_val);
         }
         
         /**
@@ -185,7 +242,6 @@ namespace Audealize{
         float mSample[2], mCombDelay[6], mCombGain[6], mDelayVal[2];
         
         vector<simple_delay<4096, float>> mComb, mAllpass, mDelay;
-        
         
         NChannelFilter mLowpass1, mLowpass2;
         

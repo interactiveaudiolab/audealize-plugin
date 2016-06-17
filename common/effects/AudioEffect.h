@@ -16,6 +16,8 @@ namespace Audealize{
             mSampleRate = sampleRate;
         }
         
+        virtual ~AudioEffect() {}
+        
         /**
          *  Process an individual sample of audio. Should be overriden by child class
          *

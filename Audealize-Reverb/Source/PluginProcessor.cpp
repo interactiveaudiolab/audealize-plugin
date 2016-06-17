@@ -13,12 +13,12 @@ String AudealizereverbAudioProcessor::paramWetDry ("Wet/Dry");
 AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb()
 {
     // Initialize parameters
-    mState->createAndAddParameter(paramD, "Delay of comb filters", TRANS ("Delay of comb filters"), NormalisableRange<float>(0.0f, 0.1f, 0.0000001f), 0.0f, nullptr, nullptr);
-    mState->createAndAddParameter(paramG, "Gain of comb filters", TRANS ("Gain of comb filters"), NormalisableRange<float>(0.0f, 1.0f, 0.0001f), 0.0f, nullptr, nullptr);
-    mState->createAndAddParameter(paramM, "Delay between channels", TRANS ("Delay between channels"), NormalisableRange<float>(0.0f, 0.012f, 0.000001f), 0.0f, nullptr, nullptr);
-    mState->createAndAddParameter(paramF, "LP Cutoff", TRANS ("LP Cutoff"), NormalisableRange<float>(0.0f, 22050.0f, 0.1f), 0.0f, nullptr, nullptr);
-    mState->createAndAddParameter(paramE, "Effect Gain", TRANS ("Effect Gain"), NormalisableRange<float>(0.0f, 1.0f, 0.0001f), 0.0f, nullptr, nullptr);
-    mState->createAndAddParameter(paramWetDry, "Wet/Dry Mix", TRANS ("Wet/Dry Mix"), NormalisableRange<float>(0.0f, 1.0f, 0.0001f), 0.0f, nullptr, nullptr);
+    mState->createAndAddParameter(paramD, "Delay of comb filters", TRANS ("Delay of comb filters"), NormalisableRange<float>(0.0f, 0.1f, 0.0000001f), 0.05f, nullptr, nullptr);
+    mState->createAndAddParameter(paramG, "Gain of comb filters", TRANS ("Gain of comb filters"), NormalisableRange<float>(0.0f, 1.0f, 0.0001f), 1.0f, nullptr, nullptr);
+    mState->createAndAddParameter(paramM, "Delay between channels", TRANS ("Delay between channels"), NormalisableRange<float>(0.0f, 0.012f, 0.000001f), 0.003f, nullptr, nullptr);
+    mState->createAndAddParameter(paramF, "LP Cutoff", TRANS ("LP Cutoff"), NormalisableRange<float>(0.0f, 22050.0f, 0.1f), 5500.0f, nullptr, nullptr);
+    mState->createAndAddParameter(paramE, "Effect Gain", TRANS ("Effect Gain"), NormalisableRange<float>(0.0f, 1.0f, 0.0001f), 1.0f, nullptr, nullptr);
+    mState->createAndAddParameter(paramWetDry, "Wet/Dry Mix", TRANS ("Wet/Dry Mix"), NormalisableRange<float>(0.0f, 1.0f, 0.0001f), 0.5f, nullptr, nullptr);
     
     mState->state = ValueTree ("Audealize-Reverb");
 }
@@ -81,7 +81,7 @@ void AudealizereverbAudioProcessor::changeProgramName (int index, const String& 
 //==============================================================================
 void AudealizereverbAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    mReverb.init(mState->getParameter(paramD)->getValue(), mState->getParameter(paramG)->getValue(), mState->getParameter(paramM)->getValue(), mState->getParameter(paramF)->getValue(), mState->getParameter(paramE)->getValue(), sampleRate);
+    mReverb.init(mState->getParameter(paramD)->getValue(), mState->getParameter(paramG)->getValue(), mState->getParameter(paramM)->getValue(), mState->getParameter(paramF)->getValue(), mState->getParameter(paramE)->getValue(), mState->getParameter(paramWetDry)->getValue(), sampleRate);
 }
 
 void AudealizereverbAudioProcessor::releaseResources()
@@ -119,7 +119,8 @@ void AudealizereverbAudioProcessor::processBlock (AudioSampleBuffer& buffer, Mid
 {
     const int totalNumInputChannels  = getTotalNumInputChannels();
     const int totalNumOutputChannels = getTotalNumOutputChannels();
-
+    const int numSamples = buffer.getNumSamples();
+    
     // In case we have more outputs than inputs, this code clears any output
     // channels that didn't contain input data, (because these aren't
     // guaranteed to be empty - they may contain garbage).
@@ -129,12 +130,19 @@ void AudealizereverbAudioProcessor::processBlock (AudioSampleBuffer& buffer, Mid
     for (int i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
-    float* channelData1 = buffer.getWritePointer(0);
-    float* channelData2 = buffer.getWritePointer(1);
-    
     
     // Process reverb
-    mReverb.processStereoBlock(channelData1, channelData2, buffer.getNumSamples());
+    if (totalNumInputChannels == 1){
+        float* channelData = buffer.getWritePointer(0);
+        
+        mReverb.processMonoBlock(channelData, numSamples);
+    }
+    else{
+        float* channelData1 = buffer.getWritePointer(0);
+        float* channelData2 = buffer.getWritePointer(1);
+        
+        mReverb.processStereoBlock(channelData1, channelData2, buffer.getNumSamples());
+    }
 }
 
 bool AudealizereverbAudioProcessor::hasEditor() const

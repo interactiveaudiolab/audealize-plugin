@@ -14,7 +14,10 @@
 /// Interface class for Audealize plugin AudioProcessors to facilitate communication of state/param data with UI components
 class AudealizeAudioProcessor : public AudioProcessor {
 public:
-    AudealizeAudioProcessor(){};
+    AudealizeAudioProcessor(){
+        mUndoManager = new UndoManager();
+        mState = new AudioProcessorValueTreeState(*this, mUndoManager);
+    };
     
     ~AudealizeAudioProcessor(){
         mState = nullptr;
@@ -51,7 +54,7 @@ public:
      *
      *  @param parameterID The ID of the parameter that was changed
      */
-    void parameterChanged(const juce::String &parameterID);
+    virtual void parameterChanged(const juce::String &parameterID) {};
     
     /**
      *  Returns the AudioProcessorValueTreeState

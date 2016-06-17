@@ -3,8 +3,24 @@
 
 using namespace Audealize;
 
-AudealizereverbAudioProcessor::AudealizereverbAudioProcessor()
+String AudealizereverbAudioProcessor::paramD ("CombDelay");
+String AudealizereverbAudioProcessor::paramG ("CombGain");
+String AudealizereverbAudioProcessor::paramM ("ChannelDelay");
+String AudealizereverbAudioProcessor::paramF ("f");
+String AudealizereverbAudioProcessor::paramE ("E");
+String AudealizereverbAudioProcessor::paramWetDry ("Wet/Dry");
+
+AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb()
 {
+    // Initialize parameters
+    mState->createAndAddParameter(paramD, "Delay of comb filters", TRANS ("Delay of comb filters"), NormalisableRange<float>(0.0f, 0.1f, 0.0000001f), 0.0f, nullptr, nullptr);
+    mState->createAndAddParameter(paramG, "Gain of comb filters", TRANS ("Gain of comb filters"), NormalisableRange<float>(0.0f, 1.0f, 0.0001f), 0.0f, nullptr, nullptr);
+    mState->createAndAddParameter(paramM, "Delay between channels", TRANS ("Delay between channels"), NormalisableRange<float>(0.0f, 0.012f, 0.000001f), 0.0f, nullptr, nullptr);
+    mState->createAndAddParameter(paramF, "LP Cutoff", TRANS ("LP Cutoff"), NormalisableRange<float>(0.0f, 22050.0f, 0.1f), 0.0f, nullptr, nullptr);
+    mState->createAndAddParameter(paramE, "Effect Gain", TRANS ("Effect Gain"), NormalisableRange<float>(0.0f, 1.0f, 0.0001f), 0.0f, nullptr, nullptr);
+    mState->createAndAddParameter(paramWetDry, "Wet/Dry Mix", TRANS ("Wet/Dry Mix"), NormalisableRange<float>(0.0f, 1.0f, 0.0001f), 0.0f, nullptr, nullptr);
+    
+    mState->state = ValueTree ("Audealize-Reverb");
 }
 
 AudealizereverbAudioProcessor::~AudealizereverbAudioProcessor()
@@ -65,7 +81,7 @@ void AudealizereverbAudioProcessor::changeProgramName (int index, const String& 
 //==============================================================================
 void AudealizereverbAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    mReverb.setSampleRate(sampleRate);
+    mReverb.init(mState->getParameter(paramD)->getValue(), mState->getParameter(paramG)->getValue(), mState->getParameter(paramM)->getValue(), mState->getParameter(paramF)->getValue(), mState->getParameter(paramE)->getValue(), sampleRate);
 }
 
 void AudealizereverbAudioProcessor::releaseResources()
@@ -113,14 +129,12 @@ void AudealizereverbAudioProcessor::processBlock (AudioSampleBuffer& buffer, Mid
     for (int i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
-    // This is the place where you'd normally do the guts of your plugin's
-    // audio processing...
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
-    {
-        float* channelData = buffer.getWritePointer (channel);
-
-        // ..do something to the data...
-    }
+    float* channelData1 = buffer.getWritePointer(0);
+    float* channelData2 = buffer.getWritePointer(1);
+    
+    
+    // Process reverb
+    mReverb.processStereoBlock(channelData1, channelData2, buffer.getNumSamples());
 }
 
 bool AudealizereverbAudioProcessor::hasEditor() const

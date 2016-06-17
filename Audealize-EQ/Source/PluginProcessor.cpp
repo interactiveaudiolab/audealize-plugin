@@ -5,8 +5,6 @@
 AudealizeeqAudioProcessor::AudealizeeqAudioProcessor() : mEqualizer(mFreqs, 0.0f)
 {
     DBG(std::to_string(getSampleRate()));
-    mUndoManager = new UndoManager();
-    mState = new AudioProcessorValueTreeState(*this, mUndoManager);
         
     //Create params for each EQ band gain
     for (int i = 0; i < NUMBANDS; i++){

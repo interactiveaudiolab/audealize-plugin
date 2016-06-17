@@ -36,11 +36,18 @@ public:
     void setCurrentProgram (int index) override;
     const String getProgramName (int index) override;
     void changeProgramName (int index, const String& newName) override;
+    
+    static String paramD;
+    static String paramG;
+    static String paramM;
+    static String paramF;
+    static String paramE;
+    static String paramWetDry;
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizereverbAudioProcessor)
     
-    Reverb mReverb;
+    Audealize::Reverb mReverb;
 };
 
 

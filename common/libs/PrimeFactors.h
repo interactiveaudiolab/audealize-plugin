@@ -5,26 +5,7 @@
 #ifndef PrimeFactors_h
 #define PrimeFactors_h
 
-float prevPrime(int n){
-    if (n < 2) return 2;
-    n = floorf(n);
-    
-    for (int i = n + n % 2 - 1; i > 0; i -=2){
-        if (isPrime(i))
-            return i;
-    }
-    return NAN;
-}
-
-bool isPrime(int n){
-    if (n % 1 != 0 || n < 2)
-        return false;
-    if (n == leastFactor(n))
-        return true;
-    return false;
-}
-
-float leastFactor(int n){
+static float leastFactor(int n){
     if (n == NAN) return NAN;
     if (n == 0) return 0;
     if (n % 1 || n * n < 2) return 1;
@@ -45,6 +26,25 @@ float leastFactor(int n){
         for (int j=0;j<210;j+=2) {if (n%(i+j)==0) return i+j; }
     }
     return n;
+}
+
+static bool isPrime(int n){
+    if (n % 1 != 0 || n < 2)
+        return false;
+    if (n == leastFactor(n))
+        return true;
+    return false;
+}
+
+static float prevPrime(int n){
+    if (n < 2) return 2;
+    n = floorf(n);
+    
+    for (int i = n + n % 2 - 1; i > 0; i -=2){
+        if (isPrime(i))
+            return i;
+    }
+    return NAN;
 }
 
 #endif /* PrimeFactors_h */

@@ -3,14 +3,14 @@
 
 using namespace Audealize;
 
-String AudealizereverbAudioProcessor::paramD ("CombDelay");
-String AudealizereverbAudioProcessor::paramG ("CombGain");
-String AudealizereverbAudioProcessor::paramM ("ChannelDelay");
-String AudealizereverbAudioProcessor::paramF ("f");
-String AudealizereverbAudioProcessor::paramE ("E");
-String AudealizereverbAudioProcessor::paramWetDry ("Wet/Dry");
+String AudealizereverbAudioProcessor::paramD ("paramD");
+String AudealizereverbAudioProcessor::paramG ("paramG");
+String AudealizereverbAudioProcessor::paramM ("paramM");
+String AudealizereverbAudioProcessor::paramF ("paramF");
+String AudealizereverbAudioProcessor::paramE ("paramE");
+String AudealizereverbAudioProcessor::paramWetDry ("paramWetDry");
 
-AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb()
+AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb(), mDSmoother(), mGSmoother(), mMSmoother(), mFSmoother(), mESmoother(), mMixSmoother()
 {
     // initialize parameter ranges
     mDRange   = NormalisableRange<float>(0.01f, 0.1f, 0.0000001f);
@@ -89,14 +89,21 @@ void AudealizereverbAudioProcessor::changeProgramName (int index, const String& 
 //==============================================================================
 void AudealizereverbAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
+    // Initialize reverberator
     mReverb.init(mDefaultD, mDefaultG, mDefaultM, mDefaultF, mDefaultE, mDefaultMix, sampleRate);
     debugParams();
+    
+    // Initialize parameter smoothers
+    mDSmoother.init(5.0f, sampleRate);
+    mGSmoother.init(5.0f, sampleRate);
+    mMSmoother.init(5.0f, sampleRate);
+    mFSmoother.init(5.0f, sampleRate);
+    mESmoother.init(5.0f, sampleRate);
+    mMixSmoother.init(5.0f, sampleRate);
 }
 
 void AudealizereverbAudioProcessor::releaseResources()
 {
-    // When playback stops, you can use this as an opportunity to free up any
-    // spare memory, etc.
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -170,6 +177,8 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 }
 
 void AudealizereverbAudioProcessor::parameterChanged(const juce::String &parameterID){
+    float smoothedVal;
+    
     if (parameterID == paramD){
         mReverb.set_d(mDRange.convertFrom0to1(mState->getParameter(parameterID)->getValue()));
     }

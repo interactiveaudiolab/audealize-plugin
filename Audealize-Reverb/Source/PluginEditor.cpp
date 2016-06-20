@@ -8,7 +8,7 @@ AudealizereverbAudioProcessorEditor::AudealizereverbAudioProcessorEditor (Audeal
     mReverbComponent = new ReverbComponent(processor);
     addAndMakeVisible(mReverbComponent);
     
-    setSize (420, 150);
+    setSize (420, 120);
 }
 
 AudealizereverbAudioProcessorEditor::~AudealizereverbAudioProcessorEditor()

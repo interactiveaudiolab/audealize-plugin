@@ -8,6 +8,7 @@
 #include "libs/calf_dsp_library/delay.h"
 #include "libs/json.hpp"
 #include "libs/PrimeFactors.h"
+#include "libs/CParamSmooth.h"
 
 #include "ui_components/AudealizeUI.h"
 

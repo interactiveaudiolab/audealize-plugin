@@ -21,19 +21,9 @@ private:
     AudealizeAudioProcessor& processor;
 
     //==============================================================================
-    ScopedPointer<Slider> mSliderD;
-    ScopedPointer<Slider> mSliderG;
-    ScopedPointer<Slider> mSliderM;
-    ScopedPointer<Slider> mSliderF;
-    ScopedPointer<Slider> mSliderE;
-    ScopedPointer<Slider> mSliderMix;
+    ScopedPointer<Slider> mSliderD, mSliderG, mSliderM, mSliderF, mSliderE, mSliderMix;
 
-    ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mSliderAttachmentD;
-    ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mSliderAttachmentG;
-    ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mSliderAttachmentM;
-    ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mSliderAttachmentF;
-    ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mSliderAttachmentE;
-    ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mSliderAttachmentMix;
+    ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mSliderAttachmentD, mSliderAttachmentG, mSliderAttachmentM, mSliderAttachmentF, mSliderAttachmentE, mSliderAttachmentMix;
     
     //ScopedPointer<AudioProcessorValueTreeState::Listener> mListenerD;
     //ScopedPointer<AudioProcessorValueTreeState::Listener> mListenerG;
@@ -42,12 +32,9 @@ private:
     //ScopedPointer<AudioProcessorValueTreeState::Listener> mListenerE;
     //ScopedPointer<AudioProcessorValueTreeState::Listener> mListenerMix;
     
-    static String paramD;
-    static String paramG;
-    static String paramM;
-    static String paramF;
-    static String paramE;
-    static String paramWetDry;
+    ScopedPointer<Label> mLabelD, mLabelG, mLabelM, mLabelF, mLabelE, mLabelMix;
+    
+    static String paramD, paramG, paramM, paramF, paramE, paramWetDry;
     
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ReverbComponent)

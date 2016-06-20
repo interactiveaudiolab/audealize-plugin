@@ -51,12 +51,9 @@ private:
     
     Audealize::Reverb mReverb;
     
-    NormalisableRange<float> mDRange;
-    NormalisableRange<float> mGRange;
-    NormalisableRange<float> mMRange;
-    NormalisableRange<float> mFRange;
-    NormalisableRange<float> mERange;
-    NormalisableRange<float> mMixRange;
+    NormalisableRange<float> mDRange, mGRange, mMRange, mFRange, mERange, mMixRange;
+    
+    CParamSmooth mDSmoother, mGSmoother, mMSmoother, mFSmoother, mESmoother, mMixSmoother;
     
     const float mDefaultD   = 0.05f;
     const float mDefaultG   = 0.5f;

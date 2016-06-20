@@ -49,11 +49,13 @@ ifeq ($(CONFIG),Release)
 endif
 
 OBJECTS := \
+  $(OBJDIR)/ReverbComponent_e2d4862c.o \
   $(OBJDIR)/PluginProcessor_a059e380.o \
   $(OBJDIR)/PluginEditor_94d4fb09.o \
   $(OBJDIR)/AudealizeUI_721d8e9a.o \
   $(OBJDIR)/GraphicEQComponent_755b11c1.o \
   $(OBJDIR)/Biquad_2658136f.o \
+  $(OBJDIR)/CParamSmooth_c09f0399.o \
   $(OBJDIR)/BinaryData_ce4232d4.o \
   $(OBJDIR)/juce_audio_basics_6b797ca1.o \
   $(OBJDIR)/juce_audio_devices_a742c38b.o \
@@ -89,6 +91,11 @@ strip:
 	@echo Stripping Audealize-Reverb
 	-@strip --strip-unneeded $(OUTDIR)/$(TARGET)
 
+$(OBJDIR)/ReverbComponent_e2d4862c.o: ../../Source/ReverbComponent.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling ReverbComponent.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
 $(OBJDIR)/PluginProcessor_a059e380.o: ../../Source/PluginProcessor.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling PluginProcessor.cpp"
@@ -112,6 +119,11 @@ $(OBJDIR)/GraphicEQComponent_755b11c1.o: ../../../common/ui_components/GraphicEQ
 $(OBJDIR)/Biquad_2658136f.o: ../../../common/libs/Biquad.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling Biquad.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/CParamSmooth_c09f0399.o: ../../../common/libs/CParamSmooth.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling CParamSmooth.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/BinaryData_ce4232d4.o: ../../JuceLibraryCode/BinaryData.cpp

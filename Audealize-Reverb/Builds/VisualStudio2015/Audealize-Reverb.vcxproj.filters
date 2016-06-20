@@ -412,6 +412,9 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\ReverbComponent.cpp">
+      <Filter>Audealize-Reverb\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp">
       <Filter>Audealize-Reverb\Source</Filter>
     </ClCompile>
@@ -425,6 +428,9 @@
       <Filter>Audealize-Reverb\common\ui_components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\common\libs\Biquad.cpp">
+      <Filter>Audealize-Reverb\common\libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\libs\CParamSmooth.cpp">
       <Filter>Audealize-Reverb\common\libs</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
@@ -2313,6 +2319,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\ReverbComponent.h">
+      <Filter>Audealize-Reverb\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\PluginProcessor.h">
       <Filter>Audealize-Reverb\Source</Filter>
     </ClInclude>
@@ -2362,6 +2371,9 @@
       <Filter>Audealize-Reverb\common\libs</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\common\libs\PrimeFactors.h">
+      <Filter>Audealize-Reverb\common\libs</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\libs\CParamSmooth.h">
       <Filter>Audealize-Reverb\common\libs</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h">

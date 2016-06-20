@@ -59,6 +59,9 @@
         <FILE id="gn6vLG" name="Biquad.h" compile="0" resource="0" file="../common/libs/Biquad.h"/>
         <FILE id="JDryOA" name="json.hpp" compile="0" resource="0" file="../common/libs/json.hpp"/>
         <FILE id="CHwiV6" name="PrimeFactors.h" compile="0" resource="0" file="../common/libs/PrimeFactors.h"/>
+        <FILE id="U9m8rz" name="CParamSmooth.cpp" compile="1" resource="0"
+              file="../common/libs/CParamSmooth.cpp"/>
+        <FILE id="GyGsYM" name="CParamSmooth.h" compile="0" resource="0" file="../common/libs/CParamSmooth.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

@@ -13,6 +13,10 @@
               companyWebsite="http://music.eecs.northwestern.edu">
   <MAINGROUP id="WR8Mxi" name="Audealize-Reverb">
     <GROUP id="{A81F1107-A68D-EF54-1B6D-A1A91DBAA3E0}" name="Source">
+      <FILE id="kBOteP" name="ReverbComponent.cpp" compile="1" resource="0"
+            file="Source/ReverbComponent.cpp"/>
+      <FILE id="awaP7M" name="ReverbComponent.h" compile="0" resource="0"
+            file="Source/ReverbComponent.h"/>
       <FILE id="rFWLHk" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="lCbM9Y" name="PluginProcessor.h" compile="0" resource="0"

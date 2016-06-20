@@ -15,17 +15,13 @@
 #include "../common.h"
 #include <math.h>
 
-
-// INCLUDED FOR DEBUGGING
-// @TODO: remove when no longer needed
-#include "../../Audealize-Reverb/JuceLibraryCode/JuceHeader.h"
-
 #define ALLPASSGAIN 0.1f
 #define MINDELAY 0.01f
 #define PI 3.1415926535897f
 
 using dsp::simple_delay;
 using std::vector;
+using std::to_string;
 
 namespace Audealize{
     
@@ -35,9 +31,7 @@ namespace Audealize{
         {
             //Initialize samples to 0
             mSample[0] = mSample[1] = 0;
-            mLowpass1 = NChannelFilter(bq_type_lowpass, 2, f, 1.0f, 0.0f, mSampleRate);
-            mLowpass2 = NChannelFilter(bq_type_lowpass, 2, 22050.0f, 1.0f, 0.0f, mSampleRate);
-            
+            mLowpass = NChannelFilter(bq_type_lowpass, 2, f, 1.0f, 0.0f, mSampleRate);
             da = 0.006f + MINDELAY;
         }
         
@@ -62,7 +56,7 @@ namespace Audealize{
                 sampRev = mAllpass[0].process_allpass_comb(sampRev, mDelayVal[0], ALLPASSGAIN);
                 
                 // Process lowpass filter
-                sampRev = mLowpass1.processSample(sampRev, 0);
+                sampRev = mLowpass.processSample(sampRev, 0);
                 
                 sampRev *= gain;
                 
@@ -97,18 +91,10 @@ namespace Audealize{
                 sampDryL = channelData1[i];
                 sampDryR = channelData2[i];
                 
-                DBG("Samp dry L: " << sampDryL);
-                DBG("Samp dry R: " << sampDryR);
-                
                 // Average left and right channels for comb network
                 sampSum = sampDryL + sampDryR;
                 sampSum *= 0.5f;
                 sampSum *= wet;
-                
-                DBG("wet: " << wet);
-                
-                DBG("sampSum: " << sampSum);
-
                 // Process sample through comb filter network
                 sampRevL = sampRevR = processCombs(sampSum);
                 
@@ -118,18 +104,15 @@ namespace Audealize{
                 sampRevR = mAllpass[1].process_allpass_comb(sampRevR, mDelayVal[0], ALLPASSGAIN);
                 
                 // Process lowpass filters
-                sampRevL = mLowpass1.processSample(sampRevL, 0);
-                sampRevR = mLowpass1.processSample(sampRevR, 1);
-                
-                sampRevL = mLowpass2.processSample(sampRevL, 0);
-                sampRevR = mLowpass2.processSample(sampRevR, 1);
+                sampRevL = mLowpass.processSample(sampRevL, 0);
+                sampRevR = mLowpass.processSample(sampRevR, 1);
                 
                 sampRevL *= gain;
                 sampRevR *= gain;
                 
                 // Delay unprocessed signal to match phase shift caused by the delayed comb filters
-                sampL = wet * mDelay[0].process(sampDryL, MINDELAY * mSampleRate);
-                sampR = wet * mDelay[1].process(sampDryR, MINDELAY * mSampleRate);
+                //sampL = wet * mDelay[0].process(sampDryL, MINDELAY * mSampleRate);
+                //sampR = wet * mDelay[1].process(sampDryR, MINDELAY * mSampleRate);
                 
                 sampL *= gainclean;
                 sampR *= gainclean;
@@ -145,7 +128,7 @@ namespace Audealize{
                 sampDryR *= dry;
                 
                 // Write processed sample back to the buffer
-                channelData1[i] = 0.45f * (sampDryL + sampR);
+                channelData1[i] = 0.45f * (sampDryL + sampL);
                 channelData2[i] = 0.45f * (sampDryR + sampR);
             }
         }
@@ -156,8 +139,7 @@ namespace Audealize{
          */
         void init(float d_val, float g_val, float m_val, float f_val, float E_val, float wetdry_val, float sampleRate){
             mSampleRate = sampleRate;
-            mLowpass1.setSampleRate(sampleRate);
-            mLowpass2.setSampleRate(sampleRate);
+            mLowpass.setSampleRate(sampleRate);
             set_d(d_val);
             set_g(g_val);
             set_m(m_val);
@@ -191,8 +173,7 @@ namespace Audealize{
         
         void set_f(float f_val){
             f = f_val;
-            mLowpass1.setFreq(f);
-            mLowpass2.setFreq(f);
+            mLowpass.setFreq(f);
         }
         
         void set_E(float E_val){
@@ -217,12 +198,38 @@ namespace Audealize{
          */
         void setSampleRate(float sampleRate){
             mSampleRate = sampleRate;
-            mLowpass1.setSampleRate(sampleRate);
-            mLowpass2.setSampleRate(sampleRate);
+            mLowpass.setSampleRate(sampleRate);
             set_m(m);
             set_d(d);
         }
         
+        
+        /**
+         *  Getters for main reverberator parameters
+         */
+        float get_d(){
+            return d;
+        }
+        
+        float get_g(){
+            return g;
+        }
+        
+        float get_m(){
+            return m;
+        }
+        
+        float get_f(){
+            return f;
+        }
+        
+        float get_E(){
+            return E;
+        }
+        
+        float get_wetdry(){
+            return wetdry;
+        }
         
     private:
         /**
@@ -241,9 +248,9 @@ namespace Audealize{
         
         float mSample[2], mCombDelay[6], mCombGain[6], mDelayVal[2];
         
-        vector<simple_delay<4096, float>> mComb, mAllpass, mDelay;
+        vector<simple_delay<1024 , float>> mComb, mAllpass, mDelay;
         
-        NChannelFilter mLowpass1, mLowpass2;
+        NChannelFilter mLowpass;
         
 
         /**

@@ -57,6 +57,15 @@ private:
     NormalisableRange<float> mFRange;
     NormalisableRange<float> mERange;
     NormalisableRange<float> mMixRange;
+    
+    const float mDefaultD   = 0.05f;
+    const float mDefaultG   = 0.5f;
+    const float mDefaultM   = 0.003f;
+    const float mDefaultF   = 5500.0f;
+    const float mDefaultE   = 1.0f;
+    const float mDefaultMix = 0.75f;
+    
+    void debugParams();
 };
 
 

@@ -5,9 +5,10 @@
 AudealizereverbAudioProcessorEditor::AudealizereverbAudioProcessorEditor (AudealizereverbAudioProcessor& p)
     : AudioProcessorEditor (&p), processor (p)
 {
-    // Make sure that before the constructor has finished, you've set the
-    // editor's size to whatever you need it to be.
-    setSize (400, 300);
+    mReverbComponent = new ReverbComponent(processor);
+    addAndMakeVisible(mReverbComponent);
+    
+    setSize (420, 150);
 }
 
 AudealizereverbAudioProcessorEditor::~AudealizereverbAudioProcessorEditor()
@@ -26,6 +27,6 @@ void AudealizereverbAudioProcessorEditor::paint (Graphics& g)
 
 void AudealizereverbAudioProcessorEditor::resized()
 {
-    // This is generally where you'll want to lay out the positions of any
-    // subcomponents in your editor..
+    Rectangle<int> box (getLocalBounds());
+    mReverbComponent->setBounds(box);
 }

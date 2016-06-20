@@ -12,13 +12,21 @@ String AudealizereverbAudioProcessor::paramWetDry ("Wet/Dry");
 
 AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb()
 {
+    // initialize parameter ranges
+    mDRange   = NormalisableRange<float>(0.0f, 0.1f, 0.0000001f);
+    mGRange   = NormalisableRange<float>(0.0f, 0.7f, 0.0001f);
+    mMRange   = NormalisableRange<float>(0.0f, 0.012f, 0.000001f);
+    mFRange   = NormalisableRange<float>(20.0f, 20000.0f, 0.1f);
+    mERange   = NormalisableRange<float>(0.0f, 1.0f, 0.0001f);
+    mMixRange = NormalisableRange<float>(0.0f, 1.0f, 0.0001f);
+
     // Initialize parameters
-    mState->createAndAddParameter(paramD, "Delay of comb filters", TRANS ("Delay of comb filters"), NormalisableRange<float>(0.0f, 0.1f, 0.0000001f), 0.05f, nullptr, nullptr);
-    mState->createAndAddParameter(paramG, "Gain of comb filters", TRANS ("Gain of comb filters"), NormalisableRange<float>(0.0f, 1.0f, 0.0001f), 1.0f, nullptr, nullptr);
-    mState->createAndAddParameter(paramM, "Delay between channels", TRANS ("Delay between channels"), NormalisableRange<float>(0.0f, 0.012f, 0.000001f), 0.003f, nullptr, nullptr);
-    mState->createAndAddParameter(paramF, "LP Cutoff", TRANS ("LP Cutoff"), NormalisableRange<float>(0.0f, 22050.0f, 0.1f), 5500.0f, nullptr, nullptr);
-    mState->createAndAddParameter(paramE, "Effect Gain", TRANS ("Effect Gain"), NormalisableRange<float>(0.0f, 1.0f, 0.0001f), 1.0f, nullptr, nullptr);
-    mState->createAndAddParameter(paramWetDry, "Wet/Dry Mix", TRANS ("Wet/Dry Mix"), NormalisableRange<float>(0.0f, 1.0f, 0.0001f), 0.5f, nullptr, nullptr);
+    mState->createAndAddParameter(paramD, "Delay of comb filters", TRANS ("Delay of comb filters"), mDRange, 0.05f, nullptr, nullptr);
+    mState->createAndAddParameter(paramG, "Gain of comb filters", TRANS ("Gain of comb filters"), mGRange, 1.0f, nullptr, nullptr);
+    mState->createAndAddParameter(paramM, "Delay between channels", TRANS ("Delay between channels"), mMRange, 0.003f, nullptr, nullptr);
+    mState->createAndAddParameter(paramF, "LP Cutoff", TRANS ("LP Cutoff"), mFRange, 5500.0f, nullptr, nullptr);
+    mState->createAndAddParameter(paramE, "Effect Gain", TRANS ("Effect Gain"), mERange, 1.0f, nullptr, nullptr);
+    mState->createAndAddParameter(paramWetDry, "Wet/Dry Mix", TRANS ("Wet/Dry Mix"), mMixRange, 0.5f, nullptr, nullptr);
     
     mState->state = ValueTree ("Audealize-Reverb");
 }
@@ -134,7 +142,6 @@ void AudealizereverbAudioProcessor::processBlock (AudioSampleBuffer& buffer, Mid
     // Process reverb
     if (totalNumInputChannels == 1){
         float* channelData = buffer.getWritePointer(0);
-        
         mReverb.processMonoBlock(channelData, numSamples);
     }
     else{
@@ -159,4 +166,19 @@ AudioProcessorEditor* AudealizereverbAudioProcessor::createEditor()
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new AudealizereverbAudioProcessor();
+}
+
+void AudealizereverbAudioProcessor::parameterChanged(const juce::String &parameterID){
+    if (parameterID == paramD)
+        mReverb.set_d(mDRange.convertFrom0to1(mState->getParameter(parameterID)->getValue()));
+    else if (parameterID == paramG)
+        mReverb.set_g(mGRange.convertFrom0to1(mState->getParameter(parameterID)->getValue()));
+    else if (parameterID == paramM)
+        mReverb.set_m(mMRange.convertFrom0to1(mState->getParameter(parameterID)->getValue()));
+    else if (parameterID == paramF)
+        mReverb.set_f(mFRange.convertFrom0to1(mState->getParameter(parameterID)->getValue()));
+    else if (parameterID == paramE)
+        mReverb.set_E(mERange.convertFrom0to1(mState->getParameter(parameterID)->getValue()));
+    else if (parameterID == paramWetDry)
+        mReverb.set_wetdry(mMixRange.convertFrom0to1(mState->getParameter(parameterID)->getValue()));
 }

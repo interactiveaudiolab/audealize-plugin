@@ -3,6 +3,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "PluginProcessor.h"
+#include "ReverbComponent.h"
 
 class AudealizereverbAudioProcessorEditor  : public AudioProcessorEditor
 {
@@ -16,6 +17,8 @@ public:
 private:
     AudealizereverbAudioProcessor& processor;
 
+    ScopedPointer<ReverbComponent> mReverbComponent;
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizereverbAudioProcessorEditor)
 };
 

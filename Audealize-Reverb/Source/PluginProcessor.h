@@ -37,6 +37,8 @@ public:
     const String getProgramName (int index) override;
     void changeProgramName (int index, const String& newName) override;
     
+    void parameterChanged(const juce::String &parameterID);
+    
     static String paramD;
     static String paramG;
     static String paramM;
@@ -48,6 +50,13 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizereverbAudioProcessor)
     
     Audealize::Reverb mReverb;
+    
+    NormalisableRange<float> mDRange;
+    NormalisableRange<float> mGRange;
+    NormalisableRange<float> mMRange;
+    NormalisableRange<float> mFRange;
+    NormalisableRange<float> mERange;
+    NormalisableRange<float> mMixRange;
 };
 
 

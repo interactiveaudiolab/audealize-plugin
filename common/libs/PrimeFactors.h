@@ -1,5 +1,5 @@
-/*
- A selection of functions ported to c++ from primefactors.js by Alexei Kourbatov, www.JavaScripter.net
+/**
+ * A selection of functions ported to c++ from primefactors.js by Alexei Kourbatov, www.JavaScripter.net
  */
 
 #ifndef PrimeFactors_h

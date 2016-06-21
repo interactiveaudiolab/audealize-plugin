@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="ZTUKhG" name="Audealize-Reverb" projectType="audioplug" version="0.0.1"
+              bundleIdentifier="com.InteractiveAudioLab.AudealizeReverb" includeBinaryInAppConfig="1"
+              buildVST="1" buildVST3="1" buildAU="1" buildAUv3="1" buildRTAS="0"
+              buildAAX="1" pluginName="Audealize-Reverb" pluginDesc="Audealize-Reverb"
+              pluginManufacturer="Interactive Audio Lab" pluginManufacturerCode="IALx"
+              pluginCode="adlv" pluginChannelConfigs="" pluginIsSynth="0" pluginWantsMidiIn="0"
+              pluginProducesMidiOut="0" pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0"
+              pluginAUExportPrefix="AudealizeReverbAU" pluginRTASCategory=""
+              aaxIdentifier="com.InteractiveAudioLab.AudealizeReverb" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
+              jucerVersion="4.2.1" companyName="Northwestern University Interactive Audio Lab"
+              companyWebsite="http://music.eecs.northwestern.edu">
+  <MAINGROUP id="WR8Mxi" name="Audealize-Reverb">
+    <GROUP id="{A81F1107-A68D-EF54-1B6D-A1A91DBAA3E0}" name="Source">
+      <FILE id="kBOteP" name="ReverbComponent.cpp" compile="1" resource="0"
+            file="Source/ReverbComponent.cpp"/>
+      <FILE id="awaP7M" name="ReverbComponent.h" compile="0" resource="0"
+            file="Source/ReverbComponent.h"/>
+      <FILE id="rFWLHk" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="lCbM9Y" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+      <FILE id="uswe3S" name="PluginEditor.cpp" compile="1" resource="0"
+            file="Source/PluginEditor.cpp"/>
+      <FILE id="PXNR51" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+    </GROUP>
+    <GROUP id="{2121C2B2-74E0-607B-8617-C1486E62F2B7}" name="common">
+      <FILE id="ATFVgf" name="common.h" compile="0" resource="0" file="../common/common.h"/>
+      <FILE id="w27Bi7" name="AudealizeInterfaces.h" compile="0" resource="0"
+            file="../common/AudealizeInterfaces.h"/>
+      <GROUP id="{A18F83C7-E657-017A-E2B3-12EFC833D5C6}" name="data">
+        <FILE id="uiGZnq" name="eqpoints.json" compile="0" resource="1" file="../common/data/eqpoints.json"/>
+      </GROUP>
+      <GROUP id="{EDDAD49A-562C-D2DF-6A2B-F62F6C1D32C1}" name="effects">
+        <FILE id="kKTgfU" name="Equalizer.h" compile="0" resource="0" file="../common/effects/Equalizer.h"/>
+        <FILE id="j7okuC" name="NChannelFilter.h" compile="0" resource="0"
+              file="../common/effects/NChannelFilter.h"/>
+        <FILE id="jfdnVw" name="Reverb.h" compile="0" resource="0" file="../common/effects/Reverb.h"/>
+        <FILE id="t22Q20" name="AudioEffect.h" compile="0" resource="0" file="../common/effects/AudioEffect.h"/>
+      </GROUP>
+      <GROUP id="{F5422423-F7A3-C39D-49E5-85997788BBFE}" name="ui_components">
+        <FILE id="CkWFga" name="AudealizeUI.cpp" compile="1" resource="0" file="../common/ui_components/AudealizeUI.cpp"/>
+        <FILE id="HmMCH3" name="AudealizeUI.h" compile="0" resource="0" file="../common/ui_components/AudealizeUI.h"/>
+        <FILE id="FPUwB8" name="GraphicEQComponent.cpp" compile="1" resource="0"
+              file="../common/ui_components/GraphicEQComponent.cpp"/>
+        <FILE id="k9l4a6" name="GraphicEQComponent.h" compile="0" resource="0"
+              file="../common/ui_components/GraphicEQComponent.h"/>
+      </GROUP>
+      <GROUP id="{69ECFB70-F884-7A45-904E-8CCF10FCD4AC}" name="libs">
+        <GROUP id="{D023A529-C70B-92B7-8D1E-3561AF5C1083}" name="calf_dsp_library">
+          <FILE id="ztVoKK" name="buffer.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/buffer.h"/>
+          <FILE id="DhTH0d" name="COPYING" compile="0" resource="1" file="../common/libs/calf_dsp_library/COPYING"/>
+          <FILE id="zHDsHK" name="delay.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/delay.h"/>
+          <FILE id="CzqRDj" name="onepole.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/onepole.h"/>
+          <FILE id="rURR7F" name="primitives.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/primitives.h"/>
+        </GROUP>
+        <FILE id="W5kBpA" name="Biquad.cpp" compile="1" resource="0" file="../common/libs/Biquad.cpp"/>
+        <FILE id="gn6vLG" name="Biquad.h" compile="0" resource="0" file="../common/libs/Biquad.h"/>
+        <FILE id="JDryOA" name="json.hpp" compile="0" resource="0" file="../common/libs/json.hpp"/>
+        <FILE id="CHwiV6" name="PrimeFactors.h" compile="0" resource="0" file="../common/libs/PrimeFactors.h"/>
+        <FILE id="U9m8rz" name="CParamSmooth.cpp" compile="1" resource="0"
+              file="../common/libs/CParamSmooth.cpp"/>
+        <FILE id="GyGsYM" name="CParamSmooth.h" compile="0" resource="0" file="../common/libs/CParamSmooth.h"/>
+      </GROUP>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Audealize-Reverb"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Audealize-Reverb"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../modules"/>
+        <MODULEPATH id="juce_events" path="../../../modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../modules"/>
+        <MODULEPATH id="juce_video" path="../../../modules"/>
+        <MODULEPATH id="juce_opengl" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <VS2015 targetFolder="Builds/VisualStudio2015">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="Audealize-Reverb"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="3" targetName="Audealize-Reverb"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../modules"/>
+        <MODULEPATH id="juce_events" path="../../../modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../modules"/>
+        <MODULEPATH id="juce_video" path="../../../modules"/>
+        <MODULEPATH id="juce_opengl" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../modules"/>
+      </MODULEPATHS>
+    </VS2015>
+    <VS2013 targetFolder="Builds/VisualStudio2013">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="Audealize-Reverb"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="3" targetName="Audealize-Reverb"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../modules"/>
+        <MODULEPATH id="juce_events" path="../../../modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../modules"/>
+        <MODULEPATH id="juce_video" path="../../../modules"/>
+        <MODULEPATH id="juce_opengl" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../modules"/>
+      </MODULEPATHS>
+    </VS2013>
+    <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" libraryPath="/usr/X11R6/lib/" isDebug="1" optimisation="1"
+                       targetName="Audealize-Reverb"/>
+        <CONFIGURATION name="Release" libraryPath="/usr/X11R6/lib/" isDebug="0" optimisation="3"
+                       targetName="Audealize-Reverb"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../modules"/>
+        <MODULEPATH id="juce_events" path="../../../modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../modules"/>
+        <MODULEPATH id="juce_video" path="../../../modules"/>
+        <MODULEPATH id="juce_opengl" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../modules"/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_opengl" showAllCode="1" useLocalCopy="0"/>
+    <MODULE id="juce_video" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
+</JUCERPROJECT>

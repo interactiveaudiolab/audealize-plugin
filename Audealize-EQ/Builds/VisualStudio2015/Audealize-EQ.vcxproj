@@ -135,11 +135,11 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\ui_components\AudealizeUI.cpp"/>
-    <ClCompile Include="..\..\Source\ui_components\GraphicEQComponent.cpp"/>
-    <ClCompile Include="..\..\Source\Libs\Biquad.cpp"/>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\PluginEditor.cpp"/>
+    <ClCompile Include="..\..\..\common\ui_components\AudealizeUI.cpp"/>
+    <ClCompile Include="..\..\..\common\ui_components\GraphicEQComponent.cpp"/>
+    <ClCompile Include="..\..\..\common\libs\Biquad.cpp"/>
     <ClCompile Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1839,15 +1839,23 @@
     <ClCompile Include="..\..\JuceLibraryCode\juce_video.cpp"/>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\ui_components\AudealizeUI.h"/>
-    <ClInclude Include="..\..\Source\ui_components\GraphicEQComponent.h"/>
-    <ClInclude Include="..\..\Source\Libs\json.hpp"/>
-    <ClInclude Include="..\..\Source\Libs\Biquad.h"/>
-    <ClInclude Include="..\..\Source\Effects\Equalizer.h"/>
-    <ClInclude Include="..\..\Source\Effects\NChannelFilter.h"/>
     <ClInclude Include="..\..\Source\PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\PluginEditor.h"/>
-    <ClInclude Include="..\..\Source\AudealizeInterfaces.h"/>
+    <ClInclude Include="..\..\..\common\common.h"/>
+    <ClInclude Include="..\..\..\common\AudealizeInterfaces.h"/>
+    <ClInclude Include="..\..\..\common\effects\Equalizer.h"/>
+    <ClInclude Include="..\..\..\common\effects\NChannelFilter.h"/>
+    <ClInclude Include="..\..\..\common\effects\AudioEffect.h"/>
+    <ClInclude Include="..\..\..\common\effects\Reverb.h"/>
+    <ClInclude Include="..\..\..\common\ui_components\AudealizeUI.h"/>
+    <ClInclude Include="..\..\..\common\ui_components\GraphicEQComponent.h"/>
+    <ClInclude Include="..\..\..\common\libs\calf_dsp_library\buffer.h"/>
+    <ClInclude Include="..\..\..\common\libs\calf_dsp_library\delay.h"/>
+    <ClInclude Include="..\..\..\common\libs\calf_dsp_library\onepole.h"/>
+    <ClInclude Include="..\..\..\common\libs\calf_dsp_library\primitives.h"/>
+    <ClInclude Include="..\..\..\common\libs\Biquad.h"/>
+    <ClInclude Include="..\..\..\common\libs\json.hpp"/>
+    <ClInclude Include="..\..\..\common\libs\PrimeFactors.h"/>
     <ClInclude Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
     <ClInclude Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.h"/>
     <ClInclude Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_FloatVectorOperations.h"/>
@@ -2505,7 +2513,8 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Source\Data\eqpoints.json"/>
+    <None Include="..\..\..\common\data\eqpoints.json"/>
+    <None Include="..\..\..\common\libs\calf_dsp_library\COPYING"/>
     <None Include="..\..\..\..\..\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>
     <None Include="..\..\..\..\..\modules\juce_audio_formats\codecs\oggvorbis\Ogg Vorbis Licence.txt"/>
     <None Include="..\..\..\..\..\modules\juce_audio_plugin_client\AU\AUResources.r"/>

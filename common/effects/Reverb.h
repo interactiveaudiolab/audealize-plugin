@@ -111,8 +111,8 @@ namespace Audealize{
                 sampRevR *= gain;
                 
                 // Delay unprocessed signal to match phase shift caused by the delayed comb filters
-                //sampL = wet * mDelay[0].process(sampDryL, MINDELAY * mSampleRate);
-                //sampR = wet * mDelay[1].process(sampDryR, MINDELAY * mSampleRate);
+                sampL = wet * mDelay[0].process(sampDryL, MINDELAY * mSampleRate);
+                sampR = wet * mDelay[1].process(sampDryR, MINDELAY * mSampleRate);
                 
                 sampL *= gainclean;
                 sampR *= gainclean;
@@ -146,6 +146,7 @@ namespace Audealize{
             set_f(f_val);
             set_E(E_val);
             set_wetdry(wetdry_val);
+            reset();
         }
         
         /**
@@ -194,13 +195,25 @@ namespace Audealize{
         }
         
         /**
-         *overload AudioEffect::setSampleRate to update any variables dependent on the sample rate
+         * Overload AudioEffect::setSampleRate to update any variables dependent on the sample rate
          */
         void setSampleRate(float sampleRate){
             mSampleRate = sampleRate;
             mLowpass.setSampleRate(sampleRate);
             set_m(m);
             set_d(d);
+            reset();
+        }
+        
+        /**
+         *  Zero out all buffers
+         */
+        void reset(){
+            mAllpass[0].reset();
+            mAllpass[1].reset();
+            for (int i = 0; i < 6; i++){
+                mComb[i].reset();
+            }
         }
         
         
@@ -239,7 +252,7 @@ namespace Audealize{
          *  g      = gain factor of first comb filter
          *  m      = delay difference between allpass filters
          *  f      = cutoff frequency of lowpass filters
-         *  E      = @TODO: what is this?
+         *  E      = effect gain
          *  wetdry = wet/dry mix
          */
         float d, g, m, f, E, wetdry;
@@ -248,7 +261,7 @@ namespace Audealize{
         
         float mSample[2], mCombDelay[6], mCombGain[6], mDelayVal[2];
         
-        vector<simple_delay<1024 , float>> mComb, mAllpass, mDelay;
+        vector<simple_delay<512 , float>> mComb, mAllpass, mDelay;
         
         NChannelFilter mLowpass;
         

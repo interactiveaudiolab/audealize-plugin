@@ -56,6 +56,12 @@
             ReferencedContainer = "container:Audealize-Reverb.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <CommandLineArguments>
+         <CommandLineArgument
+            argument = "/Users/michael/JUCE/projects/ReverbTest.logicx"
+            isEnabled = "YES">
+         </CommandLineArgument>
+      </CommandLineArguments>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

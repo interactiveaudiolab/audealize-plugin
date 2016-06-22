@@ -117,15 +117,6 @@ ReverbComponent::ReverbComponent (AudealizeAudioProcessor& p) : processor(p)
     mSliderAttachmentE = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramE, *mSliderE);
     mSliderAttachmentMix = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramWetDry, *mSliderMix);
     
-    //=========================================================================
-    // Listeners
-    p.getValueTreeState().addParameterListener(paramD, this);
-    p.getValueTreeState().addParameterListener(paramG, this);
-    p.getValueTreeState().addParameterListener(paramM, this);
-    p.getValueTreeState().addParameterListener(paramF, this);
-    p.getValueTreeState().addParameterListener(paramE, this);
-    p.getValueTreeState().addParameterListener(paramWetDry, this);
-
     setSize (600, 400);
 }
 
@@ -174,8 +165,4 @@ void ReverbComponent::resized()
     mSliderMix->setBounds (box);
     mLabelMix->setBounds (box);
     box.setX(box.getRight());
-}
-
-void ReverbComponent::parameterChanged(const juce::String &parameterID, float newValue){
-    processor.parameterChanged(parameterID);    
 }

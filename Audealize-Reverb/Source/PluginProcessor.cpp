@@ -28,6 +28,14 @@ AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb(), mDSm
     mState->createAndAddParameter(paramE, "Effect Gain", TRANS ("Effect Gain"), mERange, mDefaultE, nullptr, nullptr);
     mState->createAndAddParameter(paramWetDry, "Wet/Dry Mix", TRANS ("Wet/Dry Mix"), mMixRange, mDefaultMix, nullptr, nullptr);
     
+    // Add Listeners
+    mState->addParameterListener(paramD, this);
+    mState->addParameterListener(paramG, this);
+    mState->addParameterListener(paramM, this);
+    mState->addParameterListener(paramF, this);
+    mState->addParameterListener(paramE, this);
+    mState->addParameterListener(paramWetDry, this);
+    
     mState->state = ValueTree ("Audealize-Reverb");
 }
 
@@ -176,26 +184,24 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
     return new AudealizereverbAudioProcessor();
 }
 
-void AudealizereverbAudioProcessor::parameterChanged(const juce::String &parameterID){
-    float smoothedVal;
-    
+void AudealizereverbAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue){    
     if (parameterID == paramD){
-        mReverb.set_d(mDRange.convertFrom0to1(mState->getParameter(parameterID)->getValue()));
+        mReverb.set_d(newValue);
     }
     else if (parameterID == paramG){
-        mReverb.set_g(mGRange.convertFrom0to1(mState->getParameter(parameterID)->getValue()));
+        mReverb.set_g(newValue);
     }
     else if (parameterID == paramM){
-        mReverb.set_m(mMRange.convertFrom0to1(mState->getParameter(parameterID)->getValue()));
+        mReverb.set_m(newValue);
     }
     else if (parameterID == paramF){
-        mReverb.set_f(mFRange.convertFrom0to1(mState->getParameter(parameterID)->getValue()));
+        mReverb.set_f(newValue);
     }
     else if (parameterID == paramE){
-        mReverb.set_E(mERange.convertFrom0to1(mState->getParameter(parameterID)->getValue()));
+        mReverb.set_E(newValue);
     }
     else if (parameterID == paramWetDry){
-        mReverb.set_wetdry(mMixRange.convertFrom0to1(mState->getParameter(parameterID)->getValue()));
+        mReverb.set_wetdry(newValue);
     }
     debugParams();
 }

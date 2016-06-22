@@ -15,12 +15,11 @@
 
 using std::vector;
 
-class GraphicEQComponent  : public Component ,  AudioProcessorValueTreeState::Listener
+class GraphicEQComponent  : public Component
 {
 public:
     GraphicEQComponent (AudealizeAudioProcessor& p, int numBands);
     ~GraphicEQComponent();
-    void parameterChanged(const String &parameterID, float newValue) override;
 
     void paint (Graphics& g) override;
     void resized() override;

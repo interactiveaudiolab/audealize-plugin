@@ -1,14 +1,7 @@
 #include "ReverbComponent.h"
 
-String ReverbComponent::paramD ("paramD");
-String ReverbComponent::paramG ("paramG");
-String ReverbComponent::paramM ("paramM");
-String ReverbComponent::paramF ("paramF");
-String ReverbComponent::paramE ("paramE");
-String ReverbComponent::paramWetDry ("paramWetDry");
-
 //==============================================================================
-ReverbComponent::ReverbComponent (AudealizeAudioProcessor& p) : processor(p)
+ReverbComponent::ReverbComponent (AudealizereverbAudioProcessor& p) : processor(p)
 {
     //=========================================================================
     // Labels
@@ -94,7 +87,6 @@ ReverbComponent::ReverbComponent (AudealizeAudioProcessor& p) : processor(p)
     mSliderF->setRange (0, 10, 0);
     mSliderF->setSliderStyle (Slider::RotaryVerticalDrag);
     mSliderF->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
-    mSliderF->setSkewFactor (.25);
     
     addAndMakeVisible (mSliderE = new Slider ("mSliderE"));
     mSliderE->setTooltip (TRANS("Effect Gain"));
@@ -110,22 +102,13 @@ ReverbComponent::ReverbComponent (AudealizeAudioProcessor& p) : processor(p)
     
     //=========================================================================
     // SliderAttachments
-    mSliderAttachmentD = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramD, *mSliderD);
-    mSliderAttachmentG = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramG, *mSliderG);
-    mSliderAttachmentM = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramM, *mSliderM);
-    mSliderAttachmentF = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramF, *mSliderF);
-    mSliderAttachmentE = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramE, *mSliderE);
-    mSliderAttachmentMix = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramWetDry, *mSliderMix);
+    mSliderAttachmentD = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), p.paramD, *mSliderD);
+    mSliderAttachmentG = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), p.paramG, *mSliderG);
+    mSliderAttachmentM = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), p.paramM, *mSliderM);
+    mSliderAttachmentF = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), p.paramF, *mSliderF);
+    mSliderAttachmentE = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), p.paramE, *mSliderE);
+    mSliderAttachmentMix = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), p.paramMix, *mSliderMix);
     
-    //=========================================================================
-    // Listeners
-    p.getValueTreeState().addParameterListener(paramD, this);
-    p.getValueTreeState().addParameterListener(paramG, this);
-    p.getValueTreeState().addParameterListener(paramM, this);
-    p.getValueTreeState().addParameterListener(paramF, this);
-    p.getValueTreeState().addParameterListener(paramE, this);
-    p.getValueTreeState().addParameterListener(paramWetDry, this);
-
     setSize (600, 400);
 }
 
@@ -174,8 +157,4 @@ void ReverbComponent::resized()
     mSliderMix->setBounds (box);
     mLabelMix->setBounds (box);
     box.setX(box.getRight());
-}
-
-void ReverbComponent::parameterChanged(const juce::String &parameterID, float newValue){
-    processor.parameterChanged(parameterID);    
 }

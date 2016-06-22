@@ -14,8 +14,6 @@ GraphicEQComponent::GraphicEQComponent (AudealizeAudioProcessor& p, int numBands
         addAndMakeVisible(mGainSliders[i]);
         
         mGainSliderAttachment[i] = new AudioProcessorValueTreeState::SliderAttachment (p.getValueTreeState(), paramID, *mGainSliders[i]);
-        
-        p.getValueTreeState().addParameterListener(paramID, this);
     }
     
     setSize (400, 200);
@@ -43,8 +41,4 @@ void GraphicEQComponent::resized()
         mGainSliders[i]->setBounds(box);
         box.setX(box.getRight());
     }
-}
-
-void GraphicEQComponent::parameterChanged(const juce::String &parameterID, float newValue){
-    processor.parameterChanged(parameterID);
 }

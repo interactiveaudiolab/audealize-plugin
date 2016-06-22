@@ -11,6 +11,7 @@ AudealizeeqAudioProcessor::AudealizeeqAudioProcessor() : mEqualizer(mFreqs, 0.0f
         std::string paramID = "paramGain" + std::to_string(i);
         std::string paramName =  "Gain: " + std::to_string(mFreqs[i]) + " Hz";
         mState->createAndAddParameter(paramID, paramName, TRANS(paramName), mGainRange, mGainRange.snapToLegalValue(0.0f), nullptr, nullptr);
+        mState->addParameterListener(TRANS(paramID), this);
     }
     
     mState->state = ValueTree ("Audealize-EQ");
@@ -79,6 +80,10 @@ void AudealizeeqAudioProcessor::prepareToPlay (double sampleRate, int samplesPer
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
     mEqualizer.setSampleRate(sampleRate);
+    
+    for (int i = 0; i < NUMBANDS; i++){
+        mSmoothers[i] = CParamSmooth(0.5f, sampleRate);
+    }
 }
 
 void AudealizeeqAudioProcessor::releaseResources()
@@ -119,6 +124,15 @@ void AudealizeeqAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuf
 
     const int numSamples = buffer.getNumSamples();
     
+    // Parameter smoothing
+    for (int i = 0; i < NUMBANDS; i++){
+        if(mSmoothers[i].isDirty()){
+            StringRef paramID = TRANS(String("paramGain" + std::to_string(i)));
+            float gain = mGainRange.snapToLegalValue(mSmoothers[i].process(mGainRange.convertFrom0to1(mState->getParameter(paramID)->getValue())));
+            mEqualizer.setBandGain(i, gain);
+        }
+    }
+    
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
@@ -145,16 +159,14 @@ AudioProcessorEditor* AudealizeeqAudioProcessor::createEditor()
     return new AudealizeeqAudioProcessorEditor (*this);
 }
 
-void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID){
+void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue){
     
     //EQ gain slider changed
     if (parameterID.substring(0, 9).equalsIgnoreCase("paramGain")){
         
         int idx = parameterID.substring(9).getIntValue();
         
-        NormalisableRange<float> gainRange = mState->getParameterRange("paramGain0");
-        float gain = gainRange.convertFrom0to1(mState->getParameter(parameterID)->getValue());
-        
+        float gain = mGainRange.snapToLegalValue(mSmoothers[idx].process(newValue));
         mEqualizer.setBandGain(idx, gain);
     }
     

@@ -53,7 +53,7 @@ namespace Audealize{
                 sampRev = processCombs(samp * wet);
                 
                 // Process allpass filter
-                sampRev = mAllpass[0].process_allpass_comb(sampRev, mDelayVal[0], ALLPASSGAIN);
+                sampRev = mAllpass[0].process_allpass_comb(sampRev, mDelayVal[0] * mSampleRate, ALLPASSGAIN);
                 
                 // Process lowpass filter
                 sampRev = mLowpass.processSample(sampRev, 0);
@@ -99,9 +99,9 @@ namespace Audealize{
                 sampRevL = sampRevR = processCombs(sampSum);
                 
                 // Process allpass filters
-                sampRevL = mAllpass[0].process_allpass_comb(sampRevL, mDelayVal[0], ALLPASSGAIN);
+                sampRevL = mAllpass[0].process_allpass_comb(sampRevL, mDelayVal[0] * mSampleRate, ALLPASSGAIN);
                 
-                sampRevR = mAllpass[1].process_allpass_comb(sampRevR, mDelayVal[0], ALLPASSGAIN);
+                sampRevR = mAllpass[1].process_allpass_comb(sampRevR, mDelayVal[1] * mSampleRate, ALLPASSGAIN);
                 
                 // Process lowpass filters
                 sampRevL = mLowpass.processSample(sampRevL, 0);
@@ -261,10 +261,9 @@ namespace Audealize{
         
         float mSample[2], mCombDelay[6], mCombGain[6], mDelayVal[2];
         
-        vector<simple_delay<512 , float>> mComb, mAllpass, mDelay;
+        vector<simple_delay<9600, float>> mComb, mAllpass, mDelay;
         
         NChannelFilter mLowpass;
-        
 
         /**
          *  Processes an audio sample through a network of parallel comb filters
@@ -276,7 +275,7 @@ namespace Audealize{
         float processCombs(float sample){
             float outSample = 0;
             for (int i = 0; i < mComb.size(); i++){
-                outSample += mComb[i].process_comb(sample, mCombDelay[i], mCombGain[i]);
+                outSample += mComb[i].process_comb(sample, mCombDelay[i] * mSampleRate, mCombGain[i]);
             }
             return outSample;
         }

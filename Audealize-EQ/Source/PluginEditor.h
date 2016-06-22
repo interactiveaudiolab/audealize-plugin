@@ -9,7 +9,7 @@
 //==============================================================================
 /**
 */
-class AudealizeeqAudioProcessorEditor  : public AudioProcessorEditor, AudioProcessorValueTreeState::Listener
+class AudealizeeqAudioProcessorEditor  : public AudioProcessorEditor
 {
 public:
     AudealizeeqAudioProcessorEditor (AudealizeeqAudioProcessor&);
@@ -18,9 +18,7 @@ public:
     //==============================================================================
     void paint (Graphics&) override;
     void resized() override;
-    
-    void parameterChanged(const String &parameterID, float newValue) override;
-    
+        
 private:
     AudealizeeqAudioProcessor& processor;
     

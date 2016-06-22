@@ -34,7 +34,3 @@ void AudealizeeqAudioProcessorEditor::resized()
     Rectangle<int> box (getLocalBounds());
     mEqualizerComponent->setBounds(box);
 }
-
-void AudealizeeqAudioProcessorEditor::parameterChanged(const juce::String &parameterID, float newValue){
-    ((AudealizeeqAudioProcessor*)getAudioProcessor())->parameterChanged(parameterID);
-}

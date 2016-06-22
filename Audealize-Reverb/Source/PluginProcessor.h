@@ -7,7 +7,7 @@
 
 using namespace Audealize;
 
-class AudealizereverbAudioProcessor  : public AudealizeAudioProcessor
+class AudealizereverbAudioProcessor  : public AudealizeAudioProcessor, public AudioProcessorValueTreeState::Listener
 {
 public:
     AudealizereverbAudioProcessor();
@@ -37,32 +37,45 @@ public:
     const String getProgramName (int index) override;
     void changeProgramName (int index, const String& newName) override;
     
-    void parameterChanged(const juce::String &parameterID);
+    void parameterChanged(const juce::String &parameterID, float newValue) override;
+    
+    enum Parameters{
+        kParamD,
+        kParamG,
+        kParamM,
+        kParamF,
+        kParamE,
+        kParamMix,
+        kNumParams
+    };
     
     static String paramD;
     static String paramG;
     static String paramM;
     static String paramF;
     static String paramE;
-    static String paramWetDry;
+    static String paramMix;
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizereverbAudioProcessor)
     
     Audealize::Reverb mReverb;
     
-    NormalisableRange<float> mDRange, mGRange, mMRange, mFRange, mERange, mMixRange;
+    NormalisableRange<float> mParamRange[kNumParams];
     
-    CParamSmooth mDSmoother, mGSmoother, mMSmoother, mFSmoother, mESmoother, mMixSmoother;
+    CParamSmooth mSmoother[kNumParams];
+    float paramTargetVal[kNumParams];
     
-    const float mDefaultD   = 0.05f;
-    const float mDefaultG   = 0.5f;
-    const float mDefaultM   = 0.003f;
-    const float mDefaultF   = 5500.0f;
-    const float mDefaultE   = 1.0f;
-    const float mDefaultMix = 0.75f;
+    const float DEFAULT_D   = 0.05f;
+    const float DEFAULT_G   = 0.5f;
+    const float DEFAULT_M   = 0.005f;
+    const float DEFAULT_F   = 5500.0f;
+    const float DEFAULT_E   = 0.95f;
+    const float DEFAULT_MIX = 0.75f;
     
     void debugParams();
+    
+    String toID(int index);
 };
 
 

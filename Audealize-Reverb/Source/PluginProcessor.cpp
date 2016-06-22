@@ -14,8 +14,8 @@ AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb(), mDSm
 {
     // initialize parameter ranges
     mDRange   = NormalisableRange<float>(0.01f, 0.1f, 0.0001f);
-    mGRange   = NormalisableRange<float>(0.01f, 0.7f, 0.0001f);
-    mMRange   = NormalisableRange<float>(0.00f, 0.012f, 0.0001f);
+    mGRange   = NormalisableRange<float>(0.01f, 1.0f, 0.0001f);
+    mMRange   = NormalisableRange<float>(-0.012f, 0.012f, 0.0001f);
     mFRange   = NormalisableRange<float>(20.0f, 20000.0f, 0.1f, 0.25);
     mERange   = NormalisableRange<float>(0.0f, 1.0f, 0.0001f);
     mMixRange = NormalisableRange<float>(0.0f, 1.0f, 0.0001f);

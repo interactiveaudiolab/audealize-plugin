@@ -12,7 +12,7 @@ using namespace Audealize;
 //==============================================================================
 /**
 */
-class AudealizeeqAudioProcessor  : public AudealizeAudioProcessor
+class AudealizeeqAudioProcessor  : public AudealizeAudioProcessor, public AudioProcessorValueTreeState::Listener
 {
 public:
     //==============================================================================
@@ -48,7 +48,7 @@ public:
     void changeProgramName (int index, const String& newName) override;
 
     
-    void parameterChanged(const juce::String &parameterID);
+    void parameterChanged(const juce::String &parameterID, float newValue) override;
     
 private:
     //==============================================================================

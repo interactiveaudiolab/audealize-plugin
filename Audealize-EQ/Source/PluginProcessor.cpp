@@ -11,6 +11,7 @@ AudealizeeqAudioProcessor::AudealizeeqAudioProcessor() : mEqualizer(mFreqs, 0.0f
         std::string paramID = "paramGain" + std::to_string(i);
         std::string paramName =  "Gain: " + std::to_string(mFreqs[i]) + " Hz";
         mState->createAndAddParameter(paramID, paramName, TRANS(paramName), mGainRange, mGainRange.snapToLegalValue(0.0f), nullptr, nullptr);
+        mState->addParameterListener(TRANS(paramID), this);
     }
     
     mState->state = ValueTree ("Audealize-EQ");
@@ -145,7 +146,7 @@ AudioProcessorEditor* AudealizeeqAudioProcessor::createEditor()
     return new AudealizeeqAudioProcessorEditor (*this);
 }
 
-void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID){
+void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue){
     
     //EQ gain slider changed
     if (parameterID.substring(0, 9).equalsIgnoreCase("paramGain")){
@@ -153,7 +154,7 @@ void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID
         int idx = parameterID.substring(9).getIntValue();
         
         NormalisableRange<float> gainRange = mState->getParameterRange("paramGain0");
-        float gain = gainRange.convertFrom0to1(mState->getParameter(parameterID)->getValue());
+        float gain = gainRange.convertFrom0to1(newValue);
         
         mEqualizer.setBandGain(idx, gain);
     }

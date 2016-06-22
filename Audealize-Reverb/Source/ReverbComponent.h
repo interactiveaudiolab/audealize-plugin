@@ -8,7 +8,7 @@
 class ReverbComponent  : public Component
 {
 public:
-    ReverbComponent (AudealizeAudioProcessor& p);
+    ReverbComponent (AudealizereverbAudioProcessor& p);
     ~ReverbComponent();
 
     void paint (Graphics& g) override;
@@ -23,9 +23,7 @@ private:
     ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mSliderAttachmentD, mSliderAttachmentG, mSliderAttachmentM, mSliderAttachmentF, mSliderAttachmentE, mSliderAttachmentMix;
     
     ScopedPointer<Label> mLabelD, mLabelG, mLabelM, mLabelF, mLabelE, mLabelMix;
-    
-    static String paramD, paramG, paramM, paramF, paramE, paramWetDry;
-    
+        
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ReverbComponent)
 };

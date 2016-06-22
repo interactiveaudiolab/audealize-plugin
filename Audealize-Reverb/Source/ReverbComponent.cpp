@@ -1,14 +1,7 @@
 #include "ReverbComponent.h"
 
-String ReverbComponent::paramD ("paramD");
-String ReverbComponent::paramG ("paramG");
-String ReverbComponent::paramM ("paramM");
-String ReverbComponent::paramF ("paramF");
-String ReverbComponent::paramE ("paramE");
-String ReverbComponent::paramWetDry ("paramWetDry");
-
 //==============================================================================
-ReverbComponent::ReverbComponent (AudealizeAudioProcessor& p) : processor(p)
+ReverbComponent::ReverbComponent (AudealizereverbAudioProcessor& p) : processor(p)
 {
     //=========================================================================
     // Labels
@@ -109,12 +102,12 @@ ReverbComponent::ReverbComponent (AudealizeAudioProcessor& p) : processor(p)
     
     //=========================================================================
     // SliderAttachments
-    mSliderAttachmentD = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramD, *mSliderD);
-    mSliderAttachmentG = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramG, *mSliderG);
-    mSliderAttachmentM = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramM, *mSliderM);
-    mSliderAttachmentF = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramF, *mSliderF);
-    mSliderAttachmentE = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramE, *mSliderE);
-    mSliderAttachmentMix = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramWetDry, *mSliderMix);
+    mSliderAttachmentD = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), p.paramD, *mSliderD);
+    mSliderAttachmentG = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), p.paramG, *mSliderG);
+    mSliderAttachmentM = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), p.paramM, *mSliderM);
+    mSliderAttachmentF = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), p.paramF, *mSliderF);
+    mSliderAttachmentE = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), p.paramE, *mSliderE);
+    mSliderAttachmentMix = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), p.paramMix, *mSliderMix);
     
     setSize (600, 400);
 }

@@ -261,10 +261,9 @@ namespace Audealize{
         
         float mSample[2], mCombDelay[6], mCombGain[6], mDelayVal[2];
         
-        vector<simple_delay<4096 , float>> mComb, mAllpass, mDelay;
+        vector<simple_delay<9600, float>> mComb, mAllpass, mDelay;
         
         NChannelFilter mLowpass;
-        
 
         /**
          *  Processes an audio sample through a network of parallel comb filters

@@ -8,33 +8,33 @@ String AudealizereverbAudioProcessor::paramG ("paramG");
 String AudealizereverbAudioProcessor::paramM ("paramM");
 String AudealizereverbAudioProcessor::paramF ("paramF");
 String AudealizereverbAudioProcessor::paramE ("paramE");
-String AudealizereverbAudioProcessor::paramWetDry ("paramWetDry");
+String AudealizereverbAudioProcessor::paramMix ("paramMix");
 
-AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb(), mDSmoother(), mGSmoother(), mMSmoother(), mFSmoother(), mESmoother(), mMixSmoother()
+AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb()
 {
     // initialize parameter ranges
-    mDRange   = NormalisableRange<float>(0.01f, 0.1f, 0.0001f);
-    mGRange   = NormalisableRange<float>(0.01f, 1.0f, 0.0001f);
-    mMRange   = NormalisableRange<float>(-0.012f, 0.012f, 0.0001f);
-    mFRange   = NormalisableRange<float>(20.0f, 20000.0f, 0.1f, 0.25);
-    mERange   = NormalisableRange<float>(0.0f, 1.0f, 0.0001f);
-    mMixRange = NormalisableRange<float>(0.0f, 1.0f, 0.0001f);
+    mParamRange[kParamD]   = NormalisableRange<float>(0.01f, 0.1f, 0.0001f);
+    mParamRange[kParamG]   = NormalisableRange<float>(0.01f, 1.0f, 0.0001f);
+    mParamRange[kParamM]   = NormalisableRange<float>(-0.012f, 0.012f, 0.0001f);
+    mParamRange[kParamF]   = NormalisableRange<float>(20.0f, 20000.0f, 0.1f, 0.25);
+    mParamRange[kParamE]   = NormalisableRange<float>(0.0f, 1.0f, 0.0001f);
+    mParamRange[kParamMix] = NormalisableRange<float>(0.0f, 1.0f, 0.0001f);
     
     // Initialize parameters
-    mState->createAndAddParameter(paramD, "Delay of comb filters", TRANS ("Delay of comb filters"), mDRange, DEFAULT_D, nullptr, nullptr);
-    mState->createAndAddParameter(paramG, "Gain of comb filters", TRANS ("Gain of comb filters"), mGRange, DEFAULT_G, nullptr, nullptr);
-    mState->createAndAddParameter(paramM, "Delay between channels", TRANS ("Delay between channels"), mMRange, DEFAULT_M, nullptr, nullptr);
-    mState->createAndAddParameter(paramF, "LP Cutoff", TRANS ("LP Cutoff"), mFRange, DEFAULT_F, nullptr, nullptr);
-    mState->createAndAddParameter(paramE, "Effect Gain", TRANS ("Effect Gain"), mERange, DEFAULT_E, nullptr, nullptr);
-    mState->createAndAddParameter(paramWetDry, "Wet/Dry Mix", TRANS ("Wet/Dry Mix"), mMixRange, DEFAULT_MIX, nullptr, nullptr);
-    
+    mState->createAndAddParameter(paramD, "Delay of comb filters", TRANS ("Delay of comb filters"), mParamRange[kParamD], DEFAULT_D, nullptr, nullptr);
+    mState->createAndAddParameter(paramG, "Gain of comb filters", TRANS ("Gain of comb filters"), mParamRange[kParamG], DEFAULT_G, nullptr, nullptr);
+    mState->createAndAddParameter(paramM, "Delay between channels", TRANS ("Delay between channels"), mParamRange[kParamM], DEFAULT_M, nullptr, nullptr);
+    mState->createAndAddParameter(paramF, "LP Cutoff", TRANS ("LP Cutoff"), mParamRange[kParamF], DEFAULT_F, nullptr, nullptr);
+    mState->createAndAddParameter(paramE, "Effect Gain", TRANS ("Effect Gain"), mParamRange[kParamE], DEFAULT_E, nullptr, nullptr);
+    mState->createAndAddParameter(paramMix, "Wet/Dry Mix", TRANS ("Wet/Dry Mix"), mParamRange[kParamMix], DEFAULT_MIX, nullptr, nullptr);
+
     // Add Listeners
     mState->addParameterListener(paramD, this);
     mState->addParameterListener(paramG, this);
     mState->addParameterListener(paramM, this);
     mState->addParameterListener(paramF, this);
     mState->addParameterListener(paramE, this);
-    mState->addParameterListener(paramWetDry, this);
+    mState->addParameterListener(paramMix, this);
     
     mState->state = ValueTree ("Audealize-Reverb");
 }
@@ -102,12 +102,13 @@ void AudealizereverbAudioProcessor::prepareToPlay (double sampleRate, int sample
     debugParams();
     
     // Initialize parameter smoothers
-    mDSmoother.init(5.0f, sampleRate);
-    mGSmoother.init(5.0f, sampleRate);
-    mMSmoother.init(5.0f, sampleRate);
-    mFSmoother.init(5.0f, sampleRate);
-    mESmoother.init(5.0f, sampleRate);
-    mMixSmoother.init(5.0f, sampleRate);
+    for (int i = 0; i < kNumParams; i++){
+        if (i == kParamM)
+            // Channel delay requires a slower smoothing time to avoid artifacts
+            mSmoother[i].init(3.0f, sampleRate);
+        else
+            mSmoother[i].init(1.0f, sampleRate);
+    }
 }
 
 void AudealizereverbAudioProcessor::releaseResources()
@@ -154,7 +155,30 @@ void AudealizereverbAudioProcessor::processBlock (AudioSampleBuffer& buffer, Mid
     for (int i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
 
-    
+    // Parameter smoothing
+    float fullRange;
+    if (mSmoother[kParamG].isDirty()){
+        fullRange = mParamRange[kParamG].convertFrom0to1(mState->getParameter(paramG)->getValue());
+        mReverb.set_g(mParamRange[kParamG].snapToLegalValue(mSmoother[kParamG].process(fullRange)));
+       
+    }
+    if (mSmoother[kParamM].isDirty()){
+        fullRange = mParamRange[kParamM].convertFrom0to1(mState->getParameter(paramM)->getValue());
+        mReverb.set_m(mParamRange[kParamM].snapToLegalValue(mSmoother[kParamM].process(mState->getParameter(paramM)->getValue())));
+    }
+    if (mSmoother[kParamF].isDirty()){
+        fullRange = mParamRange[kParamF].convertFrom0to1(mState->getParameter(paramF)->getValue());
+        mReverb.set_f(mParamRange[kParamF].snapToLegalValue(mSmoother[kParamF].process(fullRange)));
+    }
+    if (mSmoother[kParamE].isDirty()){
+        fullRange = mParamRange[kParamE].convertFrom0to1(mState->getParameter(paramE)->getValue());
+        mReverb.set_E(mParamRange[kParamE].snapToLegalValue(mSmoother[kParamE].process(fullRange)));
+    }
+    if (mSmoother[kParamMix].isDirty()){
+        fullRange = mParamRange[kParamMix].convertFrom0to1(mState->getParameter(paramMix)->getValue());
+        mReverb.set_wetdry(mParamRange[kParamMix].snapToLegalValue(mSmoother[kParamMix].process(fullRange)));
+    }
+        
     // Process reverb
     if (totalNumInputChannels == 1){
         float* channelData = buffer.getWritePointer(0);
@@ -186,26 +210,57 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 
 void AudealizereverbAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue){    
     if (parameterID == paramD){
-        mReverb.set_d(newValue);
+        //mReverb.set_d(mParamRange[kParamD].snapToLegalValue(mSmoother[kParamD].process(newValue)));
+        
+        // Changing d will create artifacts no matter what, smoothing the value just exacerbates the issue
+        mReverb.set_d(mParamRange[kParamD].snapToLegalValue(newValue));
     }
     else if (parameterID == paramG){
-        mReverb.set_g(newValue);
+        mReverb.set_g(mParamRange[kParamG].snapToLegalValue(mSmoother[kParamG].process(newValue)));
     }
     else if (parameterID == paramM){
-        mReverb.set_m(newValue);
+        mReverb.set_m(mParamRange[kParamM].snapToLegalValue(mSmoother[kParamM].process(newValue)));
     }
     else if (parameterID == paramF){
-        mReverb.set_f(newValue);
+        mReverb.set_f(mParamRange[kParamF].snapToLegalValue(mSmoother[kParamF].process(newValue)));
     }
     else if (parameterID == paramE){
-        mReverb.set_E(newValue);
+        mReverb.set_E(mParamRange[kParamE].snapToLegalValue(mSmoother[kParamE].process(newValue)));
     }
-    else if (parameterID == paramWetDry){
-        mReverb.set_wetdry(newValue);
+    else if (parameterID == paramMix){
+        mReverb.set_wetdry(mParamRange[kParamMix].snapToLegalValue(mSmoother[kParamMix].process(newValue)));
     }
-    debugParams();
+    //debugParams();
 }
 
 void AudealizereverbAudioProcessor::debugParams(){
     DBG("d: " << mReverb.get_d() << " g: " << mReverb.get_g() << " m: " << mReverb.get_m() << " f: " << mReverb.get_f() << " E: " << mReverb.get_E());
+}
+
+/**
+ *  Transaltes a parameter index to its corresponding ID string
+ */
+String AudealizereverbAudioProcessor::toID(int index){
+    switch (index) {
+        case kParamD:
+            return paramD;
+        
+        case kParamG:
+            return paramG;
+            
+        case kParamM:
+            return paramM;
+            
+        case kParamF:
+            return paramF;
+            
+        case kParamE:
+            return paramE;
+            
+        case kParamMix:
+            return paramMix;
+            
+        default:
+            break;
+    }
 }

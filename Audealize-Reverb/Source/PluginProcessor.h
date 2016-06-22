@@ -39,21 +39,32 @@ public:
     
     void parameterChanged(const juce::String &parameterID, float newValue) override;
     
+    enum Parameters{
+        kParamD,
+        kParamG,
+        kParamM,
+        kParamF,
+        kParamE,
+        kParamMix,
+        kNumParams
+    };
+    
     static String paramD;
     static String paramG;
     static String paramM;
     static String paramF;
     static String paramE;
-    static String paramWetDry;
+    static String paramMix;
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizereverbAudioProcessor)
     
     Audealize::Reverb mReverb;
     
-    NormalisableRange<float> mDRange, mGRange, mMRange, mFRange, mERange, mMixRange;
+    NormalisableRange<float> mParamRange[kNumParams];
     
-    CParamSmooth mDSmoother, mGSmoother, mMSmoother, mFSmoother, mESmoother, mMixSmoother;
+    CParamSmooth mSmoother[kNumParams];
+    float paramTargetVal[kNumParams];
     
     const float DEFAULT_D   = 0.05f;
     const float DEFAULT_G   = 0.5f;
@@ -63,6 +74,8 @@ private:
     const float DEFAULT_MIX = 0.75f;
     
     void debugParams();
+    
+    String toID(int index);
 };
 
 

@@ -24,6 +24,9 @@
       <FILE id="UFuECi" name="common.h" compile="0" resource="0" file="../common/common.h"/>
       <FILE id="B1JMvU" name="AudealizeInterfaces.h" compile="0" resource="0"
             file="../common/AudealizeInterfaces.h"/>
+      <GROUP id="{7EFF10EF-E913-3E5C-4E10-082A9C845223}" name="utils">
+        <FILE id="CZMZ5v" name="CParamSmooth.h" compile="0" resource="0" file="../common/utils/CParamSmooth.h"/>
+      </GROUP>
       <GROUP id="{BBE7C1B4-B3C1-B2E2-D285-7D14E4971902}" name="data">
         <FILE id="fWLScq" name="eqpoints.json" compile="0" resource="1" file="../common/data/eqpoints.json"/>
       </GROUP>

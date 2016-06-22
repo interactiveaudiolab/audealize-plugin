@@ -10,8 +10,6 @@
 using namespace Audealize;
 
 //==============================================================================
-/**
-*/
 class AudealizeeqAudioProcessor  : public AudealizeAudioProcessor, public AudioProcessorValueTreeState::Listener
 {
 public:
@@ -53,6 +51,8 @@ public:
 private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeeqAudioProcessor)
+    
+    CParamSmooth mSmoothers[NUMBANDS];
     
     NormalisableRange<float> mGainRange = NormalisableRange<float>(-40.0f, 40.0f, 0.0001f);
     

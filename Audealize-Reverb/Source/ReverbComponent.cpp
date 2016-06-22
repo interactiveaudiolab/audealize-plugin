@@ -1,7 +1,14 @@
 #include "ReverbComponent.h"
 
+String ReverbComponent::paramD ("paramD");
+String ReverbComponent::paramG ("paramG");
+String ReverbComponent::paramM ("paramM");
+String ReverbComponent::paramF ("paramF");
+String ReverbComponent::paramE ("paramE");
+String ReverbComponent::paramWetDry ("paramWetDry");
+
 //==============================================================================
-ReverbComponent::ReverbComponent (AudealizereverbAudioProcessor& p) : processor(p)
+ReverbComponent::ReverbComponent (AudealizeAudioProcessor& p) : processor(p)
 {
     //=========================================================================
     // Labels
@@ -69,22 +76,19 @@ ReverbComponent::ReverbComponent (AudealizereverbAudioProcessor& p) : processor(
     mSliderD->setRange (0, 10, 0);
     mSliderD->setSliderStyle (Slider::RotaryVerticalDrag);
     mSliderD->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
-    mSliderD->setRange(processor.getParamRange(AudealizereverbAudioProcessor::paramD).start, processor.getParamRange(AudealizereverbAudioProcessor::paramD).end, .0001);
     
     addAndMakeVisible (mSliderG = new Slider ("mSliderG"));
     mSliderG->setTooltip (TRANS("Gain of comb filters"));
     mSliderG->setRange (0, 10, 0);
     mSliderG->setSliderStyle (Slider::RotaryVerticalDrag);
     mSliderG->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
-    mSliderG->setRange(processor.getParamRange(AudealizereverbAudioProcessor::paramG).start, processor.getParamRange(AudealizereverbAudioProcessor::paramG).end, .0001);
     
     addAndMakeVisible (mSliderM = new Slider ("mSliderM"));
     mSliderM->setTooltip (TRANS("Delay between channels"));
     mSliderM->setRange (0, 10, 0);
     mSliderM->setSliderStyle (Slider::RotaryVerticalDrag);
     mSliderM->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
-    mSliderM->setRange(processor.getParamRange(AudealizereverbAudioProcessor::paramD).start, processor.getParamRange(AudealizereverbAudioProcessor::paramD).end, .0001);
-    mSliderM->set
+    
     addAndMakeVisible (mSliderF = new Slider ("mSliderF"));
     mSliderF->setTooltip (TRANS("Cutoff frequency"));
     mSliderF->setRange (0, 10, 0);
@@ -106,6 +110,21 @@ ReverbComponent::ReverbComponent (AudealizereverbAudioProcessor& p) : processor(
     
     //=========================================================================
     // SliderAttachments
+    mSliderAttachmentD = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramD, *mSliderD);
+    mSliderAttachmentG = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramG, *mSliderG);
+    mSliderAttachmentM = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramM, *mSliderM);
+    mSliderAttachmentF = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramF, *mSliderF);
+    mSliderAttachmentE = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramE, *mSliderE);
+    mSliderAttachmentMix = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), paramWetDry, *mSliderMix);
+    
+    //=========================================================================
+    // Listeners
+    p.getValueTreeState().addParameterListener(paramD, this);
+    p.getValueTreeState().addParameterListener(paramG, this);
+    p.getValueTreeState().addParameterListener(paramM, this);
+    p.getValueTreeState().addParameterListener(paramF, this);
+    p.getValueTreeState().addParameterListener(paramE, this);
+    p.getValueTreeState().addParameterListener(paramWetDry, this);
 
     setSize (600, 400);
 }
@@ -118,12 +137,13 @@ ReverbComponent::~ReverbComponent()
     mSliderF = nullptr;
     mSliderE = nullptr;
     mSliderMix = nullptr;
-    mLabelD = nullptr;
-    mLabelG = nullptr;
-    mLabelM = nullptr;
-    mLabelF = nullptr;
-    mLabelE = nullptr;
-    mLabelMix = nullptr;
+    
+    mSliderAttachmentD = nullptr;
+    mSliderAttachmentG = nullptr;
+    mSliderAttachmentM = nullptr;
+    mSliderAttachmentF = nullptr;
+    mSliderAttachmentE = nullptr;
+    mSliderAttachmentMix = nullptr;
 }
 
 //==============================================================================
@@ -156,6 +176,6 @@ void ReverbComponent::resized()
     box.setX(box.getRight());
 }
 
-void ReverbComponent:sliderValueChanged (Slider* sliderThatWasMoved){
+void ReverbComponent::parameterChanged(const juce::String &parameterID, float newValue){
     processor.parameterChanged(parameterID);    
 }

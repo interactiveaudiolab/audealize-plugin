@@ -55,12 +55,12 @@ private:
     
     CParamSmooth mDSmoother, mGSmoother, mMSmoother, mFSmoother, mESmoother, mMixSmoother;
     
-    const float mDefaultD   = 0.05f;
-    const float mDefaultG   = 0.5f;
-    const float mDefaultM   = 0.003f;
-    const float mDefaultF   = 5500.0f;
-    const float mDefaultE   = 1.0f;
-    const float mDefaultMix = 0.75f;
+    const float DEFAULT_D   = 0.05f;
+    const float DEFAULT_G   = 0.5f;
+    const float DEFAULT_M   = 0.005f;
+    const float DEFAULT_F   = 5500.0f;
+    const float DEFAULT_E   = 0.95f;
+    const float DEFAULT_MIX = 0.75f;
     
     void debugParams();
 };

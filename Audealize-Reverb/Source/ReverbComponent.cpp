@@ -94,7 +94,6 @@ ReverbComponent::ReverbComponent (AudealizeAudioProcessor& p) : processor(p)
     mSliderF->setRange (0, 10, 0);
     mSliderF->setSliderStyle (Slider::RotaryVerticalDrag);
     mSliderF->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
-    mSliderF->setSkewFactor (.25);
     
     addAndMakeVisible (mSliderE = new Slider ("mSliderE"));
     mSliderE->setTooltip (TRANS("Effect Gain"));

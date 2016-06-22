@@ -14,9 +14,9 @@ AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb()
 {
     // initialize parameter ranges
     mParamRange[kParamD]   = NormalisableRange<float>(0.01f, 0.1f, 0.0001f);
-    mParamRange[kParamG]   = NormalisableRange<float>(0.01f, 1.0f, 0.0001f);
+    mParamRange[kParamG]   = NormalisableRange<float>(0.01f, 0.96f, 0.0001f);
     mParamRange[kParamM]   = NormalisableRange<float>(-0.012f, 0.012f, 0.0001f);
-    mParamRange[kParamF]   = NormalisableRange<float>(20.0f, 20000.0f, 0.1f, 0.25);
+    mParamRange[kParamF]   = NormalisableRange<float>(20.0f, 20000.0f, 0.1f);
     mParamRange[kParamE]   = NormalisableRange<float>(0.0f, 1.0f, 0.0001f);
     mParamRange[kParamMix] = NormalisableRange<float>(0.0f, 1.0f, 0.0001f);
     
@@ -98,7 +98,13 @@ void AudealizereverbAudioProcessor::changeProgramName (int index, const String& 
 void AudealizereverbAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     // Initialize reverberator
-    mReverb.init(DEFAULT_D, DEFAULT_G, DEFAULT_M, DEFAULT_F, DEFAULT_E, DEFAULT_MIX, sampleRate);
+    mReverb.init(mParamRange[kParamD].snapToLegalValue(DEFAULT_D),
+                 mParamRange[kParamG].snapToLegalValue(DEFAULT_G),
+                 mParamRange[kParamM].snapToLegalValue(DEFAULT_M),
+                 mParamRange[kParamF].snapToLegalValue(DEFAULT_F),
+                 mParamRange[kParamE].snapToLegalValue(DEFAULT_E),
+                 mParamRange[kParamMix].snapToLegalValue(DEFAULT_MIX),
+                 sampleRate);
     debugParams();
     
     // Initialize parameter smoothers
@@ -230,7 +236,7 @@ void AudealizereverbAudioProcessor::parameterChanged(const juce::String &paramet
     else if (parameterID == paramMix){
         mReverb.set_wetdry(mParamRange[kParamMix].snapToLegalValue(mSmoother[kParamMix].process(newValue)));
     }
-    //debugParams();
+    debugParams();
 }
 
 void AudealizereverbAudioProcessor::debugParams(){

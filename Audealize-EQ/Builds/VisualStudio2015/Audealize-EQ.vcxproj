@@ -1843,6 +1843,7 @@
     <ClInclude Include="..\..\Source\PluginEditor.h"/>
     <ClInclude Include="..\..\..\common\common.h"/>
     <ClInclude Include="..\..\..\common\AudealizeInterfaces.h"/>
+    <ClInclude Include="..\..\..\common\utils\CParamSmooth.h"/>
     <ClInclude Include="..\..\..\common\effects\Equalizer.h"/>
     <ClInclude Include="..\..\..\common\effects\NChannelFilter.h"/>
     <ClInclude Include="..\..\..\common\effects\AudioEffect.h"/>

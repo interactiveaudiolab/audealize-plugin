@@ -7,7 +7,7 @@
 
 using namespace Audealize;
 
-class AudealizereverbAudioProcessor  : public AudealizeAudioProcessor
+class AudealizereverbAudioProcessor  : public AudioProcessor
 {
 public:
     AudealizereverbAudioProcessor();
@@ -25,42 +25,52 @@ public:
     AudioProcessorEditor* createEditor() override;
     bool hasEditor() const override;
 
+    //==============================================================================
     const String getName() const override;
 
+    int getNumParameters() override;
+    void setParameter (int index, float newValue) override;
+    
     bool acceptsMidi() const override;
     bool producesMidi() const override;
     double getTailLengthSeconds() const override;
 
+    //==============================================================================
     int getNumPrograms() override;
     int getCurrentProgram() override;
     void setCurrentProgram (int index) override;
     const String getProgramName (int index) override;
     void changeProgramName (int index, const String& newName) override;
     
-    void parameterChanged(const juce::String &parameterID);
+    NormalisableRange<float>* getParamRange(int index);
     
-    static String paramD;
-    static String paramG;
-    static String paramM;
-    static String paramF;
-    static String paramE;
-    static String paramWetDry;
-
+    enum Parameters {
+        paramD,
+        paramG,
+        paramM,
+        paramF,
+        paramE,
+        paramMix,
+        numParams
+    };
+    
+    
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizereverbAudioProcessor)
     
     Audealize::Reverb mReverb;
     
-    NormalisableRange<float> mDRange, mGRange, mMRange, mFRange, mERange, mMixRange;
-    
+    NormalisableRange<float> mParamRanges[numParams];
     CParamSmooth mDSmoother, mGSmoother, mMSmoother, mFSmoother, mESmoother, mMixSmoother;
     
-    const float mDefaultD   = 0.05f;
-    const float mDefaultG   = 0.5f;
-    const float mDefaultM   = 0.003f;
-    const float mDefaultF   = 5500.0f;
-    const float mDefaultE   = 1.0f;
-    const float mDefaultMix = 0.75f;
+    AudioParameterFloat* mParams[numParams];
+    
+    const float DEFAULT_D   = 0.05f;
+    const float DEFAULT_G   = 0.5f;
+    const float DEFAULT_M   = 0.003f;
+    const float DEFAULT_F   = 5500.0f;
+    const float DEFAULT_E   = 1.0f;
+    const float DEFAULT_MIX = 0.75f;
     
     void debugParams();
 };

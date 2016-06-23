@@ -9,9 +9,6 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints) : pro
     infile.open(mPathToPoints.toUTF8());
     mPoints = json::parse(infile);
 
-    //addAndMakeVisible (mMap = new Component());
-    mMap->setName ("Descriptor Map");
-
 //    addAndMakeVisible (textEditor = new TextEditor ("new text editor"));
 //    textEditor->setMultiLine (false);
 //    textEditor->setReturnKeyStartsNewLine (false);
@@ -54,9 +51,8 @@ void AudealizeUI::paint (Graphics& g)
         point.setX((0.1f + (float)it.value()["x"] * 0.8f) * getWidth());
         point.setY((0.05f + (float)it.value()["y"] * 0.9f) * getHeight());
         //@TODO font_size, color, calc center_point
-        
+
         collision = check_for_collision(point, plotted, font_size + word.length() + pad);
-        
         
         if (hovering) {
             hover_radius = inRadius(point, hover_position, 75);
@@ -72,8 +68,7 @@ void AudealizeUI::paint (Graphics& g)
 
 void AudealizeUI::resized()
 {
-    mMap->setBounds (0, 0, 616, 400);
-    textEditor->setBounds (8, 8, 150, 24);
+    //textEditor->setBounds (8, 8, 150, 24);
 }
 
 void AudealizeUI::mouseMove (const MouseEvent& e)

@@ -10,7 +10,7 @@ AudealizeeqAudioProcessorEditor::AudealizeeqAudioProcessorEditor (AudealizeeqAud
     addAndMakeVisible(mEqualizerComponent);
     
     mAudealizeUI = new AudealizeUI(p, PATH_TO_POINTS);
-    //addAndMakeVisible(mAudealizeUI);
+    addAndMakeVisible(mAudealizeUI);
     
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.

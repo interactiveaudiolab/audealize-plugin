@@ -24,29 +24,53 @@ public:
 private:
     AudealizeAudioProcessor& processor;
     
-    ScopedPointer<Component> mMap;
-    ScopedPointer<TextEditor> textEditor;
+    ScopedPointer<TextEditor> text_editor;
     
-    json mPoints;
+    json json_dict, word_dict;
 
-    String mPathToPoints, mSelected, mHovered;
+    String path_to_points, selected, hovered;
 
-    Point<float> hover_position;
+    Point<float> hover_position, circle_position;
     
-    bool hovering;
+    vector<String> languages, words;
     
+    vector<Point<float>> points, excluded_points;
+    
+    vector<vector<float>> params;
+    
+    vector<int> font_sizes;
+    
+    vector<Colour> colors;
+    
+    float min_variance, max_variance, variance_thresh;
+    
+    int center_index;
+    
+    bool is_hovering;
+    
+    
+    //=====================================================================
+
     const int pad = 2;
     const float unhighlighted_alpha_value = 0.7f;
     const float hover_alpha_value = 0.15f;
-    const int hover_center = -1;
     
-    const String font_name = "Helvetica";
+    const String TYPEFACE = "Helvetica";
+    
+    
+    //=====================================================================
+    // Private helper functions
     
     bool check_for_collision(Point<float> point, vector<Point<float>> plotted, float dist);
     
     bool inRadius(Point<float> pt , Point<float> centerpt, float r);
     
     void plot_word(String word, Colour color, int font_size, Point<float> point, Graphics& g);
+    
+    int find_closes_word_in_map(Point<float> point);
+    
+    float calc_distance(Point<float> point1, Point<float> point2);
+
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeUI)
 };

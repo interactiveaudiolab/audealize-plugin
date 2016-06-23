@@ -7,7 +7,7 @@ AudealizeeqAudioProcessorEditor::AudealizeeqAudioProcessorEditor (AudealizeeqAud
     : AudioProcessorEditor (&p), processor (p)
 {
     mEqualizerComponent = new GraphicEQComponent(processor, NUMBANDS);
-    addAndMakeVisible(mEqualizerComponent);
+    //addAndMakeVisible(mEqualizerComponent);
     
     mAudealizeUI = new AudealizeUI(p, PATH_TO_POINTS);
     addAndMakeVisible(mAudealizeUI);
@@ -27,7 +27,7 @@ AudealizeeqAudioProcessorEditor::~AudealizeeqAudioProcessorEditor()
 void AudealizeeqAudioProcessorEditor::paint (Graphics& g)
 {
     g.fillAll (Colours::white);
-
+    
     g.setColour (Colours::white);
 }
 
@@ -36,5 +36,6 @@ void AudealizeeqAudioProcessorEditor::resized()
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
     Rectangle<int> box (getLocalBounds());
-    mEqualizerComponent->setBounds(box);
+    //mEqualizerComponent->setBounds(box);
+    mAudealizeUI->setBounds(box);
 }

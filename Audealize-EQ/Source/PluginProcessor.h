@@ -3,7 +3,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Equalizer.h"
-#include "../../common/AudealizeInterfaces.h"
+#include "../../common/common.h"
 
 #define NUMBANDS 40
 

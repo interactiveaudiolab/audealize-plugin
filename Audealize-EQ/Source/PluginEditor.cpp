@@ -9,6 +9,9 @@ AudealizeeqAudioProcessorEditor::AudealizeeqAudioProcessorEditor (AudealizeeqAud
     mEqualizerComponent = new GraphicEQComponent(processor, NUMBANDS);
     addAndMakeVisible(mEqualizerComponent);
     
+    mAudealizeUI = new AudealizeUI(p, PATH_TO_POINTS);
+    //addAndMakeVisible(mAudealizeUI);
+    
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
     setSize (400, 200);
@@ -17,6 +20,7 @@ AudealizeeqAudioProcessorEditor::AudealizeeqAudioProcessorEditor (AudealizeeqAud
 AudealizeeqAudioProcessorEditor::~AudealizeeqAudioProcessorEditor()
 {
     mEqualizerComponent = nullptr;
+    mAudealizeUI = nullptr;
 }
 
 //==============================================================================

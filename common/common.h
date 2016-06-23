@@ -2,6 +2,9 @@
 #ifndef COMMON_H_INCLUDED
 #define COMMON_H_INCLUDED
 
+#include <math.h>
+#include <vector>
+
 #include "AudealizeInterfaces.h"
 
 #include "libs/Biquad.h"

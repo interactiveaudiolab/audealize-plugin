@@ -10,7 +10,6 @@
 #ifndef Equalizer_h
 #define Equalizer_h
 
-#include <vector>
 #include "../common.h"
 
 using std::vector;

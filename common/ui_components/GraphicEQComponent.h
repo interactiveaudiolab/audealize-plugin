@@ -9,9 +9,7 @@
 #define GraphicEQComponent_h
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include <vector>
-#include "PluginProcessor.h"
-#include "AudealizeInterfaces.h"
+#include "../common.h"
 
 using std::vector;
 

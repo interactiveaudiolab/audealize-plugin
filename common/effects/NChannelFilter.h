@@ -9,7 +9,6 @@
 #ifndef NChannelFilter_h
 #define NChannelFilter_h
 
-#include <vector>
 #include "../common.h"
 
 namespace Audealize{

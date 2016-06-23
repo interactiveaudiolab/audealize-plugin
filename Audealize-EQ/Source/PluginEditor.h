@@ -4,6 +4,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "PluginProcessor.h"
 #include "../../common/common.h"
+#include "../../common/ui_components/GraphicEQComponent.h"
 
 //==============================================================================
 /**

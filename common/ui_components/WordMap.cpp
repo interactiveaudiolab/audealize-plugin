@@ -2,7 +2,7 @@
 
 using namespace std;
 
-WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p), path_to_points(pathToPoints), languages(0), words(0), points(0), excluded_points(0), params(0), colors(0), font_sizes(0)
+WordMap::WordMap (ScopedPointer<TraditionalUIComponent> ui, String pathToPoints) : traditional_ui(ui), path_to_points(pathToPoints), languages(0), words(0), points(0), excluded_points(0), params(0), colors(0), font_sizes(0)
 {
     // Load file with json_dict, parse into nlohman::json object
     ifstream infile;
@@ -224,7 +224,7 @@ void WordMap::mouseDrag (const MouseEvent& e)
 
 void WordMap::wordSelected(String word){
     int index = word_dict[word.toRawUTF8()];
-    processor.settingsFromMap(params[index]);
+    traditional_ui->settingsFromMap(params[index]);
 }
 
 bool WordMap::check_for_collision(Point<float> point, vector<Point<float>> plotted, float dist){

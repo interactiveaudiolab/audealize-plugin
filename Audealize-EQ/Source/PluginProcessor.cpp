@@ -165,7 +165,6 @@ void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID
     if (parameterID.substring(0, 9).equalsIgnoreCase("paramGain")){
         
         int idx = parameterID.substring(9).getIntValue();
-        
         float gain = mGainRange.snapToLegalValue(mSmoothers[idx].process(newValue));
         mEqualizer.setBandGain(idx, gain);
     }
@@ -173,9 +172,16 @@ void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID
 }
 
 void AudealizeeqAudioProcessor::settingsFromMap(vector<float> settings){
-    for (int i = 0; i < NUMBANDS; i++){
-        String paramID = String("paramGain" + std::to_string(i));
-        parameterChanged(paramID, settings[i]);
+    if (settings.size() == NUMBANDS){
+        for (int i = 0; i < NUMBANDS; i++){
+            String paramID = String("paramGain" + std::to_string(i));
+            parameterChanged(paramID, settings[i] * 5.0f);
+            mState->getParameter(paramID)->setValueNotifyingHost(mGainRange.snapToLegalValue(settings[i] * 5.0f));
+            DBG(settings[i] * 5);
+            DBG("actual: " << mGainRange.convertFrom0to1(mState->getParameter(paramID)->getValue()));
+        }
+        DBG("\n");
+        
     }
 }
 

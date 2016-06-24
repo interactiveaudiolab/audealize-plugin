@@ -137,7 +137,8 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\PluginEditor.cpp"/>
-    <ClCompile Include="..\..\..\common\ui_components\AudealizeUI.cpp"/>
+    <ClCompile Include="..\..\..\common\resources\Resources.cpp"/>
+    <ClCompile Include="..\..\..\common\ui_components\WordMap.cpp"/>
     <ClCompile Include="..\..\..\common\ui_components\GraphicEQComponent.cpp"/>
     <ClCompile Include="..\..\..\common\libs\Biquad.cpp"/>
     <ClCompile Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
@@ -1841,6 +1842,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\PluginEditor.h"/>
+    <ClInclude Include="..\..\..\common\resources\Resources.h"/>
     <ClInclude Include="..\..\..\common\common.h"/>
     <ClInclude Include="..\..\..\common\AudealizeInterfaces.h"/>
     <ClInclude Include="..\..\..\common\utils\CParamSmooth.h"/>
@@ -1848,7 +1850,7 @@
     <ClInclude Include="..\..\..\common\effects\NChannelFilter.h"/>
     <ClInclude Include="..\..\..\common\effects\AudioEffect.h"/>
     <ClInclude Include="..\..\..\common\effects\Reverb.h"/>
-    <ClInclude Include="..\..\..\common\ui_components\AudealizeUI.h"/>
+    <ClInclude Include="..\..\..\common\ui_components\WordMap.h"/>
     <ClInclude Include="..\..\..\common\ui_components\GraphicEQComponent.h"/>
     <ClInclude Include="..\..\..\common\libs\calf_dsp_library\buffer.h"/>
     <ClInclude Include="..\..\..\common\libs\calf_dsp_library\delay.h"/>
@@ -2514,6 +2516,10 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\common\resources\CircleDark.png"/>
+    <None Include="..\..\..\common\resources\CircleDark@2x.png"/>
+    <None Include="..\..\..\common\resources\CircleLight.png"/>
+    <None Include="..\..\..\common\resources\CircleLight@2x.png"/>
     <None Include="..\..\..\common\data\eqpoints.json"/>
     <None Include="..\..\..\common\libs\calf_dsp_library\COPYING"/>
     <None Include="..\..\..\..\..\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>

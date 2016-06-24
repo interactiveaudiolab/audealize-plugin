@@ -58,7 +58,7 @@
       </MacroExpansion>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/michael/JUCE/projects/ReverbTest.RPP-bak"
+            argument = "/Users/michael/JUCE/projects/audealize-plugin/misc/ReverbTest.RPP-bak"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

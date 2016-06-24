@@ -3,28 +3,29 @@
 
 using std::vector;
 using std::to_string;
-GraphicEQComponent::GraphicEQComponent (AudealizeAudioProcessor& p, int numBands) : processor(p), mGainSliders(numBands), mGainSliderAttachment(numBands), mGainListener(numBands)
+GraphicEQComponent::GraphicEQComponent (AudealizeAudioProcessor& p, int numBands) : TraditionalUIComponent(p, numBands)
 {
+    mRange = NormalisableRange<float>(-40.0f, 40.0f, .0001);
     mNumBands = numBands;
     
     for (int i = 0; i < mNumBands; i++){
         String paramID = "paramGain" + to_string(i);
         
-        mGainSliders[i] = new Slider (Slider::LinearVertical, Slider::TextBoxBelow);
-        addAndMakeVisible(mGainSliders[i]);
+        mSliders[i] = new Slider (Slider::LinearVertical, Slider::TextBoxBelow);
+        addAndMakeVisible(mSliders[i]);
         
-        mGainSliderAttachment[i] = new AudioProcessorValueTreeState::SliderAttachment (p.getValueTreeState(), paramID, *mGainSliders[i]);
+        mSliderAttachments[i] = new AudioProcessorValueTreeState::SliderAttachment (p.getValueTreeState(), paramID, *mSliders[i]);
     }
     
-    setSize (400, 200);
+    Component::setSize (400, 200);
 }
 
 GraphicEQComponent::~GraphicEQComponent()
 {
     for (int i = 0; i < mNumBands; i++){
-        mGainSliders[i] = nullptr;
-        mGainSliderAttachment[i] = nullptr;
-        mGainListener[i] = nullptr;
+        mSliders[i] = nullptr;
+        mSliderAttachments[i] = nullptr;
+        mListeners[i] = nullptr;
     }
 }
 
@@ -38,7 +39,14 @@ void GraphicEQComponent::resized()
     Rectangle<int> box (getLocalBounds());
     box.setWidth(box.getWidth() / 40.);
     for (int i = 0; i < mNumBands; i++){
-        mGainSliders[i]->setBounds(box);
+        mSliders[i]->setBounds(box);
         box.setX(box.getRight());
     }
+}
+
+void GraphicEQComponent::settingsFromMap(vector<float> settings){
+    for (int i = 0; i < mNumParams; i++){
+        setSlider(i, settings[i] * 5);
+    }
+    repaint();
 }

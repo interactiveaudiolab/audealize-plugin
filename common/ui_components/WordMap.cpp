@@ -4,11 +4,12 @@ using namespace std;
 
 WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p), path_to_points(pathToPoints), languages(0), words(0), points(0), excluded_points(0), params(0), colors(0), font_sizes(0)
 {
-    //Load file with json_dict, parse into nlohman::json object
+    // Load file with json_dict, parse into nlohman::json object
     ifstream infile;
     infile.open(path_to_points.toUTF8());
     json_dict = json::parse(infile);
-
+    //
+    
     languages.push_back("English"); //@TODO: language select
     
 //    addAndMakeVisible (textEditor = new TextEditor ("new text editor"));
@@ -22,15 +23,15 @@ WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p
 //    textEditor->setColour (TextEditor::shadowColourId, Colour (0x00a1a1a1));
 //    textEditor->setText (String());
 
-    min_variance    = json_dict.begin().value()["agreement"];
-    max_variance    = (json_dict.end() - 1).value()["agreement"];
-    variance_thresh = max_variance;
-
-    alpha_range = NormalisableRange<int>(0,255);
-    
-    float alpha_max =  (1 - 0.92f * logf(5 * min_variance + 1));
-    
-    word_count = 0;
+    min_variance     = json_dict.begin().value()["agreement"];
+    max_variance     = (json_dict.end() - 1).value()["agreement"];
+    variance_thresh  = max_variance;
+    alpha_range      = NormalisableRange<int>(0,255);
+    float alpha_max  = (1 - 0.92f * logf(5 * min_variance + 1));
+    word_count       = 0;
+    center_index     = -1;
+    init_map         = true;
+    has_been_hovered = false;
     
     // loop variables
     String word, lang;
@@ -39,6 +40,7 @@ WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p
     Point<float> point;
     Colour color;
     
+    // loop through words
     for (json::iterator it = json_dict.begin(); it != json_dict.end(); ++it) {
         lang = it.value()["lang"];
         point.setX((float)it.value()["x"]);
@@ -49,7 +51,7 @@ WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p
             word      = it.value()["word"];
             agreement = it.value()["agreement"];
             num       = it.value()["num"];
-            
+
         
             // add properties to respective vectors/dictionaries
             words.push_back(word);
@@ -60,13 +62,13 @@ WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p
             // calculate color. random rgb, alpha based on agreement score
             alpha = (1 - 0.92f * logf(5 * agreement + 1)) / alpha_max;
 
-            color = Colour::fromRGBA(rand() % 256, rand() % 256, rand() % 256, alpha_range.snapToLegalValue(alpha * 255));
+            color = Colour::fromRGBA(rand() % 256, rand() % 256, rand() % 256, alpha_range.snapToLegalValue(alpha*255));
             colors.push_back(color);
             
             // calculate font size
             dat = agreement - min_variance;
             dat = dat / (max_variance - min_variance) * 0.7f + 0.3f;
-            fontsize = 14 * pow(5, 1 / (5 * dat)); //@TODO
+            fontsize = BASE_FONT_SIZE * pow(5, 1 / (5 * dat)); //@TODO
             font_sizes.push_back(roundToInt(fontsize));
             
             if ( word == "muffled"){
@@ -104,21 +106,19 @@ void WordMap::paint (Graphics& g)
     vector<Point<float>> plotted(0);
     String word;
     int font_size, hover_center;
-    Point<float> point, center_point;
+    Point<float> point;
     Colour color;
+    bool hover_radius, in_radius, collision;
     
-    bool hover_radius, in_radius, collision, init_map;
-    
-    // checks if map is still in initial state (not yet moused over)
-    init_map = center_index == -1;
-    
-    // Draw circle
-    g.drawImage(ImageCache::getFromMemory(Resources::circleDark_png, Resources::circleDark_pngSize) , circle_position.getX()-16, circle_position.getY()-16, 32, 32, 0, 0, 32, 32);
+    // Draw border, background
+    g.setColour(Colour(128, 128, 128));
+    g.drawRect(getBounds());
     
     if (isMouseOverOrDragging()){
         hover_center = find_closest_word_in_map(hover_position);
     }
     
+    // Draw words
     for (int i = 0; i < words.size(); i++) {
         in_radius    = false;
         hover_radius = false;
@@ -151,10 +151,10 @@ void WordMap::paint (Graphics& g)
                 color = Colour::fromRGBA(color.getRed(), color.getGreen(), color.getBlue(), alpha_range.snapToLegalValue( unhighlighted_alpha_value));
             }
         }
-        
         if (init_map && !hover_radius){
             color = Colour::fromRGBA(color.getRed(), color.getGreen(), color.getBlue(), 255);
         }
+        // end set alpha
         
         if(!collision || hover_radius || in_radius) {
             plot_word(word, color, font_size, point, g);
@@ -162,10 +162,23 @@ void WordMap::paint (Graphics& g)
         
         
         plotted.push_back(point);
-    } // for
+    } // end for
     
-    String word_count_text = String("Map built with " + String(word_count) + " words. Nearby words have similar effects.");
-    plot_word(word_count_text, Colours::grey, 10, Point<float>(135, getHeight() - 5), g);
+    // Draw circles
+    if (!init_map){
+        g.setColour(Colour(128,128,128));
+        //g.drawImage(ImageCache::getFromMemory(Resources::circleDark_png, Resources::circleDark_pngSize) , circle_position.getX()-16, circle_position.getY()-16, 32, 32, 0, 0, 32, 32);
+        g.drawEllipse(circle_position.getX()-16, circle_position.getY()-16, 32, 32, 2);
+    }
+    if (has_been_hovered){
+        g.setColour(Colour(200,200,200));
+        g.drawEllipse(hover_position.getX()-16, hover_position.getY()-16, 32, 32, 2);
+    }
+    
+    
+    // Draw info text
+    String info_text = String("Map built with " + String(word_count) + " words. Nearby words have similar effects.");
+    plot_word(info_text, Colours::grey, 10, Point<float>(140, getHeight() - 10), g);
 }
 
 void WordMap::resized()
@@ -181,20 +194,22 @@ void WordMap::mouseMove (const MouseEvent& e)
 
 void WordMap::mouseEnter (const MouseEvent& e)
 {
+    has_been_hovered = true;
     hover_position = getMouseXYRelative().toFloat();
-    setMouseCursor(MouseCursor(ImageCache::getFromMemory(Resources::circleLight_png, Resources::circleLight_pngSize), 16, 16));
+    //setMouseCursor(MouseCursor(ImageCache::getFromMemory(Resources::circleLight_png, Resources::circleLight_pngSize), 16, 16));
     repaint();
 }
 
 void WordMap::mouseExit(const MouseEvent& e){
     hover_position = getMouseXYRelative().toFloat();
-    setMouseCursor(MouseCursor::StandardCursorType::NormalCursor);
+    //setMouseCursor(MouseCursor::StandardCursorType::NormalCursor);
 }
 
 void WordMap::mouseDown (const MouseEvent& e)
 {
     circle_position = getMouseXYRelative().toFloat();
     center_index = find_closest_word_in_map(getMouseXYRelative().toFloat());
+    init_map = false;
     repaint();
 }
 
@@ -206,11 +221,11 @@ void WordMap::mouseDrag (const MouseEvent& e)
 }
 
 bool WordMap::check_for_collision(Point<float> point, vector<Point<float>> plotted, float dist){
-    Point<float> slack(0.125f, 1.5f);
+    Point<float> slack(0.25f, 1.5f);
     vector<Point<float>>::iterator it;
 
     for (it = plotted.begin(); it < plotted.end(); it++){
-        if (calc_distance(point, *it)){
+        if (calc_distance(point, *it, slack) < dist){
             return true;
         }
     }
@@ -259,11 +274,11 @@ int WordMap::find_closest_word_in_map(Point<float> point){
     return bestword;
 }
 
-float WordMap::calc_distance(Point<float> point1, Point<float> point2){
+float WordMap::calc_distance(Point<float> point1, Point<float> point2, Point<float> slack){
     float dx = point1.getX() - point2.getX();
     float dy = point1.getY() - point2.getY();
     
-    return sqrt(powf(dx, 2) + powf(dy, 2));
+    return sqrt(slack.getX() * powf(dx, 2) + slack.getY() * powf(dy, 2));
 }
 
 // Comparison functions for normalizing a vector<Point<float>>

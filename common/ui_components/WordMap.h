@@ -47,6 +47,8 @@ private:
     
     int center_index, word_count;
     
+    bool init_map, has_been_hovered;
+    
     NormalisableRange<int> alpha_range;
     
     //=====================================================================
@@ -56,7 +58,7 @@ private:
     const float hover_alpha_value = 0.15f * 255;
     
     const String TYPEFACE = "Helvetica";
-    
+    const int BASE_FONT_SIZE = 14;
     
     //=====================================================================
     // Private helper functions
@@ -69,7 +71,7 @@ private:
     
     int find_closest_word_in_map(Point<float> point);
     
-    float calc_distance(Point<float> point1, Point<float> point2);
+    float calc_distance(Point<float> point1, Point<float> point2, Point<float> slack = Point<float>(1,1));
 
     void normalize_points();
     

@@ -30,7 +30,7 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints) : pro
     
     float alpha_max =  (1 - 0.92f * logf(5 * min_variance + 1));
     
-    int word_count  = 0;
+    word_count = 0;
     
     // loop variables
     String word, lang;
@@ -65,9 +65,16 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints) : pro
             
             // calculate font size
             dat = agreement - min_variance;
-            dat /= (max_variance - min_variance) * 0.7f + 0.3f;
-            fontsize = 12 * powf(5, 1 / (100 * dat)); //@TODO
+            dat = dat / (max_variance - min_variance) * 0.7f + 0.3f;
+            fontsize = 14 * pow(5, 1 / (5 * dat)); //@TODO
             font_sizes.push_back(roundToInt(fontsize));
+            
+            if ( word == "muffled"){
+                DBG("agreement: " << agreement);
+                DBG("fontsize: " << fontsize);
+                DBG("minvariance: " << min_variance);
+                DBG("maxvariance: " << max_variance);
+            }
             
             word_count++;
         }
@@ -77,7 +84,7 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints) : pro
     } // loop through json_dict
 
     DBG("wordcount: " << word_count);
-
+    DBG("unhighlighted alpha: " << alpha_range.snapToLegalValue( unhighlighted_alpha_value));
     normalize_points();
     
     circle_position = Point<float>(150,50);
@@ -111,7 +118,6 @@ void AudealizeUI::paint (Graphics& g)
         hover_center = find_closest_word_in_map(hover_position);
     }
     
-    DBG("################################################");
     
     for (int i = 0; i < words.size(); i++) {
         in_radius    = false;
@@ -159,8 +165,9 @@ void AudealizeUI::paint (Graphics& g)
         
         plotted.push_back(point);
     } // for
-    DBG("################################################");
-
+    
+    String word_count_text = String("Map built with " + String(word_count) + " words. Nearby words have similar effects.");
+    plot_word(word_count_text, Colours::grey, 10, Point<float>(135, getHeight() - 5), g);
 }
 
 void AudealizeUI::resized()
@@ -230,9 +237,9 @@ void AudealizeUI::plot_word(String word, Colour color, int font_size, Point<floa
     g.setColour(color);
     g.drawText(word, rect, Justification::centred);
     
-    DBG("\nPlotting word: \"" << word << "\" at point (" << point.getX() << ", " << point.getY() << ")");
-    DBG("Font size: " << font_size);
-    DBG("Color: " << color.getRed() << ", " << color.getGreen() << ", " << color.getBlue() << ", " << color.getAlpha());
+    //DBG("\nPlotting word: \"" << word << "\" at point (" << point.getX() << ", " << point.getY() << ")");
+    //DBG("Font size: " << font_size);
+    //DBG("Color: " << color.getRed() << ", " << color.getGreen() << ", " << color.getBlue() << ", " << color.getAlpha());
 }
 
 int AudealizeUI::find_closest_word_in_map(Point<float> point){
@@ -275,13 +282,19 @@ void AudealizeUI::normalize_points(){
     float x_max = max_element(points.begin(), points.end(), compareX)->getX();
     x_max = max(x_max, max_element(excluded_points.begin(), excluded_points.end(), compareX)->getX());
     
+    float x_min = min_element(points.begin(), points.end(), compareX)->getX();
+    x_min = min(x_min, min_element(excluded_points.begin(), excluded_points.end(), compareX)->getX());
+    
     float y_max = max_element(points.begin(), points.end(), compareY)->getY();
     y_max = max(y_max, max_element(excluded_points.begin(), excluded_points.end(), compareY)->getY());
     
+    float y_min = min_element(points.begin(), points.end(), compareY)->getY();
+    y_min = min(y_min, min_element(excluded_points.begin(), excluded_points.end(), compareY)->getY());
+    
     vector<Point<float>>::iterator it;
     for (it = points.begin(); it < points.end(); it++){
-        it->setX(it->getX() / x_max);
-        it->setY(it->getY() / y_max);
+        it->setX((it->getX() - x_min) / (x_max - x_min));
+        it->setY((it->getY() - y_min) / (y_max - y_min));
     }
 }
 

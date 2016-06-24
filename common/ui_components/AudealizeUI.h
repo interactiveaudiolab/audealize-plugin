@@ -45,7 +45,7 @@ private:
     
     float min_variance, max_variance, variance_thresh;
     
-    int center_index;
+    int center_index, word_count;
     
     NormalisableRange<int> alpha_range;
     

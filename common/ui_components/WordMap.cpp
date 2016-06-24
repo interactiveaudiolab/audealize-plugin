@@ -1,8 +1,8 @@
-#include "AudealizeUI.h"
+#include "WordMap.h"
 
 using namespace std;
 
-AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints) : processor(p), path_to_points(pathToPoints), languages(0), words(0), points(0), excluded_points(0), params(0), colors(0), font_sizes(0)
+WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p), path_to_points(pathToPoints), languages(0), words(0), points(0), excluded_points(0), params(0), colors(0), font_sizes(0)
 {
     //Load file with json_dict, parse into nlohman::json object
     ifstream infile;
@@ -93,13 +93,13 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints) : pro
     setSize (800, 600);
 }
 
-AudealizeUI::~AudealizeUI()
+WordMap::~WordMap()
 {
     text_editor = nullptr;
 }
 
 //==============================================================================
-void AudealizeUI::paint (Graphics& g)
+void WordMap::paint (Graphics& g)
 {
     vector<Point<float>> plotted(0);
     String word;
@@ -109,6 +109,7 @@ void AudealizeUI::paint (Graphics& g)
     
     bool hover_radius, in_radius, collision, init_map;
     
+    // checks if map is still in initial state (not yet moused over)
     init_map = center_index == -1;
     
     // Draw circle
@@ -117,7 +118,6 @@ void AudealizeUI::paint (Graphics& g)
     if (isMouseOverOrDragging()){
         hover_center = find_closest_word_in_map(hover_position);
     }
-    
     
     for (int i = 0; i < words.size(); i++) {
         in_radius    = false;
@@ -129,9 +129,7 @@ void AudealizeUI::paint (Graphics& g)
         point.setX((0.1f + points[i].getX() * 0.8f) * getWidth());
         point.setY((0.05f + points[i].getY() * 0.9f) * getHeight());
         
-        //@TODO calc center_point
-
-        collision = check_for_collision(point, plotted, font_size * word.length() + pad);
+        collision = check_for_collision(point, plotted, font_size + word.length() + pad);
         
         if (!init_map) {
             in_radius = inRadius(point, circle_position, 75);
@@ -170,44 +168,44 @@ void AudealizeUI::paint (Graphics& g)
     plot_word(word_count_text, Colours::grey, 10, Point<float>(135, getHeight() - 5), g);
 }
 
-void AudealizeUI::resized()
+void WordMap::resized()
 {
     //textEditor->setBounds (8, 8, 150, 24);
 }
 
-void AudealizeUI::mouseMove (const MouseEvent& e)
+void WordMap::mouseMove (const MouseEvent& e)
 {
     hover_position = getMouseXYRelative().toFloat();
     repaint();
 }
 
-void AudealizeUI::mouseEnter (const MouseEvent& e)
+void WordMap::mouseEnter (const MouseEvent& e)
 {
     hover_position = getMouseXYRelative().toFloat();
     setMouseCursor(MouseCursor(ImageCache::getFromMemory(Resources::circleLight_png, Resources::circleLight_pngSize), 16, 16));
     repaint();
 }
 
-void AudealizeUI::mouseExit(const MouseEvent& e){
+void WordMap::mouseExit(const MouseEvent& e){
     hover_position = getMouseXYRelative().toFloat();
     setMouseCursor(MouseCursor::StandardCursorType::NormalCursor);
 }
 
-void AudealizeUI::mouseDown (const MouseEvent& e)
+void WordMap::mouseDown (const MouseEvent& e)
 {
     circle_position = getMouseXYRelative().toFloat();
     center_index = find_closest_word_in_map(getMouseXYRelative().toFloat());
     repaint();
 }
 
-void AudealizeUI::mouseDrag (const MouseEvent& e)
+void WordMap::mouseDrag (const MouseEvent& e)
 {
     circle_position = getMouseXYRelative().toFloat();
     center_index = find_closest_word_in_map(getMouseXYRelative().toFloat());
     repaint();
 }
 
-bool AudealizeUI::check_for_collision(Point<float> point, vector<Point<float>> plotted, float dist){
+bool WordMap::check_for_collision(Point<float> point, vector<Point<float>> plotted, float dist){
     Point<float> slack(0.125f, 1.5f);
     vector<Point<float>>::iterator it;
 
@@ -219,11 +217,11 @@ bool AudealizeUI::check_for_collision(Point<float> point, vector<Point<float>> p
     return false;
 }
 
-bool AudealizeUI::inRadius(Point<float> pt , Point<float> centerpt, float r){
+bool WordMap::inRadius(Point<float> pt , Point<float> centerpt, float r){
     return calc_distance(pt, centerpt) < r;
 }
 
-void AudealizeUI::plot_word(String word, Colour color, int font_size, Point<float> point, Graphics& g){
+void WordMap::plot_word(String word, Colour color, int font_size, Point<float> point, Graphics& g){
     float x, y, width;
     
     width = word.length() * font_size * 2; //@TODO verify that this makes sense
@@ -242,7 +240,7 @@ void AudealizeUI::plot_word(String word, Colour color, int font_size, Point<floa
     //DBG("Color: " << color.getRed() << ", " << color.getGreen() << ", " << color.getBlue() << ", " << color.getAlpha());
 }
 
-int AudealizeUI::find_closest_word_in_map(Point<float> point){
+int WordMap::find_closest_word_in_map(Point<float> point){
     int bestword = 0;
     float mindist = FLT_MAX;
     float dist;
@@ -261,7 +259,7 @@ int AudealizeUI::find_closest_word_in_map(Point<float> point){
     return bestword;
 }
 
-float AudealizeUI::calc_distance(Point<float> point1, Point<float> point2){
+float WordMap::calc_distance(Point<float> point1, Point<float> point2){
     float dx = point1.getX() - point2.getX();
     float dy = point1.getY() - point2.getY();
     
@@ -278,7 +276,7 @@ bool compareY(Point<float> p1, Point<float> p2){
 }
 
 
-void AudealizeUI::normalize_points(){
+void WordMap::normalize_points(){
     float x_max = max_element(points.begin(), points.end(), compareX)->getX();
     x_max = max(x_max, max_element(excluded_points.begin(), excluded_points.end(), compareX)->getX());
     

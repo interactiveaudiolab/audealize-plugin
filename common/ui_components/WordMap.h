@@ -1,5 +1,5 @@
-#ifndef AudealizeUI_h
-#define AudealizeUI_h
+#ifndef WordMap_h
+#define WordMap_h
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "../../common/common.h"
@@ -8,11 +8,11 @@
 using namespace nlohmann;
 using std::vector;
 
-class AudealizeUI  : public Component
+class WordMap  : public Component
 {
 public:
-    AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints);
-    ~AudealizeUI();
+    WordMap (AudealizeAudioProcessor& p, String pathToPoints);
+    ~WordMap();
 
     void paint (Graphics& g) override;
     void resized() override;
@@ -73,7 +73,7 @@ private:
 
     void normalize_points();
     
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeUI)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WordMap)
 };
 
 #endif 

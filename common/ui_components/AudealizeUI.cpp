@@ -26,7 +26,9 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints) : pro
     max_variance    = (json_dict.end() - 1).value()["agreement"];
     variance_thresh = max_variance;
 
-    float alpha_max = 1 - 0.92f * logf(5 * min_variance + 1);
+    alpha_range = NormalisableRange<int>(0,255);
+    
+    float alpha_max =  (1 - 0.92f * logf(5 * min_variance + 1));
     
     int word_count  = 0;
     
@@ -57,13 +59,14 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints) : pro
             
             // calculate color. random rgb, alpha based on agreement score
             alpha = (1 - 0.92f * logf(5 * agreement + 1)) / alpha_max;
-            color = Colour::fromRGBA(rand() % 256, rand() % 256, rand() % 256, alpha);
+
+            color = Colour::fromRGBA(rand() % 256, rand() % 256, rand() % 256, alpha_range.snapToLegalValue(alpha * 255));
             colors.push_back(color);
             
             // calculate font size
             dat = agreement - min_variance;
             dat /= (max_variance - min_variance) * 0.7f + 0.3f;
-            fontsize = powf(5, 1 / (5 * dat)); //@TODO
+            fontsize = 12 * powf(5, 1 / (100 * dat)); //@TODO
             font_sizes.push_back(roundToInt(fontsize));
             
             word_count++;
@@ -73,7 +76,12 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints) : pro
         }
     } // loop through json_dict
 
+    DBG("wordcount: " << word_count);
+
+    normalize_points();
     
+    circle_position = Point<float>(150,50);
+    hover_position = Point<float>(100, 50);
     
     setSize (800, 600);
 }
@@ -96,10 +104,14 @@ void AudealizeUI::paint (Graphics& g)
     
     init_map = center_index == -1;
     
-    //@TODO
-    if (is_hovering){
-        hover_center = find_closes_word_in_map(hover_position);
+    // Draw circle
+    g.drawImage(ImageCache::getFromMemory(Resources::circleDark_png, Resources::circleDark_pngSize) , circle_position.getX()-16, circle_position.getY()-16, 32, 32, 0, 0, 32, 32);
+    
+    if (isMouseOverOrDragging()){
+        hover_center = find_closest_word_in_map(hover_position);
     }
+    
+    DBG("################################################");
     
     for (int i = 0; i < words.size(); i++) {
         in_radius    = false;
@@ -113,31 +125,31 @@ void AudealizeUI::paint (Graphics& g)
         
         //@TODO calc center_point
 
-        collision = check_for_collision(point, plotted, font_size + word.length() + pad);
+        collision = check_for_collision(point, plotted, font_size * word.length() + pad);
         
         if (!init_map) {
             in_radius = inRadius(point, circle_position, 75);
         }
         
-        if (is_hovering) {
+        if (isMouseOverOrDragging()) {
             hover_radius = inRadius(point, hover_position, 75);
         }
 
         // set word alpha
         if (i == center_index || i == hover_center){
-            color = Colour::fromRGBA(color.getRed(), color.getGreen(), color.getBlue(), 1);
+            color = Colour::fromRGBA(color.getRed(), color.getGreen(), color.getBlue(), 255);
         }
         else {
             if (in_radius || hover_radius) {
-                color = Colour::fromRGBA(color.getRed(), color.getGreen(), color.getBlue(), hover_alpha_value);
+                color = Colour::fromRGBA(color.getRed(), color.getGreen(), color.getBlue(), alpha_range.snapToLegalValue(hover_alpha_value));
             }
             else {
-                color = Colour::fromRGBA(color.getRed(), color.getGreen(), color.getBlue(), unhighlighted_alpha_value);
+                color = Colour::fromRGBA(color.getRed(), color.getGreen(), color.getBlue(), alpha_range.snapToLegalValue( unhighlighted_alpha_value));
             }
         }
         
         if (init_map && !hover_radius){
-            color = Colour::fromRGBA(color.getRed(), color.getGreen(), color.getBlue(), 1);
+            color = Colour::fromRGBA(color.getRed(), color.getGreen(), color.getBlue(), 255);
         }
         
         if(!collision || hover_radius || in_radius) {
@@ -146,7 +158,9 @@ void AudealizeUI::paint (Graphics& g)
         
         
         plotted.push_back(point);
-    }
+    } // for
+    DBG("################################################");
+
 }
 
 void AudealizeUI::resized()
@@ -156,18 +170,34 @@ void AudealizeUI::resized()
 
 void AudealizeUI::mouseMove (const MouseEvent& e)
 {
+    hover_position = getMouseXYRelative().toFloat();
+    repaint();
 }
 
 void AudealizeUI::mouseEnter (const MouseEvent& e)
 {
+    hover_position = getMouseXYRelative().toFloat();
+    setMouseCursor(MouseCursor(ImageCache::getFromMemory(Resources::circleLight_png, Resources::circleLight_pngSize), 16, 16));
+    repaint();
+}
+
+void AudealizeUI::mouseExit(const MouseEvent& e){
+    hover_position = getMouseXYRelative().toFloat();
+    setMouseCursor(MouseCursor::StandardCursorType::NormalCursor);
 }
 
 void AudealizeUI::mouseDown (const MouseEvent& e)
 {
+    circle_position = getMouseXYRelative().toFloat();
+    center_index = find_closest_word_in_map(getMouseXYRelative().toFloat());
+    repaint();
 }
 
 void AudealizeUI::mouseDrag (const MouseEvent& e)
 {
+    circle_position = getMouseXYRelative().toFloat();
+    center_index = find_closest_word_in_map(getMouseXYRelative().toFloat());
+    repaint();
 }
 
 bool AudealizeUI::check_for_collision(Point<float> point, vector<Point<float>> plotted, float dist){
@@ -189,7 +219,7 @@ bool AudealizeUI::inRadius(Point<float> pt , Point<float> centerpt, float r){
 void AudealizeUI::plot_word(String word, Colour color, int font_size, Point<float> point, Graphics& g){
     float x, y, width;
     
-    width = word.length() * font_size; //@TODO verify that this makes sense
+    width = word.length() * font_size * 2; //@TODO verify that this makes sense
     x = point.getX() - width * 0.5f;
     y = point.getY() - font_size * 0.5f;
     
@@ -205,7 +235,7 @@ void AudealizeUI::plot_word(String word, Colour color, int font_size, Point<floa
     DBG("Color: " << color.getRed() << ", " << color.getGreen() << ", " << color.getBlue() << ", " << color.getAlpha());
 }
 
-int AudealizeUI::find_closes_word_in_map(Point<float> point){
+int AudealizeUI::find_closest_word_in_map(Point<float> point){
     int bestword = 0;
     float mindist = FLT_MAX;
     float dist;
@@ -230,3 +260,28 @@ float AudealizeUI::calc_distance(Point<float> point1, Point<float> point2){
     
     return sqrt(powf(dx, 2) + powf(dy, 2));
 }
+
+// Comparison functions for normalizing a vector<Point<float>>
+bool compareX(Point<float> p1, Point<float> p2){
+    return p1.getX() < p2.getX();
+}
+
+bool compareY(Point<float> p1, Point<float> p2){
+    return p1.getY() < p2.getY();
+}
+
+
+void AudealizeUI::normalize_points(){
+    float x_max = max_element(points.begin(), points.end(), compareX)->getX();
+    x_max = max(x_max, max_element(excluded_points.begin(), excluded_points.end(), compareX)->getX());
+    
+    float y_max = max_element(points.begin(), points.end(), compareY)->getY();
+    y_max = max(y_max, max_element(excluded_points.begin(), excluded_points.end(), compareY)->getY());
+    
+    vector<Point<float>>::iterator it;
+    for (it = points.begin(); it < points.end(); it++){
+        it->setX(it->getX() / x_max);
+        it->setY(it->getY() / y_max);
+    }
+}
+

@@ -18,6 +18,7 @@ public:
     void resized() override;
     void mouseMove (const MouseEvent& e) override;
     void mouseEnter (const MouseEvent& e) override;
+    void mouseExit (const MouseEvent& e) override;
     void mouseDown (const MouseEvent& e) override;
     void mouseDrag (const MouseEvent& e) override;
 
@@ -31,7 +32,7 @@ private:
     String path_to_points, selected, hovered;
 
     Point<float> hover_position, circle_position;
-    
+        
     vector<String> languages, words;
     
     vector<Point<float>> points, excluded_points;
@@ -46,14 +47,13 @@ private:
     
     int center_index;
     
-    bool is_hovering;
-    
+    NormalisableRange<int> alpha_range;
     
     //=====================================================================
 
     const int pad = 2;
-    const float unhighlighted_alpha_value = 0.7f;
-    const float hover_alpha_value = 0.15f;
+    const float unhighlighted_alpha_value = 0.7f * 255;
+    const float hover_alpha_value = 0.15f * 255;
     
     const String TYPEFACE = "Helvetica";
     
@@ -67,10 +67,11 @@ private:
     
     void plot_word(String word, Colour color, int font_size, Point<float> point, Graphics& g);
     
-    int find_closes_word_in_map(Point<float> point);
+    int find_closest_word_in_map(Point<float> point);
     
     float calc_distance(Point<float> point1, Point<float> point2);
 
+    void normalize_points();
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeUI)
 };

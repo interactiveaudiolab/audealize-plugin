@@ -14,7 +14,7 @@ AudealizeeqAudioProcessorEditor::AudealizeeqAudioProcessorEditor (AudealizeeqAud
     
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
-    setSize (400, 200);
+    setSize (800, 400);
 }
 
 AudealizeeqAudioProcessorEditor::~AudealizeeqAudioProcessorEditor()

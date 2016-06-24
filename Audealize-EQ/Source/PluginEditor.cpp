@@ -39,3 +39,4 @@ void AudealizeeqAudioProcessorEditor::resized()
     //mEqualizerComponent->setBounds(box);
     mWordMap->setBounds(box);
 }
+

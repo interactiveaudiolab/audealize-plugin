@@ -47,6 +47,7 @@ public:
 
     
     void parameterChanged(const juce::String &parameterID, float newValue) override;
+    void settingsFromMap(vector<float> settings) override;
     
 private:
     //==============================================================================

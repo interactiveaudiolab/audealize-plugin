@@ -127,7 +127,7 @@ void AudealizeeqAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuf
     // Parameter smoothing
     for (int i = 0; i < NUMBANDS; i++){
         if(mSmoothers[i].isDirty()){
-            StringRef paramID = TRANS(String("paramGain" + std::to_string(i)));
+            String paramID = String("paramGain" + std::to_string(i));
             float gain = mGainRange.snapToLegalValue(mSmoothers[i].process(mGainRange.convertFrom0to1(mState->getParameter(paramID)->getValue())));
             mEqualizer.setBandGain(i, gain);
         }
@@ -170,6 +170,13 @@ void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID
         mEqualizer.setBandGain(idx, gain);
     }
     
+}
+
+void AudealizeeqAudioProcessor::settingsFromMap(vector<float> settings){
+    for (int i = 0; i < NUMBANDS; i++){
+        String paramID = String("paramGain" + std::to_string(i));
+        parameterChanged(paramID, settings[i]);
+    }
 }
 
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()

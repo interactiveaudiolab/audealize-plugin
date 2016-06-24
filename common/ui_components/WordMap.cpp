@@ -207,9 +207,10 @@ void WordMap::mouseExit(const MouseEvent& e){
 
 void WordMap::mouseDown (const MouseEvent& e)
 {
+    init_map = false;
     circle_position = getMouseXYRelative().toFloat();
     center_index = find_closest_word_in_map(getMouseXYRelative().toFloat());
-    init_map = false;
+    wordSelected(words[center_index]);
     repaint();
 }
 
@@ -217,7 +218,13 @@ void WordMap::mouseDrag (const MouseEvent& e)
 {
     circle_position = getMouseXYRelative().toFloat();
     center_index = find_closest_word_in_map(getMouseXYRelative().toFloat());
+    wordSelected(words[center_index]);
     repaint();
+}
+
+void WordMap::wordSelected(String word){
+    int index = word_dict[word.toRawUTF8()];
+    processor.settingsFromMap(params[index]);
 }
 
 bool WordMap::check_for_collision(Point<float> point, vector<Point<float>> plotted, float dist){

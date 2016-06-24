@@ -10,6 +10,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 
+using std::vector;
 
 /// Interface class for Audealize plugin AudioProcessors to facilitate communication of state/param data with UI components
 class AudealizeAudioProcessor : public AudioProcessor {
@@ -55,6 +56,8 @@ public:
      *  @param parameterID The ID of the parameter that was changed
      */
     virtual void parameterChanged(const juce::String &parameterID) {};
+    
+    virtual void settingsFromMap(vector<float> settings) {};
     
     /**
      *  Returns the AudioProcessorValueTreeState

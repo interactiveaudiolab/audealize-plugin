@@ -21,6 +21,16 @@
       <FILE id="u6qewF" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
     <GROUP id="{6B8F906A-E4F1-45F3-045D-E46262240C97}" name="common">
+      <GROUP id="{A496201F-0A36-8D21-58B7-6A5AF740D12E}" name="resources">
+        <FILE id="pKe7tJ" name="Resources.cpp" compile="1" resource="0" file="../common/resources/Resources.cpp"/>
+        <FILE id="qDDYCx" name="Resources.h" compile="0" resource="0" file="../common/resources/Resources.h"/>
+        <FILE id="A6Wm9p" name="CircleDark.png" compile="0" resource="1" file="../common/resources/CircleDark.png"/>
+        <FILE id="i3KcIz" name="CircleDark@2x.png" compile="0" resource="1"
+              file="../common/resources/CircleDark@2x.png"/>
+        <FILE id="yOu88a" name="CircleLight.png" compile="0" resource="1" file="../common/resources/CircleLight.png"/>
+        <FILE id="CYBnRi" name="CircleLight@2x.png" compile="0" resource="1"
+              file="../common/resources/CircleLight@2x.png"/>
+      </GROUP>
       <FILE id="UFuECi" name="common.h" compile="0" resource="0" file="../common/common.h"/>
       <FILE id="B1JMvU" name="AudealizeInterfaces.h" compile="0" resource="0"
             file="../common/AudealizeInterfaces.h"/>

@@ -4,7 +4,7 @@
 
 AudealizeeqAudioProcessor::AudealizeeqAudioProcessor() : mEqualizer(mFreqs, 0.0f)
 {
-    DBG(std::to_string(getSampleRate()));
+    //DBG(std::to_string(getSampleRate()));
         
     //Create params for each EQ band gain
     for (int i = 0; i < NUMBANDS; i++){
@@ -166,7 +166,7 @@ void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID
         int idx = parameterID.substring(9).getIntValue();
         
         float gain = mGainRange.snapToLegalValue(mSmoothers[idx].process(newValue));
-        DBG("Called parameterChanged(): " << newValue);
+        //DBG("Called parameterChanged(): " << newValue);
         mEqualizer.setBandGain(idx, gain);
     }
     
@@ -174,7 +174,7 @@ void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID
 
 void AudealizeeqAudioProcessor::settingsFromMap(vector<float> settings){
     for (int i = 0; i < NUMBANDS; i++){
-        DBG("Settings[i] " << settings[i]);
+        //DBG("Settings[i] " << settings[i]);
         String paramID = String("paramGain" + std::to_string(i));
         mState->getParameter(paramID)->setValueNotifyingHost(mGainRange.convertTo0to1(settings[i]));
     }

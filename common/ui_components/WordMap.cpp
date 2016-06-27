@@ -4,14 +4,10 @@ using namespace std;
 
 WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p), path_to_points(pathToPoints), languages(0), words(0), points(0), excluded_points(0), params(0), colors(0), font_sizes(0)
 {
-    // Load file with json_dict, parse into nlohman::json object
-    ifstream infile;
-    infile.open(path_to_points.toUTF8());
-    json_dict = json::parse(infile);
-    //
+    //=====================================================================================
+    // GUI SETUP
     
-    languages.push_back("English"); //@TODO: language select
-    
+    // Add text editor component
     addAndMakeVisible (text_editor = new TextEditor ("new text editor"));
     text_editor->setFont(Font(TYPEFACE, 20, Font::plain));
     text_editor->setMultiLine (false);
@@ -26,6 +22,28 @@ WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p
     text_editor->setText (String());
     text_editor->addListener(this);
     
+    
+    
+    circle_position = Point<float>(150,50);
+    hover_position = Point<float>(100, 50);
+    
+    setSize (800, 400);
+    
+    // End GUI Setup
+    //=====================================================================================
+    
+    
+    // Load file with descriptors, parse into nlohman::json object
+    ifstream infile;
+    infile.open(path_to_points.toUTF8());
+    json_dict = json::parse(infile);
+    
+    
+    
+    //=====================================================================================
+    // Instance variables
+    languages.push_back("English"); //@TODO: language select
+    
     min_variance     = json_dict.begin().value()["agreement"];
     max_variance     = (json_dict.end() - 1).value()["agreement"];
     variance_thresh  = max_variance;
@@ -35,15 +53,20 @@ WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p
     center_index     = -1;
     init_map         = true;
     has_been_hovered = false;
+    // End instance variables
+    //=====================================================================================
+
     
-    // loop variables
+    
+    //=====================================================================================
+    // loop through words, store properties in vectors for easier access
+    
     String word, lang;
     float agreement, alpha, dat, fontsize;
     int num;
     Point<float> point;
     Colour color;
     
-    // loop through words
     for (json::iterator it = json_dict.begin(); it != json_dict.end(); ++it) {
         lang = it.value()["lang"];
         point.setX((float)it.value()["x"]);
@@ -51,11 +74,11 @@ WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p
 
         // if word is in selected language(s), add to map
         if (std::find(languages.begin(), languages.end(), lang) != languages.end()){
+            
             word      = it.value()["word"];
             agreement = it.value()["agreement"];
             num       = it.value()["num"];
 
-        
             // add properties to respective vectors/dictionaries
             words.push_back(word);
             word_dict[word.toRawUTF8()] = word_count;
@@ -74,28 +97,16 @@ WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p
             fontsize = BASE_FONT_SIZE * pow(5, 1 / (5 * dat)); //@TODO
             font_sizes.push_back(roundToInt(fontsize));
             
-            if ( word == "muffled"){
-                DBG("agreement: " << agreement);
-                DBG("fontsize: " << fontsize);
-                DBG("minvariance: " << min_variance);
-                DBG("maxvariance: " << max_variance);
-            }
-            
             word_count++;
         }
         else {
             excluded_points.push_back(point);
         }
-    } // loop through json_dict
+    }
+    // end loop through json_dict
+    //=====================================================================================
 
-    DBG("wordcount: " << word_count);
-    DBG("unhighlighted alpha: " << alpha_range.snapToLegalValue( unhighlighted_alpha_value));
     normalize_points();
-    
-    circle_position = Point<float>(150,50);
-    hover_position = Point<float>(100, 50);
-    
-    setSize (800, 400);
 }
 
 WordMap::~WordMap()
@@ -103,7 +114,6 @@ WordMap::~WordMap()
     text_editor = nullptr;
 }
 
-//==============================================================================
 void WordMap::paint (Graphics& g)
 {
     vector<Point<float>> plotted(0);
@@ -117,6 +127,7 @@ void WordMap::paint (Graphics& g)
     g.setColour(Colour(128, 128, 128));
     g.drawRect(getBounds());
     
+    // if mouse is over map, find word being hovered over
     if (isMouseOverOrDragging()){
         hover_center = find_closest_word_in_map(hover_position);
     }
@@ -165,7 +176,7 @@ void WordMap::paint (Graphics& g)
         
         
         plotted.push_back(point);
-    } // end for
+    } // end word loop
     
     // Draw circles
     if (!init_map){
@@ -199,13 +210,11 @@ void WordMap::mouseEnter (const MouseEvent& e)
 {
     has_been_hovered = true;
     hover_position = getMouseXYRelative().toFloat();
-    //setMouseCursor(MouseCursor(ImageCache::getFromMemory(Resources::circleLight_png, Resources::circleLight_pngSize), 16, 16));
     repaint();
 }
 
 void WordMap::mouseExit(const MouseEvent& e){
     hover_position = getMouseXYRelative().toFloat();
-    //setMouseCursor(MouseCursor::StandardCursorType::NormalCursor);
 }
 
 void WordMap::mouseDown (const MouseEvent& e)

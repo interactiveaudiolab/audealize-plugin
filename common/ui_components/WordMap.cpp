@@ -1,6 +1,7 @@
 #include "WordMap.h"
 
 using namespace std;
+using json = nlohmann::json;
 
 WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p), path_to_points(pathToPoints), languages(0), words(0), points(0), excluded_points(0), params(0), colors(0), font_sizes(0)
 {
@@ -42,26 +43,32 @@ WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p
     
     //=====================================================================================
     // Instance variables
-    languages.push_back("English"); //@TODO: language select
     
     min_variance     = json_dict.begin().value()["agreement"];
     max_variance     = (json_dict.end() - 1).value()["agreement"];
     variance_thresh  = max_variance;
     alpha_range      = NormalisableRange<int>(0,255);
-    float alpha_max  = (1 - 0.92f * logf(5 * min_variance + 1));
     word_count       = 0;
     center_index     = -1;
     init_map         = true;
     has_been_hovered = false;
+    languages = {};
+    
     // End instance variables
     //=====================================================================================
 
+    loadPoints();
+}
+
+WordMap::~WordMap()
+{
+    text_editor = nullptr;
+}
+
+void WordMap::loadPoints(){
+    float alpha_max  = (1 - 0.92f * logf(5 * min_variance + 1));
     
-    
-    //=====================================================================================
-    // loop through words, store properties in vectors for easier access
-    
-    String word, lang;
+    string word, lang;
     float agreement, alpha, dat, fontsize;
     int num;
     Point<float> point;
@@ -69,25 +76,31 @@ WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p
     
     for (json::iterator it = json_dict.begin(); it != json_dict.end(); ++it) {
         lang = it.value()["lang"];
+        
+        // add languages to dictionary if not already present
+        if (languages.find(lang) == languages.end()){
+            languages[lang] = true;
+        }
+        
         point.setX((float)it.value()["x"]);
         point.setY((float)it.value()["y"]);
-
+        
+        
         // if word is in selected language(s), add to map
-        if (std::find(languages.begin(), languages.end(), lang) != languages.end()){
-            
+        if (languages[lang]){
             word      = it.value()["word"];
             agreement = it.value()["agreement"];
             num       = it.value()["num"];
-
+            
             // add properties to respective vectors/dictionaries
             words.push_back(word);
-            word_dict[word.toRawUTF8()] = word_count;
+            word_dict[word] = word_count;
             points.push_back(point);
             params.push_back(it.value()["settings"]);
             
             // calculate color. random rgb, alpha based on agreement score
             alpha = (1 - 0.92f * logf(5 * agreement + 1)) / alpha_max;
-
+            
             color = Colour::fromRGBA(rand() % 256, rand() % 256, rand() % 256, alpha_range.snapToLegalValue(alpha*255));
             colors.push_back(color);
             
@@ -103,15 +116,8 @@ WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p
             excluded_points.push_back(point);
         }
     }
-    // end loop through json_dict
-    //=====================================================================================
-
-    normalize_points();
-}
-
-WordMap::~WordMap()
-{
-    text_editor = nullptr;
+    DBG(points[300].getY());
+    normalizePoints();
 }
 
 void WordMap::paint (Graphics& g)
@@ -315,23 +321,29 @@ bool compareY(Point<float> p1, Point<float> p2){
 }
 
 
-void WordMap::normalize_points(){
-    float x_max = max_element(points.begin(), points.end(), compareX)->getX();
-    x_max = max(x_max, max_element(excluded_points.begin(), excluded_points.end(), compareX)->getX());
-    
-    float x_min = min_element(points.begin(), points.end(), compareX)->getX();
-    x_min = min(x_min, min_element(excluded_points.begin(), excluded_points.end(), compareX)->getX());
-    
-    float y_max = max_element(points.begin(), points.end(), compareY)->getY();
-    y_max = max(y_max, max_element(excluded_points.begin(), excluded_points.end(), compareY)->getY());
-    
-    float y_min = min_element(points.begin(), points.end(), compareY)->getY();
-    y_min = min(y_min, min_element(excluded_points.begin(), excluded_points.end(), compareY)->getY());
-    
-    vector<Point<float>>::iterator it;
-    for (it = points.begin(); it < points.end(); it++){
-        it->setX((it->getX() - x_min) / (x_max - x_min));
-        it->setY((it->getY() - y_min) / (y_max - y_min));
+void WordMap::normalizePoints(){
+    if (points.size() > 0){
+        float x_max = max_element(points.begin(), points.end(), compareX)->getX();
+        
+        float x_min = min_element(points.begin(), points.end(), compareX)->getX();
+        
+        float y_max = max_element(points.begin(), points.end(), compareY)->getY();
+        
+        float y_min = min_element(points.begin(), points.end(), compareY)->getY();
+        
+        if (excluded_points.size() > 0){
+            x_max = max(x_max, max_element(excluded_points.begin(), excluded_points.end(), compareX)->getX());
+            x_min = min(x_min, min_element(excluded_points.begin(), excluded_points.end(), compareX)->getX());
+            
+            y_max = max(y_max, max_element(excluded_points.begin(), excluded_points.end(), compareY)->getY());
+            y_min = min(y_min, min_element(excluded_points.begin(), excluded_points.end(), compareY)->getY());
+        }
+        
+        vector<Point<float>>::iterator it;
+        for (it = points.begin(); it < points.end(); it++){
+            it->setX((it->getX() - x_min) / (x_max - x_min));
+            it->setY((it->getY() - y_min) / (y_max - y_min));
+        }
     }
 }
 

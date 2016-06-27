@@ -25,13 +25,8 @@ private:
     AudealizeeqAudioProcessor& processor;
     
     ScopedPointer<GraphicEQComponent> mEqualizerComponent;
-    ScopedPointer<WordMap> mWordMap;
+    ScopedPointer<AudealizeUI> mAudealizeUI;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeeqAudioProcessorEditor)
-    
-    ScopedPointer<Slider> mGainSliders[NUMBANDS];
-    
-    ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mGainSliderAttachment[NUMBANDS];
-    ScopedPointer<AudioProcessorValueTreeState::Listener> mGainListener[NUMBANDS];
 };
 
 

@@ -427,6 +427,9 @@
     <ClCompile Include="..\..\..\common\resources\Resources.cpp">
       <Filter>Audealize-EQ\common\resources</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\common\ui_components\AudealizeUI.cpp">
+      <Filter>Audealize-EQ\common\ui_components</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\common\ui_components\WordMap.cpp">
       <Filter>Audealize-EQ\common\ui_components</Filter>
     </ClCompile>
@@ -2348,6 +2351,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\common\effects\Reverb.h">
       <Filter>Audealize-EQ\common\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\ui_components\AudealizeUI.h">
+      <Filter>Audealize-EQ\common\ui_components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\common\ui_components\WordMap.h">
       <Filter>Audealize-EQ\common\ui_components</Filter>

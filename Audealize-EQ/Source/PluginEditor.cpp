@@ -9,18 +9,18 @@ AudealizeeqAudioProcessorEditor::AudealizeeqAudioProcessorEditor (AudealizeeqAud
     mEqualizerComponent = new GraphicEQComponent(processor, NUMBANDS);
     //addAndMakeVisible(mEqualizerComponent);
     
-    mWordMap = new WordMap(p, PATH_TO_POINTS);
-    addAndMakeVisible(mWordMap);
+    mAudealizeUI = new AudealizeUI(processor, PATH_TO_POINTS, "EQ");
+    addAndMakeVisible(mAudealizeUI);
     
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
-    setSize (800, 400);
+    setSize (840, 575);
 }
 
 AudealizeeqAudioProcessorEditor::~AudealizeeqAudioProcessorEditor()
 {
     mEqualizerComponent = nullptr;
-    mWordMap = nullptr;
+    mAudealizeUI = nullptr;
 }
 
 //==============================================================================
@@ -37,6 +37,6 @@ void AudealizeeqAudioProcessorEditor::resized()
     // subcomponents in your editor..
     Rectangle<int> box (getLocalBounds());
     //mEqualizerComponent->setBounds(box);
-    mWordMap->setBounds(box);
+    mAudealizeUI->setBounds(box);
 }
 

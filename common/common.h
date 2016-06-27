@@ -14,6 +14,7 @@
 
 #include "utils/CParamSmooth.h"
 
+#include "ui_components/AudealizeUI.h"
 #include "ui_components/WordMap.h"
 
 #include "effects/AudioEffect.h"
@@ -22,5 +23,6 @@
 #include "effects/Reverb.h"
 
 #include "resources/Resources.h"
+
 
 #endif  // COMMON_H_INCLUDED

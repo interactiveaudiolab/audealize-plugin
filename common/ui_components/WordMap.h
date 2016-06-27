@@ -8,7 +8,7 @@
 using namespace nlohmann;
 using std::vector;
 
-class WordMap  : public Component, public TextEditorListener
+class WordMap  : public Component, public TextEditorListener, public ButtonListener
 {
 public:
     WordMap (AudealizeAudioProcessor& p, String pathToPoints);
@@ -23,6 +23,7 @@ public:
     void mouseDrag (const MouseEvent& e) override;
     
     void textEditorReturnKeyPressed (TextEditor &editor) override;
+    void buttonClicked (Button* buttonThatWasClicked) override;
     
     void wordSelected (String word);
     
@@ -30,6 +31,8 @@ private:
     AudealizeAudioProcessor& processor;
     
     ScopedPointer<TextEditor> text_editor;
+    ScopedPointer<ToggleButton> englishButton;
+    ScopedPointer<ToggleButton> espanolButton;
     
     json json_dict, word_dict, languages;
 

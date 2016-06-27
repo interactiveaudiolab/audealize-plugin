@@ -24,10 +24,24 @@ WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p
     text_editor->addListener(this);
     
     
+    // Add language selection buttons
+    addAndMakeVisible (englishButton = new ToggleButton ("English"));
+    englishButton->setConnectedEdges (Button::ConnectedOnRight);
+    englishButton->setClickingTogglesState(true);
+    englishButton->setToggleState(true, NotificationType::sendNotification);
+    englishButton->addListener (this);
+
+    addAndMakeVisible (espanolButton = new ToggleButton (CharPointer_UTF8 ("Espa\xc3\xb1ol")));
+    espanolButton->setConnectedEdges (Button::ConnectedOnLeft);
+    espanolButton->setClickingTogglesState(true);
+    espanolButton->setToggleState(true, NotificationType::sendNotification);
+    espanolButton->addListener (this);
     
+    // initialize circle positions
     circle_position = Point<float>(150,50);
     hover_position = Point<float>(100, 50);
     
+    // set default size of component
     setSize (800, 400);
     
     // End GUI Setup
@@ -63,9 +77,18 @@ WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p
 WordMap::~WordMap()
 {
     text_editor = nullptr;
+    englishButton = nullptr;
+    espanolButton = nullptr;
 }
 
 void WordMap::loadPoints(){
+    words.clear();
+    points.clear();
+    excluded_points.clear();
+    params.clear();
+    colors.clear();
+    font_sizes.clear();
+    
     float alpha_max  = (1 - 0.92f * logf(5 * min_variance + 1));
     
     string word, lang;
@@ -76,7 +99,6 @@ void WordMap::loadPoints(){
     
     for (json::iterator it = json_dict.begin(); it != json_dict.end(); ++it) {
         lang = it.value()["lang"];
-        
         // add languages to dictionary if not already present
         if (languages.find(lang) == languages.end()){
             languages[lang] = true;
@@ -115,8 +137,7 @@ void WordMap::loadPoints(){
         else {
             excluded_points.push_back(point);
         }
-    }
-    DBG(points[300].getY());
+    }    
     normalizePoints();
 }
 
@@ -204,6 +225,8 @@ void WordMap::paint (Graphics& g)
 void WordMap::resized()
 {
     text_editor->setBounds (8, 8, 200, 36);
+    englishButton->setBounds(220, 8, 80, 24);
+    espanolButton->setBounds(300, 8, 80, 24);
 }
 
 void WordMap::mouseMove (const MouseEvent& e)
@@ -359,3 +382,13 @@ void WordMap::textEditorReturnKeyPressed(TextEditor &editor){
     editor.selectAll();
 }
 
+void WordMap::buttonClicked(juce::Button *buttonThatWasClicked){
+    if (buttonThatWasClicked == englishButton){
+        languages["English"] = englishButton->getToggleState();
+    }
+    if (buttonThatWasClicked == espanolButton){
+        languages["Español"] = espanolButton->getToggleState();
+    }
+    loadPoints();
+    repaint();
+}

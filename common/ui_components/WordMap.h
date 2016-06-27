@@ -11,7 +11,7 @@ using std::vector;
 class WordMap  : public Component
 {
 public:
-    WordMap (ScopedPointer<TraditionalUIComponent> ui, String pathToPoints);
+    WordMap (AudealizeAudioProcessor& p, String pathToPoints);
     ~WordMap();
 
     void paint (Graphics& g) override;
@@ -25,7 +25,7 @@ public:
     void wordSelected (String word);
     
 private:
-    ScopedPointer<TraditionalUIComponent> traditional_ui;
+    AudealizeAudioProcessor& processor;
     
     ScopedPointer<TextEditor> text_editor;
     

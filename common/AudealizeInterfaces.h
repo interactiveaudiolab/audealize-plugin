@@ -73,28 +73,4 @@ protected:
     ScopedPointer<UndoManager>                  mUndoManager;
 };
 
-
-class TraditionalUIComponent : public Component{
-public:
-    TraditionalUIComponent(AudealizeAudioProcessor& p, int numParams) : processor(p), mSliders(numParams), mSliderAttachments(numParams), mListeners(numParams) {};
-    
-    void setSlider(int index, float newValue){
-        mSliders[index]->setValue(newValue);
-        //repaint();
-    }
-    
-    virtual void settingsFromMap(vector<float> settings) {};
-    
-protected:
-    AudealizeAudioProcessor& processor;
-    
-    vector<ScopedPointer<Slider>> mSliders;
-    
-    vector<ScopedPointer<AudioProcessorValueTreeState::SliderAttachment>> mSliderAttachments;
-    
-    vector<ScopedPointer<AudioProcessorValueTreeState::Listener>> mListeners;
-        
-    int mNumParams;
-};
-
 #endif /* AudealizeInterfaces_h */

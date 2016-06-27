@@ -160,29 +160,25 @@ AudioProcessorEditor* AudealizeeqAudioProcessor::createEditor()
 }
 
 void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue){
-    
     //EQ gain slider changed
     if (parameterID.substring(0, 9).equalsIgnoreCase("paramGain")){
         
         int idx = parameterID.substring(9).getIntValue();
+        
         float gain = mGainRange.snapToLegalValue(mSmoothers[idx].process(newValue));
+        DBG("Called parameterChanged(): " << newValue);
         mEqualizer.setBandGain(idx, gain);
     }
     
 }
 
 void AudealizeeqAudioProcessor::settingsFromMap(vector<float> settings){
-    if (settings.size() == NUMBANDS){
-        for (int i = 0; i < NUMBANDS; i++){
-            String paramID = String("paramGain" + std::to_string(i));
-            parameterChanged(paramID, settings[i] * 5.0f);
-            mState->getParameter(paramID)->setValueNotifyingHost(mGainRange.snapToLegalValue(settings[i] * 5.0f));
-            DBG(settings[i] * 5);
-            DBG("actual: " << mGainRange.convertFrom0to1(mState->getParameter(paramID)->getValue()));
-        }
-        DBG("\n");
-        
+    for (int i = 0; i < NUMBANDS; i++){
+        DBG("Settings[i] " << settings[i]);
+        String paramID = String("paramGain" + std::to_string(i));
+        mState->getParameter(paramID)->setValueNotifyingHost(mGainRange.convertTo0to1(settings[i]));
     }
+    //DBG(mEqualizer.getBandGain(10));
 }
 
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()

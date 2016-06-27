@@ -13,7 +13,7 @@
 
 using std::vector;
 
-class GraphicEQComponent  : public TraditionalUIComponent
+class GraphicEQComponent  : public Component
 {
 public:
     GraphicEQComponent (AudealizeAudioProcessor& p, int numBands);
@@ -22,10 +22,16 @@ public:
     void paint (Graphics& g) override;
     void resized() override;
     
-    void settingsFromMap(vector<float> settings) override;
-    
+
+
 private:
-    NormalisableRange<float> mRange;
+    AudealizeAudioProcessor& processor;
+    
+    vector< ScopedPointer<Slider> > mGainSliders;
+    
+    vector<ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> >mGainSliderAttachment;
+    
+    vector<ScopedPointer<AudioProcessorValueTreeState::Listener>> mGainListener;
     
     int mNumBands;
     

@@ -24,7 +24,7 @@ private:
     
     AudealizeeqAudioProcessor& processor;
     
-    ScopedPointer<TraditionalUIComponent> mEqualizerComponent;
+    ScopedPointer<GraphicEQComponent> mEqualizerComponent;
     ScopedPointer<WordMap> mWordMap;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeeqAudioProcessorEditor)
     

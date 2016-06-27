@@ -7,13 +7,10 @@ AudealizeeqAudioProcessorEditor::AudealizeeqAudioProcessorEditor (AudealizeeqAud
     : AudioProcessorEditor (&p), processor (p)
 {
     mEqualizerComponent = new GraphicEQComponent(processor, NUMBANDS);
-    addAndMakeVisible(mEqualizerComponent);
+    //addAndMakeVisible(mEqualizerComponent);
     
-    
-    mWordMap = new WordMap(mEqualizerComponent, PATH_TO_POINTS);
+    mWordMap = new WordMap(p, PATH_TO_POINTS);
     addAndMakeVisible(mWordMap);
-    
-    
     
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.

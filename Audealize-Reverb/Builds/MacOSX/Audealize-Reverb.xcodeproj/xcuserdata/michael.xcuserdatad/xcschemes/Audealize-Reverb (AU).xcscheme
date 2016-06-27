@@ -58,7 +58,7 @@
       </MacroExpansion>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "/Users/michael/JUCE/projects/audealize-plugin/misc/ReverbTest.logicx"
+            argument = "/Users/michael/JUCE/projects/ReverbTest.logicx"
             isEnabled = "YES">
          </CommandLineArgument>
       </CommandLineArguments>

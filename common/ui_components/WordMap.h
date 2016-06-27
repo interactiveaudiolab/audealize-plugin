@@ -8,7 +8,7 @@
 using namespace nlohmann;
 using std::vector;
 
-class WordMap  : public Component
+class WordMap  : public Component, public TextEditorListener
 {
 public:
     WordMap (AudealizeAudioProcessor& p, String pathToPoints);
@@ -21,6 +21,8 @@ public:
     void mouseExit (const MouseEvent& e) override;
     void mouseDown (const MouseEvent& e) override;
     void mouseDrag (const MouseEvent& e) override;
+    
+    void textEditorReturnKeyPressed (TextEditor &editor) override;
     
     void wordSelected (String word);
     

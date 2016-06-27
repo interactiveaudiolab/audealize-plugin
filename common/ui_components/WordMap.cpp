@@ -12,17 +12,20 @@ WordMap::WordMap (AudealizeAudioProcessor& p, String pathToPoints) : processor(p
     
     languages.push_back("English"); //@TODO: language select
     
-//    addAndMakeVisible (textEditor = new TextEditor ("new text editor"));
-//    textEditor->setMultiLine (false);
-//    textEditor->setReturnKeyStartsNewLine (false);
-//    textEditor->setReadOnly (false);
-//    textEditor->setScrollbarsShown (true);
-//    textEditor->setCaretVisible (true);
-//    textEditor->setPopupMenuEnabled (true);
-//    textEditor->setColour (TextEditor::outlineColourId, Colours::green);
-//    textEditor->setColour (TextEditor::shadowColourId, Colour (0x00a1a1a1));
-//    textEditor->setText (String());
-
+    addAndMakeVisible (text_editor = new TextEditor ("new text editor"));
+    text_editor->setFont(Font(TYPEFACE, 20, Font::plain));
+    text_editor->setMultiLine (false);
+    text_editor->setReturnKeyStartsNewLine (false);
+    text_editor->setReadOnly (false);
+    text_editor->setScrollbarsShown (true);
+    text_editor->setCaretVisible (true);
+    text_editor->setPopupMenuEnabled (true);
+    text_editor->setColour (TextEditor::outlineColourId, Colours::grey);
+    text_editor->setColour(TextEditor::ColourIds::focusedOutlineColourId, Colours::lightblue);
+    text_editor->setColour (TextEditor::shadowColourId, Colour (0x00a1a1a1));
+    text_editor->setText (String());
+    text_editor->addListener(this);
+    
     min_variance     = json_dict.begin().value()["agreement"];
     max_variance     = (json_dict.end() - 1).value()["agreement"];
     variance_thresh  = max_variance;
@@ -183,7 +186,7 @@ void WordMap::paint (Graphics& g)
 
 void WordMap::resized()
 {
-    //textEditor->setBounds (8, 8, 150, 24);
+    text_editor->setBounds (8, 8, 200, 36);
 }
 
 void WordMap::mouseMove (const MouseEvent& e)
@@ -223,8 +226,17 @@ void WordMap::mouseDrag (const MouseEvent& e)
 }
 
 void WordMap::wordSelected(String word){
+    init_map = false;
     int index = word_dict[word.toRawUTF8()];
+    center_index = index;
+    
+    Point<float> point;
+    point.setX((0.1f + points[index].getX() * 0.8f) * getWidth());
+    point.setY((0.05f + points[index].getY() * 0.9f) * getHeight());
+    
+    circle_position = point;
     processor.settingsFromMap(params[index]);
+    repaint();
 }
 
 bool WordMap::check_for_collision(Point<float> point, vector<Point<float>> plotted, float dist){
@@ -256,10 +268,6 @@ void WordMap::plot_word(String word, Colour color, int font_size, Point<float> p
     g.setFont(font);
     g.setColour(color);
     g.drawText(word, rect, Justification::centred);
-    
-    //DBG("\nPlotting word: \"" << word << "\" at point (" << point.getX() << ", " << point.getY() << ")");
-    //DBG("Font size: " << font_size);
-    //DBG("Color: " << color.getRed() << ", " << color.getGreen() << ", " << color.getBlue() << ", " << color.getAlpha());
 }
 
 int WordMap::find_closest_word_in_map(Point<float> point){
@@ -316,5 +324,17 @@ void WordMap::normalize_points(){
         it->setX((it->getX() - x_min) / (x_max - x_min));
         it->setY((it->getY() - y_min) / (y_max - y_min));
     }
+}
+
+void WordMap::textEditorReturnKeyPressed(TextEditor &editor){
+    String text = editor.getText();
+    for(vector<String>::iterator it = words.begin(); it < words.end(); it++){
+        if (text.equalsIgnoreCase(*it)){
+            wordSelected(*it);
+            return;
+        }
+    }
+    editor.setText("Word not found!");
+    editor.selectAll();
 }
 

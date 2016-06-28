@@ -165,9 +165,9 @@ namespace Audealize {
             //g.drawImage(ImageCache::getFromMemory(Resources::circleDark_png, Resources::circleDark_pngSize) , circle_position.getX()-16, circle_position.getY()-16, 32, 32, 0, 0, 32, 32);
             g.drawEllipse(circle_position.getX()-16, circle_position.getY()-16, 32, 32, 2);
         }
-        if (has_been_hovered){
+        if (has_been_hovered && !isMouseButtonDown()){
             g.setColour(Colour(200,200,200));
-            g.drawEllipse(hover_position.getX()-16, hover_position.getY()-16, 32, 32, 2);
+            g.drawEllipse(getMouseXYRelative().getX()-16, getMouseXYRelative().getY()-16, 32, 32, 2);
         }
         
         

@@ -19,7 +19,7 @@ using std::string;
 
 namespace Audealize {
     
-    class WordMap  : public Component
+    class WordMap  : public Component, public Timer
     {
     public:
         /**
@@ -60,6 +60,9 @@ namespace Audealize {
          */
         bool searchMap(String text);
         
+        void timerCallback() override;
+        
+        
     private:
         AudealizeAudioProcessor& processor; // the main plugin audio processor
         
@@ -93,6 +96,8 @@ namespace Audealize {
         
         bool has_been_hovered; // true if the map has been moused over
         
+        bool isdirty; // true if component needs to be redrawn
+                
         NormalisableRange<int> alpha_range; // for converting between alpha values in range [0,1] (float) and [0,255] (int)
         
         //=====================================================================
@@ -177,6 +182,13 @@ namespace Audealize {
          *  @param word the word that has been selected
          */
         void wordSelected (String word);
+        
+        /**
+         *  Set the component dirty if it needs to be redrawn
+         *
+         *  @param dirty 
+         */
+        void setDirty(bool dirty = true);
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WordMap)
     };

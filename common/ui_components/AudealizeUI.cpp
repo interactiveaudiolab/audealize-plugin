@@ -121,7 +121,7 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints, Strin
     mWordMap->setWantsKeyboardFocus(true);
     mWordMap->setBroughtToFrontOnMouseClick(true);
     mWordMap->setMouseClickGrabsKeyboardFocus(true);
-    
+
     //[/UserPreSize]
 
     setSize (840, 575);
@@ -267,7 +267,8 @@ void AudealizeUI::languageAlert(){
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="AudealizeUI" componentName=""
-                 parentClasses="public Component, public TextEditorListener" constructorParams="AudealizeAudioProcessor&amp; p, String pathToPoints, String effectType"
+                 parentClasses="public Component, public TextEditorListener, public Timer"
+                 constructorParams="AudealizeAudioProcessor&amp; p, String pathToPoints, String effectType"
                  variableInitialisers="processor(p), mPathToPoints(pathToPoints)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="840" initialHeight="575">

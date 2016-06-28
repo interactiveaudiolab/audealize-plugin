@@ -28,6 +28,8 @@ namespace Audealize {
         has_been_hovered = false;
         languages = {};
         
+        startTimerHz(60);
+        
         loadPoints();
     }
     
@@ -103,6 +105,8 @@ namespace Audealize {
         Point<float> point;
         Colour color;
         bool hover_radius, in_radius, collision;
+        
+        setDirty(false);
         
         // Draw border, background
         g.setColour(Colour(128, 128, 128));
@@ -183,14 +187,14 @@ namespace Audealize {
     void WordMap::mouseMove (const MouseEvent& e)
     {
         hover_position = getMouseXYRelative().toFloat();
-        repaint();
+        setDirty();
     }
     
     void WordMap::mouseEnter (const MouseEvent& e)
     {
         has_been_hovered = true;
         hover_position = getMouseXYRelative().toFloat();
-        repaint();
+        setDirty();
     }
     
     void WordMap::mouseExit(const MouseEvent& e){
@@ -203,7 +207,7 @@ namespace Audealize {
         circle_position = getMouseXYRelative().toFloat();
         center_index = find_closest_word_in_map(getMouseXYRelative().toFloat());
         wordSelected(words[center_index]);
-        repaint();
+        setDirty();
     }
     
     void WordMap::mouseDrag (const MouseEvent& e)
@@ -211,7 +215,7 @@ namespace Audealize {
         circle_position = getMouseXYRelative().toFloat();
         center_index = find_closest_word_in_map(getMouseXYRelative().toFloat());
         wordSelected(words[center_index]);
-        repaint();
+        setDirty();
     }
     
     void WordMap::wordSelected(String word){
@@ -225,7 +229,7 @@ namespace Audealize {
             
             circle_position = point;
             processor.settingsFromMap(params[index]);
-            repaint();
+            setDirty();
         }
     }
     
@@ -325,7 +329,7 @@ namespace Audealize {
     void WordMap::toggleLanguage(string language, bool enabled){
         languages[language] = enabled;
         loadPoints();
-        repaint();
+        setDirty();
     }
     
     bool WordMap::searchMap(juce::String text){
@@ -336,6 +340,16 @@ namespace Audealize {
             }
         }
         return false;
+    }
+    
+    void WordMap::timerCallback(){
+        if (isdirty){
+            repaint();
+        }
+    }
+    
+    void WordMap::setDirty(bool dirty){
+        isdirty = dirty;
     }
     
 }// namespace Audealize

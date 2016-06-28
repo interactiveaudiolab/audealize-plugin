@@ -33,9 +33,7 @@ namespace Audealize{
 //==============================================================================
 /**
                                                                     //[Comments]
-    An auto-generated component, created by the Projucer.
-
-    Describe your class and how it works here!
+    A container component that creates the full Audealize plugin UI
                                                                     //[/Comments]
 */
 class AudealizeUI  : public Component,
@@ -51,6 +49,8 @@ public:
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
     void textEditorReturnKeyPressed(TextEditor &editor) override;
+
+    void languageAlert();
     //[/UserMethods]
 
     void paint (Graphics& g) override;
@@ -66,6 +66,8 @@ private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     AudealizeAudioProcessor& processor;
     String mPathToPoints;
+
+    ScopedPointer<NativeMessageBox> mAlertBox;
 
     const String TYPEFACE = "Helvetica";
 

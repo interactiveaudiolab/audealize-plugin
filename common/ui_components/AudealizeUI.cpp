@@ -73,17 +73,20 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints, Strin
 
     addAndMakeVisible (mEnglishButton = new ToggleButton ("English"));
     mEnglishButton->addListener (this);
+    mEnglishButton->setToggleState (true, dontSendNotification);
 
     addAndMakeVisible (mEspanolButton = new ToggleButton (CharPointer_UTF8 ("Espa\xc3\xb1ol")));
     mEspanolButton->addListener (this);
+    mEspanolButton->setToggleState (true, dontSendNotification);
 
     addAndMakeVisible (mSearchBar = new TextEditor ("Search"));
     mSearchBar->setMultiLine (false);
     mSearchBar->setReturnKeyStartsNewLine (false);
     mSearchBar->setReadOnly (false);
-    mSearchBar->setScrollbarsShown (true);
+    mSearchBar->setScrollbarsShown (false);
     mSearchBar->setCaretVisible (true);
     mSearchBar->setPopupMenuEnabled (true);
+    mSearchBar->setColour (TextEditor::textColourId, Colours::black);
     mSearchBar->setText (String());
 
     addAndMakeVisible (mAudealizeLabel = new Label ("Audealize",
@@ -109,9 +112,16 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints, Strin
     mSearchBar->setColour (TextEditor::outlineColourId, Colours::grey);
     mSearchBar->setColour(TextEditor::ColourIds::focusedOutlineColourId, Colours::lightblue);
     mSearchBar->setColour (TextEditor::shadowColourId, Colour (0x00a1a1a1));
-    mSearchBar->setFont(Font(TYPEFACE, 20, Font::plain));
+    mSearchBar->setFont(Font(TYPEFACE, 18, Font::plain));
+    mSearchBar->setSelectAllWhenFocused(true);
+    mSearchBar->setTextToShowWhenEmpty("Search for a word to apply", Colour (0xff888888));
 
     mEffectTypeLabel->setText(effectType, NotificationType::dontSendNotification);
+
+    mWordMap->setWantsKeyboardFocus(true);
+    mWordMap->setBroughtToFrontOnMouseClick(true);
+    mWordMap->setMouseClickGrabsKeyboardFocus(true);
+    
     //[/UserPreSize]
 
     setSize (840, 575);
@@ -124,6 +134,7 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints, Strin
 AudealizeUI::~AudealizeUI()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
+    mAlertBox = nullptr;
     //[/Destructor_pre]
 
     component = nullptr;
@@ -161,16 +172,16 @@ void AudealizeUI::resized()
     //[/UserPreResize]
 
     component->setBounds (0, 0, 840, 568);
-    mWordMap->setBounds (32, 112, getWidth() - 63, 400);
-    mTreeView->setBounds (32, 528, 800, 100);
-    mAmountSlider->setBounds (528, 72, 240, 24);
-    label->setBounds (488, 72, 40, 24);
-    label2->setBounds (768, 72, 56, 24);
-    mEnglishButton->setBounds (248, 72, 72, 24);
-    mEspanolButton->setBounds (320, 72, 80, 24);
-    mSearchBar->setBounds (32, 64, 200, 36);
-    mAudealizeLabel->setBounds (32, 24, 176, 32);
-    mEffectTypeLabel->setBounds (186, 24, 118, 32);
+    mWordMap->setBounds (32, 119, getWidth() - 63, 400);
+    mTreeView->setBounds (32, 535, 800, 100);
+    mAmountSlider->setBounds (528, 79, 240, 24);
+    label->setBounds (488, 79, 40, 24);
+    label2->setBounds (768, 79, 56, 24);
+    mEnglishButton->setBounds (288, 79, 72, 24);
+    mEspanolButton->setBounds (360, 79, 80, 24);
+    mSearchBar->setBounds (32, 71, 240, 36);
+    mAudealizeLabel->setBounds (27, 24, 176, 32);
+    mEffectTypeLabel->setBounds (181, 24, 118, 32);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -193,6 +204,11 @@ void AudealizeUI::sliderValueChanged (Slider* sliderThatWasMoved)
 void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
 {
     //[UserbuttonClicked_Pre]
+    if (!mEspanolButton->getToggleState() && !mEnglishButton->getToggleState()){
+        languageAlert();
+        buttonThatWasClicked->setToggleState(true, NotificationType::sendNotification);
+    }
+
     //[/UserbuttonClicked_Pre]
 
     if (buttonThatWasClicked == mEnglishButton)
@@ -234,6 +250,10 @@ void AudealizeUI::textEditorReturnKeyPressed(TextEditor &editor){
         editor.selectAll();
     }
 }
+
+void AudealizeUI::languageAlert(){
+    mAlertBox->showMessageBox(AlertWindow::AlertIconType::WarningIcon, "At least one language must be selected", "");
+}
 //[/MiscUserCode]
 
 
@@ -260,42 +280,43 @@ BEGIN_JUCER_METADATA
                     virtualName="" explicitFocusOrder="0" pos="0 0 840 568" class="Component"
                     params=""/>
   <GENERICCOMPONENT name="Descriptor Map" id="2d4703c07613c1fd" memberName="mWordMap"
-                    virtualName="" explicitFocusOrder="0" pos="32 112 63M 400" class="Audealize::WordMap"
+                    virtualName="" explicitFocusOrder="0" pos="32 119 63M 400" class="Audealize::WordMap"
                     params="p, descriptors"/>
   <TREEVIEW name="new treeview" id="a281792e532bb478" memberName="mTreeView"
-            virtualName="" explicitFocusOrder="0" pos="32 528 800 100" rootVisible="1"
+            virtualName="" explicitFocusOrder="0" pos="32 535 800 100" rootVisible="1"
             openByDefault="0"/>
   <SLIDER name="Amount" id="6e762afa2a0f3d7e" memberName="mAmountSlider"
-          virtualName="" explicitFocusOrder="0" pos="528 72 240 24" min="0"
+          virtualName="" explicitFocusOrder="0" pos="528 79 240 24" min="0"
           max="10" int="0" style="LinearHorizontal" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"
           needsCallback="1"/>
   <LABEL name="new label" id="e160c7d1b628f01b" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="488 72 40 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="488 79 40 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Less&#10;" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="e83fcf2c5fb12a46" memberName="label2" virtualName=""
-         explicitFocusOrder="0" pos="768 72 56 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="768 79 56 24" edTextCol="ff000000"
          edBkgCol="0" labelText="More&#10;" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <TOGGLEBUTTON name="English" id="ea59c9a3fb2b61fe" memberName="mEnglishButton"
-                virtualName="" explicitFocusOrder="0" pos="248 72 72 24" buttonText="English"
-                connectedEdges="0" needsCallback="1" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="288 79 72 24" buttonText="English"
+                connectedEdges="0" needsCallback="1" radioGroupId="0" state="1"/>
   <TOGGLEBUTTON name="Espa&#241;ol" id="3e0d8205ac653424" memberName="mEspanolButton"
-                virtualName="" explicitFocusOrder="0" pos="320 72 80 24" buttonText="Espa&#241;ol"
-                connectedEdges="0" needsCallback="1" radioGroupId="0" state="0"/>
+                virtualName="" explicitFocusOrder="0" pos="360 79 80 24" buttonText="Espa&#241;ol"
+                connectedEdges="0" needsCallback="1" radioGroupId="0" state="1"/>
   <TEXTEDITOR name="Search" id="eaa70191aab55d80" memberName="mSearchBar" virtualName=""
-              explicitFocusOrder="0" pos="32 64 200 36" initialText="" multiline="0"
-              retKeyStartsLine="0" readonly="0" scrollbars="1" caret="1" popupmenu="1"/>
+              explicitFocusOrder="0" pos="32 71 240 36" textcol="ff000000"
+              initialText="" multiline="0" retKeyStartsLine="0" readonly="0"
+              scrollbars="0" caret="1" popupmenu="1"/>
   <LABEL name="Audealize" id="a779ff2220710b09" memberName="mAudealizeLabel"
-         virtualName="" explicitFocusOrder="0" pos="32 24 176 32" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="27 24 176 32" edTextCol="ff000000"
          edBkgCol="0" labelText="Audealize&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Helvetica"
          fontsize="35.399999999999998579" bold="0" italic="0" justification="9"/>
   <LABEL name="Effect Type" id="1c359235d7e6d42b" memberName="mEffectTypeLabel"
-         virtualName="" explicitFocusOrder="0" pos="186 24 118 32" textCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="181 24 118 32" textCol="ff000000"
          edTextCol="ff000000" edBkgCol="0" labelText="Type&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Helvetica"
          fontsize="35" bold="0" italic="0" justification="9"/>

@@ -9,7 +9,7 @@ AudealizeeqAudioProcessorEditor::AudealizeeqAudioProcessorEditor (AudealizeeqAud
     mEqualizerComponent = new GraphicEQComponent(processor, NUMBANDS);
     //addAndMakeVisible(mEqualizerComponent);
     
-    mAudealizeUI = new AudealizeUI(processor, PATH_TO_POINTS, "EQ");
+    mAudealizeUI = new AudealizeUI(processor, mEqualizerComponent, PATH_TO_POINTS, "EQ");
     addAndMakeVisible(mAudealizeUI);
     
     // Make sure that before the constructor has finished, you've set the

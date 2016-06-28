@@ -31,8 +31,8 @@ namespace Audealize{
 //[/MiscUserDefs]
 
 //==============================================================================
-AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints, String effectType)
-    : processor(p), mPathToPoints(pathToPoints)
+AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType)
+    : processor(p), mPathToPoints(pathToPoints), mTradUI(t)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     // Load file with descriptors, parse into nlohman::json object
@@ -46,8 +46,6 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints, Strin
 
     addAndMakeVisible (mWordMap = new Audealize::WordMap (p, descriptors));
     mWordMap->setName ("Descriptor Map");
-
-    addAndMakeVisible (mTreeView = new TreeView ("new treeview"));
 
     addAndMakeVisible (mAmountSlider = new Slider ("Amount"));
     mAmountSlider->setRange (0, 10, 0);
@@ -106,6 +104,10 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints, Strin
     mEffectTypeLabel->setColour (TextEditor::textColourId, Colours::black);
     mEffectTypeLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
+    addAndMakeVisible (mTradUIButton = new TextButton ("new button"));
+    mTradUIButton->setButtonText (TRANS("+ Show traditional interface"));
+    mTradUIButton->addListener (this);
+
 
     //[UserPreSize]
     mSearchBar->addListener(this);
@@ -122,6 +124,7 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints, Strin
     mWordMap->setBroughtToFrontOnMouseClick(true);
     mWordMap->setMouseClickGrabsKeyboardFocus(true);
 
+    addAndMakeVisible(mTradUI);
     //[/UserPreSize]
 
     setSize (840, 575);
@@ -139,7 +142,6 @@ AudealizeUI::~AudealizeUI()
 
     component = nullptr;
     mWordMap = nullptr;
-    mTreeView = nullptr;
     mAmountSlider = nullptr;
     label = nullptr;
     label2 = nullptr;
@@ -148,6 +150,7 @@ AudealizeUI::~AudealizeUI()
     mSearchBar = nullptr;
     mAudealizeLabel = nullptr;
     mEffectTypeLabel = nullptr;
+    mTradUIButton = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -173,7 +176,6 @@ void AudealizeUI::resized()
 
     component->setBounds (0, 0, 840, 568);
     mWordMap->setBounds (32, 119, getWidth() - 63, 400);
-    mTreeView->setBounds (32, 535, 800, 100);
     mAmountSlider->setBounds (528, 79, 240, 24);
     label->setBounds (488, 79, 40, 24);
     label2->setBounds (768, 79, 56, 24);
@@ -182,7 +184,9 @@ void AudealizeUI::resized()
     mSearchBar->setBounds (32, 71, 240, 36);
     mAudealizeLabel->setBounds (27, 24, 176, 32);
     mEffectTypeLabel->setBounds (181, 24, 118, 32);
+    mTradUIButton->setBounds (40, 530, 208, 24);
     //[UserResized] Add your own custom resize handling here..
+    mTradUI->setBounds(32, 550, getWidth()-63, 150);
     //[/UserResized]
 }
 
@@ -223,6 +227,14 @@ void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
         mWordMap->toggleLanguage("Español", mEspanolButton->getToggleState());
         //[/UserButtonCode_mEspanolButton]
     }
+    else if (buttonThatWasClicked == mTradUIButton)
+    {
+        //[UserButtonCode_mTradUIButton] -- add your button handler code here..
+        
+        setSize(getWidth(), getHeight()+200);
+        
+        //[/UserButtonCode_mTradUIButton]
+    }
 
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
@@ -252,7 +264,7 @@ void AudealizeUI::textEditorReturnKeyPressed(TextEditor &editor){
 }
 
 void AudealizeUI::languageAlert(){
-    mAlertBox->showMessageBox(AlertWindow::AlertIconType::WarningIcon, "At least one language must be selected", "");
+    mAlertBox->showMessageBox(AlertWindow::AlertIconType::WarningIcon, "At least one language must be selected!", "");
 }
 //[/MiscUserCode]
 
@@ -267,9 +279,8 @@ void AudealizeUI::languageAlert(){
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="AudealizeUI" componentName=""
-                 parentClasses="public Component, public TextEditorListener, public Timer"
-                 constructorParams="AudealizeAudioProcessor&amp; p, String pathToPoints, String effectType"
-                 variableInitialisers="processor(p), mPathToPoints(pathToPoints)"
+                 parentClasses="public Component, public TextEditorListener" constructorParams="AudealizeAudioProcessor&amp; p, ScopedPointer&lt;TraditionalUI&gt; t, String pathToPoints, String effectType"
+                 variableInitialisers="processor(p), mPathToPoints(pathToPoints), mTradUI(t)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="840" initialHeight="575">
   <METHODS>
@@ -283,9 +294,6 @@ BEGIN_JUCER_METADATA
   <GENERICCOMPONENT name="Descriptor Map" id="2d4703c07613c1fd" memberName="mWordMap"
                     virtualName="" explicitFocusOrder="0" pos="32 119 63M 400" class="Audealize::WordMap"
                     params="p, descriptors"/>
-  <TREEVIEW name="new treeview" id="a281792e532bb478" memberName="mTreeView"
-            virtualName="" explicitFocusOrder="0" pos="32 535 800 100" rootVisible="1"
-            openByDefault="0"/>
   <SLIDER name="Amount" id="6e762afa2a0f3d7e" memberName="mAmountSlider"
           virtualName="" explicitFocusOrder="0" pos="528 79 240 24" min="0"
           max="10" int="0" style="LinearHorizontal" textBoxPos="NoTextBox"
@@ -321,6 +329,9 @@ BEGIN_JUCER_METADATA
          edTextCol="ff000000" edBkgCol="0" labelText="Type&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Helvetica"
          fontsize="35" bold="0" italic="0" justification="9"/>
+  <TEXTBUTTON name="new button" id="9b1b1e4bf4719d1b" memberName="mTradUIButton"
+              virtualName="" explicitFocusOrder="0" pos="40 530 208 24" buttonText="+ Show traditional interface"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

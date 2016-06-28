@@ -43,7 +43,7 @@ class AudealizeUI  : public Component,
 {
 public:
     //==============================================================================
-    AudealizeUI (AudealizeAudioProcessor& p, String pathToPoints, String effectType);
+    AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType);
     ~AudealizeUI();
 
     //==============================================================================
@@ -68,7 +68,7 @@ private:
     String mPathToPoints;
 
     ScopedPointer<NativeMessageBox> mAlertBox;
-
+    ScopedPointer<Audealize::TraditionalUI> mTradUI;
     const String TYPEFACE = "Helvetica";
 
     //[/UserVariables]
@@ -76,7 +76,6 @@ private:
     //==============================================================================
     ScopedPointer<Component> component;
     ScopedPointer<Audealize::WordMap> mWordMap;
-    ScopedPointer<TreeView> mTreeView;
     ScopedPointer<Slider> mAmountSlider;
     ScopedPointer<Label> label;
     ScopedPointer<Label> label2;
@@ -85,6 +84,7 @@ private:
     ScopedPointer<TextEditor> mSearchBar;
     ScopedPointer<Label> mAudealizeLabel;
     ScopedPointer<Label> mEffectTypeLabel;
+    ScopedPointer<TextButton> mTradUIButton;
 
 
     //==============================================================================

@@ -215,7 +215,7 @@ namespace Audealize{
                 mComb[i].reset();
             }
         }
-        
+    
         
         /**
          *  Getters for main reverberator parameters

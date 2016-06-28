@@ -11,9 +11,6 @@
     <Filter Include="Audealize-EQ\common">
       <UniqueIdentifier>{C68B821F-8851-423A-B2A3-1FB7FEBDE28F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Audealize-EQ\common\resources">
-      <UniqueIdentifier>{F6912432-6944-0842-AAE1-C617D0EAF3F7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Audealize-EQ\common\utils">
       <UniqueIdentifier>{AAC1FAA5-C7A6-B039-8C57-8D5F3489DB1F}</UniqueIdentifier>
     </Filter>
@@ -423,9 +420,6 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\PluginEditor.cpp">
       <Filter>Audealize-EQ\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\resources\Resources.cpp">
-      <Filter>Audealize-EQ\common\resources</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\common\ui_components\AudealizeUI.cpp">
       <Filter>Audealize-EQ\common\ui_components</Filter>
@@ -2327,9 +2321,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\PluginEditor.h">
       <Filter>Audealize-EQ\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\resources\Resources.h">
-      <Filter>Audealize-EQ\common\resources</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\common\common.h">
       <Filter>Audealize-EQ\common</Filter>
@@ -4349,18 +4340,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\common\resources\CircleDark.png">
-      <Filter>Audealize-EQ\common\resources</Filter>
-    </None>
-    <None Include="..\..\..\common\resources\CircleDark@2x.png">
-      <Filter>Audealize-EQ\common\resources</Filter>
-    </None>
-    <None Include="..\..\..\common\resources\CircleLight.png">
-      <Filter>Audealize-EQ\common\resources</Filter>
-    </None>
-    <None Include="..\..\..\common\resources\CircleLight@2x.png">
-      <Filter>Audealize-EQ\common\resources</Filter>
-    </None>
     <None Include="..\..\..\common\data\eqpoints.json">
       <Filter>Audealize-EQ\common\data</Filter>
     </None>

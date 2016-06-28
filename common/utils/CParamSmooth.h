@@ -2,7 +2,7 @@
 //  CParamSmooth.h
 //
 //  Based on CParamSmooth by alexirae@gmail.com from the musicdsp.org archives
-//  Modified by Michael Donovan (added check to determine if value needs smoothing)
+//
 
 #ifndef CParamSmooth_h
 #define CParamSmooth_h

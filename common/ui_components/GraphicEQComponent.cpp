@@ -3,7 +3,7 @@
 
 using std::vector;
 using std::to_string;
-GraphicEQComponent::GraphicEQComponent (AudealizeAudioProcessor& p, int numBands) : processor(p), mGainSliders(numBands), mGainSliderAttachment(numBands), mGainListener(numBands)
+GraphicEQComponent::GraphicEQComponent (AudealizeAudioProcessor& p, int numBands) : processor(p), mGainSliders(numBands), mGainSliderAttachment(numBands) //, mGainListener(numBands)
 {
     mNumBands = numBands;
     
@@ -24,7 +24,7 @@ GraphicEQComponent::~GraphicEQComponent()
     for (int i = 0; i < mNumBands; i++){
         mGainSliders[i] = nullptr;
         mGainSliderAttachment[i] = nullptr;
-        mGainListener[i] = nullptr;
+        //mGainListener[i] = nullptr;
     }
 }
 

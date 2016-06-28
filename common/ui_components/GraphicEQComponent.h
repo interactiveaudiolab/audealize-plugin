@@ -1,6 +1,5 @@
 //
 //  GraphicEQComponent.h
-//  Created by Michael Donovan on 6/15/16.
 //
 //  A component for creating a graphic EQ interface for Audealize-EQ plugin
 //
@@ -21,19 +20,17 @@ public:
 
     void paint (Graphics& g) override;
     void resized() override;
-    
-
 
 private:
-    AudealizeAudioProcessor& processor;
+    AudealizeAudioProcessor& processor; // the plugin audio processor
     
-    vector< ScopedPointer<Slider> > mGainSliders;
+    vector< ScopedPointer<Slider> > mGainSliders; // a vector contianing the gain sliders
     
-    vector<ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> >mGainSliderAttachment;
+    vector<ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> >mGainSliderAttachment; //
     
-    vector<ScopedPointer<AudioProcessorValueTreeState::Listener>> mGainListener;
+    //vector<ScopedPointer<AudioProcessorValueTreeState::Listener>> mGainListener;
     
-    int mNumBands;
+    int mNumBands; // number of EQ bands
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GraphicEQComponent)
 };

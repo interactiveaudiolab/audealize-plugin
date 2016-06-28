@@ -217,15 +217,16 @@ namespace Audealize {
     void WordMap::wordSelected(String word){
         init_map = false;
         int index = word_dict[word.toRawUTF8()];
-        center_index = index;
-        
-        Point<float> point;
-        point.setX((0.1f + points[index].getX() * 0.8f) * getWidth());
-        point.setY((0.05f + points[index].getY() * 0.9f) * getHeight());
-        
-        circle_position = point;
-        processor.settingsFromMap(params[index]);
-        repaint();
+        if ( index < words.size()){
+            center_index = index;
+            Point<float> point;
+            point.setX((0.1f + points[index].getX() * 0.8f) * getWidth());
+            point.setY((0.05f + points[index].getY() * 0.9f) * getHeight());
+            
+            circle_position = point;
+            processor.settingsFromMap(params[index]);
+            repaint();
+        }
     }
     
     bool WordMap::check_for_collision(Point<float> point, vector<Point<float>> plotted, float dist){
@@ -240,8 +241,8 @@ namespace Audealize {
         return false;
     }
     
-    bool WordMap::inRadius(Point<float> pt , Point<float> centerpt, float r){
-        return calc_distance(pt, centerpt) < r;
+    bool WordMap::inRadius(Point<float> point, Point<float> centerpoint, float radius){
+        return calc_distance(point, centerpoint) < radius;
     }
     
     void WordMap::plot_word(String word, Colour color, int font_size, Point<float> point, Graphics& g){

@@ -51,7 +51,6 @@ endif
 OBJECTS := \
   $(OBJDIR)/PluginProcessor_a059e380.o \
   $(OBJDIR)/PluginEditor_94d4fb09.o \
-  $(OBJDIR)/Resources_e26b743b.o \
   $(OBJDIR)/AudealizeUI_721d8e9a.o \
   $(OBJDIR)/WordMap_40609dc4.o \
   $(OBJDIR)/GraphicEQComponent_755b11c1.o \
@@ -99,11 +98,6 @@ $(OBJDIR)/PluginProcessor_a059e380.o: ../../Source/PluginProcessor.cpp
 $(OBJDIR)/PluginEditor_94d4fb09.o: ../../Source/PluginEditor.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling PluginEditor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/Resources_e26b743b.o: ../../../common/resources/Resources.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling Resources.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/AudealizeUI_721d8e9a.o: ../../../common/ui_components/AudealizeUI.cpp

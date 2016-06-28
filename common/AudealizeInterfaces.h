@@ -1,9 +1,6 @@
 //
 //  AudealizeInterfaces.h
 //
-//  Created by Michael Donovan on 6/15/16.
-//
-//
 
 #ifndef AudealizeInterfaces_h
 #define AudealizeInterfaces_h
@@ -69,7 +66,7 @@ public:
     }
     
 protected:
-    ScopedPointer<AudioProcessorValueTreeState> mState;
+    ScopedPointer<AudioProcessorValueTreeState> mState; // and AudioProcessorValueTreeState containing the parameter state information
     ScopedPointer<UndoManager>                  mUndoManager;
 };
 

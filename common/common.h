@@ -22,7 +22,6 @@
 #include "effects/Equalizer.h"
 #include "effects/Reverb.h"
 
-#include "resources/Resources.h"
 
 
 #endif  // COMMON_H_INCLUDED

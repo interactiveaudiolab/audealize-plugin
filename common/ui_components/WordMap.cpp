@@ -44,6 +44,8 @@ namespace Audealize {
         params.clear();
         colors.clear();
         font_sizes.clear();
+        word_dict.clear();
+        word_count = 0;
         
         float alpha_max  = (1 - 0.92f * logf(5 * min_variance + 1));
         

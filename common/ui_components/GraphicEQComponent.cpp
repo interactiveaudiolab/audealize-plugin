@@ -13,7 +13,7 @@ namespace Audealize {
         for (int i = 0; i < mNumBands; i++){
             String paramID = "paramGain" + to_string(i);
             
-            mGainSliders[i] = new Slider (Slider::LinearVertical, Slider::TextBoxBelow);
+            mGainSliders[i] = new Slider (Slider::LinearVertical, Slider::NoTextBox);
             addAndMakeVisible(mGainSliders[i]);
             
             mGainSliderAttachment[i] = new AudioProcessorValueTreeState::SliderAttachment (p.getValueTreeState(), paramID, *mGainSliders[i]);

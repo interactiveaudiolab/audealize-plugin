@@ -156,7 +156,8 @@ bool AudealizeeqAudioProcessor::hasEditor() const
 
 AudioProcessorEditor* AudealizeeqAudioProcessor::createEditor()
 {
-    return new AudealizeeqAudioProcessorEditor (*this);
+    ScopedPointer<TraditionalUI> mGraphicEQ = new GraphicEQComponent(*this, NUMBANDS);
+    return new AudealizeUI (*this, mGraphicEQ, PATH_TO_POINTS, "EQ");
 }
 
 void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue){
@@ -176,7 +177,8 @@ void AudealizeeqAudioProcessor::settingsFromMap(vector<float> settings){
     for (int i = 0; i < NUMBANDS; i++){
         //DBG("Settings[i] " << settings[i]);
         String paramID = String("paramGain" + std::to_string(i));
-        mState->getParameter(paramID)->setValueNotifyingHost(mGainRange.convertTo0to1(settings[i]));
+        normalizeEQ(&settings);
+        mState->getParameter(paramID)->setValueNotifyingHost(mGainRange.snapToLegalValue(settings[i]));
     }
     //DBG(mEqualizer.getBandGain(10));
 }
@@ -185,3 +187,12 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new AudealizeeqAudioProcessor();
 }
+
+void AudealizeeqAudioProcessor::normalizeEQ(vector<float>* settings){
+    float max = *std::max_element(settings->begin(), settings->end());
+    float min = *std::min_element(settings->begin(), settings->end());
+    for (int i = 0; i < settings->size(); i++){
+        (*settings)[i] = ((*settings)[i] - min) / (max - min);
+    }
+}
+

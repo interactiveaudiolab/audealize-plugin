@@ -36,7 +36,7 @@ namespace Audealize{
     A container component that creates the full Audealize plugin UI
                                                                     //[/Comments]
 */
-class AudealizeUI  : public Component,
+class AudealizeUI  : public AudioProcessorEditor,
                      public TextEditorListener,
                      public SliderListener,
                      public ButtonListener

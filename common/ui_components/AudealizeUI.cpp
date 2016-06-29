@@ -32,7 +32,7 @@ namespace Audealize{
 
 //==============================================================================
 AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType)
-    : processor(p), mPathToPoints(pathToPoints), mTradUI(t)
+    : AudioProcessorEditor(&p), processor(p), mPathToPoints(pathToPoints), mTradUI(t)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     // Load file with descriptors, parse into nlohman::json object
@@ -125,6 +125,7 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
     mWordMap->setMouseClickGrabsKeyboardFocus(true);
 
     addAndMakeVisible(mTradUI);
+    mTradUI->setVisible(false);
     //[/UserPreSize]
 
     setSize (840, 575);
@@ -186,7 +187,7 @@ void AudealizeUI::resized()
     mEffectTypeLabel->setBounds (181, 24, 118, 32);
     mTradUIButton->setBounds (40, 530, 208, 24);
     //[UserResized] Add your own custom resize handling here..
-    mTradUI->setBounds(32, 550, getWidth()-63, 150);
+    mTradUI->setBounds(32, 570, getWidth()-63, 150);
     //[/UserResized]
 }
 
@@ -230,9 +231,15 @@ void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == mTradUIButton)
     {
         //[UserButtonCode_mTradUIButton] -- add your button handler code here..
-        
-        setSize(getWidth(), getHeight()+200);
-        
+        if(mTradUI->isVisible()){
+            setSize(getWidth(), getHeight()-mTradUI->getHeight()-10);
+            mTradUI->setVisible(false);
+        }
+        else{
+            setSize(getWidth(), getHeight()+mTradUI->getHeight()+10);
+            mTradUI->setVisible(true);
+        }
+
         //[/UserButtonCode_mTradUIButton]
     }
 
@@ -279,8 +286,9 @@ void AudealizeUI::languageAlert(){
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="AudealizeUI" componentName=""
-                 parentClasses="public Component, public TextEditorListener" constructorParams="AudealizeAudioProcessor&amp; p, ScopedPointer&lt;TraditionalUI&gt; t, String pathToPoints, String effectType"
-                 variableInitialisers="processor(p), mPathToPoints(pathToPoints), mTradUI(t)"
+                 parentClasses="public AudioProcessorEditor, public TextEditorListener"
+                 constructorParams="AudealizeAudioProcessor&amp; p, ScopedPointer&lt;TraditionalUI&gt; t, String pathToPoints, String effectType"
+                 variableInitialisers="AudioProcessorEditor(&amp;p), processor(p), mPathToPoints(pathToPoints), mTradUI(t)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="840" initialHeight="575">
   <METHODS>

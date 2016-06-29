@@ -187,7 +187,7 @@ void AudealizeUI::resized()
     mEffectTypeLabel->setBounds (181, 24, 118, 32);
     mTradUIButton->setBounds (40, 530, 208, 24);
     //[UserResized] Add your own custom resize handling here..
-    mTradUI->setBounds(32, 570, getWidth()-63, 150);
+    mTradUI->setBounds(32, 570, getWidth()-63, 120);
     //[/UserResized]
 }
 
@@ -232,11 +232,11 @@ void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
     {
         //[UserButtonCode_mTradUIButton] -- add your button handler code here..
         if(mTradUI->isVisible()){
-            setSize(getWidth(), getHeight()-mTradUI->getHeight()-10);
+            setSize(getWidth(), getHeight()-mTradUI->getHeight()-15);
             mTradUI->setVisible(false);
         }
         else{
-            setSize(getWidth(), getHeight()+mTradUI->getHeight()+10);
+            setSize(getWidth(), getHeight()+mTradUI->getHeight()+15);
             mTradUI->setVisible(true);
         }
 

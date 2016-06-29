@@ -157,7 +157,7 @@ bool AudealizeeqAudioProcessor::hasEditor() const
 AudioProcessorEditor* AudealizeeqAudioProcessor::createEditor()
 {
     ScopedPointer<TraditionalUI> mGraphicEQ = new GraphicEQComponent(*this, NUMBANDS);
-    return new AudealizeUI (*this, mGraphicEQ, PATH_TO_POINTS, "EQ");
+    return new AudealizeUI (*this, mGraphicEQ, PATH_TO_POINTS, ""); //@TODO
 }
 
 void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue){

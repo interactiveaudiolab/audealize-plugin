@@ -81,7 +81,7 @@ namespace Audealize {
                 // calculate color. random rgb, alpha based on agreement score
                 alpha = (1 - 0.92f * logf(5 * agreement + 1)) / alpha_max;
                 
-                color = Colour::fromRGBA(rand() % 256, rand() % 256, rand() % 256, alpha_range.snapToLegalValue(alpha*255));
+                color = Colour::fromRGBA(rand() % 210, rand() % 210, rand() % 210, alpha_range.snapToLegalValue(alpha*255));
                 colors.push_back(color);
                 
                 // calculate font size
@@ -167,12 +167,12 @@ namespace Audealize {
         
         // Draw circles
         if (!init_map){
-            g.setColour(Colour(128,128,128));
+            g.setColour(Colour::fromRGBA(128, 128, 128, 150));
             //g.drawImage(ImageCache::getFromMemory(Resources::circleDark_png, Resources::circleDark_pngSize) , circle_position.getX()-16, circle_position.getY()-16, 32, 32, 0, 0, 32, 32);
             g.drawEllipse(circle_position.getX()-16, circle_position.getY()-16, 32, 32, 2);
         }
         if (has_been_hovered && !isMouseButtonDown()){
-            g.setColour(Colour(200,200,200));
+            g.setColour(Colour::fromRGBA(200, 200, 200, 150));
             g.drawEllipse(getMouseXYRelative().getX()-16, getMouseXYRelative().getY()-16, 32, 32, 2);
         }
         

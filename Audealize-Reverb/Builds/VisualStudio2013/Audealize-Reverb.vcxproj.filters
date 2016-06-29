@@ -14,6 +14,9 @@
     <Filter Include="Audealize-Reverb\common\data">
       <UniqueIdentifier>{E53EEDBE-84A6-3893-BF9D-4A2371098E3D}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Audealize-Reverb\common\utils">
+      <UniqueIdentifier>{AAC87CF7-6C3E-EDF3-FE88-1662ADD3CB85}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Audealize-Reverb\common\effects">
       <UniqueIdentifier>{7E68E6B0-4A8F-7FDB-8371-15D2F4CF52EA}</UniqueIdentifier>
     </Filter>
@@ -428,9 +431,6 @@
       <Filter>Audealize-Reverb\common\ui_components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\common\libs\Biquad.cpp">
-      <Filter>Audealize-Reverb\common\libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\libs\CParamSmooth.cpp">
       <Filter>Audealize-Reverb\common\libs</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
@@ -2334,6 +2334,9 @@
     <ClInclude Include="..\..\..\common\AudealizeInterfaces.h">
       <Filter>Audealize-Reverb\common</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\common\utils\CParamSmooth.h">
+      <Filter>Audealize-Reverb\common\utils</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\common\effects\Equalizer.h">
       <Filter>Audealize-Reverb\common\effects</Filter>
     </ClInclude>
@@ -2371,9 +2374,6 @@
       <Filter>Audealize-Reverb\common\libs</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\common\libs\PrimeFactors.h">
-      <Filter>Audealize-Reverb\common\libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\libs\CParamSmooth.h">
       <Filter>Audealize-Reverb\common\libs</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h">

@@ -141,7 +141,6 @@
     <ClCompile Include="..\..\..\common\ui_components\AudealizeUI.cpp"/>
     <ClCompile Include="..\..\..\common\ui_components\GraphicEQComponent.cpp"/>
     <ClCompile Include="..\..\..\common\libs\Biquad.cpp"/>
-    <ClCompile Include="..\..\..\common\libs\CParamSmooth.cpp"/>
     <ClCompile Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1847,6 +1846,7 @@
     <ClInclude Include="..\..\Source\PluginEditor.h"/>
     <ClInclude Include="..\..\..\common\common.h"/>
     <ClInclude Include="..\..\..\common\AudealizeInterfaces.h"/>
+    <ClInclude Include="..\..\..\common\utils\CParamSmooth.h"/>
     <ClInclude Include="..\..\..\common\effects\Equalizer.h"/>
     <ClInclude Include="..\..\..\common\effects\NChannelFilter.h"/>
     <ClInclude Include="..\..\..\common\effects\Reverb.h"/>
@@ -1860,7 +1860,6 @@
     <ClInclude Include="..\..\..\common\libs\Biquad.h"/>
     <ClInclude Include="..\..\..\common\libs\json.hpp"/>
     <ClInclude Include="..\..\..\common\libs\PrimeFactors.h"/>
-    <ClInclude Include="..\..\..\common\libs\CParamSmooth.h"/>
     <ClInclude Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
     <ClInclude Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.h"/>
     <ClInclude Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_FloatVectorOperations.h"/>

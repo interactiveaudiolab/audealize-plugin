@@ -138,6 +138,7 @@
     <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\PluginEditor.cpp"/>
     <ClCompile Include="..\..\..\common\ui_components\AudealizeUI.cpp"/>
+    <ClCompile Include="..\..\..\common\ui_components\WordMap.cpp"/>
     <ClCompile Include="..\..\..\common\ui_components\GraphicEQComponent.cpp"/>
     <ClCompile Include="..\..\..\common\libs\Biquad.cpp"/>
     <ClCompile Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
@@ -1843,11 +1844,13 @@
     <ClInclude Include="..\..\Source\PluginEditor.h"/>
     <ClInclude Include="..\..\..\common\common.h"/>
     <ClInclude Include="..\..\..\common\AudealizeInterfaces.h"/>
+    <ClInclude Include="..\..\..\common\utils\CParamSmooth.h"/>
     <ClInclude Include="..\..\..\common\effects\Equalizer.h"/>
     <ClInclude Include="..\..\..\common\effects\NChannelFilter.h"/>
     <ClInclude Include="..\..\..\common\effects\AudioEffect.h"/>
     <ClInclude Include="..\..\..\common\effects\Reverb.h"/>
     <ClInclude Include="..\..\..\common\ui_components\AudealizeUI.h"/>
+    <ClInclude Include="..\..\..\common\ui_components\WordMap.h"/>
     <ClInclude Include="..\..\..\common\ui_components\GraphicEQComponent.h"/>
     <ClInclude Include="..\..\..\common\libs\calf_dsp_library\buffer.h"/>
     <ClInclude Include="..\..\..\common\libs\calf_dsp_library\delay.h"/>

@@ -11,6 +11,9 @@
     <Filter Include="Audealize-EQ\common">
       <UniqueIdentifier>{C68B821F-8851-423A-B2A3-1FB7FEBDE28F}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Audealize-EQ\common\utils">
+      <UniqueIdentifier>{AAC1FAA5-C7A6-B039-8C57-8D5F3489DB1F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Audealize-EQ\common\data">
       <UniqueIdentifier>{58D6EC0B-FE7A-AAB7-9BA1-D99FA0E437BA}</UniqueIdentifier>
     </Filter>
@@ -419,6 +422,9 @@
       <Filter>Audealize-EQ\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\common\ui_components\AudealizeUI.cpp">
+      <Filter>Audealize-EQ\common\ui_components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\ui_components\WordMap.cpp">
       <Filter>Audealize-EQ\common\ui_components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\common\ui_components\GraphicEQComponent.cpp">
@@ -2322,6 +2328,9 @@
     <ClInclude Include="..\..\..\common\AudealizeInterfaces.h">
       <Filter>Audealize-EQ\common</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\common\utils\CParamSmooth.h">
+      <Filter>Audealize-EQ\common\utils</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\common\effects\Equalizer.h">
       <Filter>Audealize-EQ\common\effects</Filter>
     </ClInclude>
@@ -2335,6 +2344,9 @@
       <Filter>Audealize-EQ\common\effects</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\common\ui_components\AudealizeUI.h">
+      <Filter>Audealize-EQ\common\ui_components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\ui_components\WordMap.h">
       <Filter>Audealize-EQ\common\ui_components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\common\ui_components\GraphicEQComponent.h">

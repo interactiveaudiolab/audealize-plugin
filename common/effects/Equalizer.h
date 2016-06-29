@@ -10,7 +10,6 @@
 #ifndef Equalizer_h
 #define Equalizer_h
 
-#include <vector>
 #include "../common.h"
 
 using std::vector;
@@ -94,6 +93,7 @@ public:
      *  @param gainDB  Band gain in dB
      */
     void setBandGain(int bandIdx, float gainDB){
+        mGains[bandIdx] = gainDB;
         mFilters[bandIdx].setGain(gainDB);
     }
     
@@ -119,7 +119,11 @@ public:
     }
     
     float getBandFreq(int bandIdx){
-        return mFreqs[bandIdx];
+        return mFilters[bandIdx].getFreq();
+    }
+    
+    float getBandGain(int bandIdx){
+        return mFilters[bandIdx].getGain();
     }
     
     float getSampleRate(){

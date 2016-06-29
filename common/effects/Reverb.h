@@ -146,7 +146,7 @@ namespace Audealize{
             set_f(f_val);
             set_E(E_val);
             set_wetdry(wetdry_val);
-            reset();
+            resetBuffs();
         }
         
         /**
@@ -202,20 +202,20 @@ namespace Audealize{
             mLowpass.setSampleRate(sampleRate);
             set_m(m);
             set_d(d);
-            reset();
+            resetBuffs();
         }
         
         /**
          *  Zero out all buffers
          */
-        void reset(){
+        void resetBuffs(){
             mAllpass[0].reset();
             mAllpass[1].reset();
             for (int i = 0; i < 6; i++){
                 mComb[i].reset();
             }
         }
-        
+    
         
         /**
          *  Getters for main reverberator parameters

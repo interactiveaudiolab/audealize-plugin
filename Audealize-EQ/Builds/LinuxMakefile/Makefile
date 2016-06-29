@@ -52,6 +52,7 @@ OBJECTS := \
   $(OBJDIR)/PluginProcessor_a059e380.o \
   $(OBJDIR)/PluginEditor_94d4fb09.o \
   $(OBJDIR)/AudealizeUI_721d8e9a.o \
+  $(OBJDIR)/WordMap_40609dc4.o \
   $(OBJDIR)/GraphicEQComponent_755b11c1.o \
   $(OBJDIR)/Biquad_2658136f.o \
   $(OBJDIR)/BinaryData_ce4232d4.o \
@@ -102,6 +103,11 @@ $(OBJDIR)/PluginEditor_94d4fb09.o: ../../Source/PluginEditor.cpp
 $(OBJDIR)/AudealizeUI_721d8e9a.o: ../../../common/ui_components/AudealizeUI.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling AudealizeUI.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/WordMap_40609dc4.o: ../../../common/ui_components/WordMap.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling WordMap.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/GraphicEQComponent_755b11c1.o: ../../../common/ui_components/GraphicEQComponent.cpp

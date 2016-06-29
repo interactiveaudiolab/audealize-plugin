@@ -19,7 +19,7 @@
 #ifndef Biquad_h
 #define Biquad_h
 
-enum {
+enum bq_types {
     bq_type_lowpass = 0,
     bq_type_highpass,
     bq_type_bandpass,

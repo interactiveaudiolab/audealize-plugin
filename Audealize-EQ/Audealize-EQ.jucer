@@ -38,8 +38,10 @@
         <FILE id="ZTkoxw" name="Reverb.h" compile="0" resource="0" file="../common/effects/Reverb.h"/>
       </GROUP>
       <GROUP id="{0AD31FBD-54C8-2004-629D-436A93DC55A1}" name="ui_components">
-        <FILE id="twrdup" name="AudealizeUI.cpp" compile="1" resource="0" file="../common/ui_components/AudealizeUI.cpp"/>
-        <FILE id="xc4VQs" name="AudealizeUI.h" compile="0" resource="0" file="../common/ui_components/AudealizeUI.h"/>
+        <FILE id="f1QdCG" name="AudealizeUI.cpp" compile="1" resource="0" file="../common/ui_components/AudealizeUI.cpp"/>
+        <FILE id="etfUz6" name="AudealizeUI.h" compile="0" resource="0" file="../common/ui_components/AudealizeUI.h"/>
+        <FILE id="M6Wo07" name="WordMap.cpp" compile="1" resource="0" file="../common/ui_components/WordMap.cpp"/>
+        <FILE id="puOFgm" name="WordMap.h" compile="0" resource="0" file="../common/ui_components/WordMap.h"/>
         <FILE id="zxjXVb" name="GraphicEQComponent.cpp" compile="1" resource="0"
               file="../common/ui_components/GraphicEQComponent.cpp"/>
         <FILE id="AcSmZN" name="GraphicEQComponent.h" compile="0" resource="0"

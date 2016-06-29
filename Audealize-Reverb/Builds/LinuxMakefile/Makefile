@@ -55,7 +55,6 @@ OBJECTS := \
   $(OBJDIR)/AudealizeUI_721d8e9a.o \
   $(OBJDIR)/GraphicEQComponent_755b11c1.o \
   $(OBJDIR)/Biquad_2658136f.o \
-  $(OBJDIR)/CParamSmooth_c09f0399.o \
   $(OBJDIR)/BinaryData_ce4232d4.o \
   $(OBJDIR)/juce_audio_basics_6b797ca1.o \
   $(OBJDIR)/juce_audio_devices_a742c38b.o \
@@ -119,11 +118,6 @@ $(OBJDIR)/GraphicEQComponent_755b11c1.o: ../../../common/ui_components/GraphicEQ
 $(OBJDIR)/Biquad_2658136f.o: ../../../common/libs/Biquad.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling Biquad.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/CParamSmooth_c09f0399.o: ../../../common/libs/CParamSmooth.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling CParamSmooth.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/BinaryData_ce4232d4.o: ../../JuceLibraryCode/BinaryData.cpp

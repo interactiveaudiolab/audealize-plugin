@@ -5,17 +5,19 @@
 #include <math.h>
 #include <vector>
 
-#include "AudealizeInterfaces.h"
+#include "AudealizeAudioProcessor.h"
+#include "TraditionalUIComponent.h"
 
 #include "libs/Biquad.h"
 #include "libs/calf_dsp_library/delay.h"
 #include "libs/json.hpp"
-#include "libs/PrimeFactors.h"
 
+#include "utils/PrimeFactors.h"
 #include "utils/CParamSmooth.h"
 
 #include "ui_components/AudealizeUI.h"
 #include "ui_components/WordMap.h"
+#include "ui_components/GraphicEQComponent.h"
 
 #include "effects/AudioEffect.h"
 #include "effects/NChannelFilter.h"

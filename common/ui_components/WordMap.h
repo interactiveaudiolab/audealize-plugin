@@ -1,17 +1,19 @@
-/**
- *  WordMap.h
- *
- *  A JUCE gui component that creates a map of descriptors for Audealize plugins
- *  Instantiate with an AudealizeAudioProcessor and an nlohmann::json dictionary of descriptors and their associated data
- *
- */
+//
+//  WordMap.h
+//
+//  A JUCE gui component that creates a map of descriptors for Audealize plugins
+//
+//  Instantiate with an AudealizeAudioProcessor and an nlohmann::json dictionary of descriptors and their associated data
+//
+ 
 
 #ifndef WordMap_h
 #define WordMap_h
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "../libs/json.hpp"
-#include "../AudealizeInterfaces.h"
+#include "../AudealizeAudioProcessor.h"
+#include "TraditionalUIComponent.h"
 
 using json = nlohmann::json;
 using std::vector;

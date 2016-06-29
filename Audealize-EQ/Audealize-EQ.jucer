@@ -16,16 +16,14 @@
             file="Source/PluginProcessor.cpp"/>
       <FILE id="OuArph" name="PluginProcessor.h" compile="0" resource="0"
             file="Source/PluginProcessor.h"/>
-      <FILE id="Q10pwN" name="PluginEditor.cpp" compile="1" resource="0"
-            file="Source/PluginEditor.cpp"/>
-      <FILE id="u6qewF" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
     </GROUP>
     <GROUP id="{6B8F906A-E4F1-45F3-045D-E46262240C97}" name="common">
       <FILE id="UFuECi" name="common.h" compile="0" resource="0" file="../common/common.h"/>
-      <FILE id="B1JMvU" name="AudealizeInterfaces.h" compile="0" resource="0"
-            file="../common/AudealizeInterfaces.h"/>
+      <FILE id="iDWb7E" name="AudealizeAudioProcessor.h" compile="0" resource="0"
+            file="../common/AudealizeAudioProcessor.h"/>
       <GROUP id="{7EFF10EF-E913-3E5C-4E10-082A9C845223}" name="utils">
         <FILE id="CZMZ5v" name="CParamSmooth.h" compile="0" resource="0" file="../common/utils/CParamSmooth.h"/>
+        <FILE id="yFV630" name="PrimeFactors.h" compile="0" resource="0" file="../common/utils/PrimeFactors.h"/>
       </GROUP>
       <GROUP id="{BBE7C1B4-B3C1-B2E2-D285-7D14E4971902}" name="data">
         <FILE id="fWLScq" name="eqpoints.json" compile="0" resource="1" file="../common/data/eqpoints.json"/>
@@ -38,6 +36,8 @@
         <FILE id="ZTkoxw" name="Reverb.h" compile="0" resource="0" file="../common/effects/Reverb.h"/>
       </GROUP>
       <GROUP id="{0AD31FBD-54C8-2004-629D-436A93DC55A1}" name="ui_components">
+        <FILE id="ssN9bf" name="TraditionalUIComponent.h" compile="0" resource="0"
+              file="../common/ui_components/TraditionalUIComponent.h"/>
         <FILE id="f1QdCG" name="AudealizeUI.cpp" compile="1" resource="0" file="../common/ui_components/AudealizeUI.cpp"/>
         <FILE id="etfUz6" name="AudealizeUI.h" compile="0" resource="0" file="../common/ui_components/AudealizeUI.h"/>
         <FILE id="M6Wo07" name="WordMap.cpp" compile="1" resource="0" file="../common/ui_components/WordMap.cpp"/>
@@ -58,7 +58,6 @@
         <FILE id="laoHb2" name="Biquad.cpp" compile="1" resource="0" file="../common/libs/Biquad.cpp"/>
         <FILE id="G1dnYc" name="Biquad.h" compile="0" resource="0" file="../common/libs/Biquad.h"/>
         <FILE id="OdCg5e" name="json.hpp" compile="0" resource="0" file="../common/libs/json.hpp"/>
-        <FILE id="dfxhw2" name="PrimeFactors.h" compile="0" resource="0" file="../common/libs/PrimeFactors.h"/>
       </GROUP>
     </GROUP>
   </MAINGROUP>

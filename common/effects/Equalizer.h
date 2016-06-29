@@ -1,11 +1,11 @@
 //
 //  Equalizer.h
-//  Created by Michael Donovan on 6/13/16.
 //
 //  Implements an N-band graphic equalizer. Construct with a vector of center frequencies and a sample rate.
 //  Set individual band gains with Equalizer::setBandGain(), set all band gains with a vector of gain values in dB using Equalizer::setGains()
 //
-// Requires AudioEffect.h, NChannelFilter.h
+//  Requires AudioEffect.h, NChannelFilter.h
+//
 
 #ifndef Equalizer_h
 #define Equalizer_h

@@ -1,17 +1,18 @@
 //
 //  AudealizeInterfaces.h
 //
-
-#ifndef AudealizeInterfaces_h
-#define AudealizeInterfaces_h
+//  Interface class for Audealize plugin AudioProcessors to facilitate communication of state/param data with UI components
+//
+ 
+#ifndef AudealizeAudioProcessor_h
+#define AudealizeAudioProcessor_h
 
 #include "../JuceLibraryCode/JuceHeader.h"
 
 using std::vector;
 
 namespace Audealize{
-    
-    /// Interface class for Audealize plugin AudioProcessors to facilitate communication of state/param data with UI components
+
     class AudealizeAudioProcessor : public AudioProcessor {
     public:
         AudealizeAudioProcessor(){
@@ -71,18 +72,5 @@ namespace Audealize{
         ScopedPointer<AudioProcessorValueTreeState> mState; // and AudioProcessorValueTreeState containing the parameter state information
         ScopedPointer<UndoManager>                  mUndoManager;
     };
-    
-    
-    // An interface class for traditional user interfaces
-    class TraditionalUI : public Component
-    {
-    public:
-        TraditionalUI(AudealizeAudioProcessor& p) : processor(p) {};
-        
-    protected:
-        AudealizeAudioProcessor& processor;
-    };
-    
-    
 }// namespace audealize
 #endif /* AudealizeInterfaces_h */

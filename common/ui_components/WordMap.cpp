@@ -16,7 +16,6 @@ namespace Audealize {
         // set default size of component
         setSize (800, 400);
         
-
         // Instance variables
         min_variance     = json_dict.begin().value()["agreement"];
         max_variance     = (json_dict.end() - 1).value()["agreement"];

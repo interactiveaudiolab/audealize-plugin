@@ -23,7 +23,7 @@ public:
     }
 
     ~CParamSmooth(){};
-    
+
     void init(float smoothingTimeInMs, float sampleRate){
         a = exp(-c_twoPi / (smoothingTimeInMs * 0.001f * sampleRate));
         b = 1.0f - a;

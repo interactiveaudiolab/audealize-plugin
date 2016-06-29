@@ -1,6 +1,5 @@
 #include "PluginProcessor.h"
-#include "PluginEditor.h"
-
+#include "../../common/common.h"
 
 AudealizeeqAudioProcessor::AudealizeeqAudioProcessor() : mEqualizer(mFreqs, 0.0f)
 {
@@ -177,7 +176,7 @@ void AudealizeeqAudioProcessor::settingsFromMap(vector<float> settings){
     for (int i = 0; i < NUMBANDS; i++){
         //DBG("Settings[i] " << settings[i]);
         String paramID = String("paramGain" + std::to_string(i));
-        normalizeEQ(&settings);
+        normalize(&settings);
         mState->getParameter(paramID)->setValueNotifyingHost(mGainRange.snapToLegalValue(settings[i]));
     }
     //DBG(mEqualizer.getBandGain(10));
@@ -188,11 +187,11 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
     return new AudealizeeqAudioProcessor();
 }
 
-void AudealizeeqAudioProcessor::normalizeEQ(vector<float>* settings){
-    float max = *std::max_element(settings->begin(), settings->end());
-    float min = *std::min_element(settings->begin(), settings->end());
-    for (int i = 0; i < settings->size(); i++){
-        (*settings)[i] = ((*settings)[i] - min) / (max - min);
+void AudealizeeqAudioProcessor::normalize(vector<float>* vals){
+    float max = *std::max_element(vals->begin(), vals->end());
+    float min = *std::min_element(vals->begin(), vals->end());
+    for (int i = 0; i < vals->size(); i++){
+        (*vals)[i] = ((*vals)[i] - min) / (max - min);
     }
 }
 

@@ -1,7 +1,7 @@
 //
 //  GraphicEQComponent.h
 //
-//  A component for creating a graphic EQ interface for Audealize-EQ plugin
+//  A JUCE gui component for creating a graphic EQ interface for Audealize-EQ plugin
 //
 
 #ifndef GraphicEQComponent_h

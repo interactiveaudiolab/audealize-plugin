@@ -1,8 +1,6 @@
 //
 //  AudioEffect.h
 //
-//  Created by Michael Donovan on 6/16/16.
-//
 //  Interface class for Audio effects that perform processing on samples either individually or in blocks
 //
 

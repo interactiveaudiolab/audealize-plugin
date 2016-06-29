@@ -418,9 +418,6 @@
     <ClCompile Include="..\..\Source\PluginProcessor.cpp">
       <Filter>Audealize-EQ\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\PluginEditor.cpp">
-      <Filter>Audealize-EQ\Source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\common\ui_components\AudealizeUI.cpp">
       <Filter>Audealize-EQ\common\ui_components</Filter>
     </ClCompile>
@@ -2319,16 +2316,16 @@
     <ClInclude Include="..\..\Source\PluginProcessor.h">
       <Filter>Audealize-EQ\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\PluginEditor.h">
-      <Filter>Audealize-EQ\Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\common\common.h">
       <Filter>Audealize-EQ\common</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\AudealizeInterfaces.h">
+    <ClInclude Include="..\..\..\common\AudealizeAudioProcessor.h">
       <Filter>Audealize-EQ\common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\common\utils\CParamSmooth.h">
+      <Filter>Audealize-EQ\common\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\utils\PrimeFactors.h">
       <Filter>Audealize-EQ\common\utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\common\effects\Equalizer.h">
@@ -2342,6 +2339,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\common\effects\Reverb.h">
       <Filter>Audealize-EQ\common\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\ui_components\TraditionalUIComponent.h">
+      <Filter>Audealize-EQ\common\ui_components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\common\ui_components\AudealizeUI.h">
       <Filter>Audealize-EQ\common\ui_components</Filter>
@@ -2368,9 +2368,6 @@
       <Filter>Audealize-EQ\common\libs</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\common\libs\json.hpp">
-      <Filter>Audealize-EQ\common\libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\libs\PrimeFactors.h">
       <Filter>Audealize-EQ\common\libs</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h">

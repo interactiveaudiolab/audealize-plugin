@@ -26,6 +26,8 @@
         <FILE id="yFV630" name="PrimeFactors.h" compile="0" resource="0" file="../common/utils/PrimeFactors.h"/>
       </GROUP>
       <GROUP id="{BBE7C1B4-B3C1-B2E2-D285-7D14E4971902}" name="data">
+        <FILE id="nZ8GKD" name="reverbpoints.json" compile="0" resource="1"
+              file="../common/data/reverbpoints.json"/>
         <FILE id="fWLScq" name="eqpoints.json" compile="0" resource="1" file="../common/data/eqpoints.json"/>
       </GROUP>
       <GROUP id="{873F6D22-03F6-959F-CC0F-36F1D79AFB5C}" name="effects">

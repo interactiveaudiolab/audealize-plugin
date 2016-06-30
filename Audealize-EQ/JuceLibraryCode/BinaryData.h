@@ -9,6 +9,9 @@
 
 namespace BinaryData
 {
+    extern const char*   reverbpoints_json;
+    const int            reverbpoints_jsonSize = 86608;
+
     extern const char*   eqpoints_json;
     const int            eqpoints_jsonSize = 364420;
 
@@ -19,7 +22,7 @@ namespace BinaryData
     extern const char* namedResourceList[];
 
     // Number of elements in the namedResourceList array.
-    const int namedResourceListSize = 2;
+    const int namedResourceListSize = 3;
 
     // If you provide the name of one of the binary resource variables above, this function will
     // return the corresponding data and its size (or a null pointer if the name isn't found).

@@ -4337,6 +4337,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\common\data\reverbpoints.json">
+      <Filter>Audealize-EQ\common\data</Filter>
+    </None>
     <None Include="..\..\..\common\data\eqpoints.json">
       <Filter>Audealize-EQ\common\data</Filter>
     </None>

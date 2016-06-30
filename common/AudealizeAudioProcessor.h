@@ -13,11 +13,18 @@ using std::vector;
 
 namespace Audealize{
 
-    class AudealizeAudioProcessor : public AudioProcessor {
+    class AudealizeAudioProcessor : public AudioProcessor, public AudioProcessorValueTreeState::Listener {
     public:
-        AudealizeAudioProcessor(){
+        String paramAmount = "paramAmount";
+        
+        AudealizeAudioProcessor() : mParamSettings(0){            
             mUndoManager = new UndoManager();
             mState = new AudioProcessorValueTreeState(*this, mUndoManager);
+            
+            mState->createAndAddParameter(paramAmount, "Amount", "Amount", NormalisableRange<float>(0.0f, 1.0f), 1.0f, nullptr, nullptr);
+            mState->addParameterListener(paramAmount, this);
+
+            mAmount = 1.0f;
         };
         
         ~AudealizeAudioProcessor(){
@@ -57,6 +64,11 @@ namespace Audealize{
          */
         virtual void parameterChanged(const juce::String &parameterID) {};
         
+        /**
+         *  Set the states of all parameters with a vector<float>. To be called by a WordMap
+         *
+         *  @param settings a vector of floats
+         */
         virtual void settingsFromMap(vector<float> settings) {};
         
         /**
@@ -70,7 +82,11 @@ namespace Audealize{
         
     protected:
         ScopedPointer<AudioProcessorValueTreeState> mState; // and AudioProcessorValueTreeState containing the parameter state information
-        ScopedPointer<UndoManager>                  mUndoManager;
+        ScopedPointer<UndoManager> mUndoManager;
+        
+        vector<float> mParamSettings;
+        
+        float mAmount; // value in range [0,1]. dictates the amount of the effect to be applied.
     };
 }// namespace audealize
 #endif /* AudealizeInterfaces_h */

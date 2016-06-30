@@ -4,17 +4,21 @@
 AudealizeeqAudioProcessor::AudealizeeqAudioProcessor() : mEqualizer(mFreqs, 0.0f)
 {
     //DBG(std::to_string(getSampleRate()));
+    mParamSettings.resize(NUMBANDS, 0);
+    
     
     mGainRange = NormalisableRange<float>(-4.30f, 4.30f, 0.001f);
+        
+    // Create amount parameter
     
-    //Create params for each EQ band gain
+    // Create params for each EQ band gain
     for (int i = 0; i < NUMBANDS; i++){
         String paramID = getParamID(i);
         std::string paramName = std::to_string(mFreqs[i]) + " Hz";
         mState->createAndAddParameter(paramID, paramName, TRANS(paramName), mGainRange, mGainRange.snapToLegalValue(0.0f), nullptr, nullptr);
         mState->addParameterListener(TRANS(paramID), this);
     }
-    
+
     mState->state = ValueTree ("Audealize-EQ");
 }
 
@@ -83,7 +87,6 @@ void AudealizeeqAudioProcessor::prepareToPlay (double sampleRate, int samplesPer
     mEqualizer.setSampleRate(sampleRate);
     
     for (int i = 0; i < NUMBANDS; i++){
-        mSmoothers[i] = CParamSmooth(0.5f, sampleRate);
         mSmoothedVals[i].reset(sampleRate, 0.00019);
     }
 }
@@ -129,14 +132,11 @@ void AudealizeeqAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuf
     // Parameter smoothing
     for (int i = 0; i < NUMBANDS; i++){
         float diff = fabs( mEqualizer.getBandGain(i) - mSmoothedVals[i].getTargetValue() );
-        DBG("Diff " << diff);
         if(diff > 0.01f * mSmoothedVals[i].getTargetValue() ){
             String paramID = getParamID(i);
             
             float gain = mSmoothedVals[i].getNextValue();
-            if (i == 39)
-                DBG("Smoothing: " <<gain);
-            mEqualizer.setBandGain(i, gain);
+            mEqualizer.setBandGain(i, gain * mAmount);
         }
     }
     
@@ -163,29 +163,47 @@ bool AudealizeeqAudioProcessor::hasEditor() const
 
 AudioProcessorEditor* AudealizeeqAudioProcessor::createEditor()
 {
-    ScopedPointer<TraditionalUI> mGraphicEQ = new GraphicEQComponent(*this, NUMBANDS);
+    ScopedPointer<TraditionalUI> mGraphicEQ = new GraphicEQComponent(*this, NUMBANDS, mGainRange);
     return new AudealizeUI (*this, mGraphicEQ, PATH_TO_POINTS, ""); //@TODO
 }
 
 void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue){
     //EQ gain slider changed
+    
+    //DBG("Paramter changed: " << parameterID);
+    
     if (parameterID.substring(0, 9).equalsIgnoreCase("paramGain")){
-        
         int idx = parameterID.substring(9).getIntValue();
-        float gain = mGainRange.snapToLegalValue(mSmoothers[idx].process(newValue));
-        //DBG("Called parameterChanged(): " << newValue);
+
         mSmoothedVals[idx].setValue(newValue);
     }
-    
+    else if (parameterID.equalsIgnoreCase(paramAmount)){
+        mAmount = newValue;
+        DBG("Amount: " << mAmount);
+        float gain;
+        for (int i = 0; i < NUMBANDS; i++){
+            gain = mParamSettings[i];
+            gain = mGainRange.convertFrom0to1(gain);
+            gain *= mAmount;
+            gain = mGainRange.convertTo0to1(gain);
+            
+            mState->getParameter(getParamID(i))->setValueNotifyingHost(gain);
+        }
+    }
 }
 
 void AudealizeeqAudioProcessor::settingsFromMap(vector<float> settings){
+    mParamSettings = settings;
+    normalize(&mParamSettings);
+    
+    float gain;
     for (int i = 0; i < NUMBANDS; i++){
         //DBG("Settings[i] " << settings[i]);
-        normalize(&settings);
-
-        mState->getParameter(getParamID(i))->setValueNotifyingHost(settings[i]);
-        mSmoothedVals[i].setValue(mGainRange.convertFrom0to1(settings[i]));
+        gain = mParamSettings[i];
+        gain = mGainRange.convertFrom0to1(gain);
+        gain *= mAmount;
+        gain = mGainRange.convertTo0to1(gain);
+        mState->getParameter(getParamID(i))->setValueNotifyingHost(gain);
     }
     //DBG(mEqualizer.getBandGain(10));
 }

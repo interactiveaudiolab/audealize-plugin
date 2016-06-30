@@ -71,6 +71,8 @@ private:
     ScopedPointer<Audealize::TraditionalUI> mTradUI;
     const String TYPEFACE = "Helvetica";
 
+    ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mAmountSliderAttachment;
+    
     //[/UserVariables]
 
     //==============================================================================

@@ -17,20 +17,16 @@ namespace Audealize{
     class GraphicEQComponent  : public TraditionalUI
     {
     public:
-        GraphicEQComponent (AudealizeAudioProcessor& p, int numBands);
+        GraphicEQComponent (AudealizeAudioProcessor& p, int numBands, NormalisableRange<float> gainRange);
         ~GraphicEQComponent();
         
         void paint (Graphics& g) override;
         void resized() override;
         
-    private:
-        //AudealizeAudioProcessor& processor; // the plugin audio processor
-        
+    private:        
         vector< ScopedPointer<Slider> > mGainSliders; // a vector contianing the gain sliders
         
         vector<ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> >mGainSliderAttachment; //
-        
-        //vector<ScopedPointer<AudioProcessorValueTreeState::Listener>> mGainListener;
         
         int mNumBands; // number of EQ bands
         

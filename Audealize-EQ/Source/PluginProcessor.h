@@ -17,7 +17,7 @@
 using namespace Audealize;
 
 //==============================================================================
-class AudealizeeqAudioProcessor  : public AudealizeAudioProcessor, public AudioProcessorValueTreeState::Listener
+class AudealizeeqAudioProcessor  : public AudealizeAudioProcessor
 {
 public:
     //==============================================================================
@@ -75,11 +75,9 @@ private:
     inline String getParamID(int index);
     
     const String PATH_TO_POINTS = "/Users/michael/JUCE/projects/audealize-plugin/common/data/eqpoints.json"; //@TODO
-    
+        
     NormalisableRange<float> mGainRange; // Range of the graphic eq gain sliders
-    
-    CParamSmooth mSmoothers[NUMBANDS];
-    
+        
     LinearSmoothedValue<float> mSmoothedVals[NUMBANDS];
     
     std::vector<float> mFreqs = {20, 50, 83, 120, 161, 208, 259, 318, 383, 455, 537, 628, 729, 843, 971, 1114, 1273, 1452, 1652, 1875, 2126, 2406, 2719, 3070, 3462, 3901, 4392, 4941, 5556, 6244, 7014, 7875, 8839, 9917, 11124, 12474, 13984, 15675, 17566, 19682};

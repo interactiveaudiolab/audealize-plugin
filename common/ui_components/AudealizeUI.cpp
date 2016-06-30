@@ -132,6 +132,8 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
 
 
     //[Constructor] You can add your own custom stuff here..
+    mAmountSlider->setRange(0.0f, 1.0f);
+    mAmountSliderAttachment = new AudioProcessorValueTreeState::SliderAttachment (p.getValueTreeState(), p.paramAmount, *mAmountSlider);
     //[/Constructor]
 }
 
@@ -139,6 +141,7 @@ AudealizeUI::~AudealizeUI()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
     mAlertBox = nullptr;
+    mAmountSliderAttachment = nullptr;
     //[/Destructor_pre]
 
     component = nullptr;
@@ -234,10 +237,12 @@ void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
         if(mTradUI->isVisible()){
             setSize(getWidth(), getHeight()-mTradUI->getHeight()-15);
             mTradUI->setVisible(false);
+            mTradUIButton->setButtonText("+ Show traditional interface");
         }
         else{
             setSize(getWidth(), getHeight()+mTradUI->getHeight()+15);
             mTradUI->setVisible(true);
+            mTradUIButton->setButtonText("- Hide traditional interface");
         }
 
         //[/UserButtonCode_mTradUIButton]

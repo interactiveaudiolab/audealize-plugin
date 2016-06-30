@@ -6,7 +6,7 @@ using std::to_string;
 
 namespace Audealize {
     
-    GraphicEQComponent::GraphicEQComponent (AudealizeAudioProcessor& p, int numBands) : TraditionalUI(p), mGainSliders(numBands), mGainSliderAttachment(numBands) //, mGainListener(numBands)
+    GraphicEQComponent::GraphicEQComponent (AudealizeAudioProcessor& p, int numBands, NormalisableRange<float> gainRange) : TraditionalUI(p), mGainSliders(numBands), mGainSliderAttachment(numBands) //, mGainListener(numBands)
     {
         mNumBands = numBands;
         
@@ -14,6 +14,7 @@ namespace Audealize {
             String paramID = "paramGain" + to_string(i);
             
             mGainSliders[i] = new Slider (Slider::LinearVertical, Slider::NoTextBox);
+            mGainSliders[i]->setRange(gainRange.getRange().getStart(), gainRange.getRange().getEnd());
             addAndMakeVisible(mGainSliders[i]);
             
             mGainSliderAttachment[i] = new AudioProcessorValueTreeState::SliderAttachment (p.getValueTreeState(), paramID, *mGainSliders[i]);

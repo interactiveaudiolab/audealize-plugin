@@ -17,7 +17,7 @@ using std::vector;
 namespace Audealize{
 
 class Equalizer : public AudioEffect{
-public:
+public:    
     Equalizer(vector<float> freqs, float sampleRate) : AudioEffect(sampleRate), mFilters(freqs.size()), mFreqs(freqs.size(), 0.0f), mGains(freqs.size(), 0.0f)
     {
         mQ = 4.31f;

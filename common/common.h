@@ -13,7 +13,6 @@
 #include "libs/json.hpp"
 
 #include "utils/PrimeFactors.h"
-#include "utils/CParamSmooth.h"
 
 #include "ui_components/AudealizeUI.h"
 #include "ui_components/WordMap.h"

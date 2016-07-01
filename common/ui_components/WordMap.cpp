@@ -220,6 +220,7 @@ namespace Audealize {
     }
     
     void WordMap::wordSelected(String word){
+        sendActionMessage(word);
         init_map = false;
         int index = word_dict[word.toRawUTF8()];
         if ( index < words.size()){

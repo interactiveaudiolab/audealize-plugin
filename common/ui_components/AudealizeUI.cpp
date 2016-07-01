@@ -77,7 +77,7 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
     mEspanolButton->addListener (this);
     mEspanolButton->setToggleState (true, dontSendNotification);
 
-    addAndMakeVisible (mSearchBar = new TextEditor ("Search"));
+    addAndMakeVisible (mSearchBar = new SearchBar ());
     mSearchBar->setMultiLine (false);
     mSearchBar->setReturnKeyStartsNewLine (false);
     mSearchBar->setReadOnly (false);
@@ -117,13 +117,15 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
     mSearchBar->setFont(Font(TYPEFACE, 18, Font::plain));
     mSearchBar->setSelectAllWhenFocused(true);
     mSearchBar->setTextToShowWhenEmpty("Search for a word to apply", Colour (0xff888888));
+    mSearchBar->setWords(mWordMap->getWords());
 
     mEffectTypeLabel->setText(effectType, NotificationType::dontSendNotification);
 
     mWordMap->setWantsKeyboardFocus(true);
     mWordMap->setBroughtToFrontOnMouseClick(true);
     mWordMap->setMouseClickGrabsKeyboardFocus(true);
-
+    mWordMap->addActionListener(mSearchBar);
+    
     addAndMakeVisible(mTradUI);
     mTradUI->setVisible(false);
     //[/UserPreSize]
@@ -328,7 +330,7 @@ BEGIN_JUCER_METADATA
   <TOGGLEBUTTON name="Espa&#241;ol" id="3e0d8205ac653424" memberName="mEspanolButton"
                 virtualName="" explicitFocusOrder="0" pos="360 79 80 24" buttonText="Espa&#241;ol"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="1"/>
-  <TEXTEDITOR name="Search" id="eaa70191aab55d80" memberName="mSearchBar" virtualName=""
+  <TEXTEDITOR name="" id="eaa70191aab55d80" memberName="mSearchBar" virtualName="SearchBar"
               explicitFocusOrder="0" pos="32 71 240 36" textcol="ff000000"
               initialText="" multiline="0" retKeyStartsLine="0" readonly="0"
               scrollbars="0" caret="1" popupmenu="1"/>

@@ -14,6 +14,7 @@
 #include "../libs/json.hpp"
 #include "../AudealizeAudioProcessor.h"
 #include "TraditionalUIComponent.h"
+#include "SearchBar.h"
 
 using json = nlohmann::json;
 using std::vector;
@@ -21,7 +22,7 @@ using std::string;
 
 namespace Audealize {
     
-    class WordMap  : public Component, public Timer
+    class WordMap  : public Component, public Timer, public ActionBroadcaster
     {
     public:
         /**
@@ -62,8 +63,17 @@ namespace Audealize {
          */
         bool searchMap(String text);
         
+        /**
+         *  Inherited from JUCE::Timer
+         */
         void timerCallback() override;
         
+        /**
+         *  @return a vector of all the words in the map
+         */
+        vector<String> getWords(){
+            return words;
+        }
         
     private:
         AudealizeAudioProcessor& processor; // the main plugin audio processor
@@ -99,7 +109,9 @@ namespace Audealize {
         bool has_been_hovered; // true if the map has been moused over
         
         bool isdirty; // true if component needs to be redrawn
-                
+        
+        bool has_searchbar; // true if a searchbar has been attached
+        
         NormalisableRange<int> alpha_range; // for converting between alpha values in range [0,1] (float) and [0,255] (int)
         
         //=====================================================================

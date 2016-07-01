@@ -1,0 +1,3 @@
+[submodule "common/libs/trie"]
+	path = common/libs/trie
+	url = https://github.com/r-lyeh/trie

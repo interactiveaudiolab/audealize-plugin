@@ -11,12 +11,14 @@
 #include "libs/Biquad.h"
 #include "libs/calf_dsp_library/delay.h"
 #include "libs/json.hpp"
+#include "libs/trie/trie.hpp"
 
 #include "utils/PrimeFactors.h"
 
 #include "ui_components/AudealizeUI.h"
 #include "ui_components/WordMap.h"
 #include "ui_components/GraphicEQComponent.h"
+#include "ui_components/SearchBar.h"
 
 #include "effects/AudioEffect.h"
 #include "effects/NChannelFilter.h"

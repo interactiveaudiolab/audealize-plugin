@@ -24,6 +24,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include <fstream>
 #include "WordMap.h"
+#include "SearchBar.h"
 
 namespace Audealize{
 //[/Headers]
@@ -72,7 +73,7 @@ private:
     const String TYPEFACE = "Helvetica";
 
     ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mAmountSliderAttachment;
-    
+
     //[/UserVariables]
 
     //==============================================================================
@@ -83,7 +84,7 @@ private:
     ScopedPointer<Label> label2;
     ScopedPointer<ToggleButton> mEnglishButton;
     ScopedPointer<ToggleButton> mEspanolButton;
-    ScopedPointer<TextEditor> mSearchBar;
+    ScopedPointer<SearchBar> mSearchBar;
     ScopedPointer<Label> mAudealizeLabel;
     ScopedPointer<Label> mEffectTypeLabel;
     ScopedPointer<TextButton> mTradUIButton;

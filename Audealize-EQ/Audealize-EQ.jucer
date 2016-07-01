@@ -38,6 +38,8 @@
         <FILE id="ZTkoxw" name="Reverb.h" compile="0" resource="0" file="../common/effects/Reverb.h"/>
       </GROUP>
       <GROUP id="{0AD31FBD-54C8-2004-629D-436A93DC55A1}" name="ui_components">
+        <FILE id="HEnYIz" name="SearchBar.cpp" compile="1" resource="0" file="../common/ui_components/SearchBar.cpp"/>
+        <FILE id="n9abCE" name="SearchBar.h" compile="0" resource="0" file="../common/ui_components/SearchBar.h"/>
         <FILE id="ssN9bf" name="TraditionalUIComponent.h" compile="0" resource="0"
               file="../common/ui_components/TraditionalUIComponent.h"/>
         <FILE id="f1QdCG" name="AudealizeUI.cpp" compile="1" resource="0" file="../common/ui_components/AudealizeUI.cpp"/>
@@ -50,6 +52,13 @@
               file="../common/ui_components/GraphicEQComponent.h"/>
       </GROUP>
       <GROUP id="{AAFC2273-DD6A-2A34-154D-8B45CB5C9157}" name="libs">
+        <GROUP id="{28DE80D4-B85B-5622-0C1B-AC8B5F991EA9}" name="Trie">
+          <FILE id="DT6c9D" name="trie.hpp" compile="0" resource="0" file="../common/libs/trie/trie.hpp"/>
+        </GROUP>
+        <GROUP id="{151298F0-E1C8-7033-32D9-561356A54844}" name="Biquad">
+          <FILE id="laoHb2" name="Biquad.cpp" compile="1" resource="0" file="../common/libs/Biquad.cpp"/>
+          <FILE id="G1dnYc" name="Biquad.h" compile="0" resource="0" file="../common/libs/Biquad.h"/>
+        </GROUP>
         <GROUP id="{DED588B0-4ED0-B9B3-DA23-827250EDA48F}" name="calf_dsp_library">
           <FILE id="BcXZXl" name="buffer.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/buffer.h"/>
           <FILE id="rGS9XQ" name="COPYING" compile="0" resource="1" file="../common/libs/calf_dsp_library/COPYING"/>
@@ -57,8 +66,6 @@
           <FILE id="QuvhlM" name="onepole.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/onepole.h"/>
           <FILE id="nTXJun" name="primitives.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/primitives.h"/>
         </GROUP>
-        <FILE id="laoHb2" name="Biquad.cpp" compile="1" resource="0" file="../common/libs/Biquad.cpp"/>
-        <FILE id="G1dnYc" name="Biquad.h" compile="0" resource="0" file="../common/libs/Biquad.h"/>
         <FILE id="OdCg5e" name="json.hpp" compile="0" resource="0" file="../common/libs/json.hpp"/>
       </GROUP>
     </GROUP>

@@ -1,7 +1,7 @@
 //
 //  SearchBar.h
 //
-//  A JUCE TextEditor component that includes autocompletion/suggestions
+//  A JUCE TextEditor component that uses a trie to provide autocompletion/suggestions
 //
 
 #ifndef SEARCHBAR_H_INCLUDED
@@ -20,30 +20,37 @@ namespace Audealize{
         
         ~SearchBar();
         
+        /**
+         *  Set the list of words to be searched
+         *
+         *  @param words A vector<String> of words
+         */
         void setWords (vector<String> words);
         
-        void addWord (string word);
+        /**
+         *  Add an individual word to the list of words to be searched
+         *
+         *  @param word
+         */
+        void addWord (String word);
         
-        //void paint (Graphics& g) override;
-        
-        //bool keyPressed (const KeyPress &key) override;
-        
-        //void addPopupMenuItems (PopupMenu& m, const MouseEvent*) override;
-        
+        /**
+         *  Performs a search and displays suggestions when the text of the bar is changed. (inherited from TextEditorListener
+         *
+         *  @param editor this
+         */
         void textEditorTextChanged (TextEditor &editor) override;
         
-        void textEditorReturnKeyPressed (TextEditor &editor) override;
-        
-        void textEditorEscapeKeyPressed (TextEditor &editor) override;
-        
-        void textEditorFocusLost (TextEditor &editor) override;
-        
+        /**
+         *  To be called by WordMap::wordselected()
+         *
+         *  @param message
+         */
         void actionListenerCallback(const String &message) override;
         
     protected:
         trie<string> mTrie;
         ScopedPointer<PopupMenu> mPopup;
-        String mPrevText;
     };
 }
 

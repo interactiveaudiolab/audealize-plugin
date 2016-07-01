@@ -77,7 +77,7 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
     mEspanolButton->addListener (this);
     mEspanolButton->setToggleState (true, dontSendNotification);
 
-    addAndMakeVisible (mSearchBar = new SearchBar ());
+    addAndMakeVisible (mSearchBar = new SearchBar (String()));
     mSearchBar->setMultiLine (false);
     mSearchBar->setReturnKeyStartsNewLine (false);
     mSearchBar->setReadOnly (false);
@@ -125,6 +125,7 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
     mWordMap->setBroughtToFrontOnMouseClick(true);
     mWordMap->setMouseClickGrabsKeyboardFocus(true);
     mWordMap->addActionListener(mSearchBar);
+    mWordMap->addActionListener(this);
     
     addAndMakeVisible(mTradUI);
     mTradUI->setVisible(false);
@@ -280,6 +281,13 @@ void AudealizeUI::textEditorReturnKeyPressed(TextEditor &editor){
 void AudealizeUI::languageAlert(){
     mAlertBox->showMessageBox(AlertWindow::AlertIconType::WarningIcon, "At least one language must be selected!", "");
 }
+    
+void AudealizeUI::actionListenerCallback(const String &message){
+    if (message.equalsIgnoreCase("_languagechanged")){
+        mSearchBar->setWords(mWordMap->getWords());
+    }
+}
+    
 //[/MiscUserCode]
 
 
@@ -293,7 +301,7 @@ void AudealizeUI::languageAlert(){
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="AudealizeUI" componentName=""
-                 parentClasses="public AudioProcessorEditor, public TextEditorListener"
+                 parentClasses="public AudioProcessorEditor, public TextEditorListener, public ActionListener"
                  constructorParams="AudealizeAudioProcessor&amp; p, ScopedPointer&lt;TraditionalUI&gt; t, String pathToPoints, String effectType"
                  variableInitialisers="AudioProcessorEditor(&amp;p), processor(p), mPathToPoints(pathToPoints), mTradUI(t)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"

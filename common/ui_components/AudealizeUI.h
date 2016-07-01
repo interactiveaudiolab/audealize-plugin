@@ -39,6 +39,7 @@ namespace Audealize{
 */
 class AudealizeUI  : public AudioProcessorEditor,
                      public TextEditorListener,
+                     public ActionListener,
                      public SliderListener,
                      public ButtonListener
 {
@@ -52,6 +53,8 @@ public:
     void textEditorReturnKeyPressed(TextEditor &editor) override;
 
     void languageAlert();
+    
+    void actionListenerCallback(const String &message) override;
     //[/UserMethods]
 
     void paint (Graphics& g) override;

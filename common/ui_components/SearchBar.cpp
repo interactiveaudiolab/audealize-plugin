@@ -1,13 +1,3 @@
-/*
-  ==============================================================================
-
-    SearchBar.cpp
-    Created: 1 Jul 2016 12:49:25pm
-    Author:  Michael
-
-  ==============================================================================
-*/
-
 #include "SearchBar.h"
 
 using std::vector;
@@ -21,7 +11,6 @@ namespace Audealize{
         setScrollbarsShown (false);
         setCaretVisible (true);
         setSelectAllWhenFocused(true);
-        setTextToShowWhenEmpty("Search for a word to apply", Colour (0xff888888));
         setPopupMenuEnabled(false);
         setWantsKeyboardFocus(true);
         
@@ -34,11 +23,12 @@ namespace Audealize{
         mPopup = nullptr;
     };
     
-    void SearchBar::addWord(string word){
-        mTrie.insert(word);
+    void SearchBar::addWord(String word){
+        mTrie.insert(word.toStdString());
     }
     
     void SearchBar::setWords(vector<String> words){
+        mTrie = trie<string>();
         for (int i = 0; i < words.size(); i++){
             mTrie.insert(words[i].toStdString());
         }
@@ -46,16 +36,6 @@ namespace Audealize{
     
     void SearchBar::textEditorTextChanged (TextEditor &editor){
         if (getText().length() > 0){
-            // if the user deleted a characted, don't show the completion menu
-            // otherwise the popupmenu will grab keyboard focus
-            if (getText().substring(0, getText().length()-2).equalsIgnoreCase(mPrevText)){
-                mPrevText = getText();
-                return;
-            }
-            else {
-                mPrevText = getText();
-            }
-            
             
             vector<const std::basic_string<char> *> completions = mTrie.complete(getText().toStdString());
             
@@ -64,6 +44,7 @@ namespace Audealize{
                 return ;
             }
             
+            // close any open menus
             PopupMenu::dismissAllActiveMenus();
             
             mPopup->clear();
@@ -85,18 +66,8 @@ namespace Audealize{
         }
     }
     
-    void SearchBar::textEditorReturnKeyPressed (TextEditor &editor){
-
-    }
-    
-    void SearchBar::textEditorEscapeKeyPressed (TextEditor &editor){
-        
-    }
-    
-    void SearchBar::textEditorFocusLost (TextEditor &editor){
-    }
-    
     void SearchBar::actionListenerCallback(const juce::String &message){
-        setText(message);
+        if(!message.equalsIgnoreCase("_languagechanged"))
+            setText(message);
     }
 }

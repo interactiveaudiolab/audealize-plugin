@@ -96,6 +96,8 @@ namespace Audealize {
             }
         }
         normalizePoints();
+        
+        sendActionMessage("_languagechanged");
     }
     
     void WordMap::paint (Graphics& g)

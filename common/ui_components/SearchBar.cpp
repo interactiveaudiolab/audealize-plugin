@@ -17,6 +17,8 @@ namespace Audealize{
         addListener(this);
         
         mPopup = new PopupMenu();
+        
+        changedByMap = false;
     }
     
     SearchBar::~SearchBar() {
@@ -35,12 +37,13 @@ namespace Audealize{
     }
     
     void SearchBar::textEditorTextChanged (TextEditor &editor){
-        if (getText().length() > 0){
+        if (getText().length() > 0 && !changedByMap){
             
             vector<const std::basic_string<char> *> completions = mTrie.complete(getText().toStdString());
             
             // don't show the menu if there's only one item and that item is the word in the textbox
-            if (completions.size() == 1 && getText().equalsIgnoreCase(completions[0]->c_str())){
+            // or if the word is in the trie
+            if ((completions.size() == 1 && getText().equalsIgnoreCase(completions[0]->c_str())) || mTrie.has(getText().toStdString())){
                 return ;
             }
             
@@ -67,7 +70,8 @@ namespace Audealize{
     }
     
     void SearchBar::actionListenerCallback(const juce::String &message){
-        if(!message.equalsIgnoreCase("_languagechanged"))
+        if(!message.equalsIgnoreCase("_languagechanged")){
             setText(message);
+        }
     }
 }

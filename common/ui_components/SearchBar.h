@@ -46,11 +46,12 @@ namespace Audealize{
          *
          *  @param message
          */
-        void actionListenerCallback(const String &message) override;
+        void actionListenerCallback (const String &message) override;
         
     protected:
         trie<string> mTrie;
         ScopedPointer<PopupMenu> mPopup;
+        bool changedByMap; //@TODO
     };
 }
 

@@ -2,9 +2,6 @@
 #define REVERBCOMPONENT_H
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "PluginProcessor.h"
-#include "../../common/AudealizeAudioProcessor.h"
-#include "../../common/ui_components/TraditionalUIComponent.h"
 
 namespace Audealize{
     

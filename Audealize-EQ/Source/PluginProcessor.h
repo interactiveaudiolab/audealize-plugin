@@ -56,23 +56,18 @@ public:
     void parameterChanged(const juce::String &parameterID, float newValue) override;
     void settingsFromMap(vector<float> settings) override;
     
+    inline String getParamID(int index) override;
+    
 private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeeqAudioProcessor)
     
-    /**
-     *  Normalizes a vector of floats
-     *
-     *  @param vals
-     */
-    void normalize(vector<float>* vals);
     
     /**
      *  Returns a string with the parameter ID of one of the graphic eq gain parameters
      *
      *  @param index
      */
-    inline String getParamID(int index);
     
     const String PATH_TO_POINTS = "/Users/michael/JUCE/projects/audealize-plugin/common/data/eqpoints.json"; //@TODO
         

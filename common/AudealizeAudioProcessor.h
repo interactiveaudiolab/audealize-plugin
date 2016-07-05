@@ -80,6 +80,22 @@ namespace Audealize{
             return *mState;
         }
         
+        /**
+         *  Normalizes a vector of floats
+         *
+         *  @param vals
+         */
+        void normalize(vector<float>* vals){
+            float max = *std::max_element(vals->begin(), vals->end());
+            float min = *std::min_element(vals->begin(), vals->end());
+            for (int i = 0; i < vals->size(); i++){
+                (*vals)[i] = ((*vals)[i] - min) / (max - min);
+            }
+        }
+        
+        
+        inline virtual String getParamID(int index) {};
+        
     protected:
         ScopedPointer<AudioProcessorValueTreeState> mState; // and AudioProcessorValueTreeState containing the parameter state information
         ScopedPointer<UndoManager> mUndoManager;

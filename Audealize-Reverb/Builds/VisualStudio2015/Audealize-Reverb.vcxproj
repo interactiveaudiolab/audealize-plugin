@@ -135,12 +135,15 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\ReverbComponent.cpp"/>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
-    <ClCompile Include="..\..\Source\PluginEditor.cpp"/>
+    <ClCompile Include="..\..\Source\ReverbComponent.cpp"/>
+    <ClCompile Include="..\..\..\common\libs\Biquad.cpp"/>
+    <ClCompile Include="..\..\..\common\libs\trie\sample.cc"/>
+    <ClCompile Include="..\..\..\common\libs\trie\trie.cpp"/>
     <ClCompile Include="..\..\..\common\ui_components\AudealizeUI.cpp"/>
     <ClCompile Include="..\..\..\common\ui_components\GraphicEQComponent.cpp"/>
-    <ClCompile Include="..\..\..\common\libs\Biquad.cpp"/>
+    <ClCompile Include="..\..\..\common\ui_components\SearchBar.cpp"/>
+    <ClCompile Include="..\..\..\common\ui_components\WordMap.cpp"/>
     <ClCompile Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1841,25 +1844,28 @@
     <ClCompile Include="..\..\JuceLibraryCode\juce_video.cpp"/>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\ReverbComponent.h"/>
     <ClInclude Include="..\..\Source\PluginProcessor.h"/>
-    <ClInclude Include="..\..\Source\PluginEditor.h"/>
-    <ClInclude Include="..\..\..\common\common.h"/>
-    <ClInclude Include="..\..\..\common\AudealizeInterfaces.h"/>
-    <ClInclude Include="..\..\..\common\utils\CParamSmooth.h"/>
+    <ClInclude Include="..\..\Source\ReverbComponent.h"/>
+    <ClInclude Include="..\..\..\common\effects\AudioEffect.h"/>
     <ClInclude Include="..\..\..\common\effects\Equalizer.h"/>
     <ClInclude Include="..\..\..\common\effects\NChannelFilter.h"/>
     <ClInclude Include="..\..\..\common\effects\Reverb.h"/>
-    <ClInclude Include="..\..\..\common\effects\AudioEffect.h"/>
-    <ClInclude Include="..\..\..\common\ui_components\AudealizeUI.h"/>
-    <ClInclude Include="..\..\..\common\ui_components\GraphicEQComponent.h"/>
+    <ClInclude Include="..\..\..\common\libs\Biquad.h"/>
+    <ClInclude Include="..\..\..\common\libs\json.hpp"/>
     <ClInclude Include="..\..\..\common\libs\calf_dsp_library\buffer.h"/>
     <ClInclude Include="..\..\..\common\libs\calf_dsp_library\delay.h"/>
     <ClInclude Include="..\..\..\common\libs\calf_dsp_library\onepole.h"/>
     <ClInclude Include="..\..\..\common\libs\calf_dsp_library\primitives.h"/>
-    <ClInclude Include="..\..\..\common\libs\Biquad.h"/>
-    <ClInclude Include="..\..\..\common\libs\json.hpp"/>
-    <ClInclude Include="..\..\..\common\libs\PrimeFactors.h"/>
+    <ClInclude Include="..\..\..\common\libs\trie\trie.hpp"/>
+    <ClInclude Include="..\..\..\common\ui_components\AudealizeUI.h"/>
+    <ClInclude Include="..\..\..\common\ui_components\GraphicEQComponent.h"/>
+    <ClInclude Include="..\..\..\common\ui_components\SearchBar.h"/>
+    <ClInclude Include="..\..\..\common\ui_components\TraditionalUIComponent.h"/>
+    <ClInclude Include="..\..\..\common\ui_components\WordMap.h"/>
+    <ClInclude Include="..\..\..\common\utils\PrimeFactors.h"/>
+    <ClInclude Include="..\..\..\common\utils\CParamSmooth.h"/>
+    <ClInclude Include="..\..\..\common\AudealizeAudioProcessor.h"/>
+    <ClInclude Include="..\..\..\common\common.h"/>
     <ClInclude Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
     <ClInclude Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.h"/>
     <ClInclude Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_FloatVectorOperations.h"/>
@@ -2517,8 +2523,10 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\common\data\eqpoints.json"/>
+    <None Include="..\..\..\common\data\reverbpoints.json"/>
     <None Include="..\..\..\common\libs\calf_dsp_library\COPYING"/>
+    <None Include="..\..\..\common\libs\trie\LICENSE"/>
+    <None Include="..\..\..\common\libs\trie\README.md"/>
     <None Include="..\..\..\..\..\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>
     <None Include="..\..\..\..\..\modules\juce_audio_formats\codecs\oggvorbis\Ogg Vorbis Licence.txt"/>
     <None Include="..\..\..\..\..\modules\juce_audio_plugin_client\AU\AUResources.r"/>

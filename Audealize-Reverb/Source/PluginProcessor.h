@@ -3,11 +3,12 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "../../common/common.h"
-
+#include "../../common/utils/CParamSmooth.h"
+#include "ReverbComponent.h"
 
 using namespace Audealize;
 
-class AudealizereverbAudioProcessor  : public AudealizeAudioProcessor, public AudioProcessorValueTreeState::Listener
+class AudealizereverbAudioProcessor  : public AudealizeAudioProcessor
 {
 public:
     AudealizereverbAudioProcessor();
@@ -39,13 +40,17 @@ public:
     
     void parameterChanged(const juce::String &parameterID, float newValue) override;
     
+    void settingsFromMap(vector<float> settings) override;
+    
+    inline String getParamID(int index) override;
+    
     enum Parameters{
         kParamD,
         kParamG,
         kParamM,
         kParamF,
         kParamE,
-        kParamMix,
+        kParamAmount,
         kNumParams
     };
     
@@ -73,9 +78,11 @@ private:
     const float DEFAULT_E   = 0.95f;
     const float DEFAULT_MIX = 0.75f;
     
+    const String PATH_TO_POINTS = "/Users/michael/JUCE/projects/audealize-plugin/common/data/reverbpoints.json"; //@TODO
+    
+    
     void debugParams();
     
-    String toID(int index);
 };
 
 

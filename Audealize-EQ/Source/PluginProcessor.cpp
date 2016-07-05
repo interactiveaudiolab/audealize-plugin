@@ -213,14 +213,6 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
     return new AudealizeeqAudioProcessor();
 }
 
-void AudealizeeqAudioProcessor::normalize(vector<float>* vals){
-    float max = *std::max_element(vals->begin(), vals->end());
-    float min = *std::min_element(vals->begin(), vals->end());
-    for (int i = 0; i < vals->size(); i++){
-        (*vals)[i] = ((*vals)[i] - min) / (max - min);
-    }
-}
-
 inline String AudealizeeqAudioProcessor::getParamID(int index){
     return String("paramGain" + std::to_string(index));
 }

@@ -14,20 +14,23 @@
     <Filter Include="Audealize-Reverb\common\data">
       <UniqueIdentifier>{E53EEDBE-84A6-3893-BF9D-4A2371098E3D}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Audealize-Reverb\common\utils">
-      <UniqueIdentifier>{AAC87CF7-6C3E-EDF3-FE88-1662ADD3CB85}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Audealize-Reverb\common\effects">
       <UniqueIdentifier>{7E68E6B0-4A8F-7FDB-8371-15D2F4CF52EA}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Audealize-Reverb\common\ui_components">
-      <UniqueIdentifier>{04FC4FC2-B72D-15EE-6A6D-53CD28058CBC}</UniqueIdentifier>
     </Filter>
     <Filter Include="Audealize-Reverb\common\libs">
       <UniqueIdentifier>{65B1C86F-FFC1-7C4A-A146-FE173AC1D62B}</UniqueIdentifier>
     </Filter>
     <Filter Include="Audealize-Reverb\common\libs\calf_dsp_library">
       <UniqueIdentifier>{D8458979-FD9F-D30A-1D4C-FE4378173EF2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audealize-Reverb\common\libs\trie">
+      <UniqueIdentifier>{1641F993-FB69-8C3D-68B6-A3DE439D8A50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audealize-Reverb\common\ui_components">
+      <UniqueIdentifier>{04FC4FC2-B72D-15EE-6A6D-53CD28058CBC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audealize-Reverb\common\utils">
+      <UniqueIdentifier>{AAC87CF7-6C3E-EDF3-FE88-1662ADD3CB85}</UniqueIdentifier>
     </Filter>
     <Filter Include="Juce Modules">
       <UniqueIdentifier>{422C46B7-0467-2DB0-BF3C-16DFCAFD69AC}</UniqueIdentifier>
@@ -415,14 +418,20 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\ReverbComponent.cpp">
-      <Filter>Audealize-Reverb\Source</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp">
       <Filter>Audealize-Reverb\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\PluginEditor.cpp">
+    <ClCompile Include="..\..\Source\ReverbComponent.cpp">
       <Filter>Audealize-Reverb\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\libs\Biquad.cpp">
+      <Filter>Audealize-Reverb\common\libs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\libs\trie\sample.cc">
+      <Filter>Audealize-Reverb\common\libs\trie</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\libs\trie\trie.cpp">
+      <Filter>Audealize-Reverb\common\libs\trie</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\common\ui_components\AudealizeUI.cpp">
       <Filter>Audealize-Reverb\common\ui_components</Filter>
@@ -430,8 +439,11 @@
     <ClCompile Include="..\..\..\common\ui_components\GraphicEQComponent.cpp">
       <Filter>Audealize-Reverb\common\ui_components</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\common\libs\Biquad.cpp">
-      <Filter>Audealize-Reverb\common\libs</Filter>
+    <ClCompile Include="..\..\..\common\ui_components\SearchBar.cpp">
+      <Filter>Audealize-Reverb\common\ui_components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\ui_components\WordMap.cpp">
+      <Filter>Audealize-Reverb\common\ui_components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
@@ -2319,23 +2331,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\ReverbComponent.h">
-      <Filter>Audealize-Reverb\Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\PluginProcessor.h">
       <Filter>Audealize-Reverb\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\PluginEditor.h">
+    <ClInclude Include="..\..\Source\ReverbComponent.h">
       <Filter>Audealize-Reverb\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\common.h">
-      <Filter>Audealize-Reverb\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\AudealizeInterfaces.h">
-      <Filter>Audealize-Reverb\common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\utils\CParamSmooth.h">
-      <Filter>Audealize-Reverb\common\utils</Filter>
+    <ClInclude Include="..\..\..\common\effects\AudioEffect.h">
+      <Filter>Audealize-Reverb\common\effects</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\common\effects\Equalizer.h">
       <Filter>Audealize-Reverb\common\effects</Filter>
@@ -2346,14 +2349,11 @@
     <ClInclude Include="..\..\..\common\effects\Reverb.h">
       <Filter>Audealize-Reverb\common\effects</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\effects\AudioEffect.h">
-      <Filter>Audealize-Reverb\common\effects</Filter>
+    <ClInclude Include="..\..\..\common\libs\Biquad.h">
+      <Filter>Audealize-Reverb\common\libs</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\ui_components\AudealizeUI.h">
-      <Filter>Audealize-Reverb\common\ui_components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\ui_components\GraphicEQComponent.h">
-      <Filter>Audealize-Reverb\common\ui_components</Filter>
+    <ClInclude Include="..\..\..\common\libs\json.hpp">
+      <Filter>Audealize-Reverb\common\libs</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\common\libs\calf_dsp_library\buffer.h">
       <Filter>Audealize-Reverb\common\libs\calf_dsp_library</Filter>
@@ -2367,14 +2367,35 @@
     <ClInclude Include="..\..\..\common\libs\calf_dsp_library\primitives.h">
       <Filter>Audealize-Reverb\common\libs\calf_dsp_library</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\libs\Biquad.h">
-      <Filter>Audealize-Reverb\common\libs</Filter>
+    <ClInclude Include="..\..\..\common\libs\trie\trie.hpp">
+      <Filter>Audealize-Reverb\common\libs\trie</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\libs\json.hpp">
-      <Filter>Audealize-Reverb\common\libs</Filter>
+    <ClInclude Include="..\..\..\common\ui_components\AudealizeUI.h">
+      <Filter>Audealize-Reverb\common\ui_components</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\libs\PrimeFactors.h">
-      <Filter>Audealize-Reverb\common\libs</Filter>
+    <ClInclude Include="..\..\..\common\ui_components\GraphicEQComponent.h">
+      <Filter>Audealize-Reverb\common\ui_components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\ui_components\SearchBar.h">
+      <Filter>Audealize-Reverb\common\ui_components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\ui_components\TraditionalUIComponent.h">
+      <Filter>Audealize-Reverb\common\ui_components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\ui_components\WordMap.h">
+      <Filter>Audealize-Reverb\common\ui_components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\utils\PrimeFactors.h">
+      <Filter>Audealize-Reverb\common\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\utils\CParamSmooth.h">
+      <Filter>Audealize-Reverb\common\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\AudealizeAudioProcessor.h">
+      <Filter>Audealize-Reverb\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\common.h">
+      <Filter>Audealize-Reverb\common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
@@ -4343,11 +4364,17 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\..\common\data\eqpoints.json">
+    <None Include="..\..\..\common\data\reverbpoints.json">
       <Filter>Audealize-Reverb\common\data</Filter>
     </None>
     <None Include="..\..\..\common\libs\calf_dsp_library\COPYING">
       <Filter>Audealize-Reverb\common\libs\calf_dsp_library</Filter>
+    </None>
+    <None Include="..\..\..\common\libs\trie\LICENSE">
+      <Filter>Audealize-Reverb\common\libs\trie</Filter>
+    </None>
+    <None Include="..\..\..\common\libs\trie\README.md">
+      <Filter>Audealize-Reverb\common\libs\trie</Filter>
     </None>
     <None Include="..\..\..\..\..\modules\juce_audio_formats\codecs\flac\Flac Licence.txt">
       <Filter>Juce Modules\juce_audio_formats\codecs\flac</Filter>

@@ -5,6 +5,7 @@
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "40AC036064B28DF7BC3421AE354DC24FA9B45847" : 0,
+    "625778BEB9784BB35ECBEAE99BA1321722B8A863" : 0,
     "DEBAC9C6799FD4E8074B3BAF720718E3C3499FA0" : 0,
     "CF62AFF489EC5CAA44EC939D83D4F00113564430" : 0,
     "659D184B21388247EEA9EA1AC0F758F66101694C" : 0
@@ -12,6 +13,7 @@
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6600CCA6-4928-42B4-9437-81F3D6AC9D1E",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "40AC036064B28DF7BC3421AE354DC24FA9B45847" : "..\/modules\/stk_wrapper",
+    "625778BEB9784BB35ECBEAE99BA1321722B8A863" : "audealize-plugin\/common\/libs\/trie\/",
     "DEBAC9C6799FD4E8074B3BAF720718E3C3499FA0" : "..",
     "CF62AFF489EC5CAA44EC939D83D4F00113564430" : "..\/modules\/stk_wrapper\/stk",
     "659D184B21388247EEA9EA1AC0F758F66101694C" : "audealize-plugin\/"
@@ -24,6 +26,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/adamski\/stk_wrapper",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "40AC036064B28DF7BC3421AE354DC24FA9B45847"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/r-lyeh\/trie",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "625778BEB9784BB35ECBEAE99BA1321722B8A863"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/interactiveaudiolab\/audealize-plugin",

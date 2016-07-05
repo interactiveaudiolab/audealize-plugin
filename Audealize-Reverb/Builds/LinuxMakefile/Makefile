@@ -49,12 +49,15 @@ ifeq ($(CONFIG),Release)
 endif
 
 OBJECTS := \
-  $(OBJDIR)/ReverbComponent_e2d4862c.o \
   $(OBJDIR)/PluginProcessor_a059e380.o \
-  $(OBJDIR)/PluginEditor_94d4fb09.o \
+  $(OBJDIR)/ReverbComponent_e2d4862c.o \
+  $(OBJDIR)/Biquad_2658136f.o \
+  $(OBJDIR)/sample_fcc1f6fb.o \
+  $(OBJDIR)/trie_b1f95f18.o \
   $(OBJDIR)/AudealizeUI_721d8e9a.o \
   $(OBJDIR)/GraphicEQComponent_755b11c1.o \
-  $(OBJDIR)/Biquad_2658136f.o \
+  $(OBJDIR)/SearchBar_87ef815d.o \
+  $(OBJDIR)/WordMap_40609dc4.o \
   $(OBJDIR)/BinaryData_ce4232d4.o \
   $(OBJDIR)/juce_audio_basics_6b797ca1.o \
   $(OBJDIR)/juce_audio_devices_a742c38b.o \
@@ -90,19 +93,29 @@ strip:
 	@echo Stripping Audealize-Reverb
 	-@strip --strip-unneeded $(OUTDIR)/$(TARGET)
 
-$(OBJDIR)/ReverbComponent_e2d4862c.o: ../../Source/ReverbComponent.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling ReverbComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
 $(OBJDIR)/PluginProcessor_a059e380.o: ../../Source/PluginProcessor.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling PluginProcessor.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/PluginEditor_94d4fb09.o: ../../Source/PluginEditor.cpp
+$(OBJDIR)/ReverbComponent_e2d4862c.o: ../../Source/ReverbComponent.cpp
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling PluginEditor.cpp"
+	@echo "Compiling ReverbComponent.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/Biquad_2658136f.o: ../../../common/libs/Biquad.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling Biquad.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/sample_fcc1f6fb.o: ../../../common/libs/trie/sample.cc
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling sample.cc"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/trie_b1f95f18.o: ../../../common/libs/trie/trie.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling trie.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/AudealizeUI_721d8e9a.o: ../../../common/ui_components/AudealizeUI.cpp
@@ -115,9 +128,14 @@ $(OBJDIR)/GraphicEQComponent_755b11c1.o: ../../../common/ui_components/GraphicEQ
 	@echo "Compiling GraphicEQComponent.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/Biquad_2658136f.o: ../../../common/libs/Biquad.cpp
+$(OBJDIR)/SearchBar_87ef815d.o: ../../../common/ui_components/SearchBar.cpp
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling Biquad.cpp"
+	@echo "Compiling SearchBar.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/WordMap_40609dc4.o: ../../../common/ui_components/WordMap.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling WordMap.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/BinaryData_ce4232d4.o: ../../JuceLibraryCode/BinaryData.cpp

@@ -1,5 +1,4 @@
 #include "PluginProcessor.h"
-#include "PluginEditor.h"
 
 using namespace Audealize;
 
@@ -8,7 +7,6 @@ String AudealizereverbAudioProcessor::paramG ("paramG");
 String AudealizereverbAudioProcessor::paramM ("paramM");
 String AudealizereverbAudioProcessor::paramF ("paramF");
 String AudealizereverbAudioProcessor::paramE ("paramE");
-String AudealizereverbAudioProcessor::paramMix ("paramMix");
 
 AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb()
 {
@@ -18,7 +16,6 @@ AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb()
     mParamRange[kParamM]   = NormalisableRange<float>(-0.012f, 0.012f, 0.0001f);
     mParamRange[kParamF]   = NormalisableRange<float>(20.0f, 20000.0f, 0.1f);
     mParamRange[kParamE]   = NormalisableRange<float>(0.0f, 1.0f, 0.0001f);
-    mParamRange[kParamMix] = NormalisableRange<float>(0.0f, 1.0f, 0.0001f);
     
     // Initialize parameters
     mState->createAndAddParameter(paramD, "Delay of comb filters", TRANS ("Delay of comb filters"), mParamRange[kParamD], DEFAULT_D, nullptr, nullptr);
@@ -26,7 +23,6 @@ AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb()
     mState->createAndAddParameter(paramM, "Delay between channels", TRANS ("Delay between channels"), mParamRange[kParamM], DEFAULT_M, nullptr, nullptr);
     mState->createAndAddParameter(paramF, "LP Cutoff", TRANS ("LP Cutoff"), mParamRange[kParamF], DEFAULT_F, nullptr, nullptr);
     mState->createAndAddParameter(paramE, "Effect Gain", TRANS ("Effect Gain"), mParamRange[kParamE], DEFAULT_E, nullptr, nullptr);
-    mState->createAndAddParameter(paramMix, "Wet/Dry Mix", TRANS ("Wet/Dry Mix"), mParamRange[kParamMix], DEFAULT_MIX, nullptr, nullptr);
 
     // Add Listeners
     mState->addParameterListener(paramD, this);
@@ -34,9 +30,9 @@ AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb()
     mState->addParameterListener(paramM, this);
     mState->addParameterListener(paramF, this);
     mState->addParameterListener(paramE, this);
-    mState->addParameterListener(paramMix, this);
+    mState->addParameterListener(paramAmount, this);
     
-    mState->state = ValueTree ("Audealize-Reverb");
+    mState->state = ValueTree ("Audealize_Reverb");
 }
 
 AudealizereverbAudioProcessor::~AudealizereverbAudioProcessor()
@@ -103,7 +99,7 @@ void AudealizereverbAudioProcessor::prepareToPlay (double sampleRate, int sample
                  mParamRange[kParamM].snapToLegalValue(DEFAULT_M),
                  mParamRange[kParamF].snapToLegalValue(DEFAULT_F),
                  mParamRange[kParamE].snapToLegalValue(DEFAULT_E),
-                 mParamRange[kParamMix].snapToLegalValue(DEFAULT_MIX),
+                 mParamRange[kParamAmount].snapToLegalValue(DEFAULT_MIX),
                  sampleRate);
     debugParams();
     
@@ -180,9 +176,9 @@ void AudealizereverbAudioProcessor::processBlock (AudioSampleBuffer& buffer, Mid
         fullRange = mParamRange[kParamE].convertFrom0to1(mState->getParameter(paramE)->getValue());
         mReverb.set_E(mParamRange[kParamE].snapToLegalValue(mSmoother[kParamE].process(fullRange)));
     }
-    if (mSmoother[kParamMix].isDirty()){
-        fullRange = mParamRange[kParamMix].convertFrom0to1(mState->getParameter(paramMix)->getValue());
-        mReverb.set_wetdry(mParamRange[kParamMix].snapToLegalValue(mSmoother[kParamMix].process(fullRange)));
+    if (mSmoother[kParamAmount].isDirty()){
+        fullRange = mParamRange[kParamAmount].convertFrom0to1(mState->getParameter(paramAmount)->getValue());
+        mReverb.set_wetdry(mParamRange[kParamAmount].snapToLegalValue(mSmoother[kParamAmount].process(fullRange)));
     }
         
     // Process reverb
@@ -205,7 +201,9 @@ bool AudealizereverbAudioProcessor::hasEditor() const
 
 AudioProcessorEditor* AudealizereverbAudioProcessor::createEditor()
 {
-    return new AudealizereverbAudioProcessorEditor (*this);
+    ScopedPointer<TraditionalUI> mReverbComponent = new ReverbComponent(*this);
+    
+    return new AudealizeUI (*this, mReverbComponent, PATH_TO_POINTS, "Reverb");
 }
 
 
@@ -233,8 +231,8 @@ void AudealizereverbAudioProcessor::parameterChanged(const juce::String &paramet
     else if (parameterID == paramE){
         mReverb.set_E(mParamRange[kParamE].snapToLegalValue(mSmoother[kParamE].process(newValue)));
     }
-    else if (parameterID == paramMix){
-        mReverb.set_wetdry(mParamRange[kParamMix].snapToLegalValue(mSmoother[kParamMix].process(newValue)));
+    else if (parameterID == paramAmount){
+        mReverb.set_wetdry(mParamRange[kParamAmount].snapToLegalValue(mSmoother[kParamAmount].process(newValue)));
     }
     debugParams();
 }
@@ -246,7 +244,7 @@ void AudealizereverbAudioProcessor::debugParams(){
 /**
  *  Transaltes a parameter index to its corresponding ID string
  */
-String AudealizereverbAudioProcessor::toID(int index){
+String AudealizereverbAudioProcessor::getParamID(int index){
     switch (index) {
         case kParamD:
             return paramD;
@@ -263,10 +261,20 @@ String AudealizereverbAudioProcessor::toID(int index){
         case kParamE:
             return paramE;
             
-        case kParamMix:
-            return paramMix;
+        case kParamAmount:
+            return paramAmount;
             
         default:
             break;
     }
+}
+
+void AudealizereverbAudioProcessor::settingsFromMap(vector<float> settings){
+    mParamSettings = settings;
+    //normalize(&mParamSettings);
+    
+    for (int i = 0; i < kNumParams - 1; i++){
+        mState->getParameter(getParamID(i))->setValueNotifyingHost(mParamRange[i].convertFrom0to1(settings[i]));
+    }
+    //DBG(mEqualizer.getBandGain(10));
 }

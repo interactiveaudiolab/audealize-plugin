@@ -68,6 +68,8 @@ private:
     
     NormalisableRange<float> mParamRange[kNumParams];
     
+    NormalisableRange<float> mPointsRange[kNumParams];
+    
     CParamSmooth mSmoother[kNumParams];
     float paramTargetVal[kNumParams];
     

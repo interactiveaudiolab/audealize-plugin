@@ -21,6 +21,9 @@
 #define __JUCE_HEADER_EB0317DAAAA56B94__
 
 //[Headers]     -- You can add your own extra header files here --
+#include "WordMap.h"
+#include "SearchBar.h"
+#include "TraditionalUIComponent.h"
 namespace Audealize{
 //[/Headers]
 

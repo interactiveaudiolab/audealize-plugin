@@ -2,6 +2,7 @@
 #define REVERBCOMPONENT_H
 
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "../../common/common.h"
 
 namespace Audealize{
     

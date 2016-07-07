@@ -14,6 +14,7 @@
 #include "libs/trie/trie.hpp"
 
 #include "utils/PrimeFactors.h"
+#include "utils/CParamSmooth.h"
 
 #include "ui_components/AudealizeUI.h"
 #include "ui_components/WordMap.h"

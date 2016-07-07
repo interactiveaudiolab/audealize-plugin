@@ -2,7 +2,8 @@
 #define PLUGINPROCESSOR_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-
+#include "../../common/common.h"
+#include "ReverbComponent.h"
 
 using namespace Audealize;
 

@@ -9,7 +9,7 @@
               pluginProducesMidiOut="0" pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0"
               pluginAUExportPrefix="AudealizeReverbAU" pluginRTASCategory=""
               aaxIdentifier="com.InteractiveAudioLab.AudealizeReverb" pluginAAXCategory="AAX_ePlugInCategory_Dynamics"
-              jucerVersion="4.2.1" companyName="Northwestern University Interactive Audio Lab"
+              jucerVersion="4.2.3" companyName="Northwestern University Interactive Audio Lab"
               companyWebsite="http://music.eecs.northwestern.edu">
   <MAINGROUP id="WR8Mxi" name="Audealize-Reverb">
     <GROUP id="{A81F1107-A68D-EF54-1B6D-A1A91DBAA3E0}" name="Source">
@@ -22,7 +22,6 @@
       <FILE id="sbEMab" name="ReverbComponent.h" compile="0" resource="0"
             file="Source/ReverbComponent.h"/>
     </GROUP>
-<<<<<<< HEAD
     <GROUP id="{93D2FD5F-7C56-FE4E-C29E-6A0FFBF15660}" name="common">
       <GROUP id="{BCEE3708-FA36-3350-E0CD-EBF1F585E424}" name="data">
         <FILE id="j0bZqW" name="reverbpoints.json" compile="0" resource="1"
@@ -73,8 +72,6 @@
             file="../common/AudealizeAudioProcessor.h"/>
       <FILE id="P8nXhE" name="common.h" compile="0" resource="0" file="../common/common.h"/>
     </GROUP>
-=======
->>>>>>> dev
   </MAINGROUP>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX" vstFolder="" vst3Folder="" aaxFolder="">
@@ -98,7 +95,6 @@
         <MODULEPATH id="juce_audio_processors" path="../JUCE Modules"/>
         <MODULEPATH id="juce_audio_plugin_client" path="../JUCE Modules"/>
         <MODULEPATH id="juce_audio_utils" path="../JUCE Modules"/>
-        <MODULEPATH id="audealize_module" path="../JUCE Modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2015 targetFolder="Builds/VisualStudio2015">
@@ -124,7 +120,6 @@
         <MODULEPATH id="juce_audio_processors" path="../JUCE Modules"/>
         <MODULEPATH id="juce_audio_plugin_client" path="../JUCE Modules"/>
         <MODULEPATH id="juce_audio_utils" path="../JUCE Modules"/>
-        <MODULEPATH id="audealize_module" path="../JUCE Modules"/>
       </MODULEPATHS>
     </VS2015>
     <VS2013 targetFolder="Builds/VisualStudio2013">
@@ -150,7 +145,6 @@
         <MODULEPATH id="juce_audio_processors" path="../JUCE Modules"/>
         <MODULEPATH id="juce_audio_plugin_client" path="../JUCE Modules"/>
         <MODULEPATH id="juce_audio_utils" path="../JUCE Modules"/>
-        <MODULEPATH id="audealize_module" path="../JUCE Modules"/>
       </MODULEPATHS>
     </VS2013>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
@@ -176,12 +170,10 @@
         <MODULEPATH id="juce_audio_processors" path="../JUCE Modules"/>
         <MODULEPATH id="juce_audio_plugin_client" path="../JUCE Modules"/>
         <MODULEPATH id="juce_audio_utils" path="../JUCE Modules"/>
-        <MODULEPATH id="audealize_module" path="../JUCE Modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
   </EXPORTFORMATS>
   <MODULES>
-    <MODULE id="audealize_module" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>

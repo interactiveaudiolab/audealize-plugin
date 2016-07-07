@@ -50,7 +50,6 @@ endif
 
 OBJECTS := \
   $(OBJDIR)/PluginProcessor_a059e380.o \
-  $(OBJDIR)/SearchBar_87ef815d.o \
   $(OBJDIR)/AudealizeUI_721d8e9a.o \
   $(OBJDIR)/WordMap_40609dc4.o \
   $(OBJDIR)/GraphicEQComponent_755b11c1.o \
@@ -93,11 +92,6 @@ strip:
 $(OBJDIR)/PluginProcessor_a059e380.o: ../../Source/PluginProcessor.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling PluginProcessor.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/SearchBar_87ef815d.o: ../../../common/ui_components/SearchBar.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling SearchBar.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/AudealizeUI_721d8e9a.o: ../../../common/ui_components/AudealizeUI.cpp

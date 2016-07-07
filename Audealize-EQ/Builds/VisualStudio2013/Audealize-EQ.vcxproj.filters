@@ -26,9 +26,6 @@
     <Filter Include="Audealize-EQ\common\libs">
       <UniqueIdentifier>{FB7ED2BE-4FEF-AA95-0E65-276175ED0E6F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Audealize-EQ\common\libs\Trie">
-      <UniqueIdentifier>{75DEB526-7AFF-5E59-6A0F-7BD00ECCEA48}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Audealize-EQ\common\libs\Biquad">
       <UniqueIdentifier>{12DD547E-6830-B963-B671-4B7809AA910A}</UniqueIdentifier>
     </Filter>
@@ -423,9 +420,6 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp">
       <Filter>Audealize-EQ\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\ui_components\SearchBar.cpp">
-      <Filter>Audealize-EQ\common\ui_components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\common\ui_components\AudealizeUI.cpp">
       <Filter>Audealize-EQ\common\ui_components</Filter>
@@ -2349,12 +2343,6 @@
     <ClInclude Include="..\..\..\common\effects\Reverb.h">
       <Filter>Audealize-EQ\common\effects</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\ui_components\SuggestBox.h">
-      <Filter>Audealize-EQ\common\ui_components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\ui_components\SearchBar.h">
-      <Filter>Audealize-EQ\common\ui_components</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\common\ui_components\TypeaheadPopupMenu.h">
       <Filter>Audealize-EQ\common\ui_components</Filter>
     </ClInclude>
@@ -2369,9 +2357,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\common\ui_components\GraphicEQComponent.h">
       <Filter>Audealize-EQ\common\ui_components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\libs\trie\trie.hpp">
-      <Filter>Audealize-EQ\common\libs\Trie</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\common\libs\Biquad.h">
       <Filter>Audealize-EQ\common\libs\Biquad</Filter>

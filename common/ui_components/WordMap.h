@@ -14,7 +14,6 @@
 #include "../libs/json.hpp"
 #include "../AudealizeAudioProcessor.h"
 #include "TraditionalUIComponent.h"
-#include "SearchBar.h"
 
 using json = nlohmann::json;
 using std::vector;

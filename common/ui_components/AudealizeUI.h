@@ -24,7 +24,6 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include <fstream>
 #include "WordMap.h"
-//#include "SearchBar.h"
 #include "TypeaheadPopupMenu.h"
 
 namespace Audealize{
@@ -56,6 +55,7 @@ public:
     void languageAlert();
 
     void actionListenerCallback(const String &message) override;
+
     //[/UserMethods]
 
     void paint (Graphics& g) override;
@@ -88,10 +88,10 @@ private:
     ScopedPointer<Label> label2;
     ScopedPointer<ToggleButton> mEnglishButton;
     ScopedPointer<ToggleButton> mEspanolButton;
-    ScopedPointer<TypeaheadEditor> mSearchBar;
     ScopedPointer<Label> mAudealizeLabel;
     ScopedPointer<Label> mEffectTypeLabel;
     ScopedPointer<TextButton> mTradUIButton;
+    ScopedPointer<TypeaheadEditor> mSearchBar;
 
 
     //==============================================================================

@@ -1,7 +1,7 @@
 //
 //  TypeaheadPopupMenu.h
 //
-//  Created by user bazrush from the JUCE community forums
+//  Based off of code by user bazrush from the JUCE community forums
 //
 
 
@@ -78,7 +78,7 @@ public:
         
         if (rowIsSelected){
             fg = Colours::white;
-            bg = Colours::lightblue;
+            bg = Colours::mediumpurple;
         }
         g.fillAll(bg);
         g.setColour(fg);
@@ -117,6 +117,7 @@ public:
         editor.addListener(this);
         editor.addKeyListener(this);
         editor.setColour(TextEditor::outlineColourId, Colours::grey);
+        editor.setWantsKeyboardFocus(true);
     }
     
     void mouseDown(const MouseEvent& event) override
@@ -144,9 +145,12 @@ public:
         menu->setVisible(true);
         menu->setBounds(getScreenBounds().translated(0, getHeight()).withHeight(100));
         
+        editor.toFront(true);
+        editor.setHighlightedRegion(Range<int>(editor.getText().length(), editor.getText().length()));
         menu->setActionOnItemSelected([this](String item)
                                       {
                                           editor.setText(item, dontSendNotification);
+                                          editor.keyPressed(KeyPress(KeyPress::returnKey));
                                           menu = nullptr;
                                       });
         
@@ -173,6 +177,14 @@ public:
         }
         
         if (stringsToShow.size() == 0)
+        {
+            dismissMenu();
+        }
+        else if (editor.getText().length() == 0)
+        {
+            dismissMenu();
+        }
+        else if (stringsToShow.size() == 1 && stringsToShow[0].equalsIgnoreCase(editor.getText()))
         {
             dismissMenu();
         }
@@ -213,7 +225,7 @@ public:
     {
         if (component == &editor)
         {
-            if (key == KeyPress::downKey)
+            if (key == KeyPress::downKey || key == KeyPress::tabKey)
             {
                 if (menu)
                     menu->setFirstItemFocused();
@@ -248,6 +260,7 @@ public:
     void actionListenerCallback(const juce::String &message){
         if(!message.equalsIgnoreCase("_languagechanged")){
             editor.setText(message);
+            editor.selectAll();
         }
     }
     

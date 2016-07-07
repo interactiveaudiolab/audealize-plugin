@@ -56,11 +56,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../common/ui_components/SearchBar.cpp"
-            timestampString = "489099880.769341"
+            timestampString = "489614570.247098"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "SearchBar::textEditorTextChanged (TextEditor &amp;editor)"
             landmarkType = "5">
          </BreakpointContent>
@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../common/ui_components/SearchBar.cpp"
-            timestampString = "489099880.769341"
+            timestampString = "489614570.247098"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "SearchBar::textEditorTextChanged (TextEditor &amp;editor)"
             landmarkType = "5">
          </BreakpointContent>

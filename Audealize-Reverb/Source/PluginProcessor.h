@@ -58,7 +58,6 @@ public:
     static String paramM;
     static String paramF;
     static String paramE;
-    static String paramMix;
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizereverbAudioProcessor)

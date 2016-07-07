@@ -8,7 +8,7 @@
               pluginCode="adlz" pluginChannelConfigs="" pluginIsSynth="0" pluginWantsMidiIn="0"
               pluginProducesMidiOut="0" pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0"
               pluginAUExportPrefix="AudealizeEQAU" pluginRTASCategory="" aaxIdentifier="com.InteractiveAudioLab.AudealizeEQ"
-              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="4.2.1"
+              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="4.2.3"
               companyName="Northwestern University Interactive Audio Lab" companyWebsite="http://music.eecs.northwestern.edu">
   <MAINGROUP id="zCKhNw" name="Audealize-EQ">
     <GROUP id="{4E48FC2E-FC0A-72E1-7953-37D9CC5AA9E2}" name="Source">
@@ -38,8 +38,11 @@
         <FILE id="ZTkoxw" name="Reverb.h" compile="0" resource="0" file="../common/effects/Reverb.h"/>
       </GROUP>
       <GROUP id="{0AD31FBD-54C8-2004-629D-436A93DC55A1}" name="ui_components">
+        <FILE id="Bc2RJn" name="SuggestBox.h" compile="0" resource="0" file="../common/ui_components/SuggestBox.h"/>
         <FILE id="HEnYIz" name="SearchBar.cpp" compile="1" resource="0" file="../common/ui_components/SearchBar.cpp"/>
         <FILE id="n9abCE" name="SearchBar.h" compile="0" resource="0" file="../common/ui_components/SearchBar.h"/>
+        <FILE id="WcAvQR" name="TypeaheadPopupMenu.h" compile="0" resource="0"
+              file="../common/ui_components/TypeaheadPopupMenu.h"/>
         <FILE id="ssN9bf" name="TraditionalUIComponent.h" compile="0" resource="0"
               file="../common/ui_components/TraditionalUIComponent.h"/>
         <FILE id="f1QdCG" name="AudealizeUI.cpp" compile="1" resource="0" file="../common/ui_components/AudealizeUI.cpp"/>

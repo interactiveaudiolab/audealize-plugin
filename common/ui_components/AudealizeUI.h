@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 4.2.1
+  Created with Projucer version: 4.2.3
 
   ------------------------------------------------------------------------------
 
@@ -24,7 +24,8 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include <fstream>
 #include "WordMap.h"
-#include "SearchBar.h"
+//#include "SearchBar.h"
+#include "TypeaheadPopupMenu.h"
 
 namespace Audealize{
 //[/Headers]
@@ -53,7 +54,7 @@ public:
     void textEditorReturnKeyPressed(TextEditor &editor) override;
 
     void languageAlert();
-    
+
     void actionListenerCallback(const String &message) override;
     //[/UserMethods]
 
@@ -87,7 +88,7 @@ private:
     ScopedPointer<Label> label2;
     ScopedPointer<ToggleButton> mEnglishButton;
     ScopedPointer<ToggleButton> mEspanolButton;
-    ScopedPointer<SearchBar> mSearchBar;
+    ScopedPointer<TypeaheadEditor> mSearchBar;
     ScopedPointer<Label> mAudealizeLabel;
     ScopedPointer<Label> mEffectTypeLabel;
     ScopedPointer<TextButton> mTradUIButton;

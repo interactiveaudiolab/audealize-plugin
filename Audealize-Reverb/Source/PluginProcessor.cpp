@@ -278,7 +278,10 @@ void AudealizereverbAudioProcessor::settingsFromMap(vector<float> settings){
     DBG("Raw: " << settings[0] << " " << settings[1] << " "<< settings[2] << " "<< settings[3] << " "<< settings[4]);
     
     for (int i = 0; i < kNumParams - 1; i++){
-        mState->getParameter(getParamID(i))->setValueNotifyingHost(settings[i]);
+        if ( i == kParamF){
+            DBG(mParamRange[i].snapToLegalValue(settings[i]));
+        }
+        
+        mState->getParameter(getParamID(i))->setValueNotifyingHost(mParamRange[i].snapToLegalValue(settings[i]));
     }
-    //DBG(mEqualizer.getBandGain(10));
 }

@@ -16,6 +16,7 @@ namespace Audealize{
         
         addListener(this);
         
+        addAndMakeVisible(mListBox = new ListBox("", SuggestBox()));
         mPopup = new PopupMenu();
         
         changedByMap = false;

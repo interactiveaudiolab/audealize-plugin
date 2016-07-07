@@ -129,7 +129,9 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
     
     addAndMakeVisible(mTradUI);
     mTradUI->setVisible(false);
-    //[/UserPreSize]
+    
+    mTradUIButton->setButtonText (TRANS("+ Show " + String(mTradUI->getName())));
+        //[/UserPreSize]
 
     setSize (840, 575);
 
@@ -240,12 +242,12 @@ void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
         if(mTradUI->isVisible()){
             setSize(getWidth(), getHeight()-mTradUI->getHeight()-15);
             mTradUI->setVisible(false);
-            mTradUIButton->setButtonText("+ Show traditional interface");
+            mTradUIButton->setButtonText (TRANS("+ Show " + String(mTradUI->getName())));
         }
         else{
             setSize(getWidth(), getHeight()+mTradUI->getHeight()+15);
             mTradUI->setVisible(true);
-            mTradUIButton->setButtonText("- Hide traditional interface");
+            mTradUIButton->setButtonText (TRANS("- Hide " + String(mTradUI->getName())));
         }
 
         //[/UserButtonCode_mTradUIButton]

@@ -18,6 +18,9 @@ namespace Audealize {
             name = "traditional interface";
         };
         
+        String getName(){
+            return name;
+        }
     protected:
         AudealizeAudioProcessor& processor;
         String name;

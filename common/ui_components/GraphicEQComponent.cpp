@@ -10,6 +10,8 @@ namespace Audealize {
     {
         mNumBands = numBands;
         
+        name = "graphic EQ";
+        
         for (int i = 0; i < mNumBands; i++){
             String paramID = "paramGain" + to_string(i);
             

@@ -16,7 +16,9 @@ namespace Audealize{
         
         addListener(this);
         
-        addAndMakeVisible(mListBox = new ListBox("", SuggestBox()));
+        addAndMakeVisible(mSuggestBox = new SuggestBox());
+        mSuggestBox->setBounds(0, 20, 100, 200);
+        
         mPopup = new PopupMenu();
         
         changedByMap = false;
@@ -52,21 +54,24 @@ namespace Audealize{
             PopupMenu::dismissAllActiveMenus();
             
             mPopup->clear();
+            mSuggestBox->clear();
             
             // show no more than 5 completions
             int wordsToShow = std::min((int)completions.size(), 5);
+            
             for (int i = 0; i < wordsToShow; i++){
                 mPopup->addItem(i+1, String(*completions[i]));
+                mSuggestBox->addWord(String(*completions[i]));
             }
             
-            int result = mPopup->showAt(this);
+            //int result = mPopup->showAt(this);
             grabKeyboardFocus();
             
-            if (result > 0){
-                setText(completions[result-1]->c_str());
-                returnPressed();
-                PopupMenu::dismissAllActiveMenus();
-            }
+            //if (result > 0){
+            //    setText(completions[result-1]->c_str());
+            //    returnPressed();
+            //    PopupMenu::dismissAllActiveMenus();
+            //}
         }
     }
     
@@ -75,4 +80,5 @@ namespace Audealize{
             setText(message);
         }
     }
+
 }

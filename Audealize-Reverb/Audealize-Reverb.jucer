@@ -38,19 +38,16 @@
         <FILE id="k1cnPM" name="Biquad.h" compile="0" resource="0" file="../common/libs/Biquad.h"/>
         <FILE id="vWbUoR" name="Biquad.cpp" compile="1" resource="0" file="../common/libs/Biquad.cpp"/>
         <FILE id="PdwysX" name="json.hpp" compile="0" resource="0" file="../common/libs/json.hpp"/>
+        <GROUP id="{09F12C25-67E8-4DF5-D449-34ECF6A45AE3}" name="trie">
+          <FILE id="Zl35Pm" name="LICENSE.txt" compile="0" resource="1" file="../common/libs/trie/LICENSE.txt"/>
+          <FILE id="GTzYJO" name="trie.hpp" compile="0" resource="0" file="../common/libs/trie/trie.hpp"/>
+        </GROUP>
         <GROUP id="{62BC894D-FCB5-BCF5-B85B-10B0D2CD84A9}" name="calf_dsp_library">
           <FILE id="PBQAVS" name="buffer.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/buffer.h"/>
           <FILE id="BaYnlm" name="COPYING" compile="0" resource="1" file="../common/libs/calf_dsp_library/COPYING"/>
           <FILE id="uYn2Un" name="delay.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/delay.h"/>
           <FILE id="CmUAWG" name="onepole.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/onepole.h"/>
           <FILE id="q38TAO" name="primitives.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/primitives.h"/>
-        </GROUP>
-        <GROUP id="{57C3D31F-2957-7B8F-7D38-345C78A1287C}" name="trie">
-          <FILE id="NmhbNh" name="LICENSE" compile="0" resource="1" file="../common/libs/trie/LICENSE"/>
-          <FILE id="PQU57X" name="README.md" compile="0" resource="1" file="../common/libs/trie/README.md"/>
-          <FILE id="TKzk6K" name="sample.cc" compile="1" resource="0" file="../common/libs/trie/sample.cc"/>
-          <FILE id="OBzSUj" name="trie.cpp" compile="1" resource="0" file="../common/libs/trie/trie.cpp"/>
-          <FILE id="yOCeGp" name="trie.hpp" compile="0" resource="0" file="../common/libs/trie/trie.hpp"/>
         </GROUP>
       </GROUP>
       <GROUP id="{FC303B6E-AF9E-9416-C6F8-9A34CF62BF9D}" name="ui_components">

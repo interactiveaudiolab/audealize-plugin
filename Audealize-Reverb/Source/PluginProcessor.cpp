@@ -13,15 +13,9 @@ AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb()
     // initialize parameter ranges
     mParamRange[kParamD]  = NormalisableRange<float>(0.01f, 0.1f, 0.0001f);
     mParamRange[kParamG]  = NormalisableRange<float>(0.01f, 0.96f, 0.0001f);
-    mParamRange[kParamM]  = NormalisableRange<float>(-0.012f, 0.012f, 0.0001f);
+    mParamRange[kParamM]  = NormalisableRange<float>(-0.012f, 0.012f, 0.00001f);
     mParamRange[kParamF]  = NormalisableRange<float>(20.0f, 20000.0f, 0.1f);
     mParamRange[kParamE]  = NormalisableRange<float>(0.0f, 1.0f, 0.0001f);
-
-    mPointsRange[kParamD] = NormalisableRange<float>(0.01f, 0.1f, 0.0001f);
-    mPointsRange[kParamG] = NormalisableRange<float>(0.0f, 1.0f, 0.0001f);
-    mPointsRange[kParamM] = NormalisableRange<float>(-0.012f, 0.012f, 0.0001f);
-    mPointsRange[kParamF] = NormalisableRange<float>(0.0f, 22050.0f, 0.1f);
-    mPointsRange[kParamE] = NormalisableRange<float>(0.0f, 1.0f, 0.0001f);
     
     // Initialize parameters
     mState->createAndAddParameter(paramD, "Delay of comb filters", TRANS ("Delay of comb filters"), mParamRange[kParamD], DEFAULT_D, nullptr, nullptr);
@@ -164,27 +158,27 @@ void AudealizereverbAudioProcessor::processBlock (AudioSampleBuffer& buffer, Mid
         buffer.clear (i, 0, buffer.getNumSamples());
 
     // Parameter smoothing
-    float fullRange;
+    float paramValue;
     if (mSmoother[kParamG].isDirty()){
-        fullRange = mParamRange[kParamG].convertFrom0to1(mState->getParameter(paramG)->getValue());
-        mReverb.set_g(mParamRange[kParamG].snapToLegalValue(mSmoother[kParamG].process(fullRange)));
+        paramValue = mState->getParameter(paramG)->getValue();
+        mReverb.set_g(mParamRange[kParamG].snapToLegalValue(mSmoother[kParamG].process(paramValue)));
        
     }
     if (mSmoother[kParamM].isDirty()){
-        fullRange = mParamRange[kParamM].convertFrom0to1(mState->getParameter(paramM)->getValue());
+        paramValue = mState->getParameter(paramM)->getValue();
         mReverb.set_m(mParamRange[kParamM].snapToLegalValue(mSmoother[kParamM].process(mState->getParameter(paramM)->getValue())));
     }
     if (mSmoother[kParamF].isDirty()){
-        fullRange = mParamRange[kParamF].convertFrom0to1(mState->getParameter(paramF)->getValue());
-        mReverb.set_f(mParamRange[kParamF].snapToLegalValue(mSmoother[kParamF].process(fullRange)));
+        paramValue = mState->getParameter(paramF)->getValue();
+        mReverb.set_f(mParamRange[kParamF].snapToLegalValue(mSmoother[kParamF].process(paramValue)));
     }
     if (mSmoother[kParamE].isDirty()){
-        fullRange = mParamRange[kParamE].convertFrom0to1(mState->getParameter(paramE)->getValue());
-        mReverb.set_E(mParamRange[kParamE].snapToLegalValue(mSmoother[kParamE].process(fullRange)));
+        paramValue = mState->getParameter(paramE)->getValue();
+        mReverb.set_E(mParamRange[kParamE].snapToLegalValue(mSmoother[kParamE].process(paramValue)));
     }
     if (mSmoother[kParamAmount].isDirty()){
-        fullRange = mParamRange[kParamAmount].convertFrom0to1(mState->getParameter(paramAmount)->getValue());
-        mReverb.set_wetdry(mParamRange[kParamAmount].snapToLegalValue(mSmoother[kParamAmount].process(fullRange)));
+        paramValue = mState->getParameter(paramAmount)->getValue();
+        mReverb.set_wetdry(mParamRange[kParamAmount].snapToLegalValue(mSmoother[kParamAmount].process(paramValue)));
     }
         
     // Process reverb
@@ -244,7 +238,9 @@ void AudealizereverbAudioProcessor::parameterChanged(const juce::String &paramet
 }
 
 void AudealizereverbAudioProcessor::debugParams(){
-    DBG("d: " << mReverb.get_d() << " g: " << mReverb.get_g() << " m: " << mReverb.get_m() << " f: " << mReverb.get_f() << " E: " << mReverb.get_E());
+    DBG("REVERB: d: " << mReverb.get_d() << " g: " << mReverb.get_g() << " m: " << mReverb.get_m() << " f: " << mReverb.get_f() << " E: " << mReverb.get_E());
+    DBG("PARAMS: d: " << mState->getParameter(paramD)->getValue() << " g: " << mState->getParameter(paramG)->getValue() << " m: " << mState->getParameter(paramM)->getValue() << " f: " << mState->getParameter(paramF)->getValue() << " E: " << mState->getParameter(paramE)->getValue());
+    
 }
 
 /**
@@ -279,9 +275,10 @@ void AudealizereverbAudioProcessor::settingsFromMap(vector<float> settings){
     mParamSettings = settings;
     //normalize(&mParamSettings);
     
+    DBG("Raw: " << settings[0] << " " << settings[1] << " "<< settings[2] << " "<< settings[3] << " "<< settings[4]);
+    
     for (int i = 0; i < kNumParams - 1; i++){
-        DBG(settings[i]);
-        mState->getParameter(getParamID(i))->setValueNotifyingHost(mParamRange[i].snapToLegalValue(mPointsRange[i].convertFrom0to1(settings[i])));
+        mState->getParameter(getParamID(i))->setValueNotifyingHost(settings[i]);
     }
     //DBG(mEqualizer.getBandGain(10));
 }

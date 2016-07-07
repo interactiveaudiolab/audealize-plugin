@@ -138,8 +138,6 @@
     <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
     <ClCompile Include="..\..\Source\ReverbComponent.cpp"/>
     <ClCompile Include="..\..\..\common\libs\Biquad.cpp"/>
-    <ClCompile Include="..\..\..\common\libs\trie\sample.cc"/>
-    <ClCompile Include="..\..\..\common\libs\trie\trie.cpp"/>
     <ClCompile Include="..\..\..\common\ui_components\AudealizeUI.cpp"/>
     <ClCompile Include="..\..\..\common\ui_components\GraphicEQComponent.cpp"/>
     <ClCompile Include="..\..\..\common\ui_components\SearchBar.cpp"/>
@@ -1852,11 +1850,11 @@
     <ClInclude Include="..\..\..\common\effects\Reverb.h"/>
     <ClInclude Include="..\..\..\common\libs\Biquad.h"/>
     <ClInclude Include="..\..\..\common\libs\json.hpp"/>
+    <ClInclude Include="..\..\..\common\libs\trie\trie.hpp"/>
     <ClInclude Include="..\..\..\common\libs\calf_dsp_library\buffer.h"/>
     <ClInclude Include="..\..\..\common\libs\calf_dsp_library\delay.h"/>
     <ClInclude Include="..\..\..\common\libs\calf_dsp_library\onepole.h"/>
     <ClInclude Include="..\..\..\common\libs\calf_dsp_library\primitives.h"/>
-    <ClInclude Include="..\..\..\common\libs\trie\trie.hpp"/>
     <ClInclude Include="..\..\..\common\ui_components\AudealizeUI.h"/>
     <ClInclude Include="..\..\..\common\ui_components\GraphicEQComponent.h"/>
     <ClInclude Include="..\..\..\common\ui_components\SearchBar.h"/>
@@ -2524,9 +2522,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\common\data\reverbpoints.json"/>
+    <None Include="..\..\..\common\libs\trie\LICENSE.txt"/>
     <None Include="..\..\..\common\libs\calf_dsp_library\COPYING"/>
-    <None Include="..\..\..\common\libs\trie\LICENSE"/>
-    <None Include="..\..\..\common\libs\trie\README.md"/>
     <None Include="..\..\..\..\..\modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>
     <None Include="..\..\..\..\..\modules\juce_audio_formats\codecs\oggvorbis\Ogg Vorbis Licence.txt"/>
     <None Include="..\..\..\..\..\modules\juce_audio_plugin_client\AU\AUResources.r"/>

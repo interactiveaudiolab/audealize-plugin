@@ -1108,8 +1108,30 @@ static const unsigned char temp_binary_data_0[] =
 
 const char* reverbpoints_json = (const char*) temp_binary_data_0;
 
-//================== COPYING ==================
+//================== LICENSE.txt ==================
 static const unsigned char temp_binary_data_1[] =
+"Copyright (c) 2015 r-lyeh (https://github.com/r-lyeh)\n"
+"\n"
+"This software is provided 'as-is', without any express or implied\n"
+"warranty.  In no event will the authors be held liable for any damages\n"
+"arising from the use of this software.\n"
+"\n"
+"Permission is granted to anyone to use this software for any purpose,\n"
+"including commercial applications, and to alter it and redistribute it\n"
+"freely, subject to the following restrictions:\n"
+"\n"
+"1. The origin of this software must not be misrepresented; you must not\n"
+"claim that you wrote the original software. If you use this software\n"
+"in a product, an acknowledgment in the product documentation would be\n"
+"appreciated but is not required.\n"
+"2. Altered source versions must be plainly marked as such, and must not be\n"
+"misrepresented as being the original software.\n"
+"3. This notice may not be removed or altered from any source distribution.\n";
+
+const char* LICENSE_txt = (const char*) temp_binary_data_1;
+
+//================== COPYING ==================
+static const unsigned char temp_binary_data_2[] =
 "\t\t  GNU LESSER GENERAL PUBLIC LICENSE\n"
 "\t\t       Version 2.1, February 1999\n"
 "\n"
@@ -1615,94 +1637,7 @@ static const unsigned char temp_binary_data_1[] =
 "\n"
 "\n";
 
-const char* COPYING = (const char*) temp_binary_data_1;
-
-//================== LICENSE ==================
-static const unsigned char temp_binary_data_2[] =
-"Copyright (c) 2015 r-lyeh (https://github.com/r-lyeh)\n"
-"\n"
-"This software is provided 'as-is', without any express or implied\n"
-"warranty.  In no event will the authors be held liable for any damages\n"
-"arising from the use of this software.\n"
-"\n"
-"Permission is granted to anyone to use this software for any purpose,\n"
-"including commercial applications, and to alter it and redistribute it\n"
-"freely, subject to the following restrictions:\n"
-"\n"
-"1. The origin of this software must not be misrepresented; you must not\n"
-"claim that you wrote the original software. If you use this software\n"
-"in a product, an acknowledgment in the product documentation would be\n"
-"appreciated but is not required.\n"
-"2. Altered source versions must be plainly marked as such, and must not be\n"
-"misrepresented as being the original software.\n"
-"3. This notice may not be removed or altered from any source distribution.\n";
-
-const char* LICENSE = (const char*) temp_binary_data_2;
-
-//================== README.md ==================
-static const unsigned char temp_binary_data_3[] =
-"Trie <a href=\"https://travis-ci.org/r-lyeh/trie\"><img src=\"https://api.travis-ci.org/r-lyeh/trie.svg?branch=master\" align=\"right\" /></a>\n"
-"====\n"
-"\n"
-"- Trie is a lightweight and simple autocompletion data structure written in C++11.\n"
-"- Trie is tiny, cross-platform and header-only.\n"
-"- Trie is zlib/libpng licensed.\n"
-"\n"
-"## API\n"
-"- construct `trie<K>` or `trie<K,V>` as desired.\n"
-"- `.insert(element)` or `[element]` to create/access elements.\n"
-"- `.has(element)` returns `true` if `element` is in trie.\n"
-"- `.complete(element)` autocompletes partially provided `element` then returns vector of candidate pointers.\n"
-"- `.list()` returns a vector of hosted pointers in trie.\n"
-"- `.size()` returns number of elements in trie.\n"
-"\n"
-"## Sample\n"
-"```c++\n"
-"#include \"trie.hpp\"\n"
-"\n"
-"#include <iostream>\n"
-"#include <string>\n"
-"#include <cassert>\n"
-"\n"
-"int main()\n"
-"{\n"
-"    trie<std::string> t;\n"
-"\n"
-"    t.insert(\"wargame\");\n"
-"    t.insert(\"wombat\");\n"
-"    t.insert(\"wolfram\");\n"
-"    t.insert(\"world\");\n"
-"    t.insert(\"work\");\n"
-"\n"
-"    assert( t.size() == 5 );\n"
-"    assert( t.has(\"war\") == false );\n"
-"    assert( t.has(\"wargame\") == true );\n"
-"\n"
-"    auto candidates = t.complete(\"wo\");\n"
-"    assert( candidates.size() == 4 );\n"
-"\n"
-"    candidates = t.complete(\"warg\");\n"
-"    assert( candidates.size() == 1 );\n"
-"    assert( *candidates[0] == \"wargame\" );\n"
-"\n"
-"    std::cout << \"All ok.\" << std::endl;\n"
-"}\n"
-"```\n"
-"\n"
-"## Possible output\n"
-"```\n"
-"~/trie>g++ sample.cc trie.cpp -std=c++11\n"
-"All ok.\n"
-"~/trie>\n"
-"```\n"
-"\n"
-"## Changelog\n"
-"- v1.0.1 (2015/05/25)\n"
-"  - Additional tree implementation.\n"
-"- v1.0.0 (2013/07/18)\n"
-"  - Initial commit\n";
-
-const char* README_md = (const char*) temp_binary_data_3;
+const char* COPYING = (const char*) temp_binary_data_2;
 
 
 const char* getNamedResource (const char*, int&) throw();
@@ -1716,9 +1651,8 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
     switch (hash)
     {
         case 0xdee4fdb2:  numBytes = 86608; return reverbpoints_json;
+        case 0x5a320952:  numBytes = 862; return LICENSE_txt;
         case 0x63a1442d:  numBytes = 26428; return COPYING;
-        case 0x34bc1021:  numBytes = 862; return LICENSE;
-        case 0x64791dc8:  numBytes = 1504; return README_md;
         default: break;
     }
 
@@ -1729,9 +1663,8 @@ const char* getNamedResource (const char* resourceNameUTF8, int& numBytes) throw
 const char* namedResourceList[] =
 {
     "reverbpoints_json",
-    "COPYING",
-    "LICENSE",
-    "README_md"
+    "LICENSE_txt",
+    "COPYING"
 };
 
 }

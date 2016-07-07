@@ -52,8 +52,6 @@ OBJECTS := \
   $(OBJDIR)/PluginProcessor_a059e380.o \
   $(OBJDIR)/ReverbComponent_e2d4862c.o \
   $(OBJDIR)/Biquad_2658136f.o \
-  $(OBJDIR)/sample_fcc1f6fb.o \
-  $(OBJDIR)/trie_b1f95f18.o \
   $(OBJDIR)/AudealizeUI_721d8e9a.o \
   $(OBJDIR)/GraphicEQComponent_755b11c1.o \
   $(OBJDIR)/SearchBar_87ef815d.o \
@@ -106,16 +104,6 @@ $(OBJDIR)/ReverbComponent_e2d4862c.o: ../../Source/ReverbComponent.cpp
 $(OBJDIR)/Biquad_2658136f.o: ../../../common/libs/Biquad.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling Biquad.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/sample_fcc1f6fb.o: ../../../common/libs/trie/sample.cc
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling sample.cc"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/trie_b1f95f18.o: ../../../common/libs/trie/trie.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling trie.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/AudealizeUI_721d8e9a.o: ../../../common/ui_components/AudealizeUI.cpp

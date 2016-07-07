@@ -14,10 +14,13 @@ namespace Audealize {
     class TraditionalUI : public Component
     {
     public:
-        TraditionalUI(AudealizeAudioProcessor& p) : processor(p) {};
+        TraditionalUI(AudealizeAudioProcessor& p) : processor(p) {
+            name = "traditional interface";
+        };
         
     protected:
         AudealizeAudioProcessor& processor;
+        String name;
     };
 }
 

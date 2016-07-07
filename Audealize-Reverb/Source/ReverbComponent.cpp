@@ -80,7 +80,7 @@ namespace Audealize{
         mSliderF->setRange (0, 10, 0);
         mSliderF->setSliderStyle (Slider::RotaryVerticalDrag);
         mSliderF->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
-        mSliderF->setRange(20.0f, 20000.0f);
+        mSliderF->setRange(20, 20000);
         mSliderF->setSkewFactor(.22);
         
         addAndMakeVisible (mSliderE = new Slider ("mSliderE"));

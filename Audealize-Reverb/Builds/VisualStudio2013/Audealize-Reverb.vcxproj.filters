@@ -20,11 +20,11 @@
     <Filter Include="Audealize-Reverb\common\libs">
       <UniqueIdentifier>{65B1C86F-FFC1-7C4A-A146-FE173AC1D62B}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Audealize-Reverb\common\libs\calf_dsp_library">
-      <UniqueIdentifier>{D8458979-FD9F-D30A-1D4C-FE4378173EF2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Audealize-Reverb\common\libs\trie">
       <UniqueIdentifier>{1641F993-FB69-8C3D-68B6-A3DE439D8A50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audealize-Reverb\common\libs\calf_dsp_library">
+      <UniqueIdentifier>{D8458979-FD9F-D30A-1D4C-FE4378173EF2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Audealize-Reverb\common\ui_components">
       <UniqueIdentifier>{04FC4FC2-B72D-15EE-6A6D-53CD28058CBC}</UniqueIdentifier>
@@ -426,12 +426,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\common\libs\Biquad.cpp">
       <Filter>Audealize-Reverb\common\libs</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\libs\trie\sample.cc">
-      <Filter>Audealize-Reverb\common\libs\trie</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\libs\trie\trie.cpp">
-      <Filter>Audealize-Reverb\common\libs\trie</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\common\ui_components\AudealizeUI.cpp">
       <Filter>Audealize-Reverb\common\ui_components</Filter>
@@ -2355,6 +2349,9 @@
     <ClInclude Include="..\..\..\common\libs\json.hpp">
       <Filter>Audealize-Reverb\common\libs</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\common\libs\trie\trie.hpp">
+      <Filter>Audealize-Reverb\common\libs\trie</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\common\libs\calf_dsp_library\buffer.h">
       <Filter>Audealize-Reverb\common\libs\calf_dsp_library</Filter>
     </ClInclude>
@@ -2366,9 +2363,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\common\libs\calf_dsp_library\primitives.h">
       <Filter>Audealize-Reverb\common\libs\calf_dsp_library</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\libs\trie\trie.hpp">
-      <Filter>Audealize-Reverb\common\libs\trie</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\common\ui_components\AudealizeUI.h">
       <Filter>Audealize-Reverb\common\ui_components</Filter>
@@ -4367,14 +4361,11 @@
     <None Include="..\..\..\common\data\reverbpoints.json">
       <Filter>Audealize-Reverb\common\data</Filter>
     </None>
+    <None Include="..\..\..\common\libs\trie\LICENSE.txt">
+      <Filter>Audealize-Reverb\common\libs\trie</Filter>
+    </None>
     <None Include="..\..\..\common\libs\calf_dsp_library\COPYING">
       <Filter>Audealize-Reverb\common\libs\calf_dsp_library</Filter>
-    </None>
-    <None Include="..\..\..\common\libs\trie\LICENSE">
-      <Filter>Audealize-Reverb\common\libs\trie</Filter>
-    </None>
-    <None Include="..\..\..\common\libs\trie\README.md">
-      <Filter>Audealize-Reverb\common\libs\trie</Filter>
     </None>
     <None Include="..\..\..\..\..\modules\juce_audio_formats\codecs\flac\Flac Licence.txt">
       <Filter>Juce Modules\juce_audio_formats\codecs\flac</Filter>

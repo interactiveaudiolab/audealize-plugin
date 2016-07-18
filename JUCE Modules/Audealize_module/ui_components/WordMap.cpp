@@ -8,13 +8,12 @@ namespace Audealize {
     
     WordMap::WordMap (AudealizeAudioProcessor& p, json descriptors) : processor(p), json_dict(descriptors), languages(0), words(0), points(0), excluded_points(0), params(0), colors(0), font_sizes(0)
     {
-
+        
         // initialize circle positions
         circle_position = Point<float>(150,50);
         hover_position = Point<float>(100, 50);
         
         // set default size of component
-        setSize (800, 400);
         
         // Instance variables
         min_variance     = json_dict.begin().value()["agreement"];
@@ -28,6 +27,8 @@ namespace Audealize {
         languages = {};
         
         startTimerHz(60);
+        
+        setSize (800, 400);
         
         loadPoints();
     }
@@ -196,6 +197,14 @@ namespace Audealize {
     
     void WordMap::resized()
     {
+        // update circle position
+        if (!init_map){
+            Point<float> point;
+            point.setX((0.1f + points[center_index].getX() * 0.8f) * getWidth());
+            point.setY((0.05f + points[center_index].getY() * 0.9f) * getHeight());
+            
+            circle_position = point;
+        }
     }
     
     void WordMap::mouseMove (const MouseEvent& e)

@@ -127,21 +127,43 @@ namespace Audealize{
     {
         Rectangle<int> box (getLocalBounds());
         box.setWidth(box.getWidth() / 5.);
-        mSliderD->setBounds (box);
+
         mLabelD->setBounds (box);
+        box.setY(20);
+        box.setHeight(box.getHeight() - 20);
+        mSliderD->setBounds (box);
+        box.setY(0);
+        box.setHeight(box.getHeight() + 20);
         box.setX(box.getRight());
-        mSliderG->setBounds (box);
+        
         mLabelG->setBounds (box);
+        box.setY(20);
+        box.setHeight(box.getHeight() - 20);
+        mSliderG->setBounds (box);
+        box.setY(0);
+        box.setHeight(box.getHeight() + 20);
         box.setX(box.getRight());
-        mSliderM->setBounds (box);
+ 
         mLabelM->setBounds (box);
+        box.setY(20);
+        box.setHeight(box.getHeight() - 20);
+        mSliderM->setBounds (box);
+        box.setY(0);
+        box.setHeight(box.getHeight() + 20);
         box.setX(box.getRight());
-        mSliderF->setBounds (box);
+       
         mLabelF->setBounds (box);
+        box.setY(20);
+        box.setHeight(box.getHeight() - 20);
+        mSliderF->setBounds (box);
+        box.setY(0);
+        box.setHeight(box.getHeight() + 20);
         box.setX(box.getRight());
-        mSliderE->setBounds (box);
+
         mLabelE->setBounds (box);
-        box.setX(box.getRight());
+        box.setY(20);
+        box.setHeight(box.getHeight() - 20);
+        mSliderE->setBounds (box);
     }
     
 }

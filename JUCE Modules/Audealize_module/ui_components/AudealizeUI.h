@@ -79,6 +79,10 @@ private:
 
     ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mAmountSliderAttachment;
 
+    ScopedPointer<ResizableCornerComponent> mResizer;
+    ScopedPointer<ComponentBoundsConstrainer> mResizeLimits;
+    
+    bool isTradUIVisible;
     //[/UserVariables]
 
     //==============================================================================
@@ -93,7 +97,6 @@ private:
     ScopedPointer<Label> mEffectTypeLabel;
     ScopedPointer<TextButton> mTradUIButton;
     ScopedPointer<TypeaheadEditor> mSearchBar;
-
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeUI)

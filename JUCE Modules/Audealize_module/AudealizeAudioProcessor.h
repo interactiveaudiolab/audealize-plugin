@@ -15,6 +15,9 @@ namespace Audealize{
 
     class AudealizeAudioProcessor : public juce::AudioProcessor, public AudioProcessorValueTreeState::Listener {
     public:
+        int lastUIWidth, lastUIHeight;
+        
+        
         String paramAmount = "paramAmount";
         
         AudealizeAudioProcessor() : mParamSettings(0){            
@@ -25,6 +28,9 @@ namespace Audealize{
             mState->addParameterListener(paramAmount, this);
 
             mAmount = 1.0f;
+            
+            lastUIWidth = 840;
+            lastUIHeight = 560;
         };
         
         ~AudealizeAudioProcessor(){
@@ -103,6 +109,7 @@ namespace Audealize{
         vector<float> mParamSettings;
         
         float mAmount; // value in range [0,1]. dictates the amount of the effect to be applied.
+        
     };
 }// namespace audealize
 #endif /* AudealizeInterfaces_h */

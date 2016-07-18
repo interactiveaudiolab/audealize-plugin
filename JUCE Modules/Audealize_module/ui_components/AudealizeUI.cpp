@@ -55,7 +55,7 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
 
     addAndMakeVisible (label = new Label ("new label",
                                           TRANS("Less\n")));
-    label->setFont (Font (15.00f, Font::plain));
+    label->setFont (Font (16.00f, Font::plain));
     label->setJustificationType (Justification::centredLeft);
     label->setEditable (false, false, false);
     label->setColour (TextEditor::textColourId, Colours::black);
@@ -63,7 +63,7 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
 
     addAndMakeVisible (label2 = new Label ("new label",
                                            TRANS("More\n")));
-    label2->setFont (Font (15.00f, Font::plain));
+    label2->setFont (Font (16.00f, Font::plain));
     label2->setJustificationType (Justification::centredLeft);
     label2->setEditable (false, false, false);
     label2->setColour (TextEditor::textColourId, Colours::black);
@@ -79,7 +79,7 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
 
     addAndMakeVisible (mAudealizeLabel = new Label ("Audealize",
                                                     TRANS("Audealize\n")));
-    mAudealizeLabel->setFont (Font ("Helvetica", 35.40f, Font::plain));
+    mAudealizeLabel->setFont (Font ("Helvetica", 28, Font::plain));
     mAudealizeLabel->setJustificationType (Justification::topLeft);
     mAudealizeLabel->setEditable (false, false, false);
     mAudealizeLabel->setColour (TextEditor::textColourId, Colours::black);
@@ -87,7 +87,7 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
 
     addAndMakeVisible (mEffectTypeLabel = new Label ("Effect Type",
                                                      TRANS("Type\n")));
-    mEffectTypeLabel->setFont (Font ("Helvetica", 35.00f, Font::plain));
+    mEffectTypeLabel->setFont (Font ("Helvetica", 28, Font::plain));
     mEffectTypeLabel->setJustificationType (Justification::topLeft);
     mEffectTypeLabel->setEditable (false, false, false);
     mEffectTypeLabel->setColour (Label::textColourId, Colours::black);
@@ -122,14 +122,20 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
     mTradUI->setVisible(false);
 
     mTradUIButton->setButtonText (TRANS("+ Show " + String(mTradUI->getName())));
-    //[/UserPreSize]
-
-    setSize (840, 575);
-
-
-    //[Constructor] You can add your own custom stuff here..
+    
     mAmountSlider->setRange(0.0f, 1.0f);
     mAmountSliderAttachment = new AudioProcessorValueTreeState::SliderAttachment (p.getValueTreeState(), p.paramAmount, *mAmountSlider);
+
+    mResizeLimits = new ComponentBoundsConstrainer();
+    mResizeLimits->setSizeLimits (600, 400, 1180, 800);
+    addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
+    
+    isTradUIVisible = false;
+    //[/UserPreSize]
+
+    setSize (840, 560);
+
+    //[Constructor] You can add your own custom stuff here..
     //[/Constructor]
 }
 
@@ -138,6 +144,8 @@ AudealizeUI::~AudealizeUI()
     //[Destructor_pre]. You can add your own custom destruction code here..
     mAlertBox = nullptr;
     mAmountSliderAttachment = nullptr;
+    mResizer = nullptr;
+    mResizeLimits = nullptr;
     //[/Destructor_pre]
 
     component = nullptr;
@@ -172,21 +180,48 @@ void AudealizeUI::paint (Graphics& g)
 void AudealizeUI::resized()
 {
     //[UserPreResize] Add your own custom resize code here..
-    //[/UserPreResize]
+    mResizer->setBounds (getWidth() - 18, getHeight() - 18, 16, 16);
 
+    //[/UserPreResize]
+        
+    int fontSizeThresh = 700;
+    if (getWidth() <= fontSizeThresh && processor.lastUIWidth > fontSizeThresh) {
+        mWordMap->setMinFontSize(10);
+    }
+    else if (getWidth() > fontSizeThresh && processor.lastUIWidth <= fontSizeThresh) {
+        mWordMap->setMinFontSize(12);
+    }
+    
     component->setBounds (0, 0, 840, 568);
-    mWordMap->setBounds (32, 119, getWidth() - 63, 400);
-    mAmountSlider->setBounds (528, 79, 240, 24);
-    label->setBounds (488, 79, 40, 24);
-    label2->setBounds (768, 79, 56, 24);
-    mEnglishButton->setBounds (288, 79, 72, 24);
-    mEspanolButton->setBounds (360, 79, 80, 24);
-    mAudealizeLabel->setBounds (27, 24, 176, 32);
-    mEffectTypeLabel->setBounds (181, 24, 118, 32);
-    mTradUIButton->setBounds (40, 530, 208, 24);
-    mSearchBar->setBounds (32, 74, 240, 32);
+    if (isTradUIVisible){
+        mWordMap->setBounds (32, 105, getWidth() - 63, getHeight() - 163 - 130);
+        mTradUIButton->setBounds (40, getHeight() - 45 - 130, 208, 24);
+            }
+    else{
+        mWordMap->setBounds (32, 105, getWidth() - 63, getHeight() - 163);
+        mTradUIButton->setBounds (40, getHeight() - 45, 208, 24);
+    }
+    
+    int sliderWidth;
+    if (getWidth() < 760){
+        sliderWidth = getWidth() - 550;
+    }
+    else {
+        sliderWidth = getWidth() * 0.28f;
+    }
+    mAmountSlider->setBounds (getWidth() - sliderWidth - 72, 65, sliderWidth, 24);
+    label->setBounds (getWidth() - sliderWidth - 108, 65, 40, 24);
+    label2->setBounds (getWidth() - 72, 65, 56, 24);
+    mEnglishButton->setBounds (288, 65, 72, 24);
+    mEspanolButton->setBounds (360, 65, 80, 24);
+    mAudealizeLabel->setBounds (27, 22, 176, 32);
+    mEffectTypeLabel->setBounds (150, 22, 118, 32);
+    mSearchBar->setBounds (32, 60, 240, 32);
     //[UserResized] Add your own custom resize handling here..
-    mTradUI->setBounds(32, 570, getWidth()-63, 120);
+    mTradUI->setBounds(38, getHeight() - 140, getWidth()-63, 120);
+    
+    processor.lastUIWidth = getWidth();
+    processor.lastUIHeight = getHeight();
     //[/UserResized]
 }
 
@@ -231,12 +266,14 @@ void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
     {
         //[UserButtonCode_mTradUIButton] -- add your button handler code here..
         if(mTradUI->isVisible()){
-            setSize(getWidth(), getHeight()-mTradUI->getHeight()-15);
+            isTradUIVisible = false;
+            setSize(getWidth(), getHeight()-mTradUI->getHeight()-10);
             mTradUI->setVisible(false);
             mTradUIButton->setButtonText (TRANS("+ Show " + String(mTradUI->getName())));
         }
         else{
-            setSize(getWidth(), getHeight()+mTradUI->getHeight()+15);
+            isTradUIVisible = true;
+            setSize(getWidth(), getHeight()+mTradUI->getHeight()+10);
             mTradUI->setVisible(true);
             mTradUIButton->setButtonText (TRANS("- Hide " + String(mTradUI->getName())));
         }

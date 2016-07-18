@@ -8,7 +8,7 @@
 #define TraditionalUIComponent_h
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "AudealizeAudioProcessor.h"
+#include "../AudealizeAudioProcessor.h"
 
 namespace Audealize {
     class TraditionalUI : public Component

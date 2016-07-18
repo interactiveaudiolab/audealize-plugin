@@ -6,7 +6,7 @@
 #include <vector>
 
 #include "AudealizeAudioProcessor.h"
-#include "TraditionalUIComponent.h"
+#include "ui_components/TraditionalUIComponent.h"
 
 #include "libs/Biquad.h"
 #include "libs/calf_dsp_library/delay.h"

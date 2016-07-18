@@ -9,7 +9,6 @@
 #define PLUGINPROCESSOR_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "Equalizer.h"
 #include "../../common/common.h"
 
 #define NUMBANDS 40 // the number of eq bands

@@ -270,12 +270,16 @@ void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
             setSize(getWidth(), getHeight()-mTradUI->getHeight()-10);
             mTradUI->setVisible(false);
             mTradUIButton->setButtonText (TRANS("+ Show " + String(mTradUI->getName())));
+            mResizeLimits->setSizeLimits (600, 400, 1180, 800);
+            
         }
         else{
             isTradUIVisible = true;
             setSize(getWidth(), getHeight()+mTradUI->getHeight()+10);
             mTradUI->setVisible(true);
             mTradUIButton->setButtonText (TRANS("- Hide " + String(mTradUI->getName())));
+            mResizeLimits->setSizeLimits (600, 400 + mTradUI->getHeight() + 10, 1180, 800 + mTradUI->getHeight() + 10);
+            
         }
 
         //[/UserButtonCode_mTradUIButton]

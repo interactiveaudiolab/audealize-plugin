@@ -8,7 +8,7 @@
               pluginCode="adlz" pluginChannelConfigs="" pluginIsSynth="0" pluginWantsMidiIn="0"
               pluginProducesMidiOut="0" pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0"
               pluginAUExportPrefix="AudealizeEQAU" pluginRTASCategory="" aaxIdentifier="com.InteractiveAudioLab.AudealizeEQ"
-              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="4.2.1"
+              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="4.2.3"
               companyName="Northwestern University Interactive Audio Lab" companyWebsite="http://music.eecs.northwestern.edu">
   <MAINGROUP id="zCKhNw" name="Audealize-EQ">
     <GROUP id="{4E48FC2E-FC0A-72E1-7953-37D9CC5AA9E2}" name="Source">
@@ -16,50 +16,6 @@
             file="Source/PluginProcessor.cpp"/>
       <FILE id="OuArph" name="PluginProcessor.h" compile="0" resource="0"
             file="Source/PluginProcessor.h"/>
-      <FILE id="Q10pwN" name="PluginEditor.cpp" compile="1" resource="0"
-            file="Source/PluginEditor.cpp"/>
-      <FILE id="u6qewF" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
-    </GROUP>
-    <GROUP id="{6B8F906A-E4F1-45F3-045D-E46262240C97}" name="common">
-      <FILE id="UFuECi" name="common.h" compile="0" resource="0" file="../common/common.h"/>
-      <FILE id="B1JMvU" name="AudealizeInterfaces.h" compile="0" resource="0"
-            file="../common/AudealizeInterfaces.h"/>
-      <GROUP id="{7EFF10EF-E913-3E5C-4E10-082A9C845223}" name="utils">
-        <FILE id="CZMZ5v" name="CParamSmooth.h" compile="0" resource="0" file="../common/utils/CParamSmooth.h"/>
-      </GROUP>
-      <GROUP id="{BBE7C1B4-B3C1-B2E2-D285-7D14E4971902}" name="data">
-        <FILE id="fWLScq" name="eqpoints.json" compile="0" resource="1" file="../common/data/eqpoints.json"/>
-      </GROUP>
-      <GROUP id="{873F6D22-03F6-959F-CC0F-36F1D79AFB5C}" name="effects">
-        <FILE id="C32Z1C" name="Equalizer.h" compile="0" resource="0" file="../common/effects/Equalizer.h"/>
-        <FILE id="eutC0W" name="NChannelFilter.h" compile="0" resource="0"
-              file="../common/effects/NChannelFilter.h"/>
-        <FILE id="Te2FCR" name="AudioEffect.h" compile="0" resource="0" file="../common/effects/AudioEffect.h"/>
-        <FILE id="ZTkoxw" name="Reverb.h" compile="0" resource="0" file="../common/effects/Reverb.h"/>
-      </GROUP>
-      <GROUP id="{0AD31FBD-54C8-2004-629D-436A93DC55A1}" name="ui_components">
-        <FILE id="f1QdCG" name="AudealizeUI.cpp" compile="1" resource="0" file="../common/ui_components/AudealizeUI.cpp"/>
-        <FILE id="etfUz6" name="AudealizeUI.h" compile="0" resource="0" file="../common/ui_components/AudealizeUI.h"/>
-        <FILE id="M6Wo07" name="WordMap.cpp" compile="1" resource="0" file="../common/ui_components/WordMap.cpp"/>
-        <FILE id="puOFgm" name="WordMap.h" compile="0" resource="0" file="../common/ui_components/WordMap.h"/>
-        <FILE id="zxjXVb" name="GraphicEQComponent.cpp" compile="1" resource="0"
-              file="../common/ui_components/GraphicEQComponent.cpp"/>
-        <FILE id="AcSmZN" name="GraphicEQComponent.h" compile="0" resource="0"
-              file="../common/ui_components/GraphicEQComponent.h"/>
-      </GROUP>
-      <GROUP id="{AAFC2273-DD6A-2A34-154D-8B45CB5C9157}" name="libs">
-        <GROUP id="{DED588B0-4ED0-B9B3-DA23-827250EDA48F}" name="calf_dsp_library">
-          <FILE id="BcXZXl" name="buffer.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/buffer.h"/>
-          <FILE id="rGS9XQ" name="COPYING" compile="0" resource="1" file="../common/libs/calf_dsp_library/COPYING"/>
-          <FILE id="YSlzFC" name="delay.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/delay.h"/>
-          <FILE id="QuvhlM" name="onepole.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/onepole.h"/>
-          <FILE id="nTXJun" name="primitives.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/primitives.h"/>
-        </GROUP>
-        <FILE id="laoHb2" name="Biquad.cpp" compile="1" resource="0" file="../common/libs/Biquad.cpp"/>
-        <FILE id="G1dnYc" name="Biquad.h" compile="0" resource="0" file="../common/libs/Biquad.h"/>
-        <FILE id="OdCg5e" name="json.hpp" compile="0" resource="0" file="../common/libs/json.hpp"/>
-        <FILE id="dfxhw2" name="PrimeFactors.h" compile="0" resource="0" file="../common/libs/PrimeFactors.h"/>
-      </GROUP>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
@@ -69,21 +25,22 @@
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Audealize-EQ"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="../../../modules"/>
-        <MODULEPATH id="juce_events" path="../../../modules"/>
-        <MODULEPATH id="juce_graphics" path="../../../modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../../modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../../modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../../../modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../../modules"/>
-        <MODULEPATH id="juce_video" path="../../../modules"/>
-        <MODULEPATH id="juce_opengl" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_utils" path="../../../modules"/>
+        <MODULEPATH id="juce_core" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_events" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_graphics" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_data_structures" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_cryptography" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_video" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_opengl" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../JUCE Modules"/>
+        <MODULEPATH id="audealize_module" path="../JUCE Modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2015 targetFolder="Builds/VisualStudio2015">
@@ -94,21 +51,22 @@
                        isDebug="0" optimisation="3" targetName="Audealize-EQ"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="../../../modules"/>
-        <MODULEPATH id="juce_events" path="../../../modules"/>
-        <MODULEPATH id="juce_graphics" path="../../../modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../../modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../../modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../../../modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../../modules"/>
-        <MODULEPATH id="juce_video" path="../../../modules"/>
-        <MODULEPATH id="juce_opengl" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_utils" path="../../../modules"/>
+        <MODULEPATH id="juce_core" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_events" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_graphics" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_data_structures" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_cryptography" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_video" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_opengl" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../JUCE Modules"/>
+        <MODULEPATH id="audealize_module" path="../JUCE Modules"/>
       </MODULEPATHS>
     </VS2015>
     <VS2013 targetFolder="Builds/VisualStudio2013">
@@ -119,21 +77,22 @@
                        isDebug="0" optimisation="3" targetName="Audealize-EQ"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="../../../modules"/>
-        <MODULEPATH id="juce_events" path="../../../modules"/>
-        <MODULEPATH id="juce_graphics" path="../../../modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../../modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../../modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../../../modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../../modules"/>
-        <MODULEPATH id="juce_video" path="../../../modules"/>
-        <MODULEPATH id="juce_opengl" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_utils" path="../../../modules"/>
+        <MODULEPATH id="juce_core" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_events" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_graphics" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_data_structures" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_cryptography" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_video" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_opengl" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../JUCE Modules"/>
+        <MODULEPATH id="audealize_module" path="../JUCE Modules"/>
       </MODULEPATHS>
     </VS2013>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
@@ -144,25 +103,27 @@
                        targetName="Audealize-EQ"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="../../../modules"/>
-        <MODULEPATH id="juce_events" path="../../../modules"/>
-        <MODULEPATH id="juce_graphics" path="../../../modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../../modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../../modules"/>
-        <MODULEPATH id="juce_gui_extra" path="../../../modules"/>
-        <MODULEPATH id="juce_cryptography" path="../../../modules"/>
-        <MODULEPATH id="juce_video" path="../../../modules"/>
-        <MODULEPATH id="juce_opengl" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_basics" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_devices" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_formats" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_processors" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_plugin_client" path="../../../modules"/>
-        <MODULEPATH id="juce_audio_utils" path="../../../modules"/>
+        <MODULEPATH id="juce_core" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_events" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_graphics" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_data_structures" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_cryptography" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_video" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_opengl" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../JUCE Modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../JUCE Modules"/>
+        <MODULEPATH id="audealize_module" path="../JUCE Modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
   </EXPORTFORMATS>
   <MODULES>
+    <MODULE id="audealize_module" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>

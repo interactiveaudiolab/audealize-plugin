@@ -22,6 +22,7 @@
 // [END_USER_CODE_SECTION]
 
 //==============================================================================
+#define JUCE_MODULE_AVAILABLE_audealize_module              1
 #define JUCE_MODULE_AVAILABLE_juce_audio_basics             1
 #define JUCE_MODULE_AVAILABLE_juce_audio_devices            1
 #define JUCE_MODULE_AVAILABLE_juce_audio_formats            1
@@ -254,10 +255,10 @@
  #define JucePlugin_ManufacturerEmail      ""
 #endif
 #ifndef  JucePlugin_ManufacturerCode
- #define JucePlugin_ManufacturerCode       'IALx'
+ #define JucePlugin_ManufacturerCode       0x49414c78 // 'IALx'
 #endif
 #ifndef  JucePlugin_PluginCode
- #define JucePlugin_PluginCode             'adlv'
+ #define JucePlugin_PluginCode             0x61646c76 // 'adlv'
 #endif
 #ifndef  JucePlugin_IsSynth
  #define JucePlugin_IsSynth                0

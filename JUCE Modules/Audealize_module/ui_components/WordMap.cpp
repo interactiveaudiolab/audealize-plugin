@@ -88,7 +88,7 @@ namespace Audealize {
                 // calculate font size
                 dat = agreement - min_variance;
                 dat = dat / (max_variance - min_variance) * 0.7f + 0.3f;
-                fontsize = BASE_FONT_SIZE * pow(5, 1 / (5 * dat)); //@TODO
+                fontsize = base_font_size * pow(5, 1 / (5 * dat)); //@TODO
                 font_sizes.push_back(roundToInt(fontsize));
                 
                 word_count++;

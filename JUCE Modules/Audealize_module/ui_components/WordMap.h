@@ -68,6 +68,14 @@ namespace Audealize {
         void timerCallback() override;
         
         /**
+         *  Set the minimum font size for the map
+         */
+        void setMinFontSize(int fontSize){
+            base_font_size = fontSize;
+            loadPoints();
+        }
+        
+        /**
          *  @return a vector of all the words in the map
          */
         vector<String> getWords(){
@@ -122,7 +130,7 @@ namespace Audealize {
         const int hover_alpha_value = 0.15f * 255; // alpha value of descriptors within hover radius but not selected
         
         const String TYPEFACE = "Helvetica";
-        const int BASE_FONT_SIZE = 14; // smallest font size of descriptors on the map
+        int base_font_size = 12; // smallest font size of descriptors on the map
         
         //=====================================================================
         

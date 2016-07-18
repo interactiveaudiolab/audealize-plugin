@@ -71,8 +71,10 @@ namespace Audealize {
          *  Set the minimum font size for the map
          */
         void setMinFontSize(int fontSize){
+            vector<Colour> temp = colors;
             base_font_size = fontSize;
             loadPoints();
+            colors = temp;
         }
         
         /**

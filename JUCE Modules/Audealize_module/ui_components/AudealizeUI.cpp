@@ -184,7 +184,7 @@ void AudealizeUI::resized()
 
     //[/UserPreResize]
         
-    int fontSizeThresh = 700;
+    int fontSizeThresh = 750;
     if (getWidth() <= fontSizeThresh && processor.lastUIWidth > fontSizeThresh) {
         mWordMap->setMinFontSize(10);
     }

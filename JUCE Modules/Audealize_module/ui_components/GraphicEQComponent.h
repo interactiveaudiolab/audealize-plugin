@@ -7,9 +7,8 @@
 #ifndef GraphicEQComponent_h
 #define GraphicEQComponent_h
 
-#include "TraditionalUIComponent.h"
-
 using std::vector;
+using namespace juce;
 
 namespace Audealize{
     

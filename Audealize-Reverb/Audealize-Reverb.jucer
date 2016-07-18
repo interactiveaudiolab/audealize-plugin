@@ -17,60 +17,6 @@
             file="Source/PluginProcessor.cpp"/>
       <FILE id="lCbM9Y" name="PluginProcessor.h" compile="0" resource="0"
             file="Source/PluginProcessor.h"/>
-      <FILE id="emZ3aG" name="ReverbComponent.cpp" compile="1" resource="0"
-            file="Source/ReverbComponent.cpp"/>
-      <FILE id="sbEMab" name="ReverbComponent.h" compile="0" resource="0"
-            file="Source/ReverbComponent.h"/>
-    </GROUP>
-    <GROUP id="{93D2FD5F-7C56-FE4E-C29E-6A0FFBF15660}" name="common">
-      <GROUP id="{BCEE3708-FA36-3350-E0CD-EBF1F585E424}" name="data">
-        <FILE id="j0bZqW" name="reverbpoints.json" compile="0" resource="1"
-              file="../common/data/reverbpoints.json"/>
-      </GROUP>
-      <GROUP id="{C3259CA9-3484-36EC-30C8-B1C68452C2F8}" name="effects">
-        <FILE id="hkyvIB" name="AudioEffect.h" compile="0" resource="0" file="../common/effects/AudioEffect.h"/>
-        <FILE id="stFDRE" name="Equalizer.h" compile="0" resource="0" file="../common/effects/Equalizer.h"/>
-        <FILE id="q7VXY2" name="NChannelFilter.h" compile="0" resource="0"
-              file="../common/effects/NChannelFilter.h"/>
-        <FILE id="h9BZlo" name="Reverb.h" compile="0" resource="0" file="../common/effects/Reverb.h"/>
-      </GROUP>
-      <GROUP id="{AD9AACD6-B9E0-C79D-0362-37888893EC37}" name="libs">
-        <FILE id="k1cnPM" name="Biquad.h" compile="0" resource="0" file="../common/libs/Biquad.h"/>
-        <FILE id="vWbUoR" name="Biquad.cpp" compile="1" resource="0" file="../common/libs/Biquad.cpp"/>
-        <FILE id="PdwysX" name="json.hpp" compile="0" resource="0" file="../common/libs/json.hpp"/>
-        <GROUP id="{09F12C25-67E8-4DF5-D449-34ECF6A45AE3}" name="trie">
-          <FILE id="Zl35Pm" name="LICENSE.txt" compile="0" resource="1" file="../common/libs/trie/LICENSE.txt"/>
-          <FILE id="GTzYJO" name="trie.hpp" compile="0" resource="0" file="../common/libs/trie/trie.hpp"/>
-        </GROUP>
-        <GROUP id="{62BC894D-FCB5-BCF5-B85B-10B0D2CD84A9}" name="calf_dsp_library">
-          <FILE id="PBQAVS" name="buffer.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/buffer.h"/>
-          <FILE id="BaYnlm" name="COPYING" compile="0" resource="1" file="../common/libs/calf_dsp_library/COPYING"/>
-          <FILE id="uYn2Un" name="delay.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/delay.h"/>
-          <FILE id="CmUAWG" name="onepole.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/onepole.h"/>
-          <FILE id="q38TAO" name="primitives.h" compile="0" resource="0" file="../common/libs/calf_dsp_library/primitives.h"/>
-        </GROUP>
-      </GROUP>
-      <GROUP id="{FC303B6E-AF9E-9416-C6F8-9A34CF62BF9D}" name="ui_components">
-        <FILE id="ikazkl" name="AudealizeUI.cpp" compile="1" resource="0" file="../common/ui_components/AudealizeUI.cpp"/>
-        <FILE id="UzGB2o" name="AudealizeUI.h" compile="0" resource="0" file="../common/ui_components/AudealizeUI.h"/>
-        <FILE id="nHnTYW" name="GraphicEQComponent.cpp" compile="1" resource="0"
-              file="../common/ui_components/GraphicEQComponent.cpp"/>
-        <FILE id="MSGCpn" name="GraphicEQComponent.h" compile="0" resource="0"
-              file="../common/ui_components/GraphicEQComponent.h"/>
-        <FILE id="mGlb9M" name="SearchBar.cpp" compile="1" resource="0" file="../common/ui_components/SearchBar.cpp"/>
-        <FILE id="H7hshL" name="SearchBar.h" compile="0" resource="0" file="../common/ui_components/SearchBar.h"/>
-        <FILE id="YkSDYB" name="TraditionalUIComponent.h" compile="0" resource="0"
-              file="../common/ui_components/TraditionalUIComponent.h"/>
-        <FILE id="s7b0oK" name="WordMap.cpp" compile="1" resource="0" file="../common/ui_components/WordMap.cpp"/>
-        <FILE id="KdMNH3" name="WordMap.h" compile="0" resource="0" file="../common/ui_components/WordMap.h"/>
-      </GROUP>
-      <GROUP id="{B8FD7B56-EC22-A627-06F2-71E5A6912F67}" name="utils">
-        <FILE id="bZugkS" name="PrimeFactors.h" compile="0" resource="0" file="../common/utils/PrimeFactors.h"/>
-        <FILE id="BCZvvM" name="CParamSmooth.h" compile="0" resource="0" file="../common/utils/CParamSmooth.h"/>
-      </GROUP>
-      <FILE id="E7LONo" name="AudealizeAudioProcessor.h" compile="0" resource="0"
-            file="../common/AudealizeAudioProcessor.h"/>
-      <FILE id="P8nXhE" name="common.h" compile="0" resource="0" file="../common/common.h"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
@@ -95,6 +41,7 @@
         <MODULEPATH id="juce_audio_processors" path="../JUCE Modules"/>
         <MODULEPATH id="juce_audio_plugin_client" path="../JUCE Modules"/>
         <MODULEPATH id="juce_audio_utils" path="../JUCE Modules"/>
+        <MODULEPATH id="audealize_module" path="../JUCE Modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2015 targetFolder="Builds/VisualStudio2015">
@@ -120,6 +67,7 @@
         <MODULEPATH id="juce_audio_processors" path="../JUCE Modules"/>
         <MODULEPATH id="juce_audio_plugin_client" path="../JUCE Modules"/>
         <MODULEPATH id="juce_audio_utils" path="../JUCE Modules"/>
+        <MODULEPATH id="audealize_module" path="../JUCE Modules"/>
       </MODULEPATHS>
     </VS2015>
     <VS2013 targetFolder="Builds/VisualStudio2013">
@@ -145,6 +93,7 @@
         <MODULEPATH id="juce_audio_processors" path="../JUCE Modules"/>
         <MODULEPATH id="juce_audio_plugin_client" path="../JUCE Modules"/>
         <MODULEPATH id="juce_audio_utils" path="../JUCE Modules"/>
+        <MODULEPATH id="audealize_module" path="../JUCE Modules"/>
       </MODULEPATHS>
     </VS2013>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
@@ -170,10 +119,12 @@
         <MODULEPATH id="juce_audio_processors" path="../JUCE Modules"/>
         <MODULEPATH id="juce_audio_plugin_client" path="../JUCE Modules"/>
         <MODULEPATH id="juce_audio_utils" path="../JUCE Modules"/>
+        <MODULEPATH id="audealize_module" path="../JUCE Modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
   </EXPORTFORMATS>
   <MODULES>
+    <MODULE id="audealize_module" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
     <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>

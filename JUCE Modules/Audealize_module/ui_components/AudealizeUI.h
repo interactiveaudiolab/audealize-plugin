@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 4.2.1
+  Created with Projucer version: 4.2.3
 
   ------------------------------------------------------------------------------
 
@@ -21,9 +21,12 @@
 #define __JUCE_HEADER_EB0317DAAAA56B94__
 
 //[Headers]     -- You can add your own extra header files here --
+#include <fstream>
 #include "WordMap.h"
-#include "SearchBar.h"
-#include "TraditionalUIComponent.h"
+#include "TypeaheadPopupMenu.h"
+
+using namespace juce;
+
 namespace Audealize{
 //[/Headers]
 
@@ -51,8 +54,9 @@ public:
     void textEditorReturnKeyPressed(TextEditor &editor) override;
 
     void languageAlert();
-    
+
     void actionListenerCallback(const String &message) override;
+
     //[/UserMethods]
 
     void paint (Graphics& g) override;
@@ -70,7 +74,7 @@ private:
     String mPathToPoints;
 
     ScopedPointer<NativeMessageBox> mAlertBox;
-    ScopedPointer<TraditionalUI> mTradUI;
+    ScopedPointer<Audealize::TraditionalUI> mTradUI;
     const String TYPEFACE = "Helvetica";
 
     ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mAmountSliderAttachment;
@@ -79,16 +83,16 @@ private:
 
     //==============================================================================
     ScopedPointer<Component> component;
-    ScopedPointer<WordMap> mWordMap;
+    ScopedPointer<Audealize::WordMap> mWordMap;
     ScopedPointer<Slider> mAmountSlider;
     ScopedPointer<Label> label;
     ScopedPointer<Label> label2;
     ScopedPointer<ToggleButton> mEnglishButton;
     ScopedPointer<ToggleButton> mEspanolButton;
-    ScopedPointer<SearchBar> mSearchBar;
     ScopedPointer<Label> mAudealizeLabel;
     ScopedPointer<Label> mEffectTypeLabel;
     ScopedPointer<TextButton> mTradUIButton;
+    ScopedPointer<TypeaheadEditor> mSearchBar;
 
 
     //==============================================================================

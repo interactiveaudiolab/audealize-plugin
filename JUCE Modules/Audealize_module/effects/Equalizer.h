@@ -10,7 +10,6 @@
 #ifndef Equalizer_h
 #define Equalizer_h
 
-
 using std::vector;
 
 namespace Audealize{

@@ -16,6 +16,7 @@
 //  for your own purposes, free or commercial.
 //
 
+#include <math.h>
 #include "Biquad.h"
 
 Biquad::Biquad() {

@@ -4,12 +4,8 @@
 //  Based off of code by user bazrush from the JUCE community forums
 //
 
-
 #ifndef TypeaheadPopupMenu_h
 #define TypeaheadPopupMenu_h
-
-#include "../common.h"
-#include "../../Audealize-EQ/JuceLibraryCode/JuceHeader.h" //@TODO
 
 class TypeaheadPopupMenu
 :
@@ -261,6 +257,7 @@ public:
         if(!message.equalsIgnoreCase("_languagechanged")){
             editor.setText(message);
             editor.selectAll();
+            dismissMenu();
         }
     }
     

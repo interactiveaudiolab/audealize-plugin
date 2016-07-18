@@ -1,5 +1,4 @@
 #include "PluginProcessor.h"
-#include "../../common/common.h"
 
 AudealizeeqAudioProcessor::AudealizeeqAudioProcessor() : mEqualizer(mFreqs, 0.0f)
 {

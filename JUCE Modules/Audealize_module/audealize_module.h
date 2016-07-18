@@ -20,33 +20,33 @@
 #include <fstream>
 
 #include "../juce_core/juce_core.h"
+#include "../juce_audio_basics/juce_audio_basics.h"
 #include "../juce_audio_processors/juce_audio_processors.h"
 #include "../juce_graphics/juce_graphics.h"
+#include "../juce_gui_basics/juce_gui_basics.h"
+
+#include "AudealizeAudioProcessor.h"
 
 #include "libs/json.hpp"
-#include "libs/trie/trie.hpp"
 #include "libs/calf_dsp_library/delay.h"
 
 #include "utils/PrimeFactors.h"
-
+#include "utils/CParamSmooth.h"
+     
 #include "libs/Biquad.h"
-
-
-//=============================================================================
-namespace juce
-{
-#include "AudealizeAudioProcessor.h"
+#include "libs/json.hpp"
 
 #include "ui_components/AudealizeUI.h"
 #include "ui_components/WordMap.h"
 #include "ui_components/GraphicEQComponent.h"
-#include "ui_components/SearchBar.h"
+#include "ui_components/TypeaheadPopupMenu.h"
 #include "ui_components/TraditionalUIComponent.h"
+#include "ui_components/ReverbComponent.h"
 
 #include "effects/AudioEffect.h"
 #include "effects/NChannelFilter.h"
 #include "effects/Equalizer.h"
 #include "effects/Reverb.h"
-}
+
 
 #endif   // AUDEALIZE_MODULE

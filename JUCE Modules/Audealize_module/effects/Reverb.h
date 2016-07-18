@@ -12,12 +12,9 @@
 #ifndef REVERB_H_INCLUDED
 #define REVERB_H_INCLUDED
 
-#include "../libs/calf_dsp_library/delay.h"
-
 #define ALLPASSGAIN 0.1f
 #define MINDELAY 0.01f
 #define PI 3.1415926535897f
-
 
 using dsp::simple_delay;
 using std::vector;

@@ -7,6 +7,7 @@
 #ifndef CParamSmooth_h
 #define CParamSmooth_h
 
+#include <math.h>
 
 #define c_twoPi 6.283185307179586476925286766559f
 

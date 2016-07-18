@@ -50,13 +50,7 @@ endif
 
 OBJECTS := \
   $(OBJDIR)/PluginProcessor_a059e380.o \
-  $(OBJDIR)/ReverbComponent_e2d4862c.o \
-  $(OBJDIR)/Biquad_2658136f.o \
-  $(OBJDIR)/AudealizeUI_721d8e9a.o \
-  $(OBJDIR)/GraphicEQComponent_755b11c1.o \
-  $(OBJDIR)/SearchBar_87ef815d.o \
-  $(OBJDIR)/WordMap_40609dc4.o \
-  $(OBJDIR)/BinaryData_ce4232d4.o \
+  $(OBJDIR)/audealize_module_6185acc0.o \
   $(OBJDIR)/juce_audio_basics_6b797ca1.o \
   $(OBJDIR)/juce_audio_devices_a742c38b.o \
   $(OBJDIR)/juce_audio_formats_5a29c68a.o \
@@ -96,39 +90,9 @@ $(OBJDIR)/PluginProcessor_a059e380.o: ../../Source/PluginProcessor.cpp
 	@echo "Compiling PluginProcessor.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/ReverbComponent_e2d4862c.o: ../../Source/ReverbComponent.cpp
+$(OBJDIR)/audealize_module_6185acc0.o: ../../JuceLibraryCode/audealize_module.cpp
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling ReverbComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/Biquad_2658136f.o: ../../../common/libs/Biquad.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling Biquad.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/AudealizeUI_721d8e9a.o: ../../../common/ui_components/AudealizeUI.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling AudealizeUI.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/GraphicEQComponent_755b11c1.o: ../../../common/ui_components/GraphicEQComponent.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling GraphicEQComponent.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/SearchBar_87ef815d.o: ../../../common/ui_components/SearchBar.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling SearchBar.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/WordMap_40609dc4.o: ../../../common/ui_components/WordMap.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling WordMap.cpp"
-	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
-
-$(OBJDIR)/BinaryData_ce4232d4.o: ../../JuceLibraryCode/BinaryData.cpp
-	-@mkdir -p $(OBJDIR)
-	@echo "Compiling BinaryData.cpp"
+	@echo "Compiling audealize_module.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/juce_audio_basics_6b797ca1.o: ../../JuceLibraryCode/juce_audio_basics.cpp

@@ -15,6 +15,7 @@
 
 #include "AppConfig.h"
 
+#include <audealize_module/audealize_module.h>
 #include <juce_audio_basics/juce_audio_basics.h>
 #include <juce_audio_devices/juce_audio_devices.h>
 #include <juce_audio_formats/juce_audio_formats.h>
@@ -31,7 +32,6 @@
 #include <juce_opengl/juce_opengl.h>
 #include <juce_video/juce_video.h>
 
-#include "BinaryData.h"
 
 #if ! DONT_SET_USING_JUCE_NAMESPACE
  // If your code uses a lot of JUCE classes, then this will obviously save you

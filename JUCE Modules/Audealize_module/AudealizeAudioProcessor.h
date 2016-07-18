@@ -9,10 +9,11 @@
 
 
 using std::vector;
+using namespace juce;
 
 namespace Audealize{
 
-    class AudealizeAudioProcessor : public AudioProcessor, public AudioProcessorValueTreeState::Listener {
+    class AudealizeAudioProcessor : public juce::AudioProcessor, public AudioProcessorValueTreeState::Listener {
     public:
         String paramAmount = "paramAmount";
         

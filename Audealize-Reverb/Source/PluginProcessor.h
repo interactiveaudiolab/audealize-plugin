@@ -2,8 +2,6 @@
 #define PLUGINPROCESSOR_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "../../common/common.h"
-#include "ReverbComponent.h"
 
 using namespace Audealize;
 
@@ -76,7 +74,7 @@ private:
     const float DEFAULT_E   = 0.95f;
     const float DEFAULT_MIX = 0.75f;
     
-    const String PATH_TO_POINTS = "/Users/michael/JUCE/projects/audealize-plugin/common/data/reverbparams.json"; //@TODO
+    const String PATH_TO_POINTS = "/Users/michael/JUCE/projects/audealize-plugin/JUCE Modules/audealize_module/data/reverbparams.json"; //@TODO
     
     
     void debugParams();

@@ -10,6 +10,11 @@
 #ifndef WordMap_h
 #define WordMap_h
 
+#include "../libs/json.hpp"
+#include "../AudealizeAudioProcessor.h"
+#include "TraditionalUIComponent.h"
+#include <float.h>
+
 using json = nlohmann::json;
 using std::vector;
 using std::string;
@@ -89,6 +94,8 @@ namespace Audealize {
         vector<vector<float>> params; // the settings associated with the descriptors being plotted
         
         vector<int> font_sizes; // the font sizes of the descriptors being plotted
+        
+        vector<int> nums; // the number of occurrences of the descriptors
         
         vector<Colour> colors; // the colors of the descriptors being plotted
         

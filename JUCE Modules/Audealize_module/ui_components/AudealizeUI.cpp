@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 4.2.1
+  Created with Projucer version: 4.2.3
 
   ------------------------------------------------------------------------------
 
@@ -77,16 +77,6 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
     mEspanolButton->addListener (this);
     mEspanolButton->setToggleState (true, dontSendNotification);
 
-    addAndMakeVisible (mSearchBar = new SearchBar (String()));
-    mSearchBar->setMultiLine (false);
-    mSearchBar->setReturnKeyStartsNewLine (false);
-    mSearchBar->setReadOnly (false);
-    mSearchBar->setScrollbarsShown (false);
-    mSearchBar->setCaretVisible (true);
-    mSearchBar->setPopupMenuEnabled (true);
-    mSearchBar->setColour (TextEditor::textColourId, Colours::black);
-    mSearchBar->setText (String());
-
     addAndMakeVisible (mAudealizeLabel = new Label ("Audealize",
                                                     TRANS("Audealize\n")));
     mAudealizeLabel->setFont (Font ("Helvetica", 35.40f, Font::plain));
@@ -108,27 +98,30 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
     mTradUIButton->setButtonText (TRANS("+ Show traditional interface"));
     mTradUIButton->addListener (this);
 
+    addAndMakeVisible (mSearchBar = new TypeaheadEditor());
+    mSearchBar->setName ("Search Bar");
+
 
     //[UserPreSize]
-    mSearchBar->addListener(this);
+    mSearchBar->getEditor()->addListener(this);
     mSearchBar->setColour (TextEditor::outlineColourId, Colours::grey);
     mSearchBar->setColour(TextEditor::ColourIds::focusedOutlineColourId, Colours::lightblue);
     mSearchBar->setColour (TextEditor::shadowColourId, Colour (0x00a1a1a1));
-    mSearchBar->setFont(Font(TYPEFACE, 18, Font::plain));
-    mSearchBar->setSelectAllWhenFocused(true);
-    mSearchBar->setTextToShowWhenEmpty("Search for a word to apply", Colour (0xff888888));
-    mSearchBar->setWords(mWordMap->getWords());
+    mSearchBar->getEditor()->setFont(Font(TYPEFACE, 18, Font::plain));
+    mSearchBar->getEditor()->setSelectAllWhenFocused(true);
+    mSearchBar->getEditor()->setTextToShowWhenEmpty("Search for a word to apply", Colour (0xff888888));
+    mSearchBar->setOptions(mWordMap->getWords());
 
     mEffectTypeLabel->setText(effectType, NotificationType::dontSendNotification);
 
-    mWordMap->setWantsKeyboardFocus(true);
     mWordMap->setBroughtToFrontOnMouseClick(true);
-    mWordMap->setMouseClickGrabsKeyboardFocus(true);
     mWordMap->addActionListener(mSearchBar);
     mWordMap->addActionListener(this);
-    
+
     addAndMakeVisible(mTradUI);
     mTradUI->setVisible(false);
+
+    mTradUIButton->setButtonText (TRANS("+ Show " + String(mTradUI->getName())));
     //[/UserPreSize]
 
     setSize (840, 575);
@@ -154,10 +147,10 @@ AudealizeUI::~AudealizeUI()
     label2 = nullptr;
     mEnglishButton = nullptr;
     mEspanolButton = nullptr;
-    mSearchBar = nullptr;
     mAudealizeLabel = nullptr;
     mEffectTypeLabel = nullptr;
     mTradUIButton = nullptr;
+    mSearchBar = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -188,10 +181,10 @@ void AudealizeUI::resized()
     label2->setBounds (768, 79, 56, 24);
     mEnglishButton->setBounds (288, 79, 72, 24);
     mEspanolButton->setBounds (360, 79, 80, 24);
-    mSearchBar->setBounds (32, 71, 240, 36);
     mAudealizeLabel->setBounds (27, 24, 176, 32);
     mEffectTypeLabel->setBounds (181, 24, 118, 32);
     mTradUIButton->setBounds (40, 530, 208, 24);
+    mSearchBar->setBounds (32, 74, 240, 32);
     //[UserResized] Add your own custom resize handling here..
     mTradUI->setBounds(32, 570, getWidth()-63, 120);
     //[/UserResized]
@@ -240,12 +233,12 @@ void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
         if(mTradUI->isVisible()){
             setSize(getWidth(), getHeight()-mTradUI->getHeight()-15);
             mTradUI->setVisible(false);
-            mTradUIButton->setButtonText("+ Show traditional interface");
+            mTradUIButton->setButtonText (TRANS("+ Show " + String(mTradUI->getName())));
         }
         else{
             setSize(getWidth(), getHeight()+mTradUI->getHeight()+15);
             mTradUI->setVisible(true);
-            mTradUIButton->setButtonText("- Hide traditional interface");
+            mTradUIButton->setButtonText (TRANS("- Hide " + String(mTradUI->getName())));
         }
 
         //[/UserButtonCode_mTradUIButton]
@@ -281,10 +274,10 @@ void AudealizeUI::textEditorReturnKeyPressed(TextEditor &editor){
 void AudealizeUI::languageAlert(){
     mAlertBox->showMessageBox(AlertWindow::AlertIconType::WarningIcon, "At least one language must be selected!", "");
 }
-    
+
 void AudealizeUI::actionListenerCallback(const String &message){
     if (message.equalsIgnoreCase("_languagechanged")){
-        mSearchBar->setWords(mWordMap->getWords());
+        mSearchBar->setOptions(mWordMap->getWords());
     }
 }
     
@@ -301,7 +294,7 @@ void AudealizeUI::actionListenerCallback(const String &message){
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="AudealizeUI" componentName=""
-                 parentClasses="public AudioProcessorEditor, public TextEditorListener, public ActionListener"
+                 parentClasses="public AudioProcessorEditor, public TextEditorListener, public ActionListener, public KeyListener"
                  constructorParams="AudealizeAudioProcessor&amp; p, ScopedPointer&lt;TraditionalUI&gt; t, String pathToPoints, String effectType"
                  variableInitialisers="AudioProcessorEditor(&amp;p), processor(p), mPathToPoints(pathToPoints), mTradUI(t)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
@@ -338,10 +331,6 @@ BEGIN_JUCER_METADATA
   <TOGGLEBUTTON name="Espa&#241;ol" id="3e0d8205ac653424" memberName="mEspanolButton"
                 virtualName="" explicitFocusOrder="0" pos="360 79 80 24" buttonText="Espa&#241;ol"
                 connectedEdges="0" needsCallback="1" radioGroupId="0" state="1"/>
-  <TEXTEDITOR name="" id="eaa70191aab55d80" memberName="mSearchBar" virtualName="SearchBar"
-              explicitFocusOrder="0" pos="32 71 240 36" textcol="ff000000"
-              initialText="" multiline="0" retKeyStartsLine="0" readonly="0"
-              scrollbars="0" caret="1" popupmenu="1"/>
   <LABEL name="Audealize" id="a779ff2220710b09" memberName="mAudealizeLabel"
          virtualName="" explicitFocusOrder="0" pos="27 24 176 32" edTextCol="ff000000"
          edBkgCol="0" labelText="Audealize&#10;" editableSingleClick="0"
@@ -355,6 +344,9 @@ BEGIN_JUCER_METADATA
   <TEXTBUTTON name="new button" id="9b1b1e4bf4719d1b" memberName="mTradUIButton"
               virtualName="" explicitFocusOrder="0" pos="40 530 208 24" buttonText="+ Show traditional interface"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <GENERICCOMPONENT name="Search Bar" id="8776fc2b5e88846" memberName="mSearchBar"
+                    virtualName="TypeaheadEditor" explicitFocusOrder="0" pos="32 74 240 32"
+                    class="TypeaheadEditor" params=""/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

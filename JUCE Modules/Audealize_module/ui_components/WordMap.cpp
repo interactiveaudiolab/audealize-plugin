@@ -44,6 +44,7 @@ namespace Audealize {
         colors.clear();
         font_sizes.clear();
         word_dict.clear();
+        nums.clear();
         word_count = 0;
         
         float alpha_max  = (1 - 0.92f * logf(5 * min_variance + 1));
@@ -76,6 +77,7 @@ namespace Audealize {
                 word_dict[word] = word_count;
                 points.push_back(point);
                 params.push_back(it.value()["settings"]);
+                nums.push_back(num);
                 
                 // calculate color. random rgb, alpha based on agreement score
                 alpha = (1 - 0.92f * logf(5 * agreement + 1)) / alpha_max;
@@ -180,7 +182,16 @@ namespace Audealize {
         
         // Draw info text
         String info_text = String("Map built with " + String(word_count) + " words. Nearby words have similar effects.");
-        plot_word(info_text, Colours::grey, 10, Point<float>(140, getHeight() - 10), g);
+        
+        Font font = Font(TYPEFACE, 12, Font::plain);
+        g.setFont(font);
+        g.setColour(Colours::grey);
+        g.drawText(info_text, getWidth() - 420, getHeight() - 22, 412, 18, Justification::bottomRight);
+        
+        if (!init_map) {
+            info_text = String("'" + words[center_index] + "' learned from " + String(nums[center_index]) + " contributions.");
+            g.drawText(info_text, 6, getHeight() - 22, 250, 18, Justification::bottomLeft);
+        }
     }
     
     void WordMap::resized()

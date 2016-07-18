@@ -9,7 +9,6 @@
 #define PLUGINPROCESSOR_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "../../common/common.h"
 
 #define NUMBANDS 40 // the number of eq bands
 
@@ -68,7 +67,7 @@ private:
      *  @param index
      */
     
-    const String PATH_TO_POINTS = "/Users/michael/JUCE/projects/audealize-plugin/common/data/eqpoints.json"; //@TODO
+    const String PATH_TO_POINTS = "/Users/michael/JUCE/projects/audealize-plugin/JUCE Modules/audealize_module/data/eqpoints.json"; //@TODO
         
     NormalisableRange<float> mGainRange; // Range of the graphic eq gain sliders
         

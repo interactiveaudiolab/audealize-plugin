@@ -96,6 +96,8 @@ namespace Audealize {
         
         vector<int> font_sizes; // the font sizes of the descriptors being plotted
         
+        vector<int> nums; // the number of occurrences of the descriptors
+        
         vector<Colour> colors; // the colors of the descriptors being plotted
         
         float min_variance, max_variance, variance_thresh;

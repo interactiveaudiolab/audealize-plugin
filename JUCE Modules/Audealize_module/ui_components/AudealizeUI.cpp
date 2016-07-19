@@ -135,6 +135,7 @@ namespace Audealize{
         mResizer->setBounds (getWidth() - 18, getHeight() - 18, 16, 16);
         
         
+        // reduce word map font size if width of window is less than fontSizeThresh
         int fontSizeThresh = 750;
         if (getWidth() <= fontSizeThresh && processor.lastUIWidth > fontSizeThresh) {
             mWordMap->setMinFontSize(10);
@@ -144,7 +145,7 @@ namespace Audealize{
         }
         
         
-        // traditional ui
+        // word map size is dependent upon whether or not traditional UI is visible
         if (isTradUIVisible){
             mWordMap->setBounds (32, 105, getWidth() - 63, getHeight() - 163 - 130);
             mTradUIButton->setBounds (40, getHeight() - 45 - 130, 208, 24);
@@ -155,28 +156,23 @@ namespace Audealize{
         }
         
         // Amount slider
-        int sliderWidth;
-        if (getWidth() < 760){
-            sliderWidth = getWidth() - 548;
-        }
-        else {
-            sliderWidth = getWidth() * 0.28f;
-        }
-        mAmountSlider->setBounds (getWidth() - sliderWidth - 72, 65, sliderWidth, 24);
+        int sliderWidth = getWidth() * 0.28f;
+        mAmountSlider->setBounds (getWidth() - sliderWidth - 72, getHeight() - 45, sliderWidth, 24);
         
+        // amount slider labels
+        label->setBounds (getWidth() - sliderWidth - 108, getHeight() - 45, 40, 24);
+        label2->setBounds (getWidth() - 72, getHeight() - 45, 56, 24);
         
-        label->setBounds (getWidth() - sliderWidth - 108, 65, 40, 24);
-        label2->setBounds (getWidth() - 72, 65, 56, 24);
-        
+        // Audealize title labels
         mAudealizeLabel->setBounds (27, 22, 176, 32);
         mEffectTypeLabel->setBounds (150, 22, 118, 32);
         
+        // language select buttons
         mEnglishButton->setBounds (286, 65, 72, 24);
         mEspanolButton->setBounds (358, 65, 80, 24);
         
-        
+        // search bar
         mSearchBar->setBounds (32, 60, 240, 32);
-        
         
         mTradUI->setBounds(38, getHeight() - 140, getWidth()-63, 120);
         

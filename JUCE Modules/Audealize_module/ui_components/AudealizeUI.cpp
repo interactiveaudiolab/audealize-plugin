@@ -31,6 +31,7 @@ namespace Audealize{
         label->setEditable (false, false, false);
         label->setColour (TextEditor::textColourId, Colours::black);
         label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+        label->setJustificationType (Justification::centredRight);
         
         addAndMakeVisible (label2 = new Label ("new label",
                                                TRANS("More\n")));
@@ -139,6 +140,7 @@ namespace Audealize{
         int fontSizeThresh = 750;
         if (getWidth() <= fontSizeThresh && processor.lastUIWidth > fontSizeThresh) {
             mWordMap->setMinFontSize(10);
+            
         }
         else if (getWidth() > fontSizeThresh && processor.lastUIWidth <= fontSizeThresh) {
             mWordMap->setMinFontSize(12);
@@ -148,11 +150,11 @@ namespace Audealize{
         // word map size is dependent upon whether or not traditional UI is visible
         if (isTradUIVisible){
             mWordMap->setBounds (32, 105, getWidth() - 63, getHeight() - 163 - 130);
-            mTradUIButton->setBounds (40, getHeight() - 45 - 130, 208, 24);
+            mTradUIButton->setBounds (40, getHeight() - 45 - 130, 190, 24);
         }
         else{
             mWordMap->setBounds (32, 105, getWidth() - 63, getHeight() - 163);
-            mTradUIButton->setBounds (40, getHeight() - 45, 208, 24);
+            mTradUIButton->setBounds (40, getHeight() - 45, 190, 24);
         }
         
         // Amount slider
@@ -160,7 +162,7 @@ namespace Audealize{
         mAmountSlider->setBounds (getWidth() - sliderWidth - 72, getHeight() - 45, sliderWidth, 24);
         
         // amount slider labels
-        label->setBounds (getWidth() - sliderWidth - 108, getHeight() - 45, 40, 24);
+        label->setBounds (getWidth() - sliderWidth - 188, getHeight() - 45, 120, 24);
         label2->setBounds (getWidth() - 72, getHeight() - 45, 56, 24);
         
         // Audealize title labels
@@ -250,6 +252,9 @@ namespace Audealize{
     void AudealizeUI::actionListenerCallback(const String &message){
         if (message.equalsIgnoreCase("_languagechanged")){
             mSearchBar->setOptions(mWordMap->getWords());
+        }
+        else{
+            label->setText("Less " + message, NotificationType::sendNotification);
         }
     }
     

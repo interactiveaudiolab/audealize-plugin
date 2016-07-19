@@ -78,6 +78,13 @@ namespace Audealize {
         }
         
         /**
+         *  Sets the size of the info text strings displayed at the bottom of the map
+         */
+        void setInfoTextSize(int fontSize){
+            infotext_size = fontSize;
+        }
+        
+        /**
          *  @return a vector of all the words in the map
          */
         vector<String> getWords(){
@@ -114,6 +121,8 @@ namespace Audealize {
         int center_index; // index of the descriptor currently selected in the map
         
         int word_count; // total number of words in the map
+        
+        int infotext_size; // font size for the info text displayed at the bottom of the map
         
         bool init_map; // true if the map is still in its initial state (has not yet been clicked yet)
         

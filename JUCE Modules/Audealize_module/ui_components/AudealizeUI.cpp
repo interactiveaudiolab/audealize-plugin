@@ -15,9 +15,6 @@ namespace Audealize{
         infile.open(mPathToPoints.toUTF8());
         json descriptors = json::parse(infile);
         
-        addAndMakeVisible (component = new Component());
-        component->setName ("new component");
-        
         addAndMakeVisible (mWordMap = new Audealize::WordMap (p, descriptors));
         mWordMap->setName ("Descriptor Map");
         
@@ -34,6 +31,7 @@ namespace Audealize{
         label->setEditable (false, false, false);
         label->setColour (TextEditor::textColourId, Colours::black);
         label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+        label->setJustificationType (Justification::centredRight);
         
         addAndMakeVisible (label2 = new Label ("new label",
                                                TRANS("More\n")));
@@ -115,7 +113,6 @@ namespace Audealize{
         mResizer = nullptr;
         mResizeLimits = nullptr;
         
-        component = nullptr;
         mWordMap = nullptr;
         mAmountSlider = nullptr;
         label = nullptr;
@@ -139,47 +136,46 @@ namespace Audealize{
         mResizer->setBounds (getWidth() - 18, getHeight() - 18, 16, 16);
         
         
+        // reduce word map font size if width of window is less than fontSizeThresh
         int fontSizeThresh = 750;
         if (getWidth() <= fontSizeThresh && processor.lastUIWidth > fontSizeThresh) {
             mWordMap->setMinFontSize(10);
+            mWordMap->setInfoTextSize(10);
         }
         else if (getWidth() > fontSizeThresh && processor.lastUIWidth <= fontSizeThresh) {
             mWordMap->setMinFontSize(12);
+            mWordMap->setInfoTextSize(12);
         }
         
-        component->setBounds (0, 0, 840, 568);
+        
+        // word map size is dependent upon whether or not traditional UI is visible
         if (isTradUIVisible){
             mWordMap->setBounds (32, 105, getWidth() - 63, getHeight() - 163 - 130);
-            mTradUIButton->setBounds (40, getHeight() - 45 - 130, 208, 24);
+            mTradUIButton->setBounds (40, getHeight() - 45 - 130, 190, 24);
         }
         else{
             mWordMap->setBounds (32, 105, getWidth() - 63, getHeight() - 163);
-            mTradUIButton->setBounds (40, getHeight() - 45, 208, 24);
+            mTradUIButton->setBounds (40, getHeight() - 45, 190, 24);
         }
         
         // Amount slider
-        int sliderWidth;
-        if (getWidth() < 760){
-            sliderWidth = getWidth() - 548;
-        }
-        else {
-            sliderWidth = getWidth() * 0.28f;
-        }
-        mAmountSlider->setBounds (getWidth() - sliderWidth - 72, 65, sliderWidth, 24);
+        int sliderWidth = getWidth() * 0.28f;
+        mAmountSlider->setBounds (getWidth() - sliderWidth - 72, getHeight() - 45, sliderWidth, 24);
         
+        // amount slider labels
+        label->setBounds (getWidth() - sliderWidth - 185, getHeight() - 45, 114, 24);
+        label2->setBounds (getWidth() - 72, getHeight() - 45, 56, 24);
         
-        label->setBounds (getWidth() - sliderWidth - 108, 65, 40, 24);
-        label2->setBounds (getWidth() - 72, 65, 56, 24);
-        
+        // Audealize title labels
         mAudealizeLabel->setBounds (27, 22, 176, 32);
         mEffectTypeLabel->setBounds (150, 22, 118, 32);
         
-        mEnglishButton->setBounds (286, 65, 72, 24);
-        mEspanolButton->setBounds (358, 65, 80, 24);
+        // language select buttons
+        mEnglishButton->setBounds (getWidth() - 184, 65, 72, 24);
+        mEspanolButton->setBounds (getWidth() - 110, 65, 80, 24);
         
-        
+        // search bar
         mSearchBar->setBounds (32, 60, 240, 32);
-        
         
         mTradUI->setBounds(38, getHeight() - 140, getWidth()-63, 120);
         
@@ -257,6 +253,9 @@ namespace Audealize{
     void AudealizeUI::actionListenerCallback(const String &message){
         if (message.equalsIgnoreCase("_languagechanged")){
             mSearchBar->setOptions(mWordMap->getWords());
+        }
+        else{
+            label->setText("Less " + message, NotificationType::sendNotification);
         }
     }
     

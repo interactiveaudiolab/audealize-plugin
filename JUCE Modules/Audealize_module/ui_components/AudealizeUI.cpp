@@ -140,10 +140,11 @@ namespace Audealize{
         int fontSizeThresh = 750;
         if (getWidth() <= fontSizeThresh && processor.lastUIWidth > fontSizeThresh) {
             mWordMap->setMinFontSize(10);
-            
+            mWordMap->setInfoTextSize(10);
         }
         else if (getWidth() > fontSizeThresh && processor.lastUIWidth <= fontSizeThresh) {
             mWordMap->setMinFontSize(12);
+            mWordMap->setInfoTextSize(12);
         }
         
         
@@ -162,7 +163,7 @@ namespace Audealize{
         mAmountSlider->setBounds (getWidth() - sliderWidth - 72, getHeight() - 45, sliderWidth, 24);
         
         // amount slider labels
-        label->setBounds (getWidth() - sliderWidth - 188, getHeight() - 45, 120, 24);
+        label->setBounds (getWidth() - sliderWidth - 185, getHeight() - 45, 114, 24);
         label2->setBounds (getWidth() - 72, getHeight() - 45, 56, 24);
         
         // Audealize title labels
@@ -170,8 +171,8 @@ namespace Audealize{
         mEffectTypeLabel->setBounds (150, 22, 118, 32);
         
         // language select buttons
-        mEnglishButton->setBounds (286, 65, 72, 24);
-        mEspanolButton->setBounds (358, 65, 80, 24);
+        mEnglishButton->setBounds (getWidth() - 184, 65, 72, 24);
+        mEspanolButton->setBounds (getWidth() - 110, 65, 80, 24);
         
         // search bar
         mSearchBar->setBounds (32, 60, 240, 32);

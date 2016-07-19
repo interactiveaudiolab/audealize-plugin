@@ -13,7 +13,8 @@ namespace Audealize {
         circle_position = Point<float>(150,50);
         hover_position = Point<float>(100, 50);
         
-        // set default size of component
+        // default size of info text
+        infotext_size = 12;
         
         // Instance variables
         min_variance     = json_dict.begin().value()["agreement"];
@@ -28,6 +29,7 @@ namespace Audealize {
         
         startTimerHz(60);
         
+        // set default size of component
         setSize (800, 400);
         
         loadPoints();
@@ -184,7 +186,7 @@ namespace Audealize {
         // Draw info text
         String info_text = String("Map built with " + String(word_count) + " words. Nearby words have similar effects.");
         
-        Font font = Font(TYPEFACE, 12, Font::plain);
+        Font font = Font(TYPEFACE, infotext_size, Font::plain);
         g.setFont(font);
         g.setColour(Colours::grey);
         g.drawText(info_text, getWidth() - 420, getHeight() - 22, 412, 18, Justification::bottomRight);

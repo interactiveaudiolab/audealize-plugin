@@ -56,7 +56,6 @@ namespace Audealize{
         bool isTradUIVisible;
         
         //==============================================================================
-        ScopedPointer<Component> component;
         ScopedPointer<Audealize::WordMap> mWordMap;
         ScopedPointer<Slider> mAmountSlider;
         ScopedPointer<Label> label;

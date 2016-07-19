@@ -15,9 +15,6 @@ namespace Audealize{
         infile.open(mPathToPoints.toUTF8());
         json descriptors = json::parse(infile);
         
-        addAndMakeVisible (component = new Component());
-        component->setName ("new component");
-        
         addAndMakeVisible (mWordMap = new Audealize::WordMap (p, descriptors));
         mWordMap->setName ("Descriptor Map");
         
@@ -115,7 +112,6 @@ namespace Audealize{
         mResizer = nullptr;
         mResizeLimits = nullptr;
         
-        component = nullptr;
         mWordMap = nullptr;
         mAmountSlider = nullptr;
         label = nullptr;
@@ -147,7 +143,8 @@ namespace Audealize{
             mWordMap->setMinFontSize(12);
         }
         
-        component->setBounds (0, 0, 840, 568);
+        
+        // traditional ui
         if (isTradUIVisible){
             mWordMap->setBounds (32, 105, getWidth() - 63, getHeight() - 163 - 130);
             mTradUIButton->setBounds (40, getHeight() - 45 - 130, 208, 24);

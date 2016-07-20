@@ -17,6 +17,6 @@
 #include "ui_components/WordMap.cpp"
 #include "ui_components/ReverbComponent.cpp"
 
-#include "libs/Biquad.cpp"
+#include "utils/Biquad.cpp"
 
 

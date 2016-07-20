@@ -17,17 +17,14 @@
     <Filter Include="Juce Modules\audealize_module\effects">
       <UniqueIdentifier>{955ED6E7-5DDF-4809-DC71-11C115B1E68F}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Juce Modules\audealize_module\libs">
-      <UniqueIdentifier>{A36422BF-468D-A096-ACCB-3D0E8D3C3A2B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Juce Modules\audealize_module\libs\calf_dsp_library">
-      <UniqueIdentifier>{EA34BD44-DD07-F43A-9060-06B32130E24C}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Juce Modules\audealize_module\ui_components">
       <UniqueIdentifier>{944EDE95-7E2E-8781-F4FE-D044E4D6D8F1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Juce Modules\audealize_module\utils">
       <UniqueIdentifier>{A76F55FB-80AD-41F9-CEA1-E77EF91BDF00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Juce Modules\audealize_module\utils\calf_dsp_library">
+      <UniqueIdentifier>{88C0B487-78B3-2152-58F8-65A6FE8A347F}</UniqueIdentifier>
     </Filter>
     <Filter Include="Juce Modules\juce_audio_basics">
       <UniqueIdentifier>{3247ED97-A75A-F50B-8CCC-46155E895806}</UniqueIdentifier>
@@ -415,9 +412,6 @@
     <ClCompile Include="..\..\Source\PluginProcessor.cpp">
       <Filter>Audealize-EQ\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\libs\Biquad.cpp">
-      <Filter>Juce Modules\audealize_module\libs</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeUI.cpp">
       <Filter>Juce Modules\audealize_module\ui_components</Filter>
     </ClCompile>
@@ -429,6 +423,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\WordMap.cpp">
       <Filter>Juce Modules\audealize_module\ui_components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\utils\Biquad.cpp">
+      <Filter>Juce Modules\audealize_module\utils</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\audealize_module.cpp">
       <Filter>Juce Modules\audealize_module</Filter>
@@ -2337,24 +2334,6 @@
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\Reverb.h">
       <Filter>Juce Modules\audealize_module\effects</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\libs\calf_dsp_library\buffer.h">
-      <Filter>Juce Modules\audealize_module\libs\calf_dsp_library</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\libs\calf_dsp_library\delay.h">
-      <Filter>Juce Modules\audealize_module\libs\calf_dsp_library</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\libs\calf_dsp_library\onepole.h">
-      <Filter>Juce Modules\audealize_module\libs\calf_dsp_library</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\libs\calf_dsp_library\primitives.h">
-      <Filter>Juce Modules\audealize_module\libs\calf_dsp_library</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\libs\Biquad.h">
-      <Filter>Juce Modules\audealize_module\libs</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\libs\json.hpp">
-      <Filter>Juce Modules\audealize_module\libs</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeUI.h">
       <Filter>Juce Modules\audealize_module\ui_components</Filter>
     </ClInclude>
@@ -2373,7 +2352,25 @@
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\WordMap.h">
       <Filter>Juce Modules\audealize_module\ui_components</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\calf_dsp_library\buffer.h">
+      <Filter>Juce Modules\audealize_module\utils\calf_dsp_library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\calf_dsp_library\delay.h">
+      <Filter>Juce Modules\audealize_module\utils\calf_dsp_library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\calf_dsp_library\onepole.h">
+      <Filter>Juce Modules\audealize_module\utils\calf_dsp_library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\calf_dsp_library\primitives.h">
+      <Filter>Juce Modules\audealize_module\utils\calf_dsp_library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\Biquad.h">
+      <Filter>Juce Modules\audealize_module\utils</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\CParamSmooth.h">
+      <Filter>Juce Modules\audealize_module\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\json.hpp">
       <Filter>Juce Modules\audealize_module\utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\PrimeFactors.h">

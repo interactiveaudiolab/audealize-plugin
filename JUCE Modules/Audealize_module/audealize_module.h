@@ -27,14 +27,14 @@
 
 #include "AudealizeAudioProcessor.h"
 
-#include "libs/json.hpp"
-#include "libs/calf_dsp_library/delay.h"
+#include "utils/json.hpp"
+#include "utils/calf_dsp_library/delay.h"
 
 #include "utils/PrimeFactors.h"
 #include "utils/CParamSmooth.h"
      
-#include "libs/Biquad.h"
-#include "libs/json.hpp"
+#include "utils/Biquad.h"
+#include "utils/json.hpp"
 
 #include "ui_components/AudealizeUI.h"
 #include "ui_components/WordMap.h"

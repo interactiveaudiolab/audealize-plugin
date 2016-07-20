@@ -136,9 +136,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
-    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\libs\Biquad.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeUI.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -149,6 +146,9 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\WordMap.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\utils\Biquad.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\audealize_module.cpp">
@@ -1859,19 +1859,19 @@
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\Equalizer.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\NChannelFilter.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\Reverb.h"/>
-    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\libs\calf_dsp_library\buffer.h"/>
-    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\libs\calf_dsp_library\delay.h"/>
-    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\libs\calf_dsp_library\onepole.h"/>
-    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\libs\calf_dsp_library\primitives.h"/>
-    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\libs\Biquad.h"/>
-    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\libs\json.hpp"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeUI.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\GraphicEQComponent.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\ReverbComponent.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\TraditionalUIComponent.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\TypeaheadPopupMenu.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\WordMap.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\calf_dsp_library\buffer.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\calf_dsp_library\delay.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\calf_dsp_library\onepole.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\calf_dsp_library\primitives.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\Biquad.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\CParamSmooth.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\json.hpp"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\PrimeFactors.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audealize_module.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\AudealizeAudioProcessor.h"/>

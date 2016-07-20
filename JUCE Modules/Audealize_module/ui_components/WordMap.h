@@ -5,15 +5,14 @@
 //
 //  Instantiate with an AudealizeAudioProcessor and an nlohmann::json dictionary of descriptors and their associated data
 //
- 
 
 #ifndef WordMap_h
 #define WordMap_h
 
-#include "../libs/json.hpp"
+#include "../utils/json.hpp"
 #include "../AudealizeAudioProcessor.h"
 #include "TraditionalUIComponent.h"
-#include <float.h>
+#include <float.h> // needed for FLT_MAX
 
 using json = nlohmann::json;
 using std::vector;
@@ -21,7 +20,9 @@ using std::string;
 
 namespace Audealize {
     
-    class WordMap  : public Component, public Timer, public ActionBroadcaster
+    class WordMap  : public Component,
+                     public Timer,
+                     public ActionBroadcaster
     {
     public:
         /**

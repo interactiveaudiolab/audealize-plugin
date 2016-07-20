@@ -99,7 +99,11 @@ namespace Audealize{
             }
         }
         
-        
+        /**
+         *  Returns a string with the parameter ID of one of the parameters
+         *
+         *  @param index
+         */
         inline virtual String getParamID(int index) {};
         
     protected:

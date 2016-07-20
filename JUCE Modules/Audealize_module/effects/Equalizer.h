@@ -116,10 +116,24 @@ public:
         setGains(mGains);
     }
     
+    /**
+     *  returns the center frequency of one of the filters in the bank given its index
+     *
+     *  @param bandIdx index of the filter
+     *
+     *  @return the center frequency of the filter
+     */
     float getBandFreq(int bandIdx){
         return mFilters[bandIdx].getFreq();
     }
     
+    /**
+     *  returns the gain of one of the filters in the bank given its index
+     *
+     *  @param bandIdx - index of the filter
+     *
+     *  @return the gain of the filter
+     */
     float getBandGain(int bandIdx){
         return mFilters[bandIdx].getGain();
     }

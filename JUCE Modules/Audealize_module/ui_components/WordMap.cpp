@@ -244,25 +244,32 @@ namespace Audealize {
     }
     
     void WordMap::wordSelected(String word){
-        sendActionMessage(word);
-        init_map = false;
-        int index = word_dict[word.toRawUTF8()];
-        if ( index < words.size()){
+        sendActionMessage(word); // broadcast a message containing the descriptor to all ActionListeners. this will
+        
+        init_map = false; // word has been selected, map is no longer in initial state
+        
+        int index = word_dict[word.toRawUTF8()]; // find the index of the word that was selected
+        
+        if (index < words.size()) // make sure it's a valid index
+        {
             center_index = index;
+            
+            // calculate the position of the word in the map and update the circle position
             Point<float> point;
             point.setX((0.1f + points[index].getX() * 0.8f) * getWidth());
             point.setY((0.05f + points[index].getY() * 0.9f) * getHeight());
-            
             circle_position = point;
-            processor.settingsFromMap(params[index]);
-            setDirty();
+            
+            processor.settingsFromMap(params[index]); // tell the AudioProcessor to apply the effect associated witht the descriptor
+            
+            setDirty(); // wordmap needs to be repainted
         }
     }
     
     bool WordMap::check_for_collision(Point<float> point, vector<Point<float>> plotted, float dist){
         Point<float> slack(0.25f, 1.5f);
-        vector<Point<float>>::iterator it;
         
+        vector<Point<float>>::iterator it;
         for (it = plotted.begin(); it < plotted.end(); it++){
             if (calc_distance(point, *it, slack) < dist){
                 return true;
@@ -278,7 +285,7 @@ namespace Audealize {
     void WordMap::plot_word(String word, Colour color, int font_size, Point<float> point, Graphics& g){
         float x, y, width;
         
-        width = word.length() * font_size * 2; //@TODO verify that this makes sense
+        width = word.length() * font_size * 2; // not precise, that's ok
         x = point.getX() - width * 0.5f;
         y = point.getY() - font_size * 0.5f;
         
@@ -286,7 +293,9 @@ namespace Audealize {
         
         Font font = Font(TYPEFACE, font_size, Font::plain);
         g.setFont(font);
+        
         g.setColour(color);
+        
         g.drawText(word, rect, Justification::centred);
     }
     
@@ -295,7 +304,9 @@ namespace Audealize {
         float mindist = FLT_MAX;
         float dist;
         Point<float> pt;
+        
         for (int i = 0; i < points.size(); i++){
+            // calculate the position of the points in pixels
             pt.setX((0.1f + points[i].getX() * 0.8f) * getWidth());
             pt.setY((0.05f + points[i].getY() * 0.9f) * getHeight());
             
@@ -316,15 +327,13 @@ namespace Audealize {
         return sqrt(slack.getX() * powf(dx, 2) + slack.getY() * powf(dy, 2));
     }
     
-    // Comparison functions for normalizing a vector<Point<float>>
-    bool compareX(Point<float> p1, Point<float> p2){
+    bool WordMap::compareX(Point<float> p1, Point<float> p2){
         return p1.getX() < p2.getX();
     }
     
-    bool compareY(Point<float> p1, Point<float> p2){
+    bool WordMap::compareY(Point<float> p1, Point<float> p2){
         return p1.getY() < p2.getY();
     }
-    
     
     void WordMap::normalizePoints(){
         if (points.size() > 0){
@@ -372,6 +381,13 @@ namespace Audealize {
         if (isdirty){
             repaint();
         }
+    }
+    
+    void WordMap::setMinFontSize(int fontSize){
+        vector<Colour> temp = colors;
+        base_font_size = fontSize;
+        loadPoints();
+        colors = temp;
     }
     
     void WordMap::setDirty(bool dirty){

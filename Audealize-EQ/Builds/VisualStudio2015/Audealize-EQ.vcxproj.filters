@@ -424,6 +424,9 @@
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\GraphicEQComponent.cpp">
       <Filter>Juce Modules\audealize_module\ui_components</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\ReverbComponent.cpp">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\WordMap.cpp">
       <Filter>Juce Modules\audealize_module\ui_components</Filter>
     </ClCompile>
@@ -2272,6 +2275,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\juce_audio_formats.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\juce_audio_plugin_client_AAX.cpp">
+      <Filter>Juce Library Code</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\juce_audio_plugin_client_utils.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
@@ -2353,6 +2359,9 @@
       <Filter>Juce Modules\audealize_module\ui_components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\GraphicEQComponent.h">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\ReverbComponent.h">
       <Filter>Juce Modules\audealize_module\ui_components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\TraditionalUIComponent.h">

@@ -20,9 +20,10 @@ namespace Audealize {
         String getName(){
             return name;
         }
+        
     protected:
         AudealizeAudioProcessor& processor;
-        String name;
+        String name; // this will determine what the title text (mEffectTypeLabel) in AudealizeUI will display
     };
 }
 

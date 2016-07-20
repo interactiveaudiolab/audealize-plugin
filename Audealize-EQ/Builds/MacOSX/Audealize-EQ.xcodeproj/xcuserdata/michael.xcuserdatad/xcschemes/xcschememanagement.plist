@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Audealize-EQ (AAX).xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>Audealize-EQ (AU).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,7 +22,7 @@
 		<key>Audealize-EQ (AUv3 Standalone).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>6</integer>
 		</dict>
 		<key>Audealize-EQ (All).xcscheme</key>
 		<dict>
@@ -27,7 +32,7 @@
 		<key>Audealize-EQ (Shared Code).xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>6</integer>
+			<integer>7</integer>
 		</dict>
 		<key>Audealize-EQ (VST).xcscheme</key>
 		<dict>
@@ -42,6 +47,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0CDBB5E5AA36637FAFE93D80</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>30188AE817C21676F312FB07</key>
 		<dict>
 			<key>primary</key>

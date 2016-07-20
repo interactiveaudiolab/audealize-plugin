@@ -129,8 +129,11 @@ void AudealizeeqAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuf
     const int numSamples = buffer.getNumSamples();
     
     // Parameter smoothing
+    // look through filters
     for (int i = 0; i < NUMBANDS; i++){
         float diff = fabs( mEqualizer.getBandGain(i) - mSmoothedVals[i].getTargetValue() );
+        
+        // if current value is not within acceptable margin of target value, continue smoothing
         if(diff > 0.01f * mSmoothedVals[i].getTargetValue() ){
             String paramID = getParamID(i);
             

@@ -70,12 +70,7 @@ namespace Audealize {
         /**
          *  Set the minimum font size for the map
          */
-        void setMinFontSize(int fontSize){
-            vector<Colour> temp = colors;
-            base_font_size = fontSize;
-            loadPoints();
-            colors = temp;
-        }
+        void setMinFontSize(int fontSize);
         
         /**
          *  Sets the size of the info text strings displayed at the bottom of the map
@@ -122,6 +117,8 @@ namespace Audealize {
         
         int word_count; // total number of words in the map
         
+        int base_font_size = 12; // smallest font size of descriptors on the map
+        
         int infotext_size; // font size for the info text displayed at the bottom of the map
         
         bool init_map; // true if the map is still in its initial state (has not yet been clicked yet)
@@ -135,17 +132,17 @@ namespace Audealize {
         NormalisableRange<int> alpha_range; // for converting between alpha values in range [0,1] (float) and [0,255] (int)
         
         //=====================================================================
+        // Constants
         
         const int pad = 2; // amount of padding between mapped descriptors
         const int unhighlighted_alpha_value = 0.7f * 255; // alpha value of unhighlighted descriptors
         const int hover_alpha_value = 0.15f * 255; // alpha value of descriptors within hover radius but not selected
         
         const String TYPEFACE = "Helvetica";
-        int base_font_size = 12; // smallest font size of descriptors on the map
-        
         //=====================================================================
         
         
+        //=====================================================================
         // Private helper functions
         
         /**
@@ -223,6 +220,14 @@ namespace Audealize {
          *  @param dirty 
          */
         void setDirty(bool dirty = true);
+        
+        /**
+         *  Comparison functions used when normalizing a vector<Point<float>>
+         *
+         */
+        static bool compareX(Point<float> p1, Point<float> p2);
+        static bool compareY(Point<float> p1, Point<float> p2);
+        
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WordMap)
     };

@@ -60,13 +60,6 @@ private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeeqAudioProcessor)
     
-    
-    /**
-     *  Returns a string with the parameter ID of one of the graphic eq gain parameters
-     *
-     *  @param index
-     */
-    
     const String PATH_TO_POINTS = "/Users/michael/JUCE/projects/audealize-plugin/JUCE Modules/audealize_module/data/eqpoints.json"; //@TODO
         
     NormalisableRange<float> mGainRange; // Range of the graphic eq gain sliders

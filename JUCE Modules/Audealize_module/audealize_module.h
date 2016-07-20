@@ -8,7 +8,7 @@
       website:          http://music.eecs.northwestern.edu
       license:          
 
-      dependencies:     juce_core, juce_audio_processors, juce_audio_basics, juce_audio_formats, juce_audio_utils, juce_graphics
+      dependencies:     juce_core, juce_audio_processors, juce_audio_basics, juce_audio_formats, juce_audio_utils, juce_graphics, juce_gui_basics
 
      END_JUCE_MODULE_DECLARATION
 */

@@ -252,7 +252,7 @@ public:
         editor.setBounds(getLocalBounds()); 
     }
     
-    void actionListenerCallback(const juce::String &message){
+    void actionListenerCallback(const juce::String &message) override{
         if(!message.equalsIgnoreCase("_languagechanged")){
             editor.setText(message);
             editor.selectAll();

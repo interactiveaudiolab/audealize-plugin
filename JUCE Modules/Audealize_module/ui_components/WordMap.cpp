@@ -192,7 +192,7 @@ namespace Audealize {
         g.drawText(info_text, getWidth() - 420, getHeight() - 22, 412, 18, Justification::bottomRight);
         
         if (!init_map) {
-            info_text = String("'" + words[center_index] + "' learned from " + String(nums[center_index]) + " contributions.");
+            info_text = String("\"" + words[center_index] + "\" learned from " + String(nums[center_index]) + " contributions.");
             g.drawText(info_text, 6, getHeight() - 22, 250, 18, Justification::bottomLeft);
         }
     }

@@ -14,7 +14,7 @@
 using namespace juce;
 
 namespace Audealize{
-    class AudealizeUI  : public AudioProcessorEditor,
+    class AudealizeUI : public AudioProcessorEditor,
     public TextEditorListener,
     public ActionListener,
     public ButtonListener

@@ -19,9 +19,8 @@ namespace Audealize{
         addAndMakeVisible (mWordMap = new Audealize::WordMap (p, descriptors));
         mWordMap->setName ("Descriptor Map");
         mWordMap->setBroughtToFrontOnMouseClick(true);
-        mWordMap->addActionListener(mSearchBar);
         mWordMap->addActionListener(this);
- 
+        
         // amount slider
         addAndMakeVisible (mAmountSlider = new Slider ("Amount"));
         mAmountSlider->setRange (0, 10, 0);
@@ -92,7 +91,8 @@ namespace Audealize{
         mSearchBar->getEditor()->setSelectAllWhenFocused(true);
         mSearchBar->getEditor()->setTextToShowWhenEmpty("Search for a word to apply", Colour (0xff888888));
         mSearchBar->setOptions(mWordMap->getWords());
-        
+        mWordMap->addActionListener(mSearchBar);
+
         // traditional UI
         addAndMakeVisible(mTradUI);
         mTradUI->setVisible(false); // hidden by default
@@ -285,7 +285,8 @@ namespace Audealize{
             mSearchBar->setOptions(mWordMap->getWords()); // update the set of words that will be searched by the search bar to include only the selected languages
         }
         else{
-            mLabelLess->setText("Less " + message, NotificationType::sendNotification); // change the text of the amount slider label to include the descriptor
+            mLabelLess->setText("Less \"" + message + "\"", NotificationType::sendNotification); // change the text of the amount slider label to include the descriptor
+        
         }
     }
     

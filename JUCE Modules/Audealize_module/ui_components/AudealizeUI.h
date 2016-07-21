@@ -62,6 +62,9 @@ namespace Audealize{
         void lookAndFeelChanged() override;
         void childrenChanged() override;
         
+        bool isTraditionalUIVisible(){
+            return isTradUIVisible;
+        }
     
     private:
         AudealizeAudioProcessor& processor;

@@ -9,16 +9,20 @@
 */
 
 #include "PluginProcessor.h"
-#include "PluginEditor.h"
 
+using std::vector;
 
 //==============================================================================
 AudealizeMultiAudioProcessor::AudealizeMultiAudioProcessor()
 {
+    mEQAudioProcessor = new AudealizeeqAudioProcessor();
+    mReverbAudioProcessor = new AudealizereverbAudioProcessor();
 }
 
 AudealizeMultiAudioProcessor::~AudealizeMultiAudioProcessor()
 {
+    mEQAudioProcessor = nullptr;
+    mReverbAudioProcessor = nullptr;
 }
 
 //==============================================================================
@@ -144,7 +148,12 @@ bool AudealizeMultiAudioProcessor::hasEditor() const
 
 AudioProcessorEditor* AudealizeMultiAudioProcessor::createEditor()
 {
-    return new AudealizeMultiAudioProcessorEditor (*this);
+    vector<ScopedPointer<AudioProcessorEditor>> audealizeUIs;
+    
+    audealizeUIs.push_back(mEQAudioProcessor->createEditor());
+    audealizeUIs.push_back(mReverbAudioProcessor->createEditor());
+    
+    return new AudealizeMultiUI (*this, audealizeUIs);
 }
 
 //==============================================================================

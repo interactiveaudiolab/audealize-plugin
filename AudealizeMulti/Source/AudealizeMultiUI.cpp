@@ -27,7 +27,7 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-TabbedMenuBar::TabbedMenuBar (AudealizeAudioProcessor& p, vector<ScopedPointer<AudealizeUI>> AudealizeUIs)
+AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<AudioProcessorEditor>> AudealizeUIs)
     : AudioProcessorEditor(&p), mAudealizeUIs(AudealizeUIs)
 {
     //[Constructor_pre] You can add your own custom stuff here..
@@ -35,8 +35,8 @@ TabbedMenuBar::TabbedMenuBar (AudealizeAudioProcessor& p, vector<ScopedPointer<A
 
     addAndMakeVisible (mTabbedComponent = new TabbedComponent (TabbedButtonBar::TabsAtTop));
     mTabbedComponent->setTabBarDepth (28);
-    mTabbedComponent->addTab (TRANS("EQ"), Colours::white, new AudealizeUI (mAudealizeUIs[0]), true);
-    mTabbedComponent->addTab (TRANS("Reverb"), Colours::white, new AudealizeUI (mAudealizeUIs[1]), true);
+    mTabbedComponent->addTab (TRANS("EQ"), Colours::white, mAudealizeUIs[0], true);
+    mTabbedComponent->addTab (TRANS("Reverb"), Colours::white, mAudealizeUIs[1], true);
     mTabbedComponent->setCurrentTabIndex (0);
 
     addAndMakeVisible (label = new Label ("new label",
@@ -49,16 +49,19 @@ TabbedMenuBar::TabbedMenuBar (AudealizeAudioProcessor& p, vector<ScopedPointer<A
 
 
     //[UserPreSize]
+    mResizeLimits = new ComponentBoundsConstrainer();
+    mResizeLimits->setSizeLimits (600, 400, 1180, 800);
+    addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
     //[/UserPreSize]
 
-    setSize (600, 400);
+    setSize (840, 560);
 
 
     //[Constructor] You can add your own custom stuff here..
     //[/Constructor]
 }
 
-TabbedMenuBar::~TabbedMenuBar()
+AudealizeMultiUI::~AudealizeMultiUI()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
@@ -72,7 +75,7 @@ TabbedMenuBar::~TabbedMenuBar()
 }
 
 //==============================================================================
-void TabbedMenuBar::paint (Graphics& g)
+void AudealizeMultiUI::paint (Graphics& g)
 {
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
@@ -83,7 +86,7 @@ void TabbedMenuBar::paint (Graphics& g)
     //[/UserPaint]
 }
 
-void TabbedMenuBar::resized()
+void AudealizeMultiUI::resized()
 {
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
@@ -92,6 +95,13 @@ void TabbedMenuBar::resized()
     label->setBounds (8, 8, 152, 32);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
+}
+
+void AudealizeMultiUI::childrenChanged()
+{
+    //[UserCode_childrenChanged] -- Add your code here...
+
+    //[/UserCode_childrenChanged]
 }
 
 
@@ -109,19 +119,21 @@ void TabbedMenuBar::resized()
 
 BEGIN_JUCER_METADATA
 
-<JUCER_COMPONENT documentType="Component" className="TabbedMenuBar" componentName=""
-                 parentClasses="public Component, public AudioProcessorEditor"
-                 constructorParams="AudealizeAudioProcessor&amp; p, vector&lt;ScopedPointer&lt;AudealizeUI&gt;&gt; AudealizeUIs"
+<JUCER_COMPONENT documentType="Component" className="AudealizeMultiUI" componentName=""
+                 parentClasses="public AudioProcessorEditor" constructorParams="AudioProcessor&amp; p, vector&lt;ScopedPointer&lt;AudioProcessorEditor&gt;&gt; AudealizeUIs"
                  variableInitialisers="AudioProcessorEditor(&amp;p), mAudealizeUIs(AudealizeUIs)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="0" initialWidth="600" initialHeight="400">
+                 fixedSize="0" initialWidth="840" initialHeight="560">
+  <METHODS>
+    <METHOD name="childrenChanged()"/>
+  </METHODS>
   <BACKGROUND backgroundColour="ffffffff"/>
   <TABBEDCOMPONENT name="Effect Select" id="2c201af9ffdf5533" memberName="mTabbedComponent"
                    virtualName="" explicitFocusOrder="0" pos="0 44 0M 44M" orientation="top"
                    tabBarDepth="28" initialTab="0">
-    <TAB name="EQ" colour="ffffffff" useJucerComp="0" contentClassName="AudealizeUI"
+    <TAB name="EQ" colour="ffffffff" useJucerComp="0" contentClassName="AudioProcessorEditor"
          constructorParams="mAudealizeUIs[0]" jucerComponentFile=""/>
-    <TAB name="Reverb" colour="ffffffff" useJucerComp="0" contentClassName="AudealizeUI"
+    <TAB name="Reverb" colour="ffffffff" useJucerComp="0" contentClassName="AudioProcessorEditor"
          constructorParams="mAudealizeUIs[1]" jucerComponentFile=""/>
   </TABBEDCOMPONENT>
   <LABEL name="new label" id="f1105aba3ed6efbd" memberName="label" virtualName=""

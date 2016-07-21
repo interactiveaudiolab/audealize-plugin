@@ -1,30 +1,17 @@
-/*
-  ==============================================================================
+#ifndef AUDEALIZEEQAUDIOPROCESSOR_H_INCLUDED
+#define AUDEALIZEEQAUDIOPROCESSOR_H_INCLUDED
 
-    This file was auto-generated!
+#define NUMBANDS 40 // the number of eq bands
 
-    It contains the basic framework code for a JUCE plugin processor.
-
-  ==============================================================================
-*/
-
-#ifndef PLUGINPROCESSOR_H_INCLUDED
-#define PLUGINPROCESSOR_H_INCLUDED
-
-#include "../JuceLibraryCode/JuceHeader.h"
-#include "AudealizeMultiUI.h"
-
-using std::vector;
+using namespace Audealize;
 
 //==============================================================================
-/**
-*/
-class AudealizeMultiAudioProcessor  : public AudioProcessor
+class AudealizeeqAudioProcessor  : public AudealizeAudioProcessor
 {
 public:
     //==============================================================================
-    AudealizeMultiAudioProcessor();
-    ~AudealizeMultiAudioProcessor();
+    AudealizeeqAudioProcessor();
+    ~AudealizeeqAudioProcessor();
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -54,17 +41,27 @@ public:
     const String getProgramName (int index) override;
     void changeProgramName (int index, const String& newName) override;
 
-    //==============================================================================
-    void getStateInformation (MemoryBlock& destData) override;
-    void setStateInformation (const void* data, int sizeInBytes) override;
-
+    
+    void parameterChanged(const juce::String &parameterID, float newValue) override;
+    void settingsFromMap(vector<float> settings) override;
+    
+    inline String getParamID(int index) override;
+    
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeMultiAudioProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeeqAudioProcessor)
     
-    ScopedPointer<AudealizeeqAudioProcessor> mEQAudioProcessor;
-    ScopedPointer<AudealizereverbAudioProcessor> mReverbAudioProcessor;
+    const String PATH_TO_POINTS = "/Users/michael/JUCE/projects/audealize-plugin/JUCE Modules/audealize_module/data/eqpoints.json"; //@TODO
+        
+    NormalisableRange<float> mGainRange; // Range of the graphic eq gain sliders
+        
+    LinearSmoothedValue<float> mSmoothedVals[NUMBANDS];
+    
+    std::vector<float> mFreqs = {20, 50, 83, 120, 161, 208, 259, 318, 383, 455, 537, 628, 729, 843, 971, 1114, 1273, 1452, 1652, 1875, 2126, 2406, 2719, 3070, 3462, 3901, 4392, 4941, 5556, 6244, 7014, 7875, 8839, 9917, 11124, 12474, 13984, 15675, 17566, 19682};
+    
+    Equalizer mEqualizer;
+    
 };
 
 
-#endif  // PLUGINPROCESSOR_H_INCLUDED
+#endif  // AUDEALIZEEQAUDIOPROCESSOR_H_INCLUDED

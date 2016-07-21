@@ -17,13 +17,14 @@
   ==============================================================================
 */
 
-#ifndef __JUCE_HEADER_6E32A24B25A51A81__
-#define __JUCE_HEADER_6E32A24B25A51A81__
+#ifndef __JUCE_HEADER_2C6B94272375A9F2__
+#define __JUCE_HEADER_2C6B94272375A9F2__
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
 
 using std::vector;
+using namespace Audealize;
 //[/Headers]
 
 
@@ -36,13 +37,12 @@ using std::vector;
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class TabbedMenuBar  : public Component,
-                       public AudioProcessorEditor
+class AudealizeMultiUI  : public AudioProcessorEditor
 {
 public:
     //==============================================================================
-    TabbedMenuBar (AudealizeAudioProcessor& p, vector<ScopedPointer<AudealizeUI>> AudealizeUIs);
-    ~TabbedMenuBar();
+    AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<AudioProcessorEditor>> AudealizeUIs);
+    ~AudealizeMultiUI();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
@@ -50,12 +50,16 @@ public:
 
     void paint (Graphics& g) override;
     void resized() override;
+    void childrenChanged() override;
 
 
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    vector<ScopedPointer<AudealizeUI>> mAudealizeUIs
+    vector<ScopedPointer<AudioProcessorEditor>> mAudealizeUIs;
+
+    ScopedPointer<ResizableCornerComponent> mResizer; // handles resizing of the plugin window
+    ScopedPointer<ComponentBoundsConstrainer> mResizeLimits; // sets size limits for the plugin window
     //[/UserVariables]
 
     //==============================================================================
@@ -64,10 +68,10 @@ private:
 
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TabbedMenuBar)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeMultiUI)
 };
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
 
-#endif   // __JUCE_HEADER_6E32A24B25A51A81__
+#endif   // __JUCE_HEADER_2C6B94272375A9F2__

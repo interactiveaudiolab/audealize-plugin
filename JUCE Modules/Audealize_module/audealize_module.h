@@ -48,5 +48,7 @@
 #include "effects/Equalizer.h"
 #include "effects/Reverb.h"
 
+#include "audio_processors/AudealizeEQAudioProcessor.h"
+#include "audio_processors/AudealizeReverbAudioProcessor.h"
 
 #endif   // AUDEALIZE_MODULE

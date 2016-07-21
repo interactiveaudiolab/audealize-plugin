@@ -11,6 +11,24 @@
     <Filter Include="Juce Modules">
       <UniqueIdentifier>{422C46B7-0467-2DB0-BF3C-16DFCAFD69AC}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Juce Modules\audealize_module">
+      <UniqueIdentifier>{71612B26-CC25-B965-C4EC-CA9749EAEB85}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Juce Modules\audealize_module\audio_processors">
+      <UniqueIdentifier>{7145902F-3555-28B3-D15A-708C95B28295}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Juce Modules\audealize_module\effects">
+      <UniqueIdentifier>{955ED6E7-5DDF-4809-DC71-11C115B1E68F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Juce Modules\audealize_module\ui_components">
+      <UniqueIdentifier>{944EDE95-7E2E-8781-F4FE-D044E4D6D8F1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Juce Modules\audealize_module\utils">
+      <UniqueIdentifier>{A76F55FB-80AD-41F9-CEA1-E77EF91BDF00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Juce Modules\audealize_module\utils\calf_dsp_library">
+      <UniqueIdentifier>{88C0B487-78B3-2152-58F8-65A6FE8A347F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Juce Modules\juce_audio_basics">
       <UniqueIdentifier>{3247ED97-A75A-F50B-8CCC-46155E895806}</UniqueIdentifier>
     </Filter>
@@ -145,6 +163,18 @@
     </Filter>
     <Filter Include="Juce Modules\juce_audio_processors\utilities">
       <UniqueIdentifier>{8F91DFC0-7A71-1BA8-D8D9-6B4CF49151A4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Juce Modules\juce_audio_utils">
+      <UniqueIdentifier>{B63F69FD-8A40-8E1E-E7ED-419B8DC1C12B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Juce Modules\juce_audio_utils\gui">
+      <UniqueIdentifier>{8167E753-09C7-5D1C-EF2B-32D297557443}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Juce Modules\juce_audio_utils\native">
+      <UniqueIdentifier>{B48C883A-8483-AF6D-808C-1D9A749048D8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Juce Modules\juce_audio_utils\players">
+      <UniqueIdentifier>{AEDCB7F7-7A36-5392-8E9A-715F5BDE35CB}</UniqueIdentifier>
     </Filter>
     <Filter Include="Juce Modules\juce_core">
       <UniqueIdentifier>{95CA1506-2B94-0DEE-0C8D-85EDEBBC4E88}</UniqueIdentifier>
@@ -385,8 +415,35 @@
     <ClCompile Include="..\..\Source\PluginProcessor.cpp">
       <Filter>Audealize\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\PluginEditor.cpp">
+    <ClCompile Include="..\..\Source\AudealizeMultiUI.cpp">
       <Filter>Audealize\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeEQAudioProcessor.cpp">
+      <Filter>Juce Modules\audealize_module\audio_processors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeReverbAudioProcessor.cpp">
+      <Filter>Juce Modules\audealize_module\audio_processors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeUI.cpp">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\GraphicEQComponent.cpp">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\ReverbComponent.cpp">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\WordMap.cpp">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\utils\Biquad.cpp">
+      <Filter>Juce Modules\audealize_module\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\audealize_module.cpp">
+      <Filter>Juce Modules\audealize_module</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\audealize_module.mm">
+      <Filter>Juce Modules\audealize_module</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\juce_audio_basics\buffers\juce_AudioDataConverters.cpp">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
@@ -945,6 +1002,48 @@
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\juce_audio_processors\juce_audio_processors.mm">
       <Filter>Juce Modules\juce_audio_processors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\juce_audio_utils\gui\juce_AudioAppComponent.cpp">
+      <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\juce_audio_utils\gui\juce_AudioDeviceSelectorComponent.cpp">
+      <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\juce_audio_utils\gui\juce_AudioThumbnail.cpp">
+      <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\juce_audio_utils\gui\juce_AudioThumbnailCache.cpp">
+      <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\juce_audio_utils\gui\juce_AudioVisualiserComponent.cpp">
+      <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\juce_audio_utils\gui\juce_MidiKeyboardComponent.cpp">
+      <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\juce_audio_utils\native\juce_android_BluetoothMidiDevicePairingDialogue.cpp">
+      <Filter>Juce Modules\juce_audio_utils\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\juce_audio_utils\native\juce_ios_BluetoothMidiDevicePairingDialogue.mm">
+      <Filter>Juce Modules\juce_audio_utils\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\juce_audio_utils\native\juce_linux_BluetoothMidiDevicePairingDialogue.cpp">
+      <Filter>Juce Modules\juce_audio_utils\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\juce_audio_utils\native\juce_mac_BluetoothMidiDevicePairingDialogue.mm">
+      <Filter>Juce Modules\juce_audio_utils\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\juce_audio_utils\native\juce_win_BluetoothMidiDevicePairingDialogue.cpp">
+      <Filter>Juce Modules\juce_audio_utils\native</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\juce_audio_utils\players\juce_AudioProcessorPlayer.cpp">
+      <Filter>Juce Modules\juce_audio_utils\players</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\juce_audio_utils\juce_audio_utils.cpp">
+      <Filter>Juce Modules\juce_audio_utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\juce_audio_utils\juce_audio_utils.mm">
+      <Filter>Juce Modules\juce_audio_utils</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\juce_core\containers\juce_AbstractFifo.cpp">
       <Filter>Juce Modules\juce_core\containers</Filter>
@@ -2173,6 +2272,9 @@
     <ClCompile Include="..\..\..\JUCE Modules\juce_video\juce_video.mm">
       <Filter>Juce Modules\juce_video</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\audealize_module.cpp">
+      <Filter>Juce Library Code</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\juce_audio_basics.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
@@ -2195,6 +2297,9 @@
       <Filter>Juce Library Code</Filter>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\juce_audio_processors.cpp">
+      <Filter>Juce Library Code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\juce_audio_utils.cpp">
       <Filter>Juce Library Code</Filter>
     </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\juce_core.cpp">
@@ -2229,8 +2334,77 @@
     <ClInclude Include="..\..\Source\PluginProcessor.h">
       <Filter>Audealize\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\PluginEditor.h">
+    <ClInclude Include="..\..\Source\AudealizeMultiUI.h">
       <Filter>Audealize\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeEQAudioProcessor.h">
+      <Filter>Juce Modules\audealize_module\audio_processors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeReverbAudioProcessor.h">
+      <Filter>Juce Modules\audealize_module\audio_processors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\AudioEffect.h">
+      <Filter>Juce Modules\audealize_module\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\Equalizer.h">
+      <Filter>Juce Modules\audealize_module\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\NChannelFilter.h">
+      <Filter>Juce Modules\audealize_module\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\Reverb.h">
+      <Filter>Juce Modules\audealize_module\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeUI.h">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\GraphicEQComponent.h">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\ReverbComponent.h">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\TraditionalUIComponent.h">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\TypeaheadPopupMenu.h">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\WordMap.h">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\calf_dsp_library\buffer.h">
+      <Filter>Juce Modules\audealize_module\utils\calf_dsp_library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\calf_dsp_library\delay.h">
+      <Filter>Juce Modules\audealize_module\utils\calf_dsp_library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\calf_dsp_library\onepole.h">
+      <Filter>Juce Modules\audealize_module\utils\calf_dsp_library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\calf_dsp_library\primitives.h">
+      <Filter>Juce Modules\audealize_module\utils\calf_dsp_library</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\Biquad.h">
+      <Filter>Juce Modules\audealize_module\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\CParamSmooth.h">
+      <Filter>Juce Modules\audealize_module\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\json.hpp">
+      <Filter>Juce Modules\audealize_module\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\PrimeFactors.h">
+      <Filter>Juce Modules\audealize_module\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audealize_module.h">
+      <Filter>Juce Modules\audealize_module</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\AudealizeAudioProcessor.h">
+      <Filter>Juce Modules\audealize_module</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audealize_module.h">
+      <Filter>Juce Modules\audealize_module</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\juce_audio_basics\buffers\juce_AudioDataConverters.h">
       <Filter>Juce Modules\juce_audio_basics\buffers</Filter>
@@ -2921,6 +3095,39 @@
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\juce_audio_processors\juce_audio_processors.h">
       <Filter>Juce Modules\juce_audio_processors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\juce_audio_utils\gui\juce_AudioAppComponent.h">
+      <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\juce_audio_utils\gui\juce_AudioDeviceSelectorComponent.h">
+      <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\juce_audio_utils\gui\juce_AudioThumbnail.h">
+      <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\juce_audio_utils\gui\juce_AudioThumbnailBase.h">
+      <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\juce_audio_utils\gui\juce_AudioThumbnailCache.h">
+      <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\juce_audio_utils\gui\juce_AudioVisualiserComponent.h">
+      <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\juce_audio_utils\gui\juce_BluetoothMidiDevicePairingDialogue.h">
+      <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\juce_audio_utils\gui\juce_MidiKeyboardComponent.h">
+      <Filter>Juce Modules\juce_audio_utils\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\juce_audio_utils\players\juce_AudioProcessorPlayer.h">
+      <Filter>Juce Modules\juce_audio_utils\players</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\juce_audio_utils\juce_audio_utils.h">
+      <Filter>Juce Modules\juce_audio_utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\juce_audio_utils\juce_audio_utils.h">
+      <Filter>Juce Modules\juce_audio_utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\juce_core\containers\juce_AbstractFifo.h">
       <Filter>Juce Modules\juce_core\containers</Filter>

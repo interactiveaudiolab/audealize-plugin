@@ -50,13 +50,15 @@ endif
 
 OBJECTS := \
   $(OBJDIR)/PluginProcessor_a059e380.o \
-  $(OBJDIR)/PluginEditor_94d4fb09.o \
+  $(OBJDIR)/AudealizeMultiUI_3f5f7642.o \
+  $(OBJDIR)/audealize_module_6185acc0.o \
   $(OBJDIR)/juce_audio_basics_6b797ca1.o \
   $(OBJDIR)/juce_audio_devices_a742c38b.o \
   $(OBJDIR)/juce_audio_formats_5a29c68a.o \
   $(OBJDIR)/juce_audio_plugin_client_utils_35fbf7.o \
   $(OBJDIR)/juce_audio_plugin_client_VST2_fd137df.o \
   $(OBJDIR)/juce_audio_processors_dea3173d.o \
+  $(OBJDIR)/juce_audio_utils_c7eb679f.o \
   $(OBJDIR)/juce_core_75b14332.o \
   $(OBJDIR)/juce_cryptography_6de2ebff.o \
   $(OBJDIR)/juce_data_structures_72d3da2c.o \
@@ -89,9 +91,14 @@ $(OBJDIR)/PluginProcessor_a059e380.o: ../../Source/PluginProcessor.cpp
 	@echo "Compiling PluginProcessor.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
-$(OBJDIR)/PluginEditor_94d4fb09.o: ../../Source/PluginEditor.cpp
+$(OBJDIR)/AudealizeMultiUI_3f5f7642.o: ../../Source/AudealizeMultiUI.cpp
 	-@mkdir -p $(OBJDIR)
-	@echo "Compiling PluginEditor.cpp"
+	@echo "Compiling AudealizeMultiUI.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/audealize_module_6185acc0.o: ../../JuceLibraryCode/audealize_module.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling audealize_module.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/juce_audio_basics_6b797ca1.o: ../../JuceLibraryCode/juce_audio_basics.cpp
@@ -122,6 +129,11 @@ $(OBJDIR)/juce_audio_plugin_client_VST2_fd137df.o: ../../JuceLibraryCode/juce_au
 $(OBJDIR)/juce_audio_processors_dea3173d.o: ../../JuceLibraryCode/juce_audio_processors.cpp
 	-@mkdir -p $(OBJDIR)
 	@echo "Compiling juce_audio_processors.cpp"
+	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
+
+$(OBJDIR)/juce_audio_utils_c7eb679f.o: ../../JuceLibraryCode/juce_audio_utils.cpp
+	-@mkdir -p $(OBJDIR)
+	@echo "Compiling juce_audio_utils.cpp"
 	@$(CXX) $(CXXFLAGS) -o "$@" -c "$<"
 
 $(OBJDIR)/juce_core_75b14332.o: ../../JuceLibraryCode/juce_core.cpp

@@ -106,9 +106,12 @@ namespace Audealize{
         
         
         // resize limits + ResizableCornerComponent
-        mResizeLimits = new ComponentBoundsConstrainer();
-        mResizeLimits->setSizeLimits (600, 400, 1180, 800);
-        addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
+
+        if (getTopLevelComponent() == NULL){ // if there are no parent components
+            mResizeLimits = new ComponentBoundsConstrainer();
+            mResizeLimits->setSizeLimits (600, 400, 1180, 800);
+            addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
+        }
         
         // set initial size of plugin window
         setSize (840, 560);
@@ -142,8 +145,9 @@ namespace Audealize{
     void AudealizeUI::resized()
     {
         // resizable corner
-        mResizer->setBounds (getWidth() - 18, getHeight() - 18, 16, 16);
-        
+        if (getTopLevelComponent() == NULL){
+            mResizer->setBounds (getWidth() - 18, getHeight() - 18, 16, 16);
+        }
         
         // reduce word map font size if width of window is less than fontSizeThresh
         int fontSizeThresh = 750;
@@ -241,7 +245,8 @@ namespace Audealize{
                 
                 mTradUIButton->setButtonText (TRANS("+ Show " + String(mTradUI->getName()))); // update the text on traditional UI button "Hide" -> "Show"
                 
-                mResizeLimits->setSizeLimits (600, 400, 1180, 800); // window size limits depend on whether or not the traditional UI is visible
+                if (getTopLevelComponent() == NULL)
+                    mResizeLimits->setSizeLimits (600, 400, 1180, 800); // window size limits depend on whether or not the traditional UI is visible
             }
             else{
                 isTradUIVisible = true;
@@ -252,7 +257,8 @@ namespace Audealize{
                 
                 mTradUIButton->setButtonText (TRANS("- Hide " + String(mTradUI->getName()))); // update the text on traditional UI button "Show" -> "Hide"
                 
-                mResizeLimits->setSizeLimits (600, 400 + mTradUI->getHeight() + 10, 1180, 800 + mTradUI->getHeight() + 10); // window size limits depend on whether or not the traditional UI is visible
+                if (getTopLevelComponent() == NULL)
+                    mResizeLimits->setSizeLimits (600, 400 + mTradUI->getHeight() + 10, 1180, 800 + mTradUI->getHeight() + 10); // window size limits depend on whether or not the traditional UI is visible
             }
         }// end if buttonThatWasClicked
     }

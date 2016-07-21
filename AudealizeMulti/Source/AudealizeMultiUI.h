@@ -37,11 +37,11 @@ using namespace Audealize;
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class AudealizeMultiUI  : public AudioProcessorEditor
+class AudealizeMultiUI  : public AudioProcessorEditor, public ButtonListener
 {
 public:
     //==============================================================================
-    AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<AudioProcessorEditor>> AudealizeUIs);
+    AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<AudealizeUI>> AudealizeUIs);
     ~AudealizeMultiUI();
 
     //==============================================================================
@@ -52,14 +52,17 @@ public:
     void resized() override;
     void childrenChanged() override;
 
-
-
+    void buttonClicked (Button* buttonThatWasClicked) override;
+    
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    vector<ScopedPointer<AudioProcessorEditor>> mAudealizeUIs;
+    vector<ScopedPointer<AudealizeUI>> mAudealizeUIs;
 
     ScopedPointer<ResizableCornerComponent> mResizer; // handles resizing of the plugin window
     ScopedPointer<ComponentBoundsConstrainer> mResizeLimits; // sets size limits for the plugin window
+    
+    bool hasBeenPainted;
+    int prevChildHeight;
     //[/UserVariables]
 
     //==============================================================================

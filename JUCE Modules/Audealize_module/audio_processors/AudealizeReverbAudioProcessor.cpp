@@ -199,7 +199,7 @@ bool AudealizereverbAudioProcessor::hasEditor() const
     return true; 
 }
 
-AudioProcessorEditor* AudealizereverbAudioProcessor::createEditor()
+AudealizeUI* AudealizereverbAudioProcessor::createEditor()
 {
     ScopedPointer<TraditionalUI> mReverbComponent = new ReverbComponent(*this);
     

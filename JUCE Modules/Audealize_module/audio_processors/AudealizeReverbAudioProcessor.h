@@ -18,7 +18,7 @@ public:
 
     void processBlock (AudioSampleBuffer&, MidiBuffer&) override;
 
-    AudioProcessorEditor* createEditor() override;
+    AudealizeUI* createEditor() override;
     bool hasEditor() const override;
 
     const String getName() const override;

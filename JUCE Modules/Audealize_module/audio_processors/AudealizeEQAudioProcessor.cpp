@@ -163,7 +163,7 @@ bool AudealizeeqAudioProcessor::hasEditor() const
     return true; // (change this to false if you choose to not supply an editor)
 }
 
-AudioProcessorEditor* AudealizeeqAudioProcessor::createEditor()
+AudealizeUI* AudealizeeqAudioProcessor::createEditor()
 {
     ScopedPointer<TraditionalUI> mGraphicEQ = new GraphicEQComponent(*this, NUMBANDS, mGainRange);
     return new AudealizeUI (*this, mGraphicEQ, PATH_TO_POINTS, "EQ");

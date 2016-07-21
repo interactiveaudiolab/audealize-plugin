@@ -27,7 +27,7 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<AudioProcessorEditor>> AudealizeUIs)
+AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<AudealizeUI>> AudealizeUIs)
     : AudioProcessorEditor(&p), mAudealizeUIs(AudealizeUIs)
 {
     //[Constructor_pre] You can add your own custom stuff here..
@@ -59,6 +59,8 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<Audi
 
 
     //[Constructor] You can add your own custom stuff here..
+    prevChildHeight = mAudealizeUIs[0]->getHeight();
+    hasBeenPainted = false;
     //[/Constructor]
 }
 
@@ -79,6 +81,7 @@ AudealizeMultiUI::~AudealizeMultiUI()
 void AudealizeMultiUI::paint (Graphics& g)
 {
     //[UserPrePaint] Add your own custom painting code here..
+    hasBeenPainted = true;
     //[/UserPrePaint]
 
     g.fillAll (Colours::white);
@@ -109,6 +112,10 @@ void AudealizeMultiUI::childrenChanged()
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+void AudealizeMultiUI::buttonClicked (Button* buttonThatWasClicked){
+    bool isTradUIVisible;
+}
+
 //[/MiscUserCode]
 
 
@@ -122,8 +129,8 @@ void AudealizeMultiUI::childrenChanged()
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="AudealizeMultiUI" componentName=""
-                 parentClasses="public AudioProcessorEditor" constructorParams="AudioProcessor&amp; p, vector&lt;ScopedPointer&lt;AudioProcessorEditor&gt;&gt; AudealizeUIs"
-                 variableInitialisers="AudioProcessorEditor(&amp;p), mAudealizeUIs(AudealizeUIs)"
+                 parentClasses="public AudealizeUI" constructorParams="AudioProcessor&amp; p, vector&lt;ScopedPointer&lt;AudealizeUI&gt;&gt; AudealizeUIs"
+                 variableInitialisers="AudealizeUI(&amp;p), mAudealizeUIs(AudealizeUIs)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="840" initialHeight="560">
   <METHODS>
@@ -133,9 +140,9 @@ BEGIN_JUCER_METADATA
   <TABBEDCOMPONENT name="Effect Select" id="2c201af9ffdf5533" memberName="mTabbedComponent"
                    virtualName="" explicitFocusOrder="0" pos="0 44 0M 44M" orientation="top"
                    tabBarDepth="28" initialTab="0">
-    <TAB name="EQ" colour="ffffffff" useJucerComp="0" contentClassName="AudioProcessorEditor"
+    <TAB name="EQ" colour="ffffffff" useJucerComp="0" contentClassName="AudealizeUI"
          constructorParams="mAudealizeUIs[0]" jucerComponentFile=""/>
-    <TAB name="Reverb" colour="ffffffff" useJucerComp="0" contentClassName="AudioProcessorEditor"
+    <TAB name="Reverb" colour="ffffffff" useJucerComp="0" contentClassName="AudealizeUI"
          constructorParams="mAudealizeUIs[1]" jucerComponentFile=""/>
   </TABBEDCOMPONENT>
   <LABEL name="new label" id="f1105aba3ed6efbd" memberName="label" virtualName=""

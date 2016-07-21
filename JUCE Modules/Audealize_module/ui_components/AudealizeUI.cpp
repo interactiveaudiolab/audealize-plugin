@@ -59,26 +59,28 @@ namespace Audealize{
         mEspanolButton->addListener (this);
         mEspanolButton->setToggleState (true, dontSendNotification);
         
-        // Audealize title text
-        addAndMakeVisible (mAudealizeLabel = new Label ("Audealize",
-                                                        TRANS("Audealize\n")));
-        mAudealizeLabel->setFont (Font ("Helvetica", 28, Font::plain));
-        mAudealizeLabel->setJustificationType (Justification::topLeft);
-        mAudealizeLabel->setEditable (false, false, false);
-        mAudealizeLabel->setColour (TextEditor::textColourId, Colours::black);
-        mAudealizeLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-        
-        // Audealize effect type title text
-        addAndMakeVisible (mEffectTypeLabel = new Label ("Effect Type",
-                                                         TRANS("Type\n")));
-        mEffectTypeLabel->setFont (Font ("Helvetica", 28, Font::plain));
-        mEffectTypeLabel->setJustificationType (Justification::topLeft);
-        mEffectTypeLabel->setEditable (false, false, false);
-        mEffectTypeLabel->setColour (Label::textColourId, Colours::black);
-        mEffectTypeLabel->setColour (TextEditor::textColourId, Colours::black);
-        mEffectTypeLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-        mEffectTypeLabel->setText(effectType, NotificationType::dontSendNotification);
-        
+        // if this AudealizeUI is a child component of an AudealizeMultiUI, we wont show the Audealize title text here. 
+        if (getTopLevelComponent() == NULL){
+            // Audealize title text
+            addAndMakeVisible (mAudealizeLabel = new Label ("Audealize",
+                                                            TRANS("Audealize\n")));
+            mAudealizeLabel->setFont (Font ("Helvetica", 28, Font::plain));
+            mAudealizeLabel->setJustificationType (Justification::topLeft);
+            mAudealizeLabel->setEditable (false, false, false);
+            mAudealizeLabel->setColour (TextEditor::textColourId, Colours::black);
+            mAudealizeLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+            
+            // Audealize effect type title text
+            addAndMakeVisible (mEffectTypeLabel = new Label ("Effect Type",
+                                                             TRANS("Type\n")));
+            mEffectTypeLabel->setFont (Font ("Helvetica", 28, Font::plain));
+            mEffectTypeLabel->setJustificationType (Justification::topLeft);
+            mEffectTypeLabel->setEditable (false, false, false);
+            mEffectTypeLabel->setColour (Label::textColourId, Colours::black);
+            mEffectTypeLabel->setColour (TextEditor::textColourId, Colours::black);
+            mEffectTypeLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+            mEffectTypeLabel->setText(effectType, NotificationType::dontSendNotification);
+        }
         
         // search bar
         addAndMakeVisible (mSearchBar = new TypeaheadEditor());
@@ -106,8 +108,8 @@ namespace Audealize{
         
         
         // resize limits + ResizableCornerComponent
-
-        if (getTopLevelComponent() == NULL){ // if there are no parent components
+        // if this AudealizeUI is a child component of an AudealizeMultiUI, resizing will be handled there
+        if (getTopLevelComponent() == NULL){ 
             mResizeLimits = new ComponentBoundsConstrainer();
             mResizeLimits->setSizeLimits (600, 400, 1180, 800);
             addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
@@ -160,6 +162,15 @@ namespace Audealize{
             mWordMap->setInfoTextSize(12);
         }
         
+        // if this AudealizeUI is a child component of an AudealizeMultiUI, we wont show the Audealize title text here. 
+        // bounds of wordmap, searchbar, language select buttons must be adjusted to accommodate
+        int titleTextOffset;
+        if (getTopLevelComponent() == NULL){
+            titleTextOffset = 0;
+        }
+        else{
+            titleTextOffset = -40;
+        }
         
         // calculate the width of the amount slider
         int sliderWidth = getWidth() * 0.28f;
@@ -167,21 +178,21 @@ namespace Audealize{
         // word map size and amount slider position are dependent upon whether or not traditional UI is visible
         if (isTradUIVisible)
         {
-            int offset = 130; // amount by which amount slider/tradui button will be offset from the bottom of the window when the traditional ui is visible
+            int tradUIOffset = 130; // amount by which amount slider/tradui button will be offset from the bottom of the window when the traditional ui is visible
             
-            mWordMap->setBounds (32, 105, getWidth() - 63, getHeight() - 163 - offset);
-            mTradUIButton->setBounds (40, getHeight() - 45 - offset, 190, 24);
+            mWordMap->setBounds (32, 105 + titleTextOffset, getWidth() - 63, getHeight() - 163 - tradUIOffset - titleTextOffset);
+            mTradUIButton->setBounds (40, getHeight() - 45 - tradUIOffset, 190, 24);
             
             // amount slider
-            mAmountSlider->setBounds (getWidth() - sliderWidth - 72, getHeight() - 45 - offset, sliderWidth, 24);
+            mAmountSlider->setBounds (getWidth() - sliderWidth - 72, getHeight() - 45 - tradUIOffset, sliderWidth, 24);
             
             // amount slider labels
-            mLabelLess->setBounds (getWidth() - sliderWidth - 185, getHeight() - 45 - offset, 114, 24);
-            mLabelMore->setBounds (getWidth() - 72, getHeight() - 45 - offset, 56, 24);
+            mLabelLess->setBounds (getWidth() - sliderWidth - 185, getHeight() - 45 - tradUIOffset, 114, 24);
+            mLabelMore->setBounds (getWidth() - 72, getHeight() - 45 - tradUIOffset - titleTextOffset, 56, 24);
         }
         else
         {
-            mWordMap->setBounds (32, 105, getWidth() - 63, getHeight() - 163);
+            mWordMap->setBounds (32, 105 + titleTextOffset, getWidth() - 63, getHeight() - 163 - titleTextOffset);
             mTradUIButton->setBounds (40, getHeight() - 45, 190, 24);
             
             // amount slider
@@ -193,15 +204,17 @@ namespace Audealize{
         }
         
         // Audealize title labels
-        mAudealizeLabel->setBounds (27, 22, 176, 32);
-        mEffectTypeLabel->setBounds (150, 22, 118, 32);
-        
+        if (getTopLevelComponent() == NULL){
+            mAudealizeLabel->setBounds (27, 22, 176, 32);
+            mEffectTypeLabel->setBounds (150, 22, 118, 32);
+        }
+
         // language select buttons
-        mEnglishButton->setBounds (getWidth() - 184, 65, 72, 24);
-        mEspanolButton->setBounds (getWidth() - 110, 65, 80, 24);
+        mEnglishButton->setBounds (getWidth() - 184, 65 + titleTextOffset, 72, 24);
+        mEspanolButton->setBounds (getWidth() - 110, 65 + titleTextOffset, 80, 24);
         
         // search bar
-        mSearchBar->setBounds (32, 60, 240, 32);
+        mSearchBar->setBounds (32, 60 + titleTextOffset, 240, 32);
         
         // traditional UI
         mTradUI->setBounds(38, getHeight() - 140, getWidth()-63, 120);

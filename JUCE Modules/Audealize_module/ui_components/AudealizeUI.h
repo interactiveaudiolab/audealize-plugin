@@ -65,7 +65,15 @@ namespace Audealize{
         bool isTraditionalUIVisible(){
             return isTradUIVisible;
         }
+        
+        ScopedPointer<TextButton> getTraditionalUIButton(){
+            return mTradUIButton;
+        }
     
+        ScopedPointer<TraditionalUI> getTraditionalUI(){
+            return mTradUI;
+        }
+        
     private:
         AudealizeAudioProcessor& processor;
         

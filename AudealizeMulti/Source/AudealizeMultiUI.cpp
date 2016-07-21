@@ -50,23 +50,30 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<Aude
 
     //[UserPreSize]
     mResizeLimits = new ComponentBoundsConstrainer();
-    mResizeLimits->setSizeLimits (600, 400, 1180, 800);
+    mResizeLimits->setSizeLimits (600, 500, 1180, 800);
     addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
     mResizer->setAlwaysOnTop(true);
     //[/UserPreSize]
 
     setSize (840, 560);
-
+	
 
     //[Constructor] You can add your own custom stuff here..
     prevChildHeight = mAudealizeUIs[0]->getHeight();
-    hasBeenPainted = false;
+    
+    mAudealizeUIs[1]->addActionListener(this);
+    for (int i = 0; i < mAudealizeUIs.size(); i++){
+        mAudealizeUIs[i]->addActionListener(this);
+    }
     //[/Constructor]
 }
 
 AudealizeMultiUI::~AudealizeMultiUI()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
+    for (int i = 0; i < mAudealizeUIs.size(); i++){
+        mAudealizeUIs[i] = nullptr;
+    }
     //[/Destructor_pre]
 
     mTabbedComponent = nullptr;
@@ -81,7 +88,6 @@ AudealizeMultiUI::~AudealizeMultiUI()
 void AudealizeMultiUI::paint (Graphics& g)
 {
     //[UserPrePaint] Add your own custom painting code here..
-    hasBeenPainted = true;
     //[/UserPrePaint]
 
     g.fillAll (Colours::white);
@@ -99,6 +105,7 @@ void AudealizeMultiUI::resized()
     mTabbedComponent->setBounds (0, 44, getWidth() - 0, getHeight() - 44);
     label->setBounds (8, 8, 152, 32);
     //[UserResized] Add your own custom resize handling here..
+    prevChildHeight = mAudealizeUIs[0]->getHeight();
     //[/UserResized]
 }
 
@@ -112,8 +119,32 @@ void AudealizeMultiUI::childrenChanged()
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
-void AudealizeMultiUI::buttonClicked (Button* buttonThatWasClicked){
-    bool isTradUIVisible;
+
+void AudealizeMultiUI::actionListenerCallback(const juce::String &message){
+    int childIndex = mTabbedComponent->getCurrentTabIndex();
+    DBG("ActionListenerCallback:" << " " << message);
+    DBG(childIndex);
+
+    if (message == "TradUI_TRUE"){
+        mResizeLimits->setSizeLimits (600, 500 + 120 + 10, 1180, 800 + 120 + 10); // window size limits depend on whether or not the traditional UI is visible
+        
+        for (int i = 0; i < mAudealizeUIs.size(); i++){
+            if (i != childIndex){
+                mAudealizeUIs[i]->getTraditionalUIButton()->setToggleState(true, sendNotification);
+            }
+        }
+    }
+    else if (message == "TradUI_FALSE"){
+        mResizeLimits->setSizeLimits (600, 500, 1180, 800); // window size limits depend on whether or not the traditional UI is visible
+        
+        for (int i = 0; i < mAudealizeUIs.size(); i++){
+            if (i != childIndex){
+                mAudealizeUIs[i]->getTraditionalUIButton()->setToggleState(false, sendNotification);
+            }
+        }
+    }
+    setBounds(getX(), getY(), getWidth(), getHeight() + mAudealizeUIs[childIndex]->getHeight() - prevChildHeight);
+    prevChildHeight = mAudealizeUIs[childIndex]->getHeight();
 }
 
 //[/MiscUserCode]

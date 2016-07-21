@@ -250,6 +250,7 @@ namespace Audealize{
         else if (buttonThatWasClicked == mTradUIButton)
         {
             if(mTradUI->isVisible()){
+                sendActionMessage("TradUI_FALSE");
                 isTradUIVisible = false;
                 
                 setSize(getWidth(), getHeight()-mTradUI->getHeight()-10); // resize the window
@@ -262,6 +263,7 @@ namespace Audealize{
                     mResizeLimits->setSizeLimits (600, 400, 1180, 800); // window size limits depend on whether or not the traditional UI is visible
             }
             else{
+                sendActionMessage("TradUI_TRUE");
                 isTradUIVisible = true;
                 
                 setSize(getWidth(), getHeight()+mTradUI->getHeight()+10); // resize the window to accommodate the traditional UI

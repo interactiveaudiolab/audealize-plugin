@@ -17,6 +17,7 @@ namespace Audealize{
     class AudealizeUI : public AudioProcessorEditor,
     public TextEditorListener,
     public ActionListener,
+    public ActionBroadcaster,
     public ButtonListener
     {
     public:
@@ -61,12 +62,12 @@ namespace Audealize{
         
         void lookAndFeelChanged() override;
         void childrenChanged() override;
-        
+                
         bool isTraditionalUIVisible(){
             return isTradUIVisible;
         }
         
-        ScopedPointer<TextButton> getTraditionalUIButton(){
+        TextButton* getTraditionalUIButton(){
             return mTradUIButton;
         }
     

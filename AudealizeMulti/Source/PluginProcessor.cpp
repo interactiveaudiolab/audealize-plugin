@@ -83,12 +83,16 @@ void AudealizeMultiAudioProcessor::prepareToPlay (double sampleRate, int samples
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+    mEQAudioProcessor->prepareToPlay(sampleRate, samplesPerBlock);
+    mReverbAudioProcessor->prepareToPlay(sampleRate, samplesPerBlock);
 }
 
 void AudealizeMultiAudioProcessor::releaseResources()
 {
     // When playback stops, you can use this as an opportunity to free up any
     // spare memory, etc.
+    mEQAudioProcessor->releaseResources();
+    mReverbAudioProcessor->releaseResources();
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -129,15 +133,9 @@ void AudealizeMultiAudioProcessor::processBlock (AudioSampleBuffer& buffer, Midi
     // this code if your algorithm always overwrites all the output channels.
     for (int i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
         buffer.clear (i, 0, buffer.getNumSamples());
-
-    // This is the place where you'd normally do the guts of your plugin's
-    // audio processing...
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
-    {
-        float* channelData = buffer.getWritePointer (channel);
-
-        // ..do something to the data...
-    }
+    
+    mEQAudioProcessor->processBlock(buffer, midiMessages);
+    mReverbAudioProcessor->processBlock(buffer, midiMessages);
 }
 
 //==============================================================================

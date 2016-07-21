@@ -1,0 +1,19 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2015
+Project("{45C0603A-37C6-750A-4D87-6438C395E9D2}") = "Audealize", "Audealize.vcxproj", "{53417C1F-9355-CA97-31D5-ACA30752DD1D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53417C1F-9355-CA97-31D5-ACA30752DD1D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{53417C1F-9355-CA97-31D5-ACA30752DD1D}.Debug|Win32.Build.0 = Debug|Win32
+		{53417C1F-9355-CA97-31D5-ACA30752DD1D}.Release|Win32.ActiveCfg = Release|Win32
+		{53417C1F-9355-CA97-31D5-ACA30752DD1D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

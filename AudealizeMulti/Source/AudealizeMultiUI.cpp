@@ -52,6 +52,7 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<Audi
     mResizeLimits = new ComponentBoundsConstrainer();
     mResizeLimits->setSizeLimits (600, 400, 1180, 800);
     addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
+    mResizer->setAlwaysOnTop(true);
     //[/UserPreSize]
 
     setSize (840, 560);
@@ -89,6 +90,7 @@ void AudealizeMultiUI::paint (Graphics& g)
 void AudealizeMultiUI::resized()
 {
     //[UserPreResize] Add your own custom resize code here..
+    mResizer->setBounds (getWidth() - 18, getHeight() - 18, 16, 16);
     //[/UserPreResize]
 
     mTabbedComponent->setBounds (0, 44, getWidth() - 0, getHeight() - 44);

@@ -25,8 +25,6 @@
 #include "../juce_graphics/juce_graphics.h"
 #include "../juce_gui_basics/juce_gui_basics.h"
 
-#include "AudealizeAudioProcessor.h"
-
 #include "utils/json.hpp"
 #include "utils/calf_dsp_library/delay.h"
 
@@ -50,5 +48,6 @@
 
 #include "audio_processors/AudealizeEQAudioProcessor.h"
 #include "audio_processors/AudealizeReverbAudioProcessor.h"
+#include "audio_processors/AudealizeAudioProcessor.h"
 
 #endif   // AUDEALIZE_MODULE

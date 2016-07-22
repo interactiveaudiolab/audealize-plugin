@@ -1,85 +1,66 @@
+//
+//  PluginProcessor.h
+//
+//  JUCE AudioProcessor for Audealize reverb plguin
+//  Handles the main audio processing for the plugin
+//
+
 #ifndef PLUGINPROCESSOR_H_INCLUDED
 #define PLUGINPROCESSOR_H_INCLUDED
 
+
 #include "../JuceLibraryCode/JuceHeader.h"
 
-using namespace Audealize;
 
-class AudealizereverbAudioProcessor  : public AudealizeAudioProcessor
+//==============================================================================
+/**
+ */
+class ReverbPluginProcessor  : public AudioProcessor
 {
 public:
-    AudealizereverbAudioProcessor();
-    ~AudealizereverbAudioProcessor();
-
+    //==============================================================================
+    ReverbPluginProcessor();
+    ~ReverbPluginProcessor();
+    
+    //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     void releaseResources() override;
-
-   #ifndef JucePlugin_PreferredChannelConfigurations
+    
+#ifndef JucePlugin_PreferredChannelConfigurations
     bool setPreferredBusArrangement (bool isInput, int bus, const AudioChannelSet& preferredSet) override;
-   #endif
-
+#endif
+    
     void processBlock (AudioSampleBuffer&, MidiBuffer&) override;
-
+    
+    //==============================================================================
     AudioProcessorEditor* createEditor() override;
     bool hasEditor() const override;
-
+    
+    //==============================================================================
     const String getName() const override;
-
+    
     bool acceptsMidi() const override;
     bool producesMidi() const override;
     double getTailLengthSeconds() const override;
-
+    
+    //==============================================================================
     int getNumPrograms() override;
     int getCurrentProgram() override;
     void setCurrentProgram (int index) override;
     const String getProgramName (int index) override;
     void changeProgramName (int index, const String& newName) override;
     
-    void parameterChanged(const juce::String &parameterID, float newValue) override;
+    //==============================================================================
+    void getStateInformation (MemoryBlock& destData) override;
+    void setStateInformation (const void* data, int sizeInBytes) override;
     
-    void settingsFromMap(vector<float> settings) override;
-    
-    inline String getParamID(int index) override;
-    
-    enum Parameters{
-        kParamD,
-        kParamG,
-        kParamM,
-        kParamF,
-        kParamE,
-        kParamAmount,
-        kNumParams
-    };
-    
-    static String paramD;
-    static String paramG;
-    static String paramM;
-    static String paramF;
-    static String paramE;
-
 private:
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizereverbAudioProcessor)
+    //==============================================================================
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ReverbPluginProcessor)
     
-    Audealize::Reverb mReverb;
-    
-    NormalisableRange<float> mParamRange[kNumParams];
-        
-    CParamSmooth mSmoother[kNumParams];
-    float paramTargetVal[kNumParams];
-    
-    const float DEFAULT_D   = 0.05f;
-    const float DEFAULT_G   = 0.5f;
-    const float DEFAULT_M   = 0.005f;
-    const float DEFAULT_F   = 5500.0f;
-    const float DEFAULT_E   = 0.95f;
-    const float DEFAULT_MIX = 0.75f;
-    
-    const String PATH_TO_POINTS = "/Users/michael/JUCE/projects/audealize-plugin/JUCE Modules/audealize_module/data/reverbparams.json"; //@TODO
-    
-    
-    void debugParams();
-    
+    ScopedPointer<AudealizereverbAudioProcessor> mAudealizeAudioProcessor;
 };
 
 
 #endif  // PLUGINPROCESSOR_H_INCLUDED
+

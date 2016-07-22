@@ -24,7 +24,11 @@ public:
     void processBlock (AudioSampleBuffer&, MidiBuffer&) override;
 
     //==============================================================================
-    AudealizeUI* createEditor() override;
+    AudealizeUI* createEditor(bool isPluginMultiEffect);
+    
+    // this is here so that IDE doesnt complain about allocating an object of an abstract class
+    AudioProcessorEditor* createEditor(){return nullptr;}
+    
     bool hasEditor() const override;
 
     //==============================================================================

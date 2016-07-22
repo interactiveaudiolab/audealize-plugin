@@ -163,10 +163,10 @@ bool AudealizeeqAudioProcessor::hasEditor() const
     return true; // (change this to false if you choose to not supply an editor)
 }
 
-AudealizeUI* AudealizeeqAudioProcessor::createEditor()
-{
+AudealizeUI* AudealizeeqAudioProcessor::createEditor(bool isPluginMultiEffect){
     ScopedPointer<TraditionalUI> mGraphicEQ = new GraphicEQComponent(*this, NUMBANDS, mGainRange);
-    return new AudealizeUI (*this, mGraphicEQ, PATH_TO_POINTS, "EQ");
+    
+    return new AudealizeUI (*this, mGraphicEQ, PATH_TO_POINTS, "EQ", isPluginMultiEffect);
 }
 
 void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue){

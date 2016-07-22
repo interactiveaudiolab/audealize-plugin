@@ -615,6 +615,7 @@
 		4C47B6BDB9B98BC9A5D2015F /* juce_LowLevelGraphicsSoftwareRenderer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_LowLevelGraphicsSoftwareRenderer.cpp; path = "../../../JUCE Modules/juce_graphics/contexts/juce_LowLevelGraphicsSoftwareRenderer.cpp"; sourceTree = SOURCE_ROOT; };
 		4CB7DF6DE1ECDCE7C76804B9 /* juce_FileOutputStream.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_FileOutputStream.cpp; path = "../../../JUCE Modules/juce_core/files/juce_FileOutputStream.cpp"; sourceTree = SOURCE_ROOT; };
 		4CC139AB7B9AB8A3D9D890C5 /* juce_PropertyPanel.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_PropertyPanel.cpp; path = "../../../JUCE Modules/juce_gui_basics/properties/juce_PropertyPanel.cpp"; sourceTree = SOURCE_ROOT; };
+		4CFFE9F31D42B4D80069D562 /* AudealizeAudioProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AudealizeAudioProcessor.h; path = "../../../JUCE Modules/audealize_module/audio_processors/AudealizeAudioProcessor.h"; sourceTree = "<group>"; };
 		4D04CFE74235A083403E57D3 /* juce_SystemStats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_SystemStats.h; path = "../../../JUCE Modules/juce_core/system/juce_SystemStats.h"; sourceTree = SOURCE_ROOT; };
 		4D2F952C54ACFEC74C4A4B81 /* juce_PluginDirectoryScanner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = juce_PluginDirectoryScanner.cpp; path = "../../../JUCE Modules/juce_audio_processors/scanning/juce_PluginDirectoryScanner.cpp"; sourceTree = SOURCE_ROOT; };
 		4DE10E9758F54D91936E11A4 /* juce_ImageEffectFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_ImageEffectFilter.h; path = "../../../JUCE Modules/juce_graphics/effects/juce_ImageEffectFilter.h"; sourceTree = SOURCE_ROOT; };
@@ -697,7 +698,6 @@
 		5D4147677C1851E5C4F4C480 /* juce_MouseListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_MouseListener.h; path = "../../../JUCE Modules/juce_gui_basics/mouse/juce_MouseListener.h"; sourceTree = SOURCE_ROOT; };
 		5D579C8C256629859F4ADF06 /* juce_GenericAudioProcessorEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_GenericAudioProcessorEditor.h; path = "../../../JUCE Modules/juce_audio_processors/processors/juce_GenericAudioProcessorEditor.h"; sourceTree = SOURCE_ROOT; };
 		5D5D0919B12752958A406BC1 /* jdapimin.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = jdapimin.c; path = "../../../JUCE Modules/juce_graphics/image_formats/jpglib/jdapimin.c"; sourceTree = SOURCE_ROOT; };
-		5D9F7EFC3814CBF7E13714F5 /* AudealizeAudioProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AudealizeAudioProcessor.h; path = "../../../JUCE Modules/audealize_module/AudealizeAudioProcessor.h"; sourceTree = SOURCE_ROOT; };
 		5E07D5E4AF28405DC5C316D8 /* md5.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = md5.c; path = "../../../JUCE Modules/juce_audio_formats/codecs/flac/libFLAC/md5.c"; sourceTree = SOURCE_ROOT; };
 		5E675A6625DDA8B962B4B763 /* juce_FileOutputStream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = juce_FileOutputStream.h; path = "../../../JUCE Modules/juce_core/files/juce_FileOutputStream.h"; sourceTree = SOURCE_ROOT; };
 		5E879F8D6C910533042CAAB5 /* jcphuff.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = jcphuff.c; path = "../../../JUCE Modules/juce_graphics/image_formats/jpglib/jcphuff.c"; sourceTree = SOURCE_ROOT; };
@@ -2332,7 +2332,6 @@
 				BCFB2E53DB77A0ACDF49664B /* utils */,
 				0F40FE7F87354DFE9E868A05 /* audealize_module.cpp */,
 				699975B16BF0DAD93B8EFEE7 /* audealize_module.mm */,
-				5D9F7EFC3814CBF7E13714F5 /* AudealizeAudioProcessor.h */,
 				CCB63C1E9FDD35F955EC3A39 /* audealize_module.h */,
 			);
 			name = audealize_module;
@@ -2702,6 +2701,7 @@
 		6CD857D66F2C97013232FD1E /* audio_processors */ = {
 			isa = PBXGroup;
 			children = (
+				4CFFE9F31D42B4D80069D562 /* AudealizeAudioProcessor.h */,
 				1F0E689477B9A22601605537 /* AudealizeEQAudioProcessor.cpp */,
 				A87B02A9D174D5239A8F00C4 /* AudealizeEQAudioProcessor.h */,
 				0DF2369D2941DAD1AA5862AB /* AudealizeReverbAudioProcessor.cpp */,

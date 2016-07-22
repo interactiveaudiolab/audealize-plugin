@@ -7,7 +7,7 @@
 #ifndef TraditionalUIComponent_h
 #define TraditionalUIComponent_h
 
-#include "../AudealizeAudioProcessor.h"
+#include "../audio_processors/AudealizeAudioProcessor.h"
 
 namespace Audealize {
     class TraditionalUI : public Component

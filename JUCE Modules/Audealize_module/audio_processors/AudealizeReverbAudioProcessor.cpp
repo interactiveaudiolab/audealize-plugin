@@ -198,11 +198,11 @@ bool AudealizereverbAudioProcessor::hasEditor() const
     return true; 
 }
 
-AudealizeUI* AudealizereverbAudioProcessor::createEditor()
+AudealizeUI* AudealizereverbAudioProcessor::createEditor(bool isPluginMultiEffect)
 {
     ScopedPointer<TraditionalUI> mReverbComponent = new ReverbComponent(*this);
     
-    return new AudealizeUI (*this, mReverbComponent, PATH_TO_POINTS, "Reverb");
+    return new AudealizeUI (*this, mReverbComponent, PATH_TO_POINTS, "Reverb", isPluginMultiEffect);
 }
 
 

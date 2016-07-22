@@ -148,8 +148,8 @@ AudioProcessorEditor* AudealizeMultiAudioProcessor::createEditor()
 {
     vector<ScopedPointer<AudealizeUI>> audealizeUIs;
     
-    audealizeUIs.push_back(mEQAudioProcessor->createEditor());
-    audealizeUIs.push_back(mReverbAudioProcessor->createEditor());
+    audealizeUIs.push_back(mEQAudioProcessor->createEditor(true));
+    audealizeUIs.push_back(mReverbAudioProcessor->createEditor(true));
     
     return new AudealizeMultiUI (*this, audealizeUIs);
 }

@@ -14,6 +14,9 @@
     <Filter Include="Juce Modules\audealize_module">
       <UniqueIdentifier>{71612B26-CC25-B965-C4EC-CA9749EAEB85}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Juce Modules\audealize_module\audio_processors">
+      <UniqueIdentifier>{7145902F-3555-28B3-D15A-708C95B28295}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Juce Modules\audealize_module\effects">
       <UniqueIdentifier>{955ED6E7-5DDF-4809-DC71-11C115B1E68F}</UniqueIdentifier>
     </Filter>
@@ -411,6 +414,12 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp">
       <Filter>Audealize-EQ\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeEQAudioProcessor.cpp">
+      <Filter>Juce Modules\audealize_module\audio_processors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeReverbAudioProcessor.cpp">
+      <Filter>Juce Modules\audealize_module\audio_processors</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeUI.cpp">
       <Filter>Juce Modules\audealize_module\ui_components</Filter>
@@ -2322,6 +2331,15 @@
     <ClInclude Include="..\..\Source\PluginProcessor.h">
       <Filter>Audealize-EQ\Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeAudioProcessor.h">
+      <Filter>Juce Modules\audealize_module\audio_processors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeEQAudioProcessor.h">
+      <Filter>Juce Modules\audealize_module\audio_processors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeReverbAudioProcessor.h">
+      <Filter>Juce Modules\audealize_module\audio_processors</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\AudioEffect.h">
       <Filter>Juce Modules\audealize_module\effects</Filter>
     </ClInclude>
@@ -2377,9 +2395,6 @@
       <Filter>Juce Modules\audealize_module\utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audealize_module.h">
-      <Filter>Juce Modules\audealize_module</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\AudealizeAudioProcessor.h">
       <Filter>Juce Modules\audealize_module</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audealize_module.h">

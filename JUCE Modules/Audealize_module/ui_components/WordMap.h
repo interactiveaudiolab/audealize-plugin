@@ -10,7 +10,7 @@
 #define WordMap_h
 
 #include "../utils/json.hpp"
-#include "../AudealizeAudioProcessor.h"
+#include "../audio_processors/AudealizeAudioProcessor.h"
 #include "TraditionalUIComponent.h"
 #include <float.h> // needed for FLT_MAX
 

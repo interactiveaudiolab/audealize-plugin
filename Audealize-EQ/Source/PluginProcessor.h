@@ -1,26 +1,26 @@
 //
 //  PluginProcessor.h
 //
-//  JUCE AudioProcessor for Audealize EQ
+//  JUCE AudioProcessor for Audealize EQ plguin
 //  Handles the main audio processing for the plugin
 //
 
 #ifndef PLUGINPROCESSOR_H_INCLUDED
 #define PLUGINPROCESSOR_H_INCLUDED
 
+
 #include "../JuceLibraryCode/JuceHeader.h"
 
-#define NUMBANDS 40 // the number of eq bands
-
-using namespace Audealize;
 
 //==============================================================================
-class AudealizeeqAudioProcessor  : public AudealizeAudioProcessor
+/**
+*/
+class EQPluginProcessor  : public AudioProcessor
 {
 public:
     //==============================================================================
-    AudealizeeqAudioProcessor();
-    ~AudealizeeqAudioProcessor();
+    EQPluginProcessor();
+    ~EQPluginProcessor();
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -50,27 +50,17 @@ public:
     const String getProgramName (int index) override;
     void changeProgramName (int index, const String& newName) override;
 
-    
-    void parameterChanged(const juce::String &parameterID, float newValue) override;
-    void settingsFromMap(vector<float> settings) override;
-    
-    inline String getParamID(int index) override;
-    
+    //==============================================================================
+    void getStateInformation (MemoryBlock& destData) override;
+    void setStateInformation (const void* data, int sizeInBytes) override;
+
 private:
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeeqAudioProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (EQPluginProcessor)
     
-    const String PATH_TO_POINTS = "/Users/michael/JUCE/projects/audealize-plugin/JUCE Modules/audealize_module/data/eqpoints.json"; //@TODO
-        
-    NormalisableRange<float> mGainRange; // Range of the graphic eq gain sliders
-        
-    LinearSmoothedValue<float> mSmoothedVals[NUMBANDS];
-    
-    std::vector<float> mFreqs = {20, 50, 83, 120, 161, 208, 259, 318, 383, 455, 537, 628, 729, 843, 971, 1114, 1273, 1452, 1652, 1875, 2126, 2406, 2719, 3070, 3462, 3901, 4392, 4941, 5556, 6244, 7014, 7875, 8839, 9917, 11124, 12474, 13984, 15675, 17566, 19682};
-    
-    Equalizer mEqualizer;
-    
+    ScopedPointer<AudealizeeqAudioProcessor> mAudealizeAudioProcessor;
 };
 
 
 #endif  // PLUGINPROCESSOR_H_INCLUDED
+

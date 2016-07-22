@@ -7,9 +7,11 @@ using json = nlohmann::json;
 
 namespace Audealize{
     
-    AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType)
+    AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType, bool isPluginMultiEffect)
     : AudioProcessorEditor(&p), processor(p), mPathToPoints(pathToPoints), mTradUI(t)
     {
+        isMultiEffect = isPluginMultiEffect;
+        
         // Load file with descriptors, parse into nlohman::json object
         ifstream infile;
         infile.open(mPathToPoints.toUTF8());
@@ -61,7 +63,7 @@ namespace Audealize{
         mEspanolButton->setToggleState (true, dontSendNotification);
         
         // if this AudealizeUI is a child component of an AudealizeMultiUI, we wont show the Audealize title text here. 
-        if (getTopLevelComponent() == NULL){
+        if (!isMultiEffect){
             // Audealize title text
             addAndMakeVisible (mAudealizeLabel = new Label ("Audealize",
                                                             TRANS("Audealize\n")));
@@ -110,7 +112,7 @@ namespace Audealize{
         
         // resize limits + ResizableCornerComponent
         // if this AudealizeUI is a child component of an AudealizeMultiUI, resizing will be handled there
-        if (getTopLevelComponent() == NULL){ 
+        if (!isMultiEffect){
             mResizeLimits = new ComponentBoundsConstrainer();
             mResizeLimits->setSizeLimits (600, 400, 1180, 800);
             addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
@@ -148,7 +150,7 @@ namespace Audealize{
     void AudealizeUI::resized()
     {
         // resizable corner
-        if (getTopLevelComponent() == NULL){
+        if (!isMultiEffect){
             mResizer->setBounds (getWidth() - 18, getHeight() - 18, 16, 16);
         }
         
@@ -166,7 +168,7 @@ namespace Audealize{
         // if this AudealizeUI is a child component of an AudealizeMultiUI, we wont show the Audealize title text here. 
         // bounds of wordmap, searchbar, language select buttons must be adjusted to accommodate
         int titleTextOffset;
-        if (getTopLevelComponent() == NULL){
+        if (!isMultiEffect){
             titleTextOffset = 0;
         }
         else{
@@ -205,7 +207,7 @@ namespace Audealize{
         }
         
         // Audealize title labels
-        if (getTopLevelComponent() == NULL){
+        if (!isMultiEffect){
             mAudealizeLabel->setBounds (27, 22, 176, 32);
             mEffectTypeLabel->setBounds (150, 22, 118, 32);
         }
@@ -260,7 +262,7 @@ namespace Audealize{
                 
                 mTradUIButton->setButtonText (TRANS("+ Show " + String(mTradUI->getName()))); // update the text on traditional UI button "Hide" -> "Show"
                 
-                if (getTopLevelComponent() == NULL)
+                if (!isMultiEffect)
                     mResizeLimits->setSizeLimits (600, 400, 1180, 800); // window size limits depend on whether or not the traditional UI is visible
             }
             else{
@@ -273,7 +275,7 @@ namespace Audealize{
                 
                 mTradUIButton->setButtonText (TRANS("- Hide " + String(mTradUI->getName()))); // update the text on traditional UI button "Show" -> "Hide"
                 
-                if (getTopLevelComponent() == NULL)
+                if (!isMultiEffect)
                     mResizeLimits->setSizeLimits (600, 400 + mTradUI->getHeight() + 10, 1180, 800 + mTradUI->getHeight() + 10); // window size limits depend on whether or not the traditional UI is visible
             }
         }// end if buttonThatWasClicked

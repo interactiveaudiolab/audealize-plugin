@@ -22,7 +22,7 @@ namespace Audealize{
     {
     public:
         //==============================================================================
-        AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType);
+        AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType, bool isPluginMultiEffect = false);
         ~AudealizeUI();
         //==============================================================================
         
@@ -100,6 +100,8 @@ namespace Audealize{
         ScopedPointer<ComponentBoundsConstrainer> mResizeLimits; // sets size limits for the plugin window
         
         bool isTradUIVisible; // true if traditional UI is visible
+        
+        bool isMultiEffect;
         
         //==============================================================================
         ScopedPointer<Audealize::WordMap> mWordMap;

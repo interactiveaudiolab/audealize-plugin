@@ -156,6 +156,7 @@ namespace Audealize{
                 mCombDelay[i] = prevPrime(d * (15-i)/15.0f * mSampleRate) / mSampleRate;
                 mCombGain[i] = powf(.001, mCombDelay[i] / rt);
             }
+            set_g(get_g());
         }
         
         void set_g(float g_val){

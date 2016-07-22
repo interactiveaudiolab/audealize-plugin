@@ -8,7 +8,7 @@
       website:          http://music.eecs.northwestern.edu
       license:          
 
-      dependencies:     juce_core, juce_audio_processors, juce_audio_basics, juce_audio_formats, juce_audio_utils, juce_graphics
+      dependencies:     juce_core, juce_audio_processors, juce_audio_basics, juce_audio_formats, juce_audio_utils, juce_graphics, juce_gui_basics
 
      END_JUCE_MODULE_DECLARATION
 */
@@ -25,16 +25,14 @@
 #include "../juce_graphics/juce_graphics.h"
 #include "../juce_gui_basics/juce_gui_basics.h"
 
-#include "AudealizeAudioProcessor.h"
-
-#include "libs/json.hpp"
-#include "libs/calf_dsp_library/delay.h"
+#include "utils/json.hpp"
+#include "utils/calf_dsp_library/delay.h"
 
 #include "utils/PrimeFactors.h"
 #include "utils/CParamSmooth.h"
      
-#include "libs/Biquad.h"
-#include "libs/json.hpp"
+#include "utils/Biquad.h"
+#include "utils/json.hpp"
 
 #include "ui_components/AudealizeUI.h"
 #include "ui_components/WordMap.h"
@@ -48,5 +46,8 @@
 #include "effects/Equalizer.h"
 #include "effects/Reverb.h"
 
+#include "audio_processors/AudealizeEQAudioProcessor.h"
+#include "audio_processors/AudealizeReverbAudioProcessor.h"
+#include "audio_processors/AudealizeAudioProcessor.h"
 
 #endif   // AUDEALIZE_MODULE

@@ -1,38 +1,24 @@
 #include "PluginProcessor.h"
 
-AudealizeeqAudioProcessor::AudealizeeqAudioProcessor() : mEqualizer(mFreqs, 0.0f)
-{
-    //DBG(std::to_string(getSampleRate()));
-    mParamSettings.resize(NUMBANDS, 0);
-    
-    
-    mGainRange = NormalisableRange<float>(-4.30f, 4.30f, 0.001f);
-        
-    // Create amount parameter
-    
-    // Create params for each EQ band gain
-    for (int i = 0; i < NUMBANDS; i++){
-        String paramID = getParamID(i);
-        std::string paramName = std::to_string(mFreqs[i]) + " Hz";
-        mState->createAndAddParameter(paramID, paramName, TRANS(paramName), mGainRange, mGainRange.snapToLegalValue(0.0f), nullptr, nullptr);
-        mState->addParameterListener(TRANS(paramID), this);
-    }
 
-    mState->state = ValueTree ("Audealize-EQ");
+//==============================================================================
+EQPluginProcessor::EQPluginProcessor()
+{
+    mAudealizeAudioProcessor = new AudealizeeqAudioProcessor();
 }
 
-
-AudealizeeqAudioProcessor::~AudealizeeqAudioProcessor()
+EQPluginProcessor::~EQPluginProcessor()
 {
-
+    mAudealizeAudioProcessor = nullptr;
 }
 
-const String AudealizeeqAudioProcessor::getName() const
+//==============================================================================
+const String EQPluginProcessor::getName() const
 {
     return JucePlugin_Name;
 }
 
-bool AudealizeeqAudioProcessor::acceptsMidi() const
+bool EQPluginProcessor::acceptsMidi() const
 {
    #if JucePlugin_WantsMidiInput
     return true;
@@ -41,7 +27,7 @@ bool AudealizeeqAudioProcessor::acceptsMidi() const
    #endif
 }
 
-bool AudealizeeqAudioProcessor::producesMidi() const
+bool EQPluginProcessor::producesMidi() const
 {
    #if JucePlugin_ProducesMidiOutput
     return true;
@@ -50,54 +36,52 @@ bool AudealizeeqAudioProcessor::producesMidi() const
    #endif
 }
 
-double AudealizeeqAudioProcessor::getTailLengthSeconds() const
+double EQPluginProcessor::getTailLengthSeconds() const
 {
     return 0.0;
 }
 
-int AudealizeeqAudioProcessor::getNumPrograms()
+int EQPluginProcessor::getNumPrograms()
 {
     return 1;   // NB: some hosts don't cope very well if you tell them there are 0 programs,
                 // so this should be at least 1, even if you're not really implementing programs.
 }
 
-int AudealizeeqAudioProcessor::getCurrentProgram()
+int EQPluginProcessor::getCurrentProgram()
 {
     return 0;
 }
 
-void AudealizeeqAudioProcessor::setCurrentProgram (int index)
+void EQPluginProcessor::setCurrentProgram (int index)
 {
 }
 
-const String AudealizeeqAudioProcessor::getProgramName (int index)
+const String EQPluginProcessor::getProgramName (int index)
 {
     return String();
 }
 
-void AudealizeeqAudioProcessor::changeProgramName (int index, const String& newName)
+void EQPluginProcessor::changeProgramName (int index, const String& newName)
 {
 }
 
-void AudealizeeqAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
+//==============================================================================
+void EQPluginProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
-    mEqualizer.setSampleRate(sampleRate);
-    
-    for (int i = 0; i < NUMBANDS; i++){
-        mSmoothedVals[i].reset(sampleRate, 0.00019);
-    }
+    mAudealizeAudioProcessor->prepareToPlay(sampleRate, samplesPerBlock);
 }
 
-void AudealizeeqAudioProcessor::releaseResources()
+void EQPluginProcessor::releaseResources()
 {
     // When playback stops, you can use this as an opportunity to free up any
     // spare memory, etc.
+    mAudealizeAudioProcessor->releaseResources();
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
-bool AudealizeeqAudioProcessor::setPreferredBusArrangement (bool isInput, int bus, const AudioChannelSet& preferredSet)
+bool EQPluginProcessor::setPreferredBusArrangement (bool isInput, int bus, const AudioChannelSet& preferredSet)
 {
     // Reject any bus arrangements that are not compatible with your plugin
 
@@ -121,97 +105,41 @@ bool AudealizeeqAudioProcessor::setPreferredBusArrangement (bool isInput, int bu
 }
 #endif
 
-void AudealizeeqAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
+void EQPluginProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
-    const int totalNumInputChannels  = getTotalNumInputChannels();
-    const int totalNumOutputChannels = getTotalNumOutputChannels();
-
-    const int numSamples = buffer.getNumSamples();
-    
-    // Parameter smoothing
-    for (int i = 0; i < NUMBANDS; i++){
-        float diff = fabs( mEqualizer.getBandGain(i) - mSmoothedVals[i].getTargetValue() );
-        if(diff > 0.01f * mSmoothedVals[i].getTargetValue() ){
-            String paramID = getParamID(i);
-            
-            float gain = mSmoothedVals[i].getNextValue();
-            mEqualizer.setBandGain(i, gain * mAmount);
-        }
-    }
-    
-    // This is the place where you'd normally do the guts of your plugin's
-    // audio processing...
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
-    {
-        float* channelData = buffer.getWritePointer (channel);
-        
-        mEqualizer.processBlock(channelData, numSamples, channel);
-    }
-    
-    // In case we have more outputs than inputs, this code clears any output
-    // channels that didn't contain input data, (because these aren't
-    // guaranteed to be empty - they may contain garbage).
-    for (int i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
-        buffer.clear(i, 0, buffer.getNumSamples());
+    mAudealizeAudioProcessor->processBlock(buffer, midiMessages);
 }
 
-bool AudealizeeqAudioProcessor::hasEditor() const
+//==============================================================================
+bool EQPluginProcessor::hasEditor() const
 {
     return true; // (change this to false if you choose to not supply an editor)
 }
 
-AudioProcessorEditor* AudealizeeqAudioProcessor::createEditor()
+AudioProcessorEditor* EQPluginProcessor::createEditor()
 {
-    ScopedPointer<TraditionalUI> mGraphicEQ = new GraphicEQComponent(*this, NUMBANDS, mGainRange);
-    return new AudealizeUI (*this, mGraphicEQ, PATH_TO_POINTS, "EQ");
+    return mAudealizeAudioProcessor->createEditor(false);
 }
 
-void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue){
-    //EQ gain slider changed
-    
-    //DBG("Paramter changed: " << parameterID);
-    
-    if (parameterID.substring(0, 9).equalsIgnoreCase("paramGain")){
-        int idx = parameterID.substring(9).getIntValue();
-
-        mSmoothedVals[idx].setValue(newValue);
-    }
-    else if (parameterID.equalsIgnoreCase(paramAmount)){
-        mAmount = newValue;
-        DBG("Amount: " << mAmount);
-        float gain;
-        for (int i = 0; i < NUMBANDS; i++){
-            gain = mParamSettings[i];
-            gain = mGainRange.convertFrom0to1(gain);
-            gain *= mAmount;
-            gain = mGainRange.convertTo0to1(gain);
-            
-            mState->getParameter(getParamID(i))->setValueNotifyingHost(gain);
-        }
-    }
+//==============================================================================
+void EQPluginProcessor::getStateInformation (MemoryBlock& destData)
+{
+    // You should use this method to store your parameters in the memory block.
+    // You could do that either as raw data, or use the XML or ValueTree classes
+    // as intermediaries to make it easy to save and load complex data.
+    mAudealizeAudioProcessor->getStateInformation(destData);
 }
 
-void AudealizeeqAudioProcessor::settingsFromMap(vector<float> settings){
-    mParamSettings = settings;
-    normalize(&mParamSettings);
-    
-    float gain;
-    for (int i = 0; i < NUMBANDS; i++){
-        //DBG("Settings[i] " << settings[i]);
-        gain = mParamSettings[i];
-        gain = mGainRange.convertFrom0to1(gain);
-        gain *= mAmount;
-        gain = mGainRange.convertTo0to1(gain);
-        mState->getParameter(getParamID(i))->setValueNotifyingHost(gain);
-    }
-    //DBG(mEqualizer.getBandGain(10));
+void EQPluginProcessor::setStateInformation (const void* data, int sizeInBytes)
+{
+    // You should use this method to restore your parameters from this memory block,
+    // whose contents will have been created by the getStateInformation() call.
+    mAudealizeAudioProcessor->setStateInformation(data, sizeInBytes);
 }
 
+//==============================================================================
+// This creates new instances of the plugin..
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
-    return new AudealizeeqAudioProcessor();
-}
-
-inline String AudealizeeqAudioProcessor::getParamID(int index){
-    return String("paramGain" + std::to_string(index));
+    return new EQPluginProcessor();
 }

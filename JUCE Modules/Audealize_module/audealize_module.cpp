@@ -17,6 +17,9 @@
 #include "ui_components/WordMap.cpp"
 #include "ui_components/ReverbComponent.cpp"
 
-#include "libs/Biquad.cpp"
+#include "audio_processors/AudealizeEQAudioProcessor.cpp"
+#include "audio_processors/AudealizeReverbAudioProcessor.cpp"
+
+#include "utils/Biquad.cpp"
 
 

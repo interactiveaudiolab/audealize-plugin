@@ -54,6 +54,7 @@ namespace Audealize{
         
         //=========================================================================
         // Sliders
+        
         addAndMakeVisible (mSliderD = new Slider ("mSliderD"));
         mSliderD->setTooltip (TRANS("Delay of comb filters"));
         mSliderD->setRange (0, 10, 0);
@@ -93,6 +94,7 @@ namespace Audealize{
         
         //=========================================================================
         // SliderAttachments
+        
         mSliderAttachmentD = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), p.getParamID(0), *mSliderD);
         mSliderAttachmentG = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), p.getParamID(1), *mSliderG);
         mSliderAttachmentM = new AudioProcessorValueTreeState::SliderAttachment(p.getValueTreeState(), p.getParamID(2), *mSliderM);

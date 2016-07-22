@@ -7,7 +7,7 @@
 #ifndef TraditionalUIComponent_h
 #define TraditionalUIComponent_h
 
-#include "../AudealizeAudioProcessor.h"
+#include "../audio_processors/AudealizeAudioProcessor.h"
 
 namespace Audealize {
     class TraditionalUI : public Component
@@ -20,9 +20,10 @@ namespace Audealize {
         String getName(){
             return name;
         }
+        
     protected:
         AudealizeAudioProcessor& processor;
-        String name;
+        String name; // this will determine what the title text (mEffectTypeLabel) in AudealizeUI will display
     };
 }
 

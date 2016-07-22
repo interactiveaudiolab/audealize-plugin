@@ -1,5 +1,7 @@
 //
-//  A JUCE AudioProcessorEditor for Audealize plugins
+//  AudealizeUI.h
+//
+//  A JUCE AudioProcessorEditor for Audealize plugins. Creates the entire Audealize UI, containting a WordMap, a TypeaheadPopupMenu, and a TraditionalUI
 //
 
 #ifndef __JUCE_HEADER_EB0317DAAAA56B94__
@@ -12,59 +14,105 @@
 using namespace juce;
 
 namespace Audealize{
-    class AudealizeUI  : public AudioProcessorEditor,
+    class AudealizeUI : public AudioProcessorEditor,
     public TextEditorListener,
     public ActionListener,
-    public SliderListener,
+    public ActionBroadcaster,
     public ButtonListener
     {
     public:
         //==============================================================================
-        AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType);
+        AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType, bool isPluginMultiEffect = false);
         ~AudealizeUI();
         //==============================================================================
         
+        /**
+         *  Called when return key is pressed in search bar, selects word on map
+         */
         void textEditorReturnKeyPressed(TextEditor &editor) override;
         
+        /**
+         *  Displays mAlertBox if user tries to select <1 language
+         */
         void languageAlert();
         
+        /**
+         *  Listens for changes broadcast by an ActionBroadcaster
+         *  Updates the set of descriptors searched by the search bar when language is changed
+         *
+         *  @param message  A string containing the message received
+         */
         void actionListenerCallback(const String &message) override;
         
         
         void paint (Graphics& g) override;
+        
+        /**
+         *  Called when the plugin window is resized.
+         *  This is where the layout of the UI is defined
+         */
         void resized() override;
-        void sliderValueChanged (Slider* sliderThatWasMoved) override;
+        
+        /**
+         *  Called when a button is clicked (language selection or traditional UI hide/show)
+         *
+         *  @param buttonThatWasClicked
+         */
         void buttonClicked (Button* buttonThatWasClicked) override;
+        
         void lookAndFeelChanged() override;
         void childrenChanged() override;
+                
+        bool isTraditionalUIVisible(){
+            return isTradUIVisible;
+        }
         
+        TextButton* getTraditionalUIButton(){
+            return mTradUIButton;
+        }
+    
+        ScopedPointer<TraditionalUI> getTraditionalUI(){
+            return mTradUI;
+        }
         
+        String getEffectName(){
+            return mTradUI->getName();
+        }
+        
+        int getWordMapHeight(){
+            return mWordMap->getHeight();
+        }
         
     private:
         AudealizeAudioProcessor& processor;
-        String mPathToPoints;
         
-        ScopedPointer<NativeMessageBox> mAlertBox;
-        ScopedPointer<Audealize::TraditionalUI> mTradUI;
-        const String TYPEFACE = "Helvetica";
+        String mPathToPoints; // path to .json file containing descriptor data
+        
+        ScopedPointer<NativeMessageBox> mAlertBox; // alert window, currently used to warn if no languages are selected
+        
+        ScopedPointer<Audealize::TraditionalUI> mTradUI; // traditional UI for controlling the effect (sliders/knobs/etc)
+        
+        const String TYPEFACE = "Helvetica"; // typeface for all text
         
         ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mAmountSliderAttachment;
         
-        ScopedPointer<ResizableCornerComponent> mResizer;
-        ScopedPointer<ComponentBoundsConstrainer> mResizeLimits;
+        ScopedPointer<ResizableCornerComponent> mResizer; // handles resizing of the plugin window
+        ScopedPointer<ComponentBoundsConstrainer> mResizeLimits; // sets size limits for the plugin window
         
-        bool isTradUIVisible;
+        bool isTradUIVisible; // true if traditional UI is visible
+        
+        bool isMultiEffect;
         
         //==============================================================================
         ScopedPointer<Audealize::WordMap> mWordMap;
-        ScopedPointer<Slider> mAmountSlider;
-        ScopedPointer<Label> label;
-        ScopedPointer<Label> label2;
+        ScopedPointer<Slider> mAmountSlider; // controls the intensity of the effect
+        ScopedPointer<Label> mLabelLess;  // label for amount slider
+        ScopedPointer<Label> mLabelMore;  // label for amount slider
         ScopedPointer<ToggleButton> mEnglishButton;
         ScopedPointer<ToggleButton> mEspanolButton;
-        ScopedPointer<Label> mAudealizeLabel;
-        ScopedPointer<Label> mEffectTypeLabel;
-        ScopedPointer<TextButton> mTradUIButton;
+        ScopedPointer<Label> mAudealizeLabel;  // "Audealize" text in top left
+        ScopedPointer<Label> mEffectTypeLabel; // text to the right of "Audealize" label. changes to reflect the type of effect
+        ScopedPointer<TextButton> mTradUIButton; // button to hide/show traditional ui
         ScopedPointer<TypeaheadEditor> mSearchBar;
         
         //==============================================================================

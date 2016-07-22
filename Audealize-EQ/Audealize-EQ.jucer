@@ -3,7 +3,7 @@
 <JUCERPROJECT id="x1TFuX" name="Audealize-EQ" projectType="audioplug" version="0.0.1"
               bundleIdentifier="com.InteractiveAudioLab.AudealizeEQ" includeBinaryInAppConfig="1"
               buildVST="1" buildVST3="1" buildAU="1" buildAUv3="1" buildRTAS="0"
-              buildAAX="0" pluginName="Audealize-EQ" pluginDesc="Audealize-EQ"
+              buildAAX="1" pluginName="Audealize-EQ" pluginDesc="Audealize-EQ"
               pluginManufacturer="Interactive Audio Lab" pluginManufacturerCode="IALx"
               pluginCode="adlz" pluginChannelConfigs="" pluginIsSynth="0" pluginWantsMidiIn="0"
               pluginProducesMidiOut="0" pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0"

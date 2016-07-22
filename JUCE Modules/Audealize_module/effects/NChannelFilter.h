@@ -9,6 +9,8 @@
 #ifndef NChannelFilter_h
 #define NChannelFilter_h
 
+using std::vector;
+
 namespace Audealize{
     
     class NChannelFilter : public AudioEffect
@@ -132,7 +134,7 @@ namespace Audealize{
         float getGain(){ return mGain; }
         
     private:
-        std::vector<Biquad> filters;
+        vector<Biquad> filters; // vector of the filters
         int mChannels; // number of audio channels to be processed
         int mType; // filter type. @see Biquad::bq_types
         float mFc; // filter cutoff frequency

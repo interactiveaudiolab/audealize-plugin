@@ -7,7 +7,6 @@
 #ifndef AudealizeAudioProcessor_h
 #define AudealizeAudioProcessor_h
 
-
 using std::vector;
 using namespace juce;
 
@@ -99,9 +98,13 @@ namespace Audealize{
             }
         }
         
-        
+        /**
+         *  Returns a string with the parameter ID of one of the parameters
+         *
+         *  @param index
+         */
         inline virtual String getParamID(int index) {};
-        
+            
     protected:
         ScopedPointer<AudioProcessorValueTreeState> mState; // and AudioProcessorValueTreeState containing the parameter state information
         ScopedPointer<UndoManager> mUndoManager;

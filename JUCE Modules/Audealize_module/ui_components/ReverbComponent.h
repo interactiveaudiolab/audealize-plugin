@@ -1,6 +1,11 @@
+//
+//  ReverbComponent.h
+//
+//  A traditional UI component for controlling the Audealize reverberator
+//
+
 #ifndef REVERBCOMPONENT_H
 #define REVERBCOMPONENT_H
-
 
 namespace Audealize{
     

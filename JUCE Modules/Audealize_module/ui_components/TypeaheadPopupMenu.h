@@ -1,16 +1,15 @@
 //
 //  TypeaheadPopupMenu.h
 //
-//  Based off of code by user bazrush from the JUCE community forums
+//  Original code written by user bazrush from the JUCE community forums
+//  https://forum.juce.com/t/type-ahead-dropdown-box/5600/8
 //
 
 #ifndef TypeaheadPopupMenu_h
 #define TypeaheadPopupMenu_h
 
-class TypeaheadPopupMenu
-:
-public ListBoxModel,
-public Component
+class TypeaheadPopupMenu : public ListBoxModel,
+                           public Component
 {
 public:
     TypeaheadPopupMenu() : shadow(DropShadow())
@@ -94,16 +93,16 @@ private:
     std::vector<String> options;
     DropShadower shadow;
 };
+
+
 /**
  A text editor component that shows a pop-up menu/combo box below it.
  */
-class TypeaheadEditor
-:
-public Component,
-public TextEditor::Listener,
-public KeyListener,
-public Timer,
-public ActionListener
+class TypeaheadEditor : public Component,
+                        public TextEditor::Listener,
+                        public KeyListener,
+                        public Timer,
+                        public ActionListener
 {
 public:
     TypeaheadEditor()
@@ -253,7 +252,7 @@ public:
         editor.setBounds(getLocalBounds()); 
     }
     
-    void actionListenerCallback(const juce::String &message){
+    void actionListenerCallback(const juce::String &message) override{
         if(!message.equalsIgnoreCase("_languagechanged")){
             editor.setText(message);
             editor.selectAll();

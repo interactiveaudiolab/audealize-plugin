@@ -75,6 +75,14 @@ namespace Audealize{
             return mTradUI;
         }
         
+        String getEffectName(){
+            return mTradUI->getName();
+        }
+        
+        int getWordMapHeight(){
+            return mWordMap->getHeight();
+        }
+        
     private:
         AudealizeAudioProcessor& processor;
         

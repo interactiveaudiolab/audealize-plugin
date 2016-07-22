@@ -122,24 +122,24 @@ void AudealizeMultiUI::childrenChanged()
 
 void AudealizeMultiUI::actionListenerCallback(const juce::String &message){
     int childIndex = mTabbedComponent->getCurrentTabIndex();
-    DBG("ActionListenerCallback:" << " " << message);
-    DBG(childIndex);
 
-    if (message == "TradUI_TRUE"){
+    if (message == "TradUI_TRUE"){ // Traditional UI set to visible
         mResizeLimits->setSizeLimits (600, 500 + 120 + 10, 1180, 800 + 120 + 10); // window size limits depend on whether or not the traditional UI is visible
         
+        // show all traditional UIs (prevents window size issues)
         for (int i = 0; i < mAudealizeUIs.size(); i++){
-            if (i != childIndex){
-                mAudealizeUIs[i]->getTraditionalUIButton()->setToggleState(true, sendNotification);
+            if (i != childIndex && !mAudealizeUIs[i]->isTraditionalUIVisible()){
+                mAudealizeUIs[i]->getTraditionalUIButton()->triggerClick();
             }
         }
     }
     else if (message == "TradUI_FALSE"){
         mResizeLimits->setSizeLimits (600, 500, 1180, 800); // window size limits depend on whether or not the traditional UI is visible
         
+        // hide all traditional UIs (prevents window size issues)
         for (int i = 0; i < mAudealizeUIs.size(); i++){
-            if (i != childIndex){
-                mAudealizeUIs[i]->getTraditionalUIButton()->setToggleState(false, sendNotification);
+            if (i != childIndex && mAudealizeUIs[i]->isTraditionalUIVisible()){
+                mAudealizeUIs[i]->getTraditionalUIButton()->triggerClick();
             }
         }
     }

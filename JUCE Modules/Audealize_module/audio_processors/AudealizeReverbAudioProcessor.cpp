@@ -146,7 +146,6 @@ void AudealizereverbAudioProcessor::processBlock (AudioSampleBuffer& buffer, Mid
 {
     const int totalNumInputChannels  = getTotalNumInputChannels();
     const int totalNumOutputChannels = getTotalNumOutputChannels();
-    const int numSamples = buffer.getNumSamples();
     
     // In case we have more outputs than inputs, this code clears any output
     // channels that didn't contain input data, (because these aren't
@@ -184,7 +183,7 @@ void AudealizereverbAudioProcessor::processBlock (AudioSampleBuffer& buffer, Mid
     // Process reverb
     if (totalNumInputChannels == 1){
         float* channelData = buffer.getWritePointer(0);
-        mReverb.processMonoBlock(channelData, numSamples);
+        mReverb.processMonoBlock(channelData, buffer.getNumSamples());
     }
     else{
         float* channelData1 = buffer.getWritePointer(0);

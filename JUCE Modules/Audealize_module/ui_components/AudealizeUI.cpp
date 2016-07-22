@@ -48,6 +48,7 @@ namespace Audealize{
         mLabelMore->setEditable (false, false, false);
         mLabelMore->setColour (TextEditor::textColourId, Colours::black);
         mLabelMore->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+        mLabelMore->setAlwaysOnTop(true);
         
         // english language button
         addAndMakeVisible (mEnglishButton = new ToggleButton ("English"));
@@ -188,7 +189,7 @@ namespace Audealize{
             
             // amount slider labels
             mLabelLess->setBounds (getWidth() - sliderWidth - 185, getHeight() - 45 - tradUIOffset, 114, 24);
-            mLabelMore->setBounds (getWidth() - 72, getHeight() - 45 - tradUIOffset - titleTextOffset, 56, 24);
+            mLabelMore->setBounds (getWidth() - 72, getHeight() - 45 - tradUIOffset, 56, 24);
         }
         else
         {

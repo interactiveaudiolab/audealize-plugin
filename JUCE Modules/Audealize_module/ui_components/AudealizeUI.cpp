@@ -65,9 +65,9 @@ namespace Audealize{
         // if this AudealizeUI is a child component of an AudealizeMultiUI, we wont show the Audealize title text here. 
         if (!isMultiEffect){
             // Audealize title text
-            addAndMakeVisible (mAudealizeLabel = new Label ("Audealize",
-                                                            TRANS("Audealize\n")));
-            mAudealizeLabel->setFont (Font ("Helvetica", 28, Font::plain));
+            addAndMakeVisible (mAudealizeLabel = new Label ("Audealize: ",
+                                                            TRANS("Audealize: ")));
+            mAudealizeLabel->setFont (Font ("Helvetica Neue", 32, Font::bold));
             mAudealizeLabel->setJustificationType (Justification::topLeft);
             mAudealizeLabel->setEditable (false, false, false);
             mAudealizeLabel->setColour (TextEditor::textColourId, Colours::black);
@@ -76,7 +76,7 @@ namespace Audealize{
             // Audealize effect type title text
             addAndMakeVisible (mEffectTypeLabel = new Label ("Effect Type",
                                                              TRANS("Type\n")));
-            mEffectTypeLabel->setFont (Font ("Helvetica", 28, Font::plain));
+            mEffectTypeLabel->setFont (Font ("Helvetica Neue", 32, Font::bold));
             mEffectTypeLabel->setJustificationType (Justification::topLeft);
             mEffectTypeLabel->setEditable (false, false, false);
             mEffectTypeLabel->setColour (Label::textColourId, Colours::black);
@@ -208,8 +208,8 @@ namespace Audealize{
         
         // Audealize title labels
         if (!isMultiEffect){
-            mAudealizeLabel->setBounds (27, 22, 176, 32);
-            mEffectTypeLabel->setBounds (150, 22, 118, 32);
+            mAudealizeLabel->setBounds (27, 20, 176, 32);
+            mEffectTypeLabel->setBounds (167, 20, 118, 32);
         }
 
         // language select buttons

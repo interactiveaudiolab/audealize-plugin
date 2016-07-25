@@ -116,7 +116,7 @@ bool AudealizeMultiAudioProcessor::setPreferredBusArrangement (bool isInput, int
         return false;
    #endif
 
-    return AudioProcessor::setPreferredBusArrangement (isInput, bus, preferredSet);
+    return AudioProcessor::setPreferredBusArrangement (isInput, bus, preferredSet) && mReverbAudioProcessor->setPreferredBusArrangement(isInput, bus, preferredSet) && mEQAudioProcessor->setPreferredBusArrangement(isInput, bus, preferredSet);
 }
 #endif
 

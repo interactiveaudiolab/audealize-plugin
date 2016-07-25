@@ -101,7 +101,7 @@ bool EQPluginProcessor::setPreferredBusArrangement (bool isInput, int bus, const
         return false;
    #endif
 
-    return AudioProcessor::setPreferredBusArrangement (isInput, bus, preferredSet);
+    return AudioProcessor::setPreferredBusArrangement (isInput, bus, preferredSet) && mAudealizeAudioProcessor->setPreferredBusArrangement(isInput, bus, preferredSet);
 }
 #endif
 

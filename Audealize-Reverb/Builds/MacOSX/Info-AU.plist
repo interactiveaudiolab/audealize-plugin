@@ -10,9 +10,9 @@
     <key>CFBundleIdentifier</key>
     <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
     <key>CFBundleName</key>
-    <string>Audealize-Reverb</string>
+    <string>Audealize: Reverb</string>
     <key>CFBundleDisplayName</key>
-    <string>Audealize-Reverb</string>
+    <string>Audealize: Reverb</string>
     <key>CFBundlePackageType</key>
     <string>BNDL</string>
     <key>CFBundleSignature</key>
@@ -29,9 +29,9 @@
     <array>
       <dict>
         <key>name</key>
-        <string>Interactive Audio Lab: Audealize-Reverb</string>
+        <string>Interactive Audio Lab: Audealize: Reverb</string>
         <key>description</key>
-        <string>Audealize-Reverb</string>
+        <string>Audealize: Reverb</string>
         <key>factoryFunction</key>
         <string>AudealizeReverbAUFactory</string>
         <key>manufacturer</key>

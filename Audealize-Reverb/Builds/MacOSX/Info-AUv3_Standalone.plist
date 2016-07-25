@@ -10,9 +10,9 @@
     <key>CFBundleIdentifier</key>
     <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
     <key>CFBundleName</key>
-    <string>Audealize-Reverb</string>
+    <string>Audealize: Reverb</string>
     <key>CFBundleDisplayName</key>
-    <string>Audealize-Reverb</string>
+    <string>Audealize: Reverb</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleSignature</key>

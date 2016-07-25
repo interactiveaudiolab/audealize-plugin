@@ -2337,6 +2337,9 @@
     <ClInclude Include="..\..\Source\AudealizeMultiUI.h">
       <Filter>Audealize\Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeAudioProcessor.h">
+      <Filter>Juce Modules\audealize_module\audio_processors</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeEQAudioProcessor.h">
       <Filter>Juce Modules\audealize_module\audio_processors</Filter>
     </ClInclude>
@@ -2398,9 +2401,6 @@
       <Filter>Juce Modules\audealize_module\utils</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audealize_module.h">
-      <Filter>Juce Modules\audealize_module</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\AudealizeAudioProcessor.h">
       <Filter>Juce Modules\audealize_module</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audealize_module.h">

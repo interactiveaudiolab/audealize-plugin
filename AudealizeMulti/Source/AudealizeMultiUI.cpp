@@ -41,7 +41,7 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<Aude
 
     addAndMakeVisible (label = new Label ("new label",
                                           TRANS("Audealize\n")));
-    label->setFont (Font ("Helvetica Neue", 32.00f, Font::bold));
+    label->setFont (Font ("Helvetica Neue", 34.00f, Font::bold));
     label->setJustificationType (Justification::centredLeft);
     label->setEditable (false, false, false);
     label->setColour (TextEditor::textColourId, Colours::black);
@@ -180,7 +180,7 @@ BEGIN_JUCER_METADATA
          explicitFocusOrder="0" pos="8 8 152 32" edTextCol="ff000000"
          edBkgCol="0" labelText="Audealize&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Helvetica Neue"
-         fontsize="32" bold="1" italic="0" justification="33"/>
+         fontsize="34" bold="1" italic="0" justification="33"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

@@ -240,10 +240,10 @@
  #define JucePlugin_Build_STANDALONE       1
 #endif
 #ifndef  JucePlugin_Name
- #define JucePlugin_Name                   "Audealize-Reverb"
+ #define JucePlugin_Name                   "Audealize: Reverb"
 #endif
 #ifndef  JucePlugin_Desc
- #define JucePlugin_Desc                   "Audealize-Reverb"
+ #define JucePlugin_Desc                   "Audealize: Reverb"
 #endif
 #ifndef  JucePlugin_Manufacturer
  #define JucePlugin_Manufacturer           "Interactive Audio Lab"
@@ -333,7 +333,7 @@
  #define JucePlugin_AAXProductId           JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_AAXCategory
- #define JucePlugin_AAXCategory            AAX_ePlugInCategory_Dynamics
+ #define JucePlugin_AAXCategory            AAX_ePlugInCategory_Reverb
 #endif
 #ifndef  JucePlugin_AAXDisableBypass
  #define JucePlugin_AAXDisableBypass       0

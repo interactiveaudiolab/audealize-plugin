@@ -33,7 +33,7 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<Aude
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
 
-    addAndMakeVisible (mTabbedComponent = new TabbedComponent (TabbedButtonBar::TabsAtTop));
+    addAndMakeVisible (mTabbedComponent = new AudealizeTabbedComponent (TabbedButtonBar::TabsAtTop));
     mTabbedComponent->setTabBarDepth (28);
     mTabbedComponent->addTab (TRANS("EQ"), Colours::white, mAudealizeUIs[0], true);
     mTabbedComponent->addTab (TRANS("Reverb"), Colours::white, mAudealizeUIs[1], true);
@@ -41,7 +41,7 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<Aude
 
     addAndMakeVisible (label = new Label ("new label",
                                           TRANS("Audealize\n")));
-    label->setFont (Font ("Helvetica Neue", 34.00f, Font::bold));
+    label->setFont (Font ("Helvetica Neue", 38.00f, Font::bold));
     label->setJustificationType (Justification::centredLeft);
     label->setEditable (false, false, false);
     label->setColour (TextEditor::textColourId, Colours::black);
@@ -49,6 +49,10 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<Aude
 
 
     //[UserPreSize]
+    mTabbedComponent->getTabbedButtonBar().setColour(TabbedButtonBar::ColourIds::tabOutlineColourId, Colour(0x00000000));
+    mTabbedComponent->getTabbedButtonBar().setColour(TabbedButtonBar::ColourIds::frontOutlineColourId, Colour(0x00000000));
+    mTabbedComponent->setOutline(0);
+
     mResizeLimits = new ComponentBoundsConstrainer();
     mResizeLimits->setSizeLimits (600, 500, 1180, 800);
     addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
@@ -56,11 +60,11 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<Aude
     //[/UserPreSize]
 
     setSize (840, 560);
-	
+
 
     //[Constructor] You can add your own custom stuff here..
     prevChildHeight = mAudealizeUIs[0]->getHeight();
-    
+
     mAudealizeUIs[1]->addActionListener(this);
     for (int i = 0; i < mAudealizeUIs.size(); i++){
         mAudealizeUIs[i]->addActionListener(this);
@@ -92,6 +96,12 @@ void AudealizeMultiUI::paint (Graphics& g)
 
     g.fillAll (Colours::white);
 
+    g.setColour (Colour (0xffd9edf7));
+    g.fillRect (24, 48, getWidth() - 48, 34);
+
+    g.setColour (Colours::silver);
+    g.drawRect (24, 48, getWidth() - 48, 34, 1);
+
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
 }
@@ -102,10 +112,12 @@ void AudealizeMultiUI::resized()
     mResizer->setBounds (getWidth() - 18, getHeight() - 18, 16, 16);
     //[/UserPreResize]
 
-    mTabbedComponent->setBounds (0, 44, getWidth() - 0, getHeight() - 44);
-    label->setBounds (8, 8, 152, 32);
+    mTabbedComponent->setBounds (0, 54, getWidth() - 0, getHeight() - 54);
+    label->setBounds (22, 8, 179, 32);
     //[UserResized] Add your own custom resize handling here..
     prevChildHeight = mAudealizeUIs[0]->getHeight();
+
+    //mTabbedComponent->getTabbedButtonBar().setBounds(30, 0, getWidth()-55, mTabbedComponent->getTabBarDepth());
     //[/UserResized]
 }
 
@@ -125,7 +137,7 @@ void AudealizeMultiUI::actionListenerCallback(const juce::String &message){
 
     if (message == "TradUI_TRUE"){ // Traditional UI set to visible
         mResizeLimits->setSizeLimits (600, 500 + 120 + 10, 1180, 800 + 120 + 10); // window size limits depend on whether or not the traditional UI is visible
-        
+
         // show all traditional UIs (prevents window size issues)
         for (int i = 0; i < mAudealizeUIs.size(); i++){
             if (i != childIndex && !mAudealizeUIs[i]->isTraditionalUIVisible()){
@@ -135,7 +147,7 @@ void AudealizeMultiUI::actionListenerCallback(const juce::String &message){
     }
     else if (message == "TradUI_FALSE"){
         mResizeLimits->setSizeLimits (600, 500, 1180, 800); // window size limits depend on whether or not the traditional UI is visible
-        
+
         // hide all traditional UIs (prevents window size issues)
         for (int i = 0; i < mAudealizeUIs.size(); i++){
             if (i != childIndex && mAudealizeUIs[i]->isTraditionalUIVisible()){
@@ -160,27 +172,31 @@ void AudealizeMultiUI::actionListenerCallback(const juce::String &message){
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="AudealizeMultiUI" componentName=""
-                 parentClasses="public AudealizeUI" constructorParams="AudioProcessor&amp; p, vector&lt;ScopedPointer&lt;AudealizeUI&gt;&gt; AudealizeUIs"
-                 variableInitialisers="AudealizeUI(&amp;p), mAudealizeUIs(AudealizeUIs)"
+                 parentClasses="public AudioProcessorEditor, public ActionListener"
+                 constructorParams="AudioProcessor&amp; p, vector&lt;ScopedPointer&lt;AudealizeUI&gt;&gt; AudealizeUIs"
+                 variableInitialisers="AudioProcessorEditor(&amp;p), mAudealizeUIs(AudealizeUIs)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="840" initialHeight="560">
   <METHODS>
     <METHOD name="childrenChanged()"/>
   </METHODS>
-  <BACKGROUND backgroundColour="ffffffff"/>
+  <BACKGROUND backgroundColour="ffffffff">
+    <RECT pos="24 48 48M 34" fill="solid: ffd9edf7" hasStroke="1" stroke="0.7, mitered, butt"
+          strokeColour="solid: ffc0c0c0"/>
+  </BACKGROUND>
   <TABBEDCOMPONENT name="Effect Select" id="2c201af9ffdf5533" memberName="mTabbedComponent"
-                   virtualName="" explicitFocusOrder="0" pos="0 44 0M 44M" orientation="top"
-                   tabBarDepth="28" initialTab="0">
+                   virtualName="AudealizeTabbedComponent" explicitFocusOrder="0"
+                   pos="0 54 0M 54M" orientation="top" tabBarDepth="28" initialTab="0">
     <TAB name="EQ" colour="ffffffff" useJucerComp="0" contentClassName="AudealizeUI"
          constructorParams="mAudealizeUIs[0]" jucerComponentFile=""/>
     <TAB name="Reverb" colour="ffffffff" useJucerComp="0" contentClassName="AudealizeUI"
          constructorParams="mAudealizeUIs[1]" jucerComponentFile=""/>
   </TABBEDCOMPONENT>
   <LABEL name="new label" id="f1105aba3ed6efbd" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="8 8 152 32" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="22 8 179 32" edTextCol="ff000000"
          edBkgCol="0" labelText="Audealize&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Helvetica Neue"
-         fontsize="34" bold="1" italic="0" justification="33"/>
+         fontsize="38" bold="1" italic="0" justification="33"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

@@ -22,6 +22,7 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "AudealizeTabbedComponent.h"
 
 using std::vector;
 using namespace Audealize;
@@ -37,7 +38,8 @@ using namespace Audealize;
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class AudealizeMultiUI  : public AudioProcessorEditor, public ActionListener
+class AudealizeMultiUI  : public AudioProcessorEditor,
+                          public ActionListener
 {
 public:
     //==============================================================================
@@ -53,19 +55,21 @@ public:
     void paint (Graphics& g) override;
     void resized() override;
     void childrenChanged() override;
-    
+
+
+
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     vector<ScopedPointer<AudealizeUI>> mAudealizeUIs;
 
     ScopedPointer<ResizableCornerComponent> mResizer; // handles resizing of the plugin window
     ScopedPointer<ComponentBoundsConstrainer> mResizeLimits; // sets size limits for the plugin window
-    
+
     int prevChildHeight;
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<TabbedComponent> mTabbedComponent;
+    ScopedPointer<AudealizeTabbedComponent> mTabbedComponent;
     ScopedPointer<Label> label;
 
 

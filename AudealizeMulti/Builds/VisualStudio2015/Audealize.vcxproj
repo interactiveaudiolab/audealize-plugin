@@ -1861,6 +1861,7 @@
     <ClCompile Include="..\..\JuceLibraryCode\juce_video.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\AudealizeTabbedComponent.h"/>
     <ClInclude Include="..\..\Source\PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\AudealizeMultiUI.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeAudioProcessor.h"/>

@@ -2331,6 +2331,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\AudealizeTabbedComponent.h">
+      <Filter>Audealize\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\PluginProcessor.h">
       <Filter>Audealize\Source</Filter>
     </ClInclude>

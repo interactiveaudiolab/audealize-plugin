@@ -240,10 +240,10 @@
  #define JucePlugin_Build_STANDALONE       1
 #endif
 #ifndef  JucePlugin_Name
- #define JucePlugin_Name                   "Audealize-EQ"
+ #define JucePlugin_Name                   "Audealize: EQ"
 #endif
 #ifndef  JucePlugin_Desc
- #define JucePlugin_Desc                   "Audealize-EQ"
+ #define JucePlugin_Desc                   "Audealize: EQ"
 #endif
 #ifndef  JucePlugin_Manufacturer
  #define JucePlugin_Manufacturer           "Interactive Audio Lab"
@@ -264,7 +264,7 @@
  #define JucePlugin_IsSynth                0
 #endif
 #ifndef  JucePlugin_WantsMidiInput
- #define JucePlugin_WantsMidiInput         0
+ #define JucePlugin_WantsMidiInput         1
 #endif
 #ifndef  JucePlugin_ProducesMidiOutput
  #define JucePlugin_ProducesMidiOutput     0
@@ -291,7 +291,7 @@
  #define JucePlugin_VSTCategory            kPlugCategEffect
 #endif
 #ifndef  JucePlugin_AUMainType
- #define JucePlugin_AUMainType             kAudioUnitType_Effect
+ #define JucePlugin_AUMainType             kAudioUnitType_MusicEffect
 #endif
 #ifndef  JucePlugin_AUSubType
  #define JucePlugin_AUSubType              JucePlugin_PluginCode
@@ -333,7 +333,7 @@
  #define JucePlugin_AAXProductId           JucePlugin_PluginCode
 #endif
 #ifndef  JucePlugin_AAXCategory
- #define JucePlugin_AAXCategory            AAX_ePlugInCategory_Dynamics
+ #define JucePlugin_AAXCategory            AAX_ePlugInCategory_EQ
 #endif
 #ifndef  JucePlugin_AAXDisableBypass
  #define JucePlugin_AAXDisableBypass       0

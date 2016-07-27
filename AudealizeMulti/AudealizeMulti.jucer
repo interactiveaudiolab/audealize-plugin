@@ -6,12 +6,14 @@
               buildAAX="1" pluginName="Audealize" pluginDesc="Audealize" pluginManufacturer="Interactive Audio Lab"
               pluginManufacturerCode="IALx" pluginCode="adzm" pluginChannelConfigs=""
               pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
-              pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0" pluginAUExportPrefix="AudealizeAU"
-              pluginRTASCategory="" aaxIdentifier="com.InteractiveAudioLab.Audealizee"
-              pluginAAXCategory="AAX_ePlugInCategory_Dynamics" jucerVersion="4.2.3"
+              pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="1" pluginAUExportPrefix="AudealizeAU"
+              pluginRTASCategory="" aaxIdentifier="com.InteractiveAudioLab.Audealize"
+              pluginAAXCategory="AAX_ePlugInCategory_Effect" jucerVersion="4.2.3"
               companyName="Northwestern University Interactive Audio Lab" companyWebsite="http://music.eecs.northwestern.edu">
   <MAINGROUP id="p3OXR6" name="Audealize">
     <GROUP id="{2F4B4BC1-A568-54B1-C2A9-5E208C6C4FD5}" name="Source">
+      <FILE id="C9KTNp" name="AudealizeTabbedComponent.h" compile="0" resource="0"
+            file="Source/AudealizeTabbedComponent.h"/>
       <FILE id="uW6mon" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="DzVfeX" name="PluginProcessor.h" compile="0" resource="0"

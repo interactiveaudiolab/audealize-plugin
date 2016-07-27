@@ -71,18 +71,18 @@ OBJECTS := \
 .PHONY: clean
 
 $(OUTDIR)/$(TARGET): $(OBJECTS) $(RESOURCES)
-	@echo Linking Audealize-Reverb
+	@echo Linking Audealize: Reverb
 	-@mkdir -p $(BINDIR)
 	-@mkdir -p $(LIBDIR)
 	-@mkdir -p $(OUTDIR)
 	@$(BLDCMD)
 
 clean:
-	@echo Cleaning Audealize-Reverb
+	@echo Cleaning Audealize: Reverb
 	@$(CLEANCMD)
 
 strip:
-	@echo Stripping Audealize-Reverb
+	@echo Stripping Audealize: Reverb
 	-@strip --strip-unneeded $(OUTDIR)/$(TARGET)
 
 $(OBJDIR)/PluginProcessor_a059e380.o: ../../Source/PluginProcessor.cpp

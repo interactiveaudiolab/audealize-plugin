@@ -1861,8 +1861,10 @@
     <ClCompile Include="..\..\JuceLibraryCode\juce_video.cpp"/>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\AudealizeTabbedComponent.h"/>
     <ClInclude Include="..\..\Source\PluginProcessor.h"/>
     <ClInclude Include="..\..\Source\AudealizeMultiUI.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeAudioProcessor.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeEQAudioProcessor.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeReverbAudioProcessor.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\AudioEffect.h"/>
@@ -1884,7 +1886,6 @@
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\json.hpp"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\PrimeFactors.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audealize_module.h"/>
-    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\AudealizeAudioProcessor.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audealize_module.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\juce_audio_basics\buffers\juce_AudioSampleBuffer.h"/>

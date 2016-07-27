@@ -57,38 +57,38 @@ namespace Audealize{
         
         addAndMakeVisible (mSliderD = new Slider ("mSliderD"));
         mSliderD->setTooltip (TRANS("Delay of comb filters"));
-        mSliderD->setRange (0, 10, 0);
         mSliderD->setSliderStyle (Slider::RotaryVerticalDrag);
         mSliderD->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
+        mSliderD->setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::grey);
         mSliderD->setRange(0.01f, 0.1f);
-        
+
         addAndMakeVisible (mSliderG = new Slider ("mSliderG"));
         mSliderG->setTooltip (TRANS("Gain of comb filters"));
-        mSliderG->setRange (0, 10, 0);
         mSliderG->setSliderStyle (Slider::RotaryVerticalDrag);
         mSliderG->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
+        mSliderG->setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::grey);
         mSliderG->setRange(0.01f, 0.96f);
         
         addAndMakeVisible (mSliderM = new Slider ("mSliderM"));
         mSliderM->setTooltip (TRANS("Delay between channels"));
-        mSliderM->setRange (0, 10, 0);
         mSliderM->setSliderStyle (Slider::RotaryVerticalDrag);
         mSliderM->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
+        mSliderM->setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::grey);
         mSliderM->setRange(-0.012f, 0.012f);
 
         addAndMakeVisible (mSliderF = new Slider ("mSliderF"));
         mSliderF->setTooltip (TRANS("Cutoff frequency"));
-        mSliderF->setRange (0, 10, 0);
         mSliderF->setSliderStyle (Slider::RotaryVerticalDrag);
         mSliderF->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
+        mSliderF->setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::grey);
         mSliderF->setRange(20, 20000);
         mSliderF->setSkewFactor(.22);
         
         addAndMakeVisible (mSliderE = new Slider ("mSliderE"));
         mSliderE->setTooltip (TRANS("Effect Gain"));
-        mSliderE->setRange (0, 10, 0);
         mSliderE->setSliderStyle (Slider::RotaryVerticalDrag);
         mSliderE->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
+        mSliderE->setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::grey);
         mSliderE->setRange(0.0f, 1.0f);
         
         

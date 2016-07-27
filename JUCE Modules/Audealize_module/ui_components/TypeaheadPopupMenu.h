@@ -8,6 +8,8 @@
 #ifndef TypeaheadPopupMenu_h
 #define TypeaheadPopupMenu_h
 
+using nlohmann::json;
+
 class TypeaheadPopupMenu : public ListBoxModel,
                            public Component
 {
@@ -162,6 +164,8 @@ public:
         
         auto text = editor.getText();
         auto itemId = 0;
+       
+
         
         for (auto o : options)
         {
@@ -169,6 +173,15 @@ public:
                 stringsToShow.push_back(o);
             
             itemId++;
+        }
+        
+        if (stringsToShow.size() == 0){
+            vector<string> syn = synonyms(text);
+            if (syn.size() > 0){
+                for (int i = 0; i < 5; i++){
+                    stringsToShow.push_back(syn[i]);
+                }
+            }
         }
         
         if (stringsToShow.size() == 0)
@@ -264,6 +277,42 @@ public:
         return &editor;
     }
     
+    vector<string> synonyms(String word){
+        if (word.contains(" ")){  // don't want spaces in the url
+            return vector<string>(0);
+        }
+        
+        //Thesaurus service provided by words.bighugelabs.com
+        URL url = URL("https://words.bighugelabs.com/api/2/4cdc8dfc9297f52969df235e3b339e63/" + word + "/json");
+        
+        string urlText = url.readEntireTextStream().toStdString();
+            
+        if (urlText.length() == 0){
+            return vector<string>(0);
+        }
+        
+        json dict = json::parse(urlText);
+        
+        vector<string> likewords(0);
+        
+        if (!dict.empty()){
+            // iterate through parts of speech
+            for (auto it = dict.begin(); it != dict.end(); ++it){
+                if (!it.value().empty()){
+                    // iterate through relation (synonym, antonym, etc...)
+                    for (auto it2 = it.value().begin(); it2 != it.value().end(); ++it2){
+                        // don't include antonyms
+                        if (!it2.value().empty() && String(it2.key().c_str()) != "ant") {
+                            vector<string> words = it2.value().get<vector<string>>();
+                            likewords.insert(std::end(likewords), std::begin(words), std::end(words)); // add to likewords
+                        }
+                    }
+                }
+            }
+        }
+
+        return likewords;
+    }
 private:
     ScopedPointer<TypeaheadPopupMenu> menu;
     StringArray options;

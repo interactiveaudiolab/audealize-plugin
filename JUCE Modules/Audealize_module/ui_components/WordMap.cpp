@@ -107,6 +107,8 @@ namespace Audealize {
     
     void WordMap::paint (Graphics& g)
     {
+        g.fillAll(Colours::white);
+        
         vector<Point<float>> plotted(0);
         String word;
         int font_size, hover_center;
@@ -367,7 +369,7 @@ namespace Audealize {
         setDirty();
     }
     
-    bool WordMap::searchMap(juce::String text){
+    bool WordMap::searchMapAndSelect(juce::String text){
         for(vector<String>::iterator it = words.begin(); it < words.end(); it++){
             if (text.equalsIgnoreCase(*it)){
                 wordSelected(*it);

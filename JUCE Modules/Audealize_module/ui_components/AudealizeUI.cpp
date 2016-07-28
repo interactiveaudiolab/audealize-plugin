@@ -316,10 +316,11 @@ namespace Audealize{
         String text = editor.getText();
         
         // if word not in map, display "Word not found!" and select all text
-        if (!mWordMap->searchMap(text)){
+        if (!mWordMap->searchMapAndSelect(text)){
             editor.setText("Word not found!");
             editor.selectAll();
         }
+        mWordMap->repaint();
     }
     
     void AudealizeUI::languageAlert(){

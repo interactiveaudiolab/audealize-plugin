@@ -184,7 +184,6 @@ void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID
     }
     else if (parameterID.equalsIgnoreCase(paramAmount)){
         mAmount = newValue;
-        DBG("Amount: " << mAmount);
         float gain;
         for (int i = 0; i < NUMBANDS; i++){
             gain = mParamSettings[i];

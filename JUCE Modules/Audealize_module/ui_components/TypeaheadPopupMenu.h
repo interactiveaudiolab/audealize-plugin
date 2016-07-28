@@ -1,7 +1,7 @@
 //
 //  TypeaheadPopupMenu.h
 //
-//  Original code written by user bazrush from the JUCE community forums
+//  Original code written by user bazrush from the JUCE community forums.
 //  https://forum.juce.com/t/type-ahead-dropdown-box/5600/8
 //
 
@@ -133,6 +133,8 @@ public:
         for (int i = 0; i < opts.size(); i++){
             options.add(opts[i]);
         }
+        options.sort(true);
+        options.minimiseStorageOverheads();
     }
     
     void showMenu()
@@ -160,6 +162,8 @@ public:
     
     void textEditorTextChanged(TextEditor&) override
     {
+        dismissMenu();
+        
         std::vector<String> stringsToShow;
         
         auto text = editor.getText();
@@ -178,8 +182,12 @@ public:
         if (stringsToShow.size() == 0){
             vector<string> syn = synonyms(text);
             if (syn.size() > 0){
-                for (int i = 0; i < 5; i++){
-                    stringsToShow.push_back(syn[i]);
+                int i = 0;
+                while (stringsToShow.size() <= 5 && i < syn.size()){
+                    if (binarySearch(&options, String(syn[i]))){ // because JUCE::StringArray::contains is a bit slow
+                        stringsToShow.push_back(syn[i]);
+                    }
+                    i++;
                 }
             }
         }
@@ -313,6 +321,27 @@ public:
 
         return likewords;
     }
+    
+    bool binarySearch(StringArray* arr, String str){
+        int left = 0;
+        int right = arr->size();
+        
+        while (left <= right){
+            int mid = (left + right) / 2;
+            
+            if ((*arr)[mid].equalsIgnoreCase(str)){
+                return true;
+            }
+            else if ((*arr)[mid] > str){
+                right = mid - 1;
+            }
+            else {
+                left = mid + 1;
+            }
+        }
+        return false;
+    }
+    
 private:
     ScopedPointer<TypeaheadPopupMenu> menu;
     StringArray options;

@@ -23,13 +23,15 @@ namespace Audealize{
             mUndoManager = new UndoManager();
             mState = new AudioProcessorValueTreeState(*this, mUndoManager);
             
-            mState->createAndAddParameter(paramAmount, "Amount", "Amount", NormalisableRange<float>(0.0f, 1.0f), 1.0f, nullptr, nullptr);
+            mState->createAndAddParameter(paramAmount, "Amount", "Amount", NormalisableRange<float>(0.0f, 1.0f), 0.5f, nullptr, nullptr);
             mState->addParameterListener(paramAmount, this);
 
-            mAmount = 1.0f;
+            mAmount = 0.5f;
             
             lastUIWidth = 840;
             lastUIHeight = 560;
+            
+            mBypass = false;
         };
         
         ~AudealizeAudioProcessor(){

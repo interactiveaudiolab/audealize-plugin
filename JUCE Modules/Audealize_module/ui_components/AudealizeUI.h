@@ -92,6 +92,10 @@ namespace Audealize{
         
         ScopedPointer<Audealize::TraditionalUI> mTradUI; // traditional UI for controlling the effect (sliders/knobs/etc)
         
+        ScopedPointer<TextButton> mBypassButton;
+        
+        TooltipWindow mToolTip;
+        
         const String TYPEFACE = "Helvetica"; // typeface for all text
         
         ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mAmountSliderAttachment;

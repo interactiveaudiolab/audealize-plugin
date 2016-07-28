@@ -113,7 +113,7 @@ namespace Audealize{
         mTradUIButton->setButtonText (TRANS("+ Show " + String(mTradUI->getName())));
         
         // effect bypass button
-        addAndMakeVisible(mBypassButton = new TextButton (effectType + " On"));
+        addAndMakeVisible(mBypassButton = new TextButton ("Turn " + effectType + " Off"));
         mBypassButton->setClickingTogglesState(true);
         mBypassButton->addListener(this);
         
@@ -225,6 +225,7 @@ namespace Audealize{
         
         // bypass button
         int width = mBypassButton->getBestWidthForHeight(32);
+        width = std::min(140, width); // limit the width to 140 so that it doesn't interfere with language select buttons
         mBypassButton->setBounds(getWidth() - width - 32, 60 + titleTextOffset, width, 32);
         
         // search bar
@@ -293,11 +294,11 @@ namespace Audealize{
         
         else if (buttonThatWasClicked == mBypassButton){
             if (processor.isBypassed()){
-                mBypassButton->setButtonText(mEffectType + " On");
+                mBypassButton->setButtonText("Turn " + mEffectType + " Off");
                 processor.setBypass(false);
             }
             else{
-                mBypassButton->setButtonText(mEffectType + " Off");
+                mBypassButton->setButtonText("Turn " + mEffectType + " On");
                 processor.setBypass(true);
             }
         }

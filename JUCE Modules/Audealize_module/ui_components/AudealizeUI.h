@@ -107,6 +107,8 @@ namespace Audealize{
         
         bool isMultiEffect;
         
+        String mEffectType; 
+        
         //==============================================================================
         ScopedPointer<Audealize::WordMap> mWordMap;
         ScopedPointer<Slider> mAmountSlider; // controls the intensity of the effect

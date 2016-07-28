@@ -104,12 +104,22 @@ namespace Audealize{
          *  @param index
          */
         inline virtual String getParamID(int index) {};
-            
+        
+        void setBypass(bool bypass){
+            mBypass = bypass;
+        }
+        
+        bool isBypassed(){
+            return mBypass;
+        }
+        
     protected:
         ScopedPointer<AudioProcessorValueTreeState> mState; // and AudioProcessorValueTreeState containing the parameter state information
         ScopedPointer<UndoManager> mUndoManager;
         
         vector<float> mParamSettings;
+        
+        bool mBypass;
         
         float mAmount; // value in range [0,1]. dictates the amount of the effect to be applied.
         

@@ -117,6 +117,7 @@ public:
         editor.setWantsKeyboardFocus(true);
         
         setFromMap = false;
+        setWithoutPressingReturn = false;
     }
     
     void mouseDown(const MouseEvent& event) override
@@ -183,9 +184,10 @@ public:
             attString.append ("Found \"" + text + "\"", Font (18.0f));
             
             bubbleMessage->showAt(&editor, attString, 1000, true, false);
+            setWithoutPressingReturn = true;
             editor.keyPressed(KeyPress(KeyPress::returnKey));
+            editor.setHighlightedRegion(Range<int>(text.length(), text.length()));
 
-            //bubbleMessage->toFront(false);
             return;
         }
         if (setFromMap){
@@ -211,6 +213,7 @@ public:
                     i++;
                 }
             }
+            //if (stringsToShow == 0)
         }
         
         if (stringsToShow.size() == 0)
@@ -297,7 +300,11 @@ public:
     void actionListenerCallback(const juce::String &message) override{
         if(!message.equalsIgnoreCase("_languagechanged")){
             editor.setText(message);
-            editor.selectAll();
+            if (!setWithoutPressingReturn){
+                editor.selectAll();
+            }
+            setWithoutPressingReturn = false;
+            
             dismissMenu();
             setFromMap = true;
         }
@@ -370,6 +377,8 @@ private:
     TextEditor editor;
     ScopedPointer<BubbleMessageComponent> bubbleMessage;
     bool setFromMap;
+    bool setWithoutPressingReturn;
+    json synonymCache;
 };
 
 

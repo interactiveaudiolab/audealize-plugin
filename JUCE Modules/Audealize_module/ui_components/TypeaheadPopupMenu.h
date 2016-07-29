@@ -9,6 +9,7 @@
 #define TypeaheadPopupMenu_h
 
 using nlohmann::json;
+using std::vector;
 
 class TypeaheadPopupMenu : public ListBoxModel,
                            public Component
@@ -26,9 +27,11 @@ public:
         shadow.setOwner(this);
     }
     
-    void setItems(const std::vector<String> & options_)
+    void setItems(const StringArray & options_)
     {
-        options = options_;
+        for (auto s : options_){
+            options.push_back(s);
+        }
         list.updateContent();
         setSize(getWidth(), jmin(int(options.size()), 5) * list.getRowHeight());
     }
@@ -107,7 +110,7 @@ class TypeaheadEditor : public Component,
                         public ActionListener
 {
 public:
-    TypeaheadEditor()
+    TypeaheadEditor() : synonymCache(0)
     {
         addAndMakeVisible(editor);
         
@@ -118,6 +121,7 @@ public:
         
         setFromMap = false;
         setWithoutPressingReturn = false;
+
     }
     
     void mouseDown(const MouseEvent& event) override
@@ -167,7 +171,7 @@ public:
     {
         dismissMenu();
         
-        std::vector<String> stringsToShow;
+        StringArray stringsToShow;
         
         auto text = editor.getText();
         auto itemId = 0;
@@ -197,23 +201,30 @@ public:
         for (auto o : options)
         {
             if (o.containsIgnoreCase(text))
-                stringsToShow.push_back(o);
+                stringsToShow.add(o);
             
             itemId++;
         }
         
         if (stringsToShow.size() == 0){
-            vector<string> syn = synonyms(text);
-            if (syn.size() > 0){
-                int i = 0;
-                while (stringsToShow.size() <= 5 && i < syn.size()){
-                    if (binarySearch(&options, String(syn[i]))){ // because JUCE::StringArray::contains is a bit slow
-                        stringsToShow.push_back(syn[i]);
-                    }
-                    i++;
-                }
+            if (cacheKeys.contains(text, true)){ // check if synonyms are cached
+                int index = cacheKeys.indexOf(text, true);
+                stringsToShow = synonymCache[index];
             }
-            //if (stringsToShow == 0)
+            else{  // if not, get synonyms from server and add to cache
+                vector<string> syn = synonyms(text);
+                if (syn.size() > 0){
+                    int i = 0;
+                    while (stringsToShow.size() <= 10 && i < syn.size()){
+                        if (binarySearch(&options, String(syn[i]))){ // because JUCE::StringArray::contains is a bit slow
+                            stringsToShow.addIfNotAlreadyThere(syn[i]);
+                        }
+                        i++;
+                    }
+                }
+                synonymCache.push_back(stringsToShow);
+                cacheKeys.add(text);
+            }
         }
         
         if (stringsToShow.size() == 0)
@@ -378,7 +389,8 @@ private:
     ScopedPointer<BubbleMessageComponent> bubbleMessage;
     bool setFromMap;
     bool setWithoutPressingReturn;
-    json synonymCache;
+    vector<StringArray> synonymCache;
+    StringArray cacheKeys;
 };
 
 

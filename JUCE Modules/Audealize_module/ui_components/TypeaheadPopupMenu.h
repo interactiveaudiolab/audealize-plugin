@@ -116,7 +116,7 @@ public:
         editor.setColour(TextEditor::outlineColourId, Colours::grey);
         editor.setWantsKeyboardFocus(true);
         
-
+        setFromMap = false;
     }
     
     void mouseDown(const MouseEvent& event) override
@@ -171,7 +171,7 @@ public:
         auto text = editor.getText();
         auto itemId = 0;
        
-        if (options.contains(text)){
+        if (options.contains(text) && !setFromMap){
             dismissMenu();
 
             bubbleMessage = new BubbleMessageComponent(1000);
@@ -187,6 +187,9 @@ public:
 
             //bubbleMessage->toFront(false);
             return;
+        }
+        if (setFromMap){
+            setFromMap = false;
         }
         
         for (auto o : options)
@@ -296,6 +299,7 @@ public:
             editor.setText(message);
             editor.selectAll();
             dismissMenu();
+            setFromMap = true;
         }
     }
     
@@ -311,7 +315,7 @@ public:
         //Thesaurus service provided by words.bighugelabs.com
         URL url = URL("https://words.bighugelabs.com/api/2/4cdc8dfc9297f52969df235e3b339e63/" + word + "/json");
         
-        string urlText = url.readEntireTextStream().toStdString();
+        string urlText = url.readEntireTextStream(true).toStdString();
             
         if (urlText.length() == 0){
             return vector<string>(0);
@@ -365,6 +369,7 @@ private:
     StringArray options;
     TextEditor editor;
     ScopedPointer<BubbleMessageComponent> bubbleMessage;
+    bool setFromMap;
 };
 
 

@@ -219,9 +219,6 @@ namespace Audealize{
             mEffectTypeLabel->setBounds (175, 17, 118, 32);
         }
 
-        // language select buttons
-        mEnglishButton->setBounds (mSearchBar->getX() + mSearchBar->getWidth() + 10, 65 + titleTextOffset, 72, 24);
-        mEspanolButton->setBounds (mSearchBar->getX() + mSearchBar->getWidth() + 78, 65 + titleTextOffset, 80, 24);
         
         // bypass button
         int width = mBypassButton->getBestWidthForHeight(32);
@@ -230,6 +227,10 @@ namespace Audealize{
         
         // search bar
         mSearchBar->setBounds (32, 60 + titleTextOffset, 240, 32);
+        
+        // language select buttons
+        mEnglishButton->setBounds (mSearchBar->getX() + mSearchBar->getWidth() + 10, 65 + titleTextOffset, 72, 24);
+        mEspanolButton->setBounds (mSearchBar->getX() + mSearchBar->getWidth() + 78, 65 + titleTextOffset, 80, 24);
         
         // traditional UI
         mTradUI->setBounds(38, getHeight() - 140, getWidth()-63, 120);

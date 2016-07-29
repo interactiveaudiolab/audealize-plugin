@@ -115,6 +115,8 @@ public:
         editor.addKeyListener(this);
         editor.setColour(TextEditor::outlineColourId, Colours::grey);
         editor.setWantsKeyboardFocus(true);
+        
+
     }
     
     void mouseDown(const MouseEvent& event) override
@@ -169,7 +171,23 @@ public:
         auto text = editor.getText();
         auto itemId = 0;
        
+        if (options.contains(text)){
+            dismissMenu();
 
+            bubbleMessage = new BubbleMessageComponent(1000);
+            bubbleMessage->setColour(BubbleMessageComponent::ColourIds::backgroundColourId, Colours::white);
+            bubbleMessage->setColour(BubbleMessageComponent::ColourIds::outlineColourId, Colours::green);
+            getParentComponent()->addChildComponent(bubbleMessage);
+            
+            AttributedString attString;
+            attString.append ("Found \"" + text + "\"", Font (18.0f));
+            
+            bubbleMessage->showAt(&editor, attString, 1000, true, false);
+            editor.keyPressed(KeyPress(KeyPress::returnKey));
+
+            //bubbleMessage->toFront(false);
+            return;
+        }
         
         for (auto o : options)
         {
@@ -345,7 +363,8 @@ public:
 private:
     ScopedPointer<TypeaheadPopupMenu> menu;
     StringArray options;
-    TextEditor editor; 
+    TextEditor editor;
+    ScopedPointer<BubbleMessageComponent> bubbleMessage;
 };
 
 

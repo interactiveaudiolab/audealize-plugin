@@ -43,7 +43,7 @@ class AudealizeMultiUI  : public AudioProcessorEditor,
 {
 public:
     //==============================================================================
-    AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<AudealizeUI>> AudealizeUIs);
+    AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> AudealizeUIs);
     ~AudealizeMultiUI();
 
     //==============================================================================
@@ -60,7 +60,7 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    vector<ScopedPointer<AudealizeUI>> mAudealizeUIs;
+    vector<AudealizeUI*> mAudealizeUIs;
 
     ScopedPointer<ResizableCornerComponent> mResizer; // handles resizing of the plugin window
     ScopedPointer<ComponentBoundsConstrainer> mResizeLimits; // sets size limits for the plugin window

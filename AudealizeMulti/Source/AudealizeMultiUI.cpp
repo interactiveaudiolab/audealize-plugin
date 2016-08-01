@@ -27,7 +27,7 @@
 //[/MiscUserDefs]
 
 //==============================================================================
-AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<AudealizeUI>> AudealizeUIs)
+AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> AudealizeUIs)
     : AudioProcessorEditor(&p), mAudealizeUIs(AudealizeUIs)
 {
     //[Constructor_pre] You can add your own custom stuff here..

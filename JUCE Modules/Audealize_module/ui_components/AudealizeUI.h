@@ -87,6 +87,10 @@ namespace Audealize{
             return mWordMap->getHeight();
         }
         
+        bool isPluginMultiEffect(){
+            return isMultiEffect;
+        }
+        
     private:
         AudealizeAudioProcessor& processor;
         

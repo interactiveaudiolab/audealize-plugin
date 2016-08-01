@@ -120,6 +120,7 @@ public:
         return options;
     }
     
+    
 private:
     ScopedPointer<TypeaheadPopupMenu> menu;
     StringArray options;

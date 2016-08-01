@@ -147,7 +147,7 @@ void TypeaheadEditor::textEditorTextChanged(TextEditor&)
 {
     dismissMenu();
     
-    StringArray stringsToShow; 
+    StringArray stringsToShow;
     
     auto text = editor.getText();
     auto itemId = 0;
@@ -155,15 +155,11 @@ void TypeaheadEditor::textEditorTextChanged(TextEditor&)
     if (options.contains(text) && !setFromMap){
         dismissMenu();
         
-        bubbleMessage = new BubbleMessageComponent(1000);
-        bubbleMessage->setColour(BubbleMessageComponent::ColourIds::backgroundColourId, Colours::white);
-        bubbleMessage->setColour(BubbleMessageComponent::ColourIds::outlineColourId, Colours::green);
-        getParentComponent()->addChildComponent(bubbleMessage);
-        
         AttributedString attString;
         attString.append ("Found \"" + text + "\"", Font (18.0f));
+
+        showBubbleMessage(attString, Colours::green);
         
-        bubbleMessage->showAt(&editor, attString, 1000, true, false);
         setWithoutPressingReturn = true;
         editor.keyPressed(KeyPress(KeyPress::returnKey));
         editor.setHighlightedRegion(Range<int>(text.length(), text.length()));
@@ -182,7 +178,14 @@ void TypeaheadEditor::textEditorTextChanged(TextEditor&)
         itemId++;
     }
     
-    if (stringsToShow.size() == 0){
+    if (stringsToShow.size() == 0){ // if descriptor not found in this map
+        for (int i = 0; i < otherMaps.size(); i++){  // search other maps
+            if (otherMaps[i].contains(text, true)){
+                AttributedString attString;
+                attString.append ("Try checking the " + otherMapEffectNames[i] + "map", Font (18.0f));
+                showBubbleMessage(attString, Colours::blue, Colours::lightblue);
+            }
+        }
         if (cacheKeys.contains(text, true)){ // check if synonyms are cached
             int index = cacheKeys.indexOf(text, true);
             stringsToShow = synonymCache[index];
@@ -301,6 +304,12 @@ TextEditor* TypeaheadEditor::getEditor(){
     return &editor;
 }
 
+void TypeaheadEditor::setMultiEffect(vector<String> effectNames, vector<StringArray> descriptors){
+    isMultiEffect = true;
+    otherMaps = descriptors;
+    otherMapEffectNames = effectNames;
+}
+
 vector<string> TypeaheadEditor::synonyms(String word){
     if (word.contains(" ")){  // don't want spaces in the url
         return vector<string>(0);
@@ -357,3 +366,14 @@ bool TypeaheadEditor::binarySearch(StringArray* arr, String str){
     }
     return false;
 }
+
+void TypeaheadEditor::showBubbleMessage(AttributedString str, Colour outlineColor, Colour fillColor){
+    bubbleMessage = new BubbleMessageComponent(1000);
+    bubbleMessage->setColour(BubbleMessageComponent::ColourIds::backgroundColourId, fillColor);
+    bubbleMessage->setColour(BubbleMessageComponent::ColourIds::outlineColourId, outlineColor);
+    getParentComponent()->addChildComponent(bubbleMessage);
+    
+    
+    bubbleMessage->showAt(&editor, str, 1000, true, false);
+}
+

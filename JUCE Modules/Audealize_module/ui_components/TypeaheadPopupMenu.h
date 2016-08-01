@@ -18,11 +18,6 @@ public:
     TypeaheadPopupMenu();
     ~TypeaheadPopupMenu() {};
     
-    /**
-     *  <#Description#>
-     *
-     *  @param options_ <#options_ description#>
-     */
     void setItems(const StringArray & options_);
     
     void resized() override;
@@ -111,11 +106,19 @@ public:
     
     void actionListenerCallback(const juce::String &message) override;
     
+    void setMultiEffect(vector<String> effectNames, vector<StringArray> descriptors);
+    
     TextEditor* getEditor();
     
     vector<string> synonyms(String word);
     
     bool binarySearch(StringArray* arr, String str);
+    
+    void showBubbleMessage(AttributedString str, Colour outlineColor, Colour fillColor = Colours::white);
+    
+    StringArray getDescriptors(){
+        return options;
+    }
     
 private:
     ScopedPointer<TypeaheadPopupMenu> menu;
@@ -124,8 +127,11 @@ private:
     ScopedPointer<BubbleMessageComponent> bubbleMessage;
     bool setFromMap;
     bool setWithoutPressingReturn;
+    vector<StringArray> otherMaps;
+    vector<String> otherMapEffectNames;
     vector<StringArray> synonymCache;
     StringArray cacheKeys;
+    bool isMultiEffect;
 };
 
 

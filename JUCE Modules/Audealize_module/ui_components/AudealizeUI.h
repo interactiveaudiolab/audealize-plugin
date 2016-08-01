@@ -75,6 +75,10 @@ namespace Audealize{
             return mTradUI;
         }
         
+        ScopedPointer<TypeaheadEditor> getSearchBar(){
+            return mSearchBar;
+        }
+        
         String getEffectName(){
             return mTradUI->getName();
         }

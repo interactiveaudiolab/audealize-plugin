@@ -57,6 +57,7 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<Aude
     mResizeLimits->setSizeLimits (600, 500, 1180, 800);
     addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
     mResizer->setAlwaysOnTop(true);
+    
     //[/UserPreSize]
 
     setSize (840, 560);
@@ -68,6 +69,36 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<ScopedPointer<Aude
     mAudealizeUIs[1]->addActionListener(this);
     for (int i = 0; i < mAudealizeUIs.size(); i++){
         mAudealizeUIs[i]->addActionListener(this);
+    }
+    
+    
+    // make each map searchable by other maps
+    
+    vector<String> effectNames;  // make a vec
+    for (int i = 0; i < mAudealizeUIs.size(); i++){
+        DBG("effectnames");
+        effectNames.push_back(mAudealizeUIs[i]->getEffectName());
+        DBG("effectnames done");
+    }
+    
+    for (int i = 0; i < mAudealizeUIs.size(); i++){
+        vector<StringArray> otherMapDescriptors(0);
+        for (int j = 0; j < mAudealizeUIs.size(); j++){
+            DBG("i " << i);
+            if (j != i){
+                DBG("other descriptors: " << j);
+                mAudealizeUIs[j]->getSearchBar();
+                mAudealizeUIs[j]->getSearchBar()->getDescriptors();
+                DBG("getdescriptors");
+                StringArray test = mAudealizeUIs[j]->getSearchBar()->getDescriptors();
+                //otherMapDescriptors.push_back(NULL);
+                DBG("other descriptors done");  
+            }
+        }
+        
+        if (effectNames.size() > 0 && otherMapDescriptors.size() > 0){
+            mAudealizeUIs[i]->getSearchBar()->setMultiEffect(effectNames, otherMapDescriptors);
+        }
     }
     //[/Constructor]
 }

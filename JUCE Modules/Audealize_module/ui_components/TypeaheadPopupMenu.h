@@ -114,7 +114,7 @@ public:
     
     bool binarySearch(StringArray* arr, String str);
     
-    void showBubbleMessage(AttributedString str, Colour outlineColor, Colour fillColor = Colours::white);
+    void showBubbleMessage(AttributedString str, Colour outlineColor, Colour fillColor = Colours::white, int timeInMS = 1000);
     
     StringArray getDescriptors(){
         return options;

@@ -71,16 +71,16 @@ namespace Audealize{
             return mTradUIButton;
         }
     
-        ScopedPointer<TraditionalUI> getTraditionalUI(){
+        TraditionalUI* getTraditionalUI(){
             return mTradUI;
         }
         
-        ScopedPointer<TypeaheadEditor> getSearchBar(){
+        TypeaheadEditor* getSearchBar(){
             return mSearchBar;
         }
         
         String getEffectName(){
-            return mTradUI->getName();
+            return mEffectType;
         }
         
         int getWordMapHeight(){

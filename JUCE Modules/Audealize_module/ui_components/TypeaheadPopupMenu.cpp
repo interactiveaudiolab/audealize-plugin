@@ -182,8 +182,8 @@ void TypeaheadEditor::textEditorTextChanged(TextEditor&)
         for (int i = 0; i < otherMaps.size(); i++){  // search other maps
             if (otherMaps[i].contains(text, true)){
                 AttributedString attString;
-                attString.append ("Try checking the " + otherMapEffectNames[i] + "map", Font (18.0f));
-                showBubbleMessage(attString, Colours::blue, Colours::lightblue);
+                attString.append ("Try checking the " + otherMapEffectNames[i] + " map", Font (18.0f));
+                showBubbleMessage(attString, Colours::blue, Colours::lightblue, 1500);
             }
         }
         if (cacheKeys.contains(text, true)){ // check if synonyms are cached
@@ -367,13 +367,14 @@ bool TypeaheadEditor::binarySearch(StringArray* arr, String str){
     return false;
 }
 
-void TypeaheadEditor::showBubbleMessage(AttributedString str, Colour outlineColor, Colour fillColor){
-    bubbleMessage = new BubbleMessageComponent(1000);
+void TypeaheadEditor::showBubbleMessage(AttributedString str, Colour outlineColor, Colour fillColor, int timeInMS){
+    bubbleMessage = new BubbleMessageComponent(timeInMS);
     bubbleMessage->setColour(BubbleMessageComponent::ColourIds::backgroundColourId, fillColor);
     bubbleMessage->setColour(BubbleMessageComponent::ColourIds::outlineColourId, outlineColor);
     getParentComponent()->addChildComponent(bubbleMessage);
     
     
-    bubbleMessage->showAt(&editor, str, 1000, true, false);
+    bubbleMessage->showAt(&editor, str, timeInMS, true, false);
+    bubbleMessage->toFront(false);
 }
 

@@ -74,25 +74,14 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
     
     // make each map searchable by other maps
     
-    vector<String> effectNames;  // make a vec
     for (int i = 0; i < mAudealizeUIs.size(); i++){
-        DBG("effectnames");
-        effectNames.push_back(mAudealizeUIs[i]->getEffectName());
-        DBG("effectnames done");
-    }
-    
-    for (int i = 0; i < mAudealizeUIs.size(); i++){
-        vector<StringArray> otherMapDescriptors(0);
+        vector<String> effectNames;  // a vector of the names of the other effects
+        vector<StringArray> otherMapDescriptors; // a vector of StringArrays containing the descriptors from the other maps
+        
         for (int j = 0; j < mAudealizeUIs.size(); j++){
-            DBG("i " << i);
             if (j != i){
-                DBG("other descriptors: " << j);
-                mAudealizeUIs[j]->getSearchBar();
-                mAudealizeUIs[j]->getSearchBar()->getDescriptors();
-                DBG("getdescriptors");
-                StringArray test = mAudealizeUIs[j]->getSearchBar()->getDescriptors();
-                //otherMapDescriptors.push_back(NULL);
-                DBG("other descriptors done");  
+                effectNames.push_back(mAudealizeUIs[j]->getEffectName());
+                otherMapDescriptors.push_back(mAudealizeUIs[j]->getSearchBar()->getDescriptors());
             }
         }
         

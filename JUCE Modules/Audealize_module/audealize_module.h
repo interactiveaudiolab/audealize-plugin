@@ -8,7 +8,7 @@
       website:          http://music.eecs.northwestern.edu
       license:          
 
-      dependencies:     juce_core, juce_audio_processors, juce_audio_basics, juce_audio_formats, juce_audio_utils, juce_graphics, juce_gui_basics
+      dependencies:     juce_core, juce_audio_processors, juce_audio_basics, juce_audio_formats, juce_audio_utils, juce_graphics, juce_gui_basics, juce_gui_extra
 
      END_JUCE_MODULE_DECLARATION
 */
@@ -24,6 +24,7 @@
 #include "../juce_audio_processors/juce_audio_processors.h"
 #include "../juce_graphics/juce_graphics.h"
 #include "../juce_gui_basics/juce_gui_basics.h"
+#include "../juce_gui_extra/juce_gui_extra.h"
 
 #include "utils/json.hpp"
 #include "utils/calf_dsp_library/delay.h"

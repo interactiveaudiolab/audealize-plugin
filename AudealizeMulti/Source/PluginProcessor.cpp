@@ -146,8 +146,8 @@ bool AudealizeMultiAudioProcessor::hasEditor() const
 
 AudioProcessorEditor* AudealizeMultiAudioProcessor::createEditor()
 {
-    vector<ScopedPointer<AudealizeUI>> audealizeUIs;
-    
+    vector<AudealizeUI*> audealizeUIs;
+
     audealizeUIs.push_back(mEQAudioProcessor->createEditor(true));
     audealizeUIs.push_back(mReverbAudioProcessor->createEditor(true));
     

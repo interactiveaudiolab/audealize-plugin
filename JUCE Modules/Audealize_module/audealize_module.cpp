@@ -16,6 +16,7 @@
 #include "ui_components/GraphicEQComponent.cpp"
 #include "ui_components/WordMap.cpp"
 #include "ui_components/ReverbComponent.cpp"
+#include "ui_components/TypeaheadPopupMenu.cpp"
 
 #include "audio_processors/AudealizeEQAudioProcessor.cpp"
 #include "audio_processors/AudealizeReverbAudioProcessor.cpp"

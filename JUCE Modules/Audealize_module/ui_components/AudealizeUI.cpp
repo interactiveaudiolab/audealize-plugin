@@ -12,6 +12,8 @@ namespace Audealize{
     {
         isMultiEffect = isPluginMultiEffect;
         
+        mEffectType = effectType;
+        
         // Load file with descriptors, parse into nlohman::json object
         ifstream infile;
         infile.open(mPathToPoints.toUTF8());
@@ -62,6 +64,7 @@ namespace Audealize{
         mEspanolButton->addListener (this);
         mEspanolButton->setToggleState (true, dontSendNotification);
         
+        
         // if this AudealizeUI is a child component of an AudealizeMultiUI, we wont show the Audealize title text here. 
         if (!isMultiEffect){
             // Audealize title text
@@ -109,6 +112,10 @@ namespace Audealize{
         mTradUIButton->addListener (this);
         mTradUIButton->setButtonText (TRANS("+ Show " + String(mTradUI->getName())));
         
+        // effect bypass button
+        addAndMakeVisible(mBypassButton = new TextButton ("Turn " + effectType + " Off"));
+        mBypassButton->setClickingTogglesState(true);
+        mBypassButton->addListener(this);
         
         // resize limits + ResizableCornerComponent
         // if this AudealizeUI is a child component of an AudealizeMultiUI, resizing will be handled there
@@ -117,7 +124,7 @@ namespace Audealize{
             mResizeLimits->setSizeLimits (600, 400, 1180, 800);
             addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
         }
-        
+                
         // set initial size of plugin window
         setSize (840, 560);
     }
@@ -128,7 +135,7 @@ namespace Audealize{
         mAmountSliderAttachment = nullptr;
         mResizer = nullptr;
         mResizeLimits = nullptr;
-        
+        mBypassButton = nullptr;
         mWordMap = nullptr;
         mAmountSlider = nullptr;
         mLabelLess = nullptr;
@@ -212,12 +219,18 @@ namespace Audealize{
             mEffectTypeLabel->setBounds (175, 17, 118, 32);
         }
 
-        // language select buttons
-        mEnglishButton->setBounds (getWidth() - 184, 65 + titleTextOffset, 72, 24);
-        mEspanolButton->setBounds (getWidth() - 110, 65 + titleTextOffset, 80, 24);
+        
+        // bypass button
+        int width = mBypassButton->getBestWidthForHeight(32);
+        width = std::min(140, width); // limit the width to 140 so that it doesn't interfere with language select buttons
+        mBypassButton->setBounds(getWidth() - width - 32, 60 + titleTextOffset, width, 32);
         
         // search bar
         mSearchBar->setBounds (32, 60 + titleTextOffset, 240, 32);
+        
+        // language select buttons
+        mEnglishButton->setBounds (mSearchBar->getX() + mSearchBar->getWidth() + 10, 65 + titleTextOffset, 72, 24);
+        mEspanolButton->setBounds (mSearchBar->getX() + mSearchBar->getWidth() + 78, 65 + titleTextOffset, 80, 24);
         
         // traditional UI
         mTradUI->setBounds(38, getHeight() - 140, getWidth()-63, 120);
@@ -279,6 +292,17 @@ namespace Audealize{
                     mResizeLimits->setSizeLimits (600, 400 + mTradUI->getHeight() + 10, 1180, 800 + mTradUI->getHeight() + 10); // window size limits depend on whether or not the traditional UI is visible
             }
         }// end if buttonThatWasClicked
+        
+        else if (buttonThatWasClicked == mBypassButton){
+            if (processor.isBypassed()){
+                mBypassButton->setButtonText("Turn " + mEffectType + " Off");
+                processor.setBypass(false);
+            }
+            else{
+                mBypassButton->setButtonText("Turn " + mEffectType + " On");
+                processor.setBypass(true);
+            }
+        }
     }
     
     void AudealizeUI::lookAndFeelChanged()
@@ -294,10 +318,13 @@ namespace Audealize{
         String text = editor.getText();
         
         // if word not in map, display "Word not found!" and select all text
-        if (!mWordMap->searchMap(text)){
-            editor.setText("Word not found!");
+        if (!mWordMap->searchMapAndSelect(text)){
+            AttributedString attStr;
+            attStr.append("Word not found!");
+            static_cast<TypeaheadEditor*>(editor.getParentComponent())->showBubbleMessage(attStr, Colours::red, Colour(0xFFFFB4AF), 1000);
             editor.selectAll();
         }
+        mWordMap->repaint();
     }
     
     void AudealizeUI::languageAlert(){

@@ -71,16 +71,24 @@ namespace Audealize{
             return mTradUIButton;
         }
     
-        ScopedPointer<TraditionalUI> getTraditionalUI(){
+        TraditionalUI* getTraditionalUI(){
             return mTradUI;
         }
         
+        TypeaheadEditor* getSearchBar(){
+            return mSearchBar;
+        }
+        
         String getEffectName(){
-            return mTradUI->getName();
+            return mEffectType;
         }
         
         int getWordMapHeight(){
             return mWordMap->getHeight();
+        }
+        
+        bool isPluginMultiEffect(){
+            return isMultiEffect;
         }
         
     private:
@@ -92,6 +100,10 @@ namespace Audealize{
         
         ScopedPointer<Audealize::TraditionalUI> mTradUI; // traditional UI for controlling the effect (sliders/knobs/etc)
         
+        ScopedPointer<TextButton> mBypassButton;
+        
+        TooltipWindow mToolTip;
+        
         const String TYPEFACE = "Helvetica"; // typeface for all text
         
         ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mAmountSliderAttachment;
@@ -102,6 +114,8 @@ namespace Audealize{
         bool isTradUIVisible; // true if traditional UI is visible
         
         bool isMultiEffect;
+        
+        String mEffectType; 
         
         //==============================================================================
         ScopedPointer<Audealize::WordMap> mWordMap;

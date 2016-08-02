@@ -144,11 +144,14 @@ void AudealizeeqAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuf
     
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
-    {
-        float* channelData = buffer.getWritePointer (channel);
-        
-        mEqualizer.processBlock(channelData, numSamples, channel);
+    
+    if (!mBypass){
+        for (int channel = 0; channel < totalNumInputChannels; ++channel)
+        {
+            float* channelData = buffer.getWritePointer (channel);
+            
+            mEqualizer.processBlock(channelData, numSamples, channel);
+        }
     }
     
     // In case we have more outputs than inputs, this code clears any output
@@ -181,7 +184,6 @@ void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID
     }
     else if (parameterID.equalsIgnoreCase(paramAmount)){
         mAmount = newValue;
-        DBG("Amount: " << mAmount);
         float gain;
         for (int i = 0; i < NUMBANDS; i++){
             gain = mParamSettings[i];
@@ -207,6 +209,7 @@ void AudealizeeqAudioProcessor::settingsFromMap(vector<float> settings){
         gain = mGainRange.convertTo0to1(gain);
         mState->getParameter(getParamID(i))->setValueNotifyingHost(gain);
     }
+    
     //DBG(mEqualizer.getBandGain(10));
 }
 

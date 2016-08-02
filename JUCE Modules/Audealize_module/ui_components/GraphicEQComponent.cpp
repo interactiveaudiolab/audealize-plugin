@@ -17,6 +17,8 @@ namespace Audealize {
             
             mGainSliders[i] = new Slider (Slider::LinearVertical, Slider::NoTextBox);
             mGainSliders[i]->setRange(gainRange.getRange().getStart(), gainRange.getRange().getEnd());
+            String tooltip = String(mFreqs[i]) + " Hz";
+            mGainSliders[i]->setTooltip(tooltip);
             addAndMakeVisible(mGainSliders[i]);
             
             mGainSliderAttachment[i] = new AudioProcessorValueTreeState::SliderAttachment (p.getValueTreeState(), paramID, *mGainSliders[i]);

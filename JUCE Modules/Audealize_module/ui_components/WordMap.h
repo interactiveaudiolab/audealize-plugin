@@ -61,7 +61,7 @@ namespace Audealize {
          *
          *  @return true if descriptor is in map
          */
-        bool searchMap(String text);
+        bool searchMapAndSelect(String text);
         
         /**
          *  Inherited from JUCE::Timer

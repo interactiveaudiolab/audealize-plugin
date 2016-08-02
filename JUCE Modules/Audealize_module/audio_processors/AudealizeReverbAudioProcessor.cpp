@@ -181,15 +181,17 @@ void AudealizereverbAudioProcessor::processBlock (AudioSampleBuffer& buffer, Mid
     }
         
     // Process reverb
-    if (totalNumInputChannels == 1){
-        float* channelData = buffer.getWritePointer(0);
-        mReverb.processMonoBlock(channelData, buffer.getNumSamples());
-    }
-    else{
-        float* channelData1 = buffer.getWritePointer(0);
-        float* channelData2 = buffer.getWritePointer(1);
-        
-        mReverb.processStereoBlock(channelData1, channelData2, buffer.getNumSamples());
+    if (!mBypass){
+        if (totalNumInputChannels == 1){
+            float* channelData = buffer.getWritePointer(0);
+            mReverb.processMonoBlock(channelData, buffer.getNumSamples());
+        }
+        else{
+            float* channelData1 = buffer.getWritePointer(0);
+            float* channelData2 = buffer.getWritePointer(1);
+            
+            mReverb.processStereoBlock(channelData1, channelData2, buffer.getNumSamples());
+        }
     }
 }
 
@@ -267,7 +269,6 @@ String AudealizereverbAudioProcessor::getParamID(int index){
 
 void AudealizereverbAudioProcessor::settingsFromMap(vector<float> settings){
     mParamSettings = settings;
-    //normalize(&mParamSettings);
     
     DBG("Raw: " << settings[0] << " " << settings[1] << " "<< settings[2] << " "<< settings[3] << " "<< settings[4]);
     

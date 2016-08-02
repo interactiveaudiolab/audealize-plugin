@@ -25,10 +25,13 @@
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX">
+    <XCODE_MAC targetFolder="Builds/MacOSX" vstFolder="" vst3Folder="" aaxFolder=""
+               extraLinkerFlags="/usr/local/lib/libWN.a" externalLibraries="">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="AudealizeMulti"/>
-        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="AudealizeMulti"/>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="AudealizeMulti"
+                       headerPath="/usr/local/include" libraryPath="/usr/local/lib"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="AudealizeMulti"
+                       headerPath="/usr/local/include" libraryPath="/usr/local/lib"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE Modules"/>
@@ -49,7 +52,8 @@
         <MODULEPATH id="audealize_module" path="../JUCE Modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
-    <VS2015 targetFolder="Builds/VisualStudio2015">
+    <VS2015 targetFolder="Builds/VisualStudio2015" vstFolder="" vst3Folder=""
+            aaxFolder="">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
                        isDebug="1" optimisation="1" targetName="AudealizeMulti"/>

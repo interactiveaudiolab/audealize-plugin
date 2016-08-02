@@ -19,10 +19,13 @@
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX">
+    <XCODE_MAC targetFolder="Builds/MacOSX" vstFolder="" vst3Folder="" aaxFolder=""
+               extraLinkerFlags="/usr/local/lib/libWN.a">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Audealize-EQ"/>
-        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Audealize-EQ"/>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Audealize-EQ"
+                       headerPath="/usr/local/include" libraryPath="/usr/local/lib"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Audealize-EQ"
+                       libraryPath="/usr/local/lib" headerPath="/usr/local/include"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE Modules"/>

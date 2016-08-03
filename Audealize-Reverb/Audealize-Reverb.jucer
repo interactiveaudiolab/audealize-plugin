@@ -21,12 +21,16 @@
   </MAINGROUP>
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX" vstFolder="" vst3Folder="" aaxFolder=""
-               extraLinkerFlags="/usr/local/lib/libWN.a">
+               extraLinkerFlags="/usr/local/WordNet-3.0/lib/libWN.a">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Audealize-Reverb"
-                       libraryPath="/usr/local/lib" headerPath="/usr/local/include"/>
+                       libraryPath="/usr/local/WordNet-3.0/lib" headerPath="/usr/local/WordNet-3.0/include"
+                       xcodeVstBinaryLocation="/Library/Audio/Plug-Ins/VST/" xcodeVst3BinaryLocation="/Library/Audio/Plug-Ins/VST3/"
+                       xcodeAudioUnitBinaryLocation="/Library/Audio/Plug-Ins/Components"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Audealize-Reverb"
-                       libraryPath="/usr/local/lib" headerPath="/usr/local/include"/>
+                       libraryPath="/usr/local/WordNet-3.0/lib" headerPath="/usr/local/WordNet-3.0/include"
+                       xcodeAudioUnitBinaryLocation="/Library/Audio/Plug-Ins/Components"
+                       xcodeVst3BinaryLocation="/Library/Audio/Plug-Ins/VST3/" xcodeVstBinaryLocation="/Library/Audio/Plug-Ins/VST/"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE Modules"/>

@@ -151,6 +151,9 @@
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\ReverbComponent.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\TypeaheadPopupMenu.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\WordMap.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>

@@ -320,7 +320,7 @@ namespace Audealize{
         // if word not in map, display "Word not found!" and select all text
         if (!mWordMap->searchMapAndSelect(text)){
             AttributedString attStr;
-            attStr.append("Word not found!");
+            attStr.append("Word not found!", Font (18.0f));
             static_cast<TypeaheadEditor*>(editor.getParentComponent())->showBubbleMessage(attStr, Colours::red, Colour(0xFFFFB4AF), 1000);
             editor.selectAll();
         }

@@ -86,7 +86,7 @@ void TypeaheadPopupMenu::setFirstItemFocused()
 // TypeaheadEditor
 //================================================================================================
 
-TypeaheadEditor::TypeaheadEditor() : synonymCache(0)
+TypeaheadEditor::TypeaheadEditor()
 {
     addAndMakeVisible(editor);
     
@@ -186,24 +186,17 @@ void TypeaheadEditor::textEditorTextChanged(TextEditor&)
                 showBubbleMessage(attString, Colours::blue, Colours::lightblue, 1500);
             }
         }
-        if (cacheKeys.contains(text, true)){ // check if synonyms are cached
-            int index = cacheKeys.indexOf(text, true);
-            stringsToShow = synonymCache[index];
-        }
-        else{  // if not, get synonyms from server and add to cache
-            StringArray syn = synonyms(text);
-            if (syn.size() > 0){
-                int i = 0;
-                while (stringsToShow.size() <= 10 && i < syn.size()){
-                    if (binarySearch(&options, syn[i])){ // because JUCE::StringArray::contains is a bit slow
-                        stringsToShow.addIfNotAlreadyThere(syn[i]);
-                    }
-                    i++;
+        StringArray syn = synonyms(text);
+        if (syn.size() > 0){
+            int i = 0;
+            while (stringsToShow.size() <= 10 && i < syn.size()){
+                if (binarySearch(&options, syn[i])){ // because JUCE::StringArray::contains can be a bit slow
+                    stringsToShow.addIfNotAlreadyThere(syn[i]);
                 }
+                i++;
             }
-            synonymCache.push_back(stringsToShow);
-            cacheKeys.add(text);
         }
+        
     }
     
     if (stringsToShow.size() == 0)

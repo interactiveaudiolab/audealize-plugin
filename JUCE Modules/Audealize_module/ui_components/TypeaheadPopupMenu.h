@@ -106,11 +106,24 @@ public:
     
     void actionListenerCallback(const juce::String &message) override;
     
+    /**
+     *  Tells the TypeaheadPopupMenu that it is part of a multi effect plugin and should therefore search the descriptor sets for the ther effects
+     *
+     *  @param effectNames vector<String> list of names of other effects in the plugin (EQ, reverb, etc..)
+     *  @param descriptors vector<StringArray> containing the sets of descriptors for each other effect/wordmap. Must be in same order as effectNames
+     */
     void setMultiEffect(vector<String> effectNames, vector<StringArray> descriptors);
     
     TextEditor* getEditor();
     
-    vector<string> synonyms(String word);
+    /**
+     *  Finds synonyms of a given word using WordNet
+     *
+     *  @param word
+     *
+     *  @return StringArray of synonyms
+     */
+    StringArray synonyms(String word);
     
     bool binarySearch(StringArray* arr, String str);
     

@@ -191,11 +191,11 @@ void TypeaheadEditor::textEditorTextChanged(TextEditor&)
             stringsToShow = synonymCache[index];
         }
         else{  // if not, get synonyms from server and add to cache
-            vector<string> syn = synonyms(text);
+            StringArray syn = synonyms(text);
             if (syn.size() > 0){
                 int i = 0;
                 while (stringsToShow.size() <= 10 && i < syn.size()){
-                    if (binarySearch(&options, String(syn[i]))){ // because JUCE::StringArray::contains is a bit slow
+                    if (binarySearch(&options, syn[i])){ // because JUCE::StringArray::contains is a bit slow
                         stringsToShow.addIfNotAlreadyThere(syn[i]);
                     }
                     i++;
@@ -310,39 +310,30 @@ void TypeaheadEditor::setMultiEffect(vector<String> effectNames, vector<StringAr
     otherMapEffectNames = effectNames;
 }
 
-vector<string> TypeaheadEditor::synonyms(String word){
-    if (word.contains(" ")){  // don't want spaces in the url
-        return vector<string>(0);
+StringArray TypeaheadEditor::synonyms(String word){
+
+    if (wninit()){ // initialize wordnet
+        DBG("Failed to load Wordnet");
+        return StringArray();
     }
     
-    //Thesaurus service provided by words.bighugelabs.com
-    URL url = URL("https://words.bighugelabs.com/api/2/4cdc8dfc9297f52969df235e3b339e63/" + word + "/json");
+    std::string w = word.toStdString();
     
-    string urlText = url.readEntireTextStream(true).toStdString();
+    StringArray likewords;
+
+    SynsetPtr synset = findtheinfo_ds(&w[0], ADJ, HYPERPTR, ALLSENSES); // returns a pointer to a linked list representation of a synset
     
-    if (urlText.length() == 0){
-        return vector<string>(0);
-    }
-    
-    json dict = json::parse(urlText);
-    
-    vector<string> likewords(0);
-    
-    if (!dict.empty()){
-        // iterate through parts of speech
-        for (auto it = dict.begin(); it != dict.end(); ++it){
-            if (!it.value().empty()){
-                // iterate through relation (synonym, antonym, etc...)
-                for (auto it2 = it.value().begin(); it2 != it.value().end(); ++it2){
-                    // don't include antonyms
-                    if (!it2.value().empty() && String(it2.key().c_str()) != "ant") {
-                        vector<string> words = it2.value().get<vector<string>>();
-                        likewords.insert(std::end(likewords), std::begin(words), std::end(words)); // add to likewords
-                    }
-                }
-            }
+    while (synset != nullptr){ // loop through senses in synset
+        
+        for (int j = 0; j < synset->wcount; j++){ // loop through words in each sense
+            std::string str(synset->words[j]);
+            likewords.addIfNotAlreadyThere(str);
         }
+        
+        synset = synset->nextss;
     }
+    
+    free_syns(synset);
     
     return likewords;
 }

@@ -100,7 +100,7 @@ namespace Audealize{
         mSearchBar->getEditor()->setTextToShowWhenEmpty("Search for a word to apply", Colour (0xff888888));
         mSearchBar->setOptions(mWordMap->getWords());
         mWordMap->addActionListener(mSearchBar);
-
+        
         // traditional UI
         addAndMakeVisible(mTradUI);
         mTradUI->setVisible(false); // hidden by default

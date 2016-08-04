@@ -7,8 +7,8 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
 
     addAndMakeVisible (mTabbedComponent = new AudealizeTabbedComponent (TabbedButtonBar::TabsAtTop));
     mTabbedComponent->setTabBarDepth (28);
-    mTabbedComponent->addTab (TRANS("EQ"), AudealizeColors::tabFill, mAudealizeUIs[0], true);
-    mTabbedComponent->addTab (TRANS("Reverb"), AudealizeColors::tabFill, mAudealizeUIs[1], true);
+    mTabbedComponent->addTab (TRANS("EQ"), AudealizeColors::background, mAudealizeUIs[0], true);
+    mTabbedComponent->addTab (TRANS("Reverb"), AudealizeColors::background, mAudealizeUIs[1], true);
     mTabbedComponent->setCurrentTabIndex (0);
     mTabbedComponent->setOutline(0);
     

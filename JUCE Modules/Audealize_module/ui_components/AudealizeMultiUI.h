@@ -1,7 +1,6 @@
 #ifndef __JUCE_HEADER_2C6B94272375A9F2__
 #define __JUCE_HEADER_2C6B94272375A9F2__
 
-#include "../JuceLibraryCode/JuceHeader.h"
 #include "AudealizeTabbedComponent.h"
 
 using std::vector;

@@ -7,8 +7,6 @@
 #ifndef AUDEALIZETABBEDCOMPONENT_H_INCLUDED
 #define AUDEALIZETABBEDCOMPONENT_H_INCLUDED
 
-#include "../JuceLibraryCode/JuceHeader.h"
-
 namespace Audealize{
     
     class AudealizeTabbedComponent : public TabbedComponent{

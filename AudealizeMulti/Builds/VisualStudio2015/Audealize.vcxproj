@@ -143,6 +143,9 @@
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeReverbAudioProcessor.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\AudealizeColors.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeUI.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>

@@ -7,24 +7,33 @@
 #ifndef AudealizeColors_h
 #define AudealizeColors_h
 
-class AudealizeColors{
-public:
-    const Colour outline = Colours::grey;
-    const Colour mapBackground = Colours::white;
-    const Colour background = Colours::white;
-    const Colour titleText = Colours::black;
-    const Colour knobFill = Colours::lightblue;
-    const Colour accent = Colour(0xffd9edf7);
-    const Colour textEditorFill = Colours::white;
-    const Colour textEditorFocusedOutline = Colours::violet;
-    const Colour buttonFill = Colours::grey;
+using namespace juce;
+
+namespace Audealize{
     
+    class AudealizeColors{
+    public:
+        static const Colour outline,
+                            mapBackground,
+                            background,
+                            titleText,
+                            knobFill,
+                            sliderThumbFill,
+                            sliderTrackFill,
+                            accent,
+                            accentOutline,
+                            textEditorFill,
+                            textEditorFocusedOutline,
+                            tabFill,
+                            buttonFill,
+                            tickBoxFill;
+        
+    private:
+        AudealizeColors();
+        
+        JUCE_DECLARE_NON_COPYABLE(AudealizeColors);
+    };
     
-private:
-    AudealizeColors();
-    
-    JUCE_DECLARE_NON_COPYABLE(AudealizeColors);
-};
 }
 
 #endif /* AudealizeColors_h */

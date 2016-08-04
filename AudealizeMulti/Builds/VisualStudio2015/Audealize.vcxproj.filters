@@ -448,6 +448,9 @@
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeReverbAudioProcessor.cpp">
       <Filter>Juce Modules\audealize_module\audio_processors</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\AudealizeColors.cpp">
+      <Filter>Juce Modules\audealize_module\LookAndFeel</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeUI.cpp">
       <Filter>Juce Modules\audealize_module\ui_components</Filter>
     </ClCompile>

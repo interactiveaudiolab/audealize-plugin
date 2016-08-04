@@ -12,6 +12,8 @@
 #include "AppConfig.h"
 #include "audealize_module.h"
 
+#include "LookAndFeel/AudealizeColors.cpp"
+
 #include "ui_components/AudealizeUI.cpp"
 #include "ui_components/GraphicEQComponent.cpp"
 #include "ui_components/WordMap.cpp"

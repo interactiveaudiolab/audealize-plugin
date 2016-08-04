@@ -38,7 +38,6 @@ namespace Audealize {
     
     void GraphicEQComponent::paint (Graphics& g)
     {
-        g.fillAll (Colours::white);
     }
     
     void GraphicEQComponent::resized()

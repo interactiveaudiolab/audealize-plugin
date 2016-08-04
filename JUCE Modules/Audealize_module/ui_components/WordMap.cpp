@@ -107,7 +107,7 @@ namespace Audealize {
     
     void WordMap::paint (Graphics& g)
     {
-        g.fillAll(Colours::white);
+        g.fillAll(AudealizeColors::mapBackground);
         
         vector<Point<float>> plotted(0);
         String word;

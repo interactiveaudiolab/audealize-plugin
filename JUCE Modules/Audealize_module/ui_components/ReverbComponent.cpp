@@ -122,7 +122,6 @@ namespace Audealize{
     //==============================================================================
     void ReverbComponent::paint (Graphics& g)
     {
-        g.fillAll (Colours::white);
     }
     
     void ReverbComponent::resized()

@@ -40,7 +40,7 @@ namespace Audealize{
         mLabelLess->setFont (Font (16.00f, Font::plain));
         mLabelLess->setJustificationType (Justification::centredLeft);
         mLabelLess->setEditable (false, false, false);
-        mLabelLess->setColour (TextEditor::textColourId, Colours::black);
+        mLabelLess->setColour (TextEditor::textColourId, AudealizeColors::titleText);
         mLabelLess->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
         mLabelLess->setJustificationType (Justification::centredRight);
         
@@ -50,7 +50,7 @@ namespace Audealize{
         mLabelMore->setFont (Font (16.00f, Font::plain));
         mLabelMore->setJustificationType (Justification::centredLeft);
         mLabelMore->setEditable (false, false, false);
-        mLabelMore->setColour (TextEditor::textColourId, Colours::black);
+        mLabelMore->setColour (TextEditor::textColourId, AudealizeColors::titleText);
         mLabelMore->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
         mLabelMore->setAlwaysOnTop(true);
         
@@ -73,7 +73,7 @@ namespace Audealize{
             mAudealizeLabel->setFont (Font ("Helvetica Neue", 34, Font::bold));
             mAudealizeLabel->setJustificationType (Justification::topLeft);
             mAudealizeLabel->setEditable (false, false, false);
-            mAudealizeLabel->setColour (TextEditor::textColourId, Colours::black);
+            mAudealizeLabel->setColour (TextEditor::textColourId, AudealizeColors::titleText);
             mAudealizeLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
             
             // Audealize effect type title text
@@ -82,8 +82,8 @@ namespace Audealize{
             mEffectTypeLabel->setFont (Font ("Helvetica Neue", 34, Font::bold));
             mEffectTypeLabel->setJustificationType (Justification::topLeft);
             mEffectTypeLabel->setEditable (false, false, false);
-            mEffectTypeLabel->setColour (Label::textColourId, Colours::black);
-            mEffectTypeLabel->setColour (TextEditor::textColourId, Colours::black);
+            mEffectTypeLabel->setColour (Label::textColourId, AudealizeColors::titleText);
+            mEffectTypeLabel->setColour (TextEditor::textColourId, AudealizeColors::titleText);
             mEffectTypeLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
             mEffectTypeLabel->setText(effectType, NotificationType::dontSendNotification);
         }
@@ -151,7 +151,7 @@ namespace Audealize{
     //==============================================================================
     void AudealizeUI::paint (Graphics& g)
     {
-        g.fillAll (Colours::white);
+        g.fillAll (AudealizeColors::background);
     }
     
     void AudealizeUI::resized()

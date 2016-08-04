@@ -50,17 +50,22 @@ namespace Audealize {
         AudealizeLookAndFeel() {
             setColour(TextButton::buttonColourId, AudealizeColors::buttonFill);
             setColour(TextButton::buttonOnColourId, AudealizeColors::buttonFill.darker(.1));
+            setColour(TextButton::textColourOnId, AudealizeColors::titleText);
+            setColour(TextButton::textColourOffId, AudealizeColors::titleText);
             setColour(Slider::rotarySliderFillColourId, AudealizeColors::knobFill);
             setColour(Slider::trackColourId, AudealizeColors::sliderTrackFill);
             setColour(Slider::thumbColourId, AudealizeColors::sliderThumbFill);
             setColour(TextEditor::backgroundColourId, AudealizeColors::textEditorFill);
+            setColour(TextEditor::textColourId, AudealizeColors::titleText);
             setColour(TabbedButtonBar::tabOutlineColourId, AudealizeColors::outline);
             setColour(TabbedButtonBar::frontOutlineColourId, AudealizeColors::outline);
             setColour(TabbedComponent::outlineColourId, AudealizeColors::outline);
             setColour(ToggleButton::tickColourId, AudealizeColors::titleText);
+            setColour(Label::textColourId, AudealizeColors::titleText);
+            
             LookAndFeel::setDefaultSansSerifTypefaceName("Helvetica Neue");
             
-            shouldDrawOutlines = true;
+            shouldDrawOutlines = false;
         };
         ~AudealizeLookAndFeel() {};
         

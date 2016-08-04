@@ -494,7 +494,28 @@ namespace Audealize {
                 
                 g.fillPath (p, AffineTransform::rotation (angle).translated (centreX, centreY));
             }
+            
         }
+        
+        void drawCornerResizer (Graphics& g,
+                                int w, int h,
+                                bool /*isMouseOver*/,
+                                bool /*isMouseDragging*/) override
+        {
+            const float lineThickness = jmin (w, h) * 0.1f;
+            
+            for (float i = 0.0f; i < 1.0f; i += 0.3f)
+            {
+                g.setColour (AudealizeColors::outline);
+                
+                g.drawLine (w * i,
+                            h + 1.0f,
+                            w + 1.0f,
+                            h * i,
+                            lineThickness);
+            }
+        }
+
     private:
         bool shouldDrawOutlines;
     };

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4764EEEF7C7655E80154244E"
-               BuildableName = "AudealizeMulti.vst"
+               BuildableName = "Audealize.vst"
                BlueprintName = "Audealize (VST)"
                ReferencedContainer = "container:Audealize.xcodeproj">
             </BuildableReference>
@@ -42,11 +42,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <PathRunnable
+         runnableDebuggingMode = "0"
+         BundleIdentifier = "com.cockos.reaper"
+         FilePath = "/Applications/REAPER64.app">
+      </PathRunnable>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4764EEEF7C7655E80154244E"
-            BuildableName = "AudealizeMulti.vst"
+            BuildableName = "Audealize.vst"
             BlueprintName = "Audealize (VST)"
             ReferencedContainer = "container:Audealize.xcodeproj">
          </BuildableReference>
@@ -64,7 +69,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4764EEEF7C7655E80154244E"
-            BuildableName = "AudealizeMulti.vst"
+            BuildableName = "Audealize.vst"
             BlueprintName = "Audealize (VST)"
             ReferencedContainer = "container:Audealize.xcodeproj">
          </BuildableReference>

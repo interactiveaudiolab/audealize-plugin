@@ -1441,7 +1441,8 @@ struct AAXClasses
 
         descriptor.AddName (JucePlugin_Desc);
         descriptor.AddName (JucePlugin_Name);
-        descriptor.AddCategory (AAX_EPlugInCategory_Effect);
+        descriptor.AddCategory (AAX_EPlugInCategory_Effect
+);
 
        #ifdef JucePlugin_AAXPageTableFile
         // optional page table setting - define this macro in your project if you want

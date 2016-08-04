@@ -1629,41 +1629,9 @@
 									<key>GID</key>
 									<integer>80</integer>
 									<key>PATH</key>
-									<string>../../Audealize-EQ/Builds/MacOSX/build/Release/Audealize-EQ.app</string>
+									<string>../../AudealizeMulti/Builds/MacOSX/build/Release/Audealize.app</string>
 									<key>PATH_TYPE</key>
-									<integer>3</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>3</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>80</integer>
-									<key>PATH</key>
-									<string>../../Audealize-Reverb/Builds/MacOSX/build/Release/Audealize-Reverb.app</string>
-									<key>PATH_TYPE</key>
-									<integer>3</integer>
-									<key>PERMISSIONS</key>
-									<integer>493</integer>
-									<key>TYPE</key>
-									<integer>3</integer>
-									<key>UID</key>
-									<integer>0</integer>
-								</dict>
-								<dict>
-									<key>CHILDREN</key>
-									<array/>
-									<key>GID</key>
-									<integer>80</integer>
-									<key>PATH</key>
-									<string>../../AudealizeMulti/Builds/MacOSX/build/Release/AudealizeMulti.app</string>
-									<key>PATH_TYPE</key>
-									<integer>3</integer>
+									<integer>1</integer>
 									<key>PERMISSIONS</key>
 									<integer>493</integer>
 									<key>TYPE</key>

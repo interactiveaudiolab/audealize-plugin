@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "64B8B935E550881BDD8A49E9"
-               BuildableName = "libAudealizeMulti.a"
+               BuildableName = "libAudealize.a"
                BlueprintName = "Audealize (Shared Code)"
                ReferencedContainer = "container:Audealize.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "64B8B935E550881BDD8A49E9"
-            BuildableName = "libAudealizeMulti.a"
+            BuildableName = "libAudealize.a"
             BlueprintName = "Audealize (Shared Code)"
             ReferencedContainer = "container:Audealize.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "64B8B935E550881BDD8A49E9"
-            BuildableName = "libAudealizeMulti.a"
+            BuildableName = "libAudealize.a"
             BlueprintName = "Audealize (Shared Code)"
             ReferencedContainer = "container:Audealize.xcodeproj">
          </BuildableReference>

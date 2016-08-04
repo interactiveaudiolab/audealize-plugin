@@ -160,6 +160,36 @@
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\utils\Biquad.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\lib\binsrch.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\lib\morph.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\lib\search.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\lib\wnglobal.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\lib\wnhelp.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\lib\wnrtl.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\lib\wnutil.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\src\stubs.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\src\tkAppInit.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\src\wn.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\audealize_module.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1885,6 +1915,11 @@
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\CParamSmooth.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\json.hpp"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\PrimeFactors.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\include\tk\tk.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\include\tk\tkDecls.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\include\wn.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\include\wngrind.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\config.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audealize_module.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audealize_module.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -2543,6 +2578,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\lib\wnres\license.txt"/>
     <None Include="..\..\..\JUCE Modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>
     <None Include="..\..\..\JUCE Modules\juce_audio_formats\codecs\oggvorbis\Ogg Vorbis Licence.txt"/>
     <None Include="..\..\..\JUCE Modules\juce_audio_plugin_client\AU\AUResources.r"/>

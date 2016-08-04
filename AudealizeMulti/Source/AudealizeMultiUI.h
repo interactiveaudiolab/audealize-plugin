@@ -72,6 +72,7 @@ private:
     ScopedPointer<AudealizeTabbedComponent> mTabbedComponent;
     ScopedPointer<Label> label;
 
+    AudealizeLookAndFeel mLookAndFeel;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeMultiUI)

@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A2755B8CC4145B8B144FA883"
-               BuildableName = "AudealizeMulti.appex"
+               BuildableName = "Audealize.appex"
                BlueprintName = "Audealize (AUv3 AppExtension)"
                ReferencedContainer = "container:Audealize.xcodeproj">
             </BuildableReference>
@@ -30,7 +30,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AB8CE7F2E632E0F02A5F4B89"
-               BuildableName = "AudealizeMulti.app"
+               BuildableName = "Audealize.app"
                BlueprintName = "Audealize (AUv3 Standalone)"
                ReferencedContainer = "container:Audealize.xcodeproj">
             </BuildableReference>
@@ -48,7 +48,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A2755B8CC4145B8B144FA883"
-            BuildableName = "AudealizeMulti.appex"
+            BuildableName = "Audealize.appex"
             BlueprintName = "Audealize (AUv3 AppExtension)"
             ReferencedContainer = "container:Audealize.xcodeproj">
          </BuildableReference>
@@ -72,7 +72,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AB8CE7F2E632E0F02A5F4B89"
-            BuildableName = "AudealizeMulti.app"
+            BuildableName = "Audealize.app"
             BlueprintName = "Audealize (AUv3 Standalone)"
             ReferencedContainer = "container:Audealize.xcodeproj">
          </BuildableReference>
@@ -92,7 +92,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AB8CE7F2E632E0F02A5F4B89"
-            BuildableName = "AudealizeMulti.app"
+            BuildableName = "Audealize.app"
             BlueprintName = "Audealize (AUv3 Standalone)"
             ReferencedContainer = "container:Audealize.xcodeproj">
          </BuildableReference>

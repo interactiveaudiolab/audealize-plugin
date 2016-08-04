@@ -28,6 +28,9 @@
 #include "../juce_gui_basics/juce_gui_basics.h"
 #include "../juce_gui_extra/juce_gui_extra.h"
 
+#include "LookAndFeel/LookAndFeel.h"
+#include "LookAndFeel/AudealizeColors.h"
+
 #include "utils/json.hpp"
 #include "utils/calf_dsp_library/delay.h"
 

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CAF9107C9D0ED4536FC3D2F2"
-               BuildableName = "AudealizeMulti.vst3"
+               BuildableName = "Audealize.vst3"
                BlueprintName = "Audealize (VST3)"
                ReferencedContainer = "container:Audealize.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CAF9107C9D0ED4536FC3D2F2"
-            BuildableName = "AudealizeMulti.vst3"
+            BuildableName = "Audealize.vst3"
             BlueprintName = "Audealize (VST3)"
             ReferencedContainer = "container:Audealize.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CAF9107C9D0ED4536FC3D2F2"
-            BuildableName = "AudealizeMulti.vst3"
+            BuildableName = "Audealize.vst3"
             BlueprintName = "Audealize (VST3)"
             ReferencedContainer = "container:Audealize.xcodeproj">
          </BuildableReference>

@@ -31,6 +31,7 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
     : AudioProcessorEditor(&p), mAudealizeUIs(AudealizeUIs)
 {
     //[Constructor_pre] You can add your own custom stuff here..
+    LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
     //[/Constructor_pre]
 
     addAndMakeVisible (mTabbedComponent = new AudealizeTabbedComponent (TabbedButtonBar::TabsAtTop));

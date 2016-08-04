@@ -270,7 +270,7 @@ String AudealizereverbAudioProcessor::getParamID(int index){
 void AudealizereverbAudioProcessor::settingsFromMap(vector<float> settings){
     mParamSettings = settings;
     
-    DBG("Raw: " << settings[0] << " " << settings[1] << " "<< settings[2] << " "<< settings[3] << " "<< settings[4]);
+    //DBG("Raw: " << settings[0] << " " << settings[1] << " "<< settings[2] << " "<< settings[3] << " "<< settings[4]);
     
     for (int i = 0; i < kNumParams - 1; i++){
         // for some reason the F and M param ranges are [0,1] in the plugin

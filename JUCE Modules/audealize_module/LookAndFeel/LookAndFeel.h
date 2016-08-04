@@ -65,7 +65,7 @@ namespace Audealize {
             
             LookAndFeel::setDefaultSansSerifTypefaceName("Helvetica Neue");
             
-            shouldDrawOutlines = false;
+            shouldDrawOutlines = true;
         };
         ~AudealizeLookAndFeel() {};
         
@@ -75,6 +75,10 @@ namespace Audealize {
         
         void drawTabAreaBehindFrontButton (TabbedButtonBar& bar, Graphics& g, const int w, const int h) override
         {
+            if (!shouldDrawOutlines){
+                return;
+            }
+            
             Rectangle<int> line;
             
             switch (bar.getOrientation())
@@ -181,8 +185,10 @@ namespace Audealize {
             
             g.fillPath (outline);
             
-            g.setColour (AudealizeColors::outline);
-            g.strokePath (outline, PathStrokeType (1.0f));
+            if (shouldDrawOutlines){
+                g.setColour (AudealizeColors::outline);
+                g.strokePath (outline, PathStrokeType (1.0f));
+            }
         }
         
         
@@ -368,8 +374,10 @@ namespace Audealize {
             
             g.fillPath (indent);
             
-            g.setColour (trackColour.contrasting (0.5f));
-            g.strokePath (indent, PathStrokeType (0.5f));
+            if(shouldDrawOutlines) {
+                g.setColour (trackColour.contrasting (0.5f));
+                g.strokePath (indent, PathStrokeType (0.5f));
+            }
         }
         
         void drawLinearSlider (Graphics& g, int x, int y, int width, int height,
@@ -428,7 +436,7 @@ namespace Audealize {
                 
                 int knobRadius = radius * .68;
                 
-                g.setColour(AudealizeColors::sliderTrackFill);
+                g.setColour(AudealizeColors::sliderThumbFill);
                 g.fillEllipse(centreX - knobRadius, centreY -knobRadius, knobRadius * 2, knobRadius * 2);
                 
                 if (shouldDrawOutlines){

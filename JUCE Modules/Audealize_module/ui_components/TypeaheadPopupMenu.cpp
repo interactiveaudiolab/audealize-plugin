@@ -66,8 +66,7 @@ void TypeaheadPopupMenu::paintListBoxItem(int rowNumber, Graphics& g, int width,
     auto bg = Colours::white;
     
     if (rowIsSelected){
-        fg = Colours::white;
-        bg = Colours::mediumpurple;
+        bg = Colour(0xffe0e0e0);
     }
     g.fillAll(bg);
     g.setColour(fg);

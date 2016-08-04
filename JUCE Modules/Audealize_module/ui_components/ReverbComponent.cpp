@@ -8,7 +8,7 @@ namespace Audealize{
         // Labels
         
         addAndMakeVisible (mLabelD = new Label ("new label",
-                                                TRANS("Comb Delay")));
+                                                TRANS("Comb Filter Delay")));
         mLabelD->setFont (Font (15.00f, Font::plain));
         mLabelD->setJustificationType (Justification::centredTop);
         mLabelD->setEditable (false, false, false);
@@ -16,7 +16,7 @@ namespace Audealize{
         mLabelD->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
         
         addAndMakeVisible (mLabelG = new Label ("new label",
-                                                TRANS("Comb Gain\n")));
+                                                TRANS("Comb Filter Gain\n")));
         mLabelG->setFont (Font (15.00f, Font::plain));
         mLabelG->setJustificationType (Justification::centredTop);
         mLabelG->setEditable (false, false, false);
@@ -32,7 +32,7 @@ namespace Audealize{
         mLabelM->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
         
         addAndMakeVisible (mLabelF = new Label ("new label",
-                                                TRANS("Cutoff\n"
+                                                TRANS("Filter Cutoff\n"
                                                       "\n")));
         mLabelF->setFont (Font (15.00f, Font::plain));
         mLabelF->setJustificationType (Justification::centredTop);

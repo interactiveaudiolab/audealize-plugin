@@ -118,9 +118,15 @@ namespace Audealize {
         
         setDirty(false);
         
-        // Draw border, background
-        g.setColour(Colour(128, 128, 128));
-        g.drawRect(this->getLocalBounds());
+        // Draw border
+        Path outline;
+        Path dashed;
+        PathStrokeType p(1);
+        outline.addRectangle(getLocalBounds());
+        float f = 4;
+        p.createDashedStroke(dashed, outline, &f, 1);
+        g.setColour(AudealizeColors::outline);
+        g.strokePath(dashed, p);
         
         // if mouse is over map, find word being hovered over
         if (isMouseOverOrDragging()){

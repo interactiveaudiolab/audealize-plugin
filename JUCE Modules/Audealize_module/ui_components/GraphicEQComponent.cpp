@@ -38,6 +38,13 @@ namespace Audealize {
     
     void GraphicEQComponent::paint (Graphics& g)
     {
+        int midpoint = mGainSliders[0]->getY() + mGainSliders[0]->getHeight() / 2;
+        for (int i = 0; i < NUMBANDS - 1; i++){
+            int x1 = mGainSliders[i]->getRight();
+            int x2 = mGainSliders[i+1]->getX();
+            g.setColour(AudealizeColors::outline.withMultipliedAlpha(0.4));
+            g.drawLine(x1 - 1, midpoint, x2 + 1, midpoint, 2);
+        }
     }
     
     void GraphicEQComponent::resized()

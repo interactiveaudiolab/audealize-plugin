@@ -59,8 +59,14 @@ namespace Audealize {
             setColour(TabbedComponent::outlineColourId, AudealizeColors::outline);
             setColour(ToggleButton::tickColourId, AudealizeColors::titleText);
             LookAndFeel::setDefaultSansSerifTypefaceName("Helvetica Neue");
+            
+            shouldDrawOutlines = true;
         };
         ~AudealizeLookAndFeel() {};
+        
+        void setOutlines(bool enabled){
+            shouldDrawOutlines = enabled;
+        }
         
         void drawTabAreaBehindFrontButton (TabbedButtonBar& bar, Graphics& g, const int w, const int h) override
         {
@@ -220,8 +226,10 @@ namespace Audealize {
             g.setColour(AudealizeColors::tickBoxFill);
             g.fillRoundedRectangle(x, (y + boxSize) / 2, boxSize, boxSize, boxSize / 4);
             
-            g.setColour(AudealizeColors::outline);
-            g.drawRoundedRectangle(x, (y + boxSize) / 2, boxSize, boxSize, boxSize / 4, 1);
+            if (shouldDrawOutlines){
+                g.setColour(AudealizeColors::outline);
+                g.drawRoundedRectangle(x, (y + boxSize) / 2, boxSize, boxSize, boxSize / 4, 1);
+            }
             
             if (ticked)
             {
@@ -271,9 +279,11 @@ namespace Audealize {
                 
                 g.setColour(knobColour);
                 g.fillEllipse(kx - sliderRadius, ky - sliderRadius, sliderRadius * 2.0f, sliderRadius * 2.0f);
-                g.setColour(AudealizeColors::outline);
-                g.drawEllipse(kx - sliderRadius, ky - sliderRadius, sliderRadius * 2.0f, sliderRadius * 2.0f, outlineThickness);
-
+                if(shouldDrawOutlines){
+                    g.setColour(AudealizeColors::outline);
+                    g.drawEllipse(kx - sliderRadius, ky - sliderRadius, sliderRadius * 2.0f, sliderRadius * 2.0f, outlineThickness);
+                }
+                
             }
             else
             {
@@ -281,15 +291,19 @@ namespace Audealize {
                 {
                     g.setColour(knobColour);
                     g.fillEllipse(x + width * 0.5f - sliderRadius, sliderPos - sliderRadius, sliderRadius * 2.0f, sliderRadius * 2.0f);
-                    g.setColour(AudealizeColors::outline);
-                    g.drawEllipse(x + width * 0.5f - sliderRadius, sliderPos - sliderRadius, sliderRadius * 2.0f, sliderRadius * 2.0f, outlineThickness);
+                    if(shouldDrawOutlines){
+                        g.setColour(AudealizeColors::outline);
+                        g.drawEllipse(x + width * 0.5f - sliderRadius, sliderPos - sliderRadius, sliderRadius * 2.0f, sliderRadius * 2.0f, outlineThickness);
+                    }
                 }
                 else if (style == Slider::ThreeValueHorizontal)
                 {
                     g.setColour(knobColour);
                     g.fillEllipse(sliderPos - sliderRadius, y + height * 0.5f - sliderRadius, sliderRadius * 2.0f, sliderRadius * 2.0f);
-                    g.setColour(AudealizeColors::outline);
-                    g.drawEllipse(sliderPos - sliderRadius, y + height * 0.5f - sliderRadius, sliderRadius * 2.0f, sliderRadius * 2.0f, outlineThickness);
+                    if(shouldDrawOutlines){
+                        g.setColour(AudealizeColors::outline);
+                        g.drawEllipse(sliderPos - sliderRadius, y + height * 0.5f - sliderRadius, sliderRadius * 2.0f, sliderRadius * 2.0f, outlineThickness);
+                    }
                 }
                 
                 if (style == Slider::TwoValueVertical || style == Slider::ThreeValueVertical)
@@ -405,12 +419,17 @@ namespace Audealize {
             
             if (radius > 12.0f)
             {
-                if (slider.isEnabled())
-                    g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (isMouseOver ? 1.0f : 0.7f));
-                else
-                    g.setColour (Colour (0x80808080));
+                const float thickness = 0.78;
                 
-                const float thickness = 0.7f;
+                int knobRadius = radius * .68;
+                
+                g.setColour(AudealizeColors::sliderTrackFill);
+                g.fillEllipse(centreX - knobRadius, centreY -knobRadius, knobRadius * 2, knobRadius * 2);
+                
+                if (shouldDrawOutlines){
+                    g.setColour(AudealizeColors::outline);
+                    g.drawEllipse(centreX - knobRadius, centreY -knobRadius, knobRadius * 2, knobRadius * 2, 1);
+                }
                 
                 Path backgroundArc;
                 backgroundArc.addPieSegment (rx, ry, rw, rw, rotaryStartAngle, rotaryEndAngle, thickness);
@@ -418,21 +437,38 @@ namespace Audealize {
                 g.setColour(AudealizeColors::sliderTrackFill);
                 g.fillPath(backgroundArc);
                 
+                if (shouldDrawOutlines){
+                    g.setColour(AudealizeColors::outline);
+                    g.strokePath(backgroundArc, PathStrokeType(1));
+                }
+                
+                if (slider.isEnabled())
+                    g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (isMouseOver ? 1.0f : 0.7f));
+                else
+                    g.setColour (Colour (0x80808080));
+            
+                
+                
                 {
                     Path filledArc;
                     filledArc.addPieSegment (rx, ry, rw, rw, rotaryStartAngle, angle, thickness);
                     g.fillPath (filledArc);
+                    if (shouldDrawOutlines){
+                        g.setColour(AudealizeColors::outline);
+                        g.strokePath(filledArc, PathStrokeType(1));
+                    }
                 }
                 
                 {
                     const float innerRadius = radius * 0.2f;
                     Path p;
-                    p.addTriangle (-innerRadius, 0.0f,
-                                   0.0f, -radius * thickness * 1.1f,
-                                   innerRadius, 0.0f);
+                    float rectHeight = radius * .3f;
+                    float rectWidth = radius * .15f;
+                    p.addRoundedRectangle(- rectWidth * .5, - rectHeight * 1.8, rectWidth, rectHeight, rectWidth * .5);
                     
-                    p.addEllipse (-innerRadius, -innerRadius, innerRadius * 2.0f, innerRadius * 2.0f);
-                    
+                    g.setColour(AudealizeColors::sliderTrackFill.darker(.3));
+                    g.fillPath (p, AffineTransform::rotation (angle).translated (centreX, centreY));
+                    g.setColour(AudealizeColors::outline);
                     g.fillPath (p, AffineTransform::rotation (angle).translated (centreX, centreY));
                 }
                 
@@ -459,7 +495,8 @@ namespace Audealize {
                 g.fillPath (p, AffineTransform::rotation (angle).translated (centreX, centreY));
             }
         }
-
+    private:
+        bool shouldDrawOutlines;
     };
 }
 

@@ -14,7 +14,7 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
     
     addAndMakeVisible (label = new Label ("new label",
                                           TRANS("Audealize\n")));
-    label->setFont (Font (Font::getDefaultSansSerifFontName(), 38.00f, Font::bold));
+    label->setFont (Font ("Helvetica Neue Medium", 32, Font::plain));
     label->setJustificationType (Justification::centredLeft);
     label->setEditable (false, false, false);
     label->setColour (TextEditor::textColourId, AudealizeColors::titleText);
@@ -107,7 +107,7 @@ void AudealizeMultiUI::resized()
     mInfoButton->setBounds(getWidth() - 72, 12, 48, 20);
     
     mTabbedComponent->setBounds (0, 54, getWidth() - 0, getHeight() - 54);
-    label->setBounds (22, 8, 179, 32);
+    label->setBounds (22, 10, 179, 32);
     
     prevChildHeight = mAudealizeUIs[0]->getHeight();
 

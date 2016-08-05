@@ -72,7 +72,7 @@ namespace Audealize{
             // Audealize title text
             addAndMakeVisible (mAudealizeLabel = new Label ("Audealize: ",
                                                             TRANS("Audealize: ")));
-            mAudealizeLabel->setFont (Font (Font::getDefaultSansSerifFontName(), 34, Font::bold));
+            mAudealizeLabel->setFont (Font ("Helvetica Neue Medium", 32, Font::plain));
             mAudealizeLabel->setJustificationType (Justification::topLeft);
             mAudealizeLabel->setEditable (false, false, false);
             mAudealizeLabel->setColour (TextEditor::textColourId, AudealizeColors::titleText);
@@ -81,7 +81,7 @@ namespace Audealize{
             // Audealize effect type title text
             addAndMakeVisible (mEffectTypeLabel = new Label ("Effect Type",
                                                              TRANS("Type\n")));
-            mEffectTypeLabel->setFont (Font (Font::getDefaultSansSerifFontName(), 34, Font::bold));
+            mEffectTypeLabel->setFont (Font ("Helvetica Neue Medium", 32, Font::plain));
             mEffectTypeLabel->setJustificationType (Justification::topLeft);
             mEffectTypeLabel->setEditable (false, false, false);
             mEffectTypeLabel->setColour (Label::textColourId, AudealizeColors::titleText);
@@ -238,7 +238,7 @@ namespace Audealize{
         // Audealize title labels
         if (!isMultiEffect){
             mAudealizeLabel->setBounds (27, 17, 176, 32);
-            mEffectTypeLabel->setBounds (175, 17, 118, 32);
+            mEffectTypeLabel->setBounds (183, 17, 118, 32);
         }
 
         

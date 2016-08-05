@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2015
-Project("{FF037AA1-9650-D761-9B9B-BF7B899623CE}") = "Audealize: EQ", "Audealize EQ.vcxproj", "{2CD7227C-095B-359B-8328-EE4C436F216B}"
+Project("{7E77AA6E-87E3-59CD-1174-6EF40B78EF22}") = "Audealize EQ", "Audealize EQ.vcxproj", "{2CD7227C-095B-359B-8328-EE4C436F216B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

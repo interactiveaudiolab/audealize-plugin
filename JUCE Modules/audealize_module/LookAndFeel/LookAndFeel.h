@@ -130,7 +130,7 @@ namespace Audealize {
                 g.setColour (bkg);
             }
             else{
-                g.setColour (bkg.darker(.1));
+                g.setColour (bkg.darker(.2));
             }
             
             g.fillRect (activeArea);

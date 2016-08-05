@@ -86,7 +86,7 @@ namespace Audealize {
                 alpha = (1 - 0.92f * logf(5 * agreement + 1)) / alpha_max;
                 
                 color = Colour::fromRGBA(rand() % 210, rand() % 210, rand() % 210, alpha_range.snapToLegalValue(alpha*255));
-                colors.push_back(color);
+                colors.push_back(color.withMultipliedSaturation(.4).withMultipliedBrightness(1.7));
                 
                 // calculate font size
                 dat = agreement - min_variance;
@@ -166,9 +166,7 @@ namespace Audealize {
                     color = Colour::fromRGBA(color.getRed(), color.getGreen(), color.getBlue(), alpha_range.snapToLegalValue( unhighlighted_alpha_value));
                 }
             }
-            if (init_map && !hover_radius){
-                color = Colour::fromRGBA(color.getRed(), color.getGreen(), color.getBlue(), 255);
-            }
+
             // end set alpha
             
             if(!collision || hover_radius || in_radius) {

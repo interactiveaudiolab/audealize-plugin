@@ -9,7 +9,6 @@ TypeaheadPopupMenu::TypeaheadPopupMenu() : shadow(DropShadow())
     setAlwaysOnTop(true);
     setOpaque(true);
     list.setModel(this);
-    list.setColour(ListBox::ColourIds::backgroundColourId, Colours::white);
     list.setRowHeight(30);
     addAndMakeVisible(list);
     
@@ -62,11 +61,12 @@ void TypeaheadPopupMenu::paintListBoxItem(int rowNumber, Graphics& g, int width,
     if (rowNumber >= options.size())
         return;
     
-    auto fg = Colours::black;
-    auto bg = Colours::white;
+    auto fg = AudealizeColors::titleText;
+    auto bg = AudealizeColors::background;
     
     if (rowIsSelected){
-        bg = Colour(0xffe0e0e0);
+        bg = fg;
+        fg = AudealizeColors::background;
     }
     g.fillAll(bg);
     g.setColour(fg);

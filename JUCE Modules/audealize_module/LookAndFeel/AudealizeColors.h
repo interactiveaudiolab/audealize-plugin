@@ -24,6 +24,7 @@ namespace Audealize{
                             accentOutline,
                             textEditorFill,
                             textEditorFocusedOutline,
+                            TextEditorHighlight,
                             buttonFill,
                             tickBoxFill;
         

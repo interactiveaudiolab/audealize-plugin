@@ -2,11 +2,11 @@
 
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Audealize: Reverb">
-      <UniqueIdentifier>{8C69FB3E-09D7-844D-A5F8-204B683A6C0C}</UniqueIdentifier>
+    <Filter Include="Audealize Reverb">
+      <UniqueIdentifier>{AC81C294-A52D-4399-4629-E3D64FF0BD9B}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Audealize: Reverb\Source">
-      <UniqueIdentifier>{C19BEBFB-E5A3-0A9E-5092-38B88E7AB759}</UniqueIdentifier>
+    <Filter Include="Audealize Reverb\Source">
+      <UniqueIdentifier>{121CE4C5-CECF-7626-B2BC-BBC82FE51D52}</UniqueIdentifier>
     </Filter>
     <Filter Include="Juce Modules">
       <UniqueIdentifier>{422C46B7-0467-2DB0-BF3C-16DFCAFD69AC}</UniqueIdentifier>
@@ -17,8 +17,14 @@
     <Filter Include="Juce Modules\audealize_module\audio_processors">
       <UniqueIdentifier>{7145902F-3555-28B3-D15A-708C95B28295}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Juce Modules\audealize_module\data">
+      <UniqueIdentifier>{B75BCA43-DB38-2A3B-747D-B4A18CFDCF73}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Juce Modules\audealize_module\effects">
       <UniqueIdentifier>{955ED6E7-5DDF-4809-DC71-11C115B1E68F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Juce Modules\audealize_module\LookAndFeel">
+      <UniqueIdentifier>{7CCF5040-5F24-1E45-5D0E-ABAE827B4EC5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Juce Modules\audealize_module\ui_components">
       <UniqueIdentifier>{944EDE95-7E2E-8781-F4FE-D044E4D6D8F1}</UniqueIdentifier>
@@ -431,13 +437,22 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp">
-      <Filter>Audealize: Reverb\Source</Filter>
+      <Filter>Audealize Reverb\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeEQAudioProcessor.cpp">
       <Filter>Juce Modules\audealize_module\audio_processors</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeReverbAudioProcessor.cpp">
       <Filter>Juce Modules\audealize_module\audio_processors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\AudealizeColors.cpp">
+      <Filter>Juce Modules\audealize_module\LookAndFeel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AboutComponent.cpp">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeMultiUI.cpp">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeUI.cpp">
       <Filter>Juce Modules\audealize_module\ui_components</Filter>
@@ -2380,7 +2395,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\PluginProcessor.h">
-      <Filter>Audealize: Reverb\Source</Filter>
+      <Filter>Audealize Reverb\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeAudioProcessor.h">
       <Filter>Juce Modules\audealize_module\audio_processors</Filter>
@@ -2390,6 +2405,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeReverbAudioProcessor.h">
       <Filter>Juce Modules\audealize_module\audio_processors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\data\LookAndFeel.h">
+      <Filter>Juce Modules\audealize_module\data</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\AudioEffect.h">
       <Filter>Juce Modules\audealize_module\effects</Filter>
@@ -2402,6 +2420,21 @@
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\Reverb.h">
       <Filter>Juce Modules\audealize_module\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\AudealizeColors.h">
+      <Filter>Juce Modules\audealize_module\LookAndFeel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\LookAndFeel.h">
+      <Filter>Juce Modules\audealize_module\LookAndFeel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AboutComponent.h">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeMultiUI.h">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeTabbedComponent.h">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeUI.h">
       <Filter>Juce Modules\audealize_module\ui_components</Filter>

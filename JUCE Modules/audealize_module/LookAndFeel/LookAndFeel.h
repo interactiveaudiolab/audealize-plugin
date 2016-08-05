@@ -57,15 +57,25 @@ namespace Audealize {
             setColour(Slider::thumbColourId, AudealizeColors::sliderThumbFill);
             setColour(TextEditor::backgroundColourId, AudealizeColors::textEditorFill);
             setColour(TextEditor::textColourId, AudealizeColors::titleText);
+            setColour(TextEditor::focusedOutlineColourId, AudealizeColors::textEditorFocusedOutline);
+            setColour(TextEditor::ColourIds::highlightColourId, AudealizeColors::TextEditorHighlight);
+            setColour(Slider::textBoxBackgroundColourId, AudealizeColors::textEditorFill);
+            setColour(Slider::textBoxTextColourId, AudealizeColors::titleText);
+            setColour(Slider::textBoxOutlineColourId, AudealizeColors::textEditorFocusedOutline);
+            setColour(Slider::textBoxHighlightColourId, AudealizeColors::TextEditorHighlight);
+
             setColour(TabbedButtonBar::tabOutlineColourId, AudealizeColors::outline);
             setColour(TabbedButtonBar::frontOutlineColourId, AudealizeColors::outline);
             setColour(TabbedComponent::outlineColourId, AudealizeColors::outline);
             setColour(ToggleButton::tickColourId, AudealizeColors::titleText);
+            setColour(ToggleButton::textColourId, AudealizeColors::titleText);
             setColour(Label::textColourId, AudealizeColors::titleText);
+            setColour(ListBox::backgroundColourId , AudealizeColors::background);
+            
             
             LookAndFeel::setDefaultSansSerifTypefaceName("Helvetica Neue");
             
-            shouldDrawOutlines = true;
+            shouldDrawOutlines = false;
         };
         ~AudealizeLookAndFeel() {};
         
@@ -529,6 +539,22 @@ namespace Audealize {
             }
         }
 
+        void drawTextEditorOutline (Graphics& g, int width, int height, TextEditor& textEditor)
+        {
+            if (textEditor.isEnabled())
+            {
+                if (textEditor.hasKeyboardFocus (true) && ! textEditor.isReadOnly())
+                {
+                    g.setColour (textEditor.findColour (TextEditor::focusedOutlineColourId));
+                    g.drawRect (0, 0, width, height, 2);
+                }
+                else if(shouldDrawOutlines)
+                {
+                    g.setColour (textEditor.findColour (TextEditor::outlineColourId));
+                    g.drawRect (0, 0, width, height);
+                }
+            }
+        }
     private:
         bool shouldDrawOutlines;
     };

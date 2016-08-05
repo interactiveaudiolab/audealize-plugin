@@ -194,7 +194,7 @@ namespace Audealize {
         // Draw info text
         String info_text = String("Map built with " + String(word_count) + " words. Nearby words have similar effects.");
         
-        Font font = Font(TYPEFACE, infotext_size, Font::plain);
+        Font font = Font(Font::getDefaultSansSerifFontName(), infotext_size, Font::plain);
         g.setFont(font);
         g.setColour(Colours::grey);
         g.drawText(info_text, getWidth() - 420, getHeight() - 22, 412, 18, Justification::bottomRight);
@@ -299,7 +299,7 @@ namespace Audealize {
         
         Rectangle<float> rect(x, y, width, font_size);
         
-        Font font = Font(TYPEFACE, font_size, Font::plain);
+        Font font = Font(Font::getDefaultSansSerifFontName(), font_size, Font::plain);
         g.setFont(font);
         
         g.setColour(color);

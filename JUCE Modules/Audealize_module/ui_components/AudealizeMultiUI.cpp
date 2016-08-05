@@ -14,13 +14,26 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
     
     addAndMakeVisible (label = new Label ("new label",
                                           TRANS("Audealize\n")));
-    label->setFont (Font ("Helvetica Neue", 38.00f, Font::bold));
+    label->setFont (Font (Font::getDefaultSansSerifFontName(), 38.00f, Font::bold));
     label->setJustificationType (Justification::centredLeft);
     label->setEditable (false, false, false);
     label->setColour (TextEditor::textColourId, AudealizeColors::titleText);
     label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
 
+    // info button
+    addAndMakeVisible(mInfoButton = new TextButton("About"));
+    mInfoButton->addListener (this);
+    mInfoButton->setAlpha(.9);
+
+    // about dialog window
+    mAboutComponent = new AboutComponent();
+    mDialogOpts.content.setOwned(mAboutComponent);
+    mDialogOpts.escapeKeyTriggersCloseButton = true;
+    mDialogOpts.useNativeTitleBar = false;
+    mDialogOpts.resizable = false;
+    mAboutWindow = mDialogOpts.create();
+    mAboutWindow->setVisible(false);
 
     mResizeLimits = new ComponentBoundsConstrainer();
     mResizeLimits->setSizeLimits (600, 500, 1180, 800);
@@ -68,6 +81,9 @@ AudealizeMultiUI::~AudealizeMultiUI()
 
     mTabbedComponent = nullptr;
     label = nullptr;
+    mInfoButton = nullptr;
+    mAboutComponent = nullptr;
+    mAboutWindow = nullptr;
 }
 
 //==============================================================================
@@ -88,6 +104,8 @@ void AudealizeMultiUI::resized()
 {
     mResizer->setBounds (getWidth() - 18, getHeight() - 18, 16, 16);
 
+    mInfoButton->setBounds(getWidth() - 72, 12, 48, 20);
+    
     mTabbedComponent->setBounds (0, 54, getWidth() - 0, getHeight() - 54);
     label->setBounds (22, 8, 179, 32);
     
@@ -127,7 +145,11 @@ void AudealizeMultiUI::actionListenerCallback(const juce::String &message){
     prevChildHeight = mAudealizeUIs[childIndex]->getHeight();
 }
 
-
+void AudealizeMultiUI::buttonClicked(juce::Button *buttonThatWasClicked){
+    if (buttonThatWasClicked == mInfoButton){
+        mAboutWindow->setVisible(true);
+    }
+}
 
 //==============================================================================
 #if 0

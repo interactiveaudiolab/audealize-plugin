@@ -10,6 +10,7 @@
 #include <fstream>
 #include "WordMap.h"
 #include "TypeaheadPopupMenu.h"
+#include "AboutComponent.h"
 
 using namespace juce;
 
@@ -103,9 +104,7 @@ namespace Audealize{
         ScopedPointer<TextButton> mBypassButton;
         
         TooltipWindow mToolTip;
-        
-        const String TYPEFACE = "Helvetica"; // typeface for all text
-        
+                
         ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mAmountSliderAttachment;
         
         ScopedPointer<ResizableCornerComponent> mResizer; // handles resizing of the plugin window
@@ -128,7 +127,13 @@ namespace Audealize{
         ScopedPointer<Label> mEffectTypeLabel; // text to the right of "Audealize" label. changes to reflect the type of effect
         ScopedPointer<TextButton> mTradUIButton; // button to hide/show traditional ui
         ScopedPointer<TypeaheadEditor> mSearchBar;
+        ScopedPointer<Button> mInfoButton;
+        ScopedPointer<AboutComponent> mAboutComponent;
         
+        AudealizeLookAndFeel mLookAndFeel;
+        
+        DialogWindow::LaunchOptions mDialogOpts;
+        ScopedPointer<DialogWindow> mAboutWindow;
         //==============================================================================
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeUI)
     };

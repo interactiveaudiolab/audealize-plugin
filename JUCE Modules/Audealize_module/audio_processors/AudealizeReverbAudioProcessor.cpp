@@ -10,6 +10,8 @@ String AudealizereverbAudioProcessor::paramE ("paramE");
 
 AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb()
 {
+    numParams = kNumParams;
+    
     // initialize parameter ranges
     mParamRange[kParamD]  = NormalisableRange<float>(0.01f, 0.1f, 0.0001f);
     mParamRange[kParamG]  = NormalisableRange<float>(0.01f, 0.96f, 0.0001f);

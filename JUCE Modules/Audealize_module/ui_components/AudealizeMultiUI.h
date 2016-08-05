@@ -2,6 +2,7 @@
 #define __JUCE_HEADER_2C6B94272375A9F2__
 
 #include "AudealizeTabbedComponent.h"
+#include "AboutComponent.h"
 
 using std::vector;
 using namespace Audealize;
@@ -9,7 +10,8 @@ using namespace Audealize;
 
 
 class AudealizeMultiUI  : public AudioProcessorEditor,
-                          public ActionListener
+                          public ActionListener,
+                          public ButtonListener
 {
 public:
     //==============================================================================
@@ -24,7 +26,7 @@ public:
     void resized() override;
     void childrenChanged() override;
 
-
+    void buttonClicked (Button* buttonThatWasClicked) override;
 
 private:
     vector<AudealizeUI*> mAudealizeUIs;
@@ -39,6 +41,11 @@ private:
     ScopedPointer<Label> label;
 
     AudealizeLookAndFeel mLookAndFeel;
+    
+    ScopedPointer<AboutComponent> mAboutComponent;
+    DialogWindow::LaunchOptions mDialogOpts;
+    ScopedPointer<DialogWindow> mAboutWindow;
+    ScopedPointer<TextButton> mInfoButton;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeMultiUI)

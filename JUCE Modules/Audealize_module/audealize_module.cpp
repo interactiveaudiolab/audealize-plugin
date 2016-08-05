@@ -20,6 +20,7 @@
 #include "ui_components/ReverbComponent.cpp"
 #include "ui_components/TypeaheadPopupMenu.cpp"
 #include "ui_components/AudealizeMultiUI.cpp"
+#include "ui_components/AboutComponent.cpp"
 
 #include "audio_processors/AudealizeEQAudioProcessor.cpp"
 #include "audio_processors/AudealizeReverbAudioProcessor.cpp"

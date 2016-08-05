@@ -10,6 +10,8 @@ namespace Audealize{
     AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType, bool isPluginMultiEffect)
     : AudioProcessorEditor(&p), processor(p), mPathToPoints(pathToPoints), mTradUI(t)
     {
+        LookAndFeel::setDefaultLookAndFeel(&mLookAndFeel);
+        
         isMultiEffect = isPluginMultiEffect;
         
         mEffectType = effectType;
@@ -70,7 +72,7 @@ namespace Audealize{
             // Audealize title text
             addAndMakeVisible (mAudealizeLabel = new Label ("Audealize: ",
                                                             TRANS("Audealize: ")));
-            mAudealizeLabel->setFont (Font ("Helvetica Neue", 34, Font::bold));
+            mAudealizeLabel->setFont (Font (Font::getDefaultSansSerifFontName(), 34, Font::bold));
             mAudealizeLabel->setJustificationType (Justification::topLeft);
             mAudealizeLabel->setEditable (false, false, false);
             mAudealizeLabel->setColour (TextEditor::textColourId, AudealizeColors::titleText);
@@ -79,13 +81,27 @@ namespace Audealize{
             // Audealize effect type title text
             addAndMakeVisible (mEffectTypeLabel = new Label ("Effect Type",
                                                              TRANS("Type\n")));
-            mEffectTypeLabel->setFont (Font ("Helvetica Neue", 34, Font::bold));
+            mEffectTypeLabel->setFont (Font (Font::getDefaultSansSerifFontName(), 34, Font::bold));
             mEffectTypeLabel->setJustificationType (Justification::topLeft);
             mEffectTypeLabel->setEditable (false, false, false);
             mEffectTypeLabel->setColour (Label::textColourId, AudealizeColors::titleText);
             mEffectTypeLabel->setColour (TextEditor::textColourId, AudealizeColors::titleText);
             mEffectTypeLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
             mEffectTypeLabel->setText(effectType, NotificationType::dontSendNotification);
+            
+            // info button
+            addAndMakeVisible(mInfoButton = new TextButton("About"));
+            mInfoButton->addListener (this);
+            mInfoButton->setAlpha(0.8);
+            
+            // about dialog window
+            mAboutComponent = new AboutComponent();
+            mDialogOpts.content.setOwned(mAboutComponent);
+            mDialogOpts.escapeKeyTriggersCloseButton = true;
+            mDialogOpts.useNativeTitleBar = false;
+            mDialogOpts.resizable = false;
+            mAboutWindow = mDialogOpts.create();
+            mAboutWindow->setVisible(false);
         }
         
         // search bar
@@ -95,7 +111,7 @@ namespace Audealize{
         mSearchBar->setColour (TextEditor::outlineColourId, Colours::grey);
         mSearchBar->setColour(TextEditor::ColourIds::focusedOutlineColourId, Colours::lightblue);
         mSearchBar->setColour (TextEditor::shadowColourId, Colour (0x00a1a1a1));
-        mSearchBar->getEditor()->setFont(Font(TYPEFACE, 18, Font::plain));
+        mSearchBar->getEditor()->setFont(Font(Font::getDefaultSansSerifFontName(), 18, Font::plain));
         mSearchBar->getEditor()->setSelectAllWhenFocused(true);
         mSearchBar->getEditor()->setTextToShowWhenEmpty("Search for a word to apply", Colour (0xff888888));
         mSearchBar->setOptions(mWordMap->getWords());
@@ -116,6 +132,8 @@ namespace Audealize{
         addAndMakeVisible(mBypassButton = new TextButton ("Turn " + effectType + " Off"));
         mBypassButton->setClickingTogglesState(true);
         mBypassButton->addListener(this);
+        
+
         
         // resize limits + ResizableCornerComponent
         // if this AudealizeUI is a child component of an AudealizeMultiUI, resizing will be handled there
@@ -146,6 +164,9 @@ namespace Audealize{
         mEffectTypeLabel = nullptr;
         mTradUIButton = nullptr;
         mSearchBar = nullptr;
+        mAboutComponent = nullptr;
+        mInfoButton = nullptr;
+        mAboutWindow = nullptr;
     }
     
     //==============================================================================
@@ -159,6 +180,7 @@ namespace Audealize{
         // resizable corner
         if (!isMultiEffect){
             mResizer->setBounds (getWidth() - 18, getHeight() - 18, 16, 16);
+            mInfoButton->setBounds(getWidth() - 80, 22, 48, 20);
         }
         
         // reduce word map font size if width of window is less than fontSizeThresh
@@ -302,6 +324,10 @@ namespace Audealize{
                 mBypassButton->setButtonText("Turn " + mEffectType + " On");
                 processor.setBypass(true);
             }
+        }
+        
+        else if (buttonThatWasClicked == mInfoButton){
+            mAboutWindow->setVisible(true);
         }
     }
     

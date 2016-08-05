@@ -5,6 +5,7 @@ AudealizeeqAudioProcessor::AudealizeeqAudioProcessor() : mEqualizer(mFreqs, 0.0f
     //DBG(std::to_string(getSampleRate()));
     mParamSettings.resize(NUMBANDS, 0);
     
+    numParams = NUMBANDS + 1;
     
     mGainRange = NormalisableRange<float>(-4.30f, 4.30f, 0.001f);
         

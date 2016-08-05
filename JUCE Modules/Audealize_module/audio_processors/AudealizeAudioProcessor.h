@@ -115,6 +115,14 @@ namespace Audealize{
             return mBypass;
         }
         
+        int getNumParams(){
+            return numParams;
+        }
+        
+        AudioProcessorValueTreeState* getState(){
+            return mState;
+        }
+        
     protected:
         ScopedPointer<AudioProcessorValueTreeState> mState; // and AudioProcessorValueTreeState containing the parameter state information
         ScopedPointer<UndoManager> mUndoManager;
@@ -125,6 +133,7 @@ namespace Audealize{
         
         float mAmount; // value in range [0,1]. dictates the amount of the effect to be applied.
         
+        int numParams;
     };
 }// namespace audealize
 #endif /* AudealizeInterfaces_h */

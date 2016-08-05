@@ -139,7 +139,6 @@ namespace Audealize {
         const int unhighlighted_alpha_value = 0.7f * 255; // alpha value of unhighlighted descriptors
         const int hover_alpha_value = 0.15f * 255; // alpha value of descriptors within hover radius but not selected
         
-        const String TYPEFACE = "Helvetica";
         //=====================================================================
         
         

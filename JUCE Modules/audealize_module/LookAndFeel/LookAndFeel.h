@@ -71,9 +71,10 @@ namespace Audealize {
             setColour(ToggleButton::textColourId, AudealizeColors::titleText);
             setColour(Label::textColourId, AudealizeColors::titleText);
             setColour(ListBox::backgroundColourId , AudealizeColors::background);
+            setColour(CaretComponent::caretColourId, AudealizeColors::titleText);
+            setColour(HyperlinkButton::textColourId, AudealizeColors::titleText.brighter(.3));
             
-            
-            LookAndFeel::setDefaultSansSerifTypefaceName("Helvetica Neue");
+            LookAndFeel::setDefaultSansSerifTypefaceName("Roboto");
             
             shouldDrawOutlines = false;
         };

@@ -14,7 +14,7 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
     
     addAndMakeVisible (label = new Label ("new label",
                                           TRANS("Audealize\n")));
-    label->setFont (Font ("Helvetica Neue Medium", 32, Font::plain));
+    label->setFont (Font ("Roboto", 34, Font::plain));
     label->setJustificationType (Justification::centredLeft);
     label->setEditable (false, false, false);
     label->setColour (TextEditor::textColourId, AudealizeColors::titleText);

@@ -42,9 +42,9 @@
 #if ! JUCE_DONT_DECLARE_PROJECTINFO
 namespace ProjectInfo
 {
-    const char* const  projectName    = "Audealize: EQ";
-    const char* const  versionString  = "0.0.1";
-    const int          versionNumber  = 0x1;
+    const char* const  projectName    = "Audealize EQ";
+    const char* const  versionString  = "0.0.2";
+    const int          versionNumber  = 0x2;
 }
 #endif
 

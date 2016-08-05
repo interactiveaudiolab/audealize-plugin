@@ -240,10 +240,10 @@
  #define JucePlugin_Build_STANDALONE       1
 #endif
 #ifndef  JucePlugin_Name
- #define JucePlugin_Name                   "Audealize: Reverb"
+ #define JucePlugin_Name                   "Audealize Reverb"
 #endif
 #ifndef  JucePlugin_Desc
- #define JucePlugin_Desc                   "Audealize: Reverb"
+ #define JucePlugin_Desc                   "Audealize Reverb"
 #endif
 #ifndef  JucePlugin_Manufacturer
  #define JucePlugin_Manufacturer           "Interactive Audio Lab"
@@ -276,13 +276,13 @@
  #define JucePlugin_EditorRequiresKeyboardFocus  0
 #endif
 #ifndef  JucePlugin_Version
- #define JucePlugin_Version                0.0.1
+ #define JucePlugin_Version                0.0.2
 #endif
 #ifndef  JucePlugin_VersionCode
- #define JucePlugin_VersionCode            0x1
+ #define JucePlugin_VersionCode            0x2
 #endif
 #ifndef  JucePlugin_VersionString
- #define JucePlugin_VersionString          "0.0.1"
+ #define JucePlugin_VersionString          "0.0.2"
 #endif
 #ifndef  JucePlugin_VSTUniqueID
  #define JucePlugin_VSTUniqueID            JucePlugin_PluginCode

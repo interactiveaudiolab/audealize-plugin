@@ -12,7 +12,6 @@
 #define PLUGINPROCESSOR_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "AudealizeMultiUI.h"
 
 using std::vector;
 

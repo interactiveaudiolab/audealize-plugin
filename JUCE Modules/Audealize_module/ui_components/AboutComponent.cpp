@@ -116,9 +116,9 @@ void AboutComponent::paint (Graphics& g)
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.fillAll (Colours::white);
+    g.fillAll (AudealizeColors::background);
 
-    g.setColour (Colours::black);
+    g.setColour (AudealizeColors::titleText);
     g.fillRect (28, 42, proportionOfWidth (0.3726f), 1);
 
     g.setColour (Colours::black.withAlpha (0.181f));

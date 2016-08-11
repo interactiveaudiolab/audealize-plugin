@@ -25,6 +25,12 @@ namespace Audealize {
                      public ActionBroadcaster
     {
     public:
+        enum ColourIds{
+            backgroundColourId = 0x2000300,
+            outlineColourId = 0x2000301
+        };
+        
+        
         /**
          *  Constructor
          *

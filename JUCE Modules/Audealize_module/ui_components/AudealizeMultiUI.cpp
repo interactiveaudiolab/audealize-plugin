@@ -3,12 +3,12 @@
 AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> AudealizeUIs)
     : AudioProcessorEditor(&p), mAudealizeUIs(AudealizeUIs)
 {
-    LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
+    LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
 
     addAndMakeVisible (mTabbedComponent = new AudealizeTabbedComponent (TabbedButtonBar::TabsAtTop));
     mTabbedComponent->setTabBarDepth (28);
-    mTabbedComponent->addTab (TRANS("EQ"), AudealizeColors::background, mAudealizeUIs[0], true);
-    mTabbedComponent->addTab (TRANS("Reverb"), AudealizeColors::background, mAudealizeUIs[1], true);
+    mTabbedComponent->addTab (TRANS("EQ"), getLookAndFeel().findColour(AudealizeMultiUI::backgroundColourId), mAudealizeUIs[0], true);
+    mTabbedComponent->addTab (TRANS("Reverb"), getLookAndFeel().findColour(AudealizeMultiUI::backgroundColourId), mAudealizeUIs[1], true);
     mTabbedComponent->setCurrentTabIndex (0);
     mTabbedComponent->setOutline(0);
     
@@ -17,7 +17,7 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
     label->setFont (Font ("Roboto", 34, Font::plain));
     label->setJustificationType (Justification::centredLeft);
     label->setEditable (false, false, false);
-    label->setColour (TextEditor::textColourId, AudealizeColors::titleText);
+    label->setColour (TextEditor::textColourId, getLookAndFeel().findColour(AudealizeMultiUI::textColourId));
     label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
 
@@ -90,12 +90,12 @@ AudealizeMultiUI::~AudealizeMultiUI()
 void AudealizeMultiUI::paint (Graphics& g)
 {
   
-    g.fillAll (AudealizeColors::background);
+    g.fillAll (getLookAndFeel().findColour(AudealizeMultiUI::backgroundColourId));
 
-    g.setColour (AudealizeColors::accent);
+    g.setColour (getLookAndFeel().findColour(AudealizeMultiUI::accentColourId));
     g.fillRect (24, 48, getWidth() - 48, 34);
 
-    g.setColour (AudealizeColors::outline);
+    g.setColour (getLookAndFeel().findColour(AudealizeMultiUI::outlineColourId));
     g.drawRect (24, 48, getWidth() - 48, 34, 1);
 
 }

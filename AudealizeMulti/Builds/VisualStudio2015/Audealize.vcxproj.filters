@@ -448,6 +448,12 @@
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\AudealizeColors.cpp">
       <Filter>Juce Modules\audealize_module\LookAndFeel</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\LookAndFeel.cpp">
+      <Filter>Juce Modules\audealize_module\LookAndFeel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AboutComponent.cpp">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeMultiUI.cpp">
       <Filter>Juce Modules\audealize_module\ui_components</Filter>
     </ClCompile>
@@ -2423,6 +2429,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\LookAndFeel.h">
       <Filter>Juce Modules\audealize_module\LookAndFeel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AboutComponent.h">
+      <Filter>Juce Modules\audealize_module\ui_components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeMultiUI.h">
       <Filter>Juce Modules\audealize_module\ui_components</Filter>

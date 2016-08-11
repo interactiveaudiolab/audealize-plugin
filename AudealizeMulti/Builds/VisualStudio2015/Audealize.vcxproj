@@ -145,6 +145,12 @@
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\AudealizeColors.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\LookAndFeel.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AboutComponent.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeMultiUI.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1910,6 +1916,7 @@
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\Reverb.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\AudealizeColors.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\LookAndFeel.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AboutComponent.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeMultiUI.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeTabbedComponent.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeUI.h"/>

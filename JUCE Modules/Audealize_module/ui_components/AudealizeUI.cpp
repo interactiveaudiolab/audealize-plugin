@@ -10,7 +10,7 @@ namespace Audealize{
     AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType, bool isPluginMultiEffect)
     : AudioProcessorEditor(&p), processor(p), mPathToPoints(pathToPoints), mTradUI(t)
     {
-        LookAndFeel::setDefaultLookAndFeel(&mLookAndFeel);
+        LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
         
         isMultiEffect = isPluginMultiEffect;
         
@@ -42,7 +42,7 @@ namespace Audealize{
         mLabelLess->setFont (Font (16.00f, Font::plain));
         mLabelLess->setJustificationType (Justification::centredLeft);
         mLabelLess->setEditable (false, false, false);
-        mLabelLess->setColour (TextEditor::textColourId, AudealizeColors::titleText);
+        mLabelLess->setColour (TextEditor::textColourId, getLookAndFeel().findColour(AudealizeUI::textColourId));
         mLabelLess->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
         mLabelLess->setJustificationType (Justification::centredRight);
         
@@ -52,7 +52,7 @@ namespace Audealize{
         mLabelMore->setFont (Font (16.00f, Font::plain));
         mLabelMore->setJustificationType (Justification::centredLeft);
         mLabelMore->setEditable (false, false, false);
-        mLabelMore->setColour (TextEditor::textColourId, AudealizeColors::titleText);
+        mLabelMore->setColour (TextEditor::textColourId, getLookAndFeel().findColour(AudealizeUI::textColourId));
         mLabelMore->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
         mLabelMore->setAlwaysOnTop(true);
         
@@ -75,7 +75,7 @@ namespace Audealize{
             mAudealizeLabel->setFont (Font ("Roboto Medium", 32, Font::plain));
             mAudealizeLabel->setJustificationType (Justification::topLeft);
             mAudealizeLabel->setEditable (false, false, false);
-            mAudealizeLabel->setColour (TextEditor::textColourId, AudealizeColors::titleText);
+            mAudealizeLabel->setColour (TextEditor::textColourId, getLookAndFeel().findColour(AudealizeUI::textColourId));
             mAudealizeLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
             
             // Audealize effect type title text
@@ -84,8 +84,8 @@ namespace Audealize{
             mEffectTypeLabel->setFont (Font ("Roboto Medium", 32, Font::plain));
             mEffectTypeLabel->setJustificationType (Justification::topLeft);
             mEffectTypeLabel->setEditable (false, false, false);
-            mEffectTypeLabel->setColour (Label::textColourId, AudealizeColors::titleText);
-            mEffectTypeLabel->setColour (TextEditor::textColourId, AudealizeColors::titleText);
+            mEffectTypeLabel->setColour (Label::textColourId, getLookAndFeel().findColour(AudealizeUI::textColourId));
+            mEffectTypeLabel->setColour (TextEditor::textColourId, getLookAndFeel().findColour(AudealizeUI::textColourId));
             mEffectTypeLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
             mEffectTypeLabel->setText(effectType, NotificationType::dontSendNotification);
             
@@ -172,7 +172,7 @@ namespace Audealize{
     //==============================================================================
     void AudealizeUI::paint (Graphics& g)
     {
-        g.fillAll (AudealizeColors::background);
+        g.fillAll (getLookAndFeel().findColour(AudealizeUI::backgroundColourId));
     }
     
     void AudealizeUI::resized()

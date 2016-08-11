@@ -107,7 +107,7 @@ namespace Audealize {
     
     void WordMap::paint (Graphics& g)
     {
-        g.fillAll(AudealizeColors::mapBackground);
+        g.fillAll(getLookAndFeel().findColour(WordMap::backgroundColourId));
         
         vector<Point<float>> plotted(0);
         String word;
@@ -125,7 +125,7 @@ namespace Audealize {
         outline.addRectangle(getLocalBounds());
         float f = 4;
         p.createDashedStroke(dashed, outline, &f, 1);
-        g.setColour(AudealizeColors::outline);
+        g.setColour(getLookAndFeel().findColour(WordMap::outlineColourId));
         g.strokePath(dashed, p);
         
         // if mouse is over map, find word being hovered over

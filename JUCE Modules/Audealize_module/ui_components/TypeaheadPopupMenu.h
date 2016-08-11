@@ -17,6 +17,12 @@ class TypeaheadPopupMenu : public ListBoxModel,
                            public Component
 {
 public:
+    enum ColourIds{
+        backgroundColourId = 0x2000400,
+        textColourId = 0x2000401,
+    };
+    
+    
     TypeaheadPopupMenu();
     ~TypeaheadPopupMenu() {};
     

@@ -61,12 +61,12 @@ void TypeaheadPopupMenu::paintListBoxItem(int rowNumber, Graphics& g, int width,
     if (rowNumber >= options.size())
         return;
     
-    auto fg = AudealizeColors::titleText;
-    auto bg = AudealizeColors::background;
+    auto fg = getLookAndFeel().findColour(TypeaheadPopupMenu::textColourId);
+    auto bg = getLookAndFeel().findColour(TypeaheadPopupMenu::backgroundColourId);
     
     if (rowIsSelected){
         bg = fg;
-        fg = AudealizeColors::background;
+        fg = getLookAndFeel().findColour(TypeaheadPopupMenu::backgroundColourId);
     }
     g.fillAll(bg);
     g.setColour(fg);

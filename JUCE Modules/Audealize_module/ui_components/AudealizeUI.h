@@ -22,6 +22,11 @@ namespace Audealize{
     public ButtonListener
     {
     public:
+        enum ColourIds{
+            backgroundColourId = 0x2000100,
+            textColourId = 0x2000101
+        };
+        
         //==============================================================================
         AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType, bool isPluginMultiEffect = false);
         ~AudealizeUI();
@@ -131,6 +136,7 @@ namespace Audealize{
         ScopedPointer<AboutComponent> mAboutComponent;
         
         AudealizeLookAndFeel mLookAndFeel;
+        AudealizeLookAndFeelDark mLookAndFeelDark;
         
         DialogWindow::LaunchOptions mDialogOpts;
         ScopedPointer<DialogWindow> mAboutWindow;

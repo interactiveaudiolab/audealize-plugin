@@ -170,11 +170,13 @@ void AudealizeMultiUI::buttonClicked(juce::Button *buttonThatWasClicked){
     else if (buttonThatWasClicked == mDarkModeButton){
         if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
             setLookAndFeel(&mLookAndFeel);
+            mAboutComponent->setLookAndFeel(&mLookAndFeel);
             mDarkModeButton->setImages(mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
         }
         else{
             setLookAndFeel(&mLookAndFeelDark);
             mDarkModeButton->setImages(mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight);
+            mAboutComponent->setLookAndFeel(&mLookAndFeelDark);
         }
     }
 }

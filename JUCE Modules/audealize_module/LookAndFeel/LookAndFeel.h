@@ -51,6 +51,10 @@ namespace Audealize {
         
         ~AudealizeLookAndFeel();
         
+        bool isDarkModeActive(){
+            return isDarkMode;
+        }
+        
         void setOutlines(bool enabled);
         
         void drawTabAreaBehindFrontButton (TabbedButtonBar& bar, Graphics& g, const int w, const int h) override;
@@ -93,9 +97,12 @@ namespace Audealize {
                                 bool /*isMouseDragging*/) override;
 
         void drawTextEditorOutline (Graphics& g, int width, int height, TextEditor& textEditor) override;
+    
         
     protected:
+        bool isDarkMode;
         bool shouldDrawOutlines;
+        Colour outline, tickBoxFill;
     };
     
     class AudealizeLookAndFeelDark : public AudealizeLookAndFeel {

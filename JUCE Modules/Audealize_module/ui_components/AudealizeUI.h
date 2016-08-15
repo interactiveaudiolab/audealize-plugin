@@ -97,6 +97,7 @@ namespace Audealize{
             return isMultiEffect;
         }
         
+        
     private:
         AudealizeAudioProcessor& processor;
         
@@ -118,7 +119,7 @@ namespace Audealize{
         bool isTradUIVisible; // true if traditional UI is visible
         
         bool isMultiEffect;
-        
+                
         String mEffectType; 
         
         //==============================================================================

@@ -10,7 +10,7 @@ namespace Audealize{
     AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType, bool isPluginMultiEffect)
     : AudioProcessorEditor(&p), processor(p), mPathToPoints(pathToPoints), mTradUI(t)
     {
-        LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
+        LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
         
         isMultiEffect = isPluginMultiEffect;
         

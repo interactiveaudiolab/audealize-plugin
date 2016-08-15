@@ -3,7 +3,7 @@
 AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> AudealizeUIs)
     : AudioProcessorEditor(&p), mAudealizeUIs(AudealizeUIs)
 {
-    LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
+    LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
 
     addAndMakeVisible (mTabbedComponent = new AudealizeTabbedComponent (TabbedButtonBar::TabsAtTop));
     mTabbedComponent->setTabBarDepth (28);

@@ -86,7 +86,13 @@ namespace Audealize {
                 alpha = (1 - 0.92f * logf(5 * agreement + 1)) / alpha_max;
                 
                 color = Colour::fromRGBA(rand() % 210, rand() % 210, rand() % 210, alpha_range.snapToLegalValue(alpha*255));
-                colors.push_back(color.withMultipliedSaturation(.4).withMultipliedBrightness(1.7));
+                
+                if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
+                    colors.push_back(color.withMultipliedSaturation(.4).withMultipliedBrightness(1.7));
+                }
+                else{
+                    colors.push_back(color);
+                }
                 
                 // calculate font size
                 dat = agreement - min_variance;

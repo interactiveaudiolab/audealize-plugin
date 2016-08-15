@@ -4,7 +4,7 @@ using namespace juce;
 
 namespace Audealize {
     
-    AudealizeLookAndFeelDark::AudealizeLookAndFeelDark() {
+    AudealizeLookAndFeelDark::AudealizeLookAndFeelDark(){
         isDarkMode = true;
         
         const Colour darkGray(0xff1c1c1c);
@@ -13,7 +13,8 @@ namespace Audealize {
         const Colour lightBlue(0xffadd8e6);
         const Colour sliderThumbGray(0xff727272);
         const Colour offWhite(0xff999999);
-        const Colour outline(0x00000000);
+
+        outline = darkGray;
         
         setColour(WordMap::backgroundColourId, darkGray);
         setColour(WordMap::outlineColourId, Colours::transparentWhite);
@@ -42,7 +43,7 @@ namespace Audealize {
         setColour(Slider::thumbColourId, sliderThumbGray);
         setColour(TextEditor::backgroundColourId, darkGray);
         setColour(TextEditor::textColourId, textGray);
-        setColour(TextEditor::focusedOutlineColourId, Colours::lightblue);
+        setColour(TextEditor::focusedOutlineColourId, textGray.withMultipliedAlpha(0.6f));
         setColour(TextEditor::ColourIds::highlightColourId, offWhite);
         setColour(Slider::textBoxBackgroundColourId, darkGray);
         setColour(Slider::textBoxTextColourId, textGray);
@@ -86,21 +87,23 @@ namespace Audealize {
         
         setColour(GraphicEQComponent::tickMarkColourId, Colours::black.brighter(.15));
         
+        setColour(AudealizeTabbedComponent::backgroundColourId, Colours::white);
+        
         setColour(TextButton::buttonColourId, Colours::white);
         setColour(TextButton::buttonOnColourId, Colours::white.darker(.1));
         setColour(TextButton::textColourOnId, Colours::black);
         setColour(TextButton::textColourOffId, Colours::black);
-        setColour(Slider::rotarySliderFillColourId, Colours::lightblue);
+        setColour(Slider::rotarySliderFillColourId, accentBlue);
         setColour(Slider::trackColourId, sliderTrackFill);
         setColour(Slider::thumbColourId, Colours::white);
         setColour(TextEditor::backgroundColourId, Colours::white);
         setColour(TextEditor::textColourId, Colours::black);
-        setColour(TextEditor::focusedOutlineColourId, Colours::lightblue);
+        setColour(TextEditor::focusedOutlineColourId, accentBlue);
         setColour(TextEditor::ColourIds::highlightColourId, accentBlue);
         setColour(Slider::textBoxBackgroundColourId, Colours::white);
         setColour(Slider::textBoxTextColourId, Colours::black);
         setColour(Slider::textBoxOutlineColourId, outline);
-        setColour(Slider::textBoxHighlightColourId, Colours::lightblue);
+        setColour(Slider::textBoxHighlightColourId, accentBlue);
         
         setColour(TabbedButtonBar::tabOutlineColourId, outline);
         setColour(TabbedButtonBar::frontOutlineColourId, outline);
@@ -285,11 +288,15 @@ namespace Audealize {
         
         //g.setColour(0x00000000);
         //g.fillRoundedRectangle(x, (y + boxSize) / 2, boxSize, boxSize, boxSize / 4);
-        
+
+        g.setColour(outline);
         if (shouldDrawOutlines){
-            g.setColour(outline);
             g.drawRoundedRectangle(x, (y + boxSize) / 2, boxSize, boxSize, boxSize / 4, 1);
         }
+        else{
+            g.fillRoundedRectangle(x, (y + boxSize) / 2, boxSize, boxSize, boxSize / 4);
+        }
+    
         
         if (ticked)
         {
@@ -530,8 +537,7 @@ namespace Audealize {
                 
                 g.setColour(findColour(Slider::trackColourId).darker(.3));
                 g.fillPath (p, AffineTransform::rotation (angle).translated (centreX, centreY));
-                g.setColour(this->outline);
-                g.fillPath (p, AffineTransform::rotation (angle).translated (centreX, centreY));
+                
             }
             
             if (slider.isEnabled())

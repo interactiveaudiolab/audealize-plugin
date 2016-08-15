@@ -34,6 +34,9 @@ namespace Audealize {
         
         setColour(AudealizeTabbedComponent::backgroundColourId, midGray);
         
+        setColour(AboutComponent::backgroundColourId, midGray);
+        setColour(AboutComponent::textColourId, textGray);
+        
         setColour(TextButton::buttonColourId, darkGray);
         setColour(TextButton::buttonOnColourId, darkGray.darker(.1));
         setColour(TextButton::textColourOnId, textGray);
@@ -89,6 +92,9 @@ namespace Audealize {
         
         setColour(AudealizeTabbedComponent::backgroundColourId, Colours::white);
         
+        setColour(AboutComponent::backgroundColourId, Colours::white);
+        setColour(AboutComponent::textColourId, Colours::black);
+
         setColour(TextButton::buttonColourId, Colours::white);
         setColour(TextButton::buttonOnColourId, Colours::white.darker(.1));
         setColour(TextButton::textColourOnId, Colours::black);

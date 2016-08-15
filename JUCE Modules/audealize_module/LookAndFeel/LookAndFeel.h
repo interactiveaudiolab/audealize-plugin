@@ -9,8 +9,6 @@
 #ifndef LookAndFeel_h
 #define LookAndFeel_h
 
-#include "AudealizeColors.h"
-
 using namespace juce;
 
 namespace LookAndFeelHelpers // from juce_LookAndFeel_V2.cpp

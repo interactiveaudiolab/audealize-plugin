@@ -11,6 +11,10 @@ namespace Audealize{
     
     class AudealizeTabbedComponent : public TabbedComponent{
     public:
+        enum ColourIds{
+            backgroundColourId = 0x2000600
+        };
+        
         AudealizeTabbedComponent(const TabbedButtonBar::Orientation orientation) : TabbedComponent(orientation) {
         
         }
@@ -20,6 +24,14 @@ namespace Audealize{
             TabbedComponent::resized();
 
             tabs->setBounds(30, 0, getWidth() - 55, getTabBarDepth());
+        }
+        
+        void lookAndFeelChanged() override
+        {
+            TabbedComponent::lookAndFeelChanged();
+            for (int i = 0; i < getNumTabs(); i++){
+                setTabBackgroundColour(i, findColour(AudealizeTabbedComponent::backgroundColourId));
+            }
         }
         
     };

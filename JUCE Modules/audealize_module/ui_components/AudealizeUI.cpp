@@ -10,7 +10,7 @@ namespace Audealize{
     AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType, bool isPluginMultiEffect)
     : AudioProcessorEditor(&p), processor(p), mPathToPoints(pathToPoints), mTradUI(t)
     {
-        LookAndFeel::setDefaultLookAndFeel(&mLookAndFeel);
+        LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
         
         isMultiEffect = isPluginMultiEffect;
         
@@ -42,7 +42,7 @@ namespace Audealize{
         mLabelLess->setFont (Font (16.00f, Font::plain));
         mLabelLess->setJustificationType (Justification::centredLeft);
         mLabelLess->setEditable (false, false, false);
-        mLabelLess->setColour (TextEditor::textColourId, AudealizeColors::titleText);
+        mLabelLess->setColour (TextEditor::textColourId, getLookAndFeel().findColour(AudealizeUI::textColourId));
         mLabelLess->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
         mLabelLess->setJustificationType (Justification::centredRight);
         
@@ -52,7 +52,7 @@ namespace Audealize{
         mLabelMore->setFont (Font (16.00f, Font::plain));
         mLabelMore->setJustificationType (Justification::centredLeft);
         mLabelMore->setEditable (false, false, false);
-        mLabelMore->setColour (TextEditor::textColourId, AudealizeColors::titleText);
+        mLabelMore->setColour (TextEditor::textColourId, getLookAndFeel().findColour(AudealizeUI::textColourId));
         mLabelMore->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
         mLabelMore->setAlwaysOnTop(true);
         
@@ -70,24 +70,27 @@ namespace Audealize{
         // if this AudealizeUI is a child component of an AudealizeMultiUI, we wont show the Audealize title text here. 
         if (!isMultiEffect){
             // Audealize title text
-            addAndMakeVisible (mAudealizeLabel = new Label ("Audealize: ",
-                                                            TRANS("Audealize: ")));
-            mAudealizeLabel->setFont (Font ("Helvetica Neue Medium", 32, Font::plain));
+            addAndMakeVisible (mAudealizeLabel = new Label ("Audealize: " + effectType,
+                                                            TRANS("Audealize: " + effectType)));
+            mAudealizeLabel->setFont (Font ("Roboto Medium", 32, Font::plain));
             mAudealizeLabel->setJustificationType (Justification::topLeft);
             mAudealizeLabel->setEditable (false, false, false);
-            mAudealizeLabel->setColour (TextEditor::textColourId, AudealizeColors::titleText);
-            mAudealizeLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
             
-            // Audealize effect type title text
-            addAndMakeVisible (mEffectTypeLabel = new Label ("Effect Type",
-                                                             TRANS("Type\n")));
-            mEffectTypeLabel->setFont (Font ("Helvetica Neue Medium", 32, Font::plain));
-            mEffectTypeLabel->setJustificationType (Justification::topLeft);
-            mEffectTypeLabel->setEditable (false, false, false);
-            mEffectTypeLabel->setColour (Label::textColourId, AudealizeColors::titleText);
-            mEffectTypeLabel->setColour (TextEditor::textColourId, AudealizeColors::titleText);
-            mEffectTypeLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-            mEffectTypeLabel->setText(effectType, NotificationType::dontSendNotification);
+            
+            // dark mode button
+            mDarkModeGraphic = Drawable::createFromImageData (AudealizeImages::darkModeButton_svg, AudealizeImages::darkModeButton_svgSize);
+            mDarkModeGraphicLight = Drawable::createFromImageData (AudealizeImages::darkModeButtonLight_svg, AudealizeImages::darkModeButtonLight_svgSize);
+            
+            addAndMakeVisible(mDarkModeButton = new DrawableButton("Dark", DrawableButton::ButtonStyle::ImageOnButtonBackground));
+            
+            if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
+                mDarkModeButton->setImages(mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight);
+            }
+            else{
+                mDarkModeButton->setImages(mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
+            }
+            mDarkModeButton->addListener(this);
+            
             
             // info button
             addAndMakeVisible(mInfoButton = new TextButton("About"));
@@ -108,9 +111,6 @@ namespace Audealize{
         addAndMakeVisible (mSearchBar = new TypeaheadEditor());
         mSearchBar->setName ("Search Bar");
         mSearchBar->getEditor()->addListener(this);
-        mSearchBar->setColour (TextEditor::outlineColourId, Colours::grey);
-        mSearchBar->setColour(TextEditor::ColourIds::focusedOutlineColourId, Colours::lightblue);
-        mSearchBar->setColour (TextEditor::shadowColourId, Colour (0x00a1a1a1));
         mSearchBar->getEditor()->setFont(Font(Font::getDefaultSansSerifFontName(), 18, Font::plain));
         mSearchBar->getEditor()->setSelectAllWhenFocused(true);
         mSearchBar->getEditor()->setTextToShowWhenEmpty("Search for a word to apply", Colour (0xff888888));
@@ -161,18 +161,20 @@ namespace Audealize{
         mEnglishButton = nullptr;
         mEspanolButton = nullptr;
         mAudealizeLabel = nullptr;
-        mEffectTypeLabel = nullptr;
         mTradUIButton = nullptr;
         mSearchBar = nullptr;
         mAboutComponent = nullptr;
         mInfoButton = nullptr;
         mAboutWindow = nullptr;
+        mDarkModeButton = nullptr;
+        mDarkModeGraphic = nullptr;
+        mDarkModeGraphicLight = nullptr;
     }
     
     //==============================================================================
     void AudealizeUI::paint (Graphics& g)
     {
-        g.fillAll (AudealizeColors::background);
+        g.fillAll (getLookAndFeel().findColour(AudealizeUI::backgroundColourId));
     }
     
     void AudealizeUI::resized()
@@ -180,7 +182,11 @@ namespace Audealize{
         // resizable corner
         if (!isMultiEffect){
             mResizer->setBounds (getWidth() - 18, getHeight() - 18, 16, 16);
-            mInfoButton->setBounds(getWidth() - 80, 22, 48, 20);
+            mInfoButton->setBounds(getWidth() - 80, 22, 48, 24);
+            mDarkModeButton->setBounds(getWidth() - 110, 22, 24, 24);
+            
+            // Audealize title labels
+            mAudealizeLabel->setBounds (28, 17, 200, 32);
         }
         
         // reduce word map font size if width of window is less than fontSizeThresh
@@ -234,13 +240,7 @@ namespace Audealize{
             mLabelLess->setBounds (getWidth() - sliderWidth - 185, getHeight() - 45, 114, 24);
             mLabelMore->setBounds (getWidth() - 72, getHeight() - 45, 56, 24);
         }
-        
-        // Audealize title labels
-        if (!isMultiEffect){
-            mAudealizeLabel->setBounds (27, 17, 176, 32);
-            mEffectTypeLabel->setBounds (183, 17, 118, 32);
-        }
-
+    
         
         // bypass button
         int width = mBypassButton->getBestWidthForHeight(32);
@@ -328,6 +328,17 @@ namespace Audealize{
         
         else if (buttonThatWasClicked == mInfoButton){
             mAboutWindow->setVisible(true);
+        }
+        
+        else if (buttonThatWasClicked == mDarkModeButton){
+            if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
+                setLookAndFeel(&mLookAndFeel);
+                mDarkModeButton->setImages(mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
+            }
+            else{
+                setLookAndFeel(&mLookAndFeelDark);
+                mDarkModeButton->setImages(mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight);
+            }
         }
     }
     

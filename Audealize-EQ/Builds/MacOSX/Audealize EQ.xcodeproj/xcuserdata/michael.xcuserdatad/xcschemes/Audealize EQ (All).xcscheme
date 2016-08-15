@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BDB3DC20242ECE8884C692D5"
-               BuildableName = "Audealize-EQ.component"
-               BlueprintName = "Audealize EQ (AU)"
+               BlueprintIdentifier = "B66E6EBCC0FB1D30644D5AF0"
+               BuildableName = "Audealize EQ (All)"
+               BlueprintName = "Audealize EQ (All)"
                ReferencedContainer = "container:Audealize EQ.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BDB3DC20242ECE8884C692D5"
-            BuildableName = "Audealize-EQ.component"
-            BlueprintName = "Audealize EQ (AU)"
+            BlueprintIdentifier = "B66E6EBCC0FB1D30644D5AF0"
+            BuildableName = "Audealize EQ (All)"
+            BlueprintName = "Audealize EQ (All)"
             ReferencedContainer = "container:Audealize EQ.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BDB3DC20242ECE8884C692D5"
-            BuildableName = "Audealize-EQ.component"
-            BlueprintName = "Audealize EQ (AU)"
+            BlueprintIdentifier = "B66E6EBCC0FB1D30644D5AF0"
+            BuildableName = "Audealize EQ (All)"
+            BlueprintName = "Audealize EQ (All)"
             ReferencedContainer = "container:Audealize EQ.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

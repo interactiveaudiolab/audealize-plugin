@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2015
-Project("{D34DDFEB-89F5-5A5A-C96D-1B6053BAA86A}") = "Audealize: Reverb", "Audealize Reverb.vcxproj", "{1954874A-220B-B4AD-3409-1D8F0E6EE0B1}"
+Project("{E9CA2634-1D5B-98B0-18F3-63722342138C}") = "Audealize Reverb", "Audealize Reverb.vcxproj", "{1954874A-220B-B4AD-3409-1D8F0E6EE0B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

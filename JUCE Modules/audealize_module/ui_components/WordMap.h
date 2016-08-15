@@ -25,6 +25,12 @@ namespace Audealize {
                      public ActionBroadcaster
     {
     public:
+        enum ColourIds{
+            backgroundColourId = 0x2000300,
+            outlineColourId = 0x2000301
+        };
+        
+        
         /**
          *  Constructor
          *
@@ -136,7 +142,7 @@ namespace Audealize {
         // Constants
         
         const int pad = 2; // amount of padding between mapped descriptors
-        const int unhighlighted_alpha_value = 0.7f * 255; // alpha value of unhighlighted descriptors
+        const int unhighlighted_alpha_value = 0.8f * 255; // alpha value of unhighlighted descriptors
         const int hover_alpha_value = 0.15f * 255; // alpha value of descriptors within hover radius but not selected
         
         //=====================================================================

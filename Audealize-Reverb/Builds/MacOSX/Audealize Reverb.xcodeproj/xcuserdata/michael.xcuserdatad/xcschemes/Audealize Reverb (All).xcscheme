@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BDB3DC20242ECE8884C692D5"
-               BuildableName = "Audealize-EQ.component"
-               BlueprintName = "Audealize EQ (AU)"
-               ReferencedContainer = "container:Audealize EQ.xcodeproj">
+               BlueprintIdentifier = "C0E73F44F309322C14F6C2EA"
+               BuildableName = "Audealize Reverb (All)"
+               BlueprintName = "Audealize Reverb (All)"
+               ReferencedContainer = "container:Audealize Reverb.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,10 +45,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BDB3DC20242ECE8884C692D5"
-            BuildableName = "Audealize-EQ.component"
-            BlueprintName = "Audealize EQ (AU)"
-            ReferencedContainer = "container:Audealize EQ.xcodeproj">
+            BlueprintIdentifier = "C0E73F44F309322C14F6C2EA"
+            BuildableName = "Audealize Reverb (All)"
+            BlueprintName = "Audealize Reverb (All)"
+            ReferencedContainer = "container:Audealize Reverb.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -63,10 +63,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "BDB3DC20242ECE8884C692D5"
-            BuildableName = "Audealize-EQ.component"
-            BlueprintName = "Audealize EQ (AU)"
-            ReferencedContainer = "container:Audealize EQ.xcodeproj">
+            BlueprintIdentifier = "C0E73F44F309322C14F6C2EA"
+            BuildableName = "Audealize Reverb (All)"
+            BlueprintName = "Audealize Reverb (All)"
+            ReferencedContainer = "container:Audealize Reverb.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

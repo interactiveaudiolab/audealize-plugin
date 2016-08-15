@@ -22,6 +22,11 @@ namespace Audealize{
     public ButtonListener
     {
     public:
+        enum ColourIds{
+            backgroundColourId = 0x2000100,
+            textColourId = 0x2000101
+        };
+        
         //==============================================================================
         AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType, bool isPluginMultiEffect = false);
         ~AudealizeUI();
@@ -92,6 +97,7 @@ namespace Audealize{
             return isMultiEffect;
         }
         
+        
     private:
         AudealizeAudioProcessor& processor;
         
@@ -113,7 +119,7 @@ namespace Audealize{
         bool isTradUIVisible; // true if traditional UI is visible
         
         bool isMultiEffect;
-        
+                
         String mEffectType; 
         
         //==============================================================================
@@ -124,16 +130,21 @@ namespace Audealize{
         ScopedPointer<ToggleButton> mEnglishButton;
         ScopedPointer<ToggleButton> mEspanolButton;
         ScopedPointer<Label> mAudealizeLabel;  // "Audealize" text in top left
-        ScopedPointer<Label> mEffectTypeLabel; // text to the right of "Audealize" label. changes to reflect the type of effect
         ScopedPointer<TextButton> mTradUIButton; // button to hide/show traditional ui
         ScopedPointer<TypeaheadEditor> mSearchBar;
         ScopedPointer<Button> mInfoButton;
         ScopedPointer<AboutComponent> mAboutComponent;
         
         AudealizeLookAndFeel mLookAndFeel;
+        AudealizeLookAndFeelDark mLookAndFeelDark;
         
         DialogWindow::LaunchOptions mDialogOpts;
         ScopedPointer<DialogWindow> mAboutWindow;
+        
+        ScopedPointer<Drawable> mDarkModeGraphic;
+        ScopedPointer<Drawable> mDarkModeGraphicLight;
+        ScopedPointer<DrawableButton> mDarkModeButton;
+        
         //==============================================================================
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeUI)
     };

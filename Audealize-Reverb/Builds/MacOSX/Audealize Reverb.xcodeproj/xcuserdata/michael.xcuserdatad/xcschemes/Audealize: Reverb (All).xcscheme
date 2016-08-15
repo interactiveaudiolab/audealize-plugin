@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C0E73F44F309322C14F6C2EA"
-               BuildableName = "Audealize: Reverb (All)"
-               BlueprintName = "Audealize: Reverb (All)"
+               BuildableName = "Audealize Reverb (All)"
+               BlueprintName = "Audealize Reverb (All)"
                ReferencedContainer = "container:Audealize Reverb.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C0E73F44F309322C14F6C2EA"
-            BuildableName = "Audealize: Reverb (All)"
-            BlueprintName = "Audealize: Reverb (All)"
+            BuildableName = "Audealize Reverb (All)"
+            BlueprintName = "Audealize Reverb (All)"
             ReferencedContainer = "container:Audealize Reverb.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,8 +64,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C0E73F44F309322C14F6C2EA"
-            BuildableName = "Audealize: Reverb (All)"
-            BlueprintName = "Audealize: Reverb (All)"
+            BuildableName = "Audealize Reverb (All)"
+            BlueprintName = "Audealize Reverb (All)"
             ReferencedContainer = "container:Audealize Reverb.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

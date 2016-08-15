@@ -15,6 +15,10 @@ namespace Audealize{
     class GraphicEQComponent  : public TraditionalUI
     {
     public:
+        enum ColourIds{
+            tickMarkColourId = 0x2000500
+        };
+        
         GraphicEQComponent (AudealizeAudioProcessor& p, int numBands, NormalisableRange<float> gainRange);
         ~GraphicEQComponent();
         

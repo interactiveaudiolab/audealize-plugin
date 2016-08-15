@@ -42,7 +42,7 @@ namespace Audealize {
         for (int i = 0; i < NUMBANDS - 1; i++){
             int x1 = mGainSliders[i]->getRight();
             int x2 = mGainSliders[i+1]->getX();
-            g.setColour(AudealizeColors::outline.withMultipliedAlpha(0.4));
+            g.setColour(findColour(GraphicEQComponent::tickMarkColourId));
             g.drawLine(x1 - 1, midpoint, x2 + 1, midpoint, 2);
         }
     }

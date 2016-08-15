@@ -7,20 +7,33 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
 
     addAndMakeVisible (mTabbedComponent = new AudealizeTabbedComponent (TabbedButtonBar::TabsAtTop));
     mTabbedComponent->setTabBarDepth (28);
-    mTabbedComponent->addTab (TRANS("EQ"), AudealizeColors::background, mAudealizeUIs[0], true);
-    mTabbedComponent->addTab (TRANS("Reverb"), AudealizeColors::background, mAudealizeUIs[1], true);
+    mTabbedComponent->addTab (TRANS("EQ"), getLookAndFeel().findColour(AudealizeTabbedComponent::backgroundColourId), mAudealizeUIs[0], true);
+    mTabbedComponent->addTab (TRANS("Reverb"), getLookAndFeel().findColour(AudealizeTabbedComponent::backgroundColourId), mAudealizeUIs[1], true);
     mTabbedComponent->setCurrentTabIndex (0);
     mTabbedComponent->setOutline(0);
     
     addAndMakeVisible (label = new Label ("new label",
                                           TRANS("Audealize\n")));
-    label->setFont (Font ("Helvetica Neue Medium", 32, Font::plain));
+    label->setFont (Font ("Roboto", 34, Font::plain));
     label->setJustificationType (Justification::centredLeft);
     label->setEditable (false, false, false);
-    label->setColour (TextEditor::textColourId, AudealizeColors::titleText);
+    label->setColour (TextEditor::textColourId, getLookAndFeel().findColour(AudealizeMultiUI::textColourId));
     label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
+    // dark mode button
+    mDarkModeGraphic = Drawable::createFromImageData (AudealizeImages::darkModeButton_svg, AudealizeImages::darkModeButton_svgSize);
+    mDarkModeGraphicLight = Drawable::createFromImageData (AudealizeImages::darkModeButtonLight_svg, AudealizeImages::darkModeButtonLight_svgSize);
 
+    addAndMakeVisible(mDarkModeButton = new DrawableButton("Dark", DrawableButton::ButtonStyle::ImageOnButtonBackground));
+    
+    if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
+        mDarkModeButton->setImages(mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight);
+    }
+    else{
+        mDarkModeButton->setImages(mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
+    }
+    mDarkModeButton->addListener(this);
+    
     // info button
     addAndMakeVisible(mInfoButton = new TextButton("About"));
     mInfoButton->addListener (this);
@@ -84,18 +97,21 @@ AudealizeMultiUI::~AudealizeMultiUI()
     mInfoButton = nullptr;
     mAboutComponent = nullptr;
     mAboutWindow = nullptr;
+    mDarkModeButton = nullptr;
+    mDarkModeGraphic = nullptr;
+    mDarkModeGraphicLight = nullptr;
 }
 
 //==============================================================================
 void AudealizeMultiUI::paint (Graphics& g)
 {
   
-    g.fillAll (AudealizeColors::background);
+    g.fillAll (getLookAndFeel().findColour(AudealizeMultiUI::backgroundColourId));
 
-    g.setColour (AudealizeColors::accent);
+    g.setColour (getLookAndFeel().findColour(AudealizeMultiUI::accentColourId));
     g.fillRect (24, 48, getWidth() - 48, 34);
 
-    g.setColour (AudealizeColors::outline);
+    g.setColour (getLookAndFeel().findColour(AudealizeMultiUI::outlineColourId));
     g.drawRect (24, 48, getWidth() - 48, 34, 1);
 
 }
@@ -104,7 +120,9 @@ void AudealizeMultiUI::resized()
 {
     mResizer->setBounds (getWidth() - 18, getHeight() - 18, 16, 16);
 
-    mInfoButton->setBounds(getWidth() - 72, 12, 48, 20);
+    mDarkModeButton->setBounds(getWidth() - 102, 12, 24, 24);
+    
+    mInfoButton->setBounds(getWidth() - 72, 12, 48, 24);
     
     mTabbedComponent->setBounds (0, 54, getWidth() - 0, getHeight() - 54);
     label->setBounds (22, 10, 179, 32);
@@ -149,9 +167,16 @@ void AudealizeMultiUI::buttonClicked(juce::Button *buttonThatWasClicked){
     if (buttonThatWasClicked == mInfoButton){
         mAboutWindow->setVisible(true);
     }
+    else if (buttonThatWasClicked == mDarkModeButton){
+        if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
+            setLookAndFeel(&mLookAndFeel);
+            mDarkModeButton->setImages(mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
+        }
+        else{
+            setLookAndFeel(&mLookAndFeelDark);
+            mDarkModeButton->setImages(mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight);
+        }
+    }
 }
 
-//==============================================================================
-#if 0
-#endif
 

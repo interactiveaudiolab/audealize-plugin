@@ -86,6 +86,7 @@ namespace Audealize {
                 alpha = (1 - 0.92f * logf(5 * agreement + 1)) / alpha_max;
                 
                 color = Colour::fromRGBA(rand() % 210, rand() % 210, rand() % 210, alpha_range.snapToLegalValue(alpha*255));
+                
                 colors.push_back(color);
                 
                 // calculate font size
@@ -107,7 +108,7 @@ namespace Audealize {
     
     void WordMap::paint (Graphics& g)
     {
-        g.fillAll(AudealizeColors::mapBackground);
+        g.fillAll(getLookAndFeel().findColour(WordMap::backgroundColourId));
         
         vector<Point<float>> plotted(0);
         String word;
@@ -125,7 +126,7 @@ namespace Audealize {
         outline.addRectangle(getLocalBounds());
         float f = 4;
         p.createDashedStroke(dashed, outline, &f, 1);
-        g.setColour(AudealizeColors::outline);
+        g.setColour(getLookAndFeel().findColour(WordMap::outlineColourId));
         g.strokePath(dashed, p);
         
         // if mouse is over map, find word being hovered over
@@ -138,8 +139,14 @@ namespace Audealize {
             in_radius    = false;
             hover_radius = false;
             word         = words[i];
-            color        = colors[i];
             font_size    = font_sizes[i];
+            
+            if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
+                color = colors[i].withMultipliedSaturation(.4).withMultipliedBrightness(1.7);
+            }
+            else{
+                color = colors[i];
+            }
             
             point.setX((0.1f + points[i].getX() * 0.8f) * getWidth());
             point.setY((0.05f + points[i].getY() * 0.9f) * getHeight());
@@ -166,9 +173,7 @@ namespace Audealize {
                     color = Colour::fromRGBA(color.getRed(), color.getGreen(), color.getBlue(), alpha_range.snapToLegalValue( unhighlighted_alpha_value));
                 }
             }
-            if (init_map && !hover_radius){
-                color = Colour::fromRGBA(color.getRed(), color.getGreen(), color.getBlue(), 255);
-            }
+
             // end set alpha
             
             if(!collision || hover_radius || in_radius) {

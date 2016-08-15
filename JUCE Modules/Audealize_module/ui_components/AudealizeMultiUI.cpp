@@ -3,12 +3,12 @@
 AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> AudealizeUIs)
     : AudioProcessorEditor(&p), mAudealizeUIs(AudealizeUIs)
 {
-    LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
+    LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
 
     addAndMakeVisible (mTabbedComponent = new AudealizeTabbedComponent (TabbedButtonBar::TabsAtTop));
     mTabbedComponent->setTabBarDepth (28);
-    mTabbedComponent->addTab (TRANS("EQ"), getLookAndFeel().findColour(AudealizeMultiUI::backgroundColourId), mAudealizeUIs[0], true);
-    mTabbedComponent->addTab (TRANS("Reverb"), getLookAndFeel().findColour(AudealizeMultiUI::backgroundColourId), mAudealizeUIs[1], true);
+    mTabbedComponent->addTab (TRANS("EQ"), getLookAndFeel().findColour(AudealizeTabbedComponent::backgroundColourId), mAudealizeUIs[0], true);
+    mTabbedComponent->addTab (TRANS("Reverb"), getLookAndFeel().findColour(AudealizeTabbedComponent::backgroundColourId), mAudealizeUIs[1], true);
     mTabbedComponent->setCurrentTabIndex (0);
     mTabbedComponent->setOutline(0);
     

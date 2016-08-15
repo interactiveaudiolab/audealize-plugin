@@ -31,6 +31,8 @@ namespace Audealize {
         
         setColour(GraphicEQComponent::tickMarkColourId, midGray.brighter(.15));
         
+        setColour(AudealizeTabbedComponent::backgroundColourId, midGray);
+        
         setColour(TextButton::buttonColourId, darkGray);
         setColour(TextButton::buttonOnColourId, darkGray.darker(.1));
         setColour(TextButton::textColourOnId, textGray);

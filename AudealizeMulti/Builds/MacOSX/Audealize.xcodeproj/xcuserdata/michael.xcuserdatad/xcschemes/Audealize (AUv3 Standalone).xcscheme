@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AB8CE7F2E632E0F02A5F4B89"
-               BuildableName = "AudealizeMulti.app"
+               BuildableName = "Audealize.app"
                BlueprintName = "Audealize (AUv3 Standalone)"
                ReferencedContainer = "container:Audealize.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AB8CE7F2E632E0F02A5F4B89"
-            BuildableName = "AudealizeMulti.app"
+            BuildableName = "Audealize.app"
             BlueprintName = "Audealize (AUv3 Standalone)"
             ReferencedContainer = "container:Audealize.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AB8CE7F2E632E0F02A5F4B89"
-            BuildableName = "AudealizeMulti.app"
+            BuildableName = "Audealize.app"
             BlueprintName = "Audealize (AUv3 Standalone)"
             ReferencedContainer = "container:Audealize.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AB8CE7F2E632E0F02A5F4B89"
-            BuildableName = "AudealizeMulti.app"
+            BuildableName = "Audealize.app"
             BlueprintName = "Audealize (AUv3 Standalone)"
             ReferencedContainer = "container:Audealize.xcodeproj">
          </BuildableReference>

@@ -38,9 +38,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AudealizeMulti</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Audealize</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AudealizeMulti</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Audealize</TargetName>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
     <PlatformToolset>v140</PlatformToolset>
   </PropertyGroup>
@@ -56,7 +56,7 @@
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>c:\SDKs\VST3 SDK;..\..\JuceLibraryCode;c:\SDKs\AAX;c:\SDKs\AAX\Interfaces;c:\SDKs\AAX\Interfaces\ACF;..\..\..\JUCE Modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;JucePlugin_AAXLibs_path=&quot;c:\\SDKs\\AAX\\Libs&quot;;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCER_VS2015_78A5022=1;JUCE_APP_VERSION=0.0.1;JUCE_APP_VERSION_HEX=0x1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;JucePlugin_AAXLibs_path=&quot;c:\\SDKs\\AAX\\Libs&quot;;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCER_VS2015_78A5022=1;JUCE_APP_VERSION=0.0.2;JUCE_APP_VERSION_HEX=0x2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -71,11 +71,11 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\AudealizeMulti.dll</OutputFile>
+      <OutputFile>$(OutDir)\Audealize.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>libcmt.lib; msvcrt.lib;;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\AudealizeMulti.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(IntDir)\Audealize.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
@@ -83,7 +83,7 @@
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\AudealizeMulti.bsc</OutputFile>
+      <OutputFile>$(IntDir)\Audealize.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
       <Command>copy /Y &quot;$(OutDir)\$(TargetFileName)&quot; &quot;$(OutDir)\$(TargetName).vst3&quot;</Command>
@@ -100,7 +100,7 @@
     <ClCompile>
       <Optimization>Full</Optimization>
       <AdditionalIncludeDirectories>c:\SDKs\VST3 SDK;..\..\JuceLibraryCode;c:\SDKs\AAX;c:\SDKs\AAX\Interfaces;c:\SDKs\AAX\Interfaces\ACF;..\..\..\JUCE Modules;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;JucePlugin_AAXLibs_path=&quot;c:\\SDKs\\AAX\\Libs&quot;;WIN32;_WINDOWS;NDEBUG;JUCER_VS2015_78A5022=1;JUCE_APP_VERSION=0.0.1;JUCE_APP_VERSION_HEX=0x1;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;JucePlugin_AAXLibs_path=&quot;c:\\SDKs\\AAX\\Libs&quot;;WIN32;_WINDOWS;NDEBUG;JUCER_VS2015_78A5022=1;JUCE_APP_VERSION=0.0.2;JUCE_APP_VERSION_HEX=0x2;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <PrecompiledHeader/>
@@ -115,11 +115,11 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
     <Link>
-      <OutputFile>$(OutDir)\AudealizeMulti.dll</OutputFile>
+      <OutputFile>$(OutDir)\Audealize.dll</OutputFile>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>false</GenerateDebugInformation>
-      <ProgramDatabaseFile>$(IntDir)\AudealizeMulti.pdb</ProgramDatabaseFile>
+      <ProgramDatabaseFile>$(IntDir)\Audealize.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
       <OptimizeReferences>true</OptimizeReferences>
@@ -128,7 +128,7 @@
     </Link>
     <Bscmake>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <OutputFile>$(IntDir)\AudealizeMulti.bsc</OutputFile>
+      <OutputFile>$(IntDir)\Audealize.bsc</OutputFile>
     </Bscmake>
     <PostBuildEvent>
       <Command>copy /Y &quot;$(OutDir)\$(TargetFileName)&quot; &quot;$(OutDir)\$(TargetName).vst3&quot;</Command>
@@ -136,11 +136,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\PluginProcessor.cpp"/>
-    <ClCompile Include="..\..\Source\AudealizeMultiUI.cpp"/>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeEQAudioProcessor.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeReverbAudioProcessor.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\LookAndFeel.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\resources\AudealizeImages.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AboutComponent.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeMultiUI.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeUI.cpp">
@@ -152,10 +163,43 @@
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\ReverbComponent.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\TypeaheadPopupMenu.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\WordMap.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\utils\Biquad.cpp">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\lib\binsrch.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\lib\morph.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\lib\search.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\lib\wnglobal.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\lib\wnhelp.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\lib\wnrtl.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\lib\wnutil.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\src\stubs.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\src\tkAppInit.c">
+      <ExcludedFromBuild>true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\src\wn.c">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\audealize_module.cpp">
@@ -1861,16 +1905,20 @@
     <ClCompile Include="..\..\JuceLibraryCode\juce_video.cpp"/>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\AudealizeTabbedComponent.h"/>
     <ClInclude Include="..\..\Source\PluginProcessor.h"/>
-    <ClInclude Include="..\..\Source\AudealizeMultiUI.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeAudioProcessor.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeEQAudioProcessor.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeReverbAudioProcessor.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\data\LookAndFeel.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\AudioEffect.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\Equalizer.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\NChannelFilter.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\Reverb.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\LookAndFeel.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\resources\AudealizeImages.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AboutComponent.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeMultiUI.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeTabbedComponent.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AudealizeUI.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\GraphicEQComponent.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\ReverbComponent.h"/>
@@ -1885,6 +1933,11 @@
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\CParamSmooth.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\json.hpp"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\PrimeFactors.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\include\tk\tk.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\include\tk\tkDecls.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\include\wn.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\include\wngrind.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\config.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audealize_module.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\audealize_module.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -2543,6 +2596,7 @@
     <ClInclude Include="..\..\JuceLibraryCode\JuceHeader.h"/>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\lib\wnres\license.txt"/>
     <None Include="..\..\..\JUCE Modules\juce_audio_formats\codecs\flac\Flac Licence.txt"/>
     <None Include="..\..\..\JUCE Modules\juce_audio_formats\codecs\oggvorbis\Ogg Vorbis Licence.txt"/>
     <None Include="..\..\..\JUCE Modules\juce_audio_plugin_client\AU\AUResources.r"/>

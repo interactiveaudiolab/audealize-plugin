@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="SjJc63" name="Audealize" projectType="audioplug" version="0.0.1"
+<JUCERPROJECT id="SjJc63" name="Audealize" projectType="audioplug" version="0.0.2"
               bundleIdentifier="com.InteractiveAudioLab.Audealize" includeBinaryInAppConfig="1"
               buildVST="1" buildVST3="1" buildAU="1" buildAUv3="1" buildRTAS="0"
               buildAAX="1" pluginName="Audealize" pluginDesc="Audealize" pluginManufacturer="Interactive Audio Lab"
@@ -12,23 +12,24 @@
               companyName="Northwestern University Interactive Audio Lab" companyWebsite="http://music.eecs.northwestern.edu">
   <MAINGROUP id="p3OXR6" name="Audealize">
     <GROUP id="{2F4B4BC1-A568-54B1-C2A9-5E208C6C4FD5}" name="Source">
-      <FILE id="C9KTNp" name="AudealizeTabbedComponent.h" compile="0" resource="0"
-            file="Source/AudealizeTabbedComponent.h"/>
       <FILE id="uW6mon" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="DzVfeX" name="PluginProcessor.h" compile="0" resource="0"
             file="Source/PluginProcessor.h"/>
-      <FILE id="Menc3j" name="AudealizeMultiUI.cpp" compile="1" resource="0"
-            file="Source/AudealizeMultiUI.cpp"/>
-      <FILE id="hBSeqH" name="AudealizeMultiUI.h" compile="0" resource="0"
-            file="Source/AudealizeMultiUI.h"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX">
+    <XCODE_MAC targetFolder="Builds/MacOSX" vstFolder="" vst3Folder="" aaxFolder=""
+               extraLinkerFlags="/usr/local/WordNet-3.0/lib/libWN.a" externalLibraries="">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="AudealizeMulti"/>
-        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="AudealizeMulti"/>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Audealize"
+                       headerPath="/usr/local/WordNet-3.0/include" libraryPath="/usr/local/WordNet-3.0/lib"
+                       xcodeAudioUnitBinaryLocation="/Library/Audio/Plug-Ins/Components"
+                       xcodeVst3BinaryLocation="/Library/Audio/Plug-Ins/VST3/" xcodeVstBinaryLocation="/Library/Audio/Plug-Ins/VST/"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Audealize"
+                       headerPath="/usr/local/WordNet-3.0/include" libraryPath="/usr/local/WordNet-3.0/lib"
+                       xcodeVstBinaryLocation="/Library/Audio/Plug-Ins/VST/" xcodeVst3BinaryLocation="/Library/Audio/Plug-Ins/VST3/"
+                       xcodeAudioUnitBinaryLocation="/Library/Audio/Plug-Ins/Components"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE Modules"/>
@@ -49,12 +50,13 @@
         <MODULEPATH id="audealize_module" path="../JUCE Modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
-    <VS2015 targetFolder="Builds/VisualStudio2015">
+    <VS2015 targetFolder="Builds/VisualStudio2015" vstFolder="" vst3Folder=""
+            aaxFolder="">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="1" optimisation="1" targetName="AudealizeMulti"/>
+                       isDebug="1" optimisation="1" targetName="Audealize"/>
         <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
-                       isDebug="0" optimisation="3" targetName="AudealizeMulti"/>
+                       isDebug="0" optimisation="3" targetName="Audealize"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE Modules"/>
@@ -78,9 +80,9 @@
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" libraryPath="/usr/X11R6/lib/" isDebug="1" optimisation="1"
-                       targetName="AudealizeMulti"/>
+                       targetName="Audealize"/>
         <CONFIGURATION name="Release" libraryPath="/usr/X11R6/lib/" isDebug="0" optimisation="3"
-                       targetName="AudealizeMulti"/>
+                       targetName="Audealize"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE Modules"/>

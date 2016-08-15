@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="x1TFuX" name="Audealize: EQ" projectType="audioplug" version="0.0.1"
+<JUCERPROJECT id="x1TFuX" name="Audealize EQ" projectType="audioplug" version="0.0.2"
               bundleIdentifier="com.InteractiveAudioLab.AudealizeEQ" includeBinaryInAppConfig="1"
               buildVST="1" buildVST3="1" buildAU="1" buildAUv3="1" buildRTAS="0"
-              buildAAX="1" pluginName="Audealize: EQ" pluginDesc="Audealize: EQ"
+              buildAAX="1" pluginName="Audealize EQ" pluginDesc="Audealize EQ"
               pluginManufacturer="Interactive Audio Lab" pluginManufacturerCode="IALx"
               pluginCode="adlz" pluginChannelConfigs="" pluginIsSynth="0" pluginWantsMidiIn="1"
               pluginProducesMidiOut="0" pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0"
               pluginAUExportPrefix="AudealizeEQAU" pluginRTASCategory="" aaxIdentifier="com.InteractiveAudioLab.AudealizeEQ"
               pluginAAXCategory="AAX_ePlugInCategory_EQ" jucerVersion="4.2.3"
               companyName="Northwestern University Interactive Audio Lab" companyWebsite="http://music.eecs.northwestern.edu">
-  <MAINGROUP id="zCKhNw" name="Audealize: EQ">
+  <MAINGROUP id="zCKhNw" name="Audealize EQ">
     <GROUP id="{4E48FC2E-FC0A-72E1-7953-37D9CC5AA9E2}" name="Source">
       <FILE id="y3j7Wn" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
@@ -19,10 +19,17 @@
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX">
+    <XCODE_MAC targetFolder="Builds/MacOSX" vstFolder="" vst3Folder="" aaxFolder=""
+               extraLinkerFlags="/usr/local/WordNet-3.0/lib/libWN.a">
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Audealize-EQ"/>
-        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Audealize-EQ"/>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Audealize-EQ"
+                       headerPath="/usr/local/WordNet-3.0/include" libraryPath="/usr/local/WordNet-3.0/lib"
+                       xcodeAudioUnitBinaryLocation="/Library/Audio/Plug-Ins/Components"
+                       xcodeVst3BinaryLocation="/Library/Audio/Plug-Ins/VST3/" xcodeVstBinaryLocation="/Library/Audio/Plug-Ins/VST/"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Audealize-EQ"
+                       libraryPath="/usr/local/WordNet-3.0/lib" headerPath="/usr/local/WordNet-3.0/include"
+                       xcodeVstBinaryLocation="/Library/Audio/Plug-Ins/VST/" xcodeVst3BinaryLocation="/Library/Audio/Plug-Ins/VST3/"
+                       xcodeAudioUnitBinaryLocation="/Library/Audio/Plug-Ins/Components"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE Modules"/>

@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B66E6EBCC0FB1D30644D5AF0"
-               BuildableName = "Audealize: EQ (All)"
-               BlueprintName = "Audealize: EQ (All)"
+               BuildableName = "Audealize EQ (All)"
+               BlueprintName = "Audealize EQ (All)"
                ReferencedContainer = "container:Audealize EQ.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,7 +33,7 @@
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -46,8 +46,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B66E6EBCC0FB1D30644D5AF0"
-            BuildableName = "Audealize: EQ (All)"
-            BlueprintName = "Audealize: EQ (All)"
+            BuildableName = "Audealize EQ (All)"
+            BlueprintName = "Audealize EQ (All)"
             ReferencedContainer = "container:Audealize EQ.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -64,8 +64,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B66E6EBCC0FB1D30644D5AF0"
-            BuildableName = "Audealize: EQ (All)"
-            BlueprintName = "Audealize: EQ (All)"
+            BuildableName = "Audealize EQ (All)"
+            BlueprintName = "Audealize EQ (All)"
             ReferencedContainer = "container:Audealize EQ.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

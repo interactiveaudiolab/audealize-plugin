@@ -20,6 +20,8 @@ public:
     enum ColourIds{
         backgroundColourId = 0x2000400,
         textColourId = 0x2000401,
+        highlightColourId = 0x2000402,
+        textSelectedColourId = 0x2000403
     };
     
     
@@ -136,7 +138,7 @@ public:
     void focusLost(FocusChangeType cause) override;
 
     void resized() override;
-    
+        
     /**
      *  Used to set text of editor when word is selected in a WordMap
      *

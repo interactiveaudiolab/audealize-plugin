@@ -29,7 +29,8 @@ namespace Audealize {
         
         setColour(TypeaheadPopupMenu::backgroundColourId, midGray);
         setColour(TypeaheadPopupMenu::textColourId, textGray);
-        
+        setColour(TypeaheadPopupMenu::highlightColourId, textGray);
+        setColour(TypeaheadPopupMenu::textSelectedColourId, midGray);
         setColour(GraphicEQComponent::tickMarkColourId, midGray.brighter(.15));
         
         setColour(AudealizeTabbedComponent::backgroundColourId, midGray);
@@ -46,8 +47,9 @@ namespace Audealize {
         setColour(Slider::thumbColourId, sliderThumbGray);
         setColour(TextEditor::backgroundColourId, darkGray);
         setColour(TextEditor::textColourId, textGray);
-        setColour(TextEditor::focusedOutlineColourId, textGray.withMultipliedAlpha(0.6f));
-        setColour(TextEditor::ColourIds::highlightColourId, offWhite);
+        setColour(TextEditor::focusedOutlineColourId, textGray.withMultipliedAlpha(0.2f));
+        setColour(TextEditor::outlineColourId, textGray.withMultipliedAlpha(0.5f));
+        setColour(TextEditor::highlightColourId, offWhite);
         setColour(Slider::textBoxBackgroundColourId, darkGray);
         setColour(Slider::textBoxTextColourId, textGray);
         setColour(Slider::textBoxOutlineColourId, offWhite.withMultipliedAlpha(.5));
@@ -87,7 +89,9 @@ namespace Audealize {
         
         setColour(TypeaheadPopupMenu::backgroundColourId, Colours::white);
         setColour(TypeaheadPopupMenu::textColourId, Colours::black);
-        
+        setColour(TypeaheadPopupMenu::highlightColourId, accentBlue);
+        setColour(TypeaheadPopupMenu::textSelectedColourId, Colours::black);
+
         setColour(GraphicEQComponent::tickMarkColourId, outline);
         
         setColour(AudealizeTabbedComponent::backgroundColourId, Colours::white);
@@ -104,8 +108,10 @@ namespace Audealize {
         setColour(Slider::thumbColourId, Colours::white);
         setColour(TextEditor::backgroundColourId, Colours::white);
         setColour(TextEditor::textColourId, Colours::black);
-        setColour(TextEditor::focusedOutlineColourId, accentBlue);
-        setColour(TextEditor::ColourIds::highlightColourId, accentBlue);
+        setColour(TextEditor::focusedOutlineColourId, outline);
+        setColour(TextEditor::outlineColourId, outline);
+        setColour(TextEditor::highlightColourId, accentBlue);
+
         setColour(Slider::textBoxBackgroundColourId, Colours::white);
         setColour(Slider::textBoxTextColourId, Colours::black);
         setColour(Slider::textBoxOutlineColourId, outline);
@@ -597,7 +603,7 @@ namespace Audealize {
             if (textEditor.hasKeyboardFocus (true) && ! textEditor.isReadOnly())
             {
                 g.setColour (textEditor.findColour (TextEditor::focusedOutlineColourId));
-                g.drawRect (0, 0, width, height, 2);
+                g.drawRect (0, 0, width, height, 1.5);
             }
             else if(shouldDrawOutlines)
             {

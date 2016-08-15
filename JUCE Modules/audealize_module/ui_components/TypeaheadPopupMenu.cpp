@@ -65,11 +65,12 @@ void TypeaheadPopupMenu::paintListBoxItem(int rowNumber, Graphics& g, int width,
     auto bg = getLookAndFeel().findColour(TypeaheadPopupMenu::backgroundColourId);
     
     if (rowIsSelected){
-        bg = fg;
-        fg = getLookAndFeel().findColour(TypeaheadPopupMenu::backgroundColourId);
+        bg = getLookAndFeel().findColour(TypeaheadPopupMenu::highlightColourId);
+        fg = getLookAndFeel().findColour(TypeaheadPopupMenu::textSelectedColourId);
     }
     g.fillAll(bg);
     g.setColour(fg);
+    DBG("setcolour");
     g.setFont(height*0.65f);
     g.drawText(options[rowNumber], 10, 0, width, height * 0.8f, Justification::left, true);
 }
@@ -91,7 +92,6 @@ TypeaheadEditor::TypeaheadEditor()
     
     editor.addListener(this);
     editor.addKeyListener(this);
-    editor.setColour(TextEditor::outlineColourId, Colours::grey);
     editor.setWantsKeyboardFocus(true);
     
     setFromMap = false;
@@ -122,6 +122,7 @@ void TypeaheadEditor::setOptions(std::vector<String> opts){
 void TypeaheadEditor::showMenu()
 {
     menu = new TypeaheadPopupMenu();
+    menu->setLookAndFeel(&getLookAndFeel());
     menu->addToDesktop(ComponentPeer::StyleFlags::windowIsTemporary);
     menu->setVisible(true);
     menu->setBounds(getScreenBounds().translated(0, getHeight()).withHeight(100));
@@ -344,8 +345,7 @@ bool TypeaheadEditor::binarySearch(StringArray* arr, String str){
             right = mid - 1;
         }
         else {
-            left = mid + 1;
-        }
+            left = mid + 1;         }
     }
     return false;
 }

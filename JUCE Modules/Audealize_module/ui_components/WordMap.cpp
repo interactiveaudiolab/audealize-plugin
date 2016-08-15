@@ -87,12 +87,7 @@ namespace Audealize {
                 
                 color = Colour::fromRGBA(rand() % 210, rand() % 210, rand() % 210, alpha_range.snapToLegalValue(alpha*255));
                 
-                if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
-                    colors.push_back(color.withMultipliedSaturation(.4).withMultipliedBrightness(1.7));
-                }
-                else{
-                    colors.push_back(color);
-                }
+                colors.push_back(color);
                 
                 // calculate font size
                 dat = agreement - min_variance;
@@ -144,8 +139,14 @@ namespace Audealize {
             in_radius    = false;
             hover_radius = false;
             word         = words[i];
-            color        = colors[i];
             font_size    = font_sizes[i];
+            
+            if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
+                color = colors[i].withMultipliedSaturation(.4).withMultipliedBrightness(1.7);
+            }
+            else{
+                color = colors[i];
+            }
             
             point.setX((0.1f + points[i].getX() * 0.8f) * getWidth());
             point.setY((0.05f + points[i].getY() * 0.9f) * getHeight());

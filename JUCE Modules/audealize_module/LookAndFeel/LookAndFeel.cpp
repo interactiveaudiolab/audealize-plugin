@@ -5,54 +5,54 @@ using namespace juce;
 namespace Audealize {
 
     AudealizeLookAndFeelDark::AudealizeLookAndFeelDark(){
-        const Colour darkGrey(0xff1c1c1c);
-        const Colour midGrey(0xff2d2d2d);
-        const Colour textGrey(0xffbbbbbb);
+        const Colour darkGray(0xff1c1c1c);
+        const Colour midGray(0xff2d2d2d);
+        const Colour textGray(0xffbbbbbb);
         const Colour lightBlue(0xffadd8e6);
-        const Colour sliderThumbGrey(0xff727272);
+        const Colour sliderThumbGray(0xff727272);
         const Colour offWhite(0xff999999);
         
-        setColour(WordMap::backgroundColourId, darkGrey);
+        setColour(WordMap::backgroundColourId, darkGray);
         setColour(WordMap::outlineColourId, Colours::transparentWhite);
 
-        setColour(AudealizeUI::textColourId, textGrey);
-        setColour(AudealizeUI::backgroundColourId, midGrey);
+        setColour(AudealizeUI::textColourId, textGray);
+        setColour(AudealizeUI::backgroundColourId, midGray);
         
-        setColour(AudealizeMultiUI::backgroundColourId, midGrey);
-        setColour(AudealizeMultiUI::textColourId, textGrey);
+        setColour(AudealizeMultiUI::backgroundColourId, midGray);
+        setColour(AudealizeMultiUI::textColourId, textGray);
         setColour(AudealizeMultiUI::outlineColourId, Colours::transparentWhite);
-        setColour(AudealizeMultiUI::accentColourId, darkGrey);
+        setColour(AudealizeMultiUI::accentColourId, darkGray);
 
-        setColour(TypeaheadPopupMenu::backgroundColourId, midGrey);
-        setColour(TypeaheadPopupMenu::textColourId, textGrey);
+        setColour(TypeaheadPopupMenu::backgroundColourId, midGray);
+        setColour(TypeaheadPopupMenu::textColourId, textGray);
         
-        setColour(GraphicEQComponent::tickMarkColourId, midGrey.brighter(.15));
+        setColour(GraphicEQComponent::tickMarkColourId, midGray.brighter(.15));
         
-        setColour(TextButton::buttonColourId, darkGrey);
-        setColour(TextButton::buttonOnColourId, darkGrey.darker(.1));
-        setColour(TextButton::textColourOnId, textGrey);
-        setColour(TextButton::textColourOffId, textGrey);
+        setColour(TextButton::buttonColourId, darkGray);
+        setColour(TextButton::buttonOnColourId, darkGray.darker(.1));
+        setColour(TextButton::textColourOnId, textGray);
+        setColour(TextButton::textColourOffId, textGray);
         setColour(Slider::rotarySliderFillColourId, lightBlue);
-        setColour(Slider::trackColourId, darkGrey);
-        setColour(Slider::thumbColourId, sliderThumbGrey);
-        setColour(TextEditor::backgroundColourId, darkGrey);
-        setColour(TextEditor::textColourId, textGrey);
+        setColour(Slider::trackColourId, darkGray);
+        setColour(Slider::thumbColourId, sliderThumbGray);
+        setColour(TextEditor::backgroundColourId, darkGray);
+        setColour(TextEditor::textColourId, textGray);
         setColour(TextEditor::focusedOutlineColourId, AudealizeColors::textEditorFocusedOutline);
         setColour(TextEditor::ColourIds::highlightColourId, offWhite);
-        setColour(Slider::textBoxBackgroundColourId, darkGrey);
-        setColour(Slider::textBoxTextColourId, textGrey);
+        setColour(Slider::textBoxBackgroundColourId, darkGray);
+        setColour(Slider::textBoxTextColourId, textGray);
         setColour(Slider::textBoxOutlineColourId, offWhite.withMultipliedAlpha(.5));
         setColour(Slider::textBoxHighlightColourId, offWhite);
         
         setColour(TabbedButtonBar::tabOutlineColourId, Colours::transparentWhite);
         setColour(TabbedButtonBar::frontOutlineColourId, Colours::transparentWhite);
                   setColour(TabbedComponent::outlineColourId, Colours::transparentWhite);
-        setColour(ToggleButton::tickColourId, textGrey);
-        setColour(ToggleButton::textColourId, textGrey);
-        setColour(Label::textColourId, textGrey);
-        setColour(ListBox::backgroundColourId , midGrey);
-        setColour(CaretComponent::caretColourId, textGrey);
-        setColour(HyperlinkButton::textColourId, textGrey.brighter(.3));
+        setColour(ToggleButton::tickColourId, textGray);
+        setColour(ToggleButton::textColourId, textGray);
+        setColour(Label::textColourId, textGray);
+        setColour(ListBox::backgroundColourId , midGray);
+        setColour(CaretComponent::caretColourId, textGray);
+        setColour(HyperlinkButton::textColourId, textGray.brighter(.3));
         
         LookAndFeel::setDefaultSansSerifTypefaceName("Roboto");
         

@@ -17,7 +17,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "52E5AE0E51612E853F74B9E6"
                BuildableName = "Audealize-EQ.appex"
-               BlueprintName = "Audealize: EQ (AUv3 AppExtension)"
+               BlueprintName = "Audealize EQ (AUv3 AppExtension)"
                ReferencedContainer = "container:Audealize EQ.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -31,7 +31,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "30188AE817C21676F312FB07"
                BuildableName = "Audealize-EQ.app"
-               BlueprintName = "Audealize: EQ (AUv3 Standalone)"
+               BlueprintName = "Audealize EQ (AUv3 Standalone)"
                ReferencedContainer = "container:Audealize EQ.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -49,7 +49,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "52E5AE0E51612E853F74B9E6"
             BuildableName = "Audealize-EQ.appex"
-            BlueprintName = "Audealize: EQ (AUv3 AppExtension)"
+            BlueprintName = "Audealize EQ (AUv3 AppExtension)"
             ReferencedContainer = "container:Audealize EQ.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -73,7 +73,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "30188AE817C21676F312FB07"
             BuildableName = "Audealize-EQ.app"
-            BlueprintName = "Audealize: EQ (AUv3 Standalone)"
+            BlueprintName = "Audealize EQ (AUv3 Standalone)"
             ReferencedContainer = "container:Audealize EQ.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -93,7 +93,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "30188AE817C21676F312FB07"
             BuildableName = "Audealize-EQ.app"
-            BlueprintName = "Audealize: EQ (AUv3 Standalone)"
+            BlueprintName = "Audealize EQ (AUv3 Standalone)"
             ReferencedContainer = "container:Audealize EQ.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

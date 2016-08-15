@@ -26,6 +26,9 @@
     <Filter Include="Juce Modules\audealize_module\LookAndFeel">
       <UniqueIdentifier>{7CCF5040-5F24-1E45-5D0E-ABAE827B4EC5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Juce Modules\audealize_module\resources">
+      <UniqueIdentifier>{663A233D-DFB1-5ED2-56BF-B31707119D6E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Juce Modules\audealize_module\ui_components">
       <UniqueIdentifier>{944EDE95-7E2E-8781-F4FE-D044E4D6D8F1}</UniqueIdentifier>
     </Filter>
@@ -445,8 +448,11 @@
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\audio_processors\AudealizeReverbAudioProcessor.cpp">
       <Filter>Juce Modules\audealize_module\audio_processors</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\AudealizeColors.cpp">
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\LookAndFeel.cpp">
       <Filter>Juce Modules\audealize_module\LookAndFeel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\resources\AudealizeImages.cpp">
+      <Filter>Juce Modules\audealize_module\resources</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AboutComponent.cpp">
       <Filter>Juce Modules\audealize_module\ui_components</Filter>
@@ -2421,11 +2427,11 @@
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\effects\Reverb.h">
       <Filter>Juce Modules\audealize_module\effects</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\AudealizeColors.h">
-      <Filter>Juce Modules\audealize_module\LookAndFeel</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\LookAndFeel.h">
       <Filter>Juce Modules\audealize_module\LookAndFeel</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\resources\AudealizeImages.h">
+      <Filter>Juce Modules\audealize_module\resources</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AboutComponent.h">
       <Filter>Juce Modules\audealize_module\ui_components</Filter>

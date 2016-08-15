@@ -17,7 +17,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A4ACA0ED75F37D6DCFACC648"
                BuildableName = "Audealize-Reverb.appex"
-               BlueprintName = "Audealize: Reverb (AUv3 AppExtension)"
+               BlueprintName = "Audealize Reverb (AUv3 AppExtension)"
                ReferencedContainer = "container:Audealize Reverb.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -31,7 +31,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "12008E79040CB5BCF7E5ED90"
                BuildableName = "Audealize-Reverb.app"
-               BlueprintName = "Audealize: Reverb (AUv3 Standalone)"
+               BlueprintName = "Audealize Reverb (AUv3 Standalone)"
                ReferencedContainer = "container:Audealize Reverb.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -49,7 +49,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A4ACA0ED75F37D6DCFACC648"
             BuildableName = "Audealize-Reverb.appex"
-            BlueprintName = "Audealize: Reverb (AUv3 AppExtension)"
+            BlueprintName = "Audealize Reverb (AUv3 AppExtension)"
             ReferencedContainer = "container:Audealize Reverb.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -73,7 +73,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "12008E79040CB5BCF7E5ED90"
             BuildableName = "Audealize-Reverb.app"
-            BlueprintName = "Audealize: Reverb (AUv3 Standalone)"
+            BlueprintName = "Audealize Reverb (AUv3 Standalone)"
             ReferencedContainer = "container:Audealize Reverb.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -93,7 +93,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "12008E79040CB5BCF7E5ED90"
             BuildableName = "Audealize-Reverb.app"
-            BlueprintName = "Audealize: Reverb (AUv3 Standalone)"
+            BlueprintName = "Audealize Reverb (AUv3 Standalone)"
             ReferencedContainer = "container:Audealize Reverb.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

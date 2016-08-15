@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B050302651D3A4B06D864E1B"
                BuildableName = "libAudealize-Reverb.a"
-               BlueprintName = "Audealize: Reverb (Shared Code)"
+               BlueprintName = "Audealize Reverb (Shared Code)"
                ReferencedContainer = "container:Audealize Reverb.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,7 +47,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B050302651D3A4B06D864E1B"
             BuildableName = "libAudealize-Reverb.a"
-            BlueprintName = "Audealize: Reverb (Shared Code)"
+            BlueprintName = "Audealize Reverb (Shared Code)"
             ReferencedContainer = "container:Audealize Reverb.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,7 +65,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B050302651D3A4B06D864E1B"
             BuildableName = "libAudealize-Reverb.a"
-            BlueprintName = "Audealize: Reverb (Shared Code)"
+            BlueprintName = "Audealize Reverb (Shared Code)"
             ReferencedContainer = "container:Audealize Reverb.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

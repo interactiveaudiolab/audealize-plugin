@@ -70,24 +70,12 @@ namespace Audealize{
         // if this AudealizeUI is a child component of an AudealizeMultiUI, we wont show the Audealize title text here. 
         if (!isMultiEffect){
             // Audealize title text
-            addAndMakeVisible (mAudealizeLabel = new Label ("Audealize: ",
-                                                            TRANS("Audealize: ")));
+            addAndMakeVisible (mAudealizeLabel = new Label ("Audealize: " + effectType,
+                                                            TRANS("Audealize: " + effectType)));
             mAudealizeLabel->setFont (Font ("Roboto Medium", 32, Font::plain));
             mAudealizeLabel->setJustificationType (Justification::topLeft);
             mAudealizeLabel->setEditable (false, false, false);
-            mAudealizeLabel->setColour (TextEditor::textColourId, getLookAndFeel().findColour(AudealizeUI::textColourId));
-            mAudealizeLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
             
-            // Audealize effect type title text
-            addAndMakeVisible (mEffectTypeLabel = new Label ("Effect Type",
-                                                             TRANS("Type\n")));
-            mEffectTypeLabel->setFont (Font ("Roboto Medium", 32, Font::plain));
-            mEffectTypeLabel->setJustificationType (Justification::topLeft);
-            mEffectTypeLabel->setEditable (false, false, false);
-            mEffectTypeLabel->setColour (Label::textColourId, getLookAndFeel().findColour(AudealizeUI::textColourId));
-            mEffectTypeLabel->setColour (TextEditor::textColourId, getLookAndFeel().findColour(AudealizeUI::textColourId));
-            mEffectTypeLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-            mEffectTypeLabel->setText(effectType, NotificationType::dontSendNotification);
             
             // dark mode button
             mDarkModeGraphic = Drawable::createFromImageData (AudealizeImages::darkModeButton_svg, AudealizeImages::darkModeButton_svgSize);
@@ -123,9 +111,6 @@ namespace Audealize{
         addAndMakeVisible (mSearchBar = new TypeaheadEditor());
         mSearchBar->setName ("Search Bar");
         mSearchBar->getEditor()->addListener(this);
-        mSearchBar->setColour (TextEditor::outlineColourId, Colours::grey);
-        mSearchBar->setColour(TextEditor::ColourIds::focusedOutlineColourId, Colours::lightblue);
-        mSearchBar->setColour (TextEditor::shadowColourId, Colour (0x00a1a1a1));
         mSearchBar->getEditor()->setFont(Font(Font::getDefaultSansSerifFontName(), 18, Font::plain));
         mSearchBar->getEditor()->setSelectAllWhenFocused(true);
         mSearchBar->getEditor()->setTextToShowWhenEmpty("Search for a word to apply", Colour (0xff888888));
@@ -176,7 +161,6 @@ namespace Audealize{
         mEnglishButton = nullptr;
         mEspanolButton = nullptr;
         mAudealizeLabel = nullptr;
-        mEffectTypeLabel = nullptr;
         mTradUIButton = nullptr;
         mSearchBar = nullptr;
         mAboutComponent = nullptr;
@@ -200,6 +184,9 @@ namespace Audealize{
             mResizer->setBounds (getWidth() - 18, getHeight() - 18, 16, 16);
             mInfoButton->setBounds(getWidth() - 80, 22, 48, 24);
             mDarkModeButton->setBounds(getWidth() - 110, 22, 24, 24);
+            
+            // Audealize title labels
+            mAudealizeLabel->setBounds (28, 17, 200, 32);
         }
         
         // reduce word map font size if width of window is less than fontSizeThresh
@@ -253,13 +240,7 @@ namespace Audealize{
             mLabelLess->setBounds (getWidth() - sliderWidth - 185, getHeight() - 45, 114, 24);
             mLabelMore->setBounds (getWidth() - 72, getHeight() - 45, 56, 24);
         }
-        
-        // Audealize title labels
-        if (!isMultiEffect){
-            mAudealizeLabel->setBounds (27, 17, 176, 32);
-            mEffectTypeLabel->setBounds (183, 17, 118, 32);
-        }
-
+    
         
         // bypass button
         int width = mBypassButton->getBestWidthForHeight(32);

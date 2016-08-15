@@ -88,7 +88,7 @@ namespace Audealize {
         setColour(TypeaheadPopupMenu::backgroundColourId, Colours::white);
         setColour(TypeaheadPopupMenu::textColourId, Colours::black);
         
-        setColour(GraphicEQComponent::tickMarkColourId, Colours::black.brighter(.15));
+        setColour(GraphicEQComponent::tickMarkColourId, outline);
         
         setColour(AudealizeTabbedComponent::backgroundColourId, Colours::white);
         

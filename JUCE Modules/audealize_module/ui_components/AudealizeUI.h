@@ -130,7 +130,6 @@ namespace Audealize{
         ScopedPointer<ToggleButton> mEnglishButton;
         ScopedPointer<ToggleButton> mEspanolButton;
         ScopedPointer<Label> mAudealizeLabel;  // "Audealize" text in top left
-        ScopedPointer<Label> mEffectTypeLabel; // text to the right of "Audealize" label. changes to reflect the type of effect
         ScopedPointer<TextButton> mTradUIButton; // button to hide/show traditional ui
         ScopedPointer<TypeaheadEditor> mSearchBar;
         ScopedPointer<Button> mInfoButton;

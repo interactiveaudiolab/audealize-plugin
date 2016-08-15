@@ -89,6 +89,21 @@ namespace Audealize{
             mEffectTypeLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
             mEffectTypeLabel->setText(effectType, NotificationType::dontSendNotification);
             
+            // dark mode button
+            mDarkModeGraphic = Drawable::createFromImageData (AudealizeImages::darkModeButton_svg, AudealizeImages::darkModeButton_svgSize);
+            mDarkModeGraphicLight = Drawable::createFromImageData (AudealizeImages::darkModeButtonLight_svg, AudealizeImages::darkModeButtonLight_svgSize);
+            
+            addAndMakeVisible(mDarkModeButton = new DrawableButton("Dark", DrawableButton::ButtonStyle::ImageOnButtonBackground));
+            
+            if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
+                mDarkModeButton->setImages(mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight);
+            }
+            else{
+                mDarkModeButton->setImages(mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
+            }
+            mDarkModeButton->addListener(this);
+            
+            
             // info button
             addAndMakeVisible(mInfoButton = new TextButton("About"));
             mInfoButton->addListener (this);
@@ -167,6 +182,9 @@ namespace Audealize{
         mAboutComponent = nullptr;
         mInfoButton = nullptr;
         mAboutWindow = nullptr;
+        mDarkModeButton = nullptr;
+        mDarkModeGraphic = nullptr;
+        mDarkModeGraphicLight = nullptr;
     }
     
     //==============================================================================
@@ -180,7 +198,8 @@ namespace Audealize{
         // resizable corner
         if (!isMultiEffect){
             mResizer->setBounds (getWidth() - 18, getHeight() - 18, 16, 16);
-            mInfoButton->setBounds(getWidth() - 80, 22, 48, 20);
+            mInfoButton->setBounds(getWidth() - 80, 22, 48, 24);
+            mDarkModeButton->setBounds(getWidth() - 110, 22, 24, 24);
         }
         
         // reduce word map font size if width of window is less than fontSizeThresh
@@ -328,6 +347,17 @@ namespace Audealize{
         
         else if (buttonThatWasClicked == mInfoButton){
             mAboutWindow->setVisible(true);
+        }
+        
+        else if (buttonThatWasClicked == mDarkModeButton){
+            if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
+                setLookAndFeel(&mLookAndFeel);
+                mDarkModeButton->setImages(mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
+            }
+            else{
+                setLookAndFeel(&mLookAndFeelDark);
+                mDarkModeButton->setImages(mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight);
+            }
         }
     }
     

@@ -54,7 +54,8 @@ private:
     DialogWindow::LaunchOptions mDialogOpts;
     ScopedPointer<DialogWindow> mAboutWindow;
     ScopedPointer<TextButton> mInfoButton;
-
+    ScopedPointer<TextButton> mDarkModeButton;
+    
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeMultiUI)
 };

@@ -20,7 +20,10 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
     label->setColour (TextEditor::textColourId, getLookAndFeel().findColour(AudealizeMultiUI::textColourId));
     label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-
+    // dark mode button
+    addAndMakeVisible(mDarkModeButton = new TextButton("Dark"));
+    mDarkModeButton->addListener(this);
+    
     // info button
     addAndMakeVisible(mInfoButton = new TextButton("About"));
     mInfoButton->addListener (this);
@@ -84,6 +87,7 @@ AudealizeMultiUI::~AudealizeMultiUI()
     mInfoButton = nullptr;
     mAboutComponent = nullptr;
     mAboutWindow = nullptr;
+    mDarkModeButton = nullptr;
 }
 
 //==============================================================================
@@ -104,6 +108,8 @@ void AudealizeMultiUI::resized()
 {
     mResizer->setBounds (getWidth() - 18, getHeight() - 18, 16, 16);
 
+    mDarkModeButton->setBounds(getWidth() - 124, 12, 24, 20);
+    
     mInfoButton->setBounds(getWidth() - 72, 12, 48, 20);
     
     mTabbedComponent->setBounds (0, 54, getWidth() - 0, getHeight() - 54);
@@ -148,6 +154,14 @@ void AudealizeMultiUI::actionListenerCallback(const juce::String &message){
 void AudealizeMultiUI::buttonClicked(juce::Button *buttonThatWasClicked){
     if (buttonThatWasClicked == mInfoButton){
         mAboutWindow->setVisible(true);
+    }
+    else if (buttonThatWasClicked == mDarkModeButton){
+        if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
+            setLookAndFeel(&mLookAndFeel);
+        }
+        else{
+            setLookAndFeel(&mLookAndFeelDark);
+        }
     }
 }
 

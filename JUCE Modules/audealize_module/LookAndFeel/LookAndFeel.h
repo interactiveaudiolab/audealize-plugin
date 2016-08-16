@@ -16,7 +16,7 @@ namespace LookAndFeelHelpers // from juce_LookAndFeel_V2.cpp
     static Colour createBaseColour (Colour buttonColour,
                                     bool hasKeyboardFocus,
                                     bool isMouseOverButton,
-                                    bool isButtonDown) noexcept
+                                    bool isButtonDown) noexcept	
     {
         const float sat = hasKeyboardFocus ? 1.3f : 0.9f;
         const Colour baseColour (buttonColour.withMultipliedSaturation (sat));

@@ -70,7 +70,6 @@ void TypeaheadPopupMenu::paintListBoxItem(int rowNumber, Graphics& g, int width,
     }
     g.fillAll(bg);
     g.setColour(fg);
-    DBG("setcolour");
     g.setFont(height*0.65f);
     g.drawText(options[rowNumber], 10, 0, width, height * 0.8f, Justification::left, true);
 }

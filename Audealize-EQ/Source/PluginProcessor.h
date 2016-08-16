@@ -54,6 +54,11 @@ public:
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
+    int getNumParameters() override;
+    
+    bool isParameterAutomatable(int index){
+        return true;
+    }
 private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (EQPluginProcessor)

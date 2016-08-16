@@ -174,3 +174,7 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new AudealizeMultiAudioProcessor();
 }
+
+int AudealizeMultiAudioProcessor::getNumParameters(){
+    return mReverbAudioProcessor->getNumParameters() + mEQAudioProcessor->getNumParameters();
+}

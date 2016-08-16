@@ -51,7 +51,11 @@ public:
     
     inline String getParamID(int index) override;
     
+    int getNumParameters() override;
     
+    bool isParameterAutomatable(int index){
+        return true;
+    }
 private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeeqAudioProcessor)

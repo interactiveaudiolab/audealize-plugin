@@ -25,7 +25,7 @@ namespace LookAndFeelHelpers // from juce_LookAndFeel_V2.cpp
             if (isMouseOverButton) return baseColour.contrasting (0.1f);
                 
                 return baseColour;
-    }
+    } 
     
     static TextLayout layoutTooltipText (const String& text, Colour colour) noexcept
     {

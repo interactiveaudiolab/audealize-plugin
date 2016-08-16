@@ -43,6 +43,13 @@ public:
     
     inline String getParamID(int index) override;
     
+    int getNumParameters() override;
+    
+    bool isParameterAutomatable(int index){
+        return true;
+    }
+    
+    
     enum Parameters{
         kParamD,
         kParamG,

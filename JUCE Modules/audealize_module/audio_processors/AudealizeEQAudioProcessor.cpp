@@ -4,9 +4,7 @@ AudealizeeqAudioProcessor::AudealizeeqAudioProcessor() : mEqualizer(mFreqs, 0.0f
 {
     //DBG(std::to_string(getSampleRate()));
     mParamSettings.resize(NUMBANDS, 0);
-    
-    numParams = NUMBANDS + 1;
-    
+        
     mGainRange = NormalisableRange<float>(-4.30f, 4.30f, 0.001f);
         
     // Create amount parameter
@@ -217,4 +215,9 @@ void AudealizeeqAudioProcessor::settingsFromMap(vector<float> settings){
 
 inline String AudealizeeqAudioProcessor::getParamID(int index){
     return String("paramGain" + std::to_string(index));
+}
+
+
+int AudealizeeqAudioProcessor::getNumParameters(){
+    return NUMBANDS + 1;
 }

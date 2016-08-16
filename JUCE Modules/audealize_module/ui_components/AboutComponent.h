@@ -1,3 +1,10 @@
+//
+//  AboutComponent.h
+//
+//  A JUCE component to display "about" info for Audealize plugins
+//  Intended for use as the content component of a DialogWindow
+//
+
 #ifndef __JUCE_HEADER_6F5BC92BB0597534__
 #define __JUCE_HEADER_6F5BC92BB0597534__
 

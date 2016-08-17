@@ -16,6 +16,7 @@ namespace Audealize {
             String paramID = "paramGain" + to_string(i);
             
             mGainSliders[i] = new Slider (Slider::LinearVertical, Slider::NoTextBox);
+            mGainSliders[i]->addListener(this);
             mGainSliders[i]->setRange(gainRange.getRange().getStart(), gainRange.getRange().getEnd());
             String tooltip = String(mFreqs[i]) + " Hz";
             mGainSliders[i]->setTooltip(tooltip);
@@ -23,7 +24,7 @@ namespace Audealize {
             
             mGainSliderAttachment[i] = new AudioProcessorValueTreeState::SliderAttachment (p.getValueTreeState(), paramID, *mGainSliders[i]);
         }
-        
+            
         setSize (400, 200);
     }
     
@@ -55,6 +56,17 @@ namespace Audealize {
             mGainSliders[i]->setBounds(box);
             box.setX(box.getRight());
         }
+            }
+        
+    void GraphicEQComponent::sliderValueChanged	(Slider* slider) {
+        for (int i = 0; i < mNumBands; ++i){
+            if (mGainSliders[i] == slider){
+                mGainSliders[i]->setTooltip(String(mFreqs[i]) + " Hz: " + String (slider->getValue(), 2) + " dB");
+                return;
+            }
+        }
     }
+    
+    
     
 }

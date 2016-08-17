@@ -7,12 +7,14 @@
 #ifndef GraphicEQComponent_h
 #define GraphicEQComponent_h
 
+#include <sstream>
+
 using std::vector;
 using namespace juce;
 
 namespace Audealize{
     
-    class GraphicEQComponent  : public TraditionalUI
+    class GraphicEQComponent  : public TraditionalUI, public SliderListener
     {
     public:
         enum ColourIds{
@@ -24,11 +26,16 @@ namespace Audealize{
         
         void paint (Graphics& g) override;
         void resized() override;
-        
-    private:        
+                
+        void sliderValueChanged	(Slider* slider) override;
+        void sliderDragStarted	(Slider* slider) override {}
+        void sliderDragEnded	(Slider* slider) override {}
+
+    private:
         vector< ScopedPointer<Slider> > mGainSliders; // a vector contianing the gain sliders
         
-        vector<ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> >mGainSliderAttachment; 
+        vector< ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> >mGainSliderAttachment;
+        
         
         int mNumBands; // number of EQ bands
         

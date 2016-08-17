@@ -216,8 +216,3 @@ void AudealizeeqAudioProcessor::settingsFromMap(vector<float> settings){
 inline String AudealizeeqAudioProcessor::getParamID(int index){
     return String("paramGain" + std::to_string(index));
 }
-
-
-int AudealizeeqAudioProcessor::getNumParameters(){
-    return NUMBANDS + 1;
-}

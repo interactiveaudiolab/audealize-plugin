@@ -42,9 +42,7 @@ public:
     void settingsFromMap(vector<float> settings) override;
     
     inline String getParamID(int index) override;
-    
-    int getNumParameters() override;
-    
+        
     bool isParameterAutomatable(int index){
         return true;
     }

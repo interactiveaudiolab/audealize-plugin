@@ -53,9 +53,7 @@ public:
     //==============================================================================
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
-    
-    int getNumParameters() override;
-    
+        
     bool isParameterAutomatable(int index){
         return true;
     }

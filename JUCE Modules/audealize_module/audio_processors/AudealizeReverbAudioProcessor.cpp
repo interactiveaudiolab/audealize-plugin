@@ -277,7 +277,3 @@ void AudealizereverbAudioProcessor::settingsFromMap(vector<float> settings){
         mState->getParameter(getParamID(i))->setValueNotifyingHost(mParamRange[i].convertTo0to1((settings[i])));
     }
 }
-
-int AudealizereverbAudioProcessor::getNumParameters(){
-    return kNumParams;
-}

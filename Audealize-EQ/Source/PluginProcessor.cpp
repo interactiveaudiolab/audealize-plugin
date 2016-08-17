@@ -144,6 +144,4 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
     return new EQPluginProcessor();
 }
 
-int EQPluginProcessor::getNumParameters(){
-    return mAudealizeAudioProcessor->getNumParameters();
-}
+

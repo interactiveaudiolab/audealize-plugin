@@ -120,6 +120,14 @@ namespace Audealize{
             return mState;
         }
         
+        AudioProcessorParameter* getParameterPtr(int idx){
+            return mState->getParameter(getParamID(idx));
+        }
+        
+        AudioProcessorParameter* getParameterPtrFromID(String paramID){
+            return mState->getParameter(paramID);
+        }
+        
     protected:
         ScopedPointer<AudioProcessorValueTreeState> mState; // and AudioProcessorValueTreeState containing the parameter state information
         ScopedPointer<UndoManager> mUndoManager;

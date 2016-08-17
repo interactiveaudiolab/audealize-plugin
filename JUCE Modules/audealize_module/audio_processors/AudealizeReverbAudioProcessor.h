@@ -47,7 +47,6 @@ public:
         return true;
     }
     
-    
     enum Parameters{
         kParamD,
         kParamG,
@@ -90,7 +89,6 @@ private:
 #endif
     
     void debugParams();
-    
 };
 
 

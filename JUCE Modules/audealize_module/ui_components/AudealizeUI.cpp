@@ -171,7 +171,6 @@ namespace Audealize{
         mDarkModeGraphicLight = nullptr;
     }
     
-    //==============================================================================
     void AudealizeUI::paint (Graphics& g)
     {
         g.fillAll (getLookAndFeel().findColour(AudealizeUI::backgroundColourId));

@@ -23,7 +23,6 @@ AudealizeeqAudioProcessor::AudealizeeqAudioProcessor() : mEqualizer(mFreqs, 0.0f
 
 AudealizeeqAudioProcessor::~AudealizeeqAudioProcessor()
 {
-
 }
 
 const String AudealizeeqAudioProcessor::getName() const

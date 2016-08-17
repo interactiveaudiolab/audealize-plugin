@@ -21,11 +21,9 @@ public:
         accentColourId = 0x2000203
     };
     
-    //==============================================================================
     AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> AudealizeUIs);
     ~AudealizeMultiUI();
 
-    //==============================================================================
     void actionListenerCallback(const juce::String &message);
     void currentTabChanged (int newCurrentTabIndex, const String &newCurrentTabName);
 
@@ -43,7 +41,6 @@ private:
 
     int prevChildHeight;
 
-    //==============================================================================
     ScopedPointer<AudealizeTabbedComponent> mTabbedComponent;
     ScopedPointer<Label> label;
 
@@ -59,7 +56,6 @@ private:
     ScopedPointer<Drawable> mDarkModeGraphicLight;
     ScopedPointer<DrawableButton> mDarkModeButton;
     
-    //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeMultiUI)
 };
 

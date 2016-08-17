@@ -119,7 +119,6 @@ namespace Audealize{
         mSliderAttachmentE = nullptr;
     }
     
-    //==============================================================================
     void ReverbComponent::paint (Graphics& g)
     {
     }

@@ -66,7 +66,6 @@ AboutComponent::~AboutComponent()
     drawable1 = nullptr;
 }
 
-//==============================================================================
 void AboutComponent::paint (Graphics& g)
 {
     g.fillAll (findColour(AboutComponent::backgroundColourId));

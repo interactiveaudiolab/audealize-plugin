@@ -102,7 +102,6 @@ AudealizeMultiUI::~AudealizeMultiUI()
     mDarkModeGraphicLight = nullptr;
 }
 
-//==============================================================================
 void AudealizeMultiUI::paint (Graphics& g)
 {
   
@@ -134,7 +133,6 @@ void AudealizeMultiUI::resized()
 void AudealizeMultiUI::childrenChanged()
 {
 }
-
 
 void AudealizeMultiUI::actionListenerCallback(const juce::String &message){
     int childIndex = mTabbedComponent->getCurrentTabIndex();

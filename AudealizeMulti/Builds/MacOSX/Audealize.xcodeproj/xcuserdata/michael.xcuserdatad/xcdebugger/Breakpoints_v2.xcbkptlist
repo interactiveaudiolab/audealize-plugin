@@ -15,16 +15,8 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "juce::AudioProcessor::addParameter(juce::AudioProcessorParameter*)"
-                  moduleName = "Audealize"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/michael/JUCE/projects/audealize-plugin/AudealizeMulti/Builds/MacOSX/../../../JUCE%20Modules/juce_audio_processors/processors/juce_AudioProcessor.cpp"
-                  timestampString = "493076206.959724"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "387"
-                  endingLineNumber = "387"
-                  offsetFromSymbolStart = "145">
+                  offsetFromSymbolStart = "0">
                </Location>
             </Locations>
          </BreakpointContent>

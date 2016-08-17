@@ -90,7 +90,6 @@ void AudealizereverbAudioProcessor::changeProgramName (int index, const String& 
 {
 }
 
-//==============================================================================
 void AudealizereverbAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     // Initialize reverberator

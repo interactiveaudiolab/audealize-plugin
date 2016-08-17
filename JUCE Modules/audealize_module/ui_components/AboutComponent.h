@@ -14,11 +14,8 @@ class AboutComponent  : public Component,
                         public ButtonListener
 {
 public:
-    //==============================================================================
     AboutComponent ();
     ~AboutComponent();
-
-    //==============================================================================
   
     enum ColourIds{
         backgroundColourId = 0x2000700,
@@ -31,8 +28,6 @@ public:
     void buttonClicked (Button* buttonThatWasClicked) override;
 
 private:
-
-    //==============================================================================
     ScopedPointer<Label> NSF;
     ScopedPointer<Label> label2;
     ScopedPointer<HyperlinkButton> audealizeLink;
@@ -41,8 +36,6 @@ private:
     ScopedPointer<HyperlinkButton> labLink;
     ScopedPointer<Drawable> drawable1;
 
-
-    //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AboutComponent)
 };
 

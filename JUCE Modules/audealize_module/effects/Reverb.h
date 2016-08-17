@@ -70,7 +70,7 @@ namespace Audealize{
                 sampDry *= dry;
                 
                 // Write processed sample back to the buffer
-                channelData[i] = 0.45f * (samp + sampDry);
+                channelData[i] = (samp + sampDry);
             }
         }
         
@@ -125,8 +125,8 @@ namespace Audealize{
                 sampDryR *= dry;
                 
                 // Write processed sample back to the buffer
-                channelData1[i] = 0.45f * (sampDryL + sampL);
-                channelData2[i] = 0.45f * (sampDryR + sampR);
+                channelData1[i] = (sampDryL + sampL);
+                channelData2[i] = (sampDryR + sampR);
             }
         }
         

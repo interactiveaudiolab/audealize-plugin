@@ -65,7 +65,11 @@ namespace Audealize{
         addAndMakeVisible (mEspanolButton = new ToggleButton (CharPointer_UTF8 ("Espa\xc3\xb1ol")));
         mEspanolButton->addListener (this);
         mEspanolButton->setToggleState (true, dontSendNotification);
-        
+
+        if (mEffectType == "Reverb"){
+            mEnglishButton->setVisible(false);
+            mEspanolButton->setVisible(false);
+        }
         
         // if this AudealizeUI is a child component of an AudealizeMultiUI, we wont show the Audealize title text here. 
         if (!isMultiEffect){

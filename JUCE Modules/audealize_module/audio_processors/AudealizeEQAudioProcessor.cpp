@@ -21,9 +21,6 @@ AudealizeeqAudioProcessor::AudealizeeqAudioProcessor(AudealizeAudioProcessor* ow
     
     mState->createAndAddParameter(paramAmountId, "EQ: Amount", "EQ: Amount", NormalisableRange<float>(0.0f, 1.0f), 0.5f, nullptr, nullptr);
     mState->addParameterListener(paramAmountId, this);
-    
-
-    mState->state = ValueTree ("Audealize-EQ");
 }
 
 

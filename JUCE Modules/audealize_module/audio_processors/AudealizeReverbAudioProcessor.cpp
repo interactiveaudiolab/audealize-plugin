@@ -34,8 +34,6 @@ AudealizereverbAudioProcessor::AudealizereverbAudioProcessor(AudealizeAudioProce
     for (int i = 0; i < kNumParams - 1; i++){
         mState->addParameterListener(getParamID(i), this);
     }
-    
-    mState->state = ValueTree ("Audealize_Reverb");
 }
 
 AudealizereverbAudioProcessor::~AudealizereverbAudioProcessor()

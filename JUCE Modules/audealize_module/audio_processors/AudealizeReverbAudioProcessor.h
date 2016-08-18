@@ -41,7 +41,9 @@ public:
     void settingsFromMap(vector<float> settings) override;
     
     inline String getParamID(int index) override;
-        
+    
+    inline int getParamIdx(String paramId);
+    
     bool isParameterAutomatable(int index){
         return true;
     }
@@ -69,9 +71,8 @@ private:
     
     NormalisableRange<float> mParamRange[kNumParams];
         
-    CParamSmooth mSmoother[kNumParams];
-    float paramTargetVal[kNumParams];
-    
+    LinearSmoothedValue<float> mSmoothedVals[kNumParams];
+
     const float DEFAULT_D   = 0.05f;
     const float DEFAULT_G   = 0.5f;
     const float DEFAULT_M   = 0.005f;

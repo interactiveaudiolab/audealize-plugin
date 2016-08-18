@@ -36,7 +36,6 @@
 #include "utils/calf_dsp_library/delay.h"
 
 #include "utils/PrimeFactors.h"
-#include "utils/CParamSmooth.h"
      
 #include "utils/Biquad.h"
 #include "utils/json.hpp"

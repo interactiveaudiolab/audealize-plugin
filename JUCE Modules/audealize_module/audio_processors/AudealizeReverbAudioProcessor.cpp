@@ -110,12 +110,15 @@ void AudealizereverbAudioProcessor::prepareToPlay (double sampleRate, int sample
     
     // Initialize parameter smoothers
     for (int i = 0; i < kNumParams; i++){
-        if (i == kParamM)
-            // Channel delay requires a slower smoothing time to avoid artifacts
-            mSmoother[i].init(3.0f, sampleRate);
-        else
-            mSmoother[i].init(0.001f, sampleRate);
+        mSmoothedVals[i].reset(sampleRate, 0.00019);
     }
+    
+    mSmoothedVals[kParamD].setValue(DEFAULT_D);
+    mSmoothedVals[kParamG].setValue(DEFAULT_G);
+    mSmoothedVals[kParamM].setValue(DEFAULT_M);
+    mSmoothedVals[kParamF].setValue(DEFAULT_F);
+    mSmoothedVals[kParamE].setValue(DEFAULT_E);
+    mSmoothedVals[kParamAmount].setValue(DEFAULT_MIX);
 }
 
 void AudealizereverbAudioProcessor::releaseResources()
@@ -162,29 +165,40 @@ void AudealizereverbAudioProcessor::processBlock (AudioSampleBuffer& buffer, Mid
         buffer.clear (i, 0, buffer.getNumSamples());
 
     // Parameter smoothing
+    float diff;
     float paramValue;
-    if (mSmoother[kParamG].isDirty()){
-        paramValue = mState->getParameter(paramG)->getValue();
-        mReverb.set_g(mSmoother[kParamG].process(mParamRange[kParamG].convertFrom0to1(paramValue)));
-       
+    
+    diff = fabs (mReverb.get_d() - mSmoothedVals[kParamD].getTargetValue());
+    if (diff > 0.01f * mSmoothedVals[kParamD].getTargetValue()){
+        mReverb.set_d(mSmoothedVals[kParamD].getNextValue());
     }
-    if (mSmoother[kParamM].isDirty()){
-        paramValue = mState->getParameter(paramM)->getValue();
-        mReverb.set_m(mSmoother[kParamM].process(mParamRange[kParamM].convertFrom0to1(paramValue)));
+    
+    diff = fabs (mReverb.get_g() - mSmoothedVals[kParamG].getTargetValue());
+    if (diff > 0.01f * mSmoothedVals[kParamG].getTargetValue()){
+        mReverb.set_g(mSmoothedVals[kParamG].getNextValue());
     }
-    if (mSmoother[kParamF].isDirty()){
-        paramValue = mState->getParameter(paramF)->getValue();
-        mReverb.set_f(mParamRange[kParamF].snapToLegalValue(mParamRange[kParamF].convertFrom0to1(mSmoother[kParamF].process(paramValue))));
+    
+    diff = fabs (mReverb.get_m() - mSmoothedVals[kParamM].getTargetValue());
+    if (diff > 0.01f * mSmoothedVals[kParamM].getTargetValue()){
+        mReverb.set_m(mSmoothedVals[kParamM].getNextValue());
     }
-    if (mSmoother[kParamE].isDirty()){
-        paramValue = mState->getParameter(paramE)->getValue();
-        mReverb.set_E(mParamRange[kParamE].snapToLegalValue(mSmoother[kParamE].process(paramValue)));
+    
+    diff = fabs (mReverb.get_f() - mSmoothedVals[kParamF].getTargetValue());
+    if (diff > 0.01f * mSmoothedVals[kParamF].getTargetValue()){
+        mReverb.set_f(mSmoothedVals[kParamF].getNextValue());
     }
-    if (mSmoother[kParamAmount].isDirty()){
-        paramValue = mState->getParameter(paramAmountId)->getValue();
-        mReverb.set_wetdry(mParamRange[kParamAmount].snapToLegalValue(mSmoother[kParamAmount].process(paramValue)));
+    
+    diff = fabs (mReverb.get_E() - mSmoothedVals[kParamE].getTargetValue());
+    if (diff > 0.01f * mSmoothedVals[kParamE].getTargetValue()){
+        mReverb.set_E(mSmoothedVals[kParamE].getNextValue());
     }
-        
+    
+    diff = fabs (mReverb.get_wetdry() - mSmoothedVals[kParamAmount].getTargetValue());
+    if (diff > 0.01f * mSmoothedVals[kParamAmount].getTargetValue()){
+        mReverb.set_wetdry(mSmoothedVals[kParamAmount].getNextValue());
+    }
+    // end parameter smoothing
+    
     // Process reverb
     if (!mBypass){
         if (totalNumInputChannels == 1){
@@ -221,27 +235,10 @@ AudioProcessorEditor* AudealizereverbAudioProcessor::createEditor()
 
 
 void AudealizereverbAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue){
-    if (parameterID == paramD){
-        //mReverb.set_d(mParamRange[kParamD].snapToLegalValue(mSmoother[kParamD].process(newValue)));
-        
-        // Changing d will create artifacts no matter what, smoothing the value just exacerbates the issue
-        mReverb.set_d(mParamRange[kParamD].snapToLegalValue(newValue));
-    }
-    else if (parameterID == paramG){
-        mReverb.set_g(mSmoother[kParamG].process(mParamRange[kParamG].convertFrom0to1(newValue)));
-    }
-    else if (parameterID == paramM){
-        mReverb.set_m(mSmoother[kParamM].process(mParamRange[kParamM].convertFrom0to1(newValue)));
-    }
-    else if (parameterID == paramF){
-        mReverb.set_f(mParamRange[kParamF].snapToLegalValue(mParamRange[kParamF].convertFrom0to1(mSmoother[kParamF].process(newValue))));
-    }
-    else if (parameterID == paramE){
-        mReverb.set_E(mSmoother[kParamE].process(newValue)); // E is already in range [0,1]
-    }
-    else if (parameterID == paramAmountId){
-        mReverb.set_wetdry(mParamRange[kParamAmount].snapToLegalValue(mSmoother[kParamAmount].process(newValue)));
-    }
+    //DBG("param changed :" << parameterID << newValue);
+    int idx = getParamIdx(parameterID);
+    mSmoothedVals[idx].setValue(newValue);
+    //DBG(mSmoothedVals[idx].getTargetValue());
     //debugParams();
 }
 
@@ -275,6 +272,27 @@ String AudealizereverbAudioProcessor::getParamID(int index){
             
         default:
             break;
+    }
+}
+
+int AudealizereverbAudioProcessor::getParamIdx(String paramId){
+    if (paramId.equalsIgnoreCase(paramD)){
+        return kParamD;
+    }
+    else if (paramId.equalsIgnoreCase(paramG)){
+        return kParamG;
+    }
+    else if (paramId.equalsIgnoreCase(paramM)){
+        return kParamM;
+    }
+    else if (paramId.equalsIgnoreCase(paramF)){
+        return kParamF;
+    }
+    else if (paramId.equalsIgnoreCase(paramE)){
+        return kParamE;
+    }
+    else if (paramId.equalsIgnoreCase(paramAmountId)){
+        return kParamAmount;
     }
 }
 

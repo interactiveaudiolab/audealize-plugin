@@ -1,10 +1,11 @@
 #include "PluginProcessor.h"
 
+using namespace Audealize;
 
 //==============================================================================
-EQPluginProcessor::EQPluginProcessor()
+EQPluginProcessor::EQPluginProcessor() : AudealizeAudioProcessor()
 {
-    mAudealizeAudioProcessor = new AudealizeeqAudioProcessor();
+    mAudealizeAudioProcessor = new AudealizeeqAudioProcessor(this);
 }
 
 EQPluginProcessor::~EQPluginProcessor()
@@ -118,7 +119,7 @@ bool EQPluginProcessor::hasEditor() const
 
 AudioProcessorEditor* EQPluginProcessor::createEditor()
 {
-    return mAudealizeAudioProcessor->createEditor(false);
+    return mAudealizeAudioProcessor->createEditor();
 }
 
 //==============================================================================

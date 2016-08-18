@@ -10,13 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../../../JUCE Modules/audealize_module/audio_processors/AudealizeAudioProcessor.h"
-            timestampString = "493146616.196332"
+            timestampString = "493241322.545811"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
-            landmarkName = "getParameterPtr(int idx)"
-            landmarkType = "7">
+            startingLineNumber = "128"
+            endingLineNumber = "128">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

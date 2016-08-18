@@ -4,7 +4,7 @@
 //==============================================================================
 ReverbPluginProcessor::ReverbPluginProcessor()
 {
-    mAudealizeAudioProcessor = new AudealizereverbAudioProcessor();
+    mAudealizeAudioProcessor = new AudealizereverbAudioProcessor(this);
 }
 
 ReverbPluginProcessor::~ReverbPluginProcessor()
@@ -118,7 +118,7 @@ bool ReverbPluginProcessor::hasEditor() const
 
 AudioProcessorEditor* ReverbPluginProcessor::createEditor()
 {
-    return mAudealizeAudioProcessor->createEditor(false);
+    return mAudealizeAudioProcessor->createEditor();
 }
 
 //==============================================================================

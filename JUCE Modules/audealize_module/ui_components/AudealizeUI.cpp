@@ -34,7 +34,7 @@ namespace Audealize{
         mAmountSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
         mAmountSlider->setRange(0.0f, 1.0f);
         
-        mAmountSliderAttachment = new AudioProcessorValueTreeState::SliderAttachment (p.getValueTreeState(), p.paramAmount, *mAmountSlider);
+        mAmountSliderAttachment = new AudioProcessorValueTreeState::SliderAttachment (p.getValueTreeState(), p.getParamAmountID(), *mAmountSlider);
         
         // amount slider label "Less"
         addAndMakeVisible (mLabelLess = new Label ("Less",

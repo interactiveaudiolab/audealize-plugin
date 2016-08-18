@@ -15,8 +15,8 @@ using std::vector;
 //==============================================================================
 AudealizeMultiAudioProcessor::AudealizeMultiAudioProcessor()
 {
-    mEQAudioProcessor = new AudealizeeqAudioProcessor();
-    mReverbAudioProcessor = new AudealizereverbAudioProcessor();
+    mEQAudioProcessor = new AudealizeeqAudioProcessor(this);
+    mReverbAudioProcessor = new AudealizereverbAudioProcessor(this);
 }
 
 AudealizeMultiAudioProcessor::~AudealizeMultiAudioProcessor()
@@ -148,8 +148,8 @@ AudioProcessorEditor* AudealizeMultiAudioProcessor::createEditor()
 {
     vector<AudealizeUI*> audealizeUIs;
 
-    audealizeUIs.push_back(mEQAudioProcessor->createEditor(true));
-    audealizeUIs.push_back(mReverbAudioProcessor->createEditor(true));
+    audealizeUIs.push_back(mEQAudioProcessor->createEditorForMultiEffect());
+    audealizeUIs.push_back(mReverbAudioProcessor->createEditorForMultiEffect());
     
     return new AudealizeMultiUI (*this, audealizeUIs);
 }
@@ -173,8 +173,4 @@ void AudealizeMultiAudioProcessor::setStateInformation (const void* data, int si
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new AudealizeMultiAudioProcessor();
-}
-
-int AudealizeMultiAudioProcessor::getNumParameters(){
-    return mReverbAudioProcessor->getNumParameters() + mEQAudioProcessor->getNumParameters();
 }

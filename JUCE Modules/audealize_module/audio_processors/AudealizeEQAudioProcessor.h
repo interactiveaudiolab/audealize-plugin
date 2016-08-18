@@ -8,7 +8,7 @@ using namespace Audealize;
 class AudealizeeqAudioProcessor  : public AudealizeAudioProcessor
 {
 public:
-    AudealizeeqAudioProcessor();
+    AudealizeeqAudioProcessor(AudealizeAudioProcessor* owner = nullptr);
     ~AudealizeeqAudioProcessor();
 
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -20,10 +20,9 @@ public:
 
     void processBlock (AudioSampleBuffer&, MidiBuffer&) override;
 
-    AudealizeUI* createEditor(bool isPluginMultiEffect);
+    AudealizeUI* createEditorForMultiEffect();
     
-    // this is here so that IDE doesnt complain about allocating an object of an abstract class
-    AudioProcessorEditor* createEditor(){return nullptr;}
+    AudioProcessorEditor* createEditor() override;
     
     bool hasEditor() const override;
 

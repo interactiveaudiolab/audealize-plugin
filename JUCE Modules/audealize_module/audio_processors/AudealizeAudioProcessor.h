@@ -16,16 +16,20 @@ namespace Audealize{
     public:
         int lastUIWidth, lastUIHeight;
         
-        
-        String paramAmount = "paramAmount";
-        
-        AudealizeAudioProcessor() : mParamSettings(0){            
-            mUndoManager = new UndoManager();
-            mState = new AudioProcessorValueTreeState(*this, mUndoManager);
+        AudealizeAudioProcessor(AudealizeAudioProcessor* owner = nullptr) : mParamSettings(0){
+            if (owner == nullptr){
+                mOwner = this;
+                mUndoManager = new UndoManager();
+                mState = new AudioProcessorValueTreeState(*this, mUndoManager);
+            }
+            else{
+                mOwner = owner;
+                mUndoManager = mOwner->getUndoManager();
+                mState = mOwner->getState();
+            }
             
-            mState->createAndAddParameter(paramAmount, "Amount", "Amount", NormalisableRange<float>(0.0f, 1.0f), 0.5f, nullptr, nullptr);
-            mState->addParameterListener(paramAmount, this);
-
+            paramAmountId = "paramAmount";
+            
             mAmount = 0.5f;
             
             lastUIWidth = 840;
@@ -35,8 +39,10 @@ namespace Audealize{
         };
         
         ~AudealizeAudioProcessor(){
-            mState = nullptr;
-            mUndoManager = nullptr;
+            if (mOwner == this){
+                delete mState;
+                delete mUndoManager;
+            }
         }
         
         /**
@@ -68,8 +74,9 @@ namespace Audealize{
          *  Called by an AudioProcessorEditor to notify AudioProcessor of parameter value changes
          *
          *  @param parameterID The ID of the parameter that was changed
+         *  @param newValue    The new value for that parameter
          */
-        virtual void parameterChanged(const juce::String &parameterID) {};
+        virtual void parameterChanged(const juce::String &parameterID, float newValue) {};
         
         /**
          *  Set the states of all parameters with a vector<float>. To be called by a WordMap
@@ -105,7 +112,11 @@ namespace Audealize{
          *
          *  @param index
          */
-        inline virtual String getParamID(int index) {};
+        inline virtual String getParamID(int index) { return ""; };
+        
+        inline String getParamAmountID() {
+            return paramAmountId;
+        }
         
         void setBypass(bool bypass){
             mBypass = bypass;
@@ -115,9 +126,12 @@ namespace Audealize{
             return mBypass;
         }
         
-        
         AudioProcessorValueTreeState* getState(){
             return mState;
+        }
+        
+        UndoManager* getUndoManager(){
+            return mUndoManager;
         }
         
         AudioProcessorParameter* getParameterPtr(int idx){
@@ -129,12 +143,16 @@ namespace Audealize{
         }
         
     protected:
-        ScopedPointer<AudioProcessorValueTreeState> mState; // and AudioProcessorValueTreeState containing the parameter state information
-        ScopedPointer<UndoManager> mUndoManager;
+        AudioProcessorValueTreeState* mState; // and AudioProcessorValueTreeState containing the parameter state information
+        UndoManager* mUndoManager;
         
         vector<float> mParamSettings;
         
+        AudealizeAudioProcessor* mOwner;
+        
         bool mBypass;
+        
+        String paramAmountId;
         
         float mAmount; // value in range [0,1]. dictates the amount of the effect to be applied.
         

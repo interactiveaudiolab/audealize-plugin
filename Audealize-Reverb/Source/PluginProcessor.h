@@ -15,7 +15,7 @@
 //==============================================================================
 /**
  */
-class ReverbPluginProcessor  : public AudioProcessor
+class ReverbPluginProcessor  : public AudealizeAudioProcessor
 {
 public:
     //==============================================================================
@@ -53,7 +53,12 @@ public:
     //==============================================================================
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
-        
+    
+    void parameterChanged(const juce::String &parameterID, float newValue) override {}
+    void settingsFromMap(vector<float> settings) override {}
+    inline String getParamID(int index) override { return ""; }
+    
+
     bool isParameterAutomatable(int index){
         return true;
     }

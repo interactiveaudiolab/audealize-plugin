@@ -20,13 +20,14 @@ AudealizereverbAudioProcessor::AudealizereverbAudioProcessor(AudealizeAudioProce
     mParamRange[kParamE]  = NormalisableRange<float>(0.0f, 1.0f, 0.0001f);
     
     // Initialize parameters
-    mState->createAndAddParameter(paramD, "Delay of comb filters", TRANS ("Delay of comb filters"), mParamRange[kParamD], DEFAULT_D, nullptr, nullptr);
-    mState->createAndAddParameter(paramG, "Gain of comb filters", TRANS ("Gain of comb filters"), mParamRange[kParamG], DEFAULT_G, nullptr, nullptr);
-    mState->createAndAddParameter(paramM, "Delay between channels", TRANS ("Delay between channels"), mParamRange[kParamM], DEFAULT_M, nullptr, nullptr);
-    mState->createAndAddParameter(paramF, "LP Cutoff", TRANS ("LP Cutoff"), mParamRange[kParamF], DEFAULT_F, nullptr, nullptr);
-    mState->createAndAddParameter(paramE, "Effect Gain", TRANS ("Effect Gain"), mParamRange[kParamE], DEFAULT_E, nullptr, nullptr);
+    String prefix = (mOwner == this ? "" : "Reverb: ");
+    mState->createAndAddParameter(paramD, prefix + "Delay of comb filters", TRANS ("Delay of comb filters"), mParamRange[kParamD], DEFAULT_D, nullptr, nullptr);
+    mState->createAndAddParameter(paramG, prefix + "Gain of comb filters", TRANS ("Gain of comb filters"), mParamRange[kParamG], DEFAULT_G, nullptr, nullptr);
+    mState->createAndAddParameter(paramM, prefix + "Delay between channels", TRANS ("Delay between channels"), mParamRange[kParamM], DEFAULT_M, nullptr, nullptr);
+    mState->createAndAddParameter(paramF, prefix + "LP Cutoff", TRANS ("LP Cutoff"), mParamRange[kParamF], DEFAULT_F, nullptr, nullptr);
+    mState->createAndAddParameter(paramE, prefix + "Effect Gain", TRANS ("Effect Gain"), mParamRange[kParamE], DEFAULT_E, nullptr, nullptr);
 
-    mState->createAndAddParameter(paramAmountId, "Reverb Amount", "Reverb Amount", NormalisableRange<float>(0.0f, 1.0f), 0.5f, nullptr, nullptr);
+    mState->createAndAddParameter(paramAmountId, "Reverb: Amount", "Reverb: Amount", NormalisableRange<float>(0.0f, 1.0f), 0.5f, nullptr, nullptr);
     mState->addParameterListener(paramAmountId, this);
     
     // Add Listeners

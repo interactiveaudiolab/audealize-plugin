@@ -14,12 +14,12 @@ AudealizeeqAudioProcessor::AudealizeeqAudioProcessor(AudealizeAudioProcessor* ow
     // Create params for each EQ band gain
     for (int i = 0; i < NUMBANDS; i++){
         String paramID = getParamID(i);
-        String paramName = String(mFreqs[i], 0) + " Hz";
+        String paramName = String (mOwner == this ? "" : "EQ: ") + "Gain: " +String(mFreqs[i], 0) + " Hz";
         mState->createAndAddParameter(paramID, paramName, TRANS(paramName), mGainRange, mGainRange.snapToLegalValue(0.0f), nullptr, nullptr);
         mState->addParameterListener(TRANS(paramID), this);
     }
     
-    mState->createAndAddParameter(paramAmountId, "EQ Amount", "EQ Amount", NormalisableRange<float>(0.0f, 1.0f), 0.5f, nullptr, nullptr);
+    mState->createAndAddParameter(paramAmountId, "EQ: Amount", "EQ: Amount", NormalisableRange<float>(0.0f, 1.0f), 0.5f, nullptr, nullptr);
     mState->addParameterListener(paramAmountId, this);
     
 

@@ -61,6 +61,7 @@ namespace Audealize{
         mSliderD->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
         mSliderD->setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::lightblue);
         mSliderD->setRange(0.01f, 0.1f);
+        mSliderD->setTextValueSuffix(" s");
 
         addAndMakeVisible (mSliderG = new Slider ("mSliderG"));
         mSliderG->setTooltip (TRANS("Gain of comb filters"));
@@ -68,13 +69,14 @@ namespace Audealize{
         mSliderG->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
         mSliderG->setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::lightblue);
         mSliderG->setRange(0.01f, 0.96f);
-        
+
         addAndMakeVisible (mSliderM = new Slider ("mSliderM"));
         mSliderM->setTooltip (TRANS("Delay between channels"));
         mSliderM->setSliderStyle (Slider::RotaryVerticalDrag);
         mSliderM->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
         mSliderM->setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::lightblue);
         mSliderM->setRange(-0.012f, 0.012f);
+        mSliderM->setTextValueSuffix(" s");
 
         addAndMakeVisible (mSliderF = new Slider ("mSliderF"));
         mSliderF->setTooltip (TRANS("Cutoff frequency"));
@@ -83,6 +85,7 @@ namespace Audealize{
         mSliderF->setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::lightblue);
         mSliderF->setRange(20, 20000);
         mSliderF->setSkewFactor(.22);
+        mSliderF->setTextValueSuffix(" Hz");
         
         addAndMakeVisible (mSliderE = new Slider ("mSliderE"));
         mSliderE->setTooltip (TRANS("Effect Gain"));
@@ -90,7 +93,7 @@ namespace Audealize{
         mSliderE->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
         mSliderE->setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::lightblue);
         mSliderE->setRange(0.0f, 1.0f);
-        
+
         
         //=========================================================================
         // SliderAttachments

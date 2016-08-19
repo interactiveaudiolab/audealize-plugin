@@ -52,7 +52,7 @@ namespace Audealize {
         setColour(TextEditor::highlightColourId, offWhite);
         setColour(Slider::textBoxBackgroundColourId, darkGray);
         setColour(Slider::textBoxTextColourId, textGray);
-        setColour(Slider::textBoxOutlineColourId, offWhite.withMultipliedAlpha(.5));
+        setColour(Slider::textBoxOutlineColourId, Colours::transparentWhite);
         setColour(Slider::textBoxHighlightColourId, offWhite);
         
         setColour(TabbedButtonBar::tabOutlineColourId, Colours::transparentWhite);

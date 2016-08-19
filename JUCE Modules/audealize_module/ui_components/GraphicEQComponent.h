@@ -32,25 +32,6 @@ namespace Audealize{
         void sliderDragEnded	(Slider* slider) override {}
 
     private:
-        String formatFreq(float freq){
-            std::stringstream ss;
-            ss << (int)freq;
-            std::string val = ss.str();
-            std::string out;
-            if(freq>=1000 && freq < 10000){
-                out = val.substr(0,1) + "." + val.substr(1,2) + " kHz";
-            }
-            else if(freq>=10000){
-                out = val.substr(0,2) + "." + val.substr(2,1) + " kHz";
-            }
-            else{
-                out = val + " Hz";
-            }
-            
-            return String ( out );
-        }
-        
-        
         vector< ScopedPointer<Slider> > mGainSliders; // a vector contianing the gain sliders
         
         vector< ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> >mGainSliderAttachment;

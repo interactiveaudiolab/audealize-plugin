@@ -36,9 +36,11 @@
 #include "utils/calf_dsp_library/delay.h"
 
 #include "utils/PrimeFactors.h"
-     
+
 #include "utils/Biquad.h"
 #include "utils/json.hpp"
+
+#include "utils/FreqToText.h"
 
 #include "ui_components/AudealizeUI.h"
 #include "ui_components/WordMap.h"

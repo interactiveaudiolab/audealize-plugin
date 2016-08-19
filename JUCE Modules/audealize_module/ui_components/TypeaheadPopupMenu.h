@@ -76,6 +76,8 @@ private:
     ListBox list;
     std::vector<String> options;
     DropShadower shadow;
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR( TypeaheadPopupMenu );
 };
 
 
@@ -204,6 +206,8 @@ private:
     vector<StringArray> otherMaps;  // vector of StringArrays containing the descriptor sets for other effects (if plugin is a multi effect
     vector<String> otherMapEffectNames;  // vector containing the names of the other effects (if plugin is a multi effect)
     bool isMultiEffect;  // true if parent plugin is a multi effect
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR( TypeaheadEditor );
 };
 
 

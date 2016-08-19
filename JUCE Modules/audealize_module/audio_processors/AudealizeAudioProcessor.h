@@ -156,6 +156,7 @@ namespace Audealize{
         
         float mAmount; // value in range [0,1]. dictates the amount of the effect to be applied.
         
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR ( AudealizeAudioProcessor );
     };
 }// namespace audealize
 #endif /* AudealizeInterfaces_h */

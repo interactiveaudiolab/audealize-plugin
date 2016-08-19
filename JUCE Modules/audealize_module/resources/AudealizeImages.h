@@ -17,6 +17,7 @@ namespace Audealize{
 
     private:
         AudealizeImages();
+        
         JUCE_DECLARE_NON_COPYABLE(AudealizeImages);
     };
 }

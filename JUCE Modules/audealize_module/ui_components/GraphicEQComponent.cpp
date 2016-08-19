@@ -18,7 +18,7 @@ namespace Audealize {
             mGainSliders[i] = new Slider (Slider::LinearVertical, Slider::NoTextBox);
             mGainSliders[i]->addListener(this);
             mGainSliders[i]->setRange(gainRange.getRange().getStart(), gainRange.getRange().getEnd());
-            String tooltip = String(mFreqs[i]) + " Hz";
+            String tooltip = formatFreq(mFreqs[i]);
             mGainSliders[i]->setTooltip(tooltip);
             addAndMakeVisible(mGainSliders[i]);
             
@@ -61,7 +61,7 @@ namespace Audealize {
     void GraphicEQComponent::sliderValueChanged	(Slider* slider) {
         for (int i = 0; i < mNumBands; ++i){
             if (mGainSliders[i] == slider){
-                mGainSliders[i]->setTooltip(String(mFreqs[i]) + " Hz: " + String (slider->getValue(), 2) + " dB");
+                mGainSliders[i]->setTooltip(formatFreq(mFreqs[i]) + ": " + String (slider->getValue(), 2) + " dB");
                 return;
             }
         }

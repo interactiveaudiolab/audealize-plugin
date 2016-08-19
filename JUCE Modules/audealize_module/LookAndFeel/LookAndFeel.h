@@ -1,9 +1,8 @@
 //
 //  LookAndFeel.h
-//  Audealize
 //
-//  Created by Michael on 8/4/16.
-//
+//  Custom LookAndFeel classes for Audealize plugins. Includes light and dark color schemes
+//  Based on juce::LookAndFeel_V3, modified for flat look + all new rotary sliders.
 //
 
 #ifndef LookAndFeel_h
@@ -16,7 +15,7 @@ namespace LookAndFeelHelpers // from juce_LookAndFeel_V2.cpp
     static Colour createBaseColour (Colour buttonColour,
                                     bool hasKeyboardFocus,
                                     bool isMouseOverButton,
-                                    bool isButtonDown) noexcept
+                                    bool isButtonDown) noexcept	
     {
         const float sat = hasKeyboardFocus ? 1.3f : 0.9f;
         const Colour baseColour (buttonColour.withMultipliedSaturation (sat));
@@ -25,7 +24,7 @@ namespace LookAndFeelHelpers // from juce_LookAndFeel_V2.cpp
             if (isMouseOverButton) return baseColour.contrasting (0.1f);
                 
                 return baseColour;
-    }
+    } 
     
     static TextLayout layoutTooltipText (const String& text, Colour colour) noexcept
     {
@@ -89,6 +88,8 @@ namespace Audealize {
         void drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos,
                                const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider) override;
         
+        void drawRotarySliderCentered (Graphics& g, int x, int y, int width, int height, float sliderPos,
+                                                             const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider);
         void drawCornerResizer (Graphics& g,
                                 int w, int h,
                                 bool /*isMouseOver*/,
@@ -101,12 +102,16 @@ namespace Audealize {
         bool isDarkMode;
         bool shouldDrawOutlines;
         Colour outline, tickBoxFill;
+        
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR ( AudealizeLookAndFeel );
     };
     
     class AudealizeLookAndFeelDark : public AudealizeLookAndFeel {
     public:
         AudealizeLookAndFeelDark();
         ~AudealizeLookAndFeelDark() {};
+        
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR ( AudealizeLookAndFeelDark );
     };
 }
 

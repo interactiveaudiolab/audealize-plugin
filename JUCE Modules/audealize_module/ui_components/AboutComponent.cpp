@@ -26,7 +26,7 @@ AboutComponent::AboutComponent ()
     audealizeLink->setButtonText (TRANS("audealize.appspot.com"));
     audealizeLink->addListener (this);
     
-    addAndMakeVisible (label3 = new Label ("new label",
+    addAndMakeVisible (label3 = new Label ("Description",
                                            TRANS("Audealize is a new way of looking at audio production tools. Instead of the traditional complex interfaces consisting of knobs with hard-to-understand labels, Audealize provides a semantic interface. Simply describe the type of sound you\'re looking for in the search boxes, or click and drag around the maps to find new effects.\n"
                                                  "\n"
                                                  "This work is developed by the Interactive Audio Lab at Northwestern University.")));
@@ -66,7 +66,6 @@ AboutComponent::~AboutComponent()
     drawable1 = nullptr;
 }
 
-//==============================================================================
 void AboutComponent::paint (Graphics& g)
 {
     g.fillAll (findColour(AboutComponent::backgroundColourId));

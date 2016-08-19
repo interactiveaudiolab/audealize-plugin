@@ -8,9 +8,9 @@ String AudealizereverbAudioProcessor::paramM ("paramM");
 String AudealizereverbAudioProcessor::paramF ("paramF");
 String AudealizereverbAudioProcessor::paramE ("paramE");
 
-AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb()
+AudealizereverbAudioProcessor::AudealizereverbAudioProcessor(AudealizeAudioProcessor* owner) : AudealizeAudioProcessor(owner), mReverb()
 {
-    numParams = kNumParams;
+    paramAmountId = "paramAmountReverb"; // important for multi effect plugin
     
     // initialize parameter ranges
     mParamRange[kParamD]  = NormalisableRange<float>(0.01f, 0.1f, 0.0001f);
@@ -20,25 +20,27 @@ AudealizereverbAudioProcessor::AudealizereverbAudioProcessor() : mReverb()
     mParamRange[kParamE]  = NormalisableRange<float>(0.0f, 1.0f, 0.0001f);
     
     // Initialize parameters
-    mState->createAndAddParameter(paramD, "Delay of comb filters", TRANS ("Delay of comb filters"), mParamRange[kParamD], DEFAULT_D, nullptr, nullptr);
-    mState->createAndAddParameter(paramG, "Gain of comb filters", TRANS ("Gain of comb filters"), mParamRange[kParamG], DEFAULT_G, nullptr, nullptr);
-    mState->createAndAddParameter(paramM, "Delay between channels", TRANS ("Delay between channels"), mParamRange[kParamM], DEFAULT_M, nullptr, nullptr);
-    mState->createAndAddParameter(paramF, "LP Cutoff", TRANS ("LP Cutoff"), mParamRange[kParamF], DEFAULT_F, nullptr, nullptr);
-    mState->createAndAddParameter(paramE, "Effect Gain", TRANS ("Effect Gain"), mParamRange[kParamE], DEFAULT_E, nullptr, nullptr);
+    String prefix = (mOwner == this ? "" : "Reverb: ");
+    mState->createAndAddParameter(paramD, prefix + "Delay of comb filters", TRANS ("Delay of comb filters"), mParamRange[kParamD], DEFAULT_D, nullptr, nullptr);
+    mState->createAndAddParameter(paramG, prefix + "Gain of comb filters", TRANS ("Gain of comb filters"), mParamRange[kParamG], DEFAULT_G, nullptr, nullptr);
+    mState->createAndAddParameter(paramM, prefix + "Delay between channels", TRANS ("Delay between channels"), mParamRange[kParamM], DEFAULT_M, nullptr, nullptr);
+    mState->createAndAddParameter(paramF, prefix + "LP Cutoff", TRANS ("LP Cutoff"), mParamRange[kParamF], DEFAULT_F, nullptr, nullptr);
+    mState->createAndAddParameter(paramE, prefix + "Effect Gain", TRANS ("Effect Gain"), mParamRange[kParamE], DEFAULT_E, nullptr, nullptr);
 
-    // Add Listeners
-    mState->addParameterListener(paramD, this);
-    mState->addParameterListener(paramG, this);
-    mState->addParameterListener(paramM, this);
-    mState->addParameterListener(paramF, this);
-    mState->addParameterListener(paramE, this);
-    mState->addParameterListener(paramAmount, this);
+    mState->createAndAddParameter(paramAmountId, "Reverb: Amount", "Reverb: Amount", NormalisableRange<float>(0.0f, 1.0f), 0.5f, nullptr, nullptr);
+    mState->addParameterListener(paramAmountId, this);
     
-    mState->state = ValueTree ("Audealize_Reverb");
+    // Add Listeners
+    for (int i = 0; i < kNumParams - 1; i++){
+        mState->addParameterListener(getParamID(i), this);
+    }
 }
 
 AudealizereverbAudioProcessor::~AudealizereverbAudioProcessor()
 {
+    for (int i = 0; i < kNumParams - 1; i++){
+        mState->removeParameterListener(getParamID(i), this);
+    }
 }
 
 const String AudealizereverbAudioProcessor::getName() const
@@ -92,7 +94,6 @@ void AudealizereverbAudioProcessor::changeProgramName (int index, const String& 
 {
 }
 
-//==============================================================================
 void AudealizereverbAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     // Initialize reverberator
@@ -107,12 +108,15 @@ void AudealizereverbAudioProcessor::prepareToPlay (double sampleRate, int sample
     
     // Initialize parameter smoothers
     for (int i = 0; i < kNumParams; i++){
-        if (i == kParamM)
-            // Channel delay requires a slower smoothing time to avoid artifacts
-            mSmoother[i].init(3.0f, sampleRate);
-        else
-            mSmoother[i].init(0.001f, sampleRate);
+        mSmoothedVals[i].reset(sampleRate, 0.00019);
     }
+    
+    mSmoothedVals[kParamD].setValue(DEFAULT_D);
+    mSmoothedVals[kParamG].setValue(DEFAULT_G);
+    mSmoothedVals[kParamM].setValue(DEFAULT_M);
+    mSmoothedVals[kParamF].setValue(DEFAULT_F);
+    mSmoothedVals[kParamE].setValue(DEFAULT_E);
+    mSmoothedVals[kParamAmount].setValue(DEFAULT_MIX);
 }
 
 void AudealizereverbAudioProcessor::releaseResources()
@@ -159,29 +163,40 @@ void AudealizereverbAudioProcessor::processBlock (AudioSampleBuffer& buffer, Mid
         buffer.clear (i, 0, buffer.getNumSamples());
 
     // Parameter smoothing
+    float diff;
     float paramValue;
-    if (mSmoother[kParamG].isDirty()){
-        paramValue = mState->getParameter(paramG)->getValue();
-        mReverb.set_g(mSmoother[kParamG].process(mParamRange[kParamG].convertFrom0to1(paramValue)));
-       
+    
+    diff = fabs (mReverb.get_d() - mSmoothedVals[kParamD].getTargetValue());
+    if (diff > 0.01f * mSmoothedVals[kParamD].getTargetValue()){
+        mReverb.set_d(mSmoothedVals[kParamD].getNextValue());
     }
-    if (mSmoother[kParamM].isDirty()){
-        paramValue = mState->getParameter(paramM)->getValue();
-        mReverb.set_m(mSmoother[kParamM].process(mParamRange[kParamM].convertFrom0to1(paramValue)));
+    
+    diff = fabs (mReverb.get_g() - mSmoothedVals[kParamG].getTargetValue());
+    if (diff > 0.01f * mSmoothedVals[kParamG].getTargetValue()){
+        mReverb.set_g(mSmoothedVals[kParamG].getNextValue());
     }
-    if (mSmoother[kParamF].isDirty()){
-        paramValue = mState->getParameter(paramF)->getValue();
-        mReverb.set_f(mParamRange[kParamF].snapToLegalValue(mParamRange[kParamF].convertFrom0to1(mSmoother[kParamF].process(paramValue))));
+    
+    diff = fabs (mReverb.get_m() - mSmoothedVals[kParamM].getTargetValue());
+    if (diff > 0.01f * mSmoothedVals[kParamM].getTargetValue()){
+        mReverb.set_m(mSmoothedVals[kParamM].getNextValue());
     }
-    if (mSmoother[kParamE].isDirty()){
-        paramValue = mState->getParameter(paramE)->getValue();
-        mReverb.set_E(mParamRange[kParamE].snapToLegalValue(mSmoother[kParamE].process(paramValue)));
+    
+    diff = fabs (mReverb.get_f() - mSmoothedVals[kParamF].getTargetValue());
+    if (diff > 0.01f * mSmoothedVals[kParamF].getTargetValue()){
+        mReverb.set_f(mSmoothedVals[kParamF].getNextValue());
     }
-    if (mSmoother[kParamAmount].isDirty()){
-        paramValue = mState->getParameter(paramAmount)->getValue();
-        mReverb.set_wetdry(mParamRange[kParamAmount].snapToLegalValue(mSmoother[kParamAmount].process(paramValue)));
+    
+    diff = fabs (mReverb.get_E() - mSmoothedVals[kParamE].getTargetValue());
+    if (diff > 0.01f * mSmoothedVals[kParamE].getTargetValue()){
+        mReverb.set_E(mSmoothedVals[kParamE].getNextValue());
     }
-        
+    
+    diff = fabs (mReverb.get_wetdry() - mSmoothedVals[kParamAmount].getTargetValue());
+    if (diff > 0.01f * mSmoothedVals[kParamAmount].getTargetValue()){
+        mReverb.set_wetdry(mSmoothedVals[kParamAmount].getNextValue());
+    }
+    // end parameter smoothing
+    
     // Process reverb
     if (!mBypass){
         if (totalNumInputChannels == 1){
@@ -202,43 +217,32 @@ bool AudealizereverbAudioProcessor::hasEditor() const
     return true; 
 }
 
-AudealizeUI* AudealizereverbAudioProcessor::createEditor(bool isPluginMultiEffect)
+AudealizeUI* AudealizereverbAudioProcessor::createEditorForMultiEffect()
 {
     ScopedPointer<TraditionalUI> mReverbComponent = new ReverbComponent(*this);
     
-    return new AudealizeUI (*this, mReverbComponent, PATH_TO_POINTS, "Reverb", isPluginMultiEffect);
+    return new AudealizeUI (*this, mReverbComponent, PATH_TO_POINTS, "Reverb", true);
+}
+
+AudioProcessorEditor* AudealizereverbAudioProcessor::createEditor()
+{
+    ScopedPointer<TraditionalUI> mReverbComponent = new ReverbComponent(*this);
+    
+    return new AudealizeUI (*this, mReverbComponent, PATH_TO_POINTS, "Reverb", false);
 }
 
 
-void AudealizereverbAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue){    
-    if (parameterID == paramD){
-        //mReverb.set_d(mParamRange[kParamD].snapToLegalValue(mSmoother[kParamD].process(newValue)));
-        
-        // Changing d will create artifacts no matter what, smoothing the value just exacerbates the issue
-        mReverb.set_d(mParamRange[kParamD].snapToLegalValue(newValue));
-    }
-    else if (parameterID == paramG){
-        mReverb.set_g(mSmoother[kParamG].process(mParamRange[kParamG].convertFrom0to1(newValue)));
-    }
-    else if (parameterID == paramM){
-        mReverb.set_m(mSmoother[kParamM].process(mParamRange[kParamM].convertFrom0to1(newValue)));
-    }
-    else if (parameterID == paramF){
-        mReverb.set_f(mParamRange[kParamF].snapToLegalValue(mParamRange[kParamF].convertFrom0to1(mSmoother[kParamF].process(newValue))));
-    }
-    else if (parameterID == paramE){
-        mReverb.set_E(mSmoother[kParamE].process(newValue)); // E is already in range [0,1]
-    }
-    else if (parameterID == paramAmount){
-        mReverb.set_wetdry(mParamRange[kParamAmount].snapToLegalValue(mSmoother[kParamAmount].process(newValue)));
-    }
+void AudealizereverbAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue){
+    //DBG("param changed :" << parameterID << newValue);
+    int idx = getParamIdx(parameterID);
+    mSmoothedVals[idx].setValue(newValue);
+    //DBG(mSmoothedVals[idx].getTargetValue());
     //debugParams();
 }
 
 void AudealizereverbAudioProcessor::debugParams(){
     DBG("\nREVERB: d: " << mReverb.get_d() << " g: " << mReverb.get_g() << " m: " << mReverb.get_m() << " f: " << mReverb.get_f() << " E: " << mReverb.get_E());
     DBG("PARAMS: d: " << mState->getParameter(paramD)->getValue() << " g: " << mState->getParameter(paramG)->getValue() << " m: " << mState->getParameter(paramM)->getValue() << " f: " << mState->getParameter(paramF)->getValue() << " E: " << mState->getParameter(paramE)->getValue());
-    
 }
 
 /**
@@ -262,10 +266,31 @@ String AudealizereverbAudioProcessor::getParamID(int index){
             return paramE;
             
         case kParamAmount:
-            return paramAmount;
+            return getParamAmountID();
             
         default:
             break;
+    }
+}
+
+int AudealizereverbAudioProcessor::getParamIdx(String paramId){
+    if (paramId.equalsIgnoreCase(paramD)){
+        return kParamD;
+    }
+    else if (paramId.equalsIgnoreCase(paramG)){
+        return kParamG;
+    }
+    else if (paramId.equalsIgnoreCase(paramM)){
+        return kParamM;
+    }
+    else if (paramId.equalsIgnoreCase(paramF)){
+        return kParamF;
+    }
+    else if (paramId.equalsIgnoreCase(paramE)){
+        return kParamE;
+    }
+    else if (paramId.equalsIgnoreCase(paramAmountId)){
+        return kParamAmount;
     }
 }
 
@@ -276,6 +301,8 @@ void AudealizereverbAudioProcessor::settingsFromMap(vector<float> settings){
     
     for (int i = 0; i < kNumParams - 1; i++){
         // for some reason the F and M param ranges are [0,1] in the plugin
+        mState->getParameter(getParamID(i))->beginChangeGesture();
         mState->getParameter(getParamID(i))->setValueNotifyingHost(mParamRange[i].convertTo0to1((settings[i])));
+        mState->getParameter(getParamID(i))->endChangeGesture();
     }
 }

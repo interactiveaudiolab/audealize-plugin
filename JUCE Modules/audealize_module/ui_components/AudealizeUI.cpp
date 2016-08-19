@@ -34,7 +34,7 @@ namespace Audealize{
         mAmountSlider->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
         mAmountSlider->setRange(0.0f, 1.0f);
         
-        mAmountSliderAttachment = new AudioProcessorValueTreeState::SliderAttachment (p.getValueTreeState(), p.paramAmount, *mAmountSlider);
+        mAmountSliderAttachment = new AudioProcessorValueTreeState::SliderAttachment (p.getValueTreeState(), p.getParamAmountID(), *mAmountSlider);
         
         // amount slider label "Less"
         addAndMakeVisible (mLabelLess = new Label ("Less",
@@ -65,7 +65,11 @@ namespace Audealize{
         addAndMakeVisible (mEspanolButton = new ToggleButton (CharPointer_UTF8 ("Espa\xc3\xb1ol")));
         mEspanolButton->addListener (this);
         mEspanolButton->setToggleState (true, dontSendNotification);
-        
+
+        if (mEffectType == "Reverb"){
+            mEnglishButton->setVisible(false);
+            mEspanolButton->setVisible(false);
+        }
         
         // if this AudealizeUI is a child component of an AudealizeMultiUI, we wont show the Audealize title text here. 
         if (!isMultiEffect){
@@ -171,7 +175,6 @@ namespace Audealize{
         mDarkModeGraphicLight = nullptr;
     }
     
-    //==============================================================================
     void AudealizeUI::paint (Graphics& g)
     {
         g.fillAll (getLookAndFeel().findColour(AudealizeUI::backgroundColourId));

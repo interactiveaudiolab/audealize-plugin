@@ -24,6 +24,8 @@ namespace Audealize {
     protected:
         AudealizeAudioProcessor& processor;
         String name; // this will determine what the title text (mEffectTypeLabel) in AudealizeUI will display
+        
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR ( TraditionalUI );
     };
 }
 

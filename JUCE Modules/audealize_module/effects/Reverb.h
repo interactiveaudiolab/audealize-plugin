@@ -1,6 +1,5 @@
 //
 //  Reverb.h
-//  Created by Michael Donovan on 6/16/16.
 //
 //  Implements a parametric reverberator as described in this paper:
 //  http://music.cs.northwestern.edu/publications/Rafii-Pardo%20-%20A%20Digital%20Reverberator%20Controlled%20through%20Measures%20of%20the%20Reverberation%20-%20NU%20EECS%202009.pdf
@@ -70,7 +69,7 @@ namespace Audealize{
                 sampDry *= dry;
                 
                 // Write processed sample back to the buffer
-                channelData[i] = 0.45f * (samp + sampDry);
+                channelData[i] = (samp + sampDry);
             }
         }
         
@@ -125,8 +124,8 @@ namespace Audealize{
                 sampDryR *= dry;
                 
                 // Write processed sample back to the buffer
-                channelData1[i] = 0.45f * (sampDryL + sampL);
-                channelData2[i] = 0.45f * (sampDryR + sampR);
+                channelData1[i] = (sampDryL + sampL);
+                channelData2[i] = (sampDryR + sampR);
             }
         }
         

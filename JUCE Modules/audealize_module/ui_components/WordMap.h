@@ -93,6 +93,10 @@ namespace Audealize {
             return words;
         }
         
+        json getLanguages(){
+            return languages;
+        }
+        
     private:
         AudealizeAudioProcessor& processor; // the main plugin audio processor
         

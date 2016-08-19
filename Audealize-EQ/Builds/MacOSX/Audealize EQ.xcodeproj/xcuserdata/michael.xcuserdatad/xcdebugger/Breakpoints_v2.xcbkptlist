@@ -9,14 +9,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../JUCE Modules/audealize_module/audio_processors/AudealizeEQAudioProcessor.h"
-            timestampString = "490911519.691746"
+            filePath = "../../../JUCE Modules/audealize_module/audio_processors/AudealizeAudioProcessor.h"
+            timestampString = "493241322.545811"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "class AudealizeeqAudioProcessor"
-            landmarkType = "3">
+            startingLineNumber = "128"
+            endingLineNumber = "128">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -20,6 +20,8 @@ public:
     enum ColourIds{
         backgroundColourId = 0x2000400,
         textColourId = 0x2000401,
+        highlightColourId = 0x2000402,
+        textSelectedColourId = 0x2000403
     };
     
     
@@ -74,6 +76,8 @@ private:
     ListBox list;
     std::vector<String> options;
     DropShadower shadow;
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR( TypeaheadPopupMenu );
 };
 
 
@@ -136,7 +140,7 @@ public:
     void focusLost(FocusChangeType cause) override;
 
     void resized() override;
-    
+        
     /**
      *  Used to set text of editor when word is selected in a WordMap
      *
@@ -202,6 +206,8 @@ private:
     vector<StringArray> otherMaps;  // vector of StringArrays containing the descriptor sets for other effects (if plugin is a multi effect
     vector<String> otherMapEffectNames;  // vector containing the names of the other effects (if plugin is a multi effect)
     bool isMultiEffect;  // true if parent plugin is a multi effect
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR( TypeaheadEditor );
 };
 
 

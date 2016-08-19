@@ -27,10 +27,8 @@ namespace Audealize{
             textColourId = 0x2000101
         };
         
-        //==============================================================================
         AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType, bool isPluginMultiEffect = false);
         ~AudealizeUI();
-        //==============================================================================
         
         /**
          *  Called when return key is pressed in search bar, selects word on map
@@ -122,7 +120,6 @@ namespace Audealize{
                 
         String mEffectType; 
         
-        //==============================================================================
         ScopedPointer<Audealize::WordMap> mWordMap;
         ScopedPointer<Slider> mAmountSlider; // controls the intensity of the effect
         ScopedPointer<Label> mLabelLess;  // label for amount slider
@@ -145,7 +142,6 @@ namespace Audealize{
         ScopedPointer<Drawable> mDarkModeGraphicLight;
         ScopedPointer<DrawableButton> mDarkModeButton;
         
-        //==============================================================================
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeUI)
     };
     

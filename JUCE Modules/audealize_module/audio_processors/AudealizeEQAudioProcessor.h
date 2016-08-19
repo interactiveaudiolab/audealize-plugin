@@ -5,15 +5,12 @@
 
 using namespace Audealize;
 
-//==============================================================================
 class AudealizeeqAudioProcessor  : public AudealizeAudioProcessor
 {
 public:
-    //==============================================================================
-    AudealizeeqAudioProcessor();
+    AudealizeeqAudioProcessor(AudealizeAudioProcessor* owner = nullptr);
     ~AudealizeeqAudioProcessor();
 
-    //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     void releaseResources() override;
 
@@ -23,37 +20,34 @@ public:
 
     void processBlock (AudioSampleBuffer&, MidiBuffer&) override;
 
-    //==============================================================================
-    AudealizeUI* createEditor(bool isPluginMultiEffect);
+    AudealizeUI* createEditorForMultiEffect();
     
-    // this is here so that IDE doesnt complain about allocating an object of an abstract class
-    AudioProcessorEditor* createEditor(){return nullptr;}
+    AudioProcessorEditor* createEditor() override;
     
     bool hasEditor() const override;
 
-    //==============================================================================
     const String getName() const override;
 
     bool acceptsMidi() const override;
     bool producesMidi() const override;
     double getTailLengthSeconds() const override;
 
-    //==============================================================================
     int getNumPrograms() override;
     int getCurrentProgram() override;
     void setCurrentProgram (int index) override;
     const String getProgramName (int index) override;
     void changeProgramName (int index, const String& newName) override;
-
     
     void parameterChanged(const juce::String &parameterID, float newValue) override;
     void settingsFromMap(vector<float> settings) override;
     
     inline String getParamID(int index) override;
-    
+        
+    bool isParameterAutomatable(int index){
+        return true;
+    }
     
 private:
-    //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeeqAudioProcessor)
     
 #ifdef JUCE_MAC
@@ -63,6 +57,7 @@ private:
 #elif JUCE_LINUX
     const String PATH_TO_POINTS = "/usr/share/Audealize/eqdescriptors.json";
 #endif
+    
     NormalisableRange<float> mGainRange; // Range of the graphic eq gain sliders
         
     LinearSmoothedValue<float> mSmoothedVals[NUMBANDS];

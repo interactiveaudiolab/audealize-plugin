@@ -32,7 +32,7 @@ namespace Audealize{
         mLabelM->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
         
         addAndMakeVisible (mLabelF = new Label ("new label",
-                                                TRANS("Filter Cutoff\n"
+                                                TRANS("High Cut\n"
                                                       "\n")));
         mLabelF->setFont (Font (15.00f, Font::plain));
         mLabelF->setJustificationType (Justification::centredTop);
@@ -54,42 +54,95 @@ namespace Audealize{
         
         //=========================================================================
         // Sliders
+        std::function<String (float)> valToText;
+        std::function<float (String)> textToVal;
         
-        addAndMakeVisible (mSliderD = new Slider ("mSliderD"));
-        mSliderD->setTooltip (TRANS("Delay of comb filters"));
+        
+        // d slider
+        addAndMakeVisible (mSliderD = new AudealizeSlider ());
         mSliderD->setSliderStyle (Slider::RotaryVerticalDrag);
         mSliderD->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
         mSliderD->setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::lightblue);
         mSliderD->setRange(0.01f, 0.1f);
-
-        addAndMakeVisible (mSliderG = new Slider ("mSliderG"));
-        mSliderG->setTooltip (TRANS("Gain of comb filters"));
+        mSliderD->setTextValueSuffix(" ms");
+        
+        valToText = [](float f) {
+            return String(f * 1000, 1);
+        };
+        textToVal = [](String s) {
+            return s.getDoubleValue() * .001;
+        };
+        mSliderD->setValueToTextFunction(valToText);
+        mSliderD->setTextToValueFunction(textToVal);
+        
+        
+        // g slider
+        addAndMakeVisible (mSliderG = new AudealizeSlider ());
         mSliderG->setSliderStyle (Slider::RotaryVerticalDrag);
         mSliderG->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
         mSliderG->setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::lightblue);
         mSliderG->setRange(0.01f, 0.96f);
+        mSliderG->setTextValueSuffix(" %");
         
-        addAndMakeVisible (mSliderM = new Slider ("mSliderM"));
-        mSliderM->setTooltip (TRANS("Delay between channels"));
-        mSliderM->setSliderStyle (Slider::RotaryVerticalDrag);
+        valToText = [](float f) {
+            NormalisableRange<float> gRange(0.01f, 0.96f, 0.0001f);
+            return String(roundToInt( gRange.convertTo0to1(f) * 100 ));
+        };
+        textToVal = [](String s) {
+            NormalisableRange<float> gRange(0.01f, 0.96f, 0.0001f);
+            float val = s.initialSectionContainingOnly("1234567890.,-").getDoubleValue() * .01;
+            return gRange.convertFrom0to1(val);
+        };
+        mSliderG->setValueToTextFunction(valToText);
+        mSliderG->setTextToValueFunction(textToVal);
+        
+        
+        // m slider
+        addAndMakeVisible (mSliderM = new RotarySliderCentered ());
         mSliderM->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
         mSliderM->setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::lightblue);
         mSliderM->setRange(-0.012f, 0.012f);
+        mSliderM->setTextValueSuffix(" ms");
 
-        addAndMakeVisible (mSliderF = new Slider ("mSliderF"));
-        mSliderF->setTooltip (TRANS("Cutoff frequency"));
+        valToText = [](float f) {
+            String s = String(f * 1000, 1);
+            if (s.equalsIgnoreCase("-0.0")) return String ("0"); // otherwise it'll display -0.0 at startup
+            return s;
+        };
+        textToVal = [](String s) {
+            return s.getDoubleValue() * .001;
+        };
+        mSliderM->setValueToTextFunction(valToText);
+        mSliderM->setTextToValueFunction(textToVal);
+        
+        
+        // F slider
+        addAndMakeVisible (mSliderF = new AudealizeSlider ());
         mSliderF->setSliderStyle (Slider::RotaryVerticalDrag);
         mSliderF->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
         mSliderF->setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::lightblue);
         mSliderF->setRange(20, 20000);
         mSliderF->setSkewFactor(.22);
+        mSliderF->setValueToTextFunction(freqToText);
         
-        addAndMakeVisible (mSliderE = new Slider ("mSliderE"));
-        mSliderE->setTooltip (TRANS("Effect Gain"));
+        
+        // E slider
+        addAndMakeVisible (mSliderE = new AudealizeSlider ());
         mSliderE->setSliderStyle (Slider::RotaryVerticalDrag);
         mSliderE->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
         mSliderE->setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::lightblue);
         mSliderE->setRange(0.0f, 1.0f);
+        mSliderE->setTextValueSuffix(" %");
+        
+        valToText = [](float f) {
+            return String(f * 100, 0);
+        };
+        textToVal = [](String s) {
+            return s.getDoubleValue() * .01;
+        };
+        
+        mSliderE->setValueToTextFunction(valToText);
+        mSliderE->setTextToValueFunction(textToVal);
         
         
         //=========================================================================
@@ -119,7 +172,6 @@ namespace Audealize{
         mSliderAttachmentE = nullptr;
     }
     
-    //==============================================================================
     void ReverbComponent::paint (Graphics& g)
     {
     }

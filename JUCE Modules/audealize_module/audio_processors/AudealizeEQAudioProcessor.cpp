@@ -1,12 +1,12 @@
 #include "AudealizeeqAudioProcessor.h"
 
-AudealizeeqAudioProcessor::AudealizeeqAudioProcessor() : mEqualizer(mFreqs, 0.0f)
+AudealizeeqAudioProcessor::AudealizeeqAudioProcessor(AudealizeAudioProcessor* owner) : AudealizeAudioProcessor(owner), mEqualizer(mFreqs, 0.0f)
 {
+    paramAmountId = "paramAmountEQ";
+    
     //DBG(std::to_string(getSampleRate()));
     mParamSettings.resize(NUMBANDS, 0);
-    
-    numParams = NUMBANDS + 1;
-    
+        
     mGainRange = NormalisableRange<float>(-4.30f, 4.30f, 0.001f);
         
     // Create amount parameter
@@ -14,18 +14,22 @@ AudealizeeqAudioProcessor::AudealizeeqAudioProcessor() : mEqualizer(mFreqs, 0.0f
     // Create params for each EQ band gain
     for (int i = 0; i < NUMBANDS; i++){
         String paramID = getParamID(i);
-        std::string paramName = std::to_string(mFreqs[i]) + " Hz";
+        String paramName = String (mOwner == this ? "" : "EQ: ") + "Gain: " +String(mFreqs[i], 0) + " Hz";
         mState->createAndAddParameter(paramID, paramName, TRANS(paramName), mGainRange, mGainRange.snapToLegalValue(0.0f), nullptr, nullptr);
         mState->addParameterListener(TRANS(paramID), this);
     }
-
-    mState->state = ValueTree ("Audealize-EQ");
+    
+    mState->createAndAddParameter(paramAmountId, "EQ: Amount", "EQ: Amount", NormalisableRange<float>(0.0f, 1.0f), 0.5f, nullptr, nullptr);
+    mState->addParameterListener(paramAmountId, this);
 }
 
 
 AudealizeeqAudioProcessor::~AudealizeeqAudioProcessor()
 {
-
+    for (int i = 0; i < NUMBANDS; i++){
+        String paramID = getParamID(i);
+        mState->removeParameterListener(TRANS(paramID), this);
+    }
 }
 
 const String AudealizeeqAudioProcessor::getName() const
@@ -167,10 +171,16 @@ bool AudealizeeqAudioProcessor::hasEditor() const
     return true; // (change this to false if you choose to not supply an editor)
 }
 
-AudealizeUI* AudealizeeqAudioProcessor::createEditor(bool isPluginMultiEffect){
+AudealizeUI* AudealizeeqAudioProcessor::createEditorForMultiEffect(){
     ScopedPointer<TraditionalUI> mGraphicEQ = new GraphicEQComponent(*this, NUMBANDS, mGainRange);
     
-    return new AudealizeUI (*this, mGraphicEQ, PATH_TO_POINTS, "EQ", isPluginMultiEffect);
+    return new AudealizeUI (*this, mGraphicEQ, PATH_TO_POINTS, "EQ", true);
+}
+
+AudioProcessorEditor* AudealizeeqAudioProcessor::createEditor(){
+    ScopedPointer<TraditionalUI> mGraphicEQ = new GraphicEQComponent(*this, NUMBANDS, mGainRange);
+    
+    return new AudealizeUI (*this, mGraphicEQ, PATH_TO_POINTS, "EQ", false);
 }
 
 void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID, float newValue){
@@ -183,7 +193,7 @@ void AudealizeeqAudioProcessor::parameterChanged(const juce::String &parameterID
 
         mSmoothedVals[idx].setValue(newValue);
     }
-    else if (parameterID.equalsIgnoreCase(paramAmount)){
+    else if (parameterID.equalsIgnoreCase(paramAmountId)){
         mAmount = newValue;
         float gain;
         for (int i = 0; i < NUMBANDS; i++){
@@ -208,7 +218,9 @@ void AudealizeeqAudioProcessor::settingsFromMap(vector<float> settings){
         gain = mGainRange.convertFrom0to1(gain);
         gain *= mAmount;
         gain = mGainRange.convertTo0to1(gain);
+        mState->getParameter(getParamID(i))->beginChangeGesture();
         mState->getParameter(getParamID(i))->setValueNotifyingHost(gain);
+        mState->getParameter(getParamID(i))->endChangeGesture();
     }
     
     //DBG(mEqualizer.getBandGain(10));

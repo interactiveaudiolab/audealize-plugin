@@ -1,10 +1,10 @@
 //
 //  NChannelFilter.h
-//  Created by Michael Donovan on 6/13/16.
 //
 //  A class for managing Biquad filters for use in processing multichannel audio
 //
 //  Requires AudioEffect.h, Biquad.h
+//
 
 #ifndef NChannelFilter_h
 #define NChannelFilter_h

@@ -102,7 +102,6 @@ AudealizeMultiUI::~AudealizeMultiUI()
     mDarkModeGraphicLight = nullptr;
 }
 
-//==============================================================================
 void AudealizeMultiUI::paint (Graphics& g)
 {
   
@@ -134,7 +133,6 @@ void AudealizeMultiUI::resized()
 void AudealizeMultiUI::childrenChanged()
 {
 }
-
 
 void AudealizeMultiUI::actionListenerCallback(const juce::String &message){
     int childIndex = mTabbedComponent->getCurrentTabIndex();
@@ -170,11 +168,13 @@ void AudealizeMultiUI::buttonClicked(juce::Button *buttonThatWasClicked){
     else if (buttonThatWasClicked == mDarkModeButton){
         if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
             setLookAndFeel(&mLookAndFeel);
+            mAboutComponent->setLookAndFeel(&mLookAndFeel);
             mDarkModeButton->setImages(mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
         }
         else{
             setLookAndFeel(&mLookAndFeelDark);
             mDarkModeButton->setImages(mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight);
+            mAboutComponent->setLookAndFeel(&mLookAndFeelDark);
         }
     }
 }

@@ -6,7 +6,7 @@ using namespace Audealize;
 class AudealizereverbAudioProcessor  : public AudealizeAudioProcessor
 {
 public:
-    AudealizereverbAudioProcessor();
+    AudealizereverbAudioProcessor(AudealizeAudioProcessor* owner = nullptr);
     ~AudealizereverbAudioProcessor();
 
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -18,11 +18,10 @@ public:
 
     void processBlock (AudioSampleBuffer&, MidiBuffer&) override;
 
-    AudealizeUI* createEditor(bool isPluginMultiEffect);
+    AudealizeUI* createEditorForMultiEffect();
     
-    // this is here so that IDE doesnt complain about allocating an object of an abstract class
-    AudioProcessorEditor* createEditor(){return nullptr;}
-
+    AudioProcessorEditor* createEditor() override;
+    
     bool hasEditor() const override;
 
     const String getName() const override;
@@ -42,6 +41,12 @@ public:
     void settingsFromMap(vector<float> settings) override;
     
     inline String getParamID(int index) override;
+    
+    inline int getParamIdx(String paramId);
+    
+    bool isParameterAutomatable(int index){
+        return true;
+    }
     
     enum Parameters{
         kParamD,
@@ -66,12 +71,11 @@ private:
     
     NormalisableRange<float> mParamRange[kNumParams];
         
-    CParamSmooth mSmoother[kNumParams];
-    float paramTargetVal[kNumParams];
-    
+    LinearSmoothedValue<float> mSmoothedVals[kNumParams];
+
     const float DEFAULT_D   = 0.05f;
     const float DEFAULT_G   = 0.5f;
-    const float DEFAULT_M   = 0.005f;
+    const float DEFAULT_M   = 0.0f;
     const float DEFAULT_F   = 5500.0f;
     const float DEFAULT_E   = 0.95f;
     const float DEFAULT_MIX = 0.75f;
@@ -85,7 +89,6 @@ private:
 #endif
     
     void debugParams();
-    
 };
 
 

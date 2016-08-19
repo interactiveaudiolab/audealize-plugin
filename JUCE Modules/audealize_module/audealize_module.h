@@ -18,6 +18,7 @@
 #include <vector>
 #include <math.h>
 #include <fstream>
+#include <functional> 
 
 #include "wn.h"
 
@@ -51,6 +52,7 @@
 #include "ui_components/AudealizeMultiUI.h"
 #include "ui_components/AudealizeTabbedComponent.h"
 #include "ui_components/AboutComponent.h"
+#include "ui_components/AudealizeSlider.h"
 #include "ui_components/RotarySliderCentered.h"
 
 #include "effects/AudioEffect.h"

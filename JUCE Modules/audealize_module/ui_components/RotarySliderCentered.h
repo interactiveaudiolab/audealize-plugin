@@ -7,10 +7,12 @@
 #ifndef RotarySliderCentered_h
 #define RotarySliderCentered_h
 
+#include "AudealizeSlider.h"
+
 namespace Audealize {
-    class RotarySliderCentered : public Slider {
+    class RotarySliderCentered : public AudealizeSlider {
     public:
-        RotarySliderCentered(String name) : Slider(name){
+        RotarySliderCentered(){
             setSliderStyle(RotaryVerticalDrag);
         }
         
@@ -25,6 +27,9 @@ namespace Audealize {
             
             static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).drawRotarySliderCentered(g, sRect.getX(), sRect.getY(), sRect.getWidth(), sRect.getHeight(), sliderPos, rotaryParams.startAngleRadians, rotaryParams.endAngleRadians, *this);
         }
+        
+    private:
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR( RotarySliderCentered );
     };
 }
 

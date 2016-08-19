@@ -49,6 +49,7 @@
 #include "ui_components/AudealizeMultiUI.h"
 #include "ui_components/AudealizeTabbedComponent.h"
 #include "ui_components/AboutComponent.h"
+#include "ui_components/RotarySliderCentered.h"
 
 #include "effects/AudioEffect.h"
 #include "effects/NChannelFilter.h"

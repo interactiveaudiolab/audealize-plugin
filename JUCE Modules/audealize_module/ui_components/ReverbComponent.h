@@ -7,6 +7,8 @@
 #ifndef REVERBCOMPONENT_H
 #define REVERBCOMPONENT_H
 
+#include "RotarySliderCentered.h"
+
 namespace Audealize{
     
     class ReverbComponent : public TraditionalUI
@@ -19,8 +21,8 @@ namespace Audealize{
         void resized() override;
         
     private:        
-        ScopedPointer<Slider> mSliderD, mSliderG, mSliderM, mSliderF, mSliderE;
-        
+        ScopedPointer<Slider> mSliderD, mSliderG, mSliderF, mSliderE;
+        ScopedPointer<RotarySliderCentered> mSliderM;
         ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mSliderAttachmentD, mSliderAttachmentG, mSliderAttachmentM, mSliderAttachmentF, mSliderAttachmentE;
         
         ScopedPointer<Label> mLabelD, mLabelG, mLabelM, mLabelF, mLabelE;

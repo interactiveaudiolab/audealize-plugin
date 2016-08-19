@@ -8,7 +8,7 @@ namespace Audealize {
         isDarkMode = true;
         
         const Colour darkGray(0xff1c1c1c);
-        const Colour midGray(0xff2d2d2d);
+        const Colour midGray(0xff2f2f2f);
         const Colour textGray(0xffbbbbbb);
         const Colour lightBlue(0xffadd8e6);
         const Colour sliderThumbGray(0xff727272);
@@ -576,6 +576,96 @@ namespace Audealize {
         }
         
     }
+    
+    void AudealizeLookAndFeel::drawRotarySliderCentered (Graphics& g, int x, int y, int width, int height, float sliderPos,
+                                                 const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider)
+    {
+        const float radius = jmin (width / 2, height / 2) - 2.0f;
+        const float centreX = x + width * 0.5f;
+        const float centreY = y + height * 0.5f;
+        const float rx = centreX - radius;
+        const float ry = centreY - radius;
+        const float rw = radius * 2.0f;
+        const float angle = rotaryStartAngle + sliderPos * (rotaryEndAngle - rotaryStartAngle);
+        const bool isMouseOver = slider.isMouseOverOrDragging() && slider.isEnabled();
+        
+        if (radius > 12.0f)
+        {
+            const float thickness = 0.78;
+            
+            int knobRadius = radius * .68;
+            
+            g.setColour(findColour(Slider::ColourIds::thumbColourId));
+            g.fillEllipse(centreX - knobRadius, centreY -knobRadius, knobRadius * 2, knobRadius * 2);
+            
+            if (shouldDrawOutlines){
+                g.setColour(this->outline);
+                g.drawEllipse(centreX - knobRadius, centreY -knobRadius, knobRadius * 2, knobRadius * 2, 1);
+            }
+            
+            Path backgroundArc;
+            backgroundArc.addPieSegment (rx, ry, rw, rw, rotaryStartAngle, rotaryEndAngle, thickness);
+            backgroundArc.closeSubPath();
+            g.setColour(findColour(Slider::trackColourId));
+            g.fillPath(backgroundArc);
+            
+            if (shouldDrawOutlines){
+                g.setColour(this->outline);
+                g.strokePath(backgroundArc, PathStrokeType(1));
+            }
+            
+            if (slider.isEnabled())
+                g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (isMouseOver ? 1.0f : 0.7f));
+            else
+                g.setColour (Colour (0x80808080));
+            
+            
+            
+            {
+                Path filledArc;
+                filledArc.addPieSegment (rx, ry, rw, rw, (rotaryStartAngle + rotaryEndAngle) * .5f, angle, thickness);
+                g.fillPath (filledArc);
+                if (shouldDrawOutlines){
+                    g.setColour(this->outline);
+                    g.strokePath(filledArc, PathStrokeType(1));
+                }
+            }
+            
+            {
+                const float innerRadius = radius * 0.2f;
+                Path p;
+                float rectHeight = radius * .3f;
+                float rectWidth = radius * .15f;
+                p.addRoundedRectangle(- rectWidth * .5, - rectHeight * 1.8, rectWidth, rectHeight, rectWidth * .5);
+                
+                g.setColour(findColour(Slider::trackColourId).darker(.3));
+                g.fillPath (p, AffineTransform::rotation (angle).translated (centreX, centreY));
+                
+            }
+            
+            if (slider.isEnabled())
+                g.setColour (slider.findColour (Slider::rotarySliderOutlineColourId));
+            else
+                g.setColour (Colour (0x80808080));
+        }
+        else
+        {
+            if (slider.isEnabled())
+                g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (isMouseOver ? 1.0f : 0.7f));
+            else
+                g.setColour (Colour (0x80808080));
+            
+            Path p;
+            p.addEllipse (-0.4f * rw, -0.4f * rw, rw * 0.8f, rw * 0.8f);
+            PathStrokeType (rw * 0.1f).createStrokedPath (p, p);
+            
+            p.addLineSegment (Line<float> (0.0f, 0.0f, 0.0f, -radius), rw * 0.2f);
+            
+            g.fillPath (p, AffineTransform::rotation (angle).translated (centreX, centreY));
+        }
+        
+    }
+
     
     void AudealizeLookAndFeel::drawCornerResizer (Graphics& g,
                                                   int w, int h,

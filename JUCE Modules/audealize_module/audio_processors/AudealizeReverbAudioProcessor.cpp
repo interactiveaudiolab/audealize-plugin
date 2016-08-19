@@ -25,6 +25,7 @@ AudealizereverbAudioProcessor::AudealizereverbAudioProcessor(AudealizeAudioProce
     mState->createAndAddParameter(paramG, prefix + "Gain of comb filters", TRANS ("Gain of comb filters"), mParamRange[kParamG], DEFAULT_G, nullptr, nullptr);
     mState->createAndAddParameter(paramM, prefix + "Delay between channels", TRANS ("Delay between channels"), mParamRange[kParamM], DEFAULT_M, nullptr, nullptr);
     mState->createAndAddParameter(paramF, prefix + "LP Cutoff", TRANS ("LP Cutoff"), mParamRange[kParamF], DEFAULT_F, nullptr, nullptr);
+    
     mState->createAndAddParameter(paramE, prefix + "Effect Gain", TRANS ("Effect Gain"), mParamRange[kParamE], DEFAULT_E, nullptr, nullptr);
 
     mState->createAndAddParameter(paramAmountId, "Reverb: Amount", "Reverb: Amount", NormalisableRange<float>(0.0f, 1.0f), 0.5f, nullptr, nullptr);

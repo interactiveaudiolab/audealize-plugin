@@ -70,9 +70,8 @@ namespace Audealize{
         mSliderG->setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::lightblue);
         mSliderG->setRange(0.01f, 0.96f);
 
-        addAndMakeVisible (mSliderM = new Slider ("mSliderM"));
+        addAndMakeVisible (mSliderM = new RotarySliderCentered ("mSliderD"));
         mSliderM->setTooltip (TRANS("Delay between channels"));
-        mSliderM->setSliderStyle (Slider::RotaryVerticalDrag);
         mSliderM->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
         mSliderM->setColour(Slider::ColourIds::rotarySliderFillColourId, Colours::lightblue);
         mSliderM->setRange(-0.012f, 0.012f);

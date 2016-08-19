@@ -1,9 +1,8 @@
 //
 //  LookAndFeel.h
-//  Audealize
 //
-//  Created by Michael on 8/4/16.
-//
+//  Custom LookAndFeel classes for Audealize plugins. Includes light and dark color schemes
+//  Based on juce::LookAndFeel_V3, modified for flat look + all new rotary sliders.
 //
 
 #ifndef LookAndFeel_h
@@ -89,6 +88,8 @@ namespace Audealize {
         void drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos,
                                const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider) override;
         
+        void drawRotarySliderCentered (Graphics& g, int x, int y, int width, int height, float sliderPos,
+                                                             const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider);
         void drawCornerResizer (Graphics& g,
                                 int w, int h,
                                 bool /*isMouseOver*/,

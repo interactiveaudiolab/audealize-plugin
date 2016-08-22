@@ -40,7 +40,7 @@ namespace Audealize{
          *  @param blockSize   Number of samples in the block
          */
         void processMonoBlock(float* channelData, int blockSize){
-            float samp, sampRev, sampDry;
+            float samp, sampRev, sampDry, sampOut;
             
             for (int i = 0; i < blockSize; i++){
                 sampDry = channelData[i];
@@ -69,7 +69,9 @@ namespace Audealize{
                 sampDry *= dry;
                 
                 // Write processed sample back to the buffer
-                channelData[i] = (samp + sampDry);
+                sampOut = samp + sampDry;
+                JUCE_UNDENORMALISE(sampOut);
+                channelData[i] = sampOut;
             }
         }
         
@@ -81,7 +83,7 @@ namespace Audealize{
          *  @param blockSize    Number of samples in each block
          */
         void processStereoBlock(float* channelData1, float* channelData2, int blockSize){
-            float sampL, sampR, sampRevL, sampRevR, sampDryL, sampDryR, sampSum;
+            float sampL, sampR, sampRevL, sampRevR, sampDryL, sampDryR, sampSum, sampOutL, sampOutR;
 
             for (int i = 0; i < blockSize; i++){
                 sampDryL = channelData1[i];
@@ -124,8 +126,12 @@ namespace Audealize{
                 sampDryR *= dry;
                 
                 // Write processed sample back to the buffer
-                channelData1[i] = (sampDryL + sampL);
-                channelData2[i] = (sampDryR + sampR);
+                sampOutL = sampDryL + sampL;
+                sampOutR = sampDryR + sampR;
+                JUCE_UNDENORMALISE(sampOutL);
+                JUCE_UNDENORMALISE(sampOutR);
+                channelData1[i] = sampOutL;
+                channelData2[i] = sampOutR;
             }
         }
         
@@ -205,10 +211,11 @@ namespace Audealize{
          *  Zero out all buffers
          */
         void resetBuffs(){
-            mAllpass[0].reset();
-            mAllpass[1].reset();
-            for (int i = 0; i < 6; i++){
-                mComb[i].reset();
+            for (auto s : mAllpass){
+                s.reset();
+            }
+            for (auto s : mComb){
+                s.reset();
             }
         }
     

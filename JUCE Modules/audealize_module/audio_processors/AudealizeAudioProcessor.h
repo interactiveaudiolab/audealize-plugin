@@ -142,6 +142,10 @@ namespace Audealize{
             return mState->getParameter(paramID);
         }
         
+        bool isMetaParameter(int parameterIndex) const override {
+            return true;
+        }
+        
     protected:
         AudioProcessorValueTreeState* mState; // and AudioProcessorValueTreeState containing the parameter state information
         UndoManager* mUndoManager;

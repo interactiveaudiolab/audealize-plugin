@@ -42,6 +42,7 @@
 #include "utils/json.hpp"
 
 #include "utils/FreqToText.h"
+#include "utils/properties.h"
 
 #include "ui_components/AudealizeUI.h"
 #include "ui_components/WordMap.h"

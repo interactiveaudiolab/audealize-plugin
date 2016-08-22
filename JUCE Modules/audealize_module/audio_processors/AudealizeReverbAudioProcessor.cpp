@@ -164,7 +164,6 @@ void AudealizereverbAudioProcessor::processBlock (AudioSampleBuffer& buffer, Mid
 
     // Parameter smoothing
     float diff;
-    float paramValue;
     
     diff = fabs (mReverb.get_d() - mSmoothedVals[kParamD].getTargetValue());
     if (diff > 0.01f * mSmoothedVals[kParamD].getTargetValue()){

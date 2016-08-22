@@ -3,7 +3,25 @@
 AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> AudealizeUIs)
     : AudioProcessorEditor(&p), mAudealizeUIs(AudealizeUIs)
 {
-    LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
+    // load properties, set dark mode accordingly
+    properties = Properties::loadPropertiesVar();
+    if (!properties.isVoid() && !properties.isUndefined()){
+        var darkMode = properties.getDynamicObject()->getProperty("darkmode");
+        if (darkMode.isBool()){
+            if ((bool) darkMode){
+                LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
+            }
+            else {
+                LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
+            }
+        }
+    }
+    else{
+        DynamicObject* temp = new DynamicObject();
+        temp->setProperty("darkmode", false);
+        properties = var(temp);
+        LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
+    }
 
     addAndMakeVisible (mTabbedComponent = new AudealizeTabbedComponent (TabbedButtonBar::TabsAtTop));
     mTabbedComponent->setTabBarDepth (28);
@@ -88,10 +106,10 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
 
 AudealizeMultiUI::~AudealizeMultiUI()
 {
-    for (int i = 0; i < mAudealizeUIs.size(); i++){
-        mAudealizeUIs[i] = nullptr;
+    for (auto au : mAudealizeUIs){
+        au = nullptr;
     }
-
+    
     mTabbedComponent = nullptr;
     label = nullptr;
     mInfoButton = nullptr;
@@ -166,16 +184,20 @@ void AudealizeMultiUI::buttonClicked(juce::Button *buttonThatWasClicked){
         mAboutWindow->setVisible(true);
     }
     else if (buttonThatWasClicked == mDarkModeButton){
-        if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
+        bool isDark = static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive();
+        if (isDark){
             setLookAndFeel(&mLookAndFeel);
             mAboutComponent->setLookAndFeel(&mLookAndFeel);
             mDarkModeButton->setImages(mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
         }
         else{
             setLookAndFeel(&mLookAndFeelDark);
-            mDarkModeButton->setImages(mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight);
             mAboutComponent->setLookAndFeel(&mLookAndFeelDark);
+            mDarkModeButton->setImages(mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight);
         }
+        
+        properties.getDynamicObject()->setProperty("darkmode", !isDark);
+        Properties::writePropertiesToFile(properties);
     }
 }
 

@@ -10,8 +10,26 @@ namespace Audealize{
     AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType, bool isPluginMultiEffect)
     : AudioProcessorEditor(&p), processor(p), mPathToPoints(pathToPoints), mTradUI(t)
     {
-        LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
-        
+        // load properties, set dark mode accordingly
+        properties = Properties::loadPropertiesVar();
+        if (!properties.isVoid() && !properties.isUndefined()){
+            var darkMode = properties.getDynamicObject()->getProperty("darkmode");
+            if (darkMode.isBool()){
+                if ((bool) darkMode){
+                    LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
+                }
+                else {
+                    LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
+                }
+            }
+        }
+        else{
+            DynamicObject* temp = new DynamicObject();
+            temp->setProperty("darkmode", false);
+            properties = var(temp);
+            LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
+        }
+
         isMultiEffect = isPluginMultiEffect;
         
         mEffectType = effectType;
@@ -152,7 +170,7 @@ namespace Audealize{
     }
     
     AudealizeUI::~AudealizeUI()
-    {
+    {        
         mAlertBox = nullptr;
         mAmountSliderAttachment = nullptr;
         mResizer = nullptr;
@@ -334,13 +352,22 @@ namespace Audealize{
         }
         
         else if (buttonThatWasClicked == mDarkModeButton){
-            if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
+            bool isDark = static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive();
+            if (isDark){
                 setLookAndFeel(&mLookAndFeel);
+                mAboutComponent->setLookAndFeel(&mLookAndFeel);
                 mDarkModeButton->setImages(mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
             }
             else{
                 setLookAndFeel(&mLookAndFeelDark);
+                mAboutComponent->setLookAndFeel(&mLookAndFeelDark);
                 mDarkModeButton->setImages(mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight);
+            }
+            
+            
+            if (!isMultiEffect){
+                properties.getDynamicObject()->setProperty("darkmode", !isDark);
+                Properties::writePropertiesToFile(properties);
             }
         }
     }

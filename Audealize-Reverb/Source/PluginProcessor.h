@@ -57,7 +57,6 @@ public:
     void parameterChanged(const juce::String &parameterID, float newValue) override {}
     void settingsFromMap(vector<float> settings) override {}
     inline String getParamID(int index) override { return ""; }
-    
 
     bool isParameterAutomatable(int index){
         return true;

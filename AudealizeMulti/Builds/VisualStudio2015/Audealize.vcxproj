@@ -1931,6 +1931,8 @@
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\calf_dsp_library\onepole.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\calf_dsp_library\primitives.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\Biquad.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\config.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\FreqToText.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\json.hpp"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\PrimeFactors.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\include\tk\tk.h"/>

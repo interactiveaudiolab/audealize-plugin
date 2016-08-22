@@ -1934,6 +1934,7 @@
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\FreqToText.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\json.hpp"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\PrimeFactors.h"/>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\properties.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\include\tk\tk.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\include\tk\tkDecls.h"/>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\include\wn.h"/>

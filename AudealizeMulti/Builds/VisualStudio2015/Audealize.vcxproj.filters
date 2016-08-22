@@ -2475,6 +2475,12 @@
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\Biquad.h">
       <Filter>Juce Modules\audealize_module\utils</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\config.h">
+      <Filter>Juce Modules\audealize_module\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\FreqToText.h">
+      <Filter>Juce Modules\audealize_module\utils</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\utils\json.hpp">
       <Filter>Juce Modules\audealize_module\utils</Filter>
     </ClInclude>

@@ -34,6 +34,8 @@ public:
     void buttonClicked (Button* buttonThatWasClicked) override;
 
 private:
+    var properties;
+    
     vector<AudealizeUI*> mAudealizeUIs;
 
     ScopedPointer<ResizableCornerComponent> mResizer; // handles resizing of the plugin window

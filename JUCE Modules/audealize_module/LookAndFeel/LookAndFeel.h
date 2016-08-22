@@ -97,6 +97,9 @@ namespace Audealize {
 
         void drawTextEditorOutline (Graphics& g, int width, int height, TextEditor& textEditor) override;
     
+        int getTabButtonOverlap (int /*tabDepth*/) override { return -4; }
+        int getTabButtonSpaceAroundImage() override { return 0; }
+
         
     protected:
         bool isDarkMode;

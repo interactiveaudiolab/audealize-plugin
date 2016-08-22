@@ -70,7 +70,7 @@ namespace Audealize{
             return String(f * 1000, 1);
         };
         textToVal = [](String s) {
-            return s.getDoubleValue() * .001;
+            return s.initialSectionContainingOnly("1234567890.,-").getDoubleValue() * .001;
         };
         mSliderD->setValueToTextFunction(valToText);
         mSliderD->setTextToValueFunction(textToVal);
@@ -110,7 +110,7 @@ namespace Audealize{
             return s;
         };
         textToVal = [](String s) {
-            return s.getDoubleValue() * .001;
+            return s.initialSectionContainingOnly("1234567890.,-").getDoubleValue() * .001;
         };
         mSliderM->setValueToTextFunction(valToText);
         mSliderM->setTextToValueFunction(textToVal);
@@ -135,10 +135,10 @@ namespace Audealize{
         mSliderE->setTextValueSuffix(" %");
         
         valToText = [](float f) {
-            return String(f * 100, 0);
+            return String(roundToInt(f * 100));
         };
         textToVal = [](String s) {
-            return s.getDoubleValue() * .01;
+            return s.initialSectionContainingOnly("1234567890.,-").getDoubleValue() * .01;
         };
         
         mSliderE->setValueToTextFunction(valToText);

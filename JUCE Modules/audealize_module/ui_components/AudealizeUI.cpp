@@ -34,6 +34,8 @@ namespace Audealize{
         
         mEffectType = effectType;
         
+        mToolTip.setMillisecondsBeforeTipAppears(25);
+        
         // Load file with descriptors, parse into nlohman::json object
         ifstream infile;
         infile.open(mPathToPoints.toUTF8());
@@ -104,7 +106,8 @@ namespace Audealize{
             mDarkModeGraphicLight = Drawable::createFromImageData (AudealizeImages::darkModeButtonLight_svg, AudealizeImages::darkModeButtonLight_svgSize);
             
             addAndMakeVisible(mDarkModeButton = new DrawableButton("Dark", DrawableButton::ButtonStyle::ImageOnButtonBackground));
-            
+            mDarkModeButton->setTooltip("Dark/Light theme");
+
             if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
                 mDarkModeButton->setImages(mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight);
             }
@@ -355,12 +358,10 @@ namespace Audealize{
             bool isDark = static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive();
             if (isDark){
                 setLookAndFeel(&mLookAndFeel);
-                mAboutComponent->setLookAndFeel(&mLookAndFeel);
                 mDarkModeButton->setImages(mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
             }
             else{
                 setLookAndFeel(&mLookAndFeelDark);
-                mAboutComponent->setLookAndFeel(&mLookAndFeelDark);
                 mDarkModeButton->setImages(mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight);
             }
             
@@ -374,6 +375,9 @@ namespace Audealize{
     
     void AudealizeUI::lookAndFeelChanged()
     {
+        mToolTip.setLookAndFeel(&getLookAndFeel());
+        if (!isMultiEffect)
+            mAboutComponent->setLookAndFeel(&getLookAndFeel());
     }
     
     void AudealizeUI::childrenChanged()
@@ -404,7 +408,6 @@ namespace Audealize{
         }
         else{
             mLabelLess->setText("Less \"" + message + "\"", NotificationType::sendNotification); // change the text of the amount slider label to include the descriptor
-        
         }
     }
     

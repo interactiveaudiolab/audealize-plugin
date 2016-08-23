@@ -65,6 +65,10 @@ namespace Audealize {
         setColour(CaretComponent::caretColourId, textGray);
         setColour(HyperlinkButton::textColourId, textGray.brighter(.3));
         
+        setColour(TooltipWindow::textColourId, textGray);
+        setColour(TooltipWindow::backgroundColourId, darkGray);
+        setColour(TooltipWindow::outlineColourId, darkGray.brighter(.1));
+        
         LookAndFeel::setDefaultSansSerifTypefaceName("Roboto");
         
         shouldDrawOutlines = false;
@@ -127,6 +131,10 @@ namespace Audealize {
         setColour(CaretComponent::caretColourId, Colours::black);
         setColour(HyperlinkButton::textColourId, Colours::black.brighter(.3));
         
+        setColour(TooltipWindow::textColourId, Colours::black);
+        setColour(TooltipWindow::backgroundColourId, Colours::white);
+        setColour(TooltipWindow::outlineColourId, outline);
+
         LookAndFeel::setDefaultSansSerifTypefaceName("Roboto");
         
         shouldDrawOutlines = true;
@@ -242,9 +250,6 @@ namespace Audealize {
     
     void AudealizeLookAndFeel::drawButtonShape (Graphics& g, const Path& outline, Colour baseColour, float height)
     {
-        const float mainBrightness = baseColour.getBrightness();
-        const float mainAlpha = baseColour.getFloatAlpha();
-        
         g.setColour(baseColour);
         
         g.fillPath (outline);
@@ -541,7 +546,6 @@ namespace Audealize {
             }
             
             {
-                const float innerRadius = radius * 0.2f;
                 Path p;
                 float rectHeight = radius * .3f;
                 float rectWidth = radius * .15f;
@@ -632,7 +636,6 @@ namespace Audealize {
             }
             
             {
-                const float innerRadius = radius * 0.2f;
                 Path p;
                 float rectHeight = radius * .3f;
                 float rectWidth = radius * .15f;

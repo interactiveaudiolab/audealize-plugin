@@ -30,6 +30,8 @@ public:
     void resized() override;
     void childrenChanged() override;
 
+    void lookAndFeelChanged() override;
+    
     void buttonClicked (Button* buttonThatWasClicked) override;
 
 private:
@@ -42,6 +44,8 @@ private:
 
     int prevChildHeight;
 
+    TooltipWindow mToolTip;
+    
     ScopedPointer<AudealizeTabbedComponent> mTabbedComponent;
     ScopedPointer<Label> label;
 

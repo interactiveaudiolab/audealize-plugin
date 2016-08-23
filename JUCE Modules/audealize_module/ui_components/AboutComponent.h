@@ -33,6 +33,7 @@ private:
     ScopedPointer<HyperlinkButton> audealizeLink;
     ScopedPointer<Label> label3;
     ScopedPointer<Label> label4;
+    ScopedPointer<Label> label5;
     ScopedPointer<HyperlinkButton> labLink;
     ScopedPointer<Drawable> drawable1;
 

@@ -37,12 +37,18 @@ AboutComponent::AboutComponent ()
     label3->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
     
     addAndMakeVisible (label4 = new Label ("new label",
-                                           TRANS("What is Audealize?")));
-    label4->setFont (Font (Font::getDefaultSansSerifFontName(), 18.00f, Font::bold));
+                                           "Audealize"));
+    label4->setFont (Font (Font::getDefaultSansSerifFontName(), 26.00f, Font::bold));
     label4->setJustificationType (Justification::centredLeft);
     label4->setEditable (false, false, false);
     label4->setColour (TextEditor::textColourId, Colours::black);
     label4->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    
+    addAndMakeVisible (label5 = new Label ("new label",
+                                           " v" + String(ProjectInfo::versionString)));
+    label5->setFont (Font (Font::getDefaultSansSerifFontName(), 10.00f, Font::plain));
+    label5->setJustificationType (Justification::bottomLeft);
+    label5->setEditable (false, false, false);
     
     addAndMakeVisible (labLink = new HyperlinkButton (TRANS("music.cs.northwestern.edu"),
                                                       URL ("http://music.cs.northwestern.edu")));
@@ -62,6 +68,7 @@ AboutComponent::~AboutComponent()
     audealizeLink = nullptr;
     label3 = nullptr;
     label4 = nullptr;
+    label5 = nullptr;
     labLink = nullptr;
     drawable1 = nullptr;
 }
@@ -87,6 +94,7 @@ void AboutComponent::resized()
     audealizeLink->setBounds (276, 198, 184, 24);
     label3->setBounds (24, 46, proportionOfWidth (0.4516f), 210);
     label4->setBounds (24, 16, 150, 24);
+    label5->setBounds (114, 14, 150, 25);
     labLink->setBounds (249, 222, 240, 24);
 }
 

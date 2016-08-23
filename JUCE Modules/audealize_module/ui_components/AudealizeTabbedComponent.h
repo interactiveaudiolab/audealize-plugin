@@ -20,7 +20,7 @@ namespace Audealize{
         }
         ~AudealizeTabbedComponent(){};
         
-        void resized(){
+        void resized() override {
             TabbedComponent::resized();
 
             tabs->setBounds(30, 0, getWidth() - 55, getTabBarDepth());

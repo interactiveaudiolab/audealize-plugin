@@ -10,11 +10,31 @@ namespace Audealize{
     AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType, bool isPluginMultiEffect)
     : AudioProcessorEditor(&p), processor(p), mPathToPoints(pathToPoints), mTradUI(t)
     {
-        LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
-        
+        // load properties, set dark mode accordingly
+        properties = Properties::loadPropertiesVar();
+        if (!properties.isVoid() && !properties.isUndefined()){
+            var darkMode = properties.getDynamicObject()->getProperty("darkmode");
+            if (darkMode.isBool()){
+                if ((bool) darkMode){
+                    LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
+                }
+                else {
+                    LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
+                }
+            }
+        }
+        else{
+            DynamicObject* temp = new DynamicObject();
+            temp->setProperty("darkmode", false);
+            properties = var(temp);
+            LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
+        }
+
         isMultiEffect = isPluginMultiEffect;
         
         mEffectType = effectType;
+        
+        mToolTip.setMillisecondsBeforeTipAppears(25);
         
         // Load file with descriptors, parse into nlohman::json object
         ifstream infile;
@@ -86,7 +106,8 @@ namespace Audealize{
             mDarkModeGraphicLight = Drawable::createFromImageData (AudealizeImages::darkModeButtonLight_svg, AudealizeImages::darkModeButtonLight_svgSize);
             
             addAndMakeVisible(mDarkModeButton = new DrawableButton("Dark", DrawableButton::ButtonStyle::ImageOnButtonBackground));
-            
+            mDarkModeButton->setTooltip("Dark/Light theme");
+
             if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
                 mDarkModeButton->setImages(mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight);
             }
@@ -152,7 +173,7 @@ namespace Audealize{
     }
     
     AudealizeUI::~AudealizeUI()
-    {
+    {        
         mAlertBox = nullptr;
         mAmountSliderAttachment = nullptr;
         mResizer = nullptr;
@@ -334,7 +355,8 @@ namespace Audealize{
         }
         
         else if (buttonThatWasClicked == mDarkModeButton){
-            if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
+            bool isDark = static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive();
+            if (isDark){
                 setLookAndFeel(&mLookAndFeel);
                 mDarkModeButton->setImages(mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
             }
@@ -342,11 +364,20 @@ namespace Audealize{
                 setLookAndFeel(&mLookAndFeelDark);
                 mDarkModeButton->setImages(mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight);
             }
+            
+            
+            if (!isMultiEffect){
+                properties.getDynamicObject()->setProperty("darkmode", !isDark);
+                Properties::writePropertiesToFile(properties);
+            }
         }
     }
     
     void AudealizeUI::lookAndFeelChanged()
     {
+        mToolTip.setLookAndFeel(&getLookAndFeel());
+        if (!isMultiEffect)
+            mAboutComponent->setLookAndFeel(&getLookAndFeel());
     }
     
     void AudealizeUI::childrenChanged()
@@ -377,7 +408,6 @@ namespace Audealize{
         }
         else{
             mLabelLess->setText("Less \"" + message + "\"", NotificationType::sendNotification); // change the text of the amount slider label to include the descriptor
-        
         }
     }
     

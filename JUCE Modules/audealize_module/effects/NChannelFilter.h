@@ -46,7 +46,9 @@ namespace Audealize{
          *  @return the filtered Sample
          */
         float processSample(float sample, int channelIdx){
-            return filters[channelIdx].process(sample);
+            float out = filters[channelIdx].process(sample);
+            JUCE_UNDENORMALISE(out);
+            return out;
         }
         
         /**

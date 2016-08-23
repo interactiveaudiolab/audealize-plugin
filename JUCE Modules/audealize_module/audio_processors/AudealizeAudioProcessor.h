@@ -50,7 +50,7 @@ namespace Audealize{
          *
          *  @param destData Memory block in which to store parameter data
          */
-        void getStateInformation (MemoryBlock& destData)
+        void getStateInformation(MemoryBlock& destData) override
         {
             MemoryOutputStream stream(destData, false);
             mState->state.writeToStream (stream);
@@ -62,7 +62,7 @@ namespace Audealize{
          *  @param data        Pointer to the memory block
          *  @param sizeInBytes Size of the memory block in bytes
          */
-        void setStateInformation (const void* data, int sizeInBytes)
+        void setStateInformation(const void* data, int sizeInBytes) override
         {
             ValueTree tree = ValueTree::readFromData (data, sizeInBytes);
             if (tree.isValid()) {
@@ -76,7 +76,7 @@ namespace Audealize{
          *  @param parameterID The ID of the parameter that was changed
          *  @param newValue    The new value for that parameter
          */
-        virtual void parameterChanged(const juce::String &parameterID, float newValue) {};
+        virtual void parameterChanged(const juce::String &parameterID, float newValue) override {};
         
         /**
          *  Set the states of all parameters with a vector<float>. To be called by a WordMap
@@ -140,6 +140,10 @@ namespace Audealize{
         
         AudioProcessorParameter* getParameterPtrFromID(String paramID){
             return mState->getParameter(paramID);
+        }
+        
+        bool isMetaParameter(int parameterIndex) const override {
+            return true;
         }
         
     protected:

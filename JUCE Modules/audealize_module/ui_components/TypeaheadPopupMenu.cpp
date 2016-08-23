@@ -167,6 +167,7 @@ void TypeaheadEditor::textEditorTextChanged(TextEditor&)
     }
     if (setFromMap){
         setFromMap = false;
+        return;
     }
     
     for (auto o : options)

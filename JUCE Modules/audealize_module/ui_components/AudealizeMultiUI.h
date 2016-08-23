@@ -24,16 +24,19 @@ public:
     AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> AudealizeUIs);
     ~AudealizeMultiUI();
 
-    void actionListenerCallback(const juce::String &message);
-    void currentTabChanged (int newCurrentTabIndex, const String &newCurrentTabName);
+    void actionListenerCallback(const juce::String &message) override;
 
     void paint (Graphics& g) override;
     void resized() override;
     void childrenChanged() override;
 
+    void lookAndFeelChanged() override;
+    
     void buttonClicked (Button* buttonThatWasClicked) override;
 
 private:
+    var properties;
+    
     vector<AudealizeUI*> mAudealizeUIs;
 
     ScopedPointer<ResizableCornerComponent> mResizer; // handles resizing of the plugin window
@@ -41,6 +44,8 @@ private:
 
     int prevChildHeight;
 
+    TooltipWindow mToolTip;
+    
     ScopedPointer<AudealizeTabbedComponent> mTabbedComponent;
     ScopedPointer<Label> label;
 

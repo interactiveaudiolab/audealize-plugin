@@ -99,6 +99,8 @@ namespace Audealize{
     private:
         AudealizeAudioProcessor& processor;
         
+        var properties;
+        
         String mPathToPoints; // path to .json file containing descriptor data
         
         ScopedPointer<NativeMessageBox> mAlertBox; // alert window, currently used to warn if no languages are selected

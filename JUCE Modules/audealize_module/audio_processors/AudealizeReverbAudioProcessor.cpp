@@ -108,7 +108,7 @@ void AudealizereverbAudioProcessor::prepareToPlay (double sampleRate, int sample
     
     // Initialize parameter smoothers
     for (int i = 0; i < kNumParams; i++){
-        mSmoothedVals[i].reset(sampleRate, 0.00019);
+        mSmoothedVals[i].reset(sampleRate, 0.0001);
     }
     
     mSmoothedVals[kParamD].setValue(DEFAULT_D);
@@ -164,7 +164,6 @@ void AudealizereverbAudioProcessor::processBlock (AudioSampleBuffer& buffer, Mid
 
     // Parameter smoothing
     float diff;
-    float paramValue;
     
     diff = fabs (mReverb.get_d() - mSmoothedVals[kParamD].getTargetValue());
     if (diff > 0.01f * mSmoothedVals[kParamD].getTargetValue()){

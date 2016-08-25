@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="SjJc63" name="Audealize" projectType="audioplug" version="0.1.0b"
+<JUCERPROJECT id="SjJc63" name="Audealize" projectType="audioplug" version="0.1.1b"
               bundleIdentifier="com.InteractiveAudioLab.Audealize" includeBinaryInAppConfig="1"
               buildVST="1" buildVST3="1" buildAU="1" buildAUv3="1" buildRTAS="0"
               buildAAX="1" pluginName="Audealize" pluginDesc="Audealize" pluginManufacturer="Interactive Audio Lab"
@@ -25,11 +25,13 @@
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Audealize"
                        headerPath="/usr/local/WordNet-3.0/include" libraryPath="/usr/local/WordNet-3.0/lib"
                        xcodeAudioUnitBinaryLocation="/Library/Audio/Plug-Ins/Components"
-                       xcodeVst3BinaryLocation="/Library/Audio/Plug-Ins/VST3/" xcodeVstBinaryLocation="/Library/Audio/Plug-Ins/VST/"/>
+                       xcodeVst3BinaryLocation="/Library/Audio/Plug-Ins/VST3/" xcodeVstBinaryLocation="/Library/Audio/Plug-Ins/VST/"
+                       osxArchitecture="64BitUniversal" osxCompatibility="10.9 SDK"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Audealize"
                        headerPath="/usr/local/WordNet-3.0/include" libraryPath="/usr/local/WordNet-3.0/lib"
                        xcodeVstBinaryLocation="/Library/Audio/Plug-Ins/VST/" xcodeVst3BinaryLocation="/Library/Audio/Plug-Ins/VST3/"
-                       xcodeAudioUnitBinaryLocation="/Library/Audio/Plug-Ins/Components"/>
+                       xcodeAudioUnitBinaryLocation="/Library/Audio/Plug-Ins/Components"
+                       osxCompatibility="10.9 SDK" osxArchitecture="64BitUniversal"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE Modules"/>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="ZTUKhG" name="Audealize Reverb" projectType="audioplug" version="0.1.0b"
+<JUCERPROJECT id="ZTUKhG" name="Audealize Reverb" projectType="audioplug" version="0.1.1b"
               bundleIdentifier="com.InteractiveAudioLab.AudealizeReverb" includeBinaryInAppConfig="1"
               buildVST="1" buildVST3="1" buildAU="1" buildAUv3="1" buildRTAS="0"
               buildAAX="1" pluginName="Audealize Reverb" pluginDesc="Audealize Reverb"
@@ -26,11 +26,13 @@
         <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="Audealize-Reverb"
                        libraryPath="/usr/local/WordNet-3.0/lib" headerPath="/usr/local/WordNet-3.0/include"
                        xcodeVstBinaryLocation="/Library/Audio/Plug-Ins/VST/" xcodeVst3BinaryLocation="/Library/Audio/Plug-Ins/VST3/"
-                       xcodeAudioUnitBinaryLocation="/Library/Audio/Plug-Ins/Components"/>
+                       xcodeAudioUnitBinaryLocation="/Library/Audio/Plug-Ins/Components"
+                       osxCompatibility="10.9 SDK" osxArchitecture="64BitUniversal"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Audealize-Reverb"
                        libraryPath="/usr/local/WordNet-3.0/lib" headerPath="/usr/local/WordNet-3.0/include"
                        xcodeAudioUnitBinaryLocation="/Library/Audio/Plug-Ins/Components"
-                       xcodeVst3BinaryLocation="/Library/Audio/Plug-Ins/VST3/" xcodeVstBinaryLocation="/Library/Audio/Plug-Ins/VST/"/>
+                       xcodeVst3BinaryLocation="/Library/Audio/Plug-Ins/VST3/" xcodeVstBinaryLocation="/Library/Audio/Plug-Ins/VST/"
+                       osxArchitecture="64BitUniversal" osxCompatibility="10.9 SDK"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE Modules"/>

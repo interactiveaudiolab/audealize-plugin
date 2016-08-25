@@ -21,21 +21,20 @@ public:
         backgroundColourId = 0x2000700,
         textColourId = 0x2000701
     };
-    
 
     void paint (Graphics& g) override;
     void resized() override;
     void buttonClicked (Button* buttonThatWasClicked) override;
 
 private:
-    ScopedPointer<Label> NSF;
-    ScopedPointer<Label> label2;
+    ScopedPointer<Label> mGrantInfoLabel;
+    ScopedPointer<Label> mCopyrightLabel;
     ScopedPointer<HyperlinkButton> audealizeLink;
-    ScopedPointer<Label> label3;
-    ScopedPointer<Label> label4;
-    ScopedPointer<Label> label5;
-    ScopedPointer<HyperlinkButton> labLink;
-    ScopedPointer<Drawable> drawable1;
+    ScopedPointer<Label> mDescriptionLabel;
+    ScopedPointer<Label> mAudealizeLabel;
+    ScopedPointer<Label> mVersionLabel;
+    ScopedPointer<HyperlinkButton> mLabLinkButton;
+    ScopedPointer<Drawable> mLogoDrawable;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AboutComponent)
 };

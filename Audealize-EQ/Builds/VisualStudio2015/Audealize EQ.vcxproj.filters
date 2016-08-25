@@ -448,6 +448,9 @@
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\LookAndFeel.cpp">
       <Filter>Juce Modules\audealize_module\LookAndFeel</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\LookAndFeel\LookAndFeel1.cpp">
+      <Filter>Juce Modules\audealize_module\LookAndFeel</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\resources\AudealizeImages.cpp">
       <Filter>Juce Modules\audealize_module\resources</Filter>
     </ClCompile>

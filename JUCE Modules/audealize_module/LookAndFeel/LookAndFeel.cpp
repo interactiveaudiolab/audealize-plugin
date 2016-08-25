@@ -4,7 +4,8 @@ using namespace juce;
 
 namespace Audealize {
     
-    AudealizeLookAndFeelDark::AudealizeLookAndFeelDark(){
+    AudealizeLookAndFeelDark::AudealizeLookAndFeelDark()
+    {
         isDarkMode = true;
         
         const Colour darkGray(0xff1c1c1c);
@@ -18,7 +19,8 @@ namespace Audealize {
         
         setColour(WordMap::backgroundColourId, darkGray);
         setColour(WordMap::outlineColourId, Colours::transparentWhite);
-        
+        setColour(WordMap::circleColourId, textGray);
+
         setColour(AudealizeUI::textColourId, textGray);
         setColour(AudealizeUI::backgroundColourId, midGray);
         
@@ -74,7 +76,8 @@ namespace Audealize {
         shouldDrawOutlines = false;
     }
     
-    AudealizeLookAndFeel::AudealizeLookAndFeel() : outline(0xff909090){
+    AudealizeLookAndFeel::AudealizeLookAndFeel() : outline(0xff909090)
+    {
         isDarkMode = false;
         
         const Colour sliderTrackFill(0xffeeeeee);
@@ -82,6 +85,7 @@ namespace Audealize {
         
         setColour(WordMap::backgroundColourId, Colours::white);
         setColour(WordMap::outlineColourId, outline);
+        setColour(WordMap::circleColourId, Colour(0xff999999));
         
         setColour(AudealizeUI::textColourId, Colours::black);
         setColour(AudealizeUI::backgroundColourId, Colours::white);
@@ -147,7 +151,7 @@ namespace Audealize {
     
     void AudealizeLookAndFeel::drawTabAreaBehindFrontButton (TabbedButtonBar& bar, Graphics& g, const int w, const int h)
     {
-        if (!shouldDrawOutlines){
+        if (!shouldDrawOutlines) {
             return;
         }
         

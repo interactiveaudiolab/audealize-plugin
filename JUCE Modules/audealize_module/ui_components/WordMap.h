@@ -27,7 +27,8 @@ namespace Audealize {
     public:
         enum ColourIds{
             backgroundColourId = 0x2000300,
-            outlineColourId = 0x2000301
+            outlineColourId    = 0x2000301,
+            circleColourId     = 0x2000302
         };
         
         

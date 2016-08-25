@@ -1,7 +1,7 @@
 //
 //  LookAndFeel.h
 //
-//  Custom LookAndFeel classes for Audealize plugins. Includes light and dark color schemes
+//  Custom juce::LookAndFeel classes for Audealize plugins. Includes light and dark color schemes
 //  Based on juce::LookAndFeel_V3, modified for flat look + all new rotary sliders.
 //
 
@@ -42,6 +42,11 @@ namespace LookAndFeelHelpers // from juce_LookAndFeel_V2.cpp
 }
 
 namespace Audealize {
+    //=====================================================
+    // AudealizeLookAndFeel
+    // (light theme)
+    //=====================================================
+
     class AudealizeLookAndFeel : public LookAndFeel_V3{
     public:
         AudealizeLookAndFeel();
@@ -100,7 +105,6 @@ namespace Audealize {
         int getTabButtonOverlap (int /*tabDepth*/) override { return -4; }
         int getTabButtonSpaceAroundImage() override { return 0; }
 
-        
     protected:
         bool isDarkMode;
         bool shouldDrawOutlines;
@@ -109,6 +113,12 @@ namespace Audealize {
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR ( AudealizeLookAndFeel );
     };
     
+
+    //=====================================================
+    // AudealizeLookAndFeelDark
+    // (dark theme)
+    //=====================================================
+
     class AudealizeLookAndFeelDark : public AudealizeLookAndFeel {
     public:
         AudealizeLookAndFeelDark();

@@ -39,7 +39,8 @@ namespace Audealize {
     {
     }
     
-    void WordMap::loadPoints(){
+    void WordMap::loadPoints()
+    {
         words.clear();
         points.clear();
         excluded_points.clear();
@@ -58,10 +59,12 @@ namespace Audealize {
         Point<float> point;
         Colour color;
         
-        for (json::iterator it = json_dict.begin(); it != json_dict.end(); ++it) {
+        for (json::iterator it = json_dict.begin(); it != json_dict.end(); ++it)
+        {
             lang = it.value()["lang"];
             // add languages to dictionary if not already present
-            if (languages.find(lang) == languages.end()){
+            if (languages.find(lang) == languages.end())
+            {
                 languages[lang] = true;
             }
             
@@ -70,7 +73,8 @@ namespace Audealize {
             
             
             // if word is in selected language(s), add to map
-            if (languages[lang]){
+            if (languages[lang])
+            {
                 word      = it.value()["word"];
                 agreement = it.value()["agreement"];
                 num       = it.value()["num"];
@@ -97,7 +101,8 @@ namespace Audealize {
                 
                 word_count++;
             }
-            else {
+            else
+            {
                 excluded_points.push_back(point);
             }
         }
@@ -135,16 +140,19 @@ namespace Audealize {
         }
         
         // Draw words
-        for (int i = 0; i < words.size(); i++) {
+        for (int i = 0; i < words.size(); i++)
+        {
             in_radius    = false;
             hover_radius = false;
             word         = words[i];
             font_size    = font_sizes[i];
             
-            if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
+            if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive())
+            {
                 color = colors[i].withMultipliedSaturation(.4).withMultipliedBrightness(1.7);
             }
-            else{
+            else
+            {
                 color = colors[i];
             }
             
@@ -153,30 +161,37 @@ namespace Audealize {
             
             collision = check_for_collision(point, plotted, font_size + word.length() + pad);
             
-            if (!init_map) {
+            if (!init_map)
+            {
                 in_radius = inRadius(point, circle_position, 75);
             }
             
-            if (isMouseOverOrDragging()) {
+            if (isMouseOverOrDragging())
+            {
                 hover_radius = inRadius(point, hover_position, 75);
             }
             
             // set word alpha
-            if (i == center_index || i == hover_center){
+            if (i == center_index || i == hover_center)
+            {
                 color = Colour::fromRGBA(color.getRed(), color.getGreen(), color.getBlue(), 255);
             }
-            else {
-                if (in_radius || hover_radius) {
+            else
+            {
+                if (in_radius || hover_radius)
+                {
                     color = Colour::fromRGBA(color.getRed(), color.getGreen(), color.getBlue(), alpha_range.snapToLegalValue(hover_alpha_value));
                 }
-                else {
+                else
+                {
                     color = Colour::fromRGBA(color.getRed(), color.getGreen(), color.getBlue(), alpha_range.snapToLegalValue( unhighlighted_alpha_value));
                 }
             }
 
             // end set alpha
             
-            if(!collision || hover_radius || in_radius) {
+            if(!collision || hover_radius || in_radius)
+            {
                 plot_word(word, color, font_size, point, g);
             }
             
@@ -184,14 +199,18 @@ namespace Audealize {
             plotted.push_back(point);
         } // end word loop
         
-        // Draw circles
-        if (!init_map){
-            g.setColour(Colour::fromRGBA(128, 128, 128, 150));
+        // selection circle
+        if (!init_map)
+        {
+            g.setColour(findColour(circleColourId).withMultipliedAlpha(.7));
             //g.drawImage(ImageCache::getFromMemory(Resources::circleDark_png, Resources::circleDark_pngSize) , circle_position.getX()-16, circle_position.getY()-16, 32, 32, 0, 0, 32, 32);
             g.drawEllipse(circle_position.getX()-16, circle_position.getY()-16, 32, 32, 2);
         }
-        if (has_been_hovered && !isMouseButtonDown()){
-            g.setColour(Colour::fromRGBA(200, 200, 200, 150));
+        
+        // mouse circle
+        if (has_been_hovered && !isMouseButtonDown())
+        {
+            g.setColour(findColour(circleColourId));
             g.drawEllipse(getMouseXYRelative().getX()-16, getMouseXYRelative().getY()-16, 32, 32, 2);
         }
         
@@ -204,7 +223,8 @@ namespace Audealize {
         g.setColour(Colours::grey);
         g.drawText(info_text, getWidth() - 420, getHeight() - 22, 412, 18, Justification::bottomRight);
         
-        if (!init_map) {
+        if (!init_map)
+        {
             info_text = String("\"" + words[center_index] + "\" learned from " + String(nums[center_index]) + " contributions.");
             g.drawText(info_text, 6, getHeight() - 22, 250, 18, Justification::bottomLeft);
         }
@@ -235,7 +255,8 @@ namespace Audealize {
         setDirty();
     }
     
-    void WordMap::mouseExit(const MouseEvent& e){
+    void WordMap::mouseExit(const MouseEvent& e)
+    {
         hover_position = getMouseXYRelative().toFloat();
     }
     
@@ -256,7 +277,8 @@ namespace Audealize {
         setDirty();
     }
     
-    void WordMap::wordSelected(String word){
+    void WordMap::wordSelected(String word)
+    {
         sendActionMessage(word); // broadcast a message containing the descriptor to all ActionListeners. this will
         
         init_map = false; // word has been selected, map is no longer in initial state

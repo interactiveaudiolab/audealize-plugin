@@ -73,16 +73,16 @@ DIST_SOURCES = $(wishwn_SOURCES) $(wn_SOURCES)
 ETAGS = etags
 CTAGS = ctags
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /Users/michael/Downloads/WordNet-3.0/missing --run aclocal-1.9
-AMDEP_FALSE = #
-AMDEP_TRUE = 
-AMTAR = ${SHELL} /Users/michael/Downloads/WordNet-3.0/missing --run tar
-AUTOCONF = ${SHELL} /Users/michael/Downloads/WordNet-3.0/missing --run autoconf
-AUTOHEADER = ${SHELL} /Users/michael/Downloads/WordNet-3.0/missing --run autoheader
-AUTOMAKE = ${SHELL} /Users/michael/Downloads/WordNet-3.0/missing --run automake-1.9
+ACLOCAL = aclocal-1.9
+AMDEP_FALSE = 
+AMDEP_TRUE = #
+AMTAR = tar
+AUTOCONF = autoconf
+AUTOHEADER = autoheader
+AUTOMAKE = automake-1.9
 AWK = awk
 CC = gcc
-CCDEPMODE = depmode=gcc3
+CCDEPMODE = depmode=none
 CFLAGS = -g -O2
 CPP = gcc -E
 CPPFLAGS = 
@@ -102,7 +102,7 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /Users/michael/Downloads/WordNet-3.0/missing --run makeinfo
+MAKEINFO = makeinfo
 OBJEXT = o
 PACKAGE = WordNet
 PACKAGE_BUGREPORT = wordnet@princeton.edu
@@ -126,8 +126,8 @@ ac_ct_CC = gcc
 ac_ct_RANLIB = ranlib
 ac_ct_STRIP = 
 ac_prefix = /usr/local/WordNet-3.0
-am__fastdepCC_FALSE = #
-am__fastdepCC_TRUE = 
+am__fastdepCC_FALSE = 
+am__fastdepCC_TRUE = #
 am__include = include
 am__leading_dot = .
 am__quote = 
@@ -140,7 +140,7 @@ exec_prefix = ${prefix}
 host_alias = 
 includedir = ${prefix}/include
 infodir = ${prefix}/info
-install_sh = /Users/michael/Downloads/WordNet-3.0/install-sh
+install_sh = /Users/michael/JUCE/projects/audealize-plugin/JUCE Modules/audealize_module/WordNet-3.0/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localstatedir = ${prefix}/var
@@ -251,65 +251,65 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/wishwn-stubs.Po
-include ./$(DEPDIR)/wishwn-tkAppInit.Po
-include ./$(DEPDIR)/wn-wn.Po
+#include ./$(DEPDIR)/wishwn-stubs.Po
+#include ./$(DEPDIR)/wishwn-tkAppInit.Po
+#include ./$(DEPDIR)/wn-wn.Po
 
 .c.o:
-	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ $<; \
-	then mv -f "$(DEPDIR)/$*.Tpo" "$(DEPDIR)/$*.Po"; else rm -f "$(DEPDIR)/$*.Tpo"; exit 1; fi
-#	source='$<' object='$@' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(COMPILE) -c $<
+#	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ $<; \
+#	then mv -f "$(DEPDIR)/$*.Tpo" "$(DEPDIR)/$*.Po"; else rm -f "$(DEPDIR)/$*.Tpo"; exit 1; fi
+#	source='$<' object='$@' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(COMPILE) -c $<
 
 .c.obj:
-	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ `$(CYGPATH_W) '$<'`; \
-	then mv -f "$(DEPDIR)/$*.Tpo" "$(DEPDIR)/$*.Po"; else rm -f "$(DEPDIR)/$*.Tpo"; exit 1; fi
-#	source='$<' object='$@' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(COMPILE) -c `$(CYGPATH_W) '$<'`
+#	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ `$(CYGPATH_W) '$<'`; \
+#	then mv -f "$(DEPDIR)/$*.Tpo" "$(DEPDIR)/$*.Po"; else rm -f "$(DEPDIR)/$*.Tpo"; exit 1; fi
+#	source='$<' object='$@' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
 wishwn-tkAppInit.o: tkAppInit.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wishwn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT wishwn-tkAppInit.o -MD -MP -MF "$(DEPDIR)/wishwn-tkAppInit.Tpo" -c -o wishwn-tkAppInit.o `test -f 'tkAppInit.c' || echo '$(srcdir)/'`tkAppInit.c; \
-	then mv -f "$(DEPDIR)/wishwn-tkAppInit.Tpo" "$(DEPDIR)/wishwn-tkAppInit.Po"; else rm -f "$(DEPDIR)/wishwn-tkAppInit.Tpo"; exit 1; fi
-#	source='tkAppInit.c' object='wishwn-tkAppInit.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wishwn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o wishwn-tkAppInit.o `test -f 'tkAppInit.c' || echo '$(srcdir)/'`tkAppInit.c
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wishwn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT wishwn-tkAppInit.o -MD -MP -MF "$(DEPDIR)/wishwn-tkAppInit.Tpo" -c -o wishwn-tkAppInit.o `test -f 'tkAppInit.c' || echo '$(srcdir)/'`tkAppInit.c; \
+#	then mv -f "$(DEPDIR)/wishwn-tkAppInit.Tpo" "$(DEPDIR)/wishwn-tkAppInit.Po"; else rm -f "$(DEPDIR)/wishwn-tkAppInit.Tpo"; exit 1; fi
+#	source='tkAppInit.c' object='wishwn-tkAppInit.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wishwn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o wishwn-tkAppInit.o `test -f 'tkAppInit.c' || echo '$(srcdir)/'`tkAppInit.c
 
 wishwn-tkAppInit.obj: tkAppInit.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wishwn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT wishwn-tkAppInit.obj -MD -MP -MF "$(DEPDIR)/wishwn-tkAppInit.Tpo" -c -o wishwn-tkAppInit.obj `if test -f 'tkAppInit.c'; then $(CYGPATH_W) 'tkAppInit.c'; else $(CYGPATH_W) '$(srcdir)/tkAppInit.c'; fi`; \
-	then mv -f "$(DEPDIR)/wishwn-tkAppInit.Tpo" "$(DEPDIR)/wishwn-tkAppInit.Po"; else rm -f "$(DEPDIR)/wishwn-tkAppInit.Tpo"; exit 1; fi
-#	source='tkAppInit.c' object='wishwn-tkAppInit.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wishwn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o wishwn-tkAppInit.obj `if test -f 'tkAppInit.c'; then $(CYGPATH_W) 'tkAppInit.c'; else $(CYGPATH_W) '$(srcdir)/tkAppInit.c'; fi`
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wishwn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT wishwn-tkAppInit.obj -MD -MP -MF "$(DEPDIR)/wishwn-tkAppInit.Tpo" -c -o wishwn-tkAppInit.obj `if test -f 'tkAppInit.c'; then $(CYGPATH_W) 'tkAppInit.c'; else $(CYGPATH_W) '$(srcdir)/tkAppInit.c'; fi`; \
+#	then mv -f "$(DEPDIR)/wishwn-tkAppInit.Tpo" "$(DEPDIR)/wishwn-tkAppInit.Po"; else rm -f "$(DEPDIR)/wishwn-tkAppInit.Tpo"; exit 1; fi
+#	source='tkAppInit.c' object='wishwn-tkAppInit.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wishwn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o wishwn-tkAppInit.obj `if test -f 'tkAppInit.c'; then $(CYGPATH_W) 'tkAppInit.c'; else $(CYGPATH_W) '$(srcdir)/tkAppInit.c'; fi`
 
 wishwn-stubs.o: stubs.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wishwn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT wishwn-stubs.o -MD -MP -MF "$(DEPDIR)/wishwn-stubs.Tpo" -c -o wishwn-stubs.o `test -f 'stubs.c' || echo '$(srcdir)/'`stubs.c; \
-	then mv -f "$(DEPDIR)/wishwn-stubs.Tpo" "$(DEPDIR)/wishwn-stubs.Po"; else rm -f "$(DEPDIR)/wishwn-stubs.Tpo"; exit 1; fi
-#	source='stubs.c' object='wishwn-stubs.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wishwn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o wishwn-stubs.o `test -f 'stubs.c' || echo '$(srcdir)/'`stubs.c
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wishwn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT wishwn-stubs.o -MD -MP -MF "$(DEPDIR)/wishwn-stubs.Tpo" -c -o wishwn-stubs.o `test -f 'stubs.c' || echo '$(srcdir)/'`stubs.c; \
+#	then mv -f "$(DEPDIR)/wishwn-stubs.Tpo" "$(DEPDIR)/wishwn-stubs.Po"; else rm -f "$(DEPDIR)/wishwn-stubs.Tpo"; exit 1; fi
+#	source='stubs.c' object='wishwn-stubs.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wishwn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o wishwn-stubs.o `test -f 'stubs.c' || echo '$(srcdir)/'`stubs.c
 
 wishwn-stubs.obj: stubs.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wishwn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT wishwn-stubs.obj -MD -MP -MF "$(DEPDIR)/wishwn-stubs.Tpo" -c -o wishwn-stubs.obj `if test -f 'stubs.c'; then $(CYGPATH_W) 'stubs.c'; else $(CYGPATH_W) '$(srcdir)/stubs.c'; fi`; \
-	then mv -f "$(DEPDIR)/wishwn-stubs.Tpo" "$(DEPDIR)/wishwn-stubs.Po"; else rm -f "$(DEPDIR)/wishwn-stubs.Tpo"; exit 1; fi
-#	source='stubs.c' object='wishwn-stubs.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wishwn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o wishwn-stubs.obj `if test -f 'stubs.c'; then $(CYGPATH_W) 'stubs.c'; else $(CYGPATH_W) '$(srcdir)/stubs.c'; fi`
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wishwn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT wishwn-stubs.obj -MD -MP -MF "$(DEPDIR)/wishwn-stubs.Tpo" -c -o wishwn-stubs.obj `if test -f 'stubs.c'; then $(CYGPATH_W) 'stubs.c'; else $(CYGPATH_W) '$(srcdir)/stubs.c'; fi`; \
+#	then mv -f "$(DEPDIR)/wishwn-stubs.Tpo" "$(DEPDIR)/wishwn-stubs.Po"; else rm -f "$(DEPDIR)/wishwn-stubs.Tpo"; exit 1; fi
+#	source='stubs.c' object='wishwn-stubs.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wishwn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o wishwn-stubs.obj `if test -f 'stubs.c'; then $(CYGPATH_W) 'stubs.c'; else $(CYGPATH_W) '$(srcdir)/stubs.c'; fi`
 
 wn-wn.o: wn.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT wn-wn.o -MD -MP -MF "$(DEPDIR)/wn-wn.Tpo" -c -o wn-wn.o `test -f 'wn.c' || echo '$(srcdir)/'`wn.c; \
-	then mv -f "$(DEPDIR)/wn-wn.Tpo" "$(DEPDIR)/wn-wn.Po"; else rm -f "$(DEPDIR)/wn-wn.Tpo"; exit 1; fi
-#	source='wn.c' object='wn-wn.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o wn-wn.o `test -f 'wn.c' || echo '$(srcdir)/'`wn.c
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT wn-wn.o -MD -MP -MF "$(DEPDIR)/wn-wn.Tpo" -c -o wn-wn.o `test -f 'wn.c' || echo '$(srcdir)/'`wn.c; \
+#	then mv -f "$(DEPDIR)/wn-wn.Tpo" "$(DEPDIR)/wn-wn.Po"; else rm -f "$(DEPDIR)/wn-wn.Tpo"; exit 1; fi
+#	source='wn.c' object='wn-wn.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o wn-wn.o `test -f 'wn.c' || echo '$(srcdir)/'`wn.c
 
 wn-wn.obj: wn.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT wn-wn.obj -MD -MP -MF "$(DEPDIR)/wn-wn.Tpo" -c -o wn-wn.obj `if test -f 'wn.c'; then $(CYGPATH_W) 'wn.c'; else $(CYGPATH_W) '$(srcdir)/wn.c'; fi`; \
-	then mv -f "$(DEPDIR)/wn-wn.Tpo" "$(DEPDIR)/wn-wn.Po"; else rm -f "$(DEPDIR)/wn-wn.Tpo"; exit 1; fi
-#	source='wn.c' object='wn-wn.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o wn-wn.obj `if test -f 'wn.c'; then $(CYGPATH_W) 'wn.c'; else $(CYGPATH_W) '$(srcdir)/wn.c'; fi`
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT wn-wn.obj -MD -MP -MF "$(DEPDIR)/wn-wn.Tpo" -c -o wn-wn.obj `if test -f 'wn.c'; then $(CYGPATH_W) 'wn.c'; else $(CYGPATH_W) '$(srcdir)/wn.c'; fi`; \
+#	then mv -f "$(DEPDIR)/wn-wn.Tpo" "$(DEPDIR)/wn-wn.Po"; else rm -f "$(DEPDIR)/wn-wn.Tpo"; exit 1; fi
+#	source='wn.c' object='wn-wn.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(wn_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o wn-wn.obj `if test -f 'wn.c'; then $(CYGPATH_W) 'wn.c'; else $(CYGPATH_W) '$(srcdir)/wn.c'; fi`
 uninstall-info-am:
 
 ID: $(HEADERS) $(SOURCES) $(LISP) $(TAGS_FILES)

@@ -83,16 +83,16 @@ ETAGS = etags
 CTAGS = ctags
 DIST_SUBDIRS = $(SUBDIRS)
 DISTFILES = $(DIST_COMMON) $(DIST_SOURCES) $(TEXINFOS) $(EXTRA_DIST)
-ACLOCAL = ${SHELL} /Users/michael/Downloads/WordNet-3.0/missing --run aclocal-1.9
-AMDEP_FALSE = #
-AMDEP_TRUE = 
-AMTAR = ${SHELL} /Users/michael/Downloads/WordNet-3.0/missing --run tar
-AUTOCONF = ${SHELL} /Users/michael/Downloads/WordNet-3.0/missing --run autoconf
-AUTOHEADER = ${SHELL} /Users/michael/Downloads/WordNet-3.0/missing --run autoheader
-AUTOMAKE = ${SHELL} /Users/michael/Downloads/WordNet-3.0/missing --run automake-1.9
+ACLOCAL = aclocal-1.9
+AMDEP_FALSE = 
+AMDEP_TRUE = #
+AMTAR = tar
+AUTOCONF = autoconf
+AUTOHEADER = autoheader
+AUTOMAKE = automake-1.9
 AWK = awk
 CC = gcc
-CCDEPMODE = depmode=gcc3
+CCDEPMODE = depmode=none
 CFLAGS = -g -O2
 CPP = gcc -E
 CPPFLAGS = 
@@ -112,7 +112,7 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /Users/michael/Downloads/WordNet-3.0/missing --run makeinfo
+MAKEINFO = makeinfo
 OBJEXT = o
 PACKAGE = WordNet
 PACKAGE_BUGREPORT = wordnet@princeton.edu
@@ -136,8 +136,8 @@ ac_ct_CC = gcc
 ac_ct_RANLIB = ranlib
 ac_ct_STRIP = 
 ac_prefix = /usr/local/WordNet-3.0
-am__fastdepCC_FALSE = #
-am__fastdepCC_TRUE = 
+am__fastdepCC_FALSE = 
+am__fastdepCC_TRUE = #
 am__include = include
 am__leading_dot = .
 am__quote = 
@@ -150,7 +150,7 @@ exec_prefix = ${prefix}
 host_alias = 
 includedir = ${prefix}/include
 infodir = ${prefix}/info
-install_sh = /Users/michael/Downloads/WordNet-3.0/install-sh
+install_sh = /Users/michael/JUCE/projects/audealize-plugin/JUCE Modules/audealize_module/WordNet-3.0/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localstatedir = ${prefix}/var
@@ -241,125 +241,125 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/libWN_a-binsrch.Po
-include ./$(DEPDIR)/libWN_a-morph.Po
-include ./$(DEPDIR)/libWN_a-search.Po
-include ./$(DEPDIR)/libWN_a-wnglobal.Po
-include ./$(DEPDIR)/libWN_a-wnhelp.Po
-include ./$(DEPDIR)/libWN_a-wnrtl.Po
-include ./$(DEPDIR)/libWN_a-wnutil.Po
+#include ./$(DEPDIR)/libWN_a-binsrch.Po
+#include ./$(DEPDIR)/libWN_a-morph.Po
+#include ./$(DEPDIR)/libWN_a-search.Po
+#include ./$(DEPDIR)/libWN_a-wnglobal.Po
+#include ./$(DEPDIR)/libWN_a-wnhelp.Po
+#include ./$(DEPDIR)/libWN_a-wnrtl.Po
+#include ./$(DEPDIR)/libWN_a-wnutil.Po
 
 .c.o:
-	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ $<; \
-	then mv -f "$(DEPDIR)/$*.Tpo" "$(DEPDIR)/$*.Po"; else rm -f "$(DEPDIR)/$*.Tpo"; exit 1; fi
-#	source='$<' object='$@' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(COMPILE) -c $<
+#	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ $<; \
+#	then mv -f "$(DEPDIR)/$*.Tpo" "$(DEPDIR)/$*.Po"; else rm -f "$(DEPDIR)/$*.Tpo"; exit 1; fi
+#	source='$<' object='$@' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(COMPILE) -c $<
 
 .c.obj:
-	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ `$(CYGPATH_W) '$<'`; \
-	then mv -f "$(DEPDIR)/$*.Tpo" "$(DEPDIR)/$*.Po"; else rm -f "$(DEPDIR)/$*.Tpo"; exit 1; fi
-#	source='$<' object='$@' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(COMPILE) -c `$(CYGPATH_W) '$<'`
+#	if $(COMPILE) -MT $@ -MD -MP -MF "$(DEPDIR)/$*.Tpo" -c -o $@ `$(CYGPATH_W) '$<'`; \
+#	then mv -f "$(DEPDIR)/$*.Tpo" "$(DEPDIR)/$*.Po"; else rm -f "$(DEPDIR)/$*.Tpo"; exit 1; fi
+#	source='$<' object='$@' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(COMPILE) -c `$(CYGPATH_W) '$<'`
 
 libWN_a-binsrch.o: binsrch.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-binsrch.o -MD -MP -MF "$(DEPDIR)/libWN_a-binsrch.Tpo" -c -o libWN_a-binsrch.o `test -f 'binsrch.c' || echo '$(srcdir)/'`binsrch.c; \
-	then mv -f "$(DEPDIR)/libWN_a-binsrch.Tpo" "$(DEPDIR)/libWN_a-binsrch.Po"; else rm -f "$(DEPDIR)/libWN_a-binsrch.Tpo"; exit 1; fi
-#	source='binsrch.c' object='libWN_a-binsrch.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-binsrch.o `test -f 'binsrch.c' || echo '$(srcdir)/'`binsrch.c
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-binsrch.o -MD -MP -MF "$(DEPDIR)/libWN_a-binsrch.Tpo" -c -o libWN_a-binsrch.o `test -f 'binsrch.c' || echo '$(srcdir)/'`binsrch.c; \
+#	then mv -f "$(DEPDIR)/libWN_a-binsrch.Tpo" "$(DEPDIR)/libWN_a-binsrch.Po"; else rm -f "$(DEPDIR)/libWN_a-binsrch.Tpo"; exit 1; fi
+#	source='binsrch.c' object='libWN_a-binsrch.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-binsrch.o `test -f 'binsrch.c' || echo '$(srcdir)/'`binsrch.c
 
 libWN_a-binsrch.obj: binsrch.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-binsrch.obj -MD -MP -MF "$(DEPDIR)/libWN_a-binsrch.Tpo" -c -o libWN_a-binsrch.obj `if test -f 'binsrch.c'; then $(CYGPATH_W) 'binsrch.c'; else $(CYGPATH_W) '$(srcdir)/binsrch.c'; fi`; \
-	then mv -f "$(DEPDIR)/libWN_a-binsrch.Tpo" "$(DEPDIR)/libWN_a-binsrch.Po"; else rm -f "$(DEPDIR)/libWN_a-binsrch.Tpo"; exit 1; fi
-#	source='binsrch.c' object='libWN_a-binsrch.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-binsrch.obj `if test -f 'binsrch.c'; then $(CYGPATH_W) 'binsrch.c'; else $(CYGPATH_W) '$(srcdir)/binsrch.c'; fi`
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-binsrch.obj -MD -MP -MF "$(DEPDIR)/libWN_a-binsrch.Tpo" -c -o libWN_a-binsrch.obj `if test -f 'binsrch.c'; then $(CYGPATH_W) 'binsrch.c'; else $(CYGPATH_W) '$(srcdir)/binsrch.c'; fi`; \
+#	then mv -f "$(DEPDIR)/libWN_a-binsrch.Tpo" "$(DEPDIR)/libWN_a-binsrch.Po"; else rm -f "$(DEPDIR)/libWN_a-binsrch.Tpo"; exit 1; fi
+#	source='binsrch.c' object='libWN_a-binsrch.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-binsrch.obj `if test -f 'binsrch.c'; then $(CYGPATH_W) 'binsrch.c'; else $(CYGPATH_W) '$(srcdir)/binsrch.c'; fi`
 
 libWN_a-morph.o: morph.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-morph.o -MD -MP -MF "$(DEPDIR)/libWN_a-morph.Tpo" -c -o libWN_a-morph.o `test -f 'morph.c' || echo '$(srcdir)/'`morph.c; \
-	then mv -f "$(DEPDIR)/libWN_a-morph.Tpo" "$(DEPDIR)/libWN_a-morph.Po"; else rm -f "$(DEPDIR)/libWN_a-morph.Tpo"; exit 1; fi
-#	source='morph.c' object='libWN_a-morph.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-morph.o `test -f 'morph.c' || echo '$(srcdir)/'`morph.c
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-morph.o -MD -MP -MF "$(DEPDIR)/libWN_a-morph.Tpo" -c -o libWN_a-morph.o `test -f 'morph.c' || echo '$(srcdir)/'`morph.c; \
+#	then mv -f "$(DEPDIR)/libWN_a-morph.Tpo" "$(DEPDIR)/libWN_a-morph.Po"; else rm -f "$(DEPDIR)/libWN_a-morph.Tpo"; exit 1; fi
+#	source='morph.c' object='libWN_a-morph.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-morph.o `test -f 'morph.c' || echo '$(srcdir)/'`morph.c
 
 libWN_a-morph.obj: morph.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-morph.obj -MD -MP -MF "$(DEPDIR)/libWN_a-morph.Tpo" -c -o libWN_a-morph.obj `if test -f 'morph.c'; then $(CYGPATH_W) 'morph.c'; else $(CYGPATH_W) '$(srcdir)/morph.c'; fi`; \
-	then mv -f "$(DEPDIR)/libWN_a-morph.Tpo" "$(DEPDIR)/libWN_a-morph.Po"; else rm -f "$(DEPDIR)/libWN_a-morph.Tpo"; exit 1; fi
-#	source='morph.c' object='libWN_a-morph.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-morph.obj `if test -f 'morph.c'; then $(CYGPATH_W) 'morph.c'; else $(CYGPATH_W) '$(srcdir)/morph.c'; fi`
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-morph.obj -MD -MP -MF "$(DEPDIR)/libWN_a-morph.Tpo" -c -o libWN_a-morph.obj `if test -f 'morph.c'; then $(CYGPATH_W) 'morph.c'; else $(CYGPATH_W) '$(srcdir)/morph.c'; fi`; \
+#	then mv -f "$(DEPDIR)/libWN_a-morph.Tpo" "$(DEPDIR)/libWN_a-morph.Po"; else rm -f "$(DEPDIR)/libWN_a-morph.Tpo"; exit 1; fi
+#	source='morph.c' object='libWN_a-morph.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-morph.obj `if test -f 'morph.c'; then $(CYGPATH_W) 'morph.c'; else $(CYGPATH_W) '$(srcdir)/morph.c'; fi`
 
 libWN_a-search.o: search.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-search.o -MD -MP -MF "$(DEPDIR)/libWN_a-search.Tpo" -c -o libWN_a-search.o `test -f 'search.c' || echo '$(srcdir)/'`search.c; \
-	then mv -f "$(DEPDIR)/libWN_a-search.Tpo" "$(DEPDIR)/libWN_a-search.Po"; else rm -f "$(DEPDIR)/libWN_a-search.Tpo"; exit 1; fi
-#	source='search.c' object='libWN_a-search.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-search.o `test -f 'search.c' || echo '$(srcdir)/'`search.c
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-search.o -MD -MP -MF "$(DEPDIR)/libWN_a-search.Tpo" -c -o libWN_a-search.o `test -f 'search.c' || echo '$(srcdir)/'`search.c; \
+#	then mv -f "$(DEPDIR)/libWN_a-search.Tpo" "$(DEPDIR)/libWN_a-search.Po"; else rm -f "$(DEPDIR)/libWN_a-search.Tpo"; exit 1; fi
+#	source='search.c' object='libWN_a-search.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-search.o `test -f 'search.c' || echo '$(srcdir)/'`search.c
 
 libWN_a-search.obj: search.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-search.obj -MD -MP -MF "$(DEPDIR)/libWN_a-search.Tpo" -c -o libWN_a-search.obj `if test -f 'search.c'; then $(CYGPATH_W) 'search.c'; else $(CYGPATH_W) '$(srcdir)/search.c'; fi`; \
-	then mv -f "$(DEPDIR)/libWN_a-search.Tpo" "$(DEPDIR)/libWN_a-search.Po"; else rm -f "$(DEPDIR)/libWN_a-search.Tpo"; exit 1; fi
-#	source='search.c' object='libWN_a-search.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-search.obj `if test -f 'search.c'; then $(CYGPATH_W) 'search.c'; else $(CYGPATH_W) '$(srcdir)/search.c'; fi`
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-search.obj -MD -MP -MF "$(DEPDIR)/libWN_a-search.Tpo" -c -o libWN_a-search.obj `if test -f 'search.c'; then $(CYGPATH_W) 'search.c'; else $(CYGPATH_W) '$(srcdir)/search.c'; fi`; \
+#	then mv -f "$(DEPDIR)/libWN_a-search.Tpo" "$(DEPDIR)/libWN_a-search.Po"; else rm -f "$(DEPDIR)/libWN_a-search.Tpo"; exit 1; fi
+#	source='search.c' object='libWN_a-search.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-search.obj `if test -f 'search.c'; then $(CYGPATH_W) 'search.c'; else $(CYGPATH_W) '$(srcdir)/search.c'; fi`
 
 libWN_a-wnglobal.o: wnglobal.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-wnglobal.o -MD -MP -MF "$(DEPDIR)/libWN_a-wnglobal.Tpo" -c -o libWN_a-wnglobal.o `test -f 'wnglobal.c' || echo '$(srcdir)/'`wnglobal.c; \
-	then mv -f "$(DEPDIR)/libWN_a-wnglobal.Tpo" "$(DEPDIR)/libWN_a-wnglobal.Po"; else rm -f "$(DEPDIR)/libWN_a-wnglobal.Tpo"; exit 1; fi
-#	source='wnglobal.c' object='libWN_a-wnglobal.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-wnglobal.o `test -f 'wnglobal.c' || echo '$(srcdir)/'`wnglobal.c
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-wnglobal.o -MD -MP -MF "$(DEPDIR)/libWN_a-wnglobal.Tpo" -c -o libWN_a-wnglobal.o `test -f 'wnglobal.c' || echo '$(srcdir)/'`wnglobal.c; \
+#	then mv -f "$(DEPDIR)/libWN_a-wnglobal.Tpo" "$(DEPDIR)/libWN_a-wnglobal.Po"; else rm -f "$(DEPDIR)/libWN_a-wnglobal.Tpo"; exit 1; fi
+#	source='wnglobal.c' object='libWN_a-wnglobal.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-wnglobal.o `test -f 'wnglobal.c' || echo '$(srcdir)/'`wnglobal.c
 
 libWN_a-wnglobal.obj: wnglobal.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-wnglobal.obj -MD -MP -MF "$(DEPDIR)/libWN_a-wnglobal.Tpo" -c -o libWN_a-wnglobal.obj `if test -f 'wnglobal.c'; then $(CYGPATH_W) 'wnglobal.c'; else $(CYGPATH_W) '$(srcdir)/wnglobal.c'; fi`; \
-	then mv -f "$(DEPDIR)/libWN_a-wnglobal.Tpo" "$(DEPDIR)/libWN_a-wnglobal.Po"; else rm -f "$(DEPDIR)/libWN_a-wnglobal.Tpo"; exit 1; fi
-#	source='wnglobal.c' object='libWN_a-wnglobal.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-wnglobal.obj `if test -f 'wnglobal.c'; then $(CYGPATH_W) 'wnglobal.c'; else $(CYGPATH_W) '$(srcdir)/wnglobal.c'; fi`
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-wnglobal.obj -MD -MP -MF "$(DEPDIR)/libWN_a-wnglobal.Tpo" -c -o libWN_a-wnglobal.obj `if test -f 'wnglobal.c'; then $(CYGPATH_W) 'wnglobal.c'; else $(CYGPATH_W) '$(srcdir)/wnglobal.c'; fi`; \
+#	then mv -f "$(DEPDIR)/libWN_a-wnglobal.Tpo" "$(DEPDIR)/libWN_a-wnglobal.Po"; else rm -f "$(DEPDIR)/libWN_a-wnglobal.Tpo"; exit 1; fi
+#	source='wnglobal.c' object='libWN_a-wnglobal.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-wnglobal.obj `if test -f 'wnglobal.c'; then $(CYGPATH_W) 'wnglobal.c'; else $(CYGPATH_W) '$(srcdir)/wnglobal.c'; fi`
 
 libWN_a-wnhelp.o: wnhelp.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-wnhelp.o -MD -MP -MF "$(DEPDIR)/libWN_a-wnhelp.Tpo" -c -o libWN_a-wnhelp.o `test -f 'wnhelp.c' || echo '$(srcdir)/'`wnhelp.c; \
-	then mv -f "$(DEPDIR)/libWN_a-wnhelp.Tpo" "$(DEPDIR)/libWN_a-wnhelp.Po"; else rm -f "$(DEPDIR)/libWN_a-wnhelp.Tpo"; exit 1; fi
-#	source='wnhelp.c' object='libWN_a-wnhelp.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-wnhelp.o `test -f 'wnhelp.c' || echo '$(srcdir)/'`wnhelp.c
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-wnhelp.o -MD -MP -MF "$(DEPDIR)/libWN_a-wnhelp.Tpo" -c -o libWN_a-wnhelp.o `test -f 'wnhelp.c' || echo '$(srcdir)/'`wnhelp.c; \
+#	then mv -f "$(DEPDIR)/libWN_a-wnhelp.Tpo" "$(DEPDIR)/libWN_a-wnhelp.Po"; else rm -f "$(DEPDIR)/libWN_a-wnhelp.Tpo"; exit 1; fi
+#	source='wnhelp.c' object='libWN_a-wnhelp.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-wnhelp.o `test -f 'wnhelp.c' || echo '$(srcdir)/'`wnhelp.c
 
 libWN_a-wnhelp.obj: wnhelp.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-wnhelp.obj -MD -MP -MF "$(DEPDIR)/libWN_a-wnhelp.Tpo" -c -o libWN_a-wnhelp.obj `if test -f 'wnhelp.c'; then $(CYGPATH_W) 'wnhelp.c'; else $(CYGPATH_W) '$(srcdir)/wnhelp.c'; fi`; \
-	then mv -f "$(DEPDIR)/libWN_a-wnhelp.Tpo" "$(DEPDIR)/libWN_a-wnhelp.Po"; else rm -f "$(DEPDIR)/libWN_a-wnhelp.Tpo"; exit 1; fi
-#	source='wnhelp.c' object='libWN_a-wnhelp.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-wnhelp.obj `if test -f 'wnhelp.c'; then $(CYGPATH_W) 'wnhelp.c'; else $(CYGPATH_W) '$(srcdir)/wnhelp.c'; fi`
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-wnhelp.obj -MD -MP -MF "$(DEPDIR)/libWN_a-wnhelp.Tpo" -c -o libWN_a-wnhelp.obj `if test -f 'wnhelp.c'; then $(CYGPATH_W) 'wnhelp.c'; else $(CYGPATH_W) '$(srcdir)/wnhelp.c'; fi`; \
+#	then mv -f "$(DEPDIR)/libWN_a-wnhelp.Tpo" "$(DEPDIR)/libWN_a-wnhelp.Po"; else rm -f "$(DEPDIR)/libWN_a-wnhelp.Tpo"; exit 1; fi
+#	source='wnhelp.c' object='libWN_a-wnhelp.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-wnhelp.obj `if test -f 'wnhelp.c'; then $(CYGPATH_W) 'wnhelp.c'; else $(CYGPATH_W) '$(srcdir)/wnhelp.c'; fi`
 
 libWN_a-wnrtl.o: wnrtl.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-wnrtl.o -MD -MP -MF "$(DEPDIR)/libWN_a-wnrtl.Tpo" -c -o libWN_a-wnrtl.o `test -f 'wnrtl.c' || echo '$(srcdir)/'`wnrtl.c; \
-	then mv -f "$(DEPDIR)/libWN_a-wnrtl.Tpo" "$(DEPDIR)/libWN_a-wnrtl.Po"; else rm -f "$(DEPDIR)/libWN_a-wnrtl.Tpo"; exit 1; fi
-#	source='wnrtl.c' object='libWN_a-wnrtl.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-wnrtl.o `test -f 'wnrtl.c' || echo '$(srcdir)/'`wnrtl.c
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-wnrtl.o -MD -MP -MF "$(DEPDIR)/libWN_a-wnrtl.Tpo" -c -o libWN_a-wnrtl.o `test -f 'wnrtl.c' || echo '$(srcdir)/'`wnrtl.c; \
+#	then mv -f "$(DEPDIR)/libWN_a-wnrtl.Tpo" "$(DEPDIR)/libWN_a-wnrtl.Po"; else rm -f "$(DEPDIR)/libWN_a-wnrtl.Tpo"; exit 1; fi
+#	source='wnrtl.c' object='libWN_a-wnrtl.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-wnrtl.o `test -f 'wnrtl.c' || echo '$(srcdir)/'`wnrtl.c
 
 libWN_a-wnrtl.obj: wnrtl.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-wnrtl.obj -MD -MP -MF "$(DEPDIR)/libWN_a-wnrtl.Tpo" -c -o libWN_a-wnrtl.obj `if test -f 'wnrtl.c'; then $(CYGPATH_W) 'wnrtl.c'; else $(CYGPATH_W) '$(srcdir)/wnrtl.c'; fi`; \
-	then mv -f "$(DEPDIR)/libWN_a-wnrtl.Tpo" "$(DEPDIR)/libWN_a-wnrtl.Po"; else rm -f "$(DEPDIR)/libWN_a-wnrtl.Tpo"; exit 1; fi
-#	source='wnrtl.c' object='libWN_a-wnrtl.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-wnrtl.obj `if test -f 'wnrtl.c'; then $(CYGPATH_W) 'wnrtl.c'; else $(CYGPATH_W) '$(srcdir)/wnrtl.c'; fi`
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-wnrtl.obj -MD -MP -MF "$(DEPDIR)/libWN_a-wnrtl.Tpo" -c -o libWN_a-wnrtl.obj `if test -f 'wnrtl.c'; then $(CYGPATH_W) 'wnrtl.c'; else $(CYGPATH_W) '$(srcdir)/wnrtl.c'; fi`; \
+#	then mv -f "$(DEPDIR)/libWN_a-wnrtl.Tpo" "$(DEPDIR)/libWN_a-wnrtl.Po"; else rm -f "$(DEPDIR)/libWN_a-wnrtl.Tpo"; exit 1; fi
+#	source='wnrtl.c' object='libWN_a-wnrtl.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-wnrtl.obj `if test -f 'wnrtl.c'; then $(CYGPATH_W) 'wnrtl.c'; else $(CYGPATH_W) '$(srcdir)/wnrtl.c'; fi`
 
 libWN_a-wnutil.o: wnutil.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-wnutil.o -MD -MP -MF "$(DEPDIR)/libWN_a-wnutil.Tpo" -c -o libWN_a-wnutil.o `test -f 'wnutil.c' || echo '$(srcdir)/'`wnutil.c; \
-	then mv -f "$(DEPDIR)/libWN_a-wnutil.Tpo" "$(DEPDIR)/libWN_a-wnutil.Po"; else rm -f "$(DEPDIR)/libWN_a-wnutil.Tpo"; exit 1; fi
-#	source='wnutil.c' object='libWN_a-wnutil.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-wnutil.o `test -f 'wnutil.c' || echo '$(srcdir)/'`wnutil.c
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-wnutil.o -MD -MP -MF "$(DEPDIR)/libWN_a-wnutil.Tpo" -c -o libWN_a-wnutil.o `test -f 'wnutil.c' || echo '$(srcdir)/'`wnutil.c; \
+#	then mv -f "$(DEPDIR)/libWN_a-wnutil.Tpo" "$(DEPDIR)/libWN_a-wnutil.Po"; else rm -f "$(DEPDIR)/libWN_a-wnutil.Tpo"; exit 1; fi
+#	source='wnutil.c' object='libWN_a-wnutil.o' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-wnutil.o `test -f 'wnutil.c' || echo '$(srcdir)/'`wnutil.c
 
 libWN_a-wnutil.obj: wnutil.c
-	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-wnutil.obj -MD -MP -MF "$(DEPDIR)/libWN_a-wnutil.Tpo" -c -o libWN_a-wnutil.obj `if test -f 'wnutil.c'; then $(CYGPATH_W) 'wnutil.c'; else $(CYGPATH_W) '$(srcdir)/wnutil.c'; fi`; \
-	then mv -f "$(DEPDIR)/libWN_a-wnutil.Tpo" "$(DEPDIR)/libWN_a-wnutil.Po"; else rm -f "$(DEPDIR)/libWN_a-wnutil.Tpo"; exit 1; fi
-#	source='wnutil.c' object='libWN_a-wnutil.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
-#	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-wnutil.obj `if test -f 'wnutil.c'; then $(CYGPATH_W) 'wnutil.c'; else $(CYGPATH_W) '$(srcdir)/wnutil.c'; fi`
+#	if $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libWN_a-wnutil.obj -MD -MP -MF "$(DEPDIR)/libWN_a-wnutil.Tpo" -c -o libWN_a-wnutil.obj `if test -f 'wnutil.c'; then $(CYGPATH_W) 'wnutil.c'; else $(CYGPATH_W) '$(srcdir)/wnutil.c'; fi`; \
+#	then mv -f "$(DEPDIR)/libWN_a-wnutil.Tpo" "$(DEPDIR)/libWN_a-wnutil.Po"; else rm -f "$(DEPDIR)/libWN_a-wnutil.Tpo"; exit 1; fi
+#	source='wnutil.c' object='libWN_a-wnutil.obj' libtool=no 
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) 
+	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libWN_a_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libWN_a-wnutil.obj `if test -f 'wnutil.c'; then $(CYGPATH_W) 'wnutil.c'; else $(CYGPATH_W) '$(srcdir)/wnutil.c'; fi`
 uninstall-info-am:
 
 # This directory's subdirectories are mostly independent; you can cd

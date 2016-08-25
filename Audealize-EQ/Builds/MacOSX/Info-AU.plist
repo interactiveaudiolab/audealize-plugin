@@ -18,9 +18,9 @@
     <key>CFBundleSignature</key>
     <string>????</string>
     <key>CFBundleShortVersionString</key>
-    <string>0.1.0b</string>
+    <string>0.1.1b</string>
     <key>CFBundleVersion</key>
-    <string>0.1.0b</string>
+    <string>0.1.1b</string>
     <key>NSHumanReadableCopyright</key>
     <string>Northwestern University Interactive Audio Lab</string>
     <key>NSHighResolutionCapable</key>
@@ -41,7 +41,7 @@
         <key>subtype</key>
         <string>adlz</string>
         <key>version</key>
-        <integer>256</integer>
+        <integer>257</integer>
       </dict>
     </array>
   </dict>

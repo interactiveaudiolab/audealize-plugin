@@ -535,7 +535,7 @@
 				<key>OVERWRITE_PERMISSIONS</key>
 				<false/>
 				<key>VERSION</key>
-				<string>0.1.0b</string>
+				<string>0.1.1b</string>
 			</dict>
 			<key>UUID</key>
 			<string>4878E5BD-B2C3-4A4E-8ED0-50C0050FE929</string>
@@ -1068,7 +1068,7 @@
 				<key>OVERWRITE_PERMISSIONS</key>
 				<false/>
 				<key>VERSION</key>
-				<string>0.1.0b</string>
+				<string>0.1.1b</string>
 			</dict>
 			<key>TYPE</key>
 			<integer>0</integer>
@@ -1604,7 +1604,7 @@
 				<key>OVERWRITE_PERMISSIONS</key>
 				<false/>
 				<key>VERSION</key>
-				<string>0.1.0b</string>
+				<string>0.1.1b</string>
 			</dict>
 			<key>TYPE</key>
 			<integer>0</integer>
@@ -2144,7 +2144,7 @@
 				<key>OVERWRITE_PERMISSIONS</key>
 				<false/>
 				<key>VERSION</key>
-				<string>0.1.0b</string>
+				<string>0.1.1b</string>
 			</dict>
 			<key>TYPE</key>
 			<integer>0</integer>
@@ -2554,67 +2554,17 @@
 									<array>
 										<dict>
 											<key>CHILDREN</key>
-											<array>
-												<dict>
-													<key>CHILDREN</key>
-													<array>
-														<dict>
-															<key>CHILDREN</key>
-															<array/>
-															<key>GID</key>
-															<integer>0</integer>
-															<key>PATH</key>
-															<string>../JUCE Modules/audealize_module/WordNet-3.0/lib/libWN.a</string>
-															<key>PATH_TYPE</key>
-															<integer>1</integer>
-															<key>PERMISSIONS</key>
-															<integer>420</integer>
-															<key>TYPE</key>
-															<integer>3</integer>
-															<key>UID</key>
-															<integer>0</integer>
-														</dict>
-														<dict>
-															<key>CHILDREN</key>
-															<array/>
-															<key>GID</key>
-															<integer>0</integer>
-															<key>PATH</key>
-															<string>../JUCE Modules/audealize_module/WordNet-3.0/LICENSE</string>
-															<key>PATH_TYPE</key>
-															<integer>1</integer>
-															<key>PERMISSIONS</key>
-															<integer>420</integer>
-															<key>TYPE</key>
-															<integer>3</integer>
-															<key>UID</key>
-															<integer>0</integer>
-														</dict>
-													</array>
-													<key>GID</key>
-													<integer>0</integer>
-													<key>PATH</key>
-													<string>lib</string>
-													<key>PATH_TYPE</key>
-													<integer>0</integer>
-													<key>PERMISSIONS</key>
-													<integer>493</integer>
-													<key>TYPE</key>
-													<integer>2</integer>
-													<key>UID</key>
-													<integer>0</integer>
-												</dict>
-											</array>
+											<array/>
 											<key>GID</key>
 											<integer>0</integer>
 											<key>PATH</key>
-											<string>WordNet-3.0</string>
+											<string>/usr/local/WordNet-3.0</string>
 											<key>PATH_TYPE</key>
 											<integer>0</integer>
 											<key>PERMISSIONS</key>
 											<integer>493</integer>
 											<key>TYPE</key>
-											<integer>2</integer>
+											<integer>3</integer>
 											<key>UID</key>
 											<integer>0</integer>
 										</dict>
@@ -3212,12 +3162,12 @@
 				<key>BACKGROUND_PATH</key>
 				<dict>
 					<key>PATH</key>
-					<string>/Users/michael/JUCE/projects/audealize-plugin/Installers/Audealize/Background_.png</string>
+					<string>/Users/michael/JUCE/projects/audealize-plugin/Installers/Resources/InstallerBackground</string>
 					<key>PATH_TYPE</key>
 					<integer>0</integer>
 				</dict>
 				<key>CUSTOM</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>SCALING</key>
 				<integer>0</integer>
 			</dict>
@@ -3440,14 +3390,38 @@
 				<key>KEYWORDS</key>
 				<dict/>
 				<key>LOCALIZATIONS</key>
-				<array/>
+				<array>
+					<dict>
+						<key>LANGUAGE</key>
+						<string>English</string>
+						<key>VALUE</key>
+						<dict>
+							<key>PATH</key>
+							<string>../LICENSE.txt</string>
+							<key>PATH_TYPE</key>
+							<integer>1</integer>
+						</dict>
+					</dict>
+				</array>
 				<key>MODE</key>
 				<integer>0</integer>
 			</dict>
 			<key>README</key>
 			<dict>
 				<key>LOCALIZATIONS</key>
-				<array/>
+				<array>
+					<dict>
+						<key>LANGUAGE</key>
+						<string>English</string>
+						<key>VALUE</key>
+						<dict>
+							<key>PATH</key>
+							<string>/Users/michael/JUCE/projects/audealize-plugin/Installers/Resources/readme.rtf</string>
+							<key>PATH_TYPE</key>
+							<integer>0</integer>
+						</dict>
+					</dict>
+				</array>
 			</dict>
 			<key>SUMMARY</key>
 			<dict>
@@ -3495,6 +3469,38 @@
 					<array/>
 					<key>NAME</key>
 					<string>Processor</string>
+					<key>STATE</key>
+					<true/>
+				</dict>
+				<dict>
+					<key>BEHAVIOR</key>
+					<integer>3</integer>
+					<key>DICTIONARY</key>
+					<dict>
+						<key>IC_REQUIREMENT_OS_DISK_TYPE</key>
+						<integer>1</integer>
+						<key>IC_REQUIREMENT_OS_DISTRIBUTION_TYPE</key>
+						<integer>0</integer>
+						<key>IC_REQUIREMENT_OS_MINIMUM_VERSION</key>
+						<integer>100900</integer>
+					</dict>
+					<key>IC_REQUIREMENT_CHECK_TYPE</key>
+					<integer>0</integer>
+					<key>IDENTIFIER</key>
+					<string>fr.whitebox.Packages.requirement.os</string>
+					<key>MESSAGE</key>
+					<array>
+						<dict>
+							<key>LANGUAGE</key>
+							<string>English</string>
+							<key>SECONDARY_VALUE</key>
+							<string></string>
+							<key>VALUE</key>
+							<string>Audealize requires Mac OSX 10.9 or higher</string>
+						</dict>
+					</array>
+					<key>NAME</key>
+					<string>Operating System</string>
 					<key>STATE</key>
 					<true/>
 				</dict>

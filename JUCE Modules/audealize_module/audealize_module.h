@@ -55,6 +55,7 @@
 #include "ui_components/AboutComponent.h"
 #include "ui_components/AudealizeSlider.h"
 #include "ui_components/RotarySliderCentered.h"
+#include "ui_components/BypassButton.h"
 
 #include "effects/AudioEffect.h"
 #include "effects/NChannelFilter.h"

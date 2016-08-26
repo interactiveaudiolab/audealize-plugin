@@ -104,7 +104,12 @@ namespace Audealize {
     
         int getTabButtonOverlap (int /*tabDepth*/) override { return -4; }
         int getTabButtonSpaceAroundImage() override { return 0; }
+        
+        int getTabButtonBestWidth (TabBarButton& button, int tabDepth) override ;
 
+        void createTabTextLayout (const TabBarButton& button, float length, float depth,
+                                  Colour colour, TextLayout& textLayout);
+        
     protected:
         bool isDarkMode;
         bool shouldDrawOutlines;

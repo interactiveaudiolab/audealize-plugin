@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="SjJc63" name="Audealize" projectType="audioplug" version="0.1.1b"
+<JUCERPROJECT id="SjJc63" name="Audealize" projectType="audioplug" version="0.2.0b"
               bundleIdentifier="com.InteractiveAudioLab.Audealize" includeBinaryInAppConfig="1"
               buildVST="1" buildVST3="1" buildAU="1" buildAUv3="1" buildRTAS="0"
               buildAAX="1" pluginName="Audealize" pluginDesc="Audealize" pluginManufacturer="Interactive Audio Lab"

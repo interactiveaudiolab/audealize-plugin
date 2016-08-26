@@ -14,7 +14,8 @@
 
 using namespace juce;
 
-namespace Audealize{
+namespace Audealize
+{
     class AudealizeUI : public AudioProcessorEditor,
     public TextEditorListener,
     public ActionListener,
@@ -22,7 +23,8 @@ namespace Audealize{
     public ButtonListener
     {
     public:
-        enum ColourIds{
+        enum ColourIds
+        {
             backgroundColourId = 0x2000100,
             textColourId = 0x2000101
         };
@@ -66,35 +68,59 @@ namespace Audealize{
         
         void lookAndFeelChanged() override;
         void childrenChanged() override;
-                
+        
+        void setBypassed(bool isBypassed)
+        {
+            processor.setBypass(isBypassed);
+        }
+        
         bool isTraditionalUIVisible(){
             return isTradUIVisible;
         }
         
-        TextButton* getTraditionalUIButton(){
+        TextButton* getTraditionalUIButton()
+        {
             return mTradUIButton;
         }
     
-        TraditionalUI* getTraditionalUI(){
+        TextButton* getBypassButton()
+        {
+            return mBypassButton;
+        }
+        
+        TraditionalUI* getTraditionalUI()
+        {
             return mTradUI;
         }
         
-        TypeaheadEditor* getSearchBar(){
+        TypeaheadEditor* getSearchBar()
+        {
             return mSearchBar;
+        }
+        
+        WordMap* getWordMap()
+        {
+            return mWordMap;
         }
         
         String getEffectName(){
             return mEffectType;
         }
         
-        int getWordMapHeight(){
+        int getWordMapHeight()
+        {
             return mWordMap->getHeight();
         }
         
-        bool isPluginMultiEffect(){
+        bool isPluginMultiEffect()
+        {
             return isMultiEffect;
         }
         
+        bool isEffectEnabled()
+        {
+            return processor.isBypassed();
+        }
         
     private:
         AudealizeAudioProcessor& processor;
@@ -141,7 +167,6 @@ namespace Audealize{
         ScopedPointer<DialogWindow> mAboutWindow;
         
         ScopedPointer<Drawable> mDarkModeGraphic;
-        ScopedPointer<Drawable> mDarkModeGraphicLight;
         ScopedPointer<DrawableButton> mDarkModeButton;
         
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeUI)

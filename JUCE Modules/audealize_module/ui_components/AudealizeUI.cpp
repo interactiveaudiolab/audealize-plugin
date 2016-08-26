@@ -1,33 +1,38 @@
-
 #include "AudealizeUI.h"
-
 
 using namespace std;
 using json = nlohmann::json;
 
-namespace Audealize{
-    
+namespace Audealize
+{    
     AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints, String effectType, bool isPluginMultiEffect)
     : AudioProcessorEditor(&p), processor(p), mPathToPoints(pathToPoints), mTradUI(t)
     {
+        setBypassed(true);
+        
         // load properties, set dark mode accordingly
         properties = Properties::loadPropertiesVar();
-        if (!properties.isVoid() && !properties.isUndefined()){
+        if (!properties.isVoid() && !properties.isUndefined())
+        {
             var darkMode = properties.getDynamicObject()->getProperty("darkmode");
-            if (darkMode.isBool()){
-                if ((bool) darkMode){
+            if (darkMode.isBool())
+            {
+                if ((bool) darkMode)
+                {
                     LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
                 }
-                else {
+                else
+                {
                     LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
                 }
             }
         }
-        else{
+        else
+        {
             DynamicObject* temp = new DynamicObject();
             temp->setProperty("darkmode", false);
             properties = var(temp);
-            LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
+            LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
         }
 
         isMultiEffect = isPluginMultiEffect;
@@ -86,13 +91,15 @@ namespace Audealize{
         mEspanolButton->addListener (this);
         mEspanolButton->setToggleState (true, dontSendNotification);
 
-        if (mEffectType == "Reverb"){
+        if (mEffectType == "Reverb")
+        {
             mEnglishButton->setVisible(false);
             mEspanolButton->setVisible(false);
         }
         
         // if this AudealizeUI is a child component of an AudealizeMultiUI, we wont show the Audealize title text here. 
-        if (!isMultiEffect){
+        if (!isMultiEffect)
+        {
             // Audealize title text
             addAndMakeVisible (mAudealizeLabel = new Label ("Audealize: " + effectType,
                                                             TRANS("Audealize: " + effectType)));
@@ -103,19 +110,17 @@ namespace Audealize{
             
             // dark mode button
             mDarkModeGraphic = Drawable::createFromImageData (AudealizeImages::darkModeButton_svg, AudealizeImages::darkModeButton_svgSize);
-            mDarkModeGraphicLight = Drawable::createFromImageData (AudealizeImages::darkModeButtonLight_svg, AudealizeImages::darkModeButtonLight_svgSize);
             
             addAndMakeVisible(mDarkModeButton = new DrawableButton("Dark", DrawableButton::ButtonStyle::ImageOnButtonBackground));
             mDarkModeButton->setTooltip("Dark/Light theme");
 
             if (static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive()){
-                mDarkModeButton->setImages(mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight);
+                mDarkModeGraphic->replaceColour(Colour(0xff606060), Colour(0xffbbbbbb));
             }
-            else{
-                mDarkModeButton->setImages(mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
-            }
-            mDarkModeButton->addListener(this);
             
+            mDarkModeButton->setImages(mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
+            
+            mDarkModeButton->addListener(this);
             
             // info button
             addAndMakeVisible(mInfoButton = new TextButton("About"));
@@ -130,6 +135,17 @@ namespace Audealize{
             mDialogOpts.resizable = false;
             mAboutWindow = mDialogOpts.create();
             mAboutWindow->setVisible(false);
+            
+            // effect bypass button
+            addAndMakeVisible(mBypassButton = new TextButton ("Turn " + effectType + " Off"));
+            mBypassButton->setClickingTogglesState(true);
+            mBypassButton->addListener(this);
+            
+            // resize limits + ResizableCornerComponent
+            // if this AudealizeUI is a child component of an AudealizeMultiUI, resizing will be handled there
+            mResizeLimits = new ComponentBoundsConstrainer();
+            mResizeLimits->setSizeLimits (600, 400, 1180, 800);
+            addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
         }
         
         // search bar
@@ -152,21 +168,6 @@ namespace Audealize{
         mTradUIButton->setButtonText (TRANS("+ Show traditional interface"));
         mTradUIButton->addListener (this);
         mTradUIButton->setButtonText (TRANS("+ Show " + String(mTradUI->getName())));
-        
-        // effect bypass button
-        addAndMakeVisible(mBypassButton = new TextButton ("Turn " + effectType + " Off"));
-        mBypassButton->setClickingTogglesState(true);
-        mBypassButton->addListener(this);
-        
-
-        
-        // resize limits + ResizableCornerComponent
-        // if this AudealizeUI is a child component of an AudealizeMultiUI, resizing will be handled there
-        if (!isMultiEffect){
-            mResizeLimits = new ComponentBoundsConstrainer();
-            mResizeLimits->setSizeLimits (600, 400, 1180, 800);
-            addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
-        }
                 
         // set initial size of plugin window
         setSize (840, 560);
@@ -193,7 +194,6 @@ namespace Audealize{
         mAboutWindow = nullptr;
         mDarkModeButton = nullptr;
         mDarkModeGraphic = nullptr;
-        mDarkModeGraphicLight = nullptr;
     }
     
     void AudealizeUI::paint (Graphics& g)
@@ -203,35 +203,38 @@ namespace Audealize{
     
     void AudealizeUI::resized()
     {
-        // resizable corner
-        if (!isMultiEffect){
+        // if this AudealizeUI is a child component of an AudealizeMultiUI, we wont show the Audealize title text here.
+        // bounds of wordmap, searchbar, language select buttons must be adjusted to accommodate
+        int titleTextOffset;
+        
+        if (!isMultiEffect)
+        {
+            titleTextOffset = 0;
+            
             mResizer->setBounds (getWidth() - 18, getHeight() - 18, 16, 16);
             mInfoButton->setBounds(getWidth() - 80, 22, 48, 24);
             mDarkModeButton->setBounds(getWidth() - 110, 22, 24, 24);
-            
-            // Audealize title labels
             mAudealizeLabel->setBounds (28, 17, 200, 32);
+            // bypass button
+            int width = mBypassButton->getBestWidthForHeight(32);
+            width = std::min(140, width); // limit the width to 140 so that it doesn't interfere with language select buttons
+            mBypassButton->setBounds(getWidth() - width - 32, 60 + titleTextOffset, width, 32);
+        }
+        else{
+            titleTextOffset = -40;
         }
         
         // reduce word map font size if width of window is less than fontSizeThresh
         int fontSizeThresh = 750;
-        if (getWidth() <= fontSizeThresh && processor.lastUIWidth > fontSizeThresh) {
+        if (getWidth() <= fontSizeThresh && processor.lastUIWidth > fontSizeThresh)
+        {
             mWordMap->setMinFontSize(10);
             mWordMap->setInfoTextSize(10);
         }
-        else if (getWidth() > fontSizeThresh && processor.lastUIWidth <= fontSizeThresh) {
+        else if (getWidth() > fontSizeThresh && processor.lastUIWidth <= fontSizeThresh)
+        {
             mWordMap->setMinFontSize(12);
             mWordMap->setInfoTextSize(12);
-        }
-        
-        // if this AudealizeUI is a child component of an AudealizeMultiUI, we wont show the Audealize title text here. 
-        // bounds of wordmap, searchbar, language select buttons must be adjusted to accommodate
-        int titleTextOffset;
-        if (!isMultiEffect){
-            titleTextOffset = 0;
-        }
-        else{
-            titleTextOffset = -40;
         }
         
         // calculate the width of the amount slider
@@ -266,10 +269,7 @@ namespace Audealize{
         }
     
         
-        // bypass button
-        int width = mBypassButton->getBestWidthForHeight(32);
-        width = std::min(140, width); // limit the width to 140 so that it doesn't interfere with language select buttons
-        mBypassButton->setBounds(getWidth() - width - 32, 60 + titleTextOffset, width, 32);
+
         
         // search bar
         mSearchBar->setBounds (32, 60 + titleTextOffset, 240, 32);
@@ -290,7 +290,8 @@ namespace Audealize{
     void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
     {
         // if neither language selected, display alert box and re-enable the last language to be disabled.
-        if (!mEspanolButton->getToggleState() && !mEnglishButton->getToggleState()){
+        if (!mEspanolButton->getToggleState() && !mEnglishButton->getToggleState())
+        {
             languageAlert();
             buttonThatWasClicked->setToggleState(true, NotificationType::sendNotification);
         }
@@ -311,7 +312,8 @@ namespace Audealize{
         // traditional UI button
         else if (buttonThatWasClicked == mTradUIButton)
         {
-            if(mTradUI->isVisible()){
+            if(mTradUI->isVisible())
+            {
                 sendActionMessage("TradUI_FALSE");
                 isTradUIVisible = false;
                 
@@ -324,7 +326,8 @@ namespace Audealize{
                 if (!isMultiEffect)
                     mResizeLimits->setSizeLimits (600, 400, 1180, 800); // window size limits depend on whether or not the traditional UI is visible
             }
-            else{
+            else
+            {
                 sendActionMessage("TradUI_TRUE");
                 isTradUIVisible = true;
                 
@@ -332,45 +335,61 @@ namespace Audealize{
                 
                 mTradUI->setVisible(true); // make the traditional UI visible
                 
-                mTradUIButton->setButtonText (TRANS("- Hide " + String(mTradUI->getName()))); // update the text on traditional UI button "Show" -> "Hide"
+                mTradUIButton->setButtonText(TRANS("- Hide " + String(mTradUI->getName()))); // update the text on traditional UI button "Show" -> "Hide"
                 
                 if (!isMultiEffect)
-                    mResizeLimits->setSizeLimits (600, 400 + mTradUI->getHeight() + 10, 1180, 800 + mTradUI->getHeight() + 10); // window size limits depend on whether or not the traditional UI is visible
+                    mResizeLimits->setSizeLimits(600, 400 + mTradUI->getHeight() + 10, 1180, 800 + mTradUI->getHeight() + 10); // window size limits depend on whether or not the traditional UI is visible
             }
-        }// end if buttonThatWasClicked
+        }
         
-        else if (buttonThatWasClicked == mBypassButton){
-            if (processor.isBypassed()){
+        // effect bypass button
+        else if (buttonThatWasClicked == mBypassButton)
+        {
+            if (processor.isBypassed())
+            {
                 mBypassButton->setButtonText("Turn " + mEffectType + " Off");
                 processor.setBypass(false);
             }
-            else{
+            else
+            {
                 mBypassButton->setButtonText("Turn " + mEffectType + " On");
                 processor.setBypass(true);
             }
         }
         
-        else if (buttonThatWasClicked == mInfoButton){
+        // infobutton
+        else if (buttonThatWasClicked == mInfoButton)
+        {
             mAboutWindow->setVisible(true);
         }
         
-        else if (buttonThatWasClicked == mDarkModeButton){
+        // dark mode
+        else if (buttonThatWasClicked == mDarkModeButton)
+        {
             bool isDark = static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive();
-            if (isDark){
+            
+            if (isDark)
+            {
                 setLookAndFeel(&mLookAndFeel);
+                
+                mDarkModeGraphic->replaceColour(Colour(0xffbbbbbb), Colour(0xff606060));
                 mDarkModeButton->setImages(mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
             }
-            else{
+            else
+            {
                 setLookAndFeel(&mLookAndFeelDark);
-                mDarkModeButton->setImages(mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight, mDarkModeGraphicLight);
-            }
+                
+                mDarkModeGraphic->replaceColour(Colour(0xff606060), Colour(0xffbbbbbb));
+                mDarkModeButton->setImages(mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
+            } // endif isDark
             
             
-            if (!isMultiEffect){
+            if (!isMultiEffect)
+            {
                 properties.getDynamicObject()->setProperty("darkmode", !isDark);
                 Properties::writePropertiesToFile(properties);
             }
-        }
+        } // endif buttonThatWasClicked
     }
     
     void AudealizeUI::lookAndFeelChanged()
@@ -385,11 +404,13 @@ namespace Audealize{
     }
     
     
-    void AudealizeUI::textEditorReturnKeyPressed(TextEditor &editor){
+    void AudealizeUI::textEditorReturnKeyPressed(TextEditor &editor)
+    {
         String text = editor.getText();
         
         // if word not in map, display "Word not found!" and select all text
-        if (!mWordMap->searchMapAndSelect(text)){
+        if (!mWordMap->searchMapAndSelect(text))
+        {
             AttributedString attStr;
             attStr.append("Word not found!", Font (18.0f));
             static_cast<TypeaheadEditor*>(editor.getParentComponent())->showBubbleMessage(attStr, Colours::red, Colour(0xFFFFB4AF), 1000);
@@ -398,16 +419,27 @@ namespace Audealize{
         mWordMap->repaint();
     }
     
-    void AudealizeUI::languageAlert(){
+    void AudealizeUI::languageAlert()
+    {
         mAlertBox->showMessageBox(AlertWindow::AlertIconType::WarningIcon, "At least one language must be selected!", "");
     }
     
-    void AudealizeUI::actionListenerCallback(const String &message){
-        if (message.equalsIgnoreCase("_languagechanged")){
+    void AudealizeUI::actionListenerCallback(const String &message)
+    {
+        if (message.equalsIgnoreCase("_languagechanged"))
+        {
             mSearchBar->setOptions(mWordMap->getWords()); // update the set of words that will be searched by the search bar to include only the selected languages
         }
-        else{
+        else
+        {
             mLabelLess->setText("Less \"" + message + "\"", NotificationType::sendNotification); // change the text of the amount slider label to include the descriptor
+           
+            if(isMultiEffect)
+            {
+                sendActionMessage("Enabled" + mEffectType);
+            }
+            
+            setBypassed(false);
         }
     }
     

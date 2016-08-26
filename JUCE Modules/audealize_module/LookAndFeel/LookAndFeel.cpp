@@ -35,6 +35,9 @@ namespace Audealize {
         setColour(TypeaheadPopupMenu::textSelectedColourId, midGray);
         setColour(GraphicEQComponent::tickMarkColourId, midGray.brighter(.15));
         
+        setColour(BypassButton::offColourId, darkGray);
+        setColour(BypassButton::onColourId, sliderThumbGray);
+        
         setColour(AudealizeTabbedComponent::backgroundColourId, midGray);
         
         setColour(AboutComponent::backgroundColourId, midGray);
@@ -99,6 +102,9 @@ namespace Audealize {
         setColour(TypeaheadPopupMenu::textColourId, Colours::black);
         setColour(TypeaheadPopupMenu::highlightColourId, accentBlue);
         setColour(TypeaheadPopupMenu::textSelectedColourId, Colours::black);
+
+        setColour(BypassButton::offColourId, outline.brighter(.4));
+        setColour(BypassButton::onColourId, outline.darker());
 
         setColour(GraphicEQComponent::tickMarkColourId, outline);
         
@@ -195,7 +201,8 @@ namespace Audealize {
         {
             g.setColour (bkg);
         }
-        else{
+        else
+        {
             g.setColour (bkg.darker(.2));
         }
         
@@ -710,4 +717,28 @@ namespace Audealize {
         }
     }
     
+    int AudealizeLookAndFeel::getTabButtonBestWidth (TabBarButton& button, int tabDepth)
+    {
+        int width = Font (tabDepth * 0.6f).getStringWidth (button.getButtonText().trim())
+        + getTabButtonOverlap (tabDepth) * 2;
+        
+        if (Component* const extraComponent = button.getExtraComponent())
+            width += button.getTabbedButtonBar().isVertical() ? extraComponent->getHeight()
+            : extraComponent->getWidth();
+        
+        int pad = 15;
+        return jlimit (tabDepth * 2  + pad, tabDepth * 8 + pad, width + pad);
+    }
+    
+    void AudealizeLookAndFeel::createTabTextLayout (const TabBarButton& button, float length, float depth,
+                              Colour colour, TextLayout& textLayout)
+    {
+        Font font (depth * 0.5f);
+        font.setUnderline (button.hasKeyboardFocus (false));
+        
+        AttributedString s;
+        s.setJustification (Justification::centredLeft);
+        s.append (button.getButtonText().trim(), font, colour);
+        textLayout.createLayout (s, length);
+    }
 }

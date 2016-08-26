@@ -6,13 +6,12 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
     // load properties, set dark mode accordingly
     properties = Properties::loadPropertiesVar();
     
-    if (!properties.isVoid() && !properties.isUndefined()) {
-        
+    if (!properties.isVoid() && !properties.isUndefined())
+    {
         var darkMode = properties.getDynamicObject()->getProperty("darkmode");
         
         if (darkMode.isBool())
         {
-            
             if ((bool) darkMode)
             {
                 LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
@@ -21,10 +20,10 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
             {
                 LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
             }
-            
         }
     }
-    else {
+    else
+    {
         DynamicObject* temp = new DynamicObject();
         temp->setProperty("darkmode", false);
         properties = var(temp);
@@ -121,7 +120,8 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
             }
         }
         
-        if (effectNames.size() > 0 && otherMapDescriptors.size() > 0){
+        if (effectNames.size() > 0 && otherMapDescriptors.size() > 0)
+        {
             mAudealizeUIs[i]->getSearchBar()->setMultiEffect(effectNames, otherMapDescriptors);
         }
     }
@@ -183,13 +183,16 @@ void AudealizeMultiUI::actionListenerCallback(const juce::String &message)
         mResizeLimits->setSizeLimits (600, 500 + 120 + 10, 1180, 800 + 120 + 10); // window size limits depend on whether or not the traditional UI is visible
 
         // show all traditional UIs (prevents window size issues)
-        for (int i = 0; i < mAudealizeUIs.size(); i++){
-            if (i != childIndex && !mAudealizeUIs[i]->isTraditionalUIVisible()){
+        for (int i = 0; i < mAudealizeUIs.size(); i++)
+        {
+            if (i != childIndex && !mAudealizeUIs[i]->isTraditionalUIVisible())
+            {
                 mAudealizeUIs[i]->getTraditionalUIButton()->triggerClick();
             }
         }
     }
-    else if (message == "TradUI_FALSE"){
+    else if (message == "TradUI_FALSE")
+    {
         mResizeLimits->setSizeLimits (600, 500, 1180, 800); // window size limits depend on whether or not the traditional UI is visible
 
         // hide all traditional UIs (prevents window size issues)
@@ -201,7 +204,8 @@ void AudealizeMultiUI::actionListenerCallback(const juce::String &message)
             }
         }
     }
-    else if (message.startsWith("Enabled")){
+    else if (message.startsWith("Enabled"))
+    {
         for (int i = 0; i < mAudealizeUIs.size(); i++)
         {
             if (message.contains(mAudealizeUIs[i]->getEffectName()))
@@ -216,18 +220,22 @@ void AudealizeMultiUI::actionListenerCallback(const juce::String &message)
 
 void AudealizeMultiUI::buttonClicked(juce::Button *buttonThatWasClicked)
 {
-    if (buttonThatWasClicked == mInfoButton) {
+    if (buttonThatWasClicked == mInfoButton)
+    {
         mAboutWindow->setVisible(true);
     }
-    else if (buttonThatWasClicked == mDarkModeButton) {
+    else if (buttonThatWasClicked == mDarkModeButton)
+    {
         bool isDark = static_cast<AudealizeLookAndFeel&>(getLookAndFeel()).isDarkModeActive();
-        if (isDark){
+        if (isDark)
+        {
             setLookAndFeel(&mLookAndFeel);
             mDarkModeGraphic->replaceColour(Colour(0xffbbbbbb), Colour(0xff606060));
 
             mDarkModeButton->setImages(mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
         }
-        else{
+        else
+        {
             setLookAndFeel(&mLookAndFeelDark);
             mDarkModeGraphic->replaceColour(Colour(0xff606060), Colour(0xffbbbbbb));
 
@@ -251,6 +259,10 @@ void AudealizeMultiUI::lookAndFeelChanged()
 {
     mAboutComponent->setLookAndFeel(&getLookAndFeel());
     mToolTip.setLookAndFeel(&getLookAndFeel());
+    for (auto b : mTabBypassButtons)
+    {
+        b->setLookAndFeel(&getLookAndFeel());
+    }
 }
 
 

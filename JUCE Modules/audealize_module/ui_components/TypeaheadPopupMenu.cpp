@@ -17,7 +17,8 @@ TypeaheadPopupMenu::TypeaheadPopupMenu() : shadow(DropShadow())
 
 void TypeaheadPopupMenu::setItems(const StringArray & options_)
 {
-    for (auto s : options_){
+    for (auto s : options_)
+    {
         options.push_back(s);
     }
     list.updateContent();
@@ -64,10 +65,12 @@ void TypeaheadPopupMenu::paintListBoxItem(int rowNumber, Graphics& g, int width,
     auto fg = getLookAndFeel().findColour(TypeaheadPopupMenu::textColourId);
     auto bg = getLookAndFeel().findColour(TypeaheadPopupMenu::backgroundColourId);
     
-    if (rowIsSelected){
+    if (rowIsSelected)
+    {
         bg = getLookAndFeel().findColour(TypeaheadPopupMenu::highlightColourId);
         fg = getLookAndFeel().findColour(TypeaheadPopupMenu::textSelectedColourId);
     }
+    
     g.fillAll(bg);
     g.setColour(fg);
     g.setFont(height*0.65f);
@@ -109,9 +112,11 @@ void TypeaheadEditor::mouseDown(const MouseEvent& event)
         dismissMenu();
 }
 
-void TypeaheadEditor::setOptions(std::vector<String> opts){
+void TypeaheadEditor::setOptions(std::vector<String> opts)
+{
     options.clear();
-    for (int i = 0; i < opts.size(); i++){
+    for (int i = 0; i < opts.size(); i++)
+    {
         options.add(opts[i]);
     }
     options.sort(true);
@@ -151,7 +156,8 @@ void TypeaheadEditor::textEditorTextChanged(TextEditor&)
     auto text = editor.getText();
     auto itemId = 0;
     
-    if (options.contains(text) && !setFromMap){
+    if (options.contains(text) && !setFromMap)
+    {
         dismissMenu();
         
         AttributedString attString;
@@ -165,7 +171,8 @@ void TypeaheadEditor::textEditorTextChanged(TextEditor&)
         
         return;
     }
-    if (setFromMap){
+    if (setFromMap)
+    {
         setFromMap = false;
         return;
     }
@@ -178,19 +185,27 @@ void TypeaheadEditor::textEditorTextChanged(TextEditor&)
         itemId++;
     }
     
-    if (stringsToShow.size() == 0){ // if descriptor not found in this map
-        for (int i = 0; i < otherMaps.size(); i++){  // search other maps
-            if (otherMaps[i].contains(text, true)){
+    if (stringsToShow.size() == 0) // if descriptor not found in this map
+    {
+        for (int i = 0; i < otherMaps.size(); i++) // search other maps
+        {
+            if (otherMaps[i].contains(text, true))
+            {
                 AttributedString attString;
                 attString.append ("Try checking the " + otherMapEffectNames[i] + " map", Font (18.0f));
                 showBubbleMessage(attString, Colours::blue, Colours::lightblue, 1500);
             }
         }
+        
         StringArray syn = synonyms(text);
-        if (syn.size() > 0){
+        
+        if (syn.size() > 0)
+        {
             int i = 0;
-            while (stringsToShow.size() <= 10 && i < syn.size()){
-                if (binarySearch(&options, syn[i])){ // because JUCE::StringArray::contains can be a bit slow
+            while (stringsToShow.size() <= 10 && i < syn.size())
+            {
+                if (binarySearch(&options, syn[i])) // because JUCE::StringArray::contains can be a bit slow
+                {
                     stringsToShow.addIfNotAlreadyThere(syn[i]);
                 }
                 i++;
@@ -214,8 +229,10 @@ void TypeaheadEditor::textEditorTextChanged(TextEditor&)
     else
     {
         if (!menu)
+        {
             showMenu();
-        
+        }
+
         menu->setItems(stringsToShow);
     }
 }
@@ -253,6 +270,7 @@ bool TypeaheadEditor::keyPressed(const KeyPress& key, Component * component)
             if (menu)
                 menu->setFirstItemFocused();
             
+            
             return true;
         }
     }
@@ -268,11 +286,14 @@ bool TypeaheadEditor::keyPressed(const KeyPress& key, Component * component)
 
 void TypeaheadEditor::focusLost(FocusChangeType cause) 
 {
-    if(!menu->hasKeyboardFocus(true)){
+    if(!menu->hasKeyboardFocus(true))
+    {
         dismissMenu();
     }
     if (menu && !menu->hasKeyboardFocus(true))
+    {
         menu = nullptr;
+    }
 }
 
 void TypeaheadEditor::resized() 
@@ -280,10 +301,14 @@ void TypeaheadEditor::resized()
     editor.setBounds(getLocalBounds());
 }
 
-void TypeaheadEditor::actionListenerCallback(const juce::String &message) {
-    if(!message.equalsIgnoreCase("_languagechanged")){
+void TypeaheadEditor::actionListenerCallback(const juce::String &message)
+{
+    if(!message.equalsIgnoreCase("_languagechanged"))
+    {
         editor.setText(message);
-        if (!setWithoutPressingReturn){
+        
+        if (!setWithoutPressingReturn)
+        {
             editor.selectAll();
         }
         setWithoutPressingReturn = false;
@@ -293,19 +318,23 @@ void TypeaheadEditor::actionListenerCallback(const juce::String &message) {
     }
 }
 
-TextEditor* TypeaheadEditor::getEditor(){
+TextEditor* TypeaheadEditor::getEditor()
+{
     return &editor;
 }
 
-void TypeaheadEditor::setMultiEffect(vector<String> effectNames, vector<StringArray> descriptors){
+void TypeaheadEditor::setMultiEffect(vector<String> effectNames, vector<StringArray> descriptors)
+{
     isMultiEffect = true;
     otherMaps = descriptors;
     otherMapEffectNames = effectNames;
 }
 
-StringArray TypeaheadEditor::synonyms(String word){
+StringArray TypeaheadEditor::synonyms(String word)
+{
 
-    if (wninit()){ // initialize wordnet
+    if (wninit()) // initialize wordnet
+    {
         DBG("Failed to load Wordnet");
         return StringArray();
     }
@@ -316,9 +345,10 @@ StringArray TypeaheadEditor::synonyms(String word){
 
     SynsetPtr synset = findtheinfo_ds(&w[0], ADJ, HYPERPTR, ALLSENSES); // returns a pointer to a linked list representation of a synset
     
-    while (synset != nullptr){ // loop through senses in synset
-        
-        for (int j = 0; j < synset->wcount; j++){ // loop through words in each sense
+    while (synset != nullptr) // loop through senses in synset
+    {
+        for (int j = 0; j < synset->wcount; j++) // loop through words in each sense
+        {
             std::string str(synset->words[j]);
             likewords.addIfNotAlreadyThere(str);
         }
@@ -331,21 +361,27 @@ StringArray TypeaheadEditor::synonyms(String word){
     return likewords;
 }
 
-bool TypeaheadEditor::binarySearch(StringArray* arr, String str){
+bool TypeaheadEditor::binarySearch(StringArray* arr, String str)
+{
     int left = 0;
     int right = arr->size();
     
-    while (left <= right){
+    while (left <= right)
+    {
         int mid = (left + right) / 2;
         
-        if ((*arr)[mid].equalsIgnoreCase(str)){
+        if ((*arr)[mid].equalsIgnoreCase(str))
+        {
             return true;
         }
-        else if ((*arr)[mid] > str){
+        else if ((*arr)[mid] > str)
+        {
             right = mid - 1;
         }
-        else {
-            left = mid + 1;         }
+        else
+        {
+            left = mid + 1;
+        }
     }
     return false;
 }

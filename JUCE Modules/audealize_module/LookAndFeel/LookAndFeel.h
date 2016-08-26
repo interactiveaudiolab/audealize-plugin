@@ -53,10 +53,15 @@ namespace Audealize {
         
         ~AudealizeLookAndFeel();
         
-        bool isDarkModeActive(){
+        bool isDarkModeActive()
+        {
             return isDarkMode;
         }
         
+        bool willDrawOutlines()
+        {
+            return shouldDrawOutlines;
+        }
         void setOutlines(bool enabled);
         
         void drawTabAreaBehindFrontButton (TabbedButtonBar& bar, Graphics& g, const int w, const int h) override;

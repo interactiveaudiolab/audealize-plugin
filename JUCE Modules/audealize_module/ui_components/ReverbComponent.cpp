@@ -1,7 +1,7 @@
 #include "ReverbComponent.h"
 
-namespace Audealize{
-    
+namespace Audealize
+{
     ReverbComponent::ReverbComponent (AudealizeAudioProcessor& p) : TraditionalUI(p)
     {
         //=========================================================================
@@ -66,12 +66,16 @@ namespace Audealize{
         mSliderD->setRange(0.01f, 0.1f);
         mSliderD->setTextValueSuffix(" ms");
         
-        valToText = [](float f) {
+        valToText = [](float f)
+        {
             return String(f * 1000, 1);
         };
-        textToVal = [](String s) {
+        
+        textToVal = [](String s)
+        {
             return s.initialSectionContainingOnly("1234567890.,-").getDoubleValue() * .001;
         };
+        
         mSliderD->setValueToTextFunction(valToText);
         mSliderD->setTextToValueFunction(textToVal);
         
@@ -84,11 +88,14 @@ namespace Audealize{
         mSliderG->setRange(0.01f, 0.96f);
         mSliderG->setTextValueSuffix(" %");
         
-        valToText = [](float f) {
+        valToText = [](float f)
+        {
             NormalisableRange<float> gRange(0.01f, 0.96f, 0.0001f);
             return String(roundToInt( gRange.convertTo0to1(f) * 100 ));
         };
-        textToVal = [](String s) {
+        
+        textToVal = [](String s)
+        {
             NormalisableRange<float> gRange(0.01f, 0.96f, 0.0001f);
             float val = s.initialSectionContainingOnly("1234567890.,-").getDoubleValue() * .01;
             return gRange.convertFrom0to1(val);
@@ -104,14 +111,18 @@ namespace Audealize{
         mSliderM->setRange(-0.012f, 0.012f);
         mSliderM->setTextValueSuffix(" ms");
 
-        valToText = [](float f) {
+        valToText = [](float f)
+        {
             String s = String(f * 1000, 1);
             if (s.equalsIgnoreCase("-0.0")) return String ("0"); // otherwise it'll display -0.0 at startup
             return s;
         };
-        textToVal = [](String s) {
+        
+        textToVal = [](String s)
+        {
             return s.initialSectionContainingOnly("1234567890.,-").getDoubleValue() * .001;
         };
+        
         mSliderM->setValueToTextFunction(valToText);
         mSliderM->setTextToValueFunction(textToVal);
         
@@ -134,10 +145,13 @@ namespace Audealize{
         mSliderE->setRange(0.0f, 1.0f);
         mSliderE->setTextValueSuffix(" %");
         
-        valToText = [](float f) {
+        valToText = [](float f)
+        {
             return String(roundToInt(f * 100));
         };
-        textToVal = [](String s) {
+        
+        textToVal = [](String s)
+        {
             return s.initialSectionContainingOnly("1234567890.,-").getDoubleValue() * .01;
         };
         

@@ -9,16 +9,20 @@
 
 #include "AudealizeSlider.h"
 
-namespace Audealize {
-    class RotarySliderCentered : public AudealizeSlider {
+namespace Audealize
+{
+    class RotarySliderCentered : public AudealizeSlider
+    {
     public:
-        RotarySliderCentered(){
+        RotarySliderCentered()
+        {
             setSliderStyle(RotaryVerticalDrag);
         }
         
         ~RotarySliderCentered() {}
         
-        void paint(Graphics& g) override {
+        void paint(Graphics& g) override
+        {
             const float sliderPos = (float) valueToProportionOfLength(getValue());
             
             RotaryParameters rotaryParams = getRotaryParameters();

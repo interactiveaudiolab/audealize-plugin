@@ -1,6 +1,11 @@
+//
+// AudealizeImages.h
+//
+// Defines image resources for Audealize plugins
+//
+
 #ifndef AudealizeImages_h
 #define AudealizeImages_h
-
 
 namespace Audealize{
     class AudealizeImages{

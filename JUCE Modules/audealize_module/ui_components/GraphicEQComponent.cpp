@@ -4,15 +4,16 @@
 using std::vector;
 using std::to_string;
 
-namespace Audealize {
-    
-    GraphicEQComponent::GraphicEQComponent (AudealizeAudioProcessor& p, int numBands, NormalisableRange<float> gainRange) : TraditionalUI(p), mGainSliders(numBands), mGainSliderAttachment(numBands) //, mGainListener(numBands)
+namespace Audealize
+{    
+    GraphicEQComponent::GraphicEQComponent (AudealizeAudioProcessor& p, int numBands, NormalisableRange<float> gainRange) : TraditionalUI(p), mGainSliders(numBands), mGainSliderAttachment(numBands)
     {
         mNumBands = numBands;
         
         name = "graphic EQ";
         
-        for (int i = 0; i < mNumBands; i++){
+        for (int i = 0; i < mNumBands; i++)
+        {
             String paramID = "paramGain" + to_string(i);
             
             mGainSliders[i] = new Slider (Slider::LinearVertical, Slider::NoTextBox);
@@ -30,7 +31,8 @@ namespace Audealize {
     
     GraphicEQComponent::~GraphicEQComponent()
     {
-        for (int i = 0; i < mNumBands; i++){
+        for (int i = 0; i < mNumBands; i++)
+        {
             mGainSliders[i] = nullptr;
             mGainSliderAttachment[i] = nullptr;
             //mGainListener[i] = nullptr;
@@ -40,7 +42,9 @@ namespace Audealize {
     void GraphicEQComponent::paint (Graphics& g)
     {
         int midpoint = mGainSliders[0]->getY() + mGainSliders[0]->getHeight() / 2;
-        for (int i = 0; i < NUMBANDS - 1; i++){
+        
+        for (int i = 0; i < NUMBANDS - 1; i++)
+        {
             int x1 = mGainSliders[i]->getRight();
             int x2 = mGainSliders[i+1]->getX();
             g.setColour(findColour(GraphicEQComponent::tickMarkColourId));
@@ -52,21 +56,22 @@ namespace Audealize {
     {
         Rectangle<int> box (getLocalBounds());
         box.setWidth(box.getWidth() / 40.);
-        for (int i = 0; i < mNumBands; i++){
+        
+        for (int i = 0; i < mNumBands; i++)
+        {
             mGainSliders[i]->setBounds(box);
             box.setX(box.getRight());
         }
-            }
-        
+    }
+    
     void GraphicEQComponent::sliderValueChanged	(Slider* slider) {
-        for (int i = 0; i < mNumBands; ++i){
-            if (mGainSliders[i] == slider){
+        for (int i = 0; i < mNumBands; ++i)
+        {
+            if (mGainSliders[i] == slider)
+            {
                 mGainSliders[i]->setTooltip(freqToText(mFreqs[i]) + ": " + String (slider->getValue(), 2) + " dB");
                 return;
             }
         }
     }
-    
-    
-    
 }

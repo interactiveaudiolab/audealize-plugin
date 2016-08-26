@@ -505,7 +505,6 @@
 		53B773388679640B42F77E98 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_AudioUnitPluginFormat.h"; path = "../../../JUCE Modules/juce_audio_processors/format_types/juce_AudioUnitPluginFormat.h"; sourceTree = "SOURCE_ROOT"; };
 		53D4192B05AF0663673A2910 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_ChoicePropertyComponent.cpp"; path = "../../../JUCE Modules/juce_gui_basics/properties/juce_ChoicePropertyComponent.cpp"; sourceTree = "SOURCE_ROOT"; };
 		53D77C8434A130626B9B1153 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_LocalisedStrings.h"; path = "../../../JUCE Modules/juce_core/text/juce_LocalisedStrings.h"; sourceTree = "SOURCE_ROOT"; };
-		5428BE0ACCF7A571D290D9AA = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = LookAndFeel1.cpp; path = "../../../JUCE Modules/audealize_module/LookAndFeel/LookAndFeel1.cpp"; sourceTree = "SOURCE_ROOT"; };
 		545918259779A73A6BB2C6E5 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_android_BluetoothMidiDevicePairingDialogue.cpp"; path = "../../../JUCE Modules/juce_audio_utils/native/juce_android_BluetoothMidiDevicePairingDialogue.cpp"; sourceTree = "SOURCE_ROOT"; };
 		5482872FB4D835DDA9C34FB0 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = "juce_ios_MessageManager.mm"; path = "../../../JUCE Modules/juce_events/native/juce_ios_MessageManager.mm"; sourceTree = "SOURCE_ROOT"; };
 		54A40937C86A7B77E827A86D = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = jmemmgr.c; path = "../../../JUCE Modules/juce_graphics/image_formats/jpglib/jmemmgr.c"; sourceTree = "SOURCE_ROOT"; };
@@ -728,6 +727,7 @@
 		7B71E8E96D2E82CCDA9BB979 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_ScopedLock.h"; path = "../../../JUCE Modules/juce_core/threads/juce_ScopedLock.h"; sourceTree = "SOURCE_ROOT"; };
 		7BC32065436FFD2C26521588 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_Sampler.h"; path = "../../../JUCE Modules/juce_audio_formats/sampler/juce_Sampler.h"; sourceTree = "SOURCE_ROOT"; };
 		7BC6DC7674B3711C94D8E678 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; name = jidctred.c; path = "../../../JUCE Modules/juce_graphics/image_formats/jpglib/jidctred.c"; sourceTree = "SOURCE_ROOT"; };
+		7BCAEF221D734692A38A2642 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BypassButton.h; path = "../../../JUCE Modules/audealize_module/ui_components/BypassButton.h"; sourceTree = "SOURCE_ROOT"; };
 		7BD78545D2920A04EFCDF2F2 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_File.cpp"; path = "../../../JUCE Modules/juce_core/files/juce_File.cpp"; sourceTree = "SOURCE_ROOT"; };
 		7C05E1E6A5AC7B6B170718B1 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "juce_OutputStream.h"; path = "../../../JUCE Modules/juce_core/streams/juce_OutputStream.h"; sourceTree = "SOURCE_ROOT"; };
 		7C1CD861532667D4449B2068 = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = "juce_PluginUtilities.cpp"; path = "../../../JUCE Modules/juce_audio_plugin_client/utility/juce_PluginUtilities.cpp"; sourceTree = "SOURCE_ROOT"; };
@@ -1445,8 +1445,7 @@
 					7764E5073E5F986D66EEB51D, ); name = effects; sourceTree = "<group>"; };
 		D1A87694EBD751BD97411466 = {isa = PBXGroup; children = (
 					738CA53A390F993DC35E32A7,
-					AECF81731CB7C6CABAD48A12,
-					5428BE0ACCF7A571D290D9AA, ); name = LookAndFeel; sourceTree = "<group>"; };
+					AECF81731CB7C6CABAD48A12, ); name = LookAndFeel; sourceTree = "<group>"; };
 		2D5447AF7AF15EE1E7043F0C = {isa = PBXGroup; children = (
 					47E241E4F8F5608C8891E98A,
 					8C76446F1393DFB33915A6B2, ); name = resources; sourceTree = "<group>"; };
@@ -1459,6 +1458,7 @@
 					B15CCCA0D51CB3672FDC221B,
 					1A22A697CF474395FEE66585,
 					D415522533168D35BB3E305E,
+					7BCAEF221D734692A38A2642,
 					CEB17EB9AF444A2BE6232116,
 					8E03FBA07E46146D0891C697,
 					720C403C83F1D3EC567D330F,
@@ -3132,8 +3132,8 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=0.1.1b",
-					"JUCE_APP_VERSION_HEX=0x101", );
+					"JUCE_APP_VERSION=0.2.0-beta",
+					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = ("\"~/SDKs/VST3 SDK\"", "../../JuceLibraryCode", "~/SDKs/AAX", "~/SDKs/AAX/Interfaces", "~/SDKs/AAX/Interfaces/ACF", "\"../../../JUCE Modules\"", "/usr/local/WordNet-3.0/include", "$(inherited)");
@@ -3169,8 +3169,8 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=0.1.1b",
-					"JUCE_APP_VERSION_HEX=0x101", );
+					"JUCE_APP_VERSION=0.2.0-beta",
+					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
@@ -3207,8 +3207,8 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=0.1.1b",
-					"JUCE_APP_VERSION_HEX=0x101", );
+					"JUCE_APP_VERSION=0.2.0-beta",
+					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = ("\"~/SDKs/VST3 SDK\"", "../../JuceLibraryCode", "~/SDKs/AAX", "~/SDKs/AAX/Interfaces", "~/SDKs/AAX/Interfaces/ACF", "\"../../../JUCE Modules\"", "/usr/local/WordNet-3.0/include", "$(inherited)");
@@ -3244,8 +3244,8 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=0.1.1b",
-					"JUCE_APP_VERSION_HEX=0x101", );
+					"JUCE_APP_VERSION=0.2.0-beta",
+					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
@@ -3282,8 +3282,8 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=0.1.1b",
-					"JUCE_APP_VERSION_HEX=0x101", );
+					"JUCE_APP_VERSION=0.2.0-beta",
+					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = ("\"~/SDKs/VST3 SDK\"", "../../JuceLibraryCode", "~/SDKs/AAX", "~/SDKs/AAX/Interfaces", "~/SDKs/AAX/Interfaces/ACF", "\"../../../JUCE Modules\"", "/usr/local/WordNet-3.0/include", "$(inherited)");
@@ -3320,8 +3320,8 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=0.1.1b",
-					"JUCE_APP_VERSION_HEX=0x101", );
+					"JUCE_APP_VERSION=0.2.0-beta",
+					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
@@ -3358,8 +3358,8 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=0.1.1b",
-					"JUCE_APP_VERSION_HEX=0x101", );
+					"JUCE_APP_VERSION=0.2.0-beta",
+					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = ("\"~/SDKs/VST3 SDK\"", "../../JuceLibraryCode", "~/SDKs/AAX", "~/SDKs/AAX/Interfaces", "~/SDKs/AAX/Interfaces/ACF", "\"../../../JUCE Modules\"", "/usr/local/WordNet-3.0/include", "$(inherited)");
 				INFOPLIST_FILE = Info-AUv3_AppExtension.plist;
@@ -3390,8 +3390,8 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=0.1.1b",
-					"JUCE_APP_VERSION_HEX=0x101", );
+					"JUCE_APP_VERSION=0.2.0-beta",
+					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = ("\"~/SDKs/VST3 SDK\"", "../../JuceLibraryCode", "~/SDKs/AAX", "~/SDKs/AAX/Interfaces", "~/SDKs/AAX/Interfaces/ACF", "\"../../../JUCE Modules\"", "/usr/local/WordNet-3.0/include", "$(inherited)");
@@ -3424,8 +3424,8 @@
 					"JucePlugin_Build_AAX=1",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=0.1.1b",
-					"JUCE_APP_VERSION_HEX=0x101", );
+					"JUCE_APP_VERSION=0.2.0-beta",
+					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = ("\"~/SDKs/VST3 SDK\"", "../../JuceLibraryCode", "~/SDKs/AAX", "~/SDKs/AAX/Interfaces", "~/SDKs/AAX/Interfaces/ACF", "\"../../../JUCE Modules\"", "/usr/local/WordNet-3.0/include", "$(inherited)");
@@ -3461,8 +3461,8 @@
 					"JucePlugin_Build_AAX=1",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=0.1.1b",
-					"JUCE_APP_VERSION_HEX=0x101", );
+					"JUCE_APP_VERSION=0.2.0-beta",
+					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
@@ -3497,8 +3497,8 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=0.1.1b",
-					"JUCE_APP_VERSION_HEX=0x101", );
+					"JUCE_APP_VERSION=0.2.0-beta",
+					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = ("\"~/SDKs/VST3 SDK\"", "../../JuceLibraryCode", "~/SDKs/AAX", "~/SDKs/AAX/Interfaces", "~/SDKs/AAX/Interfaces/ACF", "\"../../../JUCE Modules\"", "/usr/local/WordNet-3.0/include", "$(inherited)");
 				INFOPLIST_FILE = Info-AUv3_Standalone.plist;
@@ -3528,8 +3528,8 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=0.1.1b",
-					"JUCE_APP_VERSION_HEX=0x101", );
+					"JUCE_APP_VERSION=0.2.0-beta",
+					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = ("\"~/SDKs/VST3 SDK\"", "../../JuceLibraryCode", "~/SDKs/AAX", "~/SDKs/AAX/Interfaces", "~/SDKs/AAX/Interfaces/ACF", "\"../../../JUCE Modules\"", "/usr/local/WordNet-3.0/include", "$(inherited)");
@@ -3561,8 +3561,8 @@
 					"JucePlugin_Build_AAX=1",
 					"JucePlugin_Build_Standalone=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=0.1.1b",
-					"JUCE_APP_VERSION_HEX=0x101", );
+					"JUCE_APP_VERSION=0.2.0-beta",
+					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = ("\"~/SDKs/VST3 SDK\"", "../../JuceLibraryCode", "~/SDKs/AAX", "~/SDKs/AAX/Interfaces", "~/SDKs/AAX/Interfaces/ACF", "\"../../../JUCE Modules\"", "/usr/local/WordNet-3.0/include", "$(inherited)");
 				INSTALL_PATH = "@executable_path/../Frameworks";
@@ -3593,8 +3593,8 @@
 					"JucePlugin_Build_AAX=1",
 					"JucePlugin_Build_Standalone=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=0.1.1b",
-					"JUCE_APP_VERSION_HEX=0x101", );
+					"JUCE_APP_VERSION=0.2.0-beta",
+					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = ("\"~/SDKs/VST3 SDK\"", "../../JuceLibraryCode", "~/SDKs/AAX", "~/SDKs/AAX/Interfaces", "~/SDKs/AAX/Interfaces/ACF", "\"../../../JUCE Modules\"", "/usr/local/WordNet-3.0/include", "$(inherited)");

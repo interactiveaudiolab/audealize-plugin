@@ -43,7 +43,11 @@
 namespace ProjectInfo
 {
     const char* const  projectName    = "Audealize EQ";
+<<<<<<< HEAD
     const char* const  versionString  = "0.2.0-beta";
+=======
+    const char* const  versionString  = "0.2.0b";
+>>>>>>> master
     const int          versionNumber  = 0x200;
 }
 #endif

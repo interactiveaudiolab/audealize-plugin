@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
 <JUCERPROJECT id="ZTUKhG" name="Audealize Reverb" projectType="audioplug" version="0.2.0-beta"
+=======
+<JUCERPROJECT id="ZTUKhG" name="Audealize Reverb" projectType="audioplug" version="0.2.0b"
+>>>>>>> master
               bundleIdentifier="com.InteractiveAudioLab.AudealizeReverb" includeBinaryInAppConfig="1"
               buildVST="1" buildVST3="1" buildAU="1" buildAUv3="1" buildRTAS="0"
               buildAAX="1" pluginName="Audealize Reverb" pluginDesc="Audealize Reverb"

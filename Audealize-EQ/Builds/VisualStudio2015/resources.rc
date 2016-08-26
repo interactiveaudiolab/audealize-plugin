@@ -7,7 +7,11 @@
 #include <windows.h>
 
 VS_VERSION_INFO VERSIONINFO
+<<<<<<< HEAD
 FILEVERSION  0,2,0-beta,0
+=======
+FILEVERSION  0,2,0b,0
+>>>>>>> master
 BEGIN
   BLOCK "StringFileInfo"
   BEGIN
@@ -15,9 +19,15 @@ BEGIN
     BEGIN
       VALUE "CompanyName",  "Northwestern University Interactive Audio Lab\0"
       VALUE "FileDescription",  "Audealize EQ\0"
+<<<<<<< HEAD
       VALUE "FileVersion",  "0.2.0-beta\0"
       VALUE "ProductName",  "Audealize EQ\0"
       VALUE "ProductVersion",  "0.2.0-beta\0"
+=======
+      VALUE "FileVersion",  "0.2.0b\0"
+      VALUE "ProductName",  "Audealize EQ\0"
+      VALUE "ProductVersion",  "0.2.0b\0"
+>>>>>>> master
     END
   END
 

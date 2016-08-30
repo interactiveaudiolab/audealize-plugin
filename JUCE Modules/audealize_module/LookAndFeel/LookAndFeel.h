@@ -119,7 +119,7 @@ namespace Audealize {
         bool isDarkMode;
         bool shouldDrawOutlines;
         Colour outline, tickBoxFill;
-        
+
         JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR ( AudealizeLookAndFeel );
     };
     

@@ -147,6 +147,7 @@ namespace Audealize {
 
         LookAndFeel::setDefaultSansSerifTypefaceName("Roboto");
         
+        
         shouldDrawOutlines = true;
     };
     AudealizeLookAndFeel::~AudealizeLookAndFeel() {};
@@ -372,9 +373,14 @@ namespace Audealize {
                 ky = y + height * 0.5f;
             }
             
+            Path e;
+            e.addEllipse(kx - sliderRadius, ky - sliderRadius, sliderRadius * 2.0f, sliderRadius * 2.0f);
+            
             g.setColour(knobColour);
-            g.fillEllipse(kx - sliderRadius, ky - sliderRadius, sliderRadius * 2.0f, sliderRadius * 2.0f);
-            if(shouldDrawOutlines){
+            g.fillPath(e);
+            
+            if(shouldDrawOutlines)
+            {
                 g.setColour(this->outline);
                 g.drawEllipse(kx - sliderRadius, ky - sliderRadius, sliderRadius * 2.0f, sliderRadius * 2.0f, outlineThickness);
             }
@@ -520,10 +526,14 @@ namespace Audealize {
             
             int knobRadius = radius * .68;
             
-            g.setColour(findColour(Slider::ColourIds::thumbColourId));
-            g.fillEllipse(centreX - knobRadius, centreY -knobRadius, knobRadius * 2, knobRadius * 2);
+            Path e;
+            e.addEllipse(centreX - knobRadius, centreY -knobRadius, knobRadius * 2, knobRadius * 2);
             
-            if (shouldDrawOutlines){
+            g.setColour(findColour(Slider::ColourIds::thumbColourId));
+            g.fillPath(e);
+            
+            if (shouldDrawOutlines)
+            {
                 g.setColour(this->outline);
                 g.drawEllipse(centreX - knobRadius, centreY -knobRadius, knobRadius * 2, knobRadius * 2, 1);
             }
@@ -531,10 +541,12 @@ namespace Audealize {
             Path backgroundArc;
             backgroundArc.addPieSegment (rx, ry, rw, rw, rotaryStartAngle, rotaryEndAngle, thickness);
             backgroundArc.closeSubPath();
+
             g.setColour(findColour(Slider::trackColourId));
             g.fillPath(backgroundArc);
-            
-            if (shouldDrawOutlines){
+
+            if (shouldDrawOutlines)
+            {
                 g.setColour(this->outline);
                 g.strokePath(backgroundArc, PathStrokeType(1));
             }
@@ -543,50 +555,38 @@ namespace Audealize {
                 g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (isMouseOver ? 1.0f : 0.7f));
             else
                 g.setColour (Colour (0x80808080));
+
+            Path filledArc;
+            filledArc.addPieSegment (rx, ry, rw, rw, rotaryStartAngle, angle, thickness);
+            g.fillPath (filledArc);
             
-            
-            
+            if (shouldDrawOutlines)
             {
-                Path filledArc;
-                filledArc.addPieSegment (rx, ry, rw, rw, rotaryStartAngle, angle, thickness);
-                g.fillPath (filledArc);
-                if (shouldDrawOutlines){
-                    g.setColour(this->outline);
-                    g.strokePath(filledArc, PathStrokeType(1));
-                }
+                g.setColour(this->outline);
+                g.strokePath(filledArc, PathStrokeType(1));
             }
             
-            {
-                Path p;
-                float rectHeight = radius * .3f;
-                float rectWidth = radius * .15f;
-                p.addRoundedRectangle(- rectWidth * .5, - rectHeight * 1.8, rectWidth, rectHeight, rectWidth * .5);
-                
-                g.setColour(findColour(Slider::trackColourId).darker(.3));
-                g.fillPath (p, AffineTransform::rotation (angle).translated (centreX, centreY));
-                
-            }
+            Path p;
+            float rectHeight = radius * .3f;
+            float rectWidth = radius * .15f;
+            p.addRoundedRectangle(- rectWidth * .5, - rectHeight * 1.8, rectWidth, rectHeight, rectWidth * .5);
             
-            if (slider.isEnabled())
-                g.setColour (slider.findColour (Slider::rotarySliderOutlineColourId));
-            else
-                g.setColour (Colour (0x80808080));
-            
-            
+            g.setColour(findColour(Slider::trackColourId).darker(.3));
+            g.fillPath (p, AffineTransform::rotation (angle).translated (centreX, centreY));
         }
         else
         {
-            if (slider.isEnabled())
-                g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (isMouseOver ? 1.0f : 0.7f));
-            else
-                g.setColour (Colour (0x80808080));
-            
             Path p;
             p.addEllipse (-0.4f * rw, -0.4f * rw, rw * 0.8f, rw * 0.8f);
             PathStrokeType (rw * 0.1f).createStrokedPath (p, p);
             
             p.addLineSegment (Line<float> (0.0f, 0.0f, 0.0f, -radius), rw * 0.2f);
             
+            if (slider.isEnabled())
+                g.setColour (slider.findColour (Slider::rotarySliderFillColourId).withAlpha (isMouseOver ? 1.0f : 0.7f));
+            else
+                g.setColour (Colour (0x80808080));
+
             g.fillPath (p, AffineTransform::rotation (angle).translated (centreX, centreY));
         }
         

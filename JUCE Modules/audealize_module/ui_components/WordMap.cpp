@@ -8,7 +8,6 @@ namespace Audealize {
     
     WordMap::WordMap (AudealizeAudioProcessor& p, json descriptors) : processor(p), json_dict(descriptors), languages(0), words(0), points(0), excluded_points(0), params(0), colors(0), font_sizes(0)
     {
-        
         // initialize circle positions
         circle_position = Point<float>(150,50);
         hover_position = Point<float>(100, 50);
@@ -27,12 +26,12 @@ namespace Audealize {
         has_been_hovered = false;
         languages = {};
         
-        startTimerHz(60);
+        startTimerHz(60); // limit repaint rate to 60hz
+        
+        loadPoints();
         
         // set default size of component
         setSize (800, 400);
-        
-        loadPoints();
     }
     
     WordMap::~WordMap()
@@ -113,6 +112,8 @@ namespace Audealize {
     
     void WordMap::paint (Graphics& g)
     {
+        setDirty(false);
+        
         g.fillAll(getLookAndFeel().findColour(WordMap::backgroundColourId));
         
         vector<Point<float>> plotted(0);
@@ -121,8 +122,6 @@ namespace Audealize {
         Point<float> point;
         Colour color;
         bool hover_radius, in_radius, collision;
-        
-        setDirty(false);
         
         // Draw border
         Path outline;
@@ -413,7 +412,8 @@ namespace Audealize {
     }
     
     void WordMap::timerCallback(){
-        if (isdirty){
+        if (isdirty)
+        {
             repaint();
         }
     }

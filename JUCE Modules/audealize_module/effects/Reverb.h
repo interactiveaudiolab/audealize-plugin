@@ -235,7 +235,6 @@ public:
         }
     }
 
-
     /**
      *  Getters for main reverberator parameters
      */

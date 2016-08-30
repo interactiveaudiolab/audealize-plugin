@@ -24,7 +24,6 @@ public:
         textSelectedColourId = 0x2000403
     };
 
-
     TypeaheadPopupMenu ();
     ~TypeaheadPopupMenu (){};
 
@@ -79,7 +78,6 @@ private:
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TypeaheadPopupMenu);
 };
-
 
 /**
  *  A TextEditor component that displays a TypeaheadPopupMenu below it with suggestions of words
@@ -158,6 +156,11 @@ public:
      */
     void setMultiEffect (vector<String> effectNames, vector<StringArray> descriptors);
 
+    /**
+     *  Returns a pointer to the searchbar TextEditor
+     *
+     *  @return a TextEditor*
+     */
     TextEditor* getEditor ();
 
     /**
@@ -184,7 +187,7 @@ public:
      *
      *  @param str          The message to be displayed
      *  @param outlineColor Color of the outline of the BubbleMessageComponent
-     *  @param fillColor      Color of the outline of the BubbleMessageComponent
+     *  @param fillColor    Color of the outline of the BubbleMessageComponent
      *  @param timeInMS     Time (in ms) for BubbleMessageComponent to stay visible
      */
     void showBubbleMessage (AttributedString str, Colour outlineColor, Colour fillColor = Colours::white,
@@ -213,6 +216,5 @@ private:
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TypeaheadEditor);
 };
-
 
 #endif /* TypeaheadPopupMenu_h */

@@ -3131,11 +3131,7 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-<<<<<<< HEAD
-					"JUCE_APP_VERSION=0.2.0-beta",
-=======
 					"JUCE_APP_VERSION=0.2.0b",
->>>>>>> master
 					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
@@ -3172,11 +3168,7 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-<<<<<<< HEAD
-					"JUCE_APP_VERSION=0.2.0-beta",
-=======
 					"JUCE_APP_VERSION=0.2.0b",
->>>>>>> master
 					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -3214,11 +3206,7 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-<<<<<<< HEAD
-					"JUCE_APP_VERSION=0.2.0-beta",
-=======
 					"JUCE_APP_VERSION=0.2.0b",
->>>>>>> master
 					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
@@ -3255,11 +3243,7 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-<<<<<<< HEAD
-					"JUCE_APP_VERSION=0.2.0-beta",
-=======
 					"JUCE_APP_VERSION=0.2.0b",
->>>>>>> master
 					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -3297,11 +3281,7 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-<<<<<<< HEAD
-					"JUCE_APP_VERSION=0.2.0-beta",
-=======
 					"JUCE_APP_VERSION=0.2.0b",
->>>>>>> master
 					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
@@ -3339,11 +3319,7 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-<<<<<<< HEAD
-					"JUCE_APP_VERSION=0.2.0-beta",
-=======
 					"JUCE_APP_VERSION=0.2.0b",
->>>>>>> master
 					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -3381,11 +3357,7 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-<<<<<<< HEAD
-					"JUCE_APP_VERSION=0.2.0-beta",
-=======
 					"JUCE_APP_VERSION=0.2.0b",
->>>>>>> master
 					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = ("\"~/SDKs/VST3 SDK\"", "../../JuceLibraryCode", "~/SDKs/AAX", "~/SDKs/AAX/Interfaces", "~/SDKs/AAX/Interfaces/ACF", "\"../../../JUCE Modules\"", "/usr/local/WordNet-3.0/include", "$(inherited)");
@@ -3417,11 +3389,7 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-<<<<<<< HEAD
-					"JUCE_APP_VERSION=0.2.0-beta",
-=======
 					"JUCE_APP_VERSION=0.2.0b",
->>>>>>> master
 					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -3455,11 +3423,7 @@
 					"JucePlugin_Build_AAX=1",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-<<<<<<< HEAD
-					"JUCE_APP_VERSION=0.2.0-beta",
-=======
 					"JUCE_APP_VERSION=0.2.0b",
->>>>>>> master
 					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
@@ -3496,11 +3460,7 @@
 					"JucePlugin_Build_AAX=1",
 					"JucePlugin_Build_Standalone=0",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-<<<<<<< HEAD
-					"JUCE_APP_VERSION=0.2.0-beta",
-=======
 					"JUCE_APP_VERSION=0.2.0b",
->>>>>>> master
 					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -3536,11 +3496,7 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-<<<<<<< HEAD
-					"JUCE_APP_VERSION=0.2.0-beta",
-=======
 					"JUCE_APP_VERSION=0.2.0b",
->>>>>>> master
 					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = ("\"~/SDKs/VST3 SDK\"", "../../JuceLibraryCode", "~/SDKs/AAX", "~/SDKs/AAX/Interfaces", "~/SDKs/AAX/Interfaces/ACF", "\"../../../JUCE Modules\"", "/usr/local/WordNet-3.0/include", "$(inherited)");
@@ -3571,11 +3527,7 @@
 					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-<<<<<<< HEAD
-					"JUCE_APP_VERSION=0.2.0-beta",
-=======
 					"JUCE_APP_VERSION=0.2.0b",
->>>>>>> master
 					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -3608,11 +3560,7 @@
 					"JucePlugin_Build_AAX=1",
 					"JucePlugin_Build_Standalone=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-<<<<<<< HEAD
-					"JUCE_APP_VERSION=0.2.0-beta",
-=======
 					"JUCE_APP_VERSION=0.2.0b",
->>>>>>> master
 					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = ("\"~/SDKs/VST3 SDK\"", "../../JuceLibraryCode", "~/SDKs/AAX", "~/SDKs/AAX/Interfaces", "~/SDKs/AAX/Interfaces/ACF", "\"../../../JUCE Modules\"", "/usr/local/WordNet-3.0/include", "$(inherited)");
@@ -3644,11 +3592,7 @@
 					"JucePlugin_Build_AAX=1",
 					"JucePlugin_Build_Standalone=1",
 					"JUCER_XCODE_MAC_F6D2F4CF=1",
-<<<<<<< HEAD
-					"JUCE_APP_VERSION=0.2.0-beta",
-=======
 					"JUCE_APP_VERSION=0.2.0b",
->>>>>>> master
 					"JUCE_APP_VERSION_HEX=0x200", );
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;

@@ -13,7 +13,9 @@
 #include "audealize_module.h"
 
 #include "LookAndFeel/LookAndFeel.cpp"
+
 #include "resources/AudealizeImages.cpp"
+#include "resources/Fonts.cpp"
 
 #include "ui_components/AboutComponent.cpp"
 #include "ui_components/AudealizeMultiUI.cpp"

@@ -33,6 +33,7 @@
 #include "LookAndFeel/LookAndFeel.h"
 
 #include "resources/AudealizeImages.h"
+#include "resources/Fonts.h"
 
 #include "utils/json.hpp"
 #include "utils/calf_dsp_library/delay.h"

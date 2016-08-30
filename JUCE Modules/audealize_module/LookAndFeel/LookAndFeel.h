@@ -8,6 +8,8 @@
 #ifndef LookAndFeel_h
 #define LookAndFeel_h
 
+#include "../resources/Fonts.h"
+
 using namespace juce;
 
 namespace LookAndFeelHelpers  // from juce_LookAndFeel_V2.cpp
@@ -63,7 +65,6 @@ public:
 
     void drawButtonShape (Graphics& g, const Path& outline, Colour baseColour, float height);
 
-
     void drawButtonBackground (Graphics& g, Button& button, const Colour& backgroundColour, bool isMouseOverButton,
                                bool isButtonDown) override;
 
@@ -95,6 +96,11 @@ public:
 
     void createTabTextLayout (const TabBarButton& button, float length, float depth, Colour colour,
                               TextLayout& textLayout);
+    Typeface::Ptr getTypefaceForFont (const Font& font) override
+    {
+        return Typeface::createSystemTypefaceFor (AudealizeFonts::RobotoRegular_ttf,
+                                                  AudealizeFonts::RobotoRegular_ttfSize);
+    }
 
 protected:
     bool isDarkMode;
@@ -103,7 +109,6 @@ protected:
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeLookAndFeel);
 };
-
 
 //=====================================================
 // AudealizeLookAndFeelDark

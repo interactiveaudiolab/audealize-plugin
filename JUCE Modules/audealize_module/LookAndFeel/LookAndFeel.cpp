@@ -145,9 +145,6 @@ AudealizeLookAndFeel::AudealizeLookAndFeel () : outline (0xff909090)
     setColour (TooltipWindow::backgroundColourId, Colours::white);
     setColour (TooltipWindow::outlineColourId, outline);
 
-    LookAndFeel::setDefaultSansSerifTypefaceName ("Roboto");
-
-
     shouldDrawOutlines = true;
 };
 AudealizeLookAndFeel::~AudealizeLookAndFeel (){};
@@ -187,7 +184,6 @@ void AudealizeLookAndFeel::drawTabAreaBehindFrontButton (TabbedButtonBar& bar, G
         default:
             break;
     }
-
 
     g.setColour (findColour (TabbedButtonBar::tabOutlineColourId));
     g.fillRect (line);
@@ -269,7 +265,6 @@ void AudealizeLookAndFeel::drawTabButton (TabBarButton& button, Graphics& g, boo
     textLayout.draw (g, Rectangle<float> (length, depth));
 }
 
-
 void AudealizeLookAndFeel::drawButtonShape (Graphics& g, const Path& outline, Colour baseColour, float height)
 {
     g.setColour (baseColour);
@@ -282,7 +277,6 @@ void AudealizeLookAndFeel::drawButtonShape (Graphics& g, const Path& outline, Co
         g.strokePath (outline, PathStrokeType (1.0f));
     }
 }
-
 
 void AudealizeLookAndFeel::drawButtonBackground (Graphics& g, Button& button, const Colour& backgroundColour,
                                                  bool isMouseOverButton, bool isButtonDown)
@@ -313,7 +307,6 @@ void AudealizeLookAndFeel::drawButtonBackground (Graphics& g, Button& button, co
     }
 }
 
-
 void AudealizeLookAndFeel::drawTickBox (Graphics& g, Component& component, float x, float y, float w, float h,
                                         const bool ticked, const bool isEnabled, const bool isMouseOverButton,
                                         const bool isButtonDown)
@@ -332,7 +325,6 @@ void AudealizeLookAndFeel::drawTickBox (Graphics& g, Component& component, float
     {
         g.fillRoundedRectangle (x, (y + boxSize) / 2, boxSize, boxSize, boxSize / 4);
     }
-
 
     if (ticked)
     {
@@ -361,7 +353,6 @@ void AudealizeLookAndFeel::drawLinearSliderThumb (Graphics& g, int x, int y, int
         slider.isMouseOverOrDragging () && slider.isEnabled (), slider.isMouseButtonDown () && slider.isEnabled ()));
 
     const float outlineThickness = slider.isEnabled () ? 0.8f : 0.3f;
-
 
     if (style == Slider::LinearHorizontal || style == Slider::LinearVertical)
     {
@@ -645,7 +636,6 @@ void AudealizeLookAndFeel::drawRotarySliderCentered (Graphics& g, int x, int y, 
         else
             g.setColour (Colour (0x80808080));
 
-
         {
             Path filledArc;
             filledArc.addPieSegment (rx, ry, rw, rw, (rotaryStartAngle + rotaryEndAngle) * .5f, angle, thickness);
@@ -688,7 +678,6 @@ void AudealizeLookAndFeel::drawRotarySliderCentered (Graphics& g, int x, int y, 
         g.fillPath (p, AffineTransform::rotation (angle).translated (centreX, centreY));
     }
 }
-
 
 void AudealizeLookAndFeel::drawCornerResizer (Graphics& g, int w, int h, bool /*isMouseOver*/, bool /*isMouseDragging*/)
 {

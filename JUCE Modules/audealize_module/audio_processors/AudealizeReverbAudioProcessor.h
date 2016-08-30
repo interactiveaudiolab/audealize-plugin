@@ -3,52 +3,50 @@
 
 using namespace Audealize;
 
-class AudealizereverbAudioProcessor  : public AudealizeAudioProcessor
+class AudealizereverbAudioProcessor : public AudealizeAudioProcessor
 {
 public:
-    AudealizereverbAudioProcessor(AudealizeAudioProcessor* owner = nullptr);
-    ~AudealizereverbAudioProcessor();
+    AudealizereverbAudioProcessor (AudealizeAudioProcessor* owner = nullptr);
+    ~AudealizereverbAudioProcessor ();
 
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
-    void releaseResources() override;
+    void releaseResources () override;
 
-   #ifndef JucePlugin_PreferredChannelConfigurations
+#ifndef JucePlugin_PreferredChannelConfigurations
     bool setPreferredBusArrangement (bool isInput, int bus, const AudioChannelSet& preferredSet) override;
-   #endif
+#endif
 
     void processBlock (AudioSampleBuffer&, MidiBuffer&) override;
 
-    AudealizeUI* createEditorForMultiEffect();
-    
-    AudioProcessorEditor* createEditor() override;
-    
-    bool hasEditor() const override;
+    AudealizeUI* createEditorForMultiEffect ();
 
-    const String getName() const override;
+    AudioProcessorEditor* createEditor () override;
 
-    bool acceptsMidi() const override;
-    bool producesMidi() const override;
-    double getTailLengthSeconds() const override;
+    bool hasEditor () const override;
 
-    int getNumPrograms() override;
-    int getCurrentProgram() override;
+    const String getName () const override;
+
+    bool acceptsMidi () const override;
+    bool producesMidi () const override;
+    double getTailLengthSeconds () const override;
+
+    int getNumPrograms () override;
+    int getCurrentProgram () override;
     void setCurrentProgram (int index) override;
     const String getProgramName (int index) override;
     void changeProgramName (int index, const String& newName) override;
-    
-    void parameterChanged(const juce::String &parameterID, float newValue) override;
-    
-    void settingsFromMap(vector<float> settings) override;
-    
-    inline String getParamID(int index) override;
-    
-    inline int getParamIdx(String paramId);
-    
-    bool isParameterAutomatable(int index){
-        return true;
-    }
-    
-    enum Parameters{
+
+    void parameterChanged (const juce::String& parameterID, float newValue) override;
+
+    void settingsFromMap (vector<float> settings) override;
+
+    inline String getParamID (int index) override;
+
+    inline int getParamIdx (String paramId);
+
+    bool isParameterAutomatable (int index) { return true; }
+    enum Parameters
+    {
         kParamD,
         kParamG,
         kParamM,
@@ -57,7 +55,7 @@ public:
         kParamAmount,
         kNumParams
     };
-    
+
     static String paramD;
     static String paramG;
     static String paramM;
@@ -66,29 +64,29 @@ public:
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizereverbAudioProcessor)
-    
+
     Audealize::Reverb mReverb;
-    
+
     NormalisableRange<float> mParamRange[kNumParams];
-        
+
     LinearSmoothedValue<float> mSmoothedVals[kNumParams];
 
-    const float DEFAULT_D   = 0.05f;
-    const float DEFAULT_G   = 0.5f;
-    const float DEFAULT_M   = 0.005f;
-    const float DEFAULT_F   = 5500.0f;
-    const float DEFAULT_E   = 0.95f;
+    const float DEFAULT_D = 0.05f;
+    const float DEFAULT_G = 0.5f;
+    const float DEFAULT_M = 0.005f;
+    const float DEFAULT_F = 5500.0f;
+    const float DEFAULT_E = 0.95f;
     const float DEFAULT_MIX = 0.75f;
-    
+
 #ifdef JUCE_MAC
-    const String PATH_TO_POINTS = "/Library/Application Support/Audealize/reverbdescriptors.json"; //@TODO
+    const String PATH_TO_POINTS = "/Library/Application Support/Audealize/reverbdescriptors.json";  //@TODO
 #elif JUCE_WINDOWS
     const String PATH_TO_POINTS = "C:\Program Files\Audealize\reverbdescriptors.json";
 #elif JUCE_LINUX
     const String PATH_TO_POINTS = "/usr/share/Audealize/reverbdescriptors.json";
 #endif
-    
-    void debugParams();
+
+    void debugParams ();
 };
 
 

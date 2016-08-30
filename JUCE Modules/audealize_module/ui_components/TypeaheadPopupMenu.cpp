@@ -4,83 +4,80 @@
 // TypeaheadPopupMenu
 //================================================================================================
 
-TypeaheadPopupMenu::TypeaheadPopupMenu() : shadow(DropShadow())
+TypeaheadPopupMenu::TypeaheadPopupMenu () : shadow (DropShadow ())
 {
-    setAlwaysOnTop(true);
-    setOpaque(true);
-    list.setModel(this);
-    list.setRowHeight(30);
-    addAndMakeVisible(list);
-    
-    shadow.setOwner(this);
+    setAlwaysOnTop (true);
+    setOpaque (true);
+    list.setModel (this);
+    list.setRowHeight (30);
+    addAndMakeVisible (list);
+
+    shadow.setOwner (this);
 }
 
-void TypeaheadPopupMenu::setItems(const StringArray & options_)
+void TypeaheadPopupMenu::setItems (const StringArray& options_)
 {
     for (auto s : options_)
     {
-        options.push_back(s);
+        options.push_back (s);
     }
-    list.updateContent();
-    setSize(getWidth(), jmin(int(options.size()), 5) * list.getRowHeight());
+    list.updateContent ();
+    setSize (getWidth (), jmin (int(options.size ()), 5) * list.getRowHeight ());
 }
 
-void TypeaheadPopupMenu::resized()
+void TypeaheadPopupMenu::resized ()
 {
-    list.setBounds(getLocalBounds());
+    list.setBounds (getLocalBounds ());
 }
 
-void TypeaheadPopupMenu::paint(Graphics & g) 
+void TypeaheadPopupMenu::paint (Graphics& g)
 {
 }
 
-int TypeaheadPopupMenu::getNumRows() 
+int TypeaheadPopupMenu::getNumRows ()
 {
-    return options.size();
+    return options.size ();
 }
 
 
-void TypeaheadPopupMenu::setActionOnItemSelected(std::function<void(String)> function)
+void TypeaheadPopupMenu::setActionOnItemSelected (std::function<void(String)> function)
 {
     onItemSelected = function;
 }
 
-void TypeaheadPopupMenu::listBoxItemClicked(int row, const MouseEvent&) 
+void TypeaheadPopupMenu::listBoxItemClicked (int row, const MouseEvent&)
 {
-    if (onItemSelected)
-        onItemSelected(options[row]);  // note action may delete this object
+    if (onItemSelected) onItemSelected (options[row]);  // note action may delete this object
 }
 
-void TypeaheadPopupMenu::returnKeyPressed(int lastRowSelected) 
+void TypeaheadPopupMenu::returnKeyPressed (int lastRowSelected)
 {
-    if (onItemSelected)
-        onItemSelected(options[lastRowSelected]);  // note action may delete this object
+    if (onItemSelected) onItemSelected (options[lastRowSelected]);  // note action may delete this object
 }
 
-void TypeaheadPopupMenu::paintListBoxItem(int rowNumber, Graphics& g, int width, int height, bool rowIsSelected) 
+void TypeaheadPopupMenu::paintListBoxItem (int rowNumber, Graphics& g, int width, int height, bool rowIsSelected)
 {
-    if (rowNumber >= options.size())
-        return;
-    
-    auto fg = getLookAndFeel().findColour(TypeaheadPopupMenu::textColourId);
-    auto bg = getLookAndFeel().findColour(TypeaheadPopupMenu::backgroundColourId);
-    
+    if (rowNumber >= options.size ()) return;
+
+    auto fg = getLookAndFeel ().findColour (TypeaheadPopupMenu::textColourId);
+    auto bg = getLookAndFeel ().findColour (TypeaheadPopupMenu::backgroundColourId);
+
     if (rowIsSelected)
     {
-        bg = getLookAndFeel().findColour(TypeaheadPopupMenu::highlightColourId);
-        fg = getLookAndFeel().findColour(TypeaheadPopupMenu::textSelectedColourId);
+        bg = getLookAndFeel ().findColour (TypeaheadPopupMenu::highlightColourId);
+        fg = getLookAndFeel ().findColour (TypeaheadPopupMenu::textSelectedColourId);
     }
-    
-    g.fillAll(bg);
-    g.setColour(fg);
-    g.setFont(height*0.65f);
-    g.drawText(options[rowNumber], 10, 0, width, height * 0.8f, Justification::left, true);
+
+    g.fillAll (bg);
+    g.setColour (fg);
+    g.setFont (height * 0.65f);
+    g.drawText (options[rowNumber], 10, 0, width, height * 0.8f, Justification::left, true);
 }
 
-void TypeaheadPopupMenu::setFirstItemFocused()
+void TypeaheadPopupMenu::setFirstItemFocused ()
 {
-    toFront(true);
-    list.selectRow(0);
+    toFront (true);
+    list.selectRow (0);
 }
 
 
@@ -88,87 +85,84 @@ void TypeaheadPopupMenu::setFirstItemFocused()
 // TypeaheadEditor
 //================================================================================================
 
-TypeaheadEditor::TypeaheadEditor()
+TypeaheadEditor::TypeaheadEditor ()
 {
-    addAndMakeVisible(editor);
-    
-    editor.addListener(this);
-    editor.addKeyListener(this);
-    editor.setWantsKeyboardFocus(true);
-    
+    addAndMakeVisible (editor);
+
+    editor.addListener (this);
+    editor.addKeyListener (this);
+    editor.setWantsKeyboardFocus (true);
+
     setFromMap = false;
     setWithoutPressingReturn = false;
-    
 }
 
-TypeaheadEditor::~TypeaheadEditor()
+TypeaheadEditor::~TypeaheadEditor ()
 {
-    Desktop::getInstance().removeGlobalMouseListener(this);
+    Desktop::getInstance ().removeGlobalMouseListener (this);
 }
 
-void TypeaheadEditor::mouseDown(const MouseEvent& event) 
+void TypeaheadEditor::mouseDown (const MouseEvent& event)
 {
-    if (!isParentOf(event.eventComponent))
-        dismissMenu();
+    if (!isParentOf (event.eventComponent)) dismissMenu ();
 }
 
-void TypeaheadEditor::setOptions(std::vector<String> opts)
+void TypeaheadEditor::setOptions (std::vector<String> opts)
 {
-    options.clear();
-    for (int i = 0; i < opts.size(); i++)
+    options.clear ();
+    for (int i = 0; i < opts.size (); i++)
     {
-        options.add(opts[i]);
+        options.add (opts[i]);
     }
-    options.sort(true);
-    options.minimiseStorageOverheads();
+    options.sort (true);
+    options.minimiseStorageOverheads ();
 }
 
-void TypeaheadEditor::showMenu()
+void TypeaheadEditor::showMenu ()
 {
-    menu = new TypeaheadPopupMenu();
-    menu->setLookAndFeel(&getLookAndFeel());
-    menu->addToDesktop(ComponentPeer::StyleFlags::windowIsTemporary);
-    menu->setVisible(true);
-    menu->setBounds(getScreenBounds().translated(0, getHeight()).withHeight(100));
-    
-    editor.toFront(true);
-    editor.setHighlightedRegion(Range<int>(editor.getText().length(), editor.getText().length()));
-    menu->setActionOnItemSelected([this](String item)
-                                  {
-                                      editor.setText(item, dontSendNotification);
-                                      editor.keyPressed(KeyPress(KeyPress::returnKey));
-                                      menu = nullptr;
-                                  });
-    
-    menu->addKeyListener(this);
-    
-    Desktop::getInstance().addGlobalMouseListener(this);
-    
-    startTimer(200);
+    menu = new TypeaheadPopupMenu ();
+    menu->setLookAndFeel (&getLookAndFeel ());
+    menu->addToDesktop (ComponentPeer::StyleFlags::windowIsTemporary);
+    menu->setVisible (true);
+    menu->setBounds (getScreenBounds ().translated (0, getHeight ()).withHeight (100));
+
+    editor.toFront (true);
+    editor.setHighlightedRegion (Range<int> (editor.getText ().length (), editor.getText ().length ()));
+    menu->setActionOnItemSelected ([this](String item) {
+        editor.setText (item, dontSendNotification);
+        editor.keyPressed (KeyPress (KeyPress::returnKey));
+        menu = nullptr;
+    });
+
+    menu->addKeyListener (this);
+
+    Desktop::getInstance ().addGlobalMouseListener (this);
+
+    startTimer (200);
 }
 
-void TypeaheadEditor::textEditorTextChanged(TextEditor&) 
+void TypeaheadEditor::textEditorTextChanged (TextEditor&)
 {
-    dismissMenu();
-    
+    dismissMenu ();
+
     StringArray stringsToShow;
-    
-    auto text = editor.getText();
+
+    auto text = editor.getText ();
     auto itemId = 0;
-    
-    if (options.contains(text) && !setFromMap)
+
+    if (options.contains (text) && !setFromMap)
     {
-        dismissMenu();
-        
+        dismissMenu ();
+
         AttributedString attString;
         attString.append ("Found \"" + text + "\"", Font (18.0f));
 
-        showBubbleMessage(attString, Colours::green);
-        
+        showBubbleMessage (attString, Colours::green);
+
         setWithoutPressingReturn = true;
-        editor.keyPressed(KeyPress(KeyPress::returnKey));
-        editor.setHighlightedRegion(Range<int>(text.length(), text.length()));
-        
+        editor.keyPressed (KeyPress (KeyPress::returnKey));
+        editor.setHighlightedRegion (Range<int> (text.length (), text.length ()));
+
         return;
     }
     if (setFromMap)
@@ -176,201 +170,196 @@ void TypeaheadEditor::textEditorTextChanged(TextEditor&)
         setFromMap = false;
         return;
     }
-    
+
     for (auto o : options)
     {
-        if (o.containsIgnoreCase(text))
-            stringsToShow.add(o);
-        
+        if (o.containsIgnoreCase (text)) stringsToShow.add (o);
+
         itemId++;
     }
-    
-    if (stringsToShow.size() == 0) // if descriptor not found in this map
+
+    if (stringsToShow.size () == 0)  // if descriptor not found in this map
     {
-        for (int i = 0; i < otherMaps.size(); i++) // search other maps
+        for (int i = 0; i < otherMaps.size (); i++)  // search other maps
         {
-            if (otherMaps[i].contains(text, true))
+            if (otherMaps[i].contains (text, true))
             {
                 AttributedString attString;
                 attString.append ("Try checking the " + otherMapEffectNames[i] + " map", Font (18.0f));
-                showBubbleMessage(attString, Colours::blue, Colours::lightblue, 1500);
+                showBubbleMessage (attString, Colours::blue, Colours::lightblue, 1500);
             }
         }
-        
-        StringArray syn = synonyms(text);
-        
-        if (syn.size() > 0)
+
+        StringArray syn = synonyms (text);
+
+        if (syn.size () > 0)
         {
             int i = 0;
-            while (stringsToShow.size() <= 10 && i < syn.size())
+            while (stringsToShow.size () <= 10 && i < syn.size ())
             {
-                if (binarySearch(&options, syn[i])) // because JUCE::StringArray::contains can be a bit slow
+                if (binarySearch (&options, syn[i]))  // because JUCE::StringArray::contains can be a bit slow
                 {
-                    stringsToShow.addIfNotAlreadyThere(syn[i]);
+                    stringsToShow.addIfNotAlreadyThere (syn[i]);
                 }
                 i++;
             }
         }
-        
     }
-    
-    if (stringsToShow.size() == 0)
+
+    if (stringsToShow.size () == 0)
     {
-        dismissMenu();
+        dismissMenu ();
     }
-    else if (editor.getText().length() == 0)
+    else if (editor.getText ().length () == 0)
     {
-        dismissMenu();
+        dismissMenu ();
     }
-    else if (stringsToShow.size() == 1 && stringsToShow[0].equalsIgnoreCase(editor.getText()))
+    else if (stringsToShow.size () == 1 && stringsToShow[0].equalsIgnoreCase (editor.getText ()))
     {
-        dismissMenu();
+        dismissMenu ();
     }
     else
     {
         if (!menu)
         {
-            showMenu();
+            showMenu ();
         }
 
-        menu->setItems(stringsToShow);
+        menu->setItems (stringsToShow);
     }
 }
 
-void TypeaheadEditor::dismissMenu()
+void TypeaheadEditor::dismissMenu ()
 {
     menu = nullptr;
-    stopTimer();
-    Desktop::getInstance().removeGlobalMouseListener(this);
+    stopTimer ();
+    Desktop::getInstance ().removeGlobalMouseListener (this);
 }
 
-void TypeaheadEditor::timerCallback() 
+void TypeaheadEditor::timerCallback ()
 {
-    if (!Process::isForegroundProcess())
-        //dismissMenu();
-        
+    if (!Process::isForegroundProcess ())
+        // dismissMenu();
+
         if (menu)
         {
-            if (!hasKeyboardFocus(true) && !menu->hasKeyboardFocus(true))
-                dismissMenu();
+            if (!hasKeyboardFocus (true) && !menu->hasKeyboardFocus (true)) dismissMenu ();
         }
         else
         {
-            if (!hasKeyboardFocus(true))
-                dismissMenu();
+            if (!hasKeyboardFocus (true)) dismissMenu ();
         }
 }
 
-bool TypeaheadEditor::keyPressed(const KeyPress& key, Component * component) 
+bool TypeaheadEditor::keyPressed (const KeyPress& key, Component* component)
 {
     if (component == &editor)
     {
         if (key == KeyPress::downKey || key == KeyPress::tabKey)
         {
-            if (menu)
-                menu->setFirstItemFocused();
-            
-            
+            if (menu) menu->setFirstItemFocused ();
+
+
             return true;
         }
     }
     else if (component == menu)
     {
         // if the user tries to type into the menu lets move the focus back there and inject the keypress
-        editor.toFront(true);
-        return editor.keyPressed(key);
+        editor.toFront (true);
+        return editor.keyPressed (key);
     }
-    
+
     return false;
 }
 
-void TypeaheadEditor::focusLost(FocusChangeType cause) 
+void TypeaheadEditor::focusLost (FocusChangeType cause)
 {
-    if(!menu->hasKeyboardFocus(true))
+    if (!menu->hasKeyboardFocus (true))
     {
-        dismissMenu();
+        dismissMenu ();
     }
-    if (menu && !menu->hasKeyboardFocus(true))
+    if (menu && !menu->hasKeyboardFocus (true))
     {
         menu = nullptr;
     }
 }
 
-void TypeaheadEditor::resized() 
+void TypeaheadEditor::resized ()
 {
-    editor.setBounds(getLocalBounds());
+    editor.setBounds (getLocalBounds ());
 }
 
-void TypeaheadEditor::actionListenerCallback(const juce::String &message)
+void TypeaheadEditor::actionListenerCallback (const juce::String& message)
 {
-    if(!message.equalsIgnoreCase("_languagechanged"))
+    if (!message.equalsIgnoreCase ("_languagechanged"))
     {
-        editor.setText(message);
-        
+        editor.setText (message);
+
         if (!setWithoutPressingReturn)
         {
-            editor.selectAll();
+            editor.selectAll ();
         }
         setWithoutPressingReturn = false;
-        
-        dismissMenu();
+
+        dismissMenu ();
         setFromMap = true;
     }
 }
 
-TextEditor* TypeaheadEditor::getEditor()
+TextEditor* TypeaheadEditor::getEditor ()
 {
     return &editor;
 }
 
-void TypeaheadEditor::setMultiEffect(vector<String> effectNames, vector<StringArray> descriptors)
+void TypeaheadEditor::setMultiEffect (vector<String> effectNames, vector<StringArray> descriptors)
 {
     isMultiEffect = true;
     otherMaps = descriptors;
     otherMapEffectNames = effectNames;
 }
 
-StringArray TypeaheadEditor::synonyms(String word)
+StringArray TypeaheadEditor::synonyms (String word)
 {
-
-    if (wninit()) // initialize wordnet
+    if (wninit ())  // initialize wordnet
     {
-        DBG("Failed to load Wordnet");
-        return StringArray();
+        DBG ("Failed to load Wordnet");
+        return StringArray ();
     }
-    
-    std::string w = word.toStdString();
-    
+
+    std::string w = word.toStdString ();
+
     StringArray likewords;
 
-    SynsetPtr synset = findtheinfo_ds(&w[0], ADJ, HYPERPTR, ALLSENSES); // returns a pointer to a linked list representation of a synset
-    
-    while (synset != nullptr) // loop through senses in synset
+    SynsetPtr synset = findtheinfo_ds (&w[0], ADJ, HYPERPTR,
+                                       ALLSENSES);  // returns a pointer to a linked list representation of a synset
+
+    while (synset != nullptr)  // loop through senses in synset
     {
-        for (int j = 0; j < synset->wcount; j++) // loop through words in each sense
+        for (int j = 0; j < synset->wcount; j++)  // loop through words in each sense
         {
-            std::string str(synset->words[j]);
-            likewords.addIfNotAlreadyThere(str);
+            std::string str (synset->words[j]);
+            likewords.addIfNotAlreadyThere (str);
         }
-        
+
         synset = synset->nextss;
     }
-    
-    free_syns(synset);
-    
+
+    free_syns (synset);
+
     return likewords;
 }
 
-bool TypeaheadEditor::binarySearch(StringArray* arr, String str)
+bool TypeaheadEditor::binarySearch (StringArray* arr, String str)
 {
     int left = 0;
-    int right = arr->size();
-    
+    int right = arr->size ();
+
     while (left <= right)
     {
         int mid = (left + right) / 2;
-        
-        if ((*arr)[mid].equalsIgnoreCase(str))
+
+        if ((*arr)[mid].equalsIgnoreCase (str))
         {
             return true;
         }
@@ -386,14 +375,14 @@ bool TypeaheadEditor::binarySearch(StringArray* arr, String str)
     return false;
 }
 
-void TypeaheadEditor::showBubbleMessage(AttributedString str, Colour outlineColor, Colour fillColor, int timeInMS){
-    bubbleMessage = new BubbleMessageComponent(timeInMS);
-    bubbleMessage->setColour(BubbleMessageComponent::ColourIds::backgroundColourId, fillColor);
-    bubbleMessage->setColour(BubbleMessageComponent::ColourIds::outlineColourId, outlineColor);
-    getParentComponent()->addChildComponent(bubbleMessage);
-    
-    
-    bubbleMessage->showAt(&editor, str, timeInMS, true, false);
-    bubbleMessage->toFront(false);
-}
+void TypeaheadEditor::showBubbleMessage (AttributedString str, Colour outlineColor, Colour fillColor, int timeInMS)
+{
+    bubbleMessage = new BubbleMessageComponent (timeInMS);
+    bubbleMessage->setColour (BubbleMessageComponent::ColourIds::backgroundColourId, fillColor);
+    bubbleMessage->setColour (BubbleMessageComponent::ColourIds::outlineColourId, outlineColor);
+    getParentComponent ()->addChildComponent (bubbleMessage);
 
+
+    bubbleMessage->showAt (&editor, str, timeInMS, true, false);
+    bubbleMessage->toFront (false);
+}

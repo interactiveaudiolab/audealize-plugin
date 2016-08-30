@@ -12,25 +12,17 @@
 
 namespace Audealize
 {
-    class TraditionalUI : public Component
-    {
-    public:
-        TraditionalUI(AudealizeAudioProcessor& p) : processor(p)
-        {
-            name = "traditional interface";
-        };
-        
-        String getName()
-        {
-            return name;
-        }
-        
-    protected:
-        AudealizeAudioProcessor& processor;
-        String name; // this will determine what the title text (mEffectTypeLabel) in AudealizeUI will display
-        
-        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR ( TraditionalUI );
-    };
+class TraditionalUI : public Component
+{
+public:
+    TraditionalUI (AudealizeAudioProcessor& p) : processor (p) { name = "traditional interface"; };
+    String getName () { return name; }
+protected:
+    AudealizeAudioProcessor& processor;
+    String name;  // this will determine what the title text (mEffectTypeLabel) in AudealizeUI will display
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TraditionalUI);
+};
 }
 
 #endif /* TraditionalUIComponent_h */

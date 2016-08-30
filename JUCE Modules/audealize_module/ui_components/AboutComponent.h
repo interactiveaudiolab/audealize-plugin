@@ -10,20 +10,20 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 
-class AboutComponent  : public Component,
-                        public ButtonListener
+class AboutComponent : public Component, public ButtonListener
 {
 public:
     AboutComponent ();
-    ~AboutComponent();
-  
-    enum ColourIds{
+    ~AboutComponent ();
+
+    enum ColourIds
+    {
         backgroundColourId = 0x2000700,
         textColourId = 0x2000701
     };
 
     void paint (Graphics& g) override;
-    void resized() override;
+    void resized () override;
     void buttonClicked (Button* buttonThatWasClicked) override;
 
 private:
@@ -40,4 +40,4 @@ private:
 };
 
 
-#endif   // __JUCE_HEADER_6F5BC92BB0597534__
+#endif  // __JUCE_HEADER_6F5BC92BB0597534__

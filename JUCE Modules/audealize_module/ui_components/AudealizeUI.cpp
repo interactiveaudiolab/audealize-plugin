@@ -43,8 +43,19 @@ namespace Audealize
         
         // Load file with descriptors, parse into nlohman::json object
         ifstream infile;
-        infile.open(mPathToPoints.toUTF8());
-        json descriptors = json::parse(infile);
+        File descriptorsFile(mPathToPoints);
+        
+        json descriptors;
+        
+        if (!descriptorsFile.existsAsFile())
+        {
+            mAlertBox->showMessageBox(AlertWindow::AlertIconType::WarningIcon, "Fatal Error: Descriptor data not found", "");
+            descriptors = NULL;
+        }
+        else
+        {
+            descriptors = json::parse(descriptorsFile.loadFileAsString().toStdString());
+        }
         
         // word map
         addAndMakeVisible (mWordMap = new Audealize::WordMap (p, descriptors));

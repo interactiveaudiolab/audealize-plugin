@@ -7,6 +7,7 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
     properties = Properties::loadPropertiesVar ();
 
     var darkMode = Properties::getProperty ("darkmode");
+
     if (darkMode.isBool ())
     {
         if ((bool) darkMode)
@@ -17,6 +18,10 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
         {
             LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
         }
+    }
+    else
+    {
+        LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
     }
 
     mToolTip.setMillisecondsBeforeTipAppears (.25);

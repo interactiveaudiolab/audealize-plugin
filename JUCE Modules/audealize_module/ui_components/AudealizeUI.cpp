@@ -26,6 +26,10 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
             LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
         }
     }
+    else
+    {
+        LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
+    }
 
     isMultiEffect = isPluginMultiEffect;
 
@@ -34,9 +38,7 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
     mToolTip.setMillisecondsBeforeTipAppears (25);
 
     // Load file with descriptors, parse into nlohman::json object
-    ifstream infile;
     File descriptorsFile (mPathToPoints);
-
     json descriptors;
 
     if (!descriptorsFile.existsAsFile ())

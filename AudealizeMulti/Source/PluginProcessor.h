@@ -18,37 +18,37 @@ using std::vector;
 //==============================================================================
 /**
 */
-class AudealizeMultiAudioProcessor  : public AudealizeAudioProcessor
+class AudealizeMultiAudioProcessor : public AudealizeAudioProcessor
 {
 public:
     //==============================================================================
-    AudealizeMultiAudioProcessor();
-    ~AudealizeMultiAudioProcessor();
+    AudealizeMultiAudioProcessor ();
+    ~AudealizeMultiAudioProcessor ();
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
-    void releaseResources() override;
+    void releaseResources () override;
 
-   #ifndef JucePlugin_PreferredChannelConfigurations
+#ifndef JucePlugin_PreferredChannelConfigurations
     bool setPreferredBusArrangement (bool isInput, int bus, const AudioChannelSet& preferredSet) override;
-   #endif
+#endif
 
     void processBlock (AudioSampleBuffer&, MidiBuffer&) override;
 
     //==============================================================================
-    AudioProcessorEditor* createEditor() override;
-    bool hasEditor() const override;
+    AudioProcessorEditor* createEditor () override;
+    bool hasEditor () const override;
 
     //==============================================================================
-    const String getName() const override;
+    const String getName () const override;
 
-    bool acceptsMidi() const override;
-    bool producesMidi() const override;
-    double getTailLengthSeconds() const override;
+    bool acceptsMidi () const override;
+    bool producesMidi () const override;
+    double getTailLengthSeconds () const override;
 
     //==============================================================================
-    int getNumPrograms() override;
-    int getCurrentProgram() override;
+    int getNumPrograms () override;
+    int getCurrentProgram () override;
     void setCurrentProgram (int index) override;
     const String getProgramName (int index) override;
     void changeProgramName (int index, const String& newName) override;
@@ -56,18 +56,15 @@ public:
     //==============================================================================
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
-    
-    void parameterChanged(const juce::String &parameterID, float newValue) override {}
-    void settingsFromMap(vector<float> settings) override {}
-    inline String getParamID(int index) override { return ""; }
-        
-    bool isParameterAutomatable(int index){
-        return true;
-    }
+
+    void parameterChanged (const juce::String& parameterID, float newValue) override {}
+    void settingsFromMap (vector<float> settings) override {}
+    inline String getParamID (int index) override { return ""; }
+    bool isParameterAutomatable (int index) { return true; }
 private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeMultiAudioProcessor)
-    
+
     ScopedPointer<AudealizeeqAudioProcessor> mEQAudioProcessor;
     ScopedPointer<AudealizereverbAudioProcessor> mReverbAudioProcessor;
 };

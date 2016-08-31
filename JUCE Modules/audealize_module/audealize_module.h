@@ -1,14 +1,15 @@
 /*   BEGIN_JUCE_MODULE_DECLARATION
- 
+
       ID:               audealize_module
       vendor:           Northwestern University Interactive Audio Lab
       version:          4.2.1
       name:             JUCE audio and MIDI I/O device classes
-      description:      
+      description:
       website:          http://music.eecs.northwestern.edu
-      license:          
+      license:
 
-      dependencies:     juce_core, juce_audio_processors, juce_audio_basics, juce_audio_formats, juce_audio_utils, juce_graphics, juce_gui_basics, juce_gui_extra
+      dependencies:     juce_core, juce_audio_processors, juce_audio_basics, juce_audio_formats, juce_audio_utils,
+   juce_graphics, juce_gui_basics, juce_gui_extra
 
      END_JUCE_MODULE_DECLARATION
 */
@@ -18,7 +19,7 @@
 #include <vector>
 #include <math.h>
 #include <fstream>
-#include <functional> 
+#include <functional>
 
 #include "wn.h"
 
@@ -32,6 +33,7 @@
 #include "LookAndFeel/LookAndFeel.h"
 
 #include "resources/AudealizeImages.h"
+#include "resources/Fonts.h"
 
 #include "utils/json.hpp"
 #include "utils/calf_dsp_library/delay.h"
@@ -66,4 +68,4 @@
 #include "audio_processors/AudealizeReverbAudioProcessor.h"
 #include "audio_processors/AudealizeAudioProcessor.h"
 
-#endif   // AUDEALIZE_MODULE
+#endif  // AUDEALIZE_MODULE

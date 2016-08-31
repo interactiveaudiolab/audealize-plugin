@@ -451,6 +451,9 @@
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\resources\AudealizeImages.cpp">
       <Filter>Juce Modules\audealize_module\resources</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\resources\Fonts.cpp">
+      <Filter>Juce Modules\audealize_module\resources</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\ui_components\AboutComponent.cpp">
       <Filter>Juce Modules\audealize_module\ui_components</Filter>
     </ClCompile>
@@ -473,6 +476,9 @@
       <Filter>Juce Modules\audealize_module\ui_components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\utils\Biquad.cpp">
+      <Filter>Juce Modules\audealize_module\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\JUCE Modules\audealize_module\utils\properties.cpp">
       <Filter>Juce Modules\audealize_module\utils</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE Modules\audealize_module\WordNet-3.0\lib\binsrch.c">
@@ -2425,6 +2431,9 @@
       <Filter>Juce Modules\audealize_module\LookAndFeel</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\resources\AudealizeImages.h">
+      <Filter>Juce Modules\audealize_module\resources</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\JUCE Modules\audealize_module\resources\Fonts.h">
       <Filter>Juce Modules\audealize_module\resources</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE Modules\audealize_module\ui_components\AboutComponent.h">

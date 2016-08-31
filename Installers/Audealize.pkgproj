@@ -535,7 +535,7 @@
 				<key>OVERWRITE_PERMISSIONS</key>
 				<false/>
 				<key>VERSION</key>
-				<string>0.1.1b</string>
+				<string>0.2.1-beta</string>
 			</dict>
 			<key>UUID</key>
 			<string>4878E5BD-B2C3-4A4E-8ED0-50C0050FE929</string>
@@ -1068,7 +1068,7 @@
 				<key>OVERWRITE_PERMISSIONS</key>
 				<false/>
 				<key>VERSION</key>
-				<string>0.1.1b</string>
+				<string>0.2.1-beta</string>
 			</dict>
 			<key>TYPE</key>
 			<integer>0</integer>
@@ -1604,7 +1604,7 @@
 				<key>OVERWRITE_PERMISSIONS</key>
 				<false/>
 				<key>VERSION</key>
-				<string>0.1.1b</string>
+				<string>0.2.1-beta</string>
 			</dict>
 			<key>TYPE</key>
 			<integer>0</integer>
@@ -2144,7 +2144,7 @@
 				<key>OVERWRITE_PERMISSIONS</key>
 				<false/>
 				<key>VERSION</key>
-				<string>0.1.1b</string>
+				<string>0.2.1-beta</string>
 			</dict>
 			<key>TYPE</key>
 			<integer>0</integer>
@@ -3108,6 +3108,13 @@
 			</dict>
 			<key>PACKAGE_SCRIPTS</key>
 			<dict>
+				<key>POSTINSTALL_PATH</key>
+				<dict>
+					<key>PATH</key>
+					<string>/Users/michael/JUCE/projects/audealize-plugin/Installers/Resources/resetconfig.sh</string>
+					<key>PATH_TYPE</key>
+					<integer>0</integer>
+				</dict>
 				<key>RESOURCES</key>
 				<array/>
 			</dict>
@@ -3126,7 +3133,7 @@
 				<key>OVERWRITE_PERMISSIONS</key>
 				<false/>
 				<key>VERSION</key>
-				<string>1.0</string>
+				<string>1.1</string>
 			</dict>
 			<key>TYPE</key>
 			<integer>0</integer>

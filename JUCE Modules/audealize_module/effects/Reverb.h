@@ -30,6 +30,8 @@ public:
         mSample[0] = mSample[1] = 0;
         mLowpass = NChannelFilter (bq_type_lowpass, 2, f, 1.0f, 0.0f, mSampleRate);
         da = 0.006f + MINDELAY;
+
+        resetBuffs ();
     }
 
     ~Reverb () {}
@@ -48,7 +50,7 @@ public:
             sampDry = channelData[i];
 
             // Process sample through comb filter network
-            sampRev = processCombs (samp * wet);
+            sampRev = processCombs (sampDry * wet);
 
             // Process allpass filter
             sampRev = mAllpass[0].process_allpass_comb (sampRev, mDelayVal[0] * mSampleRate, ALLPASSGAIN);
@@ -72,7 +74,10 @@ public:
 
             // Write processed sample back to the buffer
             sampOut = samp + sampDry;
+            // DBG ("processing mono");
+
             JUCE_UNDENORMALISE (sampOut);
+
             channelData[i] = sampOut;
         }
     }
@@ -132,6 +137,7 @@ public:
             // Write processed sample back to the buffer
             sampOutL = sampDryL + sampL;
             sampOutR = sampDryR + sampR;
+
             JUCE_UNDENORMALISE (sampOutL);
             JUCE_UNDENORMALISE (sampOutR);
             channelData1[i] = sampOutL;
@@ -225,13 +231,17 @@ public:
      */
     void resetBuffs ()
     {
-        for (auto s : mAllpass)
+        for (auto d : mAllpass)
         {
-            s.reset ();
+            d.reset ();
         }
-        for (auto s : mComb)
+        for (auto d : mComb)
         {
-            s.reset ();
+            d.reset ();
+        }
+        for (auto d : mDelay)
+        {
+            d.reset ();
         }
     }
 

@@ -78,16 +78,7 @@ private:
     const float DEFAULT_E = 0.95f;
     const float DEFAULT_MIX = 0.75f;
 
-#ifdef JUCE_MAC
-    const String PATH_TO_POINTS = "/Library/Application Support/Audealize/reverbdescriptors.json";  //@TODO
-#elif JUCE_WINDOWS
-    const String PATH_TO_POINTS = "C:\Program Files\Audealize\reverbdescriptors.json";
-#elif JUCE_LINUX
-    const String PATH_TO_POINTS = "/usr/share/Audealize/reverbdescriptors.json";
-#endif
-
     void debugParams ();
 };
-
 
 #endif  // AUDEALIZEREVERBAUDIOPROCESSOR_H_INCLUDED

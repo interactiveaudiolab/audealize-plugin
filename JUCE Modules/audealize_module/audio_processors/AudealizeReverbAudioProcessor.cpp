@@ -11,6 +11,8 @@ String AudealizereverbAudioProcessor::paramE ("paramE");
 AudealizereverbAudioProcessor::AudealizereverbAudioProcessor (AudealizeAudioProcessor* owner)
     : AudealizeAudioProcessor (owner), mReverb ()
 {
+    FloatVectorOperations::disableDenormalisedNumberSupport ();
+
     paramAmountId = "paramAmountReverb";  // important for multi effect plugin
 
     // initialize parameter ranges
@@ -211,6 +213,7 @@ void AudealizereverbAudioProcessor::processBlock (AudioSampleBuffer& buffer, Mid
         if (totalNumInputChannels == 1)
         {
             float* channelData = buffer.getWritePointer (0);
+
             mReverb.processMonoBlock (channelData, buffer.getNumSamples ());
         }
         else
@@ -232,16 +235,29 @@ AudealizeUI* AudealizereverbAudioProcessor::createEditorForMultiEffect ()
 {
     ScopedPointer<TraditionalUI> mReverbComponent = new ReverbComponent (*this);
 
-    return new AudealizeUI (*this, mReverbComponent, PATH_TO_POINTS, "Reverb", true);
+    String path_to_points = Properties::getProperty (Properties::propertyIds::eqDataPath);
+
+    if (!File (path_to_points).existsAsFile ())
+    {
+        path_to_points = DEFAULT_REVERB_DATA_PATH;
+    }
+
+    return new AudealizeUI (*this, mReverbComponent, path_to_points, "Reverb", true);
 }
 
 AudioProcessorEditor* AudealizereverbAudioProcessor::createEditor ()
 {
     ScopedPointer<TraditionalUI> mReverbComponent = new ReverbComponent (*this);
 
-    return new AudealizeUI (*this, mReverbComponent, PATH_TO_POINTS, "Reverb", false);
-}
+    String path_to_points = Properties::getProperty (Properties::propertyIds::eqDataPath);
 
+    if (!File (path_to_points).existsAsFile ())
+    {
+        path_to_points = DEFAULT_REVERB_DATA_PATH;
+    }
+
+    return new AudealizeUI (*this, mReverbComponent, path_to_points, "Reverb", false);
+}
 
 void AudealizereverbAudioProcessor::parameterChanged (const juce::String& parameterID, float newValue)
 {

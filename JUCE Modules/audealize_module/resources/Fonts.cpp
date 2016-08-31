@@ -6323,4 +6323,4 @@ static const unsigned char roboto_binary_data[] = {
     0,   10,  3,   127, 3,   157, 3,   158, 3,   159, 3,   160, 3,   161, 3,   162, 3,   163, 3,   164, 3,   165, 0,
     2,   0,   1,   0,   19,  0,   28,  0,   0,   0,   0,   0,   0};
 
-const char* AudealizeFonts::RobotoRegular_ttf = (const char*) roboto_binary_data;
+const char* Audealize::AudealizeFonts::RobotoRegular_ttf = (const char*) roboto_binary_data;

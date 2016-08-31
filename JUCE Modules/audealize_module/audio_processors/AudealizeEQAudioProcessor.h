@@ -47,14 +47,6 @@ public:
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeeqAudioProcessor)
 
-#ifdef JUCE_MAC
-    const String PATH_TO_POINTS = "/Library/Application Support/Audealize/eqdescriptors.json";  //@TODO
-#elif JUCE_WINDOWS
-    const String PATH_TO_POINTS = "C:\Program Files\Audealize\eqdescriptors.json";
-#elif JUCE_LINUX
-    const String PATH_TO_POINTS = "/usr/share/Audealize/eqdescriptors.json";
-#endif
-
     NormalisableRange<float> mGainRange;  // Range of the graphic eq gain sliders
 
     LinearSmoothedValue<float> mSmoothedVals[NUMBANDS];
@@ -66,6 +58,5 @@ private:
 
     Equalizer mEqualizer;
 };
-
 
 #endif  // AUDEALIZEEQAUDIOPROCESSOR_H_INCLUDED

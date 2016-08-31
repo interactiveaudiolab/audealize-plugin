@@ -13,27 +13,18 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
 
     // load properties, set dark mode accordingly
     properties = Properties::loadPropertiesVar ();
-    if (!properties.isVoid () && !properties.isUndefined ())
+
+    var darkMode = Properties::getProperty ("darkmode");
+    if (darkMode.isBool ())
     {
-        var darkMode = properties.getDynamicObject ()->getProperty ("darkmode");
-        if (darkMode.isBool ())
+        if ((bool) darkMode)
         {
-            if ((bool) darkMode)
-            {
-                LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
-            }
-            else
-            {
-                LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
-            }
+            LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
         }
-    }
-    else
-    {
-        DynamicObject* temp = new DynamicObject ();
-        temp->setProperty ("darkmode", false);
-        properties = var (temp);
-        LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
+        else
+        {
+            LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
+        }
     }
 
     isMultiEffect = isPluginMultiEffect;
@@ -118,7 +109,6 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
         mAudealizeLabel->setFont (Font ("Roboto Medium", 32, Font::plain));
         mAudealizeLabel->setJustificationType (Justification::topLeft);
         mAudealizeLabel->setEditable (false, false, false);
-
 
         // dark mode button
         mDarkModeGraphic = Drawable::createFromImageData (AudealizeImages::darkModeButton_svg,
@@ -288,7 +278,6 @@ void AudealizeUI::resized ()
         mLabelMore->setBounds (getWidth () - 72, getHeight () - 45, 56, 24);
     }
 
-
     // search bar
     mSearchBar->setBounds (32, 60 + titleTextOffset, 240, 32);
 
@@ -304,7 +293,6 @@ void AudealizeUI::resized ()
     processor.lastUIHeight = getHeight ();
 }
 
-
 void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
 {
     // if neither language selected, display alert box and re-enable the last language to be disabled.
@@ -313,7 +301,6 @@ void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
         languageAlert ();
         buttonThatWasClicked->setToggleState (true, NotificationType::sendNotification);
     }
-
 
     // english button
     if (buttonThatWasClicked == mEnglishButton)
@@ -412,7 +399,6 @@ void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
                                         mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
         }  // endif isDark
 
-
         if (!isMultiEffect)
         {
             properties.getDynamicObject ()->setProperty ("darkmode", !isDark);
@@ -430,7 +416,6 @@ void AudealizeUI::lookAndFeelChanged ()
 void AudealizeUI::childrenChanged ()
 {
 }
-
 
 void AudealizeUI::textEditorReturnKeyPressed (TextEditor& editor)
 {

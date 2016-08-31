@@ -6,28 +6,17 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
     // load properties, set dark mode accordingly
     properties = Properties::loadPropertiesVar ();
 
-    if (!properties.isVoid () && !properties.isUndefined ())
+    var darkMode = Properties::getProperty ("darkmode");
+    if (darkMode.isBool ())
     {
-        var darkMode = properties.getDynamicObject ()->getProperty ("darkmode");
-
-        if (darkMode.isBool ())
+        if ((bool) darkMode)
         {
-            if ((bool) darkMode)
-            {
-                LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
-            }
-            else
-            {
-                LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
-            }
+            LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
         }
-    }
-    else
-    {
-        DynamicObject* temp = new DynamicObject ();
-        temp->setProperty ("darkmode", false);
-        properties = var (temp);
-        LookAndFeel::setDefaultLookAndFeel (&mLookAndFeelDark);
+        else
+        {
+            LookAndFeel::setDefaultLookAndFeel (&mLookAndFeel);
+        }
     }
 
     mToolTip.setMillisecondsBeforeTipAppears (.25);
@@ -99,9 +88,7 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
     addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
     mResizer->setAlwaysOnTop (true);
 
-
     setSize (840, 560);
-
 
     // post-resize
 

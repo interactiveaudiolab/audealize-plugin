@@ -27,7 +27,6 @@ AudealizeeqAudioProcessor::AudealizeeqAudioProcessor (AudealizeAudioProcessor* o
     mState->addParameterListener (paramAmountId, this);
 }
 
-
 AudealizeeqAudioProcessor::~AudealizeeqAudioProcessor ()
 {
     for (int i = 0; i < NUMBANDS; i++)
@@ -179,14 +178,28 @@ AudealizeUI* AudealizeeqAudioProcessor::createEditorForMultiEffect ()
 {
     ScopedPointer<TraditionalUI> mGraphicEQ = new GraphicEQComponent (*this, NUMBANDS, mGainRange);
 
-    return new AudealizeUI (*this, mGraphicEQ, PATH_TO_POINTS, "EQ", true);
+    String path_to_points = Properties::getProperty (Properties::propertyIds::eqDataPath);
+
+    if (!File (path_to_points).existsAsFile ())
+    {
+        path_to_points = DEFAULT_EQ_DATA_PATH;
+    }
+
+    return new AudealizeUI (*this, mGraphicEQ, path_to_points, "EQ", true);
 }
 
 AudioProcessorEditor* AudealizeeqAudioProcessor::createEditor ()
 {
     ScopedPointer<TraditionalUI> mGraphicEQ = new GraphicEQComponent (*this, NUMBANDS, mGainRange);
 
-    return new AudealizeUI (*this, mGraphicEQ, PATH_TO_POINTS, "EQ", false);
+    String path_to_points = Properties::getProperty (Properties::propertyIds::eqDataPath);
+
+    if (!File (path_to_points).existsAsFile ())
+    {
+        path_to_points = DEFAULT_EQ_DATA_PATH;
+    }
+
+    return new AudealizeUI (*this, mGraphicEQ, path_to_points, "EQ", false);
 }
 
 void AudealizeeqAudioProcessor::parameterChanged (const juce::String& parameterID, float newValue)
@@ -237,7 +250,6 @@ void AudealizeeqAudioProcessor::settingsFromMap (vector<float> settings)
 
     // DBG(mEqualizer.getBandGain(10));
 }
-
 
 inline String AudealizeeqAudioProcessor::getParamID (int index)
 {

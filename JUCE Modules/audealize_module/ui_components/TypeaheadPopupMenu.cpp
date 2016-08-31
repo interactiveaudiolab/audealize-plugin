@@ -39,7 +39,6 @@ int TypeaheadPopupMenu::getNumRows ()
     return options.size ();
 }
 
-
 void TypeaheadPopupMenu::setActionOnItemSelected (std::function<void(String)> function)
 {
     onItemSelected = function;
@@ -79,7 +78,6 @@ void TypeaheadPopupMenu::setFirstItemFocused ()
     toFront (true);
     list.selectRow (0);
 }
-
 
 //================================================================================================
 // TypeaheadEditor
@@ -259,7 +257,6 @@ bool TypeaheadEditor::keyPressed (const KeyPress& key, Component* component)
         {
             if (menu) menu->setFirstItemFocused ();
 
-
             return true;
         }
     }
@@ -296,10 +293,6 @@ void TypeaheadEditor::actionListenerCallback (const juce::String& message)
     {
         editor.setText (message);
 
-        if (!setWithoutPressingReturn)
-        {
-            editor.selectAll ();
-        }
         setWithoutPressingReturn = false;
 
         dismissMenu ();
@@ -381,7 +374,6 @@ void TypeaheadEditor::showBubbleMessage (AttributedString str, Colour outlineCol
     bubbleMessage->setColour (BubbleMessageComponent::ColourIds::backgroundColourId, fillColor);
     bubbleMessage->setColour (BubbleMessageComponent::ColourIds::outlineColourId, outlineColor);
     getParentComponent ()->addChildComponent (bubbleMessage);
-
 
     bubbleMessage->showAt (&editor, str, timeInMS, true, false);
     bubbleMessage->toFront (false);

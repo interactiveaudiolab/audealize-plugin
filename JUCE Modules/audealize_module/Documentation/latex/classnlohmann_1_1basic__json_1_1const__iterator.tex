@@ -1,0 +1,440 @@
+\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator}{}\section{nlohmann\+:\+:basic\+\_\+json$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+:\+:const\+\_\+iterator Class Reference}
+\label{classnlohmann_1_1basic__json_1_1const__iterator}\index{nlohmann\+::basic\+\_\+json$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator}}
+
+
+a const random access iterator for the \hyperlink{classnlohmann_1_1basic__json}{basic\+\_\+json} class  
+
+
+
+
+{\ttfamily \#include $<$json.\+hpp$>$}
+
+Inheritance diagram for nlohmann\+:\+:basic\+\_\+json$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+:\+:const\+\_\+iterator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.705584cm]{classnlohmann_1_1basic__json_1_1const__iterator}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a9ea0497199b1e96ce9cadd1f202ec343}{value\+\_\+type} = typename \hyperlink{classnlohmann_1_1basic__json_ac8d45b57874b4a6e9c07f7d3b5daa1f9}{basic\+\_\+json\+::value\+\_\+type}
+\begin{DoxyCompactList}\small\item\em the type of the values when the iterator is dereferenced \end{DoxyCompactList}\item 
+using \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a49d7c3e9ef3280df03052cce988b792f}{difference\+\_\+type} = typename \hyperlink{classnlohmann_1_1basic__json_aec316934a555dd1acdd3600e5d4a4cdf}{basic\+\_\+json\+::difference\+\_\+type}
+\begin{DoxyCompactList}\small\item\em a type to represent differences between iterators \end{DoxyCompactList}\item 
+using \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a1da96fc3054d547e7706d3a2f073f389}{pointer} = typename \hyperlink{classnlohmann_1_1basic__json_a06efb200b69942eacd1ea22d0f6ccebb}{basic\+\_\+json\+::const\+\_\+pointer}
+\begin{DoxyCompactList}\small\item\em defines a pointer to the type iterated over (value\+\_\+type) \end{DoxyCompactList}\item 
+using \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_aefd248cac6493eed1e6ff53ba6a63eb2}{reference} = typename \hyperlink{classnlohmann_1_1basic__json_af677a29b0e66edc9f66e5167e4667071}{basic\+\_\+json\+::const\+\_\+reference}
+\begin{DoxyCompactList}\small\item\em defines a reference to the type iterated over (value\+\_\+type) \end{DoxyCompactList}\item 
+using \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a821560d64f50525162097f19b1392e7f}{iterator\+\_\+category} = std\+::bidirectional\+\_\+iterator\+\_\+tag
+\begin{DoxyCompactList}\small\item\em the category of the iterator \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_ac6fdaff67857f82a623e5cc253917639}{const\+\_\+iterator} ()=default
+\begin{DoxyCompactList}\small\item\em default constructor \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a23de834b11bd895209aa65c100ab9ceb}{const\+\_\+iterator} (\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a1da96fc3054d547e7706d3a2f073f389}{pointer} \hyperlink{classnlohmann_1_1basic__json_ad25b2f8c21e241e2d63455537a9294ff}{object}) noexcept
+\begin{DoxyCompactList}\small\item\em constructor for a given J\+S\+ON instance \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a6b950c6bc081ac1ec1540ec05ceb2603}{const\+\_\+iterator} (const \hyperlink{classnlohmann_1_1basic__json_1_1iterator}{iterator} \&other) noexcept
+\begin{DoxyCompactList}\small\item\em copy constructor given a nonconst iterator \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a18c35a6735d3da96b4fc026421c05dd8}{const\+\_\+iterator} (const \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} \&other) noexcept
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} \& \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a5521515067b6597cb0b55a9c547a7a2b}{operator=} (\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} other) noexcept(                                       std\+::is\+\_\+nothrow\+\_\+move\+\_\+constructible$<$ \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a1da96fc3054d547e7706d3a2f073f389}{pointer} $>$\+::\hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value} and                                       std\+::is\+\_\+nothrow\+\_\+move\+\_\+assignable$<$ \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a1da96fc3054d547e7706d3a2f073f389}{pointer} $>$\+::\hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value} and                                       std\+::is\+\_\+nothrow\+\_\+move\+\_\+constructible$<$ internal\+\_\+iterator $>$\+::\hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value} and                                       std\+::is\+\_\+nothrow\+\_\+move\+\_\+assignable$<$ internal\+\_\+iterator $>$\+::\hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value}                       )
+\begin{DoxyCompactList}\small\item\em copy assignment \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_aefd248cac6493eed1e6ff53ba6a63eb2}{reference} \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_ab3029a1a83cf46dc28ad443bbad0c74d}{operator$\ast$} () const 
+\begin{DoxyCompactList}\small\item\em return a reference to the value pointed to by the iterator \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a1da96fc3054d547e7706d3a2f073f389}{pointer} \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a8be837e4d902887676dd837abe9098d3}{operator-\/$>$} () const 
+\begin{DoxyCompactList}\small\item\em dereference the iterator \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a8dbaec5bf8ccba3225520356629061cb}{operator++} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int})
+\begin{DoxyCompactList}\small\item\em post-\/increment (it++) \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} \& \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a8fbb15efd97599209a7def77af8e748e}{operator++} ()
+\begin{DoxyCompactList}\small\item\em pre-\/increment (++it) \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a6cab1c2ed7e2a014980e2a5717f43a64}{operator-\/-\/} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int})
+\begin{DoxyCompactList}\small\item\em post-\/decrement (it--) \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} \& \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_adeb2ff3fdf3cc301b72db109934c9199}{operator-\/-\/} ()
+\begin{DoxyCompactList}\small\item\em pre-\/decrement (--it) \end{DoxyCompactList}\item 
+bool \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_ab4c0b9baaec9ebc4837158e272f6c803}{operator==} (const \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} \&other) const 
+\begin{DoxyCompactList}\small\item\em comparison\+: equal \end{DoxyCompactList}\item 
+bool \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a9e4c6e48e3c2f3ff357ef8215b8c8fca}{operator!=} (const \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} \&other) const 
+\begin{DoxyCompactList}\small\item\em comparison\+: not equal \end{DoxyCompactList}\item 
+bool \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a65f491b515e5967e9c0b40289e3c0ff3}{operator$<$} (const \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} \&other) const 
+\begin{DoxyCompactList}\small\item\em comparison\+: smaller \end{DoxyCompactList}\item 
+bool \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a6b682f09787eff62f03493d45aa05902}{operator$<$=} (const \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} \&other) const 
+\begin{DoxyCompactList}\small\item\em comparison\+: less than or equal \end{DoxyCompactList}\item 
+bool \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_acb6cd0ff760933afeb7f93e5207f3646}{operator$>$} (const \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} \&other) const 
+\begin{DoxyCompactList}\small\item\em comparison\+: greater than \end{DoxyCompactList}\item 
+bool \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_af6941c3711dabb2e64960dd57e00d201}{operator$>$=} (const \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} \&other) const 
+\begin{DoxyCompactList}\small\item\em comparison\+: greater than or equal \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} \& \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a0d5820d1dda9dea3bbeb029cacf68522}{operator+=} (\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a49d7c3e9ef3280df03052cce988b792f}{difference\+\_\+type} i)
+\begin{DoxyCompactList}\small\item\em add to iterator \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} \& \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_aefac8f3e390ac917f021761f4a8f8e71}{operator-\/=} (\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a49d7c3e9ef3280df03052cce988b792f}{difference\+\_\+type} i)
+\begin{DoxyCompactList}\small\item\em subtract from iterator \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a7a80257f2303210b0a5d056fc0b30b40}{operator+} (\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a49d7c3e9ef3280df03052cce988b792f}{difference\+\_\+type} i)
+\begin{DoxyCompactList}\small\item\em add to iterator \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_abc4552ba2fe39e7901a83dd6d4dec151}{operator-\/} (\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a49d7c3e9ef3280df03052cce988b792f}{difference\+\_\+type} i)
+\begin{DoxyCompactList}\small\item\em subtract from iterator \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a49d7c3e9ef3280df03052cce988b792f}{difference\+\_\+type} \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a5e4d98a8f95e2eccde8cd48c19efa196}{operator-\/} (const \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator}{const\+\_\+iterator} \&other) const 
+\begin{DoxyCompactList}\small\item\em return difference \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_aefd248cac6493eed1e6ff53ba6a63eb2}{reference} \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a7bd530bfbbc58ac77308c087120c21fa}{operator\mbox{[}$\,$\mbox{]}} (\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a49d7c3e9ef3280df03052cce988b792f}{difference\+\_\+type} n) const 
+\begin{DoxyCompactList}\small\item\em access to successor \end{DoxyCompactList}\item 
+object\+\_\+t\+::key\+\_\+type \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_a5d4320e24fcb7df041ff2c95d976dba0}{key} () const 
+\begin{DoxyCompactList}\small\item\em return the key of an object iterator \end{DoxyCompactList}\item 
+\hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_aefd248cac6493eed1e6ff53ba6a63eb2}{reference} \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_ac75e80d30b6169ee2a29ec93fb4d2acd}{value} () const 
+\begin{DoxyCompactList}\small\item\em return the value of an iterator \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classnlohmann_1_1basic__json_1_1const__iterator_ada3100cdb8700566051828f1355fa745}{basic\+\_\+json}
+\begin{DoxyCompactList}\small\item\em allow \hyperlink{classnlohmann_1_1basic__json}{basic\+\_\+json} to access private members \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type = std\+::string, class Boolean\+Type = bool, class Number\+Integer\+Type = std\+::int64\+\_\+t, class Number\+Unsigned\+Type = std\+::uint64\+\_\+t, class Number\+Float\+Type = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$\\*
+class nlohmann\+::basic\+\_\+json$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator}
+
+a const random access iterator for the \hyperlink{classnlohmann_1_1basic__json}{basic\+\_\+json} class 
+
+This class implements a const iterator for the \hyperlink{classnlohmann_1_1basic__json}{basic\+\_\+json} class. From this class, the \hyperlink{classnlohmann_1_1basic__json_1_1iterator}{iterator} class is derived.
+
+The class satisfies the following concept requirements\+:
+\begin{DoxyItemize}
+\item \href{http://en.cppreference.com/w/cpp/concept/RandomAccessIterator}{\tt Random\+Access\+Iterator}\+: The iterator that can be moved to point (forward and backward) to any element in constant time.
+\end{DoxyItemize}
+
+\begin{DoxySince}{Since}
+version 1.\+0.\+0 
+\end{DoxySince}
+
+
+\subsection{Member Typedef Documentation}
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!difference\+\_\+type@{difference\+\_\+type}}
+\index{difference\+\_\+type@{difference\+\_\+type}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{difference\+\_\+type}{difference_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ using {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::{\bf const\+\_\+iterator\+::difference\+\_\+type} =  typename {\bf basic\+\_\+json\+::difference\+\_\+type}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a49d7c3e9ef3280df03052cce988b792f}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a49d7c3e9ef3280df03052cce988b792f}
+
+
+a type to represent differences between iterators 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!iterator\+\_\+category@{iterator\+\_\+category}}
+\index{iterator\+\_\+category@{iterator\+\_\+category}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{iterator\+\_\+category}{iterator_category}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ using {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::{\bf const\+\_\+iterator\+::iterator\+\_\+category} =  std\+::bidirectional\+\_\+iterator\+\_\+tag}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a821560d64f50525162097f19b1392e7f}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a821560d64f50525162097f19b1392e7f}
+
+
+the category of the iterator 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!pointer@{pointer}}
+\index{pointer@{pointer}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{pointer}{pointer}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ using {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::{\bf const\+\_\+iterator\+::pointer} =  typename {\bf basic\+\_\+json\+::const\+\_\+pointer}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a1da96fc3054d547e7706d3a2f073f389}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a1da96fc3054d547e7706d3a2f073f389}
+
+
+defines a pointer to the type iterated over (value\+\_\+type) 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!reference@{reference}}
+\index{reference@{reference}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{reference}{reference}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ using {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::{\bf const\+\_\+iterator\+::reference} =  typename {\bf basic\+\_\+json\+::const\+\_\+reference}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_aefd248cac6493eed1e6ff53ba6a63eb2}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_aefd248cac6493eed1e6ff53ba6a63eb2}
+
+
+defines a reference to the type iterated over (value\+\_\+type) 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!value\+\_\+type@{value\+\_\+type}}
+\index{value\+\_\+type@{value\+\_\+type}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{value\+\_\+type}{value_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ using {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::{\bf const\+\_\+iterator\+::value\+\_\+type} =  typename {\bf basic\+\_\+json\+::value\+\_\+type}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a9ea0497199b1e96ce9cadd1f202ec343}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a9ea0497199b1e96ce9cadd1f202ec343}
+
+
+the type of the values when the iterator is dereferenced 
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!const\+\_\+iterator@{const\+\_\+iterator}}
+\index{const\+\_\+iterator@{const\+\_\+iterator}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{const\+\_\+iterator()=default}{const_iterator()=default}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::const\+\_\+iterator (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [default]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_ac6fdaff67857f82a623e5cc253917639}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_ac6fdaff67857f82a623e5cc253917639}
+
+
+default constructor 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!const\+\_\+iterator@{const\+\_\+iterator}}
+\index{const\+\_\+iterator@{const\+\_\+iterator}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{const\+\_\+iterator(pointer object) noexcept}{const_iterator(pointer object) noexcept}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::const\+\_\+iterator (
+\begin{DoxyParamCaption}
+\item[{{\bf pointer}}]{object}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [noexcept]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a23de834b11bd895209aa65c100ab9ceb}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a23de834b11bd895209aa65c100ab9ceb}
+
+
+constructor for a given J\+S\+ON instance 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!const\+\_\+iterator@{const\+\_\+iterator}}
+\index{const\+\_\+iterator@{const\+\_\+iterator}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{const\+\_\+iterator(const iterator \&other) noexcept}{const_iterator(const iterator &other) noexcept}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::const\+\_\+iterator (
+\begin{DoxyParamCaption}
+\item[{const {\bf iterator} \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [noexcept]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a6b950c6bc081ac1ec1540ec05ceb2603}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a6b950c6bc081ac1ec1540ec05ceb2603}
+
+
+copy constructor given a nonconst iterator 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!const\+\_\+iterator@{const\+\_\+iterator}}
+\index{const\+\_\+iterator@{const\+\_\+iterator}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{const\+\_\+iterator(const const\+\_\+iterator \&other) noexcept}{const_iterator(const const_iterator &other) noexcept}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::const\+\_\+iterator (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+iterator} \&}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a18c35a6735d3da96b4fc026421c05dd8}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a18c35a6735d3da96b4fc026421c05dd8}
+
+
+copy constructor 
+
+
+
+\subsection{Member Function Documentation}
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!key@{key}}
+\index{key@{key}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{key() const }{key() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ object\+\_\+t\+::key\+\_\+type {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::key (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a5d4320e24fcb7df041ff2c95d976dba0}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a5d4320e24fcb7df041ff2c95d976dba0}
+
+
+return the key of an object iterator 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator"!=(const const\+\_\+iterator \&other) const }{operator!=(const const_iterator &other) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ bool {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+iterator} \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a9e4c6e48e3c2f3ff357ef8215b8c8fca}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a9e4c6e48e3c2f3ff357ef8215b8c8fca}
+
+
+comparison\+: not equal 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator$\ast$() const }{operator*() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf reference} {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_ab3029a1a83cf46dc28ad443bbad0c74d}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_ab3029a1a83cf46dc28ad443bbad0c74d}
+
+
+return a reference to the value pointed to by the iterator 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator+@{operator+}}
+\index{operator+@{operator+}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator+(difference\+\_\+type i)}{operator+(difference_type i)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf const\+\_\+iterator} {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator+ (
+\begin{DoxyParamCaption}
+\item[{{\bf difference\+\_\+type}}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a7a80257f2303210b0a5d056fc0b30b40}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a7a80257f2303210b0a5d056fc0b30b40}
+
+
+add to iterator 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator++(int)}{operator++(int)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf const\+\_\+iterator} {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator++ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a8dbaec5bf8ccba3225520356629061cb}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a8dbaec5bf8ccba3225520356629061cb}
+
+
+post-\/increment (it++) 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator++()}{operator++()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf const\+\_\+iterator}\& {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator++ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a8fbb15efd97599209a7def77af8e748e}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a8fbb15efd97599209a7def77af8e748e}
+
+
+pre-\/increment (++it) 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator+=(difference\+\_\+type i)}{operator+=(difference_type i)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf const\+\_\+iterator}\& {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator+= (
+\begin{DoxyParamCaption}
+\item[{{\bf difference\+\_\+type}}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a0d5820d1dda9dea3bbeb029cacf68522}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a0d5820d1dda9dea3bbeb029cacf68522}
+
+
+add to iterator 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator-\/(difference\+\_\+type i)}{operator-(difference_type i)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf const\+\_\+iterator} {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{{\bf difference\+\_\+type}}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_abc4552ba2fe39e7901a83dd6d4dec151}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_abc4552ba2fe39e7901a83dd6d4dec151}
+
+
+subtract from iterator 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator-\/(const const\+\_\+iterator \&other) const }{operator-(const const_iterator &other) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf difference\+\_\+type} {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+iterator} \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a5e4d98a8f95e2eccde8cd48c19efa196}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a5e4d98a8f95e2eccde8cd48c19efa196}
+
+
+return difference 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator-\/-\/(int)}{operator--(int)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf const\+\_\+iterator} {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator-\/-\/ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a6cab1c2ed7e2a014980e2a5717f43a64}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a6cab1c2ed7e2a014980e2a5717f43a64}
+
+
+post-\/decrement (it--) 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator-\/-\/@{operator-\/-\/}}
+\index{operator-\/-\/@{operator-\/-\/}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator-\/-\/()}{operator--()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf const\+\_\+iterator}\& {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator-\/-\/ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_adeb2ff3fdf3cc301b72db109934c9199}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_adeb2ff3fdf3cc301b72db109934c9199}
+
+
+pre-\/decrement (--it) 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator-\/=(difference\+\_\+type i)}{operator-=(difference_type i)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf const\+\_\+iterator}\& {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{{\bf difference\+\_\+type}}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_aefac8f3e390ac917f021761f4a8f8e71}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_aefac8f3e390ac917f021761f4a8f8e71}
+
+
+subtract from iterator 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator-\/$>$() const }{operator->() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf pointer} {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator-\/$>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a8be837e4d902887676dd837abe9098d3}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a8be837e4d902887676dd837abe9098d3}
+
+
+dereference the iterator 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator$<$(const const\+\_\+iterator \&other) const }{operator<(const const_iterator &other) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ bool {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+iterator} \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a65f491b515e5967e9c0b40289e3c0ff3}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a65f491b515e5967e9c0b40289e3c0ff3}
+
+
+comparison\+: smaller 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator$<$=(const const\+\_\+iterator \&other) const }{operator<=(const const_iterator &other) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ bool {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator$<$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+iterator} \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a6b682f09787eff62f03493d45aa05902}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a6b682f09787eff62f03493d45aa05902}
+
+
+comparison\+: less than or equal 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator=@{operator=}}
+\index{operator=@{operator=}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator=(const\+\_\+iterator other) noexcept(                                       std\+::is\+\_\+nothrow\+\_\+move\+\_\+constructible$<$ pointer $>$\+::value and                                       std\+::is\+\_\+nothrow\+\_\+move\+\_\+assignable$<$ pointer $>$\+::value and                                       std\+::is\+\_\+nothrow\+\_\+move\+\_\+constructible$<$ internal\+\_\+iterator $>$\+::value and                                       std\+::is\+\_\+nothrow\+\_\+move\+\_\+assignable$<$ internal\+\_\+iterator $>$\+::value                       )}{operator=(const_iterator other) noexcept(                                       std::is_nothrow_move_constructible< pointer >::value and                                       std::is_nothrow_move_assignable< pointer >::value and                                       std::is_nothrow_move_constructible< internal_iterator >::value and                                       std::is_nothrow_move_assignable< internal_iterator >::value                       )}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf const\+\_\+iterator}\& {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator= (
+\begin{DoxyParamCaption}
+\item[{{\bf const\+\_\+iterator}}]{other}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a5521515067b6597cb0b55a9c547a7a2b}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a5521515067b6597cb0b55a9c547a7a2b}
+
+
+copy assignment 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator==@{operator==}}
+\index{operator==@{operator==}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator==(const const\+\_\+iterator \&other) const }{operator==(const const_iterator &other) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ bool {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+iterator} \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_ab4c0b9baaec9ebc4837158e272f6c803}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_ab4c0b9baaec9ebc4837158e272f6c803}
+
+
+comparison\+: equal 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator$>$(const const\+\_\+iterator \&other) const }{operator>(const const_iterator &other) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ bool {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator$>$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+iterator} \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_acb6cd0ff760933afeb7f93e5207f3646}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_acb6cd0ff760933afeb7f93e5207f3646}
+
+
+comparison\+: greater than 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator$>$=(const const\+\_\+iterator \&other) const }{operator>=(const const_iterator &other) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ bool {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator$>$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf const\+\_\+iterator} \&}]{other}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_af6941c3711dabb2e64960dd57e00d201}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_af6941c3711dabb2e64960dd57e00d201}
+
+
+comparison\+: greater than or equal 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{operator[](difference\+\_\+type n) const }{operator[](difference_type n) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf reference} {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{{\bf difference\+\_\+type}}]{n}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_a7bd530bfbbc58ac77308c087120c21fa}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_a7bd530bfbbc58ac77308c087120c21fa}
+
+
+access to successor 
+
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!value@{value}}
+\index{value@{value}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{value() const }{value() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ {\bf reference} {\bf nlohmann\+::basic\+\_\+json}$<$ Object\+Type, Array\+Type, String\+Type, Boolean\+Type, Number\+Integer\+Type, Number\+Unsigned\+Type, Number\+Float\+Type, Allocator\+Type $>$\+::const\+\_\+iterator\+::value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_ac75e80d30b6169ee2a29ec93fb4d2acd}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_ac75e80d30b6169ee2a29ec93fb4d2acd}
+
+
+return the value of an iterator 
+
+
+
+\subsection{Friends And Related Function Documentation}
+\index{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}!basic\+\_\+json@{basic\+\_\+json}}
+\index{basic\+\_\+json@{basic\+\_\+json}!nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator@{nlohmann\+::basic\+\_\+json\+::const\+\_\+iterator}}
+\subsubsection[{\texorpdfstring{basic\+\_\+json}{basic_json}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$template$<$ typename U, typename V, typename...\+Args $>$ class Object\+Type = std\+::map, template$<$ typename U, typename...\+Args $>$ class Array\+Type = std\+::vector, class String\+Type  = std\+::string, class Boolean\+Type  = bool, class Number\+Integer\+Type  = std\+::int64\+\_\+t, class Number\+Unsigned\+Type  = std\+::uint64\+\_\+t, class Number\+Float\+Type  = double, template$<$ typename U $>$ class Allocator\+Type = std\+::allocator$>$ friend class {\bf basic\+\_\+json}\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classnlohmann_1_1basic__json_1_1const__iterator_ada3100cdb8700566051828f1355fa745}{}\label{classnlohmann_1_1basic__json_1_1const__iterator_ada3100cdb8700566051828f1355fa745}
+
+
+allow \hyperlink{classnlohmann_1_1basic__json}{basic\+\_\+json} to access private members 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/michael/\+J\+U\+C\+E/projects/audealize-\/plugin/\+J\+U\+C\+E Modules/audealize\+\_\+module/utils/\hyperlink{json_8hpp}{json.\+hpp}\end{DoxyCompactItemize}

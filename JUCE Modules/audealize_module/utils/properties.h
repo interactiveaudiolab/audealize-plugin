@@ -28,6 +28,9 @@ namespace Audealize
 class Properties
 {
 public:
+    /**
+     *  String Ids of each property
+     */
     struct propertyIds
     {
         static const Identifier darkMode;
@@ -35,6 +38,11 @@ public:
         static const Identifier reverbDataPath;
     };
 
+    /**
+     *  Write the contents of a var containing property information to the default properties file
+     *
+     *  @param properties
+     */
     static void writePropertiesToFile (var properties)
     {
         File prop_file = loadPropertiesFile ();
@@ -47,6 +55,11 @@ public:
         prop_file.replaceWithText (JSON::toString (properties));
     }
 
+    /**
+     *  Loads the user's configuration file or creates a new one if none exists
+     *
+     *  @return File
+     */
     static File loadPropertiesFile ()
     {
         PropertiesFile::Options properties;
@@ -77,6 +90,9 @@ public:
         return defaultFile;
     }
 
+    /**
+     *  Returns a juce::var containing a list of properties
+     */
     static var loadPropertiesVar ()
     {
         var properties;
@@ -87,11 +103,16 @@ public:
         return var ();
     }
 
-    static var getProperty (Identifier propertyName)
+    /**
+     *  Returns a juce::var containing an individual property, referenced by its property
+     *
+     *  @see Properties::propertyIds
+     */
+    static var getProperty (Identifier propertyId)
     {
-        var property = loadPropertiesVar ().getDynamicObject ()->getProperty (propertyName);
+        var property = loadPropertiesVar ().getDynamicObject ()->getProperty (propertyId);
 
-        return loadPropertiesVar ().getDynamicObject ()->getProperty (propertyName);
+        return loadPropertiesVar ().getDynamicObject ()->getProperty (propertyId);
     }
 };
 }

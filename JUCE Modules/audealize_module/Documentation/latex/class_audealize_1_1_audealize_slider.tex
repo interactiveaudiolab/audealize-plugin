@@ -1,0 +1,114 @@
+\hypertarget{class_audealize_1_1_audealize_slider}{}\section{Audealize\+:\+:Audealize\+Slider Class Reference}
+\label{class_audealize_1_1_audealize_slider}\index{Audealize\+::\+Audealize\+Slider@{Audealize\+::\+Audealize\+Slider}}
+
+
+{\ttfamily \#include $<$Audealize\+Slider.\+h$>$}
+
+Inheritance diagram for Audealize\+:\+:Audealize\+Slider\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_audealize_1_1_audealize_slider}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_audealize_1_1_audealize_slider_a9f5d47d4aef86ee8ea80d12bd85fd75f}{Audealize\+Slider} ()
+\item 
+\hyperlink{class_audealize_1_1_audealize_slider_a6658b7093118d4412236c877dd92274d}{$\sim$\+Audealize\+Slider} ()
+\item 
+String \hyperlink{class_audealize_1_1_audealize_slider_ad878601b8f7fee2b4715d8863c0fb2c8}{get\+Text\+From\+Value} (double \hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value}) override
+\item 
+double \hyperlink{class_audealize_1_1_audealize_slider_a361a1e00ca8ef5efdedf24a624d3b683}{get\+Value\+From\+Text} (const juce\+::\+String \&text) override
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_audealize_1_1_audealize_slider_a70ec585c217aafd7a1a7d8d584bf33b1}{set\+Value\+To\+Text\+Function} (std\+::function$<$ String(float)$>$ f)
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_audealize_1_1_audealize_slider_a9211015084c99898254ec989251712aa}{set\+Text\+To\+Value\+Function} (std\+::function$<$ float(String)$>$ f)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Audealize\+::\+Audealize\+Slider@{Audealize\+::\+Audealize\+Slider}!Audealize\+Slider@{Audealize\+Slider}}
+\index{Audealize\+Slider@{Audealize\+Slider}!Audealize\+::\+Audealize\+Slider@{Audealize\+::\+Audealize\+Slider}}
+\subsubsection[{\texorpdfstring{Audealize\+Slider()}{AudealizeSlider()}}]{\setlength{\rightskip}{0pt plus 5cm}Audealize\+::\+Audealize\+Slider\+::\+Audealize\+Slider (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_audealize_1_1_audealize_slider_a9f5d47d4aef86ee8ea80d12bd85fd75f}{}\label{class_audealize_1_1_audealize_slider_a9f5d47d4aef86ee8ea80d12bd85fd75f}
+\index{Audealize\+::\+Audealize\+Slider@{Audealize\+::\+Audealize\+Slider}!````~Audealize\+Slider@{$\sim$\+Audealize\+Slider}}
+\index{````~Audealize\+Slider@{$\sim$\+Audealize\+Slider}!Audealize\+::\+Audealize\+Slider@{Audealize\+::\+Audealize\+Slider}}
+\subsubsection[{\texorpdfstring{$\sim$\+Audealize\+Slider()}{~AudealizeSlider()}}]{\setlength{\rightskip}{0pt plus 5cm}Audealize\+::\+Audealize\+Slider\+::$\sim$\+Audealize\+Slider (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_audealize_1_1_audealize_slider_a6658b7093118d4412236c877dd92274d}{}\label{class_audealize_1_1_audealize_slider_a6658b7093118d4412236c877dd92274d}
+
+
+\subsection{Member Function Documentation}
+\index{Audealize\+::\+Audealize\+Slider@{Audealize\+::\+Audealize\+Slider}!get\+Text\+From\+Value@{get\+Text\+From\+Value}}
+\index{get\+Text\+From\+Value@{get\+Text\+From\+Value}!Audealize\+::\+Audealize\+Slider@{Audealize\+::\+Audealize\+Slider}}
+\subsubsection[{\texorpdfstring{get\+Text\+From\+Value(double value) override}{getTextFromValue(double value) override}}]{\setlength{\rightskip}{0pt plus 5cm}String Audealize\+::\+Audealize\+Slider\+::get\+Text\+From\+Value (
+\begin{DoxyParamCaption}
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}\hypertarget{class_audealize_1_1_audealize_slider_ad878601b8f7fee2b4715d8863c0fb2c8}{}\label{class_audealize_1_1_audealize_slider_ad878601b8f7fee2b4715d8863c0fb2c8}
+Returns a String representation of the slider\textquotesingle{}s value. Used when displaying value in a textbox Inherited from juce\+::\+Slider
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & a double\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+a String reprsentation of the value 
+\end{DoxyReturn}
+\index{Audealize\+::\+Audealize\+Slider@{Audealize\+::\+Audealize\+Slider}!get\+Value\+From\+Text@{get\+Value\+From\+Text}}
+\index{get\+Value\+From\+Text@{get\+Value\+From\+Text}!Audealize\+::\+Audealize\+Slider@{Audealize\+::\+Audealize\+Slider}}
+\subsubsection[{\texorpdfstring{get\+Value\+From\+Text(const juce\+::\+String \&text) override}{getValueFromText(const juce::String &text) override}}]{\setlength{\rightskip}{0pt plus 5cm}double Audealize\+::\+Audealize\+Slider\+::get\+Value\+From\+Text (
+\begin{DoxyParamCaption}
+\item[{const juce\+::\+String \&}]{text}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}}\hypertarget{class_audealize_1_1_audealize_slider_a361a1e00ca8ef5efdedf24a624d3b683}{}\label{class_audealize_1_1_audealize_slider_a361a1e00ca8ef5efdedf24a624d3b683}
+Parses a string containing the value of a slider and returns a double representation of that value Used when setting slider value through a text box. Inherited from juce\+::\+Slider
+
+
+\begin{DoxyParams}{Parameters}
+{\em text} & T\+He String to be parsed\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The value as a double 
+\end{DoxyReturn}
+\index{Audealize\+::\+Audealize\+Slider@{Audealize\+::\+Audealize\+Slider}!set\+Text\+To\+Value\+Function@{set\+Text\+To\+Value\+Function}}
+\index{set\+Text\+To\+Value\+Function@{set\+Text\+To\+Value\+Function}!Audealize\+::\+Audealize\+Slider@{Audealize\+::\+Audealize\+Slider}}
+\subsubsection[{\texorpdfstring{set\+Text\+To\+Value\+Function(std\+::function$<$ float(\+String)$>$ f)}{setTextToValueFunction(std::function< float(String)> f)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Audealize\+::\+Audealize\+Slider\+::set\+Text\+To\+Value\+Function (
+\begin{DoxyParamCaption}
+\item[{std\+::function$<$ float(String)$>$}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_audealize_1_1_audealize_slider_a9211015084c99898254ec989251712aa}{}\label{class_audealize_1_1_audealize_slider_a9211015084c99898254ec989251712aa}
+Set a custom text to value function for the slider
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & a std\+::function$<$float (\+String)$>$ \\
+\hline
+\end{DoxyParams}
+\index{Audealize\+::\+Audealize\+Slider@{Audealize\+::\+Audealize\+Slider}!set\+Value\+To\+Text\+Function@{set\+Value\+To\+Text\+Function}}
+\index{set\+Value\+To\+Text\+Function@{set\+Value\+To\+Text\+Function}!Audealize\+::\+Audealize\+Slider@{Audealize\+::\+Audealize\+Slider}}
+\subsubsection[{\texorpdfstring{set\+Value\+To\+Text\+Function(std\+::function$<$ String(float)$>$ f)}{setValueToTextFunction(std::function< String(float)> f)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Audealize\+::\+Audealize\+Slider\+::set\+Value\+To\+Text\+Function (
+\begin{DoxyParamCaption}
+\item[{std\+::function$<$ String(float)$>$}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_audealize_1_1_audealize_slider_a70ec585c217aafd7a1a7d8d584bf33b1}{}\label{class_audealize_1_1_audealize_slider_a70ec585c217aafd7a1a7d8d584bf33b1}
+Set a custom value to text function for the slider
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & a std\+::function$<$\+String (float)$>$ \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/michael/\+J\+U\+C\+E/projects/audealize-\/plugin/\+J\+U\+C\+E Modules/audealize\+\_\+module/ui\+\_\+components/\hyperlink{_audealize_slider_8h}{Audealize\+Slider.\+h}\end{DoxyCompactItemize}

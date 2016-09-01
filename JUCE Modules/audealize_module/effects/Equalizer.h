@@ -137,7 +137,11 @@ public:
      *
      *  @return the center frequency of the filter
      */
-    float getBandFreq (int bandIdx) { return mFilters[bandIdx].getFreq (); }
+    float getBandFreq (int bandIdx)
+    {
+        return mFilters[bandIdx].getFreq ();
+    }
+
     /**
      *  returns the gain of one of the filters in the bank given its index
      *
@@ -145,9 +149,21 @@ public:
      *
      *  @return the gain of the filter
      */
-    float getBandGain (int bandIdx) { return mFilters[bandIdx].getGain (); }
-    float getSampleRate () { return mSampleRate; }
-    float getNumChannels () { return mChannels; }
+    float getBandGain (int bandIdx)
+    {
+        return mFilters[bandIdx].getGain ();
+    }
+
+    /**
+     *  Returns the number of channels (1 = mono, 2 = stereo, etc..) Not bands!
+     *
+     *  @return int number of channels
+     */
+    int getNumChannels ()
+    {
+        return mChannels;
+    }
+
 private:
     vector<NChannelFilter> mFilters;
     vector<float> mFreqs, mGains;

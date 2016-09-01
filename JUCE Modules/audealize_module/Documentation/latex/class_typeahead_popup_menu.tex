@@ -1,0 +1,197 @@
+\hypertarget{class_typeahead_popup_menu}{}\section{Typeahead\+Popup\+Menu Class Reference}
+\label{class_typeahead_popup_menu}\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}
+
+
+{\ttfamily \#include $<$Typeahead\+Popup\+Menu.\+h$>$}
+
+Inheritance diagram for Typeahead\+Popup\+Menu\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_typeahead_popup_menu}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_typeahead_popup_menu_ab0938f3a6c7b9349f698cd65a97cdbf9}{Colour\+Ids} \{ \hyperlink{class_typeahead_popup_menu_ab0938f3a6c7b9349f698cd65a97cdbf9a8dd4222711cd9b6ec71091e3ec3dee06}{background\+Colour\+Id} = 0x2000400, 
+\hyperlink{class_typeahead_popup_menu_ab0938f3a6c7b9349f698cd65a97cdbf9a2472a86e906ec8973a442008c15cac9d}{text\+Colour\+Id} = 0x2000401, 
+\hyperlink{class_typeahead_popup_menu_ab0938f3a6c7b9349f698cd65a97cdbf9ad97aea57b8ccf23a19774c3f64216688}{highlight\+Colour\+Id} = 0x2000402, 
+\hyperlink{class_typeahead_popup_menu_ab0938f3a6c7b9349f698cd65a97cdbf9ab02a4a7379c248f384d849cb327d01ae}{text\+Selected\+Colour\+Id} = 0x2000403
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_typeahead_popup_menu_a877b636f8a9475e8fb5547491de02716}{Typeahead\+Popup\+Menu} ()
+\item 
+\hyperlink{class_typeahead_popup_menu_a0d2818d9cdac33de4f6af61b1220c193}{$\sim$\+Typeahead\+Popup\+Menu} ()
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_popup_menu_a8aaf8378f05583ea02b7a37820b22869}{set\+Items} (const String\+Array \&options\+\_\+)
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_popup_menu_aaaf5c6cc15d0c822f129ddbbf2ab8e0c}{resized} () override
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_popup_menu_aee87bc561a1b813b5d6e9aa29f0ede0a}{paint} (Graphics \&g) override
+\item 
+\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{class_typeahead_popup_menu_acd831e27150e6264f15e797f22960648}{get\+Num\+Rows} () override
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_popup_menu_af277a50a6c5c49e1ade6732bb82f4ad9}{set\+Action\+On\+Item\+Selected} (std\+::function$<$ \hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void}(String)$>$ function)
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_popup_menu_a764bbdbdd904c7e6aad931bc00ca9050}{list\+Box\+Item\+Clicked} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} row, const Mouse\+Event \&) override
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_popup_menu_ac9cd24de1208af4d8d5720490ccddded}{return\+Key\+Pressed} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} last\+Row\+Selected) override
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_popup_menu_a96d37090528b014303917c4266ddee46}{paint\+List\+Box\+Item} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} row\+Number, Graphics \&g, \hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{tk_8h_a29e50a5401c1396b3a2aa3487f74d468}{width}, \hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{tk_8h_a67be2f4b9d9c5b3559139bfb072e2e81}{height}, bool row\+Is\+Selected) override
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_popup_menu_aed235641398929232116e95177aac229}{set\+First\+Item\+Focused} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Enumeration Documentation}
+\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}!Colour\+Ids@{Colour\+Ids}}
+\index{Colour\+Ids@{Colour\+Ids}!Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}
+\subsubsection[{\texorpdfstring{Colour\+Ids}{ColourIds}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Typeahead\+Popup\+Menu\+::\+Colour\+Ids}}\hypertarget{class_typeahead_popup_menu_ab0938f3a6c7b9349f698cd65a97cdbf9}{}\label{class_typeahead_popup_menu_ab0938f3a6c7b9349f698cd65a97cdbf9}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{background\+Colour\+Id@{background\+Colour\+Id}!Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}!background\+Colour\+Id@{background\+Colour\+Id}}\item[{\em 
+background\+Colour\+Id\hypertarget{class_typeahead_popup_menu_ab0938f3a6c7b9349f698cd65a97cdbf9a8dd4222711cd9b6ec71091e3ec3dee06}{}\label{class_typeahead_popup_menu_ab0938f3a6c7b9349f698cd65a97cdbf9a8dd4222711cd9b6ec71091e3ec3dee06}
+}]\index{text\+Colour\+Id@{text\+Colour\+Id}!Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}!text\+Colour\+Id@{text\+Colour\+Id}}\item[{\em 
+text\+Colour\+Id\hypertarget{class_typeahead_popup_menu_ab0938f3a6c7b9349f698cd65a97cdbf9a2472a86e906ec8973a442008c15cac9d}{}\label{class_typeahead_popup_menu_ab0938f3a6c7b9349f698cd65a97cdbf9a2472a86e906ec8973a442008c15cac9d}
+}]\index{highlight\+Colour\+Id@{highlight\+Colour\+Id}!Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}!highlight\+Colour\+Id@{highlight\+Colour\+Id}}\item[{\em 
+highlight\+Colour\+Id\hypertarget{class_typeahead_popup_menu_ab0938f3a6c7b9349f698cd65a97cdbf9ad97aea57b8ccf23a19774c3f64216688}{}\label{class_typeahead_popup_menu_ab0938f3a6c7b9349f698cd65a97cdbf9ad97aea57b8ccf23a19774c3f64216688}
+}]\index{text\+Selected\+Colour\+Id@{text\+Selected\+Colour\+Id}!Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}!text\+Selected\+Colour\+Id@{text\+Selected\+Colour\+Id}}\item[{\em 
+text\+Selected\+Colour\+Id\hypertarget{class_typeahead_popup_menu_ab0938f3a6c7b9349f698cd65a97cdbf9ab02a4a7379c248f384d849cb327d01ae}{}\label{class_typeahead_popup_menu_ab0938f3a6c7b9349f698cd65a97cdbf9ab02a4a7379c248f384d849cb327d01ae}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}!Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}
+\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}!Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}
+\subsubsection[{\texorpdfstring{Typeahead\+Popup\+Menu()}{TypeaheadPopupMenu()}}]{\setlength{\rightskip}{0pt plus 5cm}Typeahead\+Popup\+Menu\+::\+Typeahead\+Popup\+Menu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_typeahead_popup_menu_a877b636f8a9475e8fb5547491de02716}{}\label{class_typeahead_popup_menu_a877b636f8a9475e8fb5547491de02716}
+\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}!````~Typeahead\+Popup\+Menu@{$\sim$\+Typeahead\+Popup\+Menu}}
+\index{````~Typeahead\+Popup\+Menu@{$\sim$\+Typeahead\+Popup\+Menu}!Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}
+\subsubsection[{\texorpdfstring{$\sim$\+Typeahead\+Popup\+Menu()}{~TypeaheadPopupMenu()}}]{\setlength{\rightskip}{0pt plus 5cm}Typeahead\+Popup\+Menu\+::$\sim$\+Typeahead\+Popup\+Menu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_typeahead_popup_menu_a0d2818d9cdac33de4f6af61b1220c193}{}\label{class_typeahead_popup_menu_a0d2818d9cdac33de4f6af61b1220c193}
+
+
+\subsection{Member Function Documentation}
+\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}!get\+Num\+Rows@{get\+Num\+Rows}}
+\index{get\+Num\+Rows@{get\+Num\+Rows}!Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}
+\subsubsection[{\texorpdfstring{get\+Num\+Rows() override}{getNumRows() override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf int} Typeahead\+Popup\+Menu\+::get\+Num\+Rows (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}}\hypertarget{class_typeahead_popup_menu_acd831e27150e6264f15e797f22960648}{}\label{class_typeahead_popup_menu_acd831e27150e6264f15e797f22960648}
+\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}!list\+Box\+Item\+Clicked@{list\+Box\+Item\+Clicked}}
+\index{list\+Box\+Item\+Clicked@{list\+Box\+Item\+Clicked}!Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}
+\subsubsection[{\texorpdfstring{list\+Box\+Item\+Clicked(int row, const Mouse\+Event \&) override}{listBoxItemClicked(int row, const MouseEvent &) override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Popup\+Menu\+::list\+Box\+Item\+Clicked (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{row, }
+\item[{const Mouse\+Event \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}}\hypertarget{class_typeahead_popup_menu_a764bbdbdd904c7e6aad931bc00ca9050}{}\label{class_typeahead_popup_menu_a764bbdbdd904c7e6aad931bc00ca9050}
+Called when an item in the popup menu is clicked
+
+
+\begin{DoxyParams}{Parameters}
+{\em row} & row index \\
+\hline
+{\em Mouse\+Event\&} & \\
+\hline
+\end{DoxyParams}
+\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}!paint@{paint}}
+\index{paint@{paint}!Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}
+\subsubsection[{\texorpdfstring{paint(\+Graphics \&g) override}{paint(Graphics &g) override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Popup\+Menu\+::paint (
+\begin{DoxyParamCaption}
+\item[{Graphics \&}]{g}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}}\hypertarget{class_typeahead_popup_menu_aee87bc561a1b813b5d6e9aa29f0ede0a}{}\label{class_typeahead_popup_menu_aee87bc561a1b813b5d6e9aa29f0ede0a}
+\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}!paint\+List\+Box\+Item@{paint\+List\+Box\+Item}}
+\index{paint\+List\+Box\+Item@{paint\+List\+Box\+Item}!Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}
+\subsubsection[{\texorpdfstring{paint\+List\+Box\+Item(int row\+Number, Graphics \&g, int width, int height, bool row\+Is\+Selected) override}{paintListBoxItem(int rowNumber, Graphics &g, int width, int height, bool rowIsSelected) override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Popup\+Menu\+::paint\+List\+Box\+Item (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{row\+Number, }
+\item[{Graphics \&}]{g, }
+\item[{{\bf int}}]{width, }
+\item[{{\bf int}}]{height, }
+\item[{bool}]{row\+Is\+Selected}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}}\hypertarget{class_typeahead_popup_menu_a96d37090528b014303917c4266ddee46}{}\label{class_typeahead_popup_menu_a96d37090528b014303917c4266ddee46}
+Paint an individual row of the popup menu
+
+
+\begin{DoxyParams}{Parameters}
+{\em row\+Number} & \\
+\hline
+{\em g} & Graphics drawing context \\
+\hline
+{\em width} & \\
+\hline
+{\em height} & \\
+\hline
+{\em row\+Is\+Selected} & \\
+\hline
+\end{DoxyParams}
+\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}!resized@{resized}}
+\index{resized@{resized}!Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}
+\subsubsection[{\texorpdfstring{resized() override}{resized() override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Popup\+Menu\+::resized (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}}\hypertarget{class_typeahead_popup_menu_aaaf5c6cc15d0c822f129ddbbf2ab8e0c}{}\label{class_typeahead_popup_menu_aaaf5c6cc15d0c822f129ddbbf2ab8e0c}
+\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}!return\+Key\+Pressed@{return\+Key\+Pressed}}
+\index{return\+Key\+Pressed@{return\+Key\+Pressed}!Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}
+\subsubsection[{\texorpdfstring{return\+Key\+Pressed(int last\+Row\+Selected) override}{returnKeyPressed(int lastRowSelected) override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Popup\+Menu\+::return\+Key\+Pressed (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{last\+Row\+Selected}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}}\hypertarget{class_typeahead_popup_menu_ac9cd24de1208af4d8d5720490ccddded}{}\label{class_typeahead_popup_menu_ac9cd24de1208af4d8d5720490ccddded}
+Called when return key pressed in \hyperlink{class_typeahead_editor}{Typeahead\+Editor}
+
+
+\begin{DoxyParams}{Parameters}
+{\em last\+Row\+Selected} & \\
+\hline
+\end{DoxyParams}
+\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}!set\+Action\+On\+Item\+Selected@{set\+Action\+On\+Item\+Selected}}
+\index{set\+Action\+On\+Item\+Selected@{set\+Action\+On\+Item\+Selected}!Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}
+\subsubsection[{\texorpdfstring{set\+Action\+On\+Item\+Selected(std\+::function$<$ void(\+String)$>$ function)}{setActionOnItemSelected(std::function< void(String)> function)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Popup\+Menu\+::set\+Action\+On\+Item\+Selected (
+\begin{DoxyParamCaption}
+\item[{std\+::function$<$ {\bf void}(String)$>$}]{function}
+\end{DoxyParamCaption}
+)}\hypertarget{class_typeahead_popup_menu_af277a50a6c5c49e1ade6732bb82f4ad9}{}\label{class_typeahead_popup_menu_af277a50a6c5c49e1ade6732bb82f4ad9}
+Sets the function to be executed when an item is selected
+
+
+\begin{DoxyParams}{Parameters}
+{\em std\+::function$<$void(\+String)$>$} & function \\
+\hline
+\end{DoxyParams}
+\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}!set\+First\+Item\+Focused@{set\+First\+Item\+Focused}}
+\index{set\+First\+Item\+Focused@{set\+First\+Item\+Focused}!Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}
+\subsubsection[{\texorpdfstring{set\+First\+Item\+Focused()}{setFirstItemFocused()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Popup\+Menu\+::set\+First\+Item\+Focused (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_typeahead_popup_menu_aed235641398929232116e95177aac229}{}\label{class_typeahead_popup_menu_aed235641398929232116e95177aac229}
+\index{Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}!set\+Items@{set\+Items}}
+\index{set\+Items@{set\+Items}!Typeahead\+Popup\+Menu@{Typeahead\+Popup\+Menu}}
+\subsubsection[{\texorpdfstring{set\+Items(const String\+Array \&options\+\_\+)}{setItems(const StringArray &options_)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Popup\+Menu\+::set\+Items (
+\begin{DoxyParamCaption}
+\item[{const String\+Array \&}]{options\+\_\+}
+\end{DoxyParamCaption}
+)}\hypertarget{class_typeahead_popup_menu_a8aaf8378f05583ea02b7a37820b22869}{}\label{class_typeahead_popup_menu_a8aaf8378f05583ea02b7a37820b22869}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/michael/\+J\+U\+C\+E/projects/audealize-\/plugin/\+J\+U\+C\+E Modules/audealize\+\_\+module/ui\+\_\+components/\hyperlink{_typeahead_popup_menu_8h}{Typeahead\+Popup\+Menu.\+h}\item 
+/\+Users/michael/\+J\+U\+C\+E/projects/audealize-\/plugin/\+J\+U\+C\+E Modules/audealize\+\_\+module/ui\+\_\+components/\hyperlink{_typeahead_popup_menu_8cpp}{Typeahead\+Popup\+Menu.\+cpp}\end{DoxyCompactItemize}

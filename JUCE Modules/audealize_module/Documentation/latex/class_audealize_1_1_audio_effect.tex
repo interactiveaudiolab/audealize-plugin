@@ -1,0 +1,132 @@
+\hypertarget{class_audealize_1_1_audio_effect}{}\section{Audealize\+:\+:Audio\+Effect Class Reference}
+\label{class_audealize_1_1_audio_effect}\index{Audealize\+::\+Audio\+Effect@{Audealize\+::\+Audio\+Effect}}
+
+
+{\ttfamily \#include $<$Audio\+Effect.\+h$>$}
+
+Inheritance diagram for Audealize\+:\+:Audio\+Effect\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_audealize_1_1_audio_effect}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_audealize_1_1_audio_effect_ac730d3e11025310b13019073268174de}{Audio\+Effect} (float sample\+Rate=44100)
+\item 
+virtual \hyperlink{class_audealize_1_1_audio_effect_a3cd9fc8ee2b2bb4bd313772014651fd0}{$\sim$\+Audio\+Effect} ()
+\item 
+virtual float \hyperlink{class_audealize_1_1_audio_effect_ab77548a457702d189087163a696d4215}{process\+Sample} (float sample, \hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} channel\+Idx)
+\item 
+virtual \hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_audealize_1_1_audio_effect_a343c4a44c067e2605d18dcb578ae1302}{process\+Block} (float $\ast$const samples, \hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} num\+Samples, \hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} channel\+Idx)
+\item 
+virtual \hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_audealize_1_1_audio_effect_a5ff34c0371f2311dc026bca5ba245faa}{set\+Sample\+Rate} (float sample\+Rate)
+\item 
+float \hyperlink{class_audealize_1_1_audio_effect_aa1d51c95f452a5d71f97908a13751166}{get\+Sample\+Rate} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{class_audealize_1_1_audio_effect_acd609287d863778dcb7e27ea208b17ba}{m\+Sample\+Rate}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Audealize\+::\+Audio\+Effect@{Audealize\+::\+Audio\+Effect}!Audio\+Effect@{Audio\+Effect}}
+\index{Audio\+Effect@{Audio\+Effect}!Audealize\+::\+Audio\+Effect@{Audealize\+::\+Audio\+Effect}}
+\subsubsection[{\texorpdfstring{Audio\+Effect(float sample\+Rate=44100)}{AudioEffect(float sampleRate=44100)}}]{\setlength{\rightskip}{0pt plus 5cm}Audealize\+::\+Audio\+Effect\+::\+Audio\+Effect (
+\begin{DoxyParamCaption}
+\item[{float}]{sample\+Rate = {\ttfamily 44100}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_audealize_1_1_audio_effect_ac730d3e11025310b13019073268174de}{}\label{class_audealize_1_1_audio_effect_ac730d3e11025310b13019073268174de}
+\index{Audealize\+::\+Audio\+Effect@{Audealize\+::\+Audio\+Effect}!````~Audio\+Effect@{$\sim$\+Audio\+Effect}}
+\index{````~Audio\+Effect@{$\sim$\+Audio\+Effect}!Audealize\+::\+Audio\+Effect@{Audealize\+::\+Audio\+Effect}}
+\subsubsection[{\texorpdfstring{$\sim$\+Audio\+Effect()}{~AudioEffect()}}]{\setlength{\rightskip}{0pt plus 5cm}virtual Audealize\+::\+Audio\+Effect\+::$\sim$\+Audio\+Effect (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_audealize_1_1_audio_effect_a3cd9fc8ee2b2bb4bd313772014651fd0}{}\label{class_audealize_1_1_audio_effect_a3cd9fc8ee2b2bb4bd313772014651fd0}
+
+
+\subsection{Member Function Documentation}
+\index{Audealize\+::\+Audio\+Effect@{Audealize\+::\+Audio\+Effect}!get\+Sample\+Rate@{get\+Sample\+Rate}}
+\index{get\+Sample\+Rate@{get\+Sample\+Rate}!Audealize\+::\+Audio\+Effect@{Audealize\+::\+Audio\+Effect}}
+\subsubsection[{\texorpdfstring{get\+Sample\+Rate()}{getSampleRate()}}]{\setlength{\rightskip}{0pt plus 5cm}float Audealize\+::\+Audio\+Effect\+::get\+Sample\+Rate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_audealize_1_1_audio_effect_aa1d51c95f452a5d71f97908a13751166}{}\label{class_audealize_1_1_audio_effect_aa1d51c95f452a5d71f97908a13751166}
+\index{Audealize\+::\+Audio\+Effect@{Audealize\+::\+Audio\+Effect}!process\+Block@{process\+Block}}
+\index{process\+Block@{process\+Block}!Audealize\+::\+Audio\+Effect@{Audealize\+::\+Audio\+Effect}}
+\subsubsection[{\texorpdfstring{process\+Block(float $\ast$const samples, int num\+Samples, int channel\+Idx)}{processBlock(float *const samples, int numSamples, int channelIdx)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf void} Audealize\+::\+Audio\+Effect\+::process\+Block (
+\begin{DoxyParamCaption}
+\item[{float $\ast$const}]{samples, }
+\item[{{\bf int}}]{num\+Samples, }
+\item[{{\bf int}}]{channel\+Idx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_audealize_1_1_audio_effect_a343c4a44c067e2605d18dcb578ae1302}{}\label{class_audealize_1_1_audio_effect_a343c4a44c067e2605d18dcb578ae1302}
+Process a block of audio
+
+
+\begin{DoxyParams}{Parameters}
+{\em samples} & Pointer to an array of audio samples \\
+\hline
+{\em num\+Samples} & Number of samples \\
+\hline
+{\em channel\+Idx} & Channel index \\
+\hline
+\end{DoxyParams}
+\index{Audealize\+::\+Audio\+Effect@{Audealize\+::\+Audio\+Effect}!process\+Sample@{process\+Sample}}
+\index{process\+Sample@{process\+Sample}!Audealize\+::\+Audio\+Effect@{Audealize\+::\+Audio\+Effect}}
+\subsubsection[{\texorpdfstring{process\+Sample(float sample, int channel\+Idx)}{processSample(float sample, int channelIdx)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual float Audealize\+::\+Audio\+Effect\+::process\+Sample (
+\begin{DoxyParamCaption}
+\item[{float}]{sample, }
+\item[{{\bf int}}]{channel\+Idx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_audealize_1_1_audio_effect_ab77548a457702d189087163a696d4215}{}\label{class_audealize_1_1_audio_effect_ab77548a457702d189087163a696d4215}
+Process an individual sample of audio. Should be overriden by child class
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & Sample of audio to process \\
+\hline
+{\em channel\+Idx} & Channel index (0 = mono)\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A sample of processed audio 
+\end{DoxyReturn}
+
+
+Reimplemented in \hyperlink{class_audealize_1_1_n_channel_filter_ad9e59288f93255e0c31e1e83dd80928f}{Audealize\+::\+N\+Channel\+Filter}, and \hyperlink{class_audealize_1_1_equalizer_a71cadea6dfac69d667ecda5046177a00}{Audealize\+::\+Equalizer}.
+
+\index{Audealize\+::\+Audio\+Effect@{Audealize\+::\+Audio\+Effect}!set\+Sample\+Rate@{set\+Sample\+Rate}}
+\index{set\+Sample\+Rate@{set\+Sample\+Rate}!Audealize\+::\+Audio\+Effect@{Audealize\+::\+Audio\+Effect}}
+\subsubsection[{\texorpdfstring{set\+Sample\+Rate(float sample\+Rate)}{setSampleRate(float sampleRate)}}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf void} Audealize\+::\+Audio\+Effect\+::set\+Sample\+Rate (
+\begin{DoxyParamCaption}
+\item[{float}]{sample\+Rate}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_audealize_1_1_audio_effect_a5ff34c0371f2311dc026bca5ba245faa}{}\label{class_audealize_1_1_audio_effect_a5ff34c0371f2311dc026bca5ba245faa}
+Set the sample rate of the \hyperlink{class_audealize_1_1_audio_effect}{Audio\+Effect}
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample\+Rate} & \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \hyperlink{class_audealize_1_1_reverb_a1b4ea565c1c25b62911c5b650f84f844}{Audealize\+::\+Reverb}, \hyperlink{class_audealize_1_1_n_channel_filter_ad8b99b93cbe402948f007c9dde8e48bf}{Audealize\+::\+N\+Channel\+Filter}, and \hyperlink{class_audealize_1_1_equalizer_a8206b7f21b22f9c9f223014ab754c1b3}{Audealize\+::\+Equalizer}.
+
+
+
+\subsection{Member Data Documentation}
+\index{Audealize\+::\+Audio\+Effect@{Audealize\+::\+Audio\+Effect}!m\+Sample\+Rate@{m\+Sample\+Rate}}
+\index{m\+Sample\+Rate@{m\+Sample\+Rate}!Audealize\+::\+Audio\+Effect@{Audealize\+::\+Audio\+Effect}}
+\subsubsection[{\texorpdfstring{m\+Sample\+Rate}{mSampleRate}}]{\setlength{\rightskip}{0pt plus 5cm}float Audealize\+::\+Audio\+Effect\+::m\+Sample\+Rate\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_audealize_1_1_audio_effect_acd609287d863778dcb7e27ea208b17ba}{}\label{class_audealize_1_1_audio_effect_acd609287d863778dcb7e27ea208b17ba}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/michael/\+J\+U\+C\+E/projects/audealize-\/plugin/\+J\+U\+C\+E Modules/audealize\+\_\+module/effects/\hyperlink{_audio_effect_8h}{Audio\+Effect.\+h}\end{DoxyCompactItemize}

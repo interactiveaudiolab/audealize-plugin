@@ -34,7 +34,10 @@ public:
         resetBuffs ();
     }
 
-    ~Reverb () {}
+    ~Reverb ()
+    {
+    }
+
     /**
      *  Process a block of mono audio
      *
@@ -77,7 +80,6 @@ public:
             // DBG ("processing mono");
 
             JUCE_UNDENORMALISE (sampOut);
-
             channelData[i] = sampOut;
         }
     }
@@ -163,7 +165,38 @@ public:
     }
 
     /**
-     *  Individual setters for reverberator parameters
+     * Overload AudioEffect::setSampleRate to update any variables dependent on the sample rate
+     */
+    void setSampleRate (float sampleRate)
+    {
+        mSampleRate = sampleRate;
+        mLowpass.setSampleRate (sampleRate);
+        set_m (m);
+        set_d (d);
+        resetBuffs ();
+    }
+
+    /**
+     *  Zero out all delay/filter buffers
+     */
+    void resetBuffs ()
+    {
+        for (auto d : mAllpass)
+        {
+            d.reset ();
+        }
+        for (auto d : mComb)
+        {
+            d.reset ();
+        }
+        for (auto d : mDelay)
+        {
+            d.reset ();
+        }
+    }
+
+    /**
+     *  Setters for the main reverberator parameters
      */
     void set_d (float d_val)
     {
@@ -215,45 +248,38 @@ public:
     }
 
     /**
-     * Overload AudioEffect::setSampleRate to update any variables dependent on the sample rate
-     */
-    void setSampleRate (float sampleRate)
-    {
-        mSampleRate = sampleRate;
-        mLowpass.setSampleRate (sampleRate);
-        set_m (m);
-        set_d (d);
-        resetBuffs ();
-    }
-
-    /**
-     *  Zero out all buffers
-     */
-    void resetBuffs ()
-    {
-        for (auto d : mAllpass)
-        {
-            d.reset ();
-        }
-        for (auto d : mComb)
-        {
-            d.reset ();
-        }
-        for (auto d : mDelay)
-        {
-            d.reset ();
-        }
-    }
-
-    /**
      *  Getters for main reverberator parameters
      */
-    float get_d () { return d; }
-    float get_g () { return g; }
-    float get_m () { return m; }
-    float get_f () { return f; }
-    float get_E () { return E; }
-    float get_wetdry () { return wetdry; }
+    float get_d ()
+    {
+        return d;
+    }
+
+    float get_g ()
+    {
+        return g;
+    }
+
+    float get_m ()
+    {
+        return m;
+    }
+
+    float get_f ()
+    {
+        return f;
+    }
+
+    float get_E ()
+    {
+        return E;
+    }
+
+    float get_wetdry ()
+    {
+        return wetdry;
+    }
+
 private:
     /**
      *  The main reverberator parameters
@@ -292,9 +318,10 @@ private:
         return outSample;
     }
 
-    inline void calc_rt () { rt = d * log (.001) / log (g); }
-};  // class Reverb
-
-}  // namespace Audealize
-
+    inline void calc_rt ()
+    {
+        rt = d * log (.001) / log (g);
+    }
+};
+}
 #endif  // REVERB_H_INCLUDED

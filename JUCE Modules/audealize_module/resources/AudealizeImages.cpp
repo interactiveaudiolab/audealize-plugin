@@ -1,5 +1,7 @@
 #include "AudealizeImages.h"
 
+using namespace Audealize;
+
 static const unsigned char resource_AudealizeImages_darkModeButton_svg[] = {
     60,  63,  120, 109, 108, 32,  118, 101, 114, 115, 105, 111, 110, 61,  34,  49,  46,  48,  34,  32,  101, 110, 99,
     111, 100, 105, 110, 103, 61,  34,  85,  84,  70,  45,  56,  34,  32,  115, 116, 97,  110, 100, 97,  108, 111, 110,

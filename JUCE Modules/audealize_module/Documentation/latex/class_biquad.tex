@@ -1,0 +1,181 @@
+\hypertarget{class_biquad}{}\section{Biquad Class Reference}
+\label{class_biquad}\index{Biquad@{Biquad}}
+
+
+{\ttfamily \#include $<$Biquad.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_biquad_a52dca857188efd568cce9e763c1fcb82}{Biquad} ()
+\item 
+\hyperlink{class_biquad_ada943de98865e09aa4fb284f368c06de}{Biquad} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{class_biquad_adc7cf1c0aa8f3cb9287e686e35e8fdfb}{type}, double \hyperlink{class_biquad_a223165fbb9f80fa89ac932bb8701db8c}{Fc}, double \hyperlink{class_biquad_a7127af163ead5c37a030d97a5671e407}{Q}, double peak\+Gain\+DB)
+\item 
+\hyperlink{class_biquad_aff003d89792b3b5dfd2f5c9fb30ef44b}{$\sim$\+Biquad} ()
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_biquad_a2cb9d1f049c15282915b628284f75bb2}{set\+Type} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{class_biquad_adc7cf1c0aa8f3cb9287e686e35e8fdfb}{type})
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_biquad_a2bb9e12e3cecac96952c37f3c20b6e30}{setQ} (double \hyperlink{class_biquad_a7127af163ead5c37a030d97a5671e407}{Q})
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_biquad_a20fe8e31fcbaca47c66230e14b40a142}{set\+Fc} (double \hyperlink{class_biquad_a223165fbb9f80fa89ac932bb8701db8c}{Fc})
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_biquad_aaf1c3d49d7e50265d05578996e995649}{set\+Peak\+Gain} (double peak\+Gain\+DB)
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_biquad_a215b40b75328f9fb32d6f3a725d2ca8e}{set\+Biquad} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{class_biquad_adc7cf1c0aa8f3cb9287e686e35e8fdfb}{type}, double \hyperlink{class_biquad_a223165fbb9f80fa89ac932bb8701db8c}{Fc}, double \hyperlink{class_biquad_a7127af163ead5c37a030d97a5671e407}{Q}, double \hyperlink{class_biquad_aa3c93d845d4e455481c0ccbe52c58ff3}{peak\+Gain})
+\item 
+float \hyperlink{class_biquad_a3a5433af6f3d6f1b14fd304cd8cdd42e}{process} (float in)
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_biquad_a5502c359e0f4a3f4e499f850b3bae0c4}{calc\+Biquad} (\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void})
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{class_biquad_adc7cf1c0aa8f3cb9287e686e35e8fdfb}{type}
+\item 
+double \hyperlink{class_biquad_a3935a031426afb5b553eb610f7e1244d}{a0}
+\item 
+double \hyperlink{class_biquad_a855ab8ca17ada2b0e2adfa88ef2af654}{a1}
+\item 
+double \hyperlink{class_biquad_a4459dce473745d248a911e2451f9308c}{a2}
+\item 
+double \hyperlink{class_biquad_ad6850cc5eb42a1f28b4c003a685e9eaa}{b1}
+\item 
+double \hyperlink{class_biquad_a37dae5591bb40ec3d0c655cac57ab8c5}{b2}
+\item 
+double \hyperlink{class_biquad_a223165fbb9f80fa89ac932bb8701db8c}{Fc}
+\item 
+double \hyperlink{class_biquad_a7127af163ead5c37a030d97a5671e407}{Q}
+\item 
+double \hyperlink{class_biquad_aa3c93d845d4e455481c0ccbe52c58ff3}{peak\+Gain}
+\item 
+double \hyperlink{class_biquad_abe704b2b7ed691ca061cd3fac1cf52c9}{z1}
+\item 
+double \hyperlink{class_biquad_a9ff7a9ffd22d135eda519b9fb5950d38}{z2}
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Biquad@{Biquad}!Biquad@{Biquad}}
+\index{Biquad@{Biquad}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{Biquad()}{Biquad()}}]{\setlength{\rightskip}{0pt plus 5cm}Biquad\+::\+Biquad (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_biquad_a52dca857188efd568cce9e763c1fcb82}{}\label{class_biquad_a52dca857188efd568cce9e763c1fcb82}
+\index{Biquad@{Biquad}!Biquad@{Biquad}}
+\index{Biquad@{Biquad}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{Biquad(int type, double Fc, double Q, double peak\+Gain\+D\+B)}{Biquad(int type, double Fc, double Q, double peakGainDB)}}]{\setlength{\rightskip}{0pt plus 5cm}Biquad\+::\+Biquad (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{type, }
+\item[{double}]{Fc, }
+\item[{double}]{Q, }
+\item[{double}]{peak\+Gain\+DB}
+\end{DoxyParamCaption}
+)}\hypertarget{class_biquad_ada943de98865e09aa4fb284f368c06de}{}\label{class_biquad_ada943de98865e09aa4fb284f368c06de}
+\index{Biquad@{Biquad}!````~Biquad@{$\sim$\+Biquad}}
+\index{````~Biquad@{$\sim$\+Biquad}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{$\sim$\+Biquad()}{~Biquad()}}]{\setlength{\rightskip}{0pt plus 5cm}Biquad\+::$\sim$\+Biquad (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_biquad_aff003d89792b3b5dfd2f5c9fb30ef44b}{}\label{class_biquad_aff003d89792b3b5dfd2f5c9fb30ef44b}
+
+
+\subsection{Member Function Documentation}
+\index{Biquad@{Biquad}!calc\+Biquad@{calc\+Biquad}}
+\index{calc\+Biquad@{calc\+Biquad}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{calc\+Biquad(void)}{calcBiquad(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Biquad\+::calc\+Biquad (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_biquad_a5502c359e0f4a3f4e499f850b3bae0c4}{}\label{class_biquad_a5502c359e0f4a3f4e499f850b3bae0c4}
+\index{Biquad@{Biquad}!process@{process}}
+\index{process@{process}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{process(float in)}{process(float in)}}]{\setlength{\rightskip}{0pt plus 5cm}float Biquad\+::process (
+\begin{DoxyParamCaption}
+\item[{float}]{in}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_biquad_a3a5433af6f3d6f1b14fd304cd8cdd42e}{}\label{class_biquad_a3a5433af6f3d6f1b14fd304cd8cdd42e}
+\index{Biquad@{Biquad}!set\+Biquad@{set\+Biquad}}
+\index{set\+Biquad@{set\+Biquad}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{set\+Biquad(int type, double Fc, double Q, double peak\+Gain)}{setBiquad(int type, double Fc, double Q, double peakGain)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Biquad\+::set\+Biquad (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{type, }
+\item[{double}]{Fc, }
+\item[{double}]{Q, }
+\item[{double}]{peak\+Gain}
+\end{DoxyParamCaption}
+)}\hypertarget{class_biquad_a215b40b75328f9fb32d6f3a725d2ca8e}{}\label{class_biquad_a215b40b75328f9fb32d6f3a725d2ca8e}
+\index{Biquad@{Biquad}!set\+Fc@{set\+Fc}}
+\index{set\+Fc@{set\+Fc}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{set\+Fc(double Fc)}{setFc(double Fc)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Biquad\+::set\+Fc (
+\begin{DoxyParamCaption}
+\item[{double}]{Fc}
+\end{DoxyParamCaption}
+)}\hypertarget{class_biquad_a20fe8e31fcbaca47c66230e14b40a142}{}\label{class_biquad_a20fe8e31fcbaca47c66230e14b40a142}
+\index{Biquad@{Biquad}!set\+Peak\+Gain@{set\+Peak\+Gain}}
+\index{set\+Peak\+Gain@{set\+Peak\+Gain}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{set\+Peak\+Gain(double peak\+Gain\+D\+B)}{setPeakGain(double peakGainDB)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Biquad\+::set\+Peak\+Gain (
+\begin{DoxyParamCaption}
+\item[{double}]{peak\+Gain\+DB}
+\end{DoxyParamCaption}
+)}\hypertarget{class_biquad_aaf1c3d49d7e50265d05578996e995649}{}\label{class_biquad_aaf1c3d49d7e50265d05578996e995649}
+\index{Biquad@{Biquad}!setQ@{setQ}}
+\index{setQ@{setQ}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{set\+Q(double Q)}{setQ(double Q)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Biquad\+::setQ (
+\begin{DoxyParamCaption}
+\item[{double}]{Q}
+\end{DoxyParamCaption}
+)}\hypertarget{class_biquad_a2bb9e12e3cecac96952c37f3c20b6e30}{}\label{class_biquad_a2bb9e12e3cecac96952c37f3c20b6e30}
+\index{Biquad@{Biquad}!set\+Type@{set\+Type}}
+\index{set\+Type@{set\+Type}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{set\+Type(int type)}{setType(int type)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Biquad\+::set\+Type (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{type}
+\end{DoxyParamCaption}
+)}\hypertarget{class_biquad_a2cb9d1f049c15282915b628284f75bb2}{}\label{class_biquad_a2cb9d1f049c15282915b628284f75bb2}
+
+
+\subsection{Member Data Documentation}
+\index{Biquad@{Biquad}!a0@{a0}}
+\index{a0@{a0}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{a0}{a0}}]{\setlength{\rightskip}{0pt plus 5cm}double Biquad\+::a0\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_biquad_a3935a031426afb5b553eb610f7e1244d}{}\label{class_biquad_a3935a031426afb5b553eb610f7e1244d}
+\index{Biquad@{Biquad}!a1@{a1}}
+\index{a1@{a1}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{a1}{a1}}]{\setlength{\rightskip}{0pt plus 5cm}double Biquad\+::a1\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_biquad_a855ab8ca17ada2b0e2adfa88ef2af654}{}\label{class_biquad_a855ab8ca17ada2b0e2adfa88ef2af654}
+\index{Biquad@{Biquad}!a2@{a2}}
+\index{a2@{a2}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{a2}{a2}}]{\setlength{\rightskip}{0pt plus 5cm}double Biquad\+::a2\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_biquad_a4459dce473745d248a911e2451f9308c}{}\label{class_biquad_a4459dce473745d248a911e2451f9308c}
+\index{Biquad@{Biquad}!b1@{b1}}
+\index{b1@{b1}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{b1}{b1}}]{\setlength{\rightskip}{0pt plus 5cm}double Biquad\+::b1\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_biquad_ad6850cc5eb42a1f28b4c003a685e9eaa}{}\label{class_biquad_ad6850cc5eb42a1f28b4c003a685e9eaa}
+\index{Biquad@{Biquad}!b2@{b2}}
+\index{b2@{b2}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{b2}{b2}}]{\setlength{\rightskip}{0pt plus 5cm}double Biquad\+::b2\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_biquad_a37dae5591bb40ec3d0c655cac57ab8c5}{}\label{class_biquad_a37dae5591bb40ec3d0c655cac57ab8c5}
+\index{Biquad@{Biquad}!Fc@{Fc}}
+\index{Fc@{Fc}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{Fc}{Fc}}]{\setlength{\rightskip}{0pt plus 5cm}double Biquad\+::\+Fc\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_biquad_a223165fbb9f80fa89ac932bb8701db8c}{}\label{class_biquad_a223165fbb9f80fa89ac932bb8701db8c}
+\index{Biquad@{Biquad}!peak\+Gain@{peak\+Gain}}
+\index{peak\+Gain@{peak\+Gain}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{peak\+Gain}{peakGain}}]{\setlength{\rightskip}{0pt plus 5cm}double Biquad\+::peak\+Gain\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_biquad_aa3c93d845d4e455481c0ccbe52c58ff3}{}\label{class_biquad_aa3c93d845d4e455481c0ccbe52c58ff3}
+\index{Biquad@{Biquad}!Q@{Q}}
+\index{Q@{Q}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{Q}{Q}}]{\setlength{\rightskip}{0pt plus 5cm}double Biquad\+::Q\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_biquad_a7127af163ead5c37a030d97a5671e407}{}\label{class_biquad_a7127af163ead5c37a030d97a5671e407}
+\index{Biquad@{Biquad}!type@{type}}
+\index{type@{type}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{type}{type}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf int} Biquad\+::type\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_biquad_adc7cf1c0aa8f3cb9287e686e35e8fdfb}{}\label{class_biquad_adc7cf1c0aa8f3cb9287e686e35e8fdfb}
+\index{Biquad@{Biquad}!z1@{z1}}
+\index{z1@{z1}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{z1}{z1}}]{\setlength{\rightskip}{0pt plus 5cm}double Biquad\+::z1\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_biquad_abe704b2b7ed691ca061cd3fac1cf52c9}{}\label{class_biquad_abe704b2b7ed691ca061cd3fac1cf52c9}
+\index{Biquad@{Biquad}!z2@{z2}}
+\index{z2@{z2}!Biquad@{Biquad}}
+\subsubsection[{\texorpdfstring{z2}{z2}}]{\setlength{\rightskip}{0pt plus 5cm}double Biquad\+::z2\hspace{0.3cm}{\ttfamily [protected]}}\hypertarget{class_biquad_a9ff7a9ffd22d135eda519b9fb5950d38}{}\label{class_biquad_a9ff7a9ffd22d135eda519b9fb5950d38}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/michael/\+J\+U\+C\+E/projects/audealize-\/plugin/\+J\+U\+C\+E Modules/audealize\+\_\+module/utils/\hyperlink{_biquad_8h}{Biquad.\+h}\item 
+/\+Users/michael/\+J\+U\+C\+E/projects/audealize-\/plugin/\+J\+U\+C\+E Modules/audealize\+\_\+module/utils/\hyperlink{_biquad_8cpp}{Biquad.\+cpp}\end{DoxyCompactItemize}

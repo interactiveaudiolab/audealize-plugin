@@ -1,8 +1,8 @@
 #ifndef AUDEALIZEREVERBAUDIOPROCESSOR_H_INCLUDED
 #define AUDEALIZEREVERBAUDIOPROCESSOR_H_INCLUDED
 
-using namespace Audealize;
-
+namespace Audealize
+{
 class AudealizereverbAudioProcessor : public AudealizeAudioProcessor
 {
 public:
@@ -44,7 +44,17 @@ public:
 
     inline int getParamIdx (String paramId);
 
-    bool isParameterAutomatable (int index) { return true; }
+    /**
+     *  Returns true - all parameters should be automateable
+     */
+    bool isParameterAutomatable (int index)
+    {
+        return true;
+    }
+
+    /**
+     * Enumerate parameter indices for easy vector access
+     */
     enum Parameters
     {
         kParamD,
@@ -56,6 +66,9 @@ public:
         kNumParams
     };
 
+    /**
+     *  String parameter Ids
+     */
     static String paramD;
     static String paramG;
     static String paramM;
@@ -80,5 +93,5 @@ private:
 
     void debugParams ();
 };
-
+}
 #endif  // AUDEALIZEREVERBAUDIOPROCESSOR_H_INCLUDED

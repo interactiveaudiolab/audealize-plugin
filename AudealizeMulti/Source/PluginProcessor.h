@@ -14,6 +14,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 
 using std::vector;
+using namespace Audealize;
 
 //==============================================================================
 /**
@@ -68,6 +69,5 @@ private:
     ScopedPointer<AudealizeeqAudioProcessor> mEQAudioProcessor;
     ScopedPointer<AudealizereverbAudioProcessor> mReverbAudioProcessor;
 };
-
 
 #endif  // PLUGINPROCESSOR_H_INCLUDED

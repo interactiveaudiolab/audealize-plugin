@@ -3,8 +3,8 @@
 
 #define NUMBANDS 40  // the number of eq bands
 
-using namespace Audealize;
-
+namespace Audealize
+{
 class AudealizeeqAudioProcessor : public AudealizeAudioProcessor
 {
 public:
@@ -43,7 +43,11 @@ public:
 
     inline String getParamID (int index) override;
 
-    bool isParameterAutomatable (int index) { return true; }
+    bool isParameterAutomatable (int index)
+    {
+        return true;
+    }
+
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeeqAudioProcessor)
 
@@ -58,5 +62,5 @@ private:
 
     Equalizer mEqualizer;
 };
-
+}
 #endif  // AUDEALIZEEQAUDIOPROCESSOR_H_INCLUDED

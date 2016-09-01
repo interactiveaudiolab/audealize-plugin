@@ -1,6 +1,8 @@
 //
 //  Fonts.h
 //
+//  A static class containing the binary data for fonts used in Audealize plugins
+//
 
 #ifndef Fonts_h
 #define Fonts_h

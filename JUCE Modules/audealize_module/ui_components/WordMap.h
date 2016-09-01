@@ -31,7 +31,6 @@ public:
         circleColourId = 0x2000302
     };
 
-
     /**
      *  Constructor
      *
@@ -51,7 +50,6 @@ public:
     void mouseDown (const MouseEvent& e) override;
     void mouseDrag (const MouseEvent& e) override;
     //==========================================================
-
 
     /**
      *  Enable/disable a language to be plotted on the map
@@ -83,17 +81,33 @@ public:
     /**
      *  Sets the size of the info text strings displayed at the bottom of the map
      */
-    void setInfoTextSize (int fontSize) { infotext_size = fontSize; }
+    void setInfoTextSize (int fontSize)
+    {
+        infotext_size = fontSize;
+    }
+
     /**
      *  @return a vector of all the words in the map
      */
-    vector<String> getWords () { return words; }
-    json getLanguages () { return languages; }
+    vector<String> getWords ()
+    {
+        return words;
+    }
+
+    /**
+     *  Return an nlohmann::json dictionary of the languages present in the descriptor set
+     *
+     *  @return nlohmann::json
+     */
+    json getLanguages ()
+    {
+        return languages;
+    }
+
 private:
     AudealizeAudioProcessor& processor;  // the main plugin audio processor
 
-    json
-        json_dict;  // the original dictionary of descriptors and their associated languages, agreement values, settings
+    json json_dict;  // dictionary of descriptors and their associated languages, agreement values, settings
 
     json word_dict;  // keys: the descriptors being plotted. values: their indices in vectors words, points, params,
                      // colours
@@ -146,7 +160,6 @@ private:
 
     //=====================================================================
 
-
     //=====================================================================
     // Private helper functions
 
@@ -156,7 +169,7 @@ private:
     void loadPoints ();
 
     /**
-     *  Checks if Point<float> point will overlap any point in vector plotted
+     *  Checks if Point<float> "point" will overlap any point in vector "plotted"
      *
      *  @param point   a point to be plotted
      *  @param plotted a vector of Point<float>s that have already been plotted
@@ -164,8 +177,7 @@ private:
      *
      *  @return true if there is a collision
      */
-    bool check_for_collision (Point<float> point, vector<Point<float>> plotted,
-                              float dist);  // checks for collision between
+    bool check_for_collision (Point<float> point, vector<Point<float>> plotted, float dist);
 
     /**
      *  Checks if a point is within a given radius of another point
@@ -233,7 +245,6 @@ private:
      */
     static bool compareX (Point<float> p1, Point<float> p2);
     static bool compareY (Point<float> p1, Point<float> p2);
-
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (WordMap)
 };

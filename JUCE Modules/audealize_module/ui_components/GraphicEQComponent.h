@@ -29,13 +29,18 @@ public:
     void resized () override;
 
     void sliderValueChanged (Slider* slider) override;
-    void sliderDragStarted (Slider* slider) override {}
-    void sliderDragEnded (Slider* slider) override {}
+    void sliderDragStarted (Slider* slider) override
+    {
+    }
+
+    void sliderDragEnded (Slider* slider) override
+    {
+    }
+
 private:
     vector<ScopedPointer<Slider> > mGainSliders;  // a vector contianing the gain sliders
 
     vector<ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> > mGainSliderAttachment;
-
 
     int mNumBands;  // number of EQ bands
 

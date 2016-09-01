@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['saveinternalptr',['saveInternalPtr',['../tk_8h.html#a54c34051a940f579f143786da199d521',1,'tk.h']]],
+  ['searchresultsptr',['SearchResultsPtr',['../wn_8h.html#a80e2f9e10e2691a2fcf18aaf6958395f',1,'wn.h']]],
+  ['size_5ftype',['size_type',['../classnlohmann_1_1basic__json.html#a1579a8f72a230358d6cd1a6e8a62859b',1,'nlohmann::basic_json']]],
+  ['snsindex',['SnsIndex',['../wn_8h.html#ac4841efe6f2f6bc309eff787c835f966',1,'wn.h']]],
+  ['snsindexptr',['SnsIndexPtr',['../wn_8h.html#a6cdc9dc36bbb9dfd08605c8114a71f83',1,'wn.h']]],
+  ['srcx',['srcX',['../tk_8h.html#a94bdd224c5e6b2912b1e49dc56302ec5',1,'tk.h']]],
+  ['srcy',['srcY',['../tk_8h.html#acf072a20fe66e0a1a4a1238d702a8d4a',1,'tk.h']]],
+  ['state',['state',['../tk_8h.html#a918d008222fe1f52f05e6129115c30eb',1,'tk.h']]],
+  ['string_5ft',['string_t',['../classnlohmann_1_1basic__json.html#ab63e618bbb0371042b1bec17f5891f42',1,'nlohmann::basic_json']]],
+  ['sym',['Sym',['../wngrind_8h.html#aa3784858a2f28e4ea8cf794b62a7ab2a',1,'wngrind.h']]],
+  ['symbol',['Symbol',['../wngrind_8h.html#a097b4c13f190f7c7adbc6d21211f6131',1,'wngrind.h']]],
+  ['syn',['Syn',['../wngrind_8h.html#a8da565a2ee988e0c86cd80eba93700d6',1,'wngrind.h']]],
+  ['synl',['Synl',['../wngrind_8h.html#a59299480c7033872028d7e4485323359',1,'wngrind.h']]],
+  ['synlist',['SynList',['../wngrind_8h.html#a80087b75408121bfa3d757b64c34884c',1,'wngrind.h']]],
+  ['synonym',['Synonym',['../wngrind_8h.html#a551140fdda664c520e62b7f224ed0e02',1,'wngrind.h']]],
+  ['synset',['Synset',['../wn_8h.html#ac37f7f1a0668d21230dff66b5e595567',1,'wn.h']]],
+  ['synsetptr',['SynsetPtr',['../wn_8h.html#a2f65100e62667dc16b013f56bdfc697b',1,'wn.h']]]
+];

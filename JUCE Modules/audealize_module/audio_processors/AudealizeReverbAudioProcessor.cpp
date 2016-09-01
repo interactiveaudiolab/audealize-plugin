@@ -11,8 +11,6 @@ String AudealizereverbAudioProcessor::paramE ("paramE");
 AudealizereverbAudioProcessor::AudealizereverbAudioProcessor (AudealizeAudioProcessor* owner)
     : AudealizeAudioProcessor (owner), mReverb ()
 {
-    FloatVectorOperations::disableDenormalisedNumberSupport ();
-
     paramAmountId = "paramAmountReverb";  // important for multi effect plugin
 
     // initialize parameter ranges

@@ -1,6 +1,5 @@
 var NAVTREEINDEX2 =
 {
-"classdsp_1_1fixed__size__buffer.html#af51fc2bdaf146ea493c21079f8c7f491":[1,0,1,6,0],
 "classdsp_1_1mem__fixed__size__buffer.html":[1,0,1,7],
 "classdsp_1_1mem__fixed__size__buffer.html#a1ade90c3ddcbd1a4656990ce6d01d6c9":[1,0,1,7,5],
 "classdsp_1_1mem__fixed__size__buffer.html#a1c66f7515b8455167ab0d3c7a33c0a53":[1,0,1,7,1],
@@ -249,5 +248,6 @@ var NAVTREEINDEX2 =
 "classnlohmann_1_1basic__json_1_1iterator.html#a8ffbf287736048e683f58306fdb8701f":[1,0,2,0,1,19],
 "classnlohmann_1_1basic__json_1_1iterator.html#a97aff5d71246774267a81066460dd1cf":[1,0,2,0,1,2],
 "classnlohmann_1_1basic__json_1_1iterator.html#a9f3940ac5fb2c6ff8045ed59b8a0866f":[1,0,2,0,1,12],
-"classnlohmann_1_1basic__json_1_1iterator.html#ab3679dc63b3a59edb98b1c2b96d8683c":[1,0,2,0,1,14]
+"classnlohmann_1_1basic__json_1_1iterator.html#ab3679dc63b3a59edb98b1c2b96d8683c":[1,0,2,0,1,14],
+"classnlohmann_1_1basic__json_1_1iterator.html#ab4f238aa5fcf452b1884b748b0395b1f":[1,0,2,0,1,13]
 };

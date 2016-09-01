@@ -1,6 +1,5 @@
 var NAVTREEINDEX4 =
 {
-"namespaces.html":[0,0],
 "namespacestd.html":[0,0,4],
 "namespacestd.html":[1,0,3],
 "onepole_8h.html":[2,0,5,0,2],
@@ -249,5 +248,6 @@ var NAVTREEINDEX4 =
 "struct_tk___item_type.html#a360bb68ffba4fec3daee44194fd48ede":[1,0,31,18],
 "struct_tk___item_type.html#a41b3f409e52b00c97fbf53ab0811a019":[1,0,31,1],
 "struct_tk___item_type.html#a45856e8d3d31e75f8e3f9fd8d18f1871":[1,0,31,20],
-"struct_tk___item_type.html#a63b2a92fdc2c488c3306a0b9ba460017":[1,0,31,3]
+"struct_tk___item_type.html#a63b2a92fdc2c488c3306a0b9ba460017":[1,0,31,3],
+"struct_tk___item_type.html#a71b6b301e239157c4c62322fdf5a8ee2":[1,0,31,15]
 };

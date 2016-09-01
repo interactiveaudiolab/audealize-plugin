@@ -129,11 +129,11 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a834a6e7a3141abe29d9efac85607e084"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdb11258af4ee48a91d244e6a9cdc6e0"><td class="memItemLeft" align="right" valign="top">static var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_properties.html#afdb11258af4ee48a91d244e6a9cdc6e0">loadPropertiesVar</a> ()</td></tr>
 <tr class="separator:afdb11258af4ee48a91d244e6a9cdc6e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19a50c0d4e45ac5577d15df31b4b7786"><td class="memItemLeft" align="right" valign="top">static var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_properties.html#a19a50c0d4e45ac5577d15df31b4b7786">getProperty</a> (Identifier propertyName)</td></tr>
-<tr class="separator:a19a50c0d4e45ac5577d15df31b4b7786"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a489f7e3acc8a6c08d32a02f52ca6829d"><td class="memItemLeft" align="right" valign="top">static var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_properties.html#a489f7e3acc8a6c08d32a02f52ca6829d">getProperty</a> (Identifier propertyId)</td></tr>
+<tr class="separator:a489f7e3acc8a6c08d32a02f52ca6829d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a19a50c0d4e45ac5577d15df31b4b7786"></a>
+<a class="anchor" id="a489f7e3acc8a6c08d32a02f52ca6829d"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -144,7 +144,7 @@ Static Public Member Functions</h2></td></tr>
           <td class="memname">static var Audealize::Properties::getProperty </td>
           <td>(</td>
           <td class="paramtype">Identifier&#160;</td>
-          <td class="paramname"><em>propertyName</em></td><td>)</td>
+          <td class="paramname"><em>propertyId</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -154,6 +154,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns a juce::var containing an individual property, referenced by its property</p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_audealize_1_1_properties_1_1property_ids.html">Properties::propertyIds</a> </dd></dl>
 
 </div>
 </div>
@@ -177,6 +179,8 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Loads the user's configuration file or creates a new one if none exists</p>
+<dl class="section return"><dt>Returns</dt><dd>File </dd></dl>
 
 </div>
 </div>
@@ -200,6 +204,7 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Returns a juce::var containing a list of properties </p>
 
 </div>
 </div>
@@ -224,6 +229,13 @@ Static Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Write the contents of a var containing property information to the default properties file</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">properties</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

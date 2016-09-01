@@ -1,6 +1,5 @@
 var NAVTREEINDEX7 =
 {
-"structsynlist.html#a8d1e2127237274f07903ffa05710f201":[1,0,15,0],
 "structsynlist.html#aa876afb1c31ffb1d4110cf1ea7fdd9fc":[1,0,15,1],
 "structsynonym.html":[1,0,16],
 "structsynonym.html#a2ae26eef29c66c22ce2b6d3c4cb00884":[1,0,16,5],
@@ -249,5 +248,6 @@ var NAVTREEINDEX7 =
 "tk_8h.html#a950c94fd966369c731e72e5cfd49cc4fa9acecdd148103e19a83eb73fb0b78d3d":[2,0,6,0,0,0,295,5],
 "tk_8h.html#a950c94fd966369c731e72e5cfd49cc4faa06090e2cd32c10353b12afc25ba45bc":[2,0,6,0,0,0,295,16],
 "tk_8h.html#a950c94fd966369c731e72e5cfd49cc4faa25571889b16a5ffd3e341455dadfe4e":[2,0,6,0,0,0,295,12],
-"tk_8h.html#a950c94fd966369c731e72e5cfd49cc4faacbe6afb3c1988fb81fad3d3843ed5bd":[2,0,6,0,0,0,295,18]
+"tk_8h.html#a950c94fd966369c731e72e5cfd49cc4faacbe6afb3c1988fb81fad3d3843ed5bd":[2,0,6,0,0,0,295,18],
+"tk_8h.html#a950c94fd966369c731e72e5cfd49cc4facc5ab06f0e1aa152205164f1bab956bc":[2,0,6,0,0,0,295,15]
 };

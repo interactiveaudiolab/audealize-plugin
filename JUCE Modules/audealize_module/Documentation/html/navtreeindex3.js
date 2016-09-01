@@ -1,6 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"classnlohmann_1_1basic__json_1_1iterator.html#ab4f238aa5fcf452b1884b748b0395b1f":[1,0,2,0,1,13],
 "classnlohmann_1_1basic__json_1_1iterator.html#ac48754e4dc48d65d95294bd170dcd857":[1,0,2,0,1,0],
 "classnlohmann_1_1basic__json_1_1iterator.html#acbd82115f9232c3d3b5dacc78315b9da":[1,0,2,0,1,6],
 "classnlohmann_1_1basic__json_1_1iterator.html#ae0c848dbc0af1cde15771d45d775b27c":[1,0,2,0,1,10],
@@ -249,5 +248,6 @@ var NAVTREEINDEX3 =
 "namespacemembers_func.html":[0,1,1],
 "namespacemembers_type.html":[0,1,2],
 "namespacenlohmann.html":[1,0,2],
-"namespacenlohmann.html":[0,0,3]
+"namespacenlohmann.html":[0,0,3],
+"namespaces.html":[0,0]
 };

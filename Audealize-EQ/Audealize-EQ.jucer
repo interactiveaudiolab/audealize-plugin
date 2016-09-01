@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="x1TFuX" name="Audealize EQ" projectType="audioplug" version="0.2.1b"
+<JUCERPROJECT id="x1TFuX" name="Audealize EQ" projectType="audioplug" version="0.2.2b"
               bundleIdentifier="com.InteractiveAudioLab.AudealizeEQ" includeBinaryInAppConfig="1"
               buildVST="1" buildVST3="1" buildAU="1" buildAUv3="1" buildRTAS="0"
               buildAAX="1" pluginName="Audealize EQ" pluginDesc="Audealize EQ"

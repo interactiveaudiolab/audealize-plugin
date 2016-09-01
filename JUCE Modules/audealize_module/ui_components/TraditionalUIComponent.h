@@ -15,8 +15,19 @@ namespace Audealize
 class TraditionalUI : public Component
 {
 public:
-    TraditionalUI (AudealizeAudioProcessor& p) : processor (p) { name = "traditional interface"; };
-    String getName () { return name; }
+    TraditionalUI (AudealizeAudioProcessor& p) : processor (p)
+    {
+        name = "traditional interface";
+    };
+
+    /**
+     *  Returns the name of the effect being controlled by the TraditionalUI
+     */
+    String getName ()
+    {
+        return name;
+    }
+
 protected:
     AudealizeAudioProcessor& processor;
     String name;  // this will determine what the title text (mEffectTypeLabel) in AudealizeUI will display

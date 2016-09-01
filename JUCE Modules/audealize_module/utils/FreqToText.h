@@ -8,6 +8,15 @@
 #ifndef FreqToText_h
 #define FreqToText_h
 
+/**
+ *  Returns a formatted string representation of a float frequency value
+ *  ex: freqToText(7531)  => "7.53 kHz"
+ *      freqToText(13463) => "13.4 kHz"
+ *
+ *  @param freq - a frequency value
+ *
+ *  @return a formatted string representation of freq
+ */
 static String freqToText (float freq)
 {
     std::stringstream ss;

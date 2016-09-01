@@ -1,7 +1,7 @@
 //
 //  RotarySliderCentered.h
 //
-//  A rotary slider that draws starting from center
+//  A rotary slider that draws track fill starting from center
 //
 
 #ifndef RotarySliderCentered_h
@@ -14,8 +14,15 @@ namespace Audealize
 class RotarySliderCentered : public AudealizeSlider
 {
 public:
-    RotarySliderCentered () { setSliderStyle (RotaryVerticalDrag); }
-    ~RotarySliderCentered () {}
+    RotarySliderCentered ()
+    {
+        setSliderStyle (RotaryVerticalDrag);
+    }
+
+    ~RotarySliderCentered ()
+    {
+    }
+
     void paint (Graphics& g) override
     {
         const float sliderPos = (float) valueToProportionOfLength (getValue ());

@@ -1,0 +1,270 @@
+\hypertarget{class_audealize_1_1_n_channel_filter}{}\section{Audealize\+:\+:N\+Channel\+Filter Class Reference}
+\label{class_audealize_1_1_n_channel_filter}\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}
+
+
+{\ttfamily \#include $<$N\+Channel\+Filter.\+h$>$}
+
+Inheritance diagram for Audealize\+:\+:N\+Channel\+Filter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_audealize_1_1_n_channel_filter}
+\end{center}
+\end{figure}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568d}{type} \{ \\*
+\hyperlink{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568daeea9759fdb6ec40965dc5582ef4b8d07}{bq\+\_\+type\+\_\+lowpass} = 0, 
+\hyperlink{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568daf2c73c23de5dbf784e796dff2e719505}{bq\+\_\+type\+\_\+highpass}, 
+\hyperlink{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568dab6181703666febaf3b6ca15c2c342f2f}{bq\+\_\+type\+\_\+bandpass}, 
+\hyperlink{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568da32cfe8bb5d44261f087ebdd6074debb6}{bq\+\_\+type\+\_\+notch}, 
+\\*
+\hyperlink{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568daed82396d60dff469e7eabb04507cea40}{bq\+\_\+type\+\_\+peak}, 
+\hyperlink{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568da1def096bd4c43f3b83da70d7520b7fb1}{bq\+\_\+type\+\_\+lowshelf}, 
+\hyperlink{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568daaa91c04e635b6d257eb8d2ada57e1429}{bq\+\_\+type\+\_\+highshelf}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_audealize_1_1_n_channel_filter_acc6d3d78401e206842648266e95de06f}{N\+Channel\+Filter} ()
+\item 
+\hyperlink{class_audealize_1_1_n_channel_filter_a983b87834355f20e3f8ecdf8bd939c84}{N\+Channel\+Filter} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568d}{type}, \hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} num\+Channels, float Fc, float Q, float gain\+DB, float sample\+Rate)
+\item 
+float \hyperlink{class_audealize_1_1_n_channel_filter_ad9e59288f93255e0c31e1e83dd80928f}{process\+Sample} (float sample, \hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} channel\+Idx)
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_audealize_1_1_n_channel_filter_a2d5867f9fb2c4c7b8f73ac5620ab7eb6}{set\+Filter} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568d}{type}, float Fc, float Q, float gain\+DB, float sample\+Rate)
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_audealize_1_1_n_channel_filter_a4213694ea47179d3387e1c64288f29df}{set\+Freq} (float Fc)
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_audealize_1_1_n_channel_filter_ab104c9dfb0692cd0623dea3f22033fd5}{set\+Type} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568d}{type})
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_audealize_1_1_n_channel_filter_a5c62308bbba1feb99c3d2fc633d3f055}{set\+Gain} (float gain\+DB)
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_audealize_1_1_n_channel_filter_ad901f2c36cad41011670f05badb7bf45}{set\+Num\+Channels} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} num\+Channels)
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_audealize_1_1_n_channel_filter_ad8b99b93cbe402948f007c9dde8e48bf}{set\+Sample\+Rate} (float sample\+Rate)
+\item 
+\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{class_audealize_1_1_n_channel_filter_afa2ba7a3a53cb500f7263074427d63db}{get\+Num\+Channels} ()
+\item 
+\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{class_audealize_1_1_n_channel_filter_a1ff68a140343d7828506a920cfdf3325}{get\+Type} ()
+\item 
+float \hyperlink{class_audealize_1_1_n_channel_filter_a8f4d53307d5667c5c16d9d81cb3f0613}{get\+Freq} ()
+\item 
+float \hyperlink{class_audealize_1_1_n_channel_filter_a617f6a9421d661be1367e7a6834f3106}{get\+Gain} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Enumeration Documentation}
+\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!type@{type}}
+\index{type@{type}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}
+\subsubsection[{\texorpdfstring{type}{type}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Audealize\+::\+N\+Channel\+Filter\+::type}}\hypertarget{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568d}{}\label{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568d}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{bq\+\_\+type\+\_\+lowpass@{bq\+\_\+type\+\_\+lowpass}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!bq\+\_\+type\+\_\+lowpass@{bq\+\_\+type\+\_\+lowpass}}\item[{\em 
+bq\+\_\+type\+\_\+lowpass\hypertarget{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568daeea9759fdb6ec40965dc5582ef4b8d07}{}\label{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568daeea9759fdb6ec40965dc5582ef4b8d07}
+}]\index{bq\+\_\+type\+\_\+highpass@{bq\+\_\+type\+\_\+highpass}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!bq\+\_\+type\+\_\+highpass@{bq\+\_\+type\+\_\+highpass}}\item[{\em 
+bq\+\_\+type\+\_\+highpass\hypertarget{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568daf2c73c23de5dbf784e796dff2e719505}{}\label{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568daf2c73c23de5dbf784e796dff2e719505}
+}]\index{bq\+\_\+type\+\_\+bandpass@{bq\+\_\+type\+\_\+bandpass}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!bq\+\_\+type\+\_\+bandpass@{bq\+\_\+type\+\_\+bandpass}}\item[{\em 
+bq\+\_\+type\+\_\+bandpass\hypertarget{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568dab6181703666febaf3b6ca15c2c342f2f}{}\label{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568dab6181703666febaf3b6ca15c2c342f2f}
+}]\index{bq\+\_\+type\+\_\+notch@{bq\+\_\+type\+\_\+notch}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!bq\+\_\+type\+\_\+notch@{bq\+\_\+type\+\_\+notch}}\item[{\em 
+bq\+\_\+type\+\_\+notch\hypertarget{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568da32cfe8bb5d44261f087ebdd6074debb6}{}\label{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568da32cfe8bb5d44261f087ebdd6074debb6}
+}]\index{bq\+\_\+type\+\_\+peak@{bq\+\_\+type\+\_\+peak}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!bq\+\_\+type\+\_\+peak@{bq\+\_\+type\+\_\+peak}}\item[{\em 
+bq\+\_\+type\+\_\+peak\hypertarget{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568daed82396d60dff469e7eabb04507cea40}{}\label{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568daed82396d60dff469e7eabb04507cea40}
+}]\index{bq\+\_\+type\+\_\+lowshelf@{bq\+\_\+type\+\_\+lowshelf}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!bq\+\_\+type\+\_\+lowshelf@{bq\+\_\+type\+\_\+lowshelf}}\item[{\em 
+bq\+\_\+type\+\_\+lowshelf\hypertarget{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568da1def096bd4c43f3b83da70d7520b7fb1}{}\label{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568da1def096bd4c43f3b83da70d7520b7fb1}
+}]\index{bq\+\_\+type\+\_\+highshelf@{bq\+\_\+type\+\_\+highshelf}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!bq\+\_\+type\+\_\+highshelf@{bq\+\_\+type\+\_\+highshelf}}\item[{\em 
+bq\+\_\+type\+\_\+highshelf\hypertarget{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568daaa91c04e635b6d257eb8d2ada57e1429}{}\label{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568daaa91c04e635b6d257eb8d2ada57e1429}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!N\+Channel\+Filter@{N\+Channel\+Filter}}
+\index{N\+Channel\+Filter@{N\+Channel\+Filter}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}
+\subsubsection[{\texorpdfstring{N\+Channel\+Filter()}{NChannelFilter()}}]{\setlength{\rightskip}{0pt plus 5cm}Audealize\+::\+N\+Channel\+Filter\+::\+N\+Channel\+Filter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_audealize_1_1_n_channel_filter_acc6d3d78401e206842648266e95de06f}{}\label{class_audealize_1_1_n_channel_filter_acc6d3d78401e206842648266e95de06f}
+\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!N\+Channel\+Filter@{N\+Channel\+Filter}}
+\index{N\+Channel\+Filter@{N\+Channel\+Filter}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}
+\subsubsection[{\texorpdfstring{N\+Channel\+Filter(int type, int num\+Channels, float Fc, float Q, float gain\+D\+B, float sample\+Rate)}{NChannelFilter(int type, int numChannels, float Fc, float Q, float gainDB, float sampleRate)}}]{\setlength{\rightskip}{0pt plus 5cm}Audealize\+::\+N\+Channel\+Filter\+::\+N\+Channel\+Filter (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{type, }
+\item[{{\bf int}}]{num\+Channels, }
+\item[{float}]{Fc, }
+\item[{float}]{Q, }
+\item[{float}]{gain\+DB, }
+\item[{float}]{sample\+Rate}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_audealize_1_1_n_channel_filter_a983b87834355f20e3f8ecdf8bd939c84}{}\label{class_audealize_1_1_n_channel_filter_a983b87834355f20e3f8ecdf8bd939c84}
+
+
+\subsection{Member Function Documentation}
+\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!get\+Freq@{get\+Freq}}
+\index{get\+Freq@{get\+Freq}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}
+\subsubsection[{\texorpdfstring{get\+Freq()}{getFreq()}}]{\setlength{\rightskip}{0pt plus 5cm}float Audealize\+::\+N\+Channel\+Filter\+::get\+Freq (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_audealize_1_1_n_channel_filter_a8f4d53307d5667c5c16d9d81cb3f0613}{}\label{class_audealize_1_1_n_channel_filter_a8f4d53307d5667c5c16d9d81cb3f0613}
+\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!get\+Gain@{get\+Gain}}
+\index{get\+Gain@{get\+Gain}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}
+\subsubsection[{\texorpdfstring{get\+Gain()}{getGain()}}]{\setlength{\rightskip}{0pt plus 5cm}float Audealize\+::\+N\+Channel\+Filter\+::get\+Gain (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_audealize_1_1_n_channel_filter_a617f6a9421d661be1367e7a6834f3106}{}\label{class_audealize_1_1_n_channel_filter_a617f6a9421d661be1367e7a6834f3106}
+\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!get\+Num\+Channels@{get\+Num\+Channels}}
+\index{get\+Num\+Channels@{get\+Num\+Channels}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}
+\subsubsection[{\texorpdfstring{get\+Num\+Channels()}{getNumChannels()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf int} Audealize\+::\+N\+Channel\+Filter\+::get\+Num\+Channels (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_audealize_1_1_n_channel_filter_afa2ba7a3a53cb500f7263074427d63db}{}\label{class_audealize_1_1_n_channel_filter_afa2ba7a3a53cb500f7263074427d63db}
+\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!get\+Type@{get\+Type}}
+\index{get\+Type@{get\+Type}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}
+\subsubsection[{\texorpdfstring{get\+Type()}{getType()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf int} Audealize\+::\+N\+Channel\+Filter\+::get\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_audealize_1_1_n_channel_filter_a1ff68a140343d7828506a920cfdf3325}{}\label{class_audealize_1_1_n_channel_filter_a1ff68a140343d7828506a920cfdf3325}
+\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!process\+Sample@{process\+Sample}}
+\index{process\+Sample@{process\+Sample}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}
+\subsubsection[{\texorpdfstring{process\+Sample(float sample, int channel\+Idx)}{processSample(float sample, int channelIdx)}}]{\setlength{\rightskip}{0pt plus 5cm}float Audealize\+::\+N\+Channel\+Filter\+::process\+Sample (
+\begin{DoxyParamCaption}
+\item[{float}]{sample, }
+\item[{{\bf int}}]{channel\+Idx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_audealize_1_1_n_channel_filter_ad9e59288f93255e0c31e1e83dd80928f}{}\label{class_audealize_1_1_n_channel_filter_ad9e59288f93255e0c31e1e83dd80928f}
+Process a single sample of audio
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample} & A float audio sample \\
+\hline
+{\em channel\+Idx} & Channel index\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the filtered Sample 
+\end{DoxyReturn}
+
+
+Reimplemented from \hyperlink{class_audealize_1_1_audio_effect_ab77548a457702d189087163a696d4215}{Audealize\+::\+Audio\+Effect}.
+
+\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!set\+Filter@{set\+Filter}}
+\index{set\+Filter@{set\+Filter}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}
+\subsubsection[{\texorpdfstring{set\+Filter(int type, float Fc, float Q, float gain\+D\+B, float sample\+Rate)}{setFilter(int type, float Fc, float Q, float gainDB, float sampleRate)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Audealize\+::\+N\+Channel\+Filter\+::set\+Filter (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{type, }
+\item[{float}]{Fc, }
+\item[{float}]{Q, }
+\item[{float}]{gain\+DB, }
+\item[{float}]{sample\+Rate}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_audealize_1_1_n_channel_filter_a2d5867f9fb2c4c7b8f73ac5620ab7eb6}{}\label{class_audealize_1_1_n_channel_filter_a2d5867f9fb2c4c7b8f73ac5620ab7eb6}
+Sets the type, center frequency, Q, and gain of the filters
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568d}{N\+Channel\+Filter\+::type} 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em Fc} & Center frequency in Hz \\
+\hline
+{\em Q} & Q value \\
+\hline
+{\em gain\+DB} & filter gain in dB \\
+\hline
+{\em sample\+Rate} & Sample rate \\
+\hline
+\end{DoxyParams}
+\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!set\+Freq@{set\+Freq}}
+\index{set\+Freq@{set\+Freq}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}
+\subsubsection[{\texorpdfstring{set\+Freq(float Fc)}{setFreq(float Fc)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Audealize\+::\+N\+Channel\+Filter\+::set\+Freq (
+\begin{DoxyParamCaption}
+\item[{float}]{Fc}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_audealize_1_1_n_channel_filter_a4213694ea47179d3387e1c64288f29df}{}\label{class_audealize_1_1_n_channel_filter_a4213694ea47179d3387e1c64288f29df}
+Sets the center frequency of the filters
+
+
+\begin{DoxyParams}{Parameters}
+{\em Fc} & Center frequency in Hz \\
+\hline
+\end{DoxyParams}
+\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!set\+Gain@{set\+Gain}}
+\index{set\+Gain@{set\+Gain}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}
+\subsubsection[{\texorpdfstring{set\+Gain(float gain\+D\+B)}{setGain(float gainDB)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Audealize\+::\+N\+Channel\+Filter\+::set\+Gain (
+\begin{DoxyParamCaption}
+\item[{float}]{gain\+DB}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_audealize_1_1_n_channel_filter_a5c62308bbba1feb99c3d2fc633d3f055}{}\label{class_audealize_1_1_n_channel_filter_a5c62308bbba1feb99c3d2fc633d3f055}
+Sets the filter gain in dB
+
+
+\begin{DoxyParams}{Parameters}
+{\em gain\+DB} & Filter gain in dB \\
+\hline
+\end{DoxyParams}
+\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!set\+Num\+Channels@{set\+Num\+Channels}}
+\index{set\+Num\+Channels@{set\+Num\+Channels}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}
+\subsubsection[{\texorpdfstring{set\+Num\+Channels(int num\+Channels)}{setNumChannels(int numChannels)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Audealize\+::\+N\+Channel\+Filter\+::set\+Num\+Channels (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{num\+Channels}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_audealize_1_1_n_channel_filter_ad901f2c36cad41011670f05badb7bf45}{}\label{class_audealize_1_1_n_channel_filter_ad901f2c36cad41011670f05badb7bf45}
+Sets the number of audio channels for the filter to process (1=mono, 2=stereo, etc.)
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\+Channels} & New number of channels \\
+\hline
+\end{DoxyParams}
+\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!set\+Sample\+Rate@{set\+Sample\+Rate}}
+\index{set\+Sample\+Rate@{set\+Sample\+Rate}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}
+\subsubsection[{\texorpdfstring{set\+Sample\+Rate(float sample\+Rate)}{setSampleRate(float sampleRate)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Audealize\+::\+N\+Channel\+Filter\+::set\+Sample\+Rate (
+\begin{DoxyParamCaption}
+\item[{float}]{sample\+Rate}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}\hypertarget{class_audealize_1_1_n_channel_filter_ad8b99b93cbe402948f007c9dde8e48bf}{}\label{class_audealize_1_1_n_channel_filter_ad8b99b93cbe402948f007c9dde8e48bf}
+Sets the sample rate of the filter
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample\+Rate} & Sample rate \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \hyperlink{class_audealize_1_1_audio_effect_a5ff34c0371f2311dc026bca5ba245faa}{Audealize\+::\+Audio\+Effect}.
+
+\index{Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}!set\+Type@{set\+Type}}
+\index{set\+Type@{set\+Type}!Audealize\+::\+N\+Channel\+Filter@{Audealize\+::\+N\+Channel\+Filter}}
+\subsubsection[{\texorpdfstring{set\+Type(int type)}{setType(int type)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Audealize\+::\+N\+Channel\+Filter\+::set\+Type (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{type}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_audealize_1_1_n_channel_filter_ab104c9dfb0692cd0623dea3f22033fd5}{}\label{class_audealize_1_1_n_channel_filter_ab104c9dfb0692cd0623dea3f22033fd5}
+Sets the type of the filters \begin{DoxySeeAlso}{See also}
+\hyperlink{class_audealize_1_1_n_channel_filter_aa3b51c2ea2faf3df7c9b8e55fe96568d}{N\+Channel\+Filter\+::type}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Filter type \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/michael/\+J\+U\+C\+E/projects/audealize-\/plugin/\+J\+U\+C\+E Modules/audealize\+\_\+module/effects/\hyperlink{_n_channel_filter_8h}{N\+Channel\+Filter.\+h}\end{DoxyCompactItemize}

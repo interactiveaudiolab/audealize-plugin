@@ -1,0 +1,846 @@
+\hypertarget{namespacedsp}{}\section{dsp Namespace Reference}
+\label{namespacedsp}\index{dsp@{dsp}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classdsp_1_1auto__buffer}{auto\+\_\+buffer}
+\item 
+struct \hyperlink{structdsp_1_1buffer__traits}{buffer\+\_\+traits}
+\item 
+struct \hyperlink{structdsp_1_1buffer__traits_3_01fixed__size__buffer_3_01_n_00_01_t_01_4_01_4}{buffer\+\_\+traits$<$ fixed\+\_\+size\+\_\+buffer$<$ N, T $>$ $>$}
+\begin{DoxyCompactList}\small\item\em this class template defines some basic position operations for fixed\+\_\+size\+\_\+buffers \end{DoxyCompactList}\item 
+class \hyperlink{classdsp_1_1circular__buffer}{circular\+\_\+buffer}
+\begin{DoxyCompactList}\small\item\em this is useless for now (and untested too) \end{DoxyCompactList}\item 
+class \hyperlink{classdsp_1_1decay}{decay}
+\item 
+class \hyperlink{classdsp_1_1dynamic__buffer}{dynamic\+\_\+buffer}
+\item 
+class \hyperlink{classdsp_1_1fixed__size__buffer}{fixed\+\_\+size\+\_\+buffer}
+\item 
+class \hyperlink{classdsp_1_1mem__fixed__size__buffer}{mem\+\_\+fixed\+\_\+size\+\_\+buffer}
+\item 
+class \hyperlink{classdsp_1_1mono__auto__buffer}{mono\+\_\+auto\+\_\+buffer}
+\begin{DoxyCompactList}\small\item\em this is useless for now \end{DoxyCompactList}\item 
+struct \hyperlink{structdsp_1_1note__desc}{note\+\_\+desc}
+\item 
+class \hyperlink{classdsp_1_1onepole}{onepole}
+\item 
+struct \hyperlink{structdsp_1_1sample__traits}{sample\+\_\+traits}
+\item 
+struct \hyperlink{structdsp_1_1sample__traits_3_01stereo__sample_3_01_t_01_4_01_4}{sample\+\_\+traits$<$ stereo\+\_\+sample$<$ T $>$ $>$}
+\item 
+struct \hyperlink{structdsp_1_1simple__delay}{simple\+\_\+delay}
+\item 
+class \hyperlink{classdsp_1_1sine__table}{sine\+\_\+table}
+\item 
+class \hyperlink{classdsp_1_1stereo__auto__buffer}{stereo\+\_\+auto\+\_\+buffer}
+\begin{DoxyCompactList}\small\item\em this is useless for now \end{DoxyCompactList}\item 
+struct \hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespacedsp_a62db0a3af67183c65a28083fe474f349}{periodic\+\_\+unit} \{ \hyperlink{namespacedsp_a62db0a3af67183c65a28083fe474f349aae85e1b64cbabef303dac5d03031faa3}{U\+N\+I\+T\+\_\+\+B\+PM}, 
+\hyperlink{namespacedsp_a62db0a3af67183c65a28083fe474f349a564f5f239715b21f1e19ea21527b86d5}{U\+N\+I\+T\+\_\+\+MS}, 
+\hyperlink{namespacedsp_a62db0a3af67183c65a28083fe474f349a29ff6f09e74c392cd598fdb0ba4cc0f9}{U\+N\+I\+T\+\_\+\+HZ}, 
+\hyperlink{namespacedsp_a62db0a3af67183c65a28083fe474f349a5141d8f56fb022a26383c50f6319819e}{U\+N\+I\+T\+\_\+\+S\+Y\+NC}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$int N$>$ }\\\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_a7449afa1cea11ce3b972f3f9fa107b99}{wrap\+\_\+around} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} a)
+\begin{DoxyCompactList}\small\item\em decrease by N if $>$= N (useful for circular buffers) \end{DoxyCompactList}\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_afffde31b63a42b9b1132b45196dd1e89}{wrap\+\_\+around$<$ 2 $>$} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} a)
+\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_a538a801d8b57010e71956d8bde2e791b}{wrap\+\_\+around$<$ 4 $>$} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} a)
+\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_a8ea22ff9da95484783f6b5223300f29c}{wrap\+\_\+around$<$ 8 $>$} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} a)
+\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_a0ba3a2b3953279ca422baf133bbe5311}{wrap\+\_\+around$<$ 16 $>$} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} a)
+\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_af38eb85e16f50d0326ac58c4cf19e940}{wrap\+\_\+around$<$ 32 $>$} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} a)
+\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_acb589cce928a12a974b21d1faa829b74}{wrap\+\_\+around$<$ 64 $>$} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} a)
+\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_a452ae016f495dcb13546371476b22718}{wrap\+\_\+around$<$ 128 $>$} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} a)
+\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_ae908f5d317aeb85ea97833ef836fb88a}{wrap\+\_\+around$<$ 256 $>$} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} a)
+\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_a01e5b607640a8f936db065f8094a5c63}{wrap\+\_\+around$<$ 512 $>$} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} a)
+\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_aca4e9b59a346239f1688ba2b78debd0f}{wrap\+\_\+around$<$ 1024 $>$} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} a)
+\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_a88398e8b3bff7aaca679e94de17b92e2}{wrap\+\_\+around$<$ 2048 $>$} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} a)
+\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_af6fc92d8ac8826c696bbb995b45b06f9}{wrap\+\_\+around$<$ 4096 $>$} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} a)
+\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_a51e76125c3844192cb144d8ba47f8b84}{wrap\+\_\+around$<$ 8192 $>$} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} a)
+\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_a281059a04915345736238e9e4b40be99}{wrap\+\_\+around$<$ 16384 $>$} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} a)
+\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_a8ef32631a87fdfa248e2e676aa61b87c}{wrap\+\_\+around$<$ 32768 $>$} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} a)
+\item 
+{\footnotesize template$<$$>$ }\\\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_aee3af6bac39ed962e4302079feeebb5f}{wrap\+\_\+around$<$ 65536 $>$} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} a)
+\item 
+{\footnotesize template$<$class Buf , class T $>$ }\\\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_aea548b3e98c1b00c7e87bd247acc9c91}{fill} (Buf \&buf, T \hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value})
+\item 
+{\footnotesize template$<$class T $>$ }\\\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_aedf562a51ab2e66798edf93f97d6b4f5}{fill} (T $\ast$data, \hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} size, T \hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value})
+\item 
+{\footnotesize template$<$class T , class U $>$ }\\\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_a345378c56f45236d32e2ed7f1e981b0d}{copy} (T $\ast$dest, U $\ast$src, \hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} size, T scale=1, T add=0)
+\item 
+{\footnotesize template$<$class T , class U $>$ }\\\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_a7b81ab9f4ef95d1e9778855ded3cf830}{copy\+\_\+buf} (T \&dest\+\_\+buf, const U \&src\+\_\+buf, T scale=1, T add=0)
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_a3c28527ad9c78172345c5ff2175d2e1b}{zero} (float \&v)
+\begin{DoxyCompactList}\small\item\em Set a float to zero. \end{DoxyCompactList}\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_a61fb61ea0337243a287f6065184d0434}{zero} (double \&v)
+\begin{DoxyCompactList}\small\item\em Set a double to zero. \end{DoxyCompactList}\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_ad6e8bc40c7492bab0993568bf6a7bd14}{zero} (uint64\+\_\+t \&v)
+\begin{DoxyCompactList}\small\item\em Set 64-\/bit unsigned integer value to zero. \end{DoxyCompactList}\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_a9f9990a5a2bac29871bff5f6c11b1e59}{zero} (uint32\+\_\+t \&v)
+\begin{DoxyCompactList}\small\item\em Set 32-\/bit unsigned integer value to zero. \end{DoxyCompactList}\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_a4a5c4476f87676c2e648162a07500e3d}{zero} (uint16\+\_\+t \&v)
+\begin{DoxyCompactList}\small\item\em Set 16-\/bit unsigned integer value to zero. \end{DoxyCompactList}\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_a8098836a83f20758ef5919b21daf6c82}{zero} (uint8\+\_\+t \&v)
+\begin{DoxyCompactList}\small\item\em Set 8-\/bit unsigned integer value to zero. \end{DoxyCompactList}\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_ae91e184a11c5b13e38f8d4b68450753a}{zero} (int64\+\_\+t \&v)
+\begin{DoxyCompactList}\small\item\em Set 64-\/bit signed integer value to zero. \end{DoxyCompactList}\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_aedf4fcf41ff9169d33f6cdcc20aa3847}{zero} (int32\+\_\+t \&v)
+\begin{DoxyCompactList}\small\item\em Set 32-\/bit signed integer value to zero. \end{DoxyCompactList}\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_a50b7baf4a4f14897839d37d5f58de63b}{zero} (int16\+\_\+t \&v)
+\begin{DoxyCompactList}\small\item\em Set 16-\/bit signed integer value to zero. \end{DoxyCompactList}\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_af140a0801d6191807b799173dd6440f8}{zero} (int8\+\_\+t \&v)
+\begin{DoxyCompactList}\small\item\em Set 8-\/bit signed integer value to zero. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_a1aaff1d9c2e57d505ac50b4f616f8b3a}{zero} (T $\ast$data, unsigned \hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} size)
+\begin{DoxyCompactList}\small\item\em Set array (buffer or anything similar) to vector of zeroes. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_ab366ae27401d13f995b91c5bb224e5a8}{fill} (T $\ast$data, T \hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value}, unsigned \hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} size)
+\begin{DoxyCompactList}\small\item\em Set array (buffer or anything similar) to vector of values. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\\hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample}$<$ T $>$ \hyperlink{namespacedsp_a6083af7d30b3df78aa1901cd2c59e414}{operator$\ast$} (const T \&\hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value}, const \hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample}$<$ T $>$ \&value2)
+\begin{DoxyCompactList}\small\item\em Multiply constant by stereo\+\_\+value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\\hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample}$<$ T $>$ \hyperlink{namespacedsp_ae9378b13094e228c4c32af5bed73ddf6}{operator+} (const T \&\hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value}, const \hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample}$<$ T $>$ \&value2)
+\begin{DoxyCompactList}\small\item\em Add constant to stereo\+\_\+value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\\hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample}$<$ T $>$ \hyperlink{namespacedsp_a428ba1571939cf448f27d42b66fe6fe4}{operator-\/} (const T \&\hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value}, const \hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample}$<$ T $>$ \&value2)
+\begin{DoxyCompactList}\small\item\em Subtract stereo\+\_\+value from constant (yields stereo\+\_\+value of course) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample}$<$ T $>$ \hyperlink{namespacedsp_a431298d10143001b91af3b231dfc7419}{shr} (\hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample}$<$ T $>$ v, \hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} bits=1)
+\begin{DoxyCompactList}\small\item\em Shift value right by \textquotesingle{}bits\textquotesingle{} bits (multiply by 2$^\wedge$-\/bits) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_ae9696253f1153142a082f212d1d0083f}{zero} (\hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample}$<$ T $>$ \&v)
+\begin{DoxyCompactList}\small\item\em Set a stereo\+\_\+sample$<$\+T$>$ value to zero. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacedsp_a870586ac5ee3dd8c04e793905875a536}{small\+\_\+value} ()
+\begin{DoxyCompactList}\small\item\em \textquotesingle{}Small value\textquotesingle{} for integer and other types \end{DoxyCompactList}\item 
+{\footnotesize template$<$$>$ }\\float \hyperlink{namespacedsp_abb435f02d9ef5d01c20cf2d59b8f9828}{small\+\_\+value$<$ float $>$} ()
+\begin{DoxyCompactList}\small\item\em \textquotesingle{}Small value\textquotesingle{} for floats (2$^\wedge$-\/24) -\/ used for primitive underrun prevention. The value is pretty much arbitrary (allowing for 24-\/bit signals normalized to 1.\+0). \end{DoxyCompactList}\item 
+{\footnotesize template$<$$>$ }\\double \hyperlink{namespacedsp_abdd544b53c1b6758e9bf79c88fcade0e}{small\+\_\+value$<$ double $>$} ()
+\begin{DoxyCompactList}\small\item\em \textquotesingle{}Small value\textquotesingle{} for doubles (2$^\wedge$-\/24) -\/ used for primitive underrun prevention. The value is pretty much arbitrary. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\float \hyperlink{namespacedsp_ac291938d1d181b2d1b79c20fd6fc8b88}{mono} (T v)
+\begin{DoxyCompactList}\small\item\em Convert a single value to single value = do nothing \+:) (but it\textquotesingle{}s a generic with specialisation for \hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample}) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacedsp_acdc0c2104656cbd512f644820696a215}{mono} (\hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample}$<$ T $>$ v)
+\begin{DoxyCompactList}\small\item\em Convert a \hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample} to single value by averaging two channels. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\T \hyperlink{namespacedsp_ad310e31e6431e2004822d08b40ee5111}{clip} (T \hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value}, T min, T max)
+\begin{DoxyCompactList}\small\item\em Clip a value to \mbox{[}min, max\mbox{]}. \end{DoxyCompactList}\item 
+double \hyperlink{namespacedsp_a95c518d4027020f85f8395f7f33e4892}{clip11} (double \hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value})
+\begin{DoxyCompactList}\small\item\em Clip a double to \mbox{[}-\/1.\+0, +1.0\mbox{]}. \end{DoxyCompactList}\item 
+float \hyperlink{namespacedsp_a6ae773f4c7dca3081520aacbdcc5214f}{clip11} (float \hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value})
+\begin{DoxyCompactList}\small\item\em Clip a float to \mbox{[}-\/1.\+0f, +1.0f\mbox{]}. \end{DoxyCompactList}\item 
+double \hyperlink{namespacedsp_a012aa942a767c4571c1c136a18377f28}{clip01} (double \hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value})
+\begin{DoxyCompactList}\small\item\em Clip a double to \mbox{[}0.\+0, +1.0\mbox{]}. \end{DoxyCompactList}\item 
+float \hyperlink{namespacedsp_a8a58ff00b0b864fffad01ecac5257b18}{clip01} (float \hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value})
+\begin{DoxyCompactList}\small\item\em Clip a float to \mbox{[}0.\+0f, +1.0f\mbox{]}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , typename U $>$ }\\T \hyperlink{namespacedsp_a39d5fa90621bd9b344c10b81d317b828}{lerp} (T v1, T v2, U mix)
+\item 
+{\footnotesize template$<$typename T $>$ }\\\hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample}$<$ T $>$ \hyperlink{namespacedsp_ac22836f63065399a64ba3055aff46589}{lerp} (\hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample}$<$ T $>$ \&v1, \hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample}$<$ T $>$ \&v2, float mix)
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_aaafcf4f2177c8673092dbfe99b2febb7}{sanitize} (float \&\hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value})
+\item 
+float \hyperlink{namespacedsp_a0c2863a05929fbfdf1c7475313192636}{\+\_\+sanitize} (float \hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value})
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_ac5c03456d5d02aab8d670977d7e16f0f}{sanitize\+\_\+denormal} (float \&\hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value})
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_ab5c1632750ec776a122904f6be27e200}{sanitize\+\_\+denormal} (double \&\hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value})
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_aa9b71af18baffe0cdda2cf64b15727e8}{sanitize} (double \&\hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value})
+\item 
+double \hyperlink{namespacedsp_a3f42698c5c80f560180882cd02ca1eda}{\+\_\+sanitize} (double \hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value})
+\item 
+{\footnotesize template$<$class T $>$ }\\\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_ab2b42db4ce9ee06d121bbaefa42f6303}{sanitize} (\hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample}$<$ T $>$ \&\hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value})
+\item 
+float \hyperlink{namespacedsp_a934554c35e4d3e171cea6a1236fa6651}{fract16} (unsigned \hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{tk_8h_a177a0765f574ef6642002696d9cd82d0}{value})
+\item 
+\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{namespacedsp_aa7895889a13d54d21ea6855e30cc4568}{fastf2i\+\_\+drm} (float f)
+\begin{DoxyCompactList}\small\item\em fast float to int conversion using default rounding mode \end{DoxyCompactList}\item 
+float \hyperlink{namespacedsp_ae051685d0a6b779c924320f3b7bc386b}{note\+\_\+to\+\_\+hz} (double note, double detune\+\_\+cents=0.\+0)
+\begin{DoxyCompactList}\small\item\em Convert M\+I\+DI note to frequency in Hz. \end{DoxyCompactList}\item 
+float \hyperlink{namespacedsp_a91d4003f1af255de0db6beb7faf427bf}{normalized\+\_\+hermite} (float t, float p0, float p1, float m0, float m1)
+\item 
+float \hyperlink{namespacedsp_ac0207ae3cdfdaabef07e1ee2d54b86c9}{hermite\+\_\+interpolation} (float \hyperlink{tk_8h_a61ebd54d47cc56787649a3b8f126bda1}{x}, float x0, float x1, float p0, float p1, float m0, float m1)
+\item 
+float \hyperlink{namespacedsp_af441d67e5db3daed2a36c4641b6bf29f}{amp2dB} (float amp)
+\begin{DoxyCompactList}\small\item\em convert amplitude value to dB \end{DoxyCompactList}\item 
+float \hyperlink{namespacedsp_a726ba9431c151f703cc5a69eb5aa6209}{d\+B2amp} (float db)
+\begin{DoxyCompactList}\small\item\em convert dB to amplitude value \end{DoxyCompactList}\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{namespacedsp_ac0591aa52b45eacee9c26d4e098aad47}{print\+\_\+bits} (size\+\_\+t const size, \hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} const $\ast$const ptr)
+\item 
+\hyperlink{structdsp_1_1note__desc}{note\+\_\+desc} \hyperlink{namespacedsp_a9d37528f13e4cc1cf77ddfc452b32f22}{hz\+\_\+to\+\_\+note} (double hz, double tune)
+\item 
+double \hyperlink{namespacedsp_a55af7e479ebf261c36067396e682b83b}{convert\+\_\+periodic} (double val, \hyperlink{namespacedsp_a62db0a3af67183c65a28083fe474f349}{periodic\+\_\+unit} unit\+\_\+in, \hyperlink{namespacedsp_a62db0a3af67183c65a28083fe474f349}{periodic\+\_\+unit} unit\+\_\+out)
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\index{dsp@{dsp}!periodic\+\_\+unit@{periodic\+\_\+unit}}
+\index{periodic\+\_\+unit@{periodic\+\_\+unit}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{periodic\+\_\+unit}{periodic_unit}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf dsp\+::periodic\+\_\+unit}}\hypertarget{namespacedsp_a62db0a3af67183c65a28083fe474f349}{}\label{namespacedsp_a62db0a3af67183c65a28083fe474f349}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{U\+N\+I\+T\+\_\+\+B\+PM@{U\+N\+I\+T\+\_\+\+B\+PM}!dsp@{dsp}}\index{dsp@{dsp}!U\+N\+I\+T\+\_\+\+B\+PM@{U\+N\+I\+T\+\_\+\+B\+PM}}\item[{\em 
+U\+N\+I\+T\+\_\+\+B\+PM\hypertarget{namespacedsp_a62db0a3af67183c65a28083fe474f349aae85e1b64cbabef303dac5d03031faa3}{}\label{namespacedsp_a62db0a3af67183c65a28083fe474f349aae85e1b64cbabef303dac5d03031faa3}
+}]\index{U\+N\+I\+T\+\_\+\+MS@{U\+N\+I\+T\+\_\+\+MS}!dsp@{dsp}}\index{dsp@{dsp}!U\+N\+I\+T\+\_\+\+MS@{U\+N\+I\+T\+\_\+\+MS}}\item[{\em 
+U\+N\+I\+T\+\_\+\+MS\hypertarget{namespacedsp_a62db0a3af67183c65a28083fe474f349a564f5f239715b21f1e19ea21527b86d5}{}\label{namespacedsp_a62db0a3af67183c65a28083fe474f349a564f5f239715b21f1e19ea21527b86d5}
+}]\index{U\+N\+I\+T\+\_\+\+HZ@{U\+N\+I\+T\+\_\+\+HZ}!dsp@{dsp}}\index{dsp@{dsp}!U\+N\+I\+T\+\_\+\+HZ@{U\+N\+I\+T\+\_\+\+HZ}}\item[{\em 
+U\+N\+I\+T\+\_\+\+HZ\hypertarget{namespacedsp_a62db0a3af67183c65a28083fe474f349a29ff6f09e74c392cd598fdb0ba4cc0f9}{}\label{namespacedsp_a62db0a3af67183c65a28083fe474f349a29ff6f09e74c392cd598fdb0ba4cc0f9}
+}]\index{U\+N\+I\+T\+\_\+\+S\+Y\+NC@{U\+N\+I\+T\+\_\+\+S\+Y\+NC}!dsp@{dsp}}\index{dsp@{dsp}!U\+N\+I\+T\+\_\+\+S\+Y\+NC@{U\+N\+I\+T\+\_\+\+S\+Y\+NC}}\item[{\em 
+U\+N\+I\+T\+\_\+\+S\+Y\+NC\hypertarget{namespacedsp_a62db0a3af67183c65a28083fe474f349a5141d8f56fb022a26383c50f6319819e}{}\label{namespacedsp_a62db0a3af67183c65a28083fe474f349a5141d8f56fb022a26383c50f6319819e}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\index{dsp@{dsp}!\+\_\+sanitize@{\+\_\+sanitize}}
+\index{\+\_\+sanitize@{\+\_\+sanitize}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{\+\_\+sanitize(float value)}{_sanitize(float value)}}]{\setlength{\rightskip}{0pt plus 5cm}float dsp\+::\+\_\+sanitize (
+\begin{DoxyParamCaption}
+\item[{float}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a0c2863a05929fbfdf1c7475313192636}{}\label{namespacedsp_a0c2863a05929fbfdf1c7475313192636}
+\index{dsp@{dsp}!\+\_\+sanitize@{\+\_\+sanitize}}
+\index{\+\_\+sanitize@{\+\_\+sanitize}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{\+\_\+sanitize(double value)}{_sanitize(double value)}}]{\setlength{\rightskip}{0pt plus 5cm}double dsp\+::\+\_\+sanitize (
+\begin{DoxyParamCaption}
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a3f42698c5c80f560180882cd02ca1eda}{}\label{namespacedsp_a3f42698c5c80f560180882cd02ca1eda}
+\index{dsp@{dsp}!amp2dB@{amp2dB}}
+\index{amp2dB@{amp2dB}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{amp2d\+B(float amp)}{amp2dB(float amp)}}]{\setlength{\rightskip}{0pt plus 5cm}float dsp\+::amp2dB (
+\begin{DoxyParamCaption}
+\item[{float}]{amp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_af441d67e5db3daed2a36c4641b6bf29f}{}\label{namespacedsp_af441d67e5db3daed2a36c4641b6bf29f}
+
+
+convert amplitude value to dB 
+
+\index{dsp@{dsp}!clip@{clip}}
+\index{clip@{clip}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{clip(\+T value, T min, T max)}{clip(T value, T min, T max)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T dsp\+::clip (
+\begin{DoxyParamCaption}
+\item[{T}]{value, }
+\item[{T}]{min, }
+\item[{T}]{max}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_ad310e31e6431e2004822d08b40ee5111}{}\label{namespacedsp_ad310e31e6431e2004822d08b40ee5111}
+
+
+Clip a value to \mbox{[}min, max\mbox{]}. 
+
+\index{dsp@{dsp}!clip01@{clip01}}
+\index{clip01@{clip01}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{clip01(double value)}{clip01(double value)}}]{\setlength{\rightskip}{0pt plus 5cm}double dsp\+::clip01 (
+\begin{DoxyParamCaption}
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a012aa942a767c4571c1c136a18377f28}{}\label{namespacedsp_a012aa942a767c4571c1c136a18377f28}
+
+
+Clip a double to \mbox{[}0.\+0, +1.0\mbox{]}. 
+
+\index{dsp@{dsp}!clip01@{clip01}}
+\index{clip01@{clip01}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{clip01(float value)}{clip01(float value)}}]{\setlength{\rightskip}{0pt plus 5cm}float dsp\+::clip01 (
+\begin{DoxyParamCaption}
+\item[{float}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a8a58ff00b0b864fffad01ecac5257b18}{}\label{namespacedsp_a8a58ff00b0b864fffad01ecac5257b18}
+
+
+Clip a float to \mbox{[}0.\+0f, +1.0f\mbox{]}. 
+
+\index{dsp@{dsp}!clip11@{clip11}}
+\index{clip11@{clip11}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{clip11(double value)}{clip11(double value)}}]{\setlength{\rightskip}{0pt plus 5cm}double dsp\+::clip11 (
+\begin{DoxyParamCaption}
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a95c518d4027020f85f8395f7f33e4892}{}\label{namespacedsp_a95c518d4027020f85f8395f7f33e4892}
+
+
+Clip a double to \mbox{[}-\/1.\+0, +1.0\mbox{]}. 
+
+\index{dsp@{dsp}!clip11@{clip11}}
+\index{clip11@{clip11}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{clip11(float value)}{clip11(float value)}}]{\setlength{\rightskip}{0pt plus 5cm}float dsp\+::clip11 (
+\begin{DoxyParamCaption}
+\item[{float}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a6ae773f4c7dca3081520aacbdcc5214f}{}\label{namespacedsp_a6ae773f4c7dca3081520aacbdcc5214f}
+
+
+Clip a float to \mbox{[}-\/1.\+0f, +1.0f\mbox{]}. 
+
+\index{dsp@{dsp}!convert\+\_\+periodic@{convert\+\_\+periodic}}
+\index{convert\+\_\+periodic@{convert\+\_\+periodic}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{convert\+\_\+periodic(double val, periodic\+\_\+unit unit\+\_\+in, periodic\+\_\+unit unit\+\_\+out)}{convert_periodic(double val, periodic_unit unit_in, periodic_unit unit_out)}}]{\setlength{\rightskip}{0pt plus 5cm}double dsp\+::convert\+\_\+periodic (
+\begin{DoxyParamCaption}
+\item[{double}]{val, }
+\item[{{\bf periodic\+\_\+unit}}]{unit\+\_\+in, }
+\item[{{\bf periodic\+\_\+unit}}]{unit\+\_\+out}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a55af7e479ebf261c36067396e682b83b}{}\label{namespacedsp_a55af7e479ebf261c36067396e682b83b}
+\index{dsp@{dsp}!copy@{copy}}
+\index{copy@{copy}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{copy(\+T $\ast$dest, U $\ast$src, int size, T scale=1, T add=0)}{copy(T *dest, U *src, int size, T scale=1, T add=0)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class U $>$ {\bf void} dsp\+::copy (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{dest, }
+\item[{U $\ast$}]{src, }
+\item[{{\bf int}}]{size, }
+\item[{T}]{scale = {\ttfamily 1}, }
+\item[{T}]{add = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacedsp_a345378c56f45236d32e2ed7f1e981b0d}{}\label{namespacedsp_a345378c56f45236d32e2ed7f1e981b0d}
+\index{dsp@{dsp}!copy\+\_\+buf@{copy\+\_\+buf}}
+\index{copy\+\_\+buf@{copy\+\_\+buf}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{copy\+\_\+buf(\+T \&dest\+\_\+buf, const U \&src\+\_\+buf, T scale=1, T add=0)}{copy_buf(T &dest_buf, const U &src_buf, T scale=1, T add=0)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T , class U $>$ {\bf void} dsp\+::copy\+\_\+buf (
+\begin{DoxyParamCaption}
+\item[{T \&}]{dest\+\_\+buf, }
+\item[{const U \&}]{src\+\_\+buf, }
+\item[{T}]{scale = {\ttfamily 1}, }
+\item[{T}]{add = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacedsp_a7b81ab9f4ef95d1e9778855ded3cf830}{}\label{namespacedsp_a7b81ab9f4ef95d1e9778855ded3cf830}
+\index{dsp@{dsp}!d\+B2amp@{d\+B2amp}}
+\index{d\+B2amp@{d\+B2amp}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{d\+B2amp(float db)}{dB2amp(float db)}}]{\setlength{\rightskip}{0pt plus 5cm}float dsp\+::d\+B2amp (
+\begin{DoxyParamCaption}
+\item[{float}]{db}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a726ba9431c151f703cc5a69eb5aa6209}{}\label{namespacedsp_a726ba9431c151f703cc5a69eb5aa6209}
+
+
+convert dB to amplitude value 
+
+\index{dsp@{dsp}!fastf2i\+\_\+drm@{fastf2i\+\_\+drm}}
+\index{fastf2i\+\_\+drm@{fastf2i\+\_\+drm}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{fastf2i\+\_\+drm(float f)}{fastf2i_drm(float f)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf int} dsp\+::fastf2i\+\_\+drm (
+\begin{DoxyParamCaption}
+\item[{float}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_aa7895889a13d54d21ea6855e30cc4568}{}\label{namespacedsp_aa7895889a13d54d21ea6855e30cc4568}
+
+
+fast float to int conversion using default rounding mode 
+
+\index{dsp@{dsp}!fill@{fill}}
+\index{fill@{fill}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{fill(\+Buf \&buf, T value)}{fill(Buf &buf, T value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Buf , class T $>$ {\bf void} dsp\+::fill (
+\begin{DoxyParamCaption}
+\item[{Buf \&}]{buf, }
+\item[{T}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacedsp_aea548b3e98c1b00c7e87bd247acc9c91}{}\label{namespacedsp_aea548b3e98c1b00c7e87bd247acc9c91}
+\index{dsp@{dsp}!fill@{fill}}
+\index{fill@{fill}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{fill(\+T $\ast$data, int size, T value)}{fill(T *data, int size, T value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf void} dsp\+::fill (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{data, }
+\item[{{\bf int}}]{size, }
+\item[{T}]{value}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacedsp_aedf562a51ab2e66798edf93f97d6b4f5}{}\label{namespacedsp_aedf562a51ab2e66798edf93f97d6b4f5}
+\index{dsp@{dsp}!fill@{fill}}
+\index{fill@{fill}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{fill(\+T $\ast$data, T value, unsigned int size)}{fill(T *data, T value, unsigned int size)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf void} dsp\+::fill (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{data, }
+\item[{T}]{value, }
+\item[{unsigned {\bf int}}]{size}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacedsp_ab366ae27401d13f995b91c5bb224e5a8}{}\label{namespacedsp_ab366ae27401d13f995b91c5bb224e5a8}
+
+
+Set array (buffer or anything similar) to vector of values. 
+
+\index{dsp@{dsp}!fract16@{fract16}}
+\index{fract16@{fract16}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{fract16(unsigned int value)}{fract16(unsigned int value)}}]{\setlength{\rightskip}{0pt plus 5cm}float dsp\+::fract16 (
+\begin{DoxyParamCaption}
+\item[{unsigned {\bf int}}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a934554c35e4d3e171cea6a1236fa6651}{}\label{namespacedsp_a934554c35e4d3e171cea6a1236fa6651}
+\index{dsp@{dsp}!hermite\+\_\+interpolation@{hermite\+\_\+interpolation}}
+\index{hermite\+\_\+interpolation@{hermite\+\_\+interpolation}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{hermite\+\_\+interpolation(float x, float x0, float x1, float p0, float p1, float m0, float m1)}{hermite_interpolation(float x, float x0, float x1, float p0, float p1, float m0, float m1)}}]{\setlength{\rightskip}{0pt plus 5cm}float dsp\+::hermite\+\_\+interpolation (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{x0, }
+\item[{float}]{x1, }
+\item[{float}]{p0, }
+\item[{float}]{p1, }
+\item[{float}]{m0, }
+\item[{float}]{m1}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_ac0207ae3cdfdaabef07e1ee2d54b86c9}{}\label{namespacedsp_ac0207ae3cdfdaabef07e1ee2d54b86c9}
+Hermite interpolation between two points and slopes \begin{DoxyItemize}
+\item x point within interval (x0 $<$= x $<$= x1) \item x0 interval start \item x1 interval end \item p0 value at x0 \item p1 value at x1 \item m0 slope (steepness, tangent) at x0 \item m1 slope at x1 \end{DoxyItemize}
+\index{dsp@{dsp}!hz\+\_\+to\+\_\+note@{hz\+\_\+to\+\_\+note}}
+\index{hz\+\_\+to\+\_\+note@{hz\+\_\+to\+\_\+note}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{hz\+\_\+to\+\_\+note(double hz, double tune)}{hz_to_note(double hz, double tune)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf note\+\_\+desc} dsp\+::hz\+\_\+to\+\_\+note (
+\begin{DoxyParamCaption}
+\item[{double}]{hz, }
+\item[{double}]{tune}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a9d37528f13e4cc1cf77ddfc452b32f22}{}\label{namespacedsp_a9d37528f13e4cc1cf77ddfc452b32f22}
+\index{dsp@{dsp}!lerp@{lerp}}
+\index{lerp@{lerp}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{lerp(\+T v1, T v2, U mix)}{lerp(T v1, T v2, U mix)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T , typename U $>$ T dsp\+::lerp (
+\begin{DoxyParamCaption}
+\item[{T}]{v1, }
+\item[{T}]{v2, }
+\item[{U}]{mix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a39d5fa90621bd9b344c10b81d317b828}{}\label{namespacedsp_a39d5fa90621bd9b344c10b81d317b828}
+\index{dsp@{dsp}!lerp@{lerp}}
+\index{lerp@{lerp}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{lerp(stereo\+\_\+sample$<$ T $>$ \&v1, stereo\+\_\+sample$<$ T $>$ \&v2, float mix)}{lerp(stereo_sample< T > &v1, stereo_sample< T > &v2, float mix)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf stereo\+\_\+sample}$<$T$>$ dsp\+::lerp (
+\begin{DoxyParamCaption}
+\item[{{\bf stereo\+\_\+sample}$<$ T $>$ \&}]{v1, }
+\item[{{\bf stereo\+\_\+sample}$<$ T $>$ \&}]{v2, }
+\item[{float}]{mix}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_ac22836f63065399a64ba3055aff46589}{}\label{namespacedsp_ac22836f63065399a64ba3055aff46589}
+\index{dsp@{dsp}!mono@{mono}}
+\index{mono@{mono}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{mono(\+T v)}{mono(T v)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ float dsp\+::mono (
+\begin{DoxyParamCaption}
+\item[{T}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_ac291938d1d181b2d1b79c20fd6fc8b88}{}\label{namespacedsp_ac291938d1d181b2d1b79c20fd6fc8b88}
+
+
+Convert a single value to single value = do nothing \+:) (but it\textquotesingle{}s a generic with specialisation for \hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample}) 
+
+\index{dsp@{dsp}!mono@{mono}}
+\index{mono@{mono}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{mono(stereo\+\_\+sample$<$ T $>$ v)}{mono(stereo_sample< T > v)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T dsp\+::mono (
+\begin{DoxyParamCaption}
+\item[{{\bf stereo\+\_\+sample}$<$ T $>$}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_acdc0c2104656cbd512f644820696a215}{}\label{namespacedsp_acdc0c2104656cbd512f644820696a215}
+
+
+Convert a \hyperlink{structdsp_1_1stereo__sample}{stereo\+\_\+sample} to single value by averaging two channels. 
+
+\index{dsp@{dsp}!normalized\+\_\+hermite@{normalized\+\_\+hermite}}
+\index{normalized\+\_\+hermite@{normalized\+\_\+hermite}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{normalized\+\_\+hermite(float t, float p0, float p1, float m0, float m1)}{normalized_hermite(float t, float p0, float p1, float m0, float m1)}}]{\setlength{\rightskip}{0pt plus 5cm}float dsp\+::normalized\+\_\+hermite (
+\begin{DoxyParamCaption}
+\item[{float}]{t, }
+\item[{float}]{p0, }
+\item[{float}]{p1, }
+\item[{float}]{m0, }
+\item[{float}]{m1}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a91d4003f1af255de0db6beb7faf427bf}{}\label{namespacedsp_a91d4003f1af255de0db6beb7faf427bf}
+Hermite interpolation between two points and slopes in normalized range (written after Wikipedia article) \begin{DoxyItemize}
+\item t normalized x coordinate (0-\/1 over the interval in question) \item p0 first point \item p1 second point \item m0 first slope (multiply by interval width when using over non-\/1-\/wide interval) \item m1 second slope (multiply by interval width when using over non-\/1-\/wide interval) \end{DoxyItemize}
+\index{dsp@{dsp}!note\+\_\+to\+\_\+hz@{note\+\_\+to\+\_\+hz}}
+\index{note\+\_\+to\+\_\+hz@{note\+\_\+to\+\_\+hz}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{note\+\_\+to\+\_\+hz(double note, double detune\+\_\+cents=0.\+0)}{note_to_hz(double note, double detune_cents=0.0)}}]{\setlength{\rightskip}{0pt plus 5cm}float dsp\+::note\+\_\+to\+\_\+hz (
+\begin{DoxyParamCaption}
+\item[{double}]{note, }
+\item[{double}]{detune\+\_\+cents = {\ttfamily 0.0}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_ae051685d0a6b779c924320f3b7bc386b}{}\label{namespacedsp_ae051685d0a6b779c924320f3b7bc386b}
+
+
+Convert M\+I\+DI note to frequency in Hz. 
+
+\index{dsp@{dsp}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{operator$\ast$(const T \&value, const stereo\+\_\+sample$<$ T $>$ \&value2)}{operator*(const T &value, const stereo_sample< T > &value2)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf stereo\+\_\+sample}$<$T$>$ dsp\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value, }
+\item[{const {\bf stereo\+\_\+sample}$<$ T $>$ \&}]{value2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a6083af7d30b3df78aa1901cd2c59e414}{}\label{namespacedsp_a6083af7d30b3df78aa1901cd2c59e414}
+
+
+Multiply constant by stereo\+\_\+value. 
+
+\index{dsp@{dsp}!operator+@{operator+}}
+\index{operator+@{operator+}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{operator+(const T \&value, const stereo\+\_\+sample$<$ T $>$ \&value2)}{operator+(const T &value, const stereo_sample< T > &value2)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf stereo\+\_\+sample}$<$T$>$ dsp\+::operator+ (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value, }
+\item[{const {\bf stereo\+\_\+sample}$<$ T $>$ \&}]{value2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_ae9378b13094e228c4c32af5bed73ddf6}{}\label{namespacedsp_ae9378b13094e228c4c32af5bed73ddf6}
+
+
+Add constant to stereo\+\_\+value. 
+
+\index{dsp@{dsp}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{operator-\/(const T \&value, const stereo\+\_\+sample$<$ T $>$ \&value2)}{operator-(const T &value, const stereo_sample< T > &value2)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf stereo\+\_\+sample}$<$T$>$ dsp\+::operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const T \&}]{value, }
+\item[{const {\bf stereo\+\_\+sample}$<$ T $>$ \&}]{value2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a428ba1571939cf448f27d42b66fe6fe4}{}\label{namespacedsp_a428ba1571939cf448f27d42b66fe6fe4}
+
+
+Subtract stereo\+\_\+value from constant (yields stereo\+\_\+value of course) 
+
+\index{dsp@{dsp}!print\+\_\+bits@{print\+\_\+bits}}
+\index{print\+\_\+bits@{print\+\_\+bits}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{print\+\_\+bits(size\+\_\+t const size, void const $\ast$const ptr)}{print_bits(size_t const size, void const *const ptr)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} dsp\+::print\+\_\+bits (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t const}]{size, }
+\item[{{\bf void} const $\ast$const}]{ptr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_ac0591aa52b45eacee9c26d4e098aad47}{}\label{namespacedsp_ac0591aa52b45eacee9c26d4e098aad47}
+print binary of any data type assumes little endian \index{dsp@{dsp}!sanitize@{sanitize}}
+\index{sanitize@{sanitize}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{sanitize(float \&value)}{sanitize(float &value)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} dsp\+::sanitize (
+\begin{DoxyParamCaption}
+\item[{float \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_aaafcf4f2177c8673092dbfe99b2febb7}{}\label{namespacedsp_aaafcf4f2177c8673092dbfe99b2febb7}
+Force \char`\"{}small enough\char`\"{} float value to zero \index{dsp@{dsp}!sanitize@{sanitize}}
+\index{sanitize@{sanitize}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{sanitize(double \&value)}{sanitize(double &value)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} dsp\+::sanitize (
+\begin{DoxyParamCaption}
+\item[{double \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_aa9b71af18baffe0cdda2cf64b15727e8}{}\label{namespacedsp_aa9b71af18baffe0cdda2cf64b15727e8}
+Force \char`\"{}small enough\char`\"{} double value to zero \index{dsp@{dsp}!sanitize@{sanitize}}
+\index{sanitize@{sanitize}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{sanitize(stereo\+\_\+sample$<$ T $>$ \&value)}{sanitize(stereo_sample< T > &value)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf void} dsp\+::sanitize (
+\begin{DoxyParamCaption}
+\item[{{\bf stereo\+\_\+sample}$<$ T $>$ \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_ab2b42db4ce9ee06d121bbaefa42f6303}{}\label{namespacedsp_ab2b42db4ce9ee06d121bbaefa42f6303}
+Force \char`\"{}small enough\char`\"{} stereo value to zero \index{dsp@{dsp}!sanitize\+\_\+denormal@{sanitize\+\_\+denormal}}
+\index{sanitize\+\_\+denormal@{sanitize\+\_\+denormal}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{sanitize\+\_\+denormal(float \&value)}{sanitize_denormal(float &value)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} dsp\+::sanitize\+\_\+denormal (
+\begin{DoxyParamCaption}
+\item[{float \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_ac5c03456d5d02aab8d670977d7e16f0f}{}\label{namespacedsp_ac5c03456d5d02aab8d670977d7e16f0f}
+Force already-\/denormal float value to zero \index{dsp@{dsp}!sanitize\+\_\+denormal@{sanitize\+\_\+denormal}}
+\index{sanitize\+\_\+denormal@{sanitize\+\_\+denormal}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{sanitize\+\_\+denormal(double \&value)}{sanitize_denormal(double &value)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} dsp\+::sanitize\+\_\+denormal (
+\begin{DoxyParamCaption}
+\item[{double \&}]{value}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_ab5c1632750ec776a122904f6be27e200}{}\label{namespacedsp_ab5c1632750ec776a122904f6be27e200}
+Force already-\/denormal float value to zero \index{dsp@{dsp}!shr@{shr}}
+\index{shr@{shr}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{shr(stereo\+\_\+sample$<$ T $>$ v, int bits=1)}{shr(stereo_sample< T > v, int bits=1)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf stereo\+\_\+sample}$<$T$>$ dsp\+::shr (
+\begin{DoxyParamCaption}
+\item[{{\bf stereo\+\_\+sample}$<$ T $>$}]{v, }
+\item[{{\bf int}}]{bits = {\ttfamily 1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a431298d10143001b91af3b231dfc7419}{}\label{namespacedsp_a431298d10143001b91af3b231dfc7419}
+
+
+Shift value right by \textquotesingle{}bits\textquotesingle{} bits (multiply by 2$^\wedge$-\/bits) 
+
+\index{dsp@{dsp}!small\+\_\+value@{small\+\_\+value}}
+\index{small\+\_\+value@{small\+\_\+value}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{small\+\_\+value()}{small_value()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T dsp\+::small\+\_\+value (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a870586ac5ee3dd8c04e793905875a536}{}\label{namespacedsp_a870586ac5ee3dd8c04e793905875a536}
+
+
+\textquotesingle{}Small value\textquotesingle{} for integer and other types 
+
+\index{dsp@{dsp}!small\+\_\+value$<$ double $>$@{small\+\_\+value$<$ double $>$}}
+\index{small\+\_\+value$<$ double $>$@{small\+\_\+value$<$ double $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{small\+\_\+value$<$ double $>$()}{small_value< double >()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ double {\bf dsp\+::small\+\_\+value}$<$ double $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_abdd544b53c1b6758e9bf79c88fcade0e}{}\label{namespacedsp_abdd544b53c1b6758e9bf79c88fcade0e}
+
+
+\textquotesingle{}Small value\textquotesingle{} for doubles (2$^\wedge$-\/24) -\/ used for primitive underrun prevention. The value is pretty much arbitrary. 
+
+\index{dsp@{dsp}!small\+\_\+value$<$ float $>$@{small\+\_\+value$<$ float $>$}}
+\index{small\+\_\+value$<$ float $>$@{small\+\_\+value$<$ float $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{small\+\_\+value$<$ float $>$()}{small_value< float >()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ float {\bf dsp\+::small\+\_\+value}$<$ float $>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_abb435f02d9ef5d01c20cf2d59b8f9828}{}\label{namespacedsp_abb435f02d9ef5d01c20cf2d59b8f9828}
+
+
+\textquotesingle{}Small value\textquotesingle{} for floats (2$^\wedge$-\/24) -\/ used for primitive underrun prevention. The value is pretty much arbitrary (allowing for 24-\/bit signals normalized to 1.\+0). 
+
+\index{dsp@{dsp}!wrap\+\_\+around@{wrap\+\_\+around}}
+\index{wrap\+\_\+around@{wrap\+\_\+around}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{wrap\+\_\+around(int a)}{wrap_around(int a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$int N$>$ {\bf int} dsp\+::wrap\+\_\+around (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a7449afa1cea11ce3b972f3f9fa107b99}{}\label{namespacedsp_a7449afa1cea11ce3b972f3f9fa107b99}
+
+
+decrease by N if $>$= N (useful for circular buffers) 
+
+\index{dsp@{dsp}!wrap\+\_\+around$<$ 1024 $>$@{wrap\+\_\+around$<$ 1024 $>$}}
+\index{wrap\+\_\+around$<$ 1024 $>$@{wrap\+\_\+around$<$ 1024 $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{wrap\+\_\+around$<$ 1024 $>$(int a)}{wrap_around< 1024 >(int a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf int} {\bf dsp\+::wrap\+\_\+around}$<$ 1024 $>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_aca4e9b59a346239f1688ba2b78debd0f}{}\label{namespacedsp_aca4e9b59a346239f1688ba2b78debd0f}
+\index{dsp@{dsp}!wrap\+\_\+around$<$ 128 $>$@{wrap\+\_\+around$<$ 128 $>$}}
+\index{wrap\+\_\+around$<$ 128 $>$@{wrap\+\_\+around$<$ 128 $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{wrap\+\_\+around$<$ 128 $>$(int a)}{wrap_around< 128 >(int a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf int} {\bf dsp\+::wrap\+\_\+around}$<$ 128 $>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a452ae016f495dcb13546371476b22718}{}\label{namespacedsp_a452ae016f495dcb13546371476b22718}
+\index{dsp@{dsp}!wrap\+\_\+around$<$ 16 $>$@{wrap\+\_\+around$<$ 16 $>$}}
+\index{wrap\+\_\+around$<$ 16 $>$@{wrap\+\_\+around$<$ 16 $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{wrap\+\_\+around$<$ 16 $>$(int a)}{wrap_around< 16 >(int a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf int} {\bf dsp\+::wrap\+\_\+around}$<$ 16 $>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a0ba3a2b3953279ca422baf133bbe5311}{}\label{namespacedsp_a0ba3a2b3953279ca422baf133bbe5311}
+\index{dsp@{dsp}!wrap\+\_\+around$<$ 16384 $>$@{wrap\+\_\+around$<$ 16384 $>$}}
+\index{wrap\+\_\+around$<$ 16384 $>$@{wrap\+\_\+around$<$ 16384 $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{wrap\+\_\+around$<$ 16384 $>$(int a)}{wrap_around< 16384 >(int a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf int} {\bf dsp\+::wrap\+\_\+around}$<$ 16384 $>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a281059a04915345736238e9e4b40be99}{}\label{namespacedsp_a281059a04915345736238e9e4b40be99}
+\index{dsp@{dsp}!wrap\+\_\+around$<$ 2 $>$@{wrap\+\_\+around$<$ 2 $>$}}
+\index{wrap\+\_\+around$<$ 2 $>$@{wrap\+\_\+around$<$ 2 $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{wrap\+\_\+around$<$ 2 $>$(int a)}{wrap_around< 2 >(int a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf int} {\bf dsp\+::wrap\+\_\+around}$<$ 2 $>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_afffde31b63a42b9b1132b45196dd1e89}{}\label{namespacedsp_afffde31b63a42b9b1132b45196dd1e89}
+\index{dsp@{dsp}!wrap\+\_\+around$<$ 2048 $>$@{wrap\+\_\+around$<$ 2048 $>$}}
+\index{wrap\+\_\+around$<$ 2048 $>$@{wrap\+\_\+around$<$ 2048 $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{wrap\+\_\+around$<$ 2048 $>$(int a)}{wrap_around< 2048 >(int a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf int} {\bf dsp\+::wrap\+\_\+around}$<$ 2048 $>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a88398e8b3bff7aaca679e94de17b92e2}{}\label{namespacedsp_a88398e8b3bff7aaca679e94de17b92e2}
+\index{dsp@{dsp}!wrap\+\_\+around$<$ 256 $>$@{wrap\+\_\+around$<$ 256 $>$}}
+\index{wrap\+\_\+around$<$ 256 $>$@{wrap\+\_\+around$<$ 256 $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{wrap\+\_\+around$<$ 256 $>$(int a)}{wrap_around< 256 >(int a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf int} {\bf dsp\+::wrap\+\_\+around}$<$ 256 $>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_ae908f5d317aeb85ea97833ef836fb88a}{}\label{namespacedsp_ae908f5d317aeb85ea97833ef836fb88a}
+\index{dsp@{dsp}!wrap\+\_\+around$<$ 32 $>$@{wrap\+\_\+around$<$ 32 $>$}}
+\index{wrap\+\_\+around$<$ 32 $>$@{wrap\+\_\+around$<$ 32 $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{wrap\+\_\+around$<$ 32 $>$(int a)}{wrap_around< 32 >(int a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf int} {\bf dsp\+::wrap\+\_\+around}$<$ 32 $>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_af38eb85e16f50d0326ac58c4cf19e940}{}\label{namespacedsp_af38eb85e16f50d0326ac58c4cf19e940}
+\index{dsp@{dsp}!wrap\+\_\+around$<$ 32768 $>$@{wrap\+\_\+around$<$ 32768 $>$}}
+\index{wrap\+\_\+around$<$ 32768 $>$@{wrap\+\_\+around$<$ 32768 $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{wrap\+\_\+around$<$ 32768 $>$(int a)}{wrap_around< 32768 >(int a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf int} {\bf dsp\+::wrap\+\_\+around}$<$ 32768 $>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a8ef32631a87fdfa248e2e676aa61b87c}{}\label{namespacedsp_a8ef32631a87fdfa248e2e676aa61b87c}
+\index{dsp@{dsp}!wrap\+\_\+around$<$ 4 $>$@{wrap\+\_\+around$<$ 4 $>$}}
+\index{wrap\+\_\+around$<$ 4 $>$@{wrap\+\_\+around$<$ 4 $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{wrap\+\_\+around$<$ 4 $>$(int a)}{wrap_around< 4 >(int a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf int} {\bf dsp\+::wrap\+\_\+around}$<$ 4 $>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a538a801d8b57010e71956d8bde2e791b}{}\label{namespacedsp_a538a801d8b57010e71956d8bde2e791b}
+\index{dsp@{dsp}!wrap\+\_\+around$<$ 4096 $>$@{wrap\+\_\+around$<$ 4096 $>$}}
+\index{wrap\+\_\+around$<$ 4096 $>$@{wrap\+\_\+around$<$ 4096 $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{wrap\+\_\+around$<$ 4096 $>$(int a)}{wrap_around< 4096 >(int a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf int} {\bf dsp\+::wrap\+\_\+around}$<$ 4096 $>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_af6fc92d8ac8826c696bbb995b45b06f9}{}\label{namespacedsp_af6fc92d8ac8826c696bbb995b45b06f9}
+\index{dsp@{dsp}!wrap\+\_\+around$<$ 512 $>$@{wrap\+\_\+around$<$ 512 $>$}}
+\index{wrap\+\_\+around$<$ 512 $>$@{wrap\+\_\+around$<$ 512 $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{wrap\+\_\+around$<$ 512 $>$(int a)}{wrap_around< 512 >(int a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf int} {\bf dsp\+::wrap\+\_\+around}$<$ 512 $>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a01e5b607640a8f936db065f8094a5c63}{}\label{namespacedsp_a01e5b607640a8f936db065f8094a5c63}
+\index{dsp@{dsp}!wrap\+\_\+around$<$ 64 $>$@{wrap\+\_\+around$<$ 64 $>$}}
+\index{wrap\+\_\+around$<$ 64 $>$@{wrap\+\_\+around$<$ 64 $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{wrap\+\_\+around$<$ 64 $>$(int a)}{wrap_around< 64 >(int a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf int} {\bf dsp\+::wrap\+\_\+around}$<$ 64 $>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_acb589cce928a12a974b21d1faa829b74}{}\label{namespacedsp_acb589cce928a12a974b21d1faa829b74}
+\index{dsp@{dsp}!wrap\+\_\+around$<$ 65536 $>$@{wrap\+\_\+around$<$ 65536 $>$}}
+\index{wrap\+\_\+around$<$ 65536 $>$@{wrap\+\_\+around$<$ 65536 $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{wrap\+\_\+around$<$ 65536 $>$(int a)}{wrap_around< 65536 >(int a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf int} {\bf dsp\+::wrap\+\_\+around}$<$ 65536 $>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_aee3af6bac39ed962e4302079feeebb5f}{}\label{namespacedsp_aee3af6bac39ed962e4302079feeebb5f}
+\index{dsp@{dsp}!wrap\+\_\+around$<$ 8 $>$@{wrap\+\_\+around$<$ 8 $>$}}
+\index{wrap\+\_\+around$<$ 8 $>$@{wrap\+\_\+around$<$ 8 $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{wrap\+\_\+around$<$ 8 $>$(int a)}{wrap_around< 8 >(int a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf int} {\bf dsp\+::wrap\+\_\+around}$<$ 8 $>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a8ea22ff9da95484783f6b5223300f29c}{}\label{namespacedsp_a8ea22ff9da95484783f6b5223300f29c}
+\index{dsp@{dsp}!wrap\+\_\+around$<$ 8192 $>$@{wrap\+\_\+around$<$ 8192 $>$}}
+\index{wrap\+\_\+around$<$ 8192 $>$@{wrap\+\_\+around$<$ 8192 $>$}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{wrap\+\_\+around$<$ 8192 $>$(int a)}{wrap_around< 8192 >(int a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ {\bf int} {\bf dsp\+::wrap\+\_\+around}$<$ 8192 $>$ (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a51e76125c3844192cb144d8ba47f8b84}{}\label{namespacedsp_a51e76125c3844192cb144d8ba47f8b84}
+\index{dsp@{dsp}!zero@{zero}}
+\index{zero@{zero}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{zero(float \&v)}{zero(float &v)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} dsp\+::zero (
+\begin{DoxyParamCaption}
+\item[{float \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a3c28527ad9c78172345c5ff2175d2e1b}{}\label{namespacedsp_a3c28527ad9c78172345c5ff2175d2e1b}
+
+
+Set a float to zero. 
+
+\index{dsp@{dsp}!zero@{zero}}
+\index{zero@{zero}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{zero(double \&v)}{zero(double &v)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} dsp\+::zero (
+\begin{DoxyParamCaption}
+\item[{double \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a61fb61ea0337243a287f6065184d0434}{}\label{namespacedsp_a61fb61ea0337243a287f6065184d0434}
+
+
+Set a double to zero. 
+
+\index{dsp@{dsp}!zero@{zero}}
+\index{zero@{zero}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{zero(uint64\+\_\+t \&v)}{zero(uint64_t &v)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} dsp\+::zero (
+\begin{DoxyParamCaption}
+\item[{uint64\+\_\+t \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_ad6e8bc40c7492bab0993568bf6a7bd14}{}\label{namespacedsp_ad6e8bc40c7492bab0993568bf6a7bd14}
+
+
+Set 64-\/bit unsigned integer value to zero. 
+
+\index{dsp@{dsp}!zero@{zero}}
+\index{zero@{zero}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{zero(uint32\+\_\+t \&v)}{zero(uint32_t &v)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} dsp\+::zero (
+\begin{DoxyParamCaption}
+\item[{uint32\+\_\+t \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a9f9990a5a2bac29871bff5f6c11b1e59}{}\label{namespacedsp_a9f9990a5a2bac29871bff5f6c11b1e59}
+
+
+Set 32-\/bit unsigned integer value to zero. 
+
+\index{dsp@{dsp}!zero@{zero}}
+\index{zero@{zero}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{zero(uint16\+\_\+t \&v)}{zero(uint16_t &v)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} dsp\+::zero (
+\begin{DoxyParamCaption}
+\item[{uint16\+\_\+t \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a4a5c4476f87676c2e648162a07500e3d}{}\label{namespacedsp_a4a5c4476f87676c2e648162a07500e3d}
+
+
+Set 16-\/bit unsigned integer value to zero. 
+
+\index{dsp@{dsp}!zero@{zero}}
+\index{zero@{zero}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{zero(uint8\+\_\+t \&v)}{zero(uint8_t &v)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} dsp\+::zero (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a8098836a83f20758ef5919b21daf6c82}{}\label{namespacedsp_a8098836a83f20758ef5919b21daf6c82}
+
+
+Set 8-\/bit unsigned integer value to zero. 
+
+\index{dsp@{dsp}!zero@{zero}}
+\index{zero@{zero}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{zero(int64\+\_\+t \&v)}{zero(int64_t &v)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} dsp\+::zero (
+\begin{DoxyParamCaption}
+\item[{int64\+\_\+t \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_ae91e184a11c5b13e38f8d4b68450753a}{}\label{namespacedsp_ae91e184a11c5b13e38f8d4b68450753a}
+
+
+Set 64-\/bit signed integer value to zero. 
+
+\index{dsp@{dsp}!zero@{zero}}
+\index{zero@{zero}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{zero(int32\+\_\+t \&v)}{zero(int32_t &v)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} dsp\+::zero (
+\begin{DoxyParamCaption}
+\item[{int32\+\_\+t \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_aedf4fcf41ff9169d33f6cdcc20aa3847}{}\label{namespacedsp_aedf4fcf41ff9169d33f6cdcc20aa3847}
+
+
+Set 32-\/bit signed integer value to zero. 
+
+\index{dsp@{dsp}!zero@{zero}}
+\index{zero@{zero}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{zero(int16\+\_\+t \&v)}{zero(int16_t &v)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} dsp\+::zero (
+\begin{DoxyParamCaption}
+\item[{int16\+\_\+t \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_a50b7baf4a4f14897839d37d5f58de63b}{}\label{namespacedsp_a50b7baf4a4f14897839d37d5f58de63b}
+
+
+Set 16-\/bit signed integer value to zero. 
+
+\index{dsp@{dsp}!zero@{zero}}
+\index{zero@{zero}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{zero(int8\+\_\+t \&v)}{zero(int8_t &v)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} dsp\+::zero (
+\begin{DoxyParamCaption}
+\item[{int8\+\_\+t \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_af140a0801d6191807b799173dd6440f8}{}\label{namespacedsp_af140a0801d6191807b799173dd6440f8}
+
+
+Set 8-\/bit signed integer value to zero. 
+
+\index{dsp@{dsp}!zero@{zero}}
+\index{zero@{zero}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{zero(\+T $\ast$data, unsigned int size)}{zero(T *data, unsigned int size)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf void} dsp\+::zero (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{data, }
+\item[{unsigned {\bf int}}]{size}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacedsp_a1aaff1d9c2e57d505ac50b4f616f8b3a}{}\label{namespacedsp_a1aaff1d9c2e57d505ac50b4f616f8b3a}
+
+
+Set array (buffer or anything similar) to vector of zeroes. 
+
+\index{dsp@{dsp}!zero@{zero}}
+\index{zero@{zero}!dsp@{dsp}}
+\subsubsection[{\texorpdfstring{zero(stereo\+\_\+sample$<$ T $>$ \&v)}{zero(stereo_sample< T > &v)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf void} dsp\+::zero (
+\begin{DoxyParamCaption}
+\item[{{\bf stereo\+\_\+sample}$<$ T $>$ \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacedsp_ae9696253f1153142a082f212d1d0083f}{}\label{namespacedsp_ae9696253f1153142a082f212d1d0083f}
+
+
+Set a stereo\+\_\+sample$<$\+T$>$ value to zero. 
+

@@ -27,12 +27,22 @@ public:
     TypeaheadPopupMenu ();
     ~TypeaheadPopupMenu (){};
 
+    /**
+     *  Sets the set of Strings to be searched
+     *
+     *  @param options_ juce::StringArray& options_
+     */
     void setItems (const StringArray& options_);
 
     void resized () override;
 
     void paint (Graphics& g) override;
 
+    /**
+     *  Returns the number of Strings in options
+     *
+     *  @return int
+     */
     int getNumRows () override;
 
     /**
@@ -68,10 +78,13 @@ public:
      */
     void paintListBoxItem (int rowNumber, Graphics& g, int width, int height, bool rowIsSelected) override;
 
+    /**
+     *  Highlights the first row of the popupmenu
+     */
     void setFirstItemFocused ();
 
 private:
-    std::function<void(String)> onItemSelected;
+    std::function<void(String)> onItemSelected;  // a function to be performed when an item is selected
     ListBox list;
     std::vector<String> options;
     DropShadower shadow;
@@ -135,6 +148,11 @@ public:
      */
     bool keyPressed (const KeyPress& key, Component* component) override;
 
+    /**
+     *  Called when text editor loses focus
+     *
+     *  @param cause FocusChangeType
+     */
     void focusLost (FocusChangeType cause) override;
 
     void resized () override;
@@ -198,7 +216,11 @@ public:
      *
      *  @return StringArray
      */
-    StringArray getDescriptors () { return options; }
+    StringArray getDescriptors ()
+    {
+        return options;
+    }
+
 private:
     ScopedPointer<TypeaheadPopupMenu> menu;               // the popup menu containing suggestions
     StringArray options;                                  // the set of words to be searched

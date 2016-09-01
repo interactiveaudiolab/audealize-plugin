@@ -1,0 +1,285 @@
+\hypertarget{class_typeahead_editor}{}\section{Typeahead\+Editor Class Reference}
+\label{class_typeahead_editor}\index{Typeahead\+Editor@{Typeahead\+Editor}}
+
+
+{\ttfamily \#include $<$Typeahead\+Popup\+Menu.\+h$>$}
+
+Inheritance diagram for Typeahead\+Editor\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.931034cm]{class_typeahead_editor}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_typeahead_editor_ad8c967c6f8afd68f04c0fda4a7631704}{Typeahead\+Editor} ()
+\item 
+\hyperlink{class_typeahead_editor_a2c4ccf6fc7191665150f36c88df1fa67}{$\sim$\+Typeahead\+Editor} ()
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_editor_a4942e3438d0aa957b7ec729710c70a50}{mouse\+Down} (const Mouse\+Event \&event) override
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_editor_a45f73a99da1b4ff012c604765f80e8d0}{set\+Options} (std\+::vector$<$ String $>$ opts)
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_editor_a24bfe0b145f960d2765885c62905f7e0}{show\+Menu} ()
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_editor_a9e91eee02228481e5651189dbc486d00}{text\+Editor\+Text\+Changed} (Text\+Editor \&) override
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_editor_ae1c47bed0eac90df9affad67cd9f755c}{dismiss\+Menu} ()
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_editor_ad2d40cb37ad5ef0dd3e9c54384c403d1}{timer\+Callback} () override
+\item 
+bool \hyperlink{class_typeahead_editor_a3622d6740193b88c7ee5c0a7b2335958}{key\+Pressed} (const Key\+Press \&key, Component $\ast$component) override
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_editor_abe5dec053fa695c133250a317a046822}{focus\+Lost} (Focus\+Change\+Type cause) override
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_editor_a168babdbdaaa02abdae5172f98ef09db}{resized} () override
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_editor_aca498173bb04dfd712f14c5bad4d3b02}{action\+Listener\+Callback} (const juce\+::\+String \&message) override
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_editor_a8942bdee20c8dbdf09123404aca1714c}{set\+Multi\+Effect} (vector$<$ String $>$ effect\+Names, vector$<$ String\+Array $>$ descriptors)
+\item 
+Text\+Editor $\ast$ \hyperlink{class_typeahead_editor_a9b5ee4d14ff67527b270abfa75fcf83d}{get\+Editor} ()
+\item 
+String\+Array \hyperlink{class_typeahead_editor_a23f3a2809206205be586495f181c853d}{synonyms} (String word)
+\item 
+bool \hyperlink{class_typeahead_editor_ad92a282d4fe1df28fcff57e3288c5283}{binary\+Search} (String\+Array $\ast$arr, String \hyperlink{morph_8c_ab50d783982593ef993ea0b68f7ad8b80}{str})
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{class_typeahead_editor_a713f4cffc6f41db8ac347a6b3ffcab9e}{show\+Bubble\+Message} (Attributed\+String \hyperlink{morph_8c_ab50d783982593ef993ea0b68f7ad8b80}{str}, Colour outline\+Color, Colour fill\+Color=Colours\+::white, \hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} time\+In\+MS=1000)
+\item 
+String\+Array \hyperlink{class_typeahead_editor_a6575dabcc66c032cfc0c4b8b6e2ad327}{get\+Descriptors} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A Text\+Editor component that displays a \hyperlink{class_typeahead_popup_menu}{Typeahead\+Popup\+Menu} below it with suggestions of words 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Typeahead\+Editor@{Typeahead\+Editor}!Typeahead\+Editor@{Typeahead\+Editor}}
+\index{Typeahead\+Editor@{Typeahead\+Editor}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{Typeahead\+Editor()}{TypeaheadEditor()}}]{\setlength{\rightskip}{0pt plus 5cm}Typeahead\+Editor\+::\+Typeahead\+Editor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_typeahead_editor_ad8c967c6f8afd68f04c0fda4a7631704}{}\label{class_typeahead_editor_ad8c967c6f8afd68f04c0fda4a7631704}
+\index{Typeahead\+Editor@{Typeahead\+Editor}!````~Typeahead\+Editor@{$\sim$\+Typeahead\+Editor}}
+\index{````~Typeahead\+Editor@{$\sim$\+Typeahead\+Editor}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{$\sim$\+Typeahead\+Editor()}{~TypeaheadEditor()}}]{\setlength{\rightskip}{0pt plus 5cm}Typeahead\+Editor\+::$\sim$\+Typeahead\+Editor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_typeahead_editor_a2c4ccf6fc7191665150f36c88df1fa67}{}\label{class_typeahead_editor_a2c4ccf6fc7191665150f36c88df1fa67}
+
+
+\subsection{Member Function Documentation}
+\index{Typeahead\+Editor@{Typeahead\+Editor}!action\+Listener\+Callback@{action\+Listener\+Callback}}
+\index{action\+Listener\+Callback@{action\+Listener\+Callback}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{action\+Listener\+Callback(const juce\+::\+String \&message) override}{actionListenerCallback(const juce::String &message) override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Editor\+::action\+Listener\+Callback (
+\begin{DoxyParamCaption}
+\item[{const juce\+::\+String \&}]{message}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}}\hypertarget{class_typeahead_editor_aca498173bb04dfd712f14c5bad4d3b02}{}\label{class_typeahead_editor_aca498173bb04dfd712f14c5bad4d3b02}
+Used to set text of editor when word is selected in a Word\+Map
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & A string containing the word \\
+\hline
+\end{DoxyParams}
+\index{Typeahead\+Editor@{Typeahead\+Editor}!binary\+Search@{binary\+Search}}
+\index{binary\+Search@{binary\+Search}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{binary\+Search(\+String\+Array $\ast$arr, String str)}{binarySearch(StringArray *arr, String str)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Typeahead\+Editor\+::binary\+Search (
+\begin{DoxyParamCaption}
+\item[{String\+Array $\ast$}]{arr, }
+\item[{String}]{str}
+\end{DoxyParamCaption}
+)}\hypertarget{class_typeahead_editor_ad92a282d4fe1df28fcff57e3288c5283}{}\label{class_typeahead_editor_ad92a282d4fe1df28fcff57e3288c5283}
+Use binary search to find a String in a String\+Array
+
+
+\begin{DoxyParams}{Parameters}
+{\em arr} & String\+Array \\
+\hline
+{\em str} & String\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if found 
+\end{DoxyReturn}
+\index{Typeahead\+Editor@{Typeahead\+Editor}!dismiss\+Menu@{dismiss\+Menu}}
+\index{dismiss\+Menu@{dismiss\+Menu}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{dismiss\+Menu()}{dismissMenu()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Editor\+::dismiss\+Menu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_typeahead_editor_ae1c47bed0eac90df9affad67cd9f755c}{}\label{class_typeahead_editor_ae1c47bed0eac90df9affad67cd9f755c}
+Remove the popup menu from the screen \index{Typeahead\+Editor@{Typeahead\+Editor}!focus\+Lost@{focus\+Lost}}
+\index{focus\+Lost@{focus\+Lost}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{focus\+Lost(\+Focus\+Change\+Type cause) override}{focusLost(FocusChangeType cause) override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Editor\+::focus\+Lost (
+\begin{DoxyParamCaption}
+\item[{Focus\+Change\+Type}]{cause}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}}\hypertarget{class_typeahead_editor_abe5dec053fa695c133250a317a046822}{}\label{class_typeahead_editor_abe5dec053fa695c133250a317a046822}
+\index{Typeahead\+Editor@{Typeahead\+Editor}!get\+Descriptors@{get\+Descriptors}}
+\index{get\+Descriptors@{get\+Descriptors}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{get\+Descriptors()}{getDescriptors()}}]{\setlength{\rightskip}{0pt plus 5cm}String\+Array Typeahead\+Editor\+::get\+Descriptors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{class_typeahead_editor_a6575dabcc66c032cfc0c4b8b6e2ad327}{}\label{class_typeahead_editor_a6575dabcc66c032cfc0c4b8b6e2ad327}
+Returns a String\+Array containing the set of descriptors being searched by this \hyperlink{class_typeahead_editor}{Typeahead\+Editor}
+
+\begin{DoxyReturn}{Returns}
+String\+Array 
+\end{DoxyReturn}
+\index{Typeahead\+Editor@{Typeahead\+Editor}!get\+Editor@{get\+Editor}}
+\index{get\+Editor@{get\+Editor}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{get\+Editor()}{getEditor()}}]{\setlength{\rightskip}{0pt plus 5cm}Text\+Editor $\ast$ Typeahead\+Editor\+::get\+Editor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_typeahead_editor_a9b5ee4d14ff67527b270abfa75fcf83d}{}\label{class_typeahead_editor_a9b5ee4d14ff67527b270abfa75fcf83d}
+Returns a pointer to the searchbar Text\+Editor
+
+\begin{DoxyReturn}{Returns}
+a Text\+Editor$\ast$ 
+\end{DoxyReturn}
+\index{Typeahead\+Editor@{Typeahead\+Editor}!key\+Pressed@{key\+Pressed}}
+\index{key\+Pressed@{key\+Pressed}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{key\+Pressed(const Key\+Press \&key, Component $\ast$component) override}{keyPressed(const KeyPress &key, Component *component) override}}]{\setlength{\rightskip}{0pt plus 5cm}bool Typeahead\+Editor\+::key\+Pressed (
+\begin{DoxyParamCaption}
+\item[{const Key\+Press \&}]{key, }
+\item[{Component $\ast$}]{component}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}}\hypertarget{class_typeahead_editor_a3622d6740193b88c7ee5c0a7b2335958}{}\label{class_typeahead_editor_a3622d6740193b88c7ee5c0a7b2335958}
+Called when a key is pressed. Inherited from Key\+Listener
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Key\+Press\& \\
+\hline
+{\em component} & The component that has focus\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\index{Typeahead\+Editor@{Typeahead\+Editor}!mouse\+Down@{mouse\+Down}}
+\index{mouse\+Down@{mouse\+Down}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{mouse\+Down(const Mouse\+Event \&event) override}{mouseDown(const MouseEvent &event) override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Editor\+::mouse\+Down (
+\begin{DoxyParamCaption}
+\item[{const Mouse\+Event \&}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}}\hypertarget{class_typeahead_editor_a4942e3438d0aa957b7ec729710c70a50}{}\label{class_typeahead_editor_a4942e3438d0aa957b7ec729710c70a50}
+\index{Typeahead\+Editor@{Typeahead\+Editor}!resized@{resized}}
+\index{resized@{resized}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{resized() override}{resized() override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Editor\+::resized (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}}\hypertarget{class_typeahead_editor_a168babdbdaaa02abdae5172f98ef09db}{}\label{class_typeahead_editor_a168babdbdaaa02abdae5172f98ef09db}
+\index{Typeahead\+Editor@{Typeahead\+Editor}!set\+Multi\+Effect@{set\+Multi\+Effect}}
+\index{set\+Multi\+Effect@{set\+Multi\+Effect}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{set\+Multi\+Effect(vector$<$ String $>$ effect\+Names, vector$<$ String\+Array $>$ descriptors)}{setMultiEffect(vector< String > effectNames, vector< StringArray > descriptors)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Editor\+::set\+Multi\+Effect (
+\begin{DoxyParamCaption}
+\item[{vector$<$ String $>$}]{effect\+Names, }
+\item[{vector$<$ String\+Array $>$}]{descriptors}
+\end{DoxyParamCaption}
+)}\hypertarget{class_typeahead_editor_a8942bdee20c8dbdf09123404aca1714c}{}\label{class_typeahead_editor_a8942bdee20c8dbdf09123404aca1714c}
+Tells the \hyperlink{class_typeahead_popup_menu}{Typeahead\+Popup\+Menu} that it is part of a multi effect plugin and should therefore search the descriptor sets for the ther effects
+
+
+\begin{DoxyParams}{Parameters}
+{\em effect\+Names} & vector$<$\+String$>$ list of names of other effects in the plugin (EQ, reverb, etc..) \\
+\hline
+{\em descriptors} & vector$<$\+String\+Array$>$ containing the sets of descriptors for each other effect/wordmap. Must be in same order as effect\+Names \\
+\hline
+\end{DoxyParams}
+\index{Typeahead\+Editor@{Typeahead\+Editor}!set\+Options@{set\+Options}}
+\index{set\+Options@{set\+Options}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{set\+Options(std\+::vector$<$ String $>$ opts)}{setOptions(std::vector< String > opts)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Editor\+::set\+Options (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ String $>$}]{opts}
+\end{DoxyParamCaption}
+)}\hypertarget{class_typeahead_editor_a45f73a99da1b4ff012c604765f80e8d0}{}\label{class_typeahead_editor_a45f73a99da1b4ff012c604765f80e8d0}
+Set the list of words to be searched by the texteditor
+
+
+\begin{DoxyParams}{Parameters}
+{\em opts} & a vector$<$\+String$>$ \\
+\hline
+\end{DoxyParams}
+\index{Typeahead\+Editor@{Typeahead\+Editor}!show\+Bubble\+Message@{show\+Bubble\+Message}}
+\index{show\+Bubble\+Message@{show\+Bubble\+Message}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{show\+Bubble\+Message(\+Attributed\+String str, Colour outline\+Color, Colour fill\+Color=\+Colours\+::white, int time\+In\+M\+S=1000)}{showBubbleMessage(AttributedString str, Colour outlineColor, Colour fillColor=Colours::white, int timeInMS=1000)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Editor\+::show\+Bubble\+Message (
+\begin{DoxyParamCaption}
+\item[{Attributed\+String}]{str, }
+\item[{Colour}]{outline\+Color, }
+\item[{Colour}]{fill\+Color = {\ttfamily Colours\+:\+:white}, }
+\item[{{\bf int}}]{time\+In\+MS = {\ttfamily 1000}}
+\end{DoxyParamCaption}
+)}\hypertarget{class_typeahead_editor_a713f4cffc6f41db8ac347a6b3ffcab9e}{}\label{class_typeahead_editor_a713f4cffc6f41db8ac347a6b3ffcab9e}
+Show a Bubble\+Message\+Component pointed at this \hyperlink{class_typeahead_editor}{Typeahead\+Editor}
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & The message to be displayed \\
+\hline
+{\em outline\+Color} & Color of the outline of the Bubble\+Message\+Component \\
+\hline
+{\em fill\+Color} & Color of the outline of the Bubble\+Message\+Component \\
+\hline
+{\em time\+In\+MS} & Time (in ms) for Bubble\+Message\+Component to stay visible \\
+\hline
+\end{DoxyParams}
+\index{Typeahead\+Editor@{Typeahead\+Editor}!show\+Menu@{show\+Menu}}
+\index{show\+Menu@{show\+Menu}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{show\+Menu()}{showMenu()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Editor\+::show\+Menu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_typeahead_editor_a24bfe0b145f960d2765885c62905f7e0}{}\label{class_typeahead_editor_a24bfe0b145f960d2765885c62905f7e0}
+Show the \hyperlink{class_typeahead_popup_menu}{Typeahead\+Popup\+Menu} \index{Typeahead\+Editor@{Typeahead\+Editor}!synonyms@{synonyms}}
+\index{synonyms@{synonyms}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{synonyms(\+String word)}{synonyms(String word)}}]{\setlength{\rightskip}{0pt plus 5cm}String\+Array Typeahead\+Editor\+::synonyms (
+\begin{DoxyParamCaption}
+\item[{String}]{word}
+\end{DoxyParamCaption}
+)}\hypertarget{class_typeahead_editor_a23f3a2809206205be586495f181c853d}{}\label{class_typeahead_editor_a23f3a2809206205be586495f181c853d}
+Finds synonyms of a given word using Word\+Net
+
+
+\begin{DoxyParams}{Parameters}
+{\em word} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String\+Array of synonyms 
+\end{DoxyReturn}
+\index{Typeahead\+Editor@{Typeahead\+Editor}!text\+Editor\+Text\+Changed@{text\+Editor\+Text\+Changed}}
+\index{text\+Editor\+Text\+Changed@{text\+Editor\+Text\+Changed}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{text\+Editor\+Text\+Changed(\+Text\+Editor \&) override}{textEditorTextChanged(TextEditor &) override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Editor\+::text\+Editor\+Text\+Changed (
+\begin{DoxyParamCaption}
+\item[{Text\+Editor \&}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}}\hypertarget{class_typeahead_editor_a9e91eee02228481e5651189dbc486d00}{}\label{class_typeahead_editor_a9e91eee02228481e5651189dbc486d00}
+Called when the text of the texteditor is changed Searches for matching words in options, searches for synonyms if none present
+
+
+\begin{DoxyParams}{Parameters}
+{\em Text\+Editor\&} & \\
+\hline
+\end{DoxyParams}
+\index{Typeahead\+Editor@{Typeahead\+Editor}!timer\+Callback@{timer\+Callback}}
+\index{timer\+Callback@{timer\+Callback}!Typeahead\+Editor@{Typeahead\+Editor}}
+\subsubsection[{\texorpdfstring{timer\+Callback() override}{timerCallback() override}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf void} Typeahead\+Editor\+::timer\+Callback (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [override]}}\hypertarget{class_typeahead_editor_ad2d40cb37ad5ef0dd3e9c54384c403d1}{}\label{class_typeahead_editor_ad2d40cb37ad5ef0dd3e9c54384c403d1}
+Inherited from timer 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/michael/\+J\+U\+C\+E/projects/audealize-\/plugin/\+J\+U\+C\+E Modules/audealize\+\_\+module/ui\+\_\+components/\hyperlink{_typeahead_popup_menu_8h}{Typeahead\+Popup\+Menu.\+h}\item 
+/\+Users/michael/\+J\+U\+C\+E/projects/audealize-\/plugin/\+J\+U\+C\+E Modules/audealize\+\_\+module/ui\+\_\+components/\hyperlink{_typeahead_popup_menu_8cpp}{Typeahead\+Popup\+Menu.\+cpp}\end{DoxyCompactItemize}

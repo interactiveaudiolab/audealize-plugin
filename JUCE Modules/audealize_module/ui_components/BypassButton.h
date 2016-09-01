@@ -29,7 +29,6 @@ public:
             Drawable::createFromImageData (AudealizeImages::powerButton_svg, AudealizeImages::powerButton_svgSize);
         mOnGraphic->replaceColour (Colour (0xff000000), findColour (onColourId));
 
-
         setImages (mOffGraphic, nullptr, nullptr, nullptr, mOnGraphic, nullptr, nullptr, nullptr);
 
         setEdgeIndent (10);
@@ -55,11 +54,13 @@ public:
             Drawable::createFromImageData (AudealizeImages::powerButton_svg, AudealizeImages::powerButton_svgSize);
         mOnGraphic->replaceColour (Colour (0xff000000), findColour (onColourId));
 
-
         setImages (mOffGraphic, nullptr, nullptr, nullptr, mOnGraphic, nullptr, nullptr, nullptr);
     }
 
-    void paintButton (Graphics& g, const bool isMouseOverButton, const bool isButtonDown) override {}
+    void paintButton (Graphics& g, const bool isMouseOverButton, const bool isButtonDown) override
+    {
+    }
+
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (BypassButton);
 

@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['p_5fadj',['P_ADJ',['../wngrind_8h.html#a9c93ecb8a7ab05448b5265653b0e10fc',1,'wngrind.h']]],
+  ['p_5fadv',['P_ADV',['../wngrind_8h.html#ab853bf3de024e1c66ebdb2cfe02a368a',1,'wngrind.h']]],
+  ['p_5fnoun',['P_NOUN',['../wngrind_8h.html#a8555431792f57ae41b74d6a8f63cbeed',1,'wngrind.h']]],
+  ['p_5fverb',['P_VERB',['../wngrind_8h.html#a6bc25472d01064a83374dd67180d1597',1,'wngrind.h']]],
+  ['package',['PACKAGE',['../config_8h.html#aca8570fb706c81df371b7f9bc454ae03',1,'config.h']]],
+  ['package_5fbugreport',['PACKAGE_BUGREPORT',['../config_8h.html#a1d1d2d7f8d2f95b376954d649ab03233',1,'config.h']]],
+  ['package_5fname',['PACKAGE_NAME',['../config_8h.html#a1c0439e4355794c09b64274849eb0279',1,'config.h']]],
+  ['package_5fstring',['PACKAGE_STRING',['../config_8h.html#ac73e6f903c16eca7710f92e36e1c6fbf',1,'config.h']]],
+  ['package_5ftarname',['PACKAGE_TARNAME',['../config_8h.html#af415af6bfede0e8d5453708afe68651c',1,'config.h']]],
+  ['package_5fversion',['PACKAGE_VERSION',['../config_8h.html#aa326a05d5e30f9e9a4bb0b4469d5d0c0',1,'config.h']]],
+  ['padj',['PADJ',['../wn_8h.html#ae7a3b2a5548ed6eec8c81fc6d05a7583',1,'wn.h']]],
+  ['pertainym',['PERTAINYM',['../search_8c.html#a0fe712baf96696cd78bc61d83bedabfb',1,'search.c']]],
+  ['pertptr',['PERTPTR',['../wn_8h.html#a0366260ccc4efd05bd26d1b5c8d822d8',1,'wn.h']]],
+  ['pi',['PI',['../_reverb_8h.html#a598a3330b3c21701223ee0ca14316eca',1,'Reverb.h']]],
+  ['pplptr',['PPLPTR',['../wn_8h.html#a297b9b99fda046c9eed6200ef94b235c',1,'wn.h']]],
+  ['predicative',['PREDICATIVE',['../wn_8h.html#a5ef8dbfa99aa550ed44121e901945424',1,'wn.h']]],
+  ['print_5fants',['PRINT_ANTS',['../search_8c.html#a983b4119c5c4438a2dc264c7a6dd7c91',1,'search.c']]],
+  ['print_5fmarker',['PRINT_MARKER',['../search_8c.html#af23f2a0cae9f77d57ba7335dd7a01ca7',1,'search.c']]],
+  ['ptrkind',['ptrkind',['../wngrind_8h.html#a7e8998b2f06c26fc8512bfbf4d55c539',1,'wngrind.h']]]
+];

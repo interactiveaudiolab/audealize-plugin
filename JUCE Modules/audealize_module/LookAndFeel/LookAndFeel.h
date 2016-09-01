@@ -55,8 +55,16 @@ public:
 
     ~AudealizeLookAndFeel ();
 
-    bool isDarkModeActive () { return isDarkMode; }
-    bool willDrawOutlines () { return shouldDrawOutlines; }
+    bool isDarkModeActive ()
+    {
+        return isDarkMode;
+    }
+
+    bool willDrawOutlines ()
+    {
+        return shouldDrawOutlines;
+    }
+
     void setOutlines (bool enabled);
 
     void drawTabAreaBehindFrontButton (TabbedButtonBar& bar, Graphics& g, const int w, const int h) override;
@@ -90,12 +98,21 @@ public:
 
     void drawTextEditorOutline (Graphics& g, int width, int height, TextEditor& textEditor) override;
 
-    int getTabButtonOverlap (int /*tabDepth*/) override { return -4; }
-    int getTabButtonSpaceAroundImage () override { return 0; }
+    int getTabButtonOverlap (int /*tabDepth*/) override
+    {
+        return -4;
+    }
+
+    int getTabButtonSpaceAroundImage () override
+    {
+        return 0;
+    }
+
     int getTabButtonBestWidth (TabBarButton& button, int tabDepth) override;
 
     void createTabTextLayout (const TabBarButton& button, float length, float depth, Colour colour,
                               TextLayout& textLayout);
+
     Typeface::Ptr getTypefaceForFont (const Font& font) override
     {
         return Typeface::createSystemTypefaceFor (AudealizeFonts::RobotoRegular_ttf,

@@ -235,7 +235,7 @@ AudealizeUI* AudealizereverbAudioProcessor::createEditorForMultiEffect ()
 {
     ScopedPointer<TraditionalUI> mReverbComponent = new ReverbComponent (*this);
 
-    String path_to_points = Properties::getProperty (Properties::propertyIds::eqDataPath);
+    String path_to_points = Properties::getProperty (Properties::propertyIds::reverbDataPath);
 
     if (!File (path_to_points).existsAsFile ())
     {
@@ -249,7 +249,7 @@ AudioProcessorEditor* AudealizereverbAudioProcessor::createEditor ()
 {
     ScopedPointer<TraditionalUI> mReverbComponent = new ReverbComponent (*this);
 
-    String path_to_points = Properties::getProperty (Properties::propertyIds::eqDataPath);
+    String path_to_points = Properties::getProperty (Properties::propertyIds::reverbDataPath);
 
     if (!File (path_to_points).existsAsFile ())
     {

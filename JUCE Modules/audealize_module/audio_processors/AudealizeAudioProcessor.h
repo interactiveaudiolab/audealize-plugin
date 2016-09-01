@@ -98,7 +98,10 @@ public:
      *
      *  @return an AudioProcessorValueTreeState
      */
-    AudioProcessorValueTreeState& getValueTreeState () { return *mState; }
+    AudioProcessorValueTreeState& getValueTreeState ()
+    {
+        return *mState;
+    }
     /**
      *  Normalizes a vector of floats
      *
@@ -119,15 +122,78 @@ public:
      *
      *  @param index
      */
-    inline virtual String getParamID (int index) { return ""; };
-    inline String getParamAmountID () { return paramAmountId; }
-    void setBypass (bool bypass) { mBypass = bypass; }
-    bool isBypassed () { return mBypass; }
-    AudioProcessorValueTreeState* getState () { return mState; }
-    UndoManager* getUndoManager () { return mUndoManager; }
-    AudioProcessorParameter* getParameterPtr (int idx) { return mState->getParameter (getParamID (idx)); }
-    AudioProcessorParameter* getParameterPtrFromID (String paramID) { return mState->getParameter (paramID); }
-    bool isMetaParameter (int parameterIndex) const override { return true; }
+    inline virtual String getParamID (int index)
+    {
+        return "";
+    };
+
+    /**
+     *  Returns the parameter ID String for the "Amount" parameter. (will be different depending on effect type)
+     *  Needed for differentiating between different effect amount controls in multi effect plugins
+     */
+    inline String getParamAmountID ()
+    {
+        return paramAmountId;
+    }
+
+    /**
+     *  Set the bypass state of the AudioProcessor. If true, processor will not apply its effect.
+     */
+    void setBypass (bool bypass)
+    {
+        mBypass = bypass;
+    }
+
+    /**
+     *  Returns true if AudioProcessor is bypassed (not applying its effect)
+     *
+     *  @return <#return value description#>
+     */
+    bool isBypassed ()
+    {
+        return mBypass;
+    }
+
+    /**
+     *  Returns a pointer to the AudioProcessor's ValueTreeState
+     */
+    AudioProcessorValueTreeState* getState ()
+    {
+        return mState;
+    }
+
+    /**
+     *  Returns the AudioProcessor's UndoManager. Not currently used in Audealize plugins
+     */
+    UndoManager* getUndoManager ()
+    {
+        return mUndoManager;
+    }
+
+    /**
+     *  Returns a pointer to an AudioProcessorParameter, referenced by its index
+     */
+    AudioProcessorParameter* getParameterPtr (int idx)
+    {
+        return mState->getParameter (getParamID (idx));
+    }
+
+    /**
+     *  Returns a pointer to an AudioProcessorParameter, referenced by its ID string
+     */
+    AudioProcessorParameter* getParameterPtrFromID (String paramID)
+    {
+        return mState->getParameter (paramID);
+    }
+
+    /**
+     *  Returns true - all parameters should be flagged meta
+     */
+    bool isMetaParameter (int parameterIndex) const override
+    {
+        return true;
+    }
+
 protected:
     AudioProcessorValueTreeState*
         mState;  // and AudioProcessorValueTreeState containing the parameter state information
@@ -135,7 +201,7 @@ protected:
 
     vector<float> mParamSettings;
 
-    AudealizeAudioProcessor* mOwner;
+    AudealizeAudioProcessor* mOwner;  // The main PluginProcessor of the plugin
 
     bool mBypass;
 

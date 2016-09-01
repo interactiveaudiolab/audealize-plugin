@@ -27,7 +27,11 @@ public:
         bq_type_highshelf
     };
 
-    NChannelFilter () : filters (1) { setFilter (bq_type_peak, 1000.0f, 0.707f, 0.0f, 441000.0f); }
+    NChannelFilter () : filters (1)
+    {
+        setFilter (bq_type_peak, 1000.0f, 0.707f, 0.0f, 441000.0f);
+    }
+
     NChannelFilter (int type, int numChannels, float Fc, float Q, float gainDB, float sampleRate)
         : filters (numChannels)
     {
@@ -132,10 +136,32 @@ public:
         calc ();
     }
 
-    int getNumChannels () { return mChannels; }
-    int getType () { return mType; }
-    float getFreq () { return mFc; }
-    float getGain () { return mGain; }
+    int getNumChannels ()
+    {
+        return mChannels;
+    }
+
+    /**
+     *  Returns the type of filter as an int
+     *  @see Biquad::bq_types
+     *
+     *  @return filter type
+     */
+    int getType ()
+    {
+        return mType;
+    }
+
+    float getFreq ()
+    {
+        return mFc;
+    }
+
+    float getGain ()
+    {
+        return mGain;
+    }
+
 private:
     vector<Biquad> filters;  // vector of the filters
     int mChannels;           // number of audio channels to be processed

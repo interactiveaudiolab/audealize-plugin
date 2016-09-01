@@ -13,6 +13,9 @@
 //==============================================================================
 /**
  */
+
+using namespace Audealize;
+
 class ReverbPluginProcessor : public AudealizeAudioProcessor
 {
 public:

@@ -1,0 +1,76 @@
+\hypertarget{morph_8c}{}\section{/\+Users/michael/\+J\+U\+C\+E/projects/audealize-\/plugin/\+J\+U\+CE Modules/audealize\+\_\+module/\+Word\+Net-\/3.0/lib/morph.c File Reference}
+\label{morph_8c}\index{/\+Users/michael/\+J\+U\+C\+E/projects/audealize-\/plugin/\+J\+U\+C\+E Modules/audealize\+\_\+module/\+Word\+Net-\/3.\+0/lib/morph.\+c@{/\+Users/michael/\+J\+U\+C\+E/projects/audealize-\/plugin/\+J\+U\+C\+E Modules/audealize\+\_\+module/\+Word\+Net-\/3.\+0/lib/morph.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$ctype.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}wn.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{morph_8c_a8a15be2743c891eb9a057b1406b4fc35}{E\+X\+C\+F\+I\+LE}~\char`\"{}\%s/\%s.\+exc\char`\"{}
+\item 
+\#define \hyperlink{morph_8c_a592950d0b7fb17f1700954852287719c}{N\+U\+M\+P\+R\+E\+PS}~15
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{morph_8c_a2c5c939e9da8547a3da290a32d296f76}{morphinit} (\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void})
+\item 
+\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{morph_8c_a1eea1ab9a982101f03494e176f592b3f}{re\+\_\+morphinit} (\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void})
+\item 
+char $\ast$ \hyperlink{morph_8c_a408b2a91cf19638c7d7545fbd109b2de}{morphstr} (char $\ast$origstr, \hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{wn_8c_a1910d262855b71da353ed0d07a6c7823}{pos})
+\item 
+char $\ast$ \hyperlink{morph_8c_aba8c8c8b6996c67a612d2a6b727135e7}{morphword} (char $\ast$word, \hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{wn_8c_a1910d262855b71da353ed0d07a6c7823}{pos})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{morph.\+c@{morph.\+c}!E\+X\+C\+F\+I\+LE@{E\+X\+C\+F\+I\+LE}}
+\index{E\+X\+C\+F\+I\+LE@{E\+X\+C\+F\+I\+LE}!morph.\+c@{morph.\+c}}
+\subsubsection[{\texorpdfstring{E\+X\+C\+F\+I\+LE}{EXCFILE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+X\+C\+F\+I\+LE~\char`\"{}\%s/\%s.\+exc\char`\"{}}\hypertarget{morph_8c_a8a15be2743c891eb9a057b1406b4fc35}{}\label{morph_8c_a8a15be2743c891eb9a057b1406b4fc35}
+\index{morph.\+c@{morph.\+c}!N\+U\+M\+P\+R\+E\+PS@{N\+U\+M\+P\+R\+E\+PS}}
+\index{N\+U\+M\+P\+R\+E\+PS@{N\+U\+M\+P\+R\+E\+PS}!morph.\+c@{morph.\+c}}
+\subsubsection[{\texorpdfstring{N\+U\+M\+P\+R\+E\+PS}{NUMPREPS}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+U\+M\+P\+R\+E\+PS~15}\hypertarget{morph_8c_a592950d0b7fb17f1700954852287719c}{}\label{morph_8c_a592950d0b7fb17f1700954852287719c}
+
+
+\subsection{Function Documentation}
+\index{morph.\+c@{morph.\+c}!morphinit@{morphinit}}
+\index{morphinit@{morphinit}!morph.\+c@{morph.\+c}}
+\subsubsection[{\texorpdfstring{morphinit(void)}{morphinit(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf int} morphinit (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{morph_8c_a2c5c939e9da8547a3da290a32d296f76}{}\label{morph_8c_a2c5c939e9da8547a3da290a32d296f76}
+\index{morph.\+c@{morph.\+c}!morphstr@{morphstr}}
+\index{morphstr@{morphstr}!morph.\+c@{morph.\+c}}
+\subsubsection[{\texorpdfstring{morphstr(char $\ast$origstr, int pos)}{morphstr(char *origstr, int pos)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ morphstr (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{origstr, }
+\item[{{\bf int}}]{pos}
+\end{DoxyParamCaption}
+)}\hypertarget{morph_8c_a408b2a91cf19638c7d7545fbd109b2de}{}\label{morph_8c_a408b2a91cf19638c7d7545fbd109b2de}
+\index{morph.\+c@{morph.\+c}!morphword@{morphword}}
+\index{morphword@{morphword}!morph.\+c@{morph.\+c}}
+\subsubsection[{\texorpdfstring{morphword(char $\ast$word, int pos)}{morphword(char *word, int pos)}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ morphword (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{word, }
+\item[{{\bf int}}]{pos}
+\end{DoxyParamCaption}
+)}\hypertarget{morph_8c_aba8c8c8b6996c67a612d2a6b727135e7}{}\label{morph_8c_aba8c8c8b6996c67a612d2a6b727135e7}
+\index{morph.\+c@{morph.\+c}!re\+\_\+morphinit@{re\+\_\+morphinit}}
+\index{re\+\_\+morphinit@{re\+\_\+morphinit}!morph.\+c@{morph.\+c}}
+\subsubsection[{\texorpdfstring{re\+\_\+morphinit(void)}{re_morphinit(void)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf int} re\+\_\+morphinit (
+\begin{DoxyParamCaption}
+\item[{{\bf void}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{morph_8c_a1eea1ab9a982101f03494e176f592b3f}{}\label{morph_8c_a1eea1ab9a982101f03494e176f592b3f}
+
+
+\subsection{Variable Documentation}
+\index{morph.\+c@{morph.\+c}!str@{str}}
+\index{str@{str}!morph.\+c@{morph.\+c}}
+\subsubsection[{\texorpdfstring{str}{str}}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ str}\hypertarget{morph_8c_ab50d783982593ef993ea0b68f7ad8b80}{}\label{morph_8c_ab50d783982593ef993ea0b68f7ad8b80}
+\index{morph.\+c@{morph.\+c}!strlen@{strlen}}
+\index{strlen@{strlen}!morph.\+c@{morph.\+c}}
+\subsubsection[{\texorpdfstring{strlen}{strlen}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf int} strlen}\hypertarget{morph_8c_a732b2b092d38f07d7a9ae8c180d8c55c}{}\label{morph_8c_a732b2b092d38f07d7a9ae8c180d8c55c}

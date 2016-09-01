@@ -12,8 +12,15 @@ namespace Audealize
 class AudioEffect
 {
 public:
-    AudioEffect (float sampleRate = 44100) { mSampleRate = sampleRate; }
-    virtual ~AudioEffect () {}
+    AudioEffect (float sampleRate = 44100)
+    {
+        mSampleRate = sampleRate;
+    }
+
+    virtual ~AudioEffect ()
+    {
+    }
+
     /**
      *  Process an individual sample of audio. Should be overriden by child class
      *
@@ -22,7 +29,11 @@ public:
      *
      *  @return A sample of processed audio
      */
-    virtual float processSample (float sample, int channelIdx) { return sample; }
+    virtual float processSample (float sample, int channelIdx)
+    {
+        return sample;
+    }
+
     /**
      *  Process a block of audio
      *
@@ -43,13 +54,25 @@ public:
      *
      *  @param sampleRate
      */
-    virtual void setSampleRate (float sampleRate) { mSampleRate = sampleRate; }
-    float getSampleRate () { return mSampleRate; }
+    virtual void setSampleRate (float sampleRate)
+    {
+        mSampleRate = sampleRate;
+    }
+
+    /**
+     *  Returns the sample rate of the AudioEffect
+     *
+     *  @return samplRate
+     */
+    float getSampleRate ()
+    {
+        return mSampleRate;
+    }
+
 protected:
     float mSampleRate;
 };
 
 }  // namespace Audealize
-
 
 #endif /* AudioEffect_h */

@@ -1,7 +1,7 @@
 //
 // AudealizeImages.h
 //
-// Defines image resources for Audealize plugins
+// Defines binary data resources for images used for Audealize plugins
 //
 
 #ifndef AudealizeImages_h

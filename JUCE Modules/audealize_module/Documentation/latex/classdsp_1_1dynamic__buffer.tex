@@ -1,0 +1,113 @@
+\hypertarget{classdsp_1_1dynamic__buffer}{}\section{dsp\+:\+:dynamic\+\_\+buffer$<$ T $>$ Class Template Reference}
+\label{classdsp_1_1dynamic__buffer}\index{dsp\+::dynamic\+\_\+buffer$<$ T $>$@{dsp\+::dynamic\+\_\+buffer$<$ T $>$}}
+
+
+{\ttfamily \#include $<$buffer.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdsp_1_1dynamic__buffer_a748581ae60aad9f3ef18b751700dd640}{dynamic\+\_\+buffer} ()
+\item 
+\hyperlink{classdsp_1_1dynamic__buffer_a9acd3f9a910db3843c15f252218f33d5}{dynamic\+\_\+buffer} (T $\ast$\+\_\+buf, \hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \+\_\+buf\+\_\+size, bool \+\_\+own)
+\item 
+\hyperlink{classdsp_1_1dynamic__buffer_aab21f527b264c8b77384c5406a4d2658}{dynamic\+\_\+buffer} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \+\_\+size)
+\item 
+T $\ast$ \hyperlink{classdsp_1_1dynamic__buffer_a9809aeeba0d90a679a153600133a03a5}{data} ()
+\item 
+const T $\ast$ \hyperlink{classdsp_1_1dynamic__buffer_a333dee51920cd06759dd64bf1feca53f}{data} () const 
+\item 
+\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{classdsp_1_1dynamic__buffer_ab4b47bc63b61aacf805745621cde63d7}{size} ()
+\item 
+\hyperlink{tk_8h_aba408b7cd755a96426e004c015f5de8e}{void} \hyperlink{classdsp_1_1dynamic__buffer_a06af3bbb073bae8d5f9f567206f5e146}{resize} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} new\+\_\+size, bool fill\+\_\+with\+\_\+zeros=false)
+\item 
+T \& \hyperlink{classdsp_1_1dynamic__buffer_a615aba921e32730a784f9674fa538b5f}{operator\mbox{[}$\,$\mbox{]}} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{wn_8c_a1910d262855b71da353ed0d07a6c7823}{pos})
+\item 
+const T \& \hyperlink{classdsp_1_1dynamic__buffer_ae0d1d8048256f7adb4f0b8c98f01cf21}{operator\mbox{[}$\,$\mbox{]}} (\hyperlink{tk_8h_a83f82f76e7fed06f4c49d2db94028a6d}{int} \hyperlink{wn_8c_a1910d262855b71da353ed0d07a6c7823}{pos}) const 
+\item 
+\hyperlink{classdsp_1_1dynamic__buffer_a0f2284cd81fe7473f1f251d208fc2c66}{$\sim$dynamic\+\_\+buffer} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\index{dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}!dynamic\+\_\+buffer@{dynamic\+\_\+buffer}}
+\index{dynamic\+\_\+buffer@{dynamic\+\_\+buffer}!dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}}
+\subsubsection[{\texorpdfstring{dynamic\+\_\+buffer()}{dynamic_buffer()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T  = float$>$ {\bf dsp\+::dynamic\+\_\+buffer}$<$ T $>$\+::{\bf dynamic\+\_\+buffer} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classdsp_1_1dynamic__buffer_a748581ae60aad9f3ef18b751700dd640}{}\label{classdsp_1_1dynamic__buffer_a748581ae60aad9f3ef18b751700dd640}
+\index{dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}!dynamic\+\_\+buffer@{dynamic\+\_\+buffer}}
+\index{dynamic\+\_\+buffer@{dynamic\+\_\+buffer}!dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}}
+\subsubsection[{\texorpdfstring{dynamic\+\_\+buffer(\+T $\ast$\+\_\+buf, int \+\_\+buf\+\_\+size, bool \+\_\+own)}{dynamic_buffer(T *_buf, int _buf_size, bool _own)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T  = float$>$ {\bf dsp\+::dynamic\+\_\+buffer}$<$ T $>$\+::{\bf dynamic\+\_\+buffer} (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{\+\_\+buf, }
+\item[{{\bf int}}]{\+\_\+buf\+\_\+size, }
+\item[{bool}]{\+\_\+own}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classdsp_1_1dynamic__buffer_a9acd3f9a910db3843c15f252218f33d5}{}\label{classdsp_1_1dynamic__buffer_a9acd3f9a910db3843c15f252218f33d5}
+\index{dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}!dynamic\+\_\+buffer@{dynamic\+\_\+buffer}}
+\index{dynamic\+\_\+buffer@{dynamic\+\_\+buffer}!dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}}
+\subsubsection[{\texorpdfstring{dynamic\+\_\+buffer(int \+\_\+size)}{dynamic_buffer(int _size)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T  = float$>$ {\bf dsp\+::dynamic\+\_\+buffer}$<$ T $>$\+::{\bf dynamic\+\_\+buffer} (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{\+\_\+size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classdsp_1_1dynamic__buffer_aab21f527b264c8b77384c5406a4d2658}{}\label{classdsp_1_1dynamic__buffer_aab21f527b264c8b77384c5406a4d2658}
+\index{dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}!````~dynamic\+\_\+buffer@{$\sim$dynamic\+\_\+buffer}}
+\index{````~dynamic\+\_\+buffer@{$\sim$dynamic\+\_\+buffer}!dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}}
+\subsubsection[{\texorpdfstring{$\sim$dynamic\+\_\+buffer()}{~dynamic_buffer()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T  = float$>$ {\bf dsp\+::dynamic\+\_\+buffer}$<$ T $>$\+::$\sim${\bf dynamic\+\_\+buffer} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classdsp_1_1dynamic__buffer_a0f2284cd81fe7473f1f251d208fc2c66}{}\label{classdsp_1_1dynamic__buffer_a0f2284cd81fe7473f1f251d208fc2c66}
+
+
+\subsection{Member Function Documentation}
+\index{dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}!data@{data}}
+\index{data@{data}!dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}}
+\subsubsection[{\texorpdfstring{data()}{data()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T  = float$>$ T$\ast$ {\bf dsp\+::dynamic\+\_\+buffer}$<$ T $>$\+::data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classdsp_1_1dynamic__buffer_a9809aeeba0d90a679a153600133a03a5}{}\label{classdsp_1_1dynamic__buffer_a9809aeeba0d90a679a153600133a03a5}
+\index{dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}!data@{data}}
+\index{data@{data}!dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}}
+\subsubsection[{\texorpdfstring{data() const }{data() const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T  = float$>$ const T$\ast$ {\bf dsp\+::dynamic\+\_\+buffer}$<$ T $>$\+::data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classdsp_1_1dynamic__buffer_a333dee51920cd06759dd64bf1feca53f}{}\label{classdsp_1_1dynamic__buffer_a333dee51920cd06759dd64bf1feca53f}
+\index{dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}}
+\subsubsection[{\texorpdfstring{operator[](int pos)}{operator[](int pos)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T  = float$>$ T\& {\bf dsp\+::dynamic\+\_\+buffer}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classdsp_1_1dynamic__buffer_a615aba921e32730a784f9674fa538b5f}{}\label{classdsp_1_1dynamic__buffer_a615aba921e32730a784f9674fa538b5f}
+\index{dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}!operator\mbox{[}$\,$\mbox{]}@{operator[]}}
+\index{operator\mbox{[}$\,$\mbox{]}@{operator[]}!dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}}
+\subsubsection[{\texorpdfstring{operator[](int pos) const }{operator[](int pos) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T  = float$>$ const T\& {\bf dsp\+::dynamic\+\_\+buffer}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{pos}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classdsp_1_1dynamic__buffer_ae0d1d8048256f7adb4f0b8c98f01cf21}{}\label{classdsp_1_1dynamic__buffer_ae0d1d8048256f7adb4f0b8c98f01cf21}
+\index{dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}!resize@{resize}}
+\index{resize@{resize}!dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}}
+\subsubsection[{\texorpdfstring{resize(int new\+\_\+size, bool fill\+\_\+with\+\_\+zeros=false)}{resize(int new_size, bool fill_with_zeros=false)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T  = float$>$ {\bf void} {\bf dsp\+::dynamic\+\_\+buffer}$<$ T $>$\+::resize (
+\begin{DoxyParamCaption}
+\item[{{\bf int}}]{new\+\_\+size, }
+\item[{bool}]{fill\+\_\+with\+\_\+zeros = {\ttfamily false}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classdsp_1_1dynamic__buffer_a06af3bbb073bae8d5f9f567206f5e146}{}\label{classdsp_1_1dynamic__buffer_a06af3bbb073bae8d5f9f567206f5e146}
+\index{dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}!size@{size}}
+\index{size@{size}!dsp\+::dynamic\+\_\+buffer@{dsp\+::dynamic\+\_\+buffer}}
+\subsubsection[{\texorpdfstring{size()}{size()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T  = float$>$ {\bf int} {\bf dsp\+::dynamic\+\_\+buffer}$<$ T $>$\+::size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classdsp_1_1dynamic__buffer_ab4b47bc63b61aacf805745621cde63d7}{}\label{classdsp_1_1dynamic__buffer_ab4b47bc63b61aacf805745621cde63d7}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/\+Users/michael/\+J\+U\+C\+E/projects/audealize-\/plugin/\+J\+U\+C\+E Modules/audealize\+\_\+module/utils/calf\+\_\+dsp\+\_\+library/\hyperlink{buffer_8h}{buffer.\+h}\end{DoxyCompactItemize}

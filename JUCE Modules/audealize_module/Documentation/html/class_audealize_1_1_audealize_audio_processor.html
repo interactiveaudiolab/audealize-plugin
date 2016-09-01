@@ -30,6 +30,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="IALlogo.svg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Audealize
    </div>
@@ -116,6 +117,9 @@ $(document).ready(function(){initNavTree('class_audealize_1_1_audealize_audio_pr
 </div><!--header-->
 <div class="contents">
 
+<p>Interface class for <a class="el" href="namespace_audealize.html">Audealize</a> plugin AudioProcessors to facilitate communication of state/param data with UI.  
+ <a href="class_audealize_1_1_audealize_audio_processor.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Audealize::AudealizeAudioProcessor:</div>
@@ -123,8 +127,8 @@ Inheritance diagram for Audealize::AudealizeAudioProcessor:</div>
  <div class="center">
   <img src="class_audealize_1_1_audealize_audio_processor.png" usemap="#Audealize::AudealizeAudioProcessor_map" alt=""/>
   <map id="Audealize::AudealizeAudioProcessor_map" name="Audealize::AudealizeAudioProcessor_map">
-<area href="class_audealize_1_1_audealizeeq_audio_processor.html" alt="Audealize::AudealizeeqAudioProcessor" shape="rect" coords="0,112,259,136"/>
-<area href="class_audealize_1_1_audealizereverb_audio_processor.html" alt="Audealize::AudealizereverbAudioProcessor" shape="rect" coords="269,112,528,136"/>
+<area href="class_audealize_1_1_audealizeeq_audio_processor.html" title="AudealizeAudioProcessor for EQ effect. " alt="Audealize::AudealizeeqAudioProcessor" shape="rect" coords="0,112,259,136"/>
+<area href="class_audealize_1_1_audealizereverb_audio_processor.html" title="AudealizeAudioProcessor for reverb effect. " alt="Audealize::AudealizereverbAudioProcessor" shape="rect" coords="269,112,528,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -134,23 +138,23 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a43c50db2160af612bed07847c5799ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ba6f1b2676b471be401206abc0a08cf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#a7ba6f1b2676b471be401206abc0a08cf">~AudealizeAudioProcessor</a> ()</td></tr>
 <tr class="separator:a7ba6f1b2676b471be401206abc0a08cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23a944b8047d7854728758c0261438ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#a23a944b8047d7854728758c0261438ee">getStateInformation</a> (MemoryBlock &amp;destData) override</td></tr>
+<tr class="memitem:a23a944b8047d7854728758c0261438ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#a23a944b8047d7854728758c0261438ee">getStateInformation</a> (MemoryBlock &amp;destData) override</td></tr>
 <tr class="separator:a23a944b8047d7854728758c0261438ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aae3c8f976075ac1f095b4ac71bf91764"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#aae3c8f976075ac1f095b4ac71bf91764">setStateInformation</a> (const <a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> *data, <a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> sizeInBytes) override</td></tr>
+<tr class="memitem:aae3c8f976075ac1f095b4ac71bf91764"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#aae3c8f976075ac1f095b4ac71bf91764">setStateInformation</a> (const void *data, int sizeInBytes) override</td></tr>
 <tr class="separator:aae3c8f976075ac1f095b4ac71bf91764"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4832111ea2b24bc517f911fa5949ca56"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#a4832111ea2b24bc517f911fa5949ca56">parameterChanged</a> (const juce::String &amp;parameterID, float newValue) override</td></tr>
+<tr class="memitem:a4832111ea2b24bc517f911fa5949ca56"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#a4832111ea2b24bc517f911fa5949ca56">parameterChanged</a> (const juce::String &amp;parameterID, float newValue) override</td></tr>
 <tr class="separator:a4832111ea2b24bc517f911fa5949ca56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af269ce5549d8474f11f26c41aefa51bc"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#af269ce5549d8474f11f26c41aefa51bc">settingsFromMap</a> (vector&lt; float &gt; settings)</td></tr>
+<tr class="memitem:af269ce5549d8474f11f26c41aefa51bc"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#af269ce5549d8474f11f26c41aefa51bc">settingsFromMap</a> (vector&lt; float &gt; settings)</td></tr>
 <tr class="separator:af269ce5549d8474f11f26c41aefa51bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac90ee1235c7947d995ded5a3a494adfe"><td class="memItemLeft" align="right" valign="top">AudioProcessorValueTreeState &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#ac90ee1235c7947d995ded5a3a494adfe">getValueTreeState</a> ()</td></tr>
 <tr class="separator:ac90ee1235c7947d995ded5a3a494adfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a18d5cd428aa8bac6db26abe6668a7a28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#a18d5cd428aa8bac6db26abe6668a7a28">normalize</a> (vector&lt; float &gt; *vals)</td></tr>
+<tr class="memitem:a18d5cd428aa8bac6db26abe6668a7a28"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#a18d5cd428aa8bac6db26abe6668a7a28">normalize</a> (vector&lt; float &gt; *vals)</td></tr>
 <tr class="separator:a18d5cd428aa8bac6db26abe6668a7a28"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3e347b4bdc34e419ccf350638c38028"><td class="memItemLeft" align="right" valign="top">virtual String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#aa3e347b4bdc34e419ccf350638c38028">getParamID</a> (<a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> index)</td></tr>
+<tr class="memitem:aa3e347b4bdc34e419ccf350638c38028"><td class="memItemLeft" align="right" valign="top">virtual String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#aa3e347b4bdc34e419ccf350638c38028">getParamID</a> (int index)</td></tr>
 <tr class="separator:aa3e347b4bdc34e419ccf350638c38028"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51c55287fa572a64f190073eba193b8f"><td class="memItemLeft" align="right" valign="top">String&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#a51c55287fa572a64f190073eba193b8f">getParamAmountID</a> ()</td></tr>
 <tr class="separator:a51c55287fa572a64f190073eba193b8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade8920185102ceb1bbe69a19e7684d17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#ade8920185102ceb1bbe69a19e7684d17">setBypass</a> (bool bypass)</td></tr>
+<tr class="memitem:ade8920185102ceb1bbe69a19e7684d17"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#ade8920185102ceb1bbe69a19e7684d17">setBypass</a> (bool bypass)</td></tr>
 <tr class="separator:ade8920185102ceb1bbe69a19e7684d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a169490241e1d2fee31441e18a3c32f58"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#a169490241e1d2fee31441e18a3c32f58">isBypassed</a> ()</td></tr>
 <tr class="separator:a169490241e1d2fee31441e18a3c32f58"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -158,18 +162,18 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a78578b6f542baf5a016ba1e93bf09f5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6dc016d76b7fdf017324d99152825a3"><td class="memItemLeft" align="right" valign="top">UndoManager *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#ab6dc016d76b7fdf017324d99152825a3">getUndoManager</a> ()</td></tr>
 <tr class="separator:ab6dc016d76b7fdf017324d99152825a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a436bbcaf366e9b32248f30304677a176"><td class="memItemLeft" align="right" valign="top">AudioProcessorParameter *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#a436bbcaf366e9b32248f30304677a176">getParameterPtr</a> (<a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> idx)</td></tr>
+<tr class="memitem:a436bbcaf366e9b32248f30304677a176"><td class="memItemLeft" align="right" valign="top">AudioProcessorParameter *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#a436bbcaf366e9b32248f30304677a176">getParameterPtr</a> (int idx)</td></tr>
 <tr class="separator:a436bbcaf366e9b32248f30304677a176"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc5192d771658654d3be356cec36972a"><td class="memItemLeft" align="right" valign="top">AudioProcessorParameter *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#afc5192d771658654d3be356cec36972a">getParameterPtrFromID</a> (String paramID)</td></tr>
 <tr class="separator:afc5192d771658654d3be356cec36972a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70ac8d869b16af3ca9a17486c1677134"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#a70ac8d869b16af3ca9a17486c1677134">isMetaParameter</a> (<a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> parameterIndex) const  override</td></tr>
+<tr class="memitem:a70ac8d869b16af3ca9a17486c1677134"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#a70ac8d869b16af3ca9a17486c1677134">isMetaParameter</a> (int parameterIndex) const  override</td></tr>
 <tr class="separator:a70ac8d869b16af3ca9a17486c1677134"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aa750e5a364f633d448d82fc2afc7c05a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#aa750e5a364f633d448d82fc2afc7c05a">lastUIWidth</a></td></tr>
+<tr class="memitem:aa750e5a364f633d448d82fc2afc7c05a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#aa750e5a364f633d448d82fc2afc7c05a">lastUIWidth</a></td></tr>
 <tr class="separator:aa750e5a364f633d448d82fc2afc7c05a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a05d825c7d24ae469cdebed82d92e9034"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#a05d825c7d24ae469cdebed82d92e9034">lastUIHeight</a></td></tr>
+<tr class="memitem:a05d825c7d24ae469cdebed82d92e9034"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#a05d825c7d24ae469cdebed82d92e9034">lastUIHeight</a></td></tr>
 <tr class="separator:a05d825c7d24ae469cdebed82d92e9034"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
@@ -194,7 +198,11 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:af232a68cdeacc57765eed0122da6ce27"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audealize_audio_processor.html#af232a68cdeacc57765eed0122da6ce27">mAmount</a></td></tr>
 <tr class="separator:af232a68cdeacc57765eed0122da6ce27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Interface class for <a class="el" href="namespace_audealize.html">Audealize</a> plugin AudioProcessors to facilitate communication of state/param data with UI. </p>
+
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00015">15</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a43c50db2160af612bed07847c5799ebe"></a>
 <div class="memitem">
 <div class="memproto">
@@ -216,6 +224,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00020">20</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
 
 </div>
 </div>
@@ -239,6 +249,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00045">45</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
 
 </div>
 </div>
@@ -265,6 +277,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns the parameter ID String for the "Amount" parameter. (will be different depending on effect type) Needed for differentiating between different effect amount controls in multi effect plugins </p>
 
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00133">133</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a436bbcaf366e9b32248f30304677a176"></a>
@@ -277,7 +291,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">AudioProcessorParameter* Audealize::AudealizeAudioProcessor::getParameterPtr </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>idx</em></td><td>)</td>
           <td></td>
         </tr>
@@ -289,6 +303,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Returns a pointer to an AudioProcessorParameter, referenced by its index </p>
+
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00175">175</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
 
 </div>
 </div>
@@ -315,6 +331,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns a pointer to an AudioProcessorParameter, referenced by its ID string </p>
 
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00183">183</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aa3e347b4bdc34e419ccf350638c38028"></a>
@@ -327,7 +345,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">virtual String Audealize::AudealizeAudioProcessor::getParamID </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
           <td></td>
         </tr>
@@ -347,6 +365,8 @@ Protected Attributes</h2></td></tr>
 </dl>
 
 <p>Reimplemented in <a class="el" href="class_audealize_1_1_audealizeeq_audio_processor.html#a692e0576747a20bc080b971dccd84241">Audealize::AudealizeeqAudioProcessor</a>, and <a class="el" href="class_audealize_1_1_audealizereverb_audio_processor.html#a20e3cb24628efda50a559ce164a7fed5">Audealize::AudealizereverbAudioProcessor</a>.</p>
+
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00124">124</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
 
 </div>
 </div>
@@ -372,6 +392,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns a pointer to the AudioProcessor's ValueTreeState </p>
 
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00159">159</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a23a944b8047d7854728758c0261438ee"></a>
@@ -382,7 +404,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::AudealizeAudioProcessor::getStateInformation </td>
+          <td class="memname">void Audealize::AudealizeAudioProcessor::getStateInformation </td>
           <td>(</td>
           <td class="paramtype">MemoryBlock &amp;&#160;</td>
           <td class="paramname"><em>destData</em></td><td>)</td>
@@ -402,6 +424,8 @@ Protected Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00059">59</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
 
 </div>
 </div>
@@ -426,6 +450,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Returns the AudioProcessor's UndoManager. Not currently used in <a class="el" href="namespace_audealize.html">Audealize</a> plugins </p>
+
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00167">167</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
 
 </div>
 </div>
@@ -452,6 +478,8 @@ Protected Attributes</h2></td></tr>
 <p>Returns the AudioProcessorValueTreeState</p>
 <dl class="section return"><dt>Returns</dt><dd>an AudioProcessorValueTreeState </dd></dl>
 
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00100">100</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a169490241e1d2fee31441e18a3c32f58"></a>
@@ -475,7 +503,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Returns true if AudioProcessor is bypassed (not applying its effect)</p>
-<dl class="section return"><dt>Returns</dt><dd>&lt;#return value description#&gt; </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
+
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00151">151</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
 
 </div>
 </div>
@@ -489,7 +519,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">bool Audealize::AudealizeAudioProcessor::isMetaParameter </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>parameterIndex</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -501,6 +531,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Returns true - all parameters should be flagged meta </p>
+
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00191">191</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
 
 </div>
 </div>
@@ -536,7 +568,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::AudealizeAudioProcessor::normalize </td>
+          <td class="memname">void Audealize::AudealizeAudioProcessor::normalize </td>
           <td>(</td>
           <td class="paramtype">vector&lt; float &gt; *&#160;</td>
           <td class="paramname"><em>vals</em></td><td>)</td>
@@ -557,6 +589,8 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00109">109</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a4832111ea2b24bc517f911fa5949ca56"></a>
@@ -567,7 +601,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::AudealizeAudioProcessor::parameterChanged </td>
+          <td class="memname">virtual void Audealize::AudealizeAudioProcessor::parameterChanged </td>
           <td>(</td>
           <td class="paramtype">const juce::String &amp;&#160;</td>
           <td class="paramname"><em>parameterID</em>, </td>
@@ -601,6 +635,8 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="class_audealize_1_1_audealizeeq_audio_processor.html#a25c85696329c21a201963733bc46d957">Audealize::AudealizeeqAudioProcessor</a>, and <a class="el" href="class_audealize_1_1_audealizereverb_audio_processor.html#aafb771cae87f2ce62ca2451d80678277">Audealize::AudealizereverbAudioProcessor</a>.</p>
 
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00086">86</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ade8920185102ceb1bbe69a19e7684d17"></a>
@@ -611,7 +647,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::AudealizeAudioProcessor::setBypass </td>
+          <td class="memname">void Audealize::AudealizeAudioProcessor::setBypass </td>
           <td>(</td>
           <td class="paramtype">bool&#160;</td>
           <td class="paramname"><em>bypass</em></td><td>)</td>
@@ -626,6 +662,8 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Set the bypass state of the AudioProcessor. If true, processor will not apply its effect. </p>
 
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00141">141</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aae3c8f976075ac1f095b4ac71bf91764"></a>
@@ -636,15 +674,15 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::AudealizeAudioProcessor::setStateInformation </td>
+          <td class="memname">void Audealize::AudealizeAudioProcessor::setStateInformation </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> *&#160;</td>
+          <td class="paramtype">const void *&#160;</td>
           <td class="paramname"><em>data</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>sizeInBytes</em>&#160;</td>
         </tr>
         <tr>
@@ -668,6 +706,8 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00071">71</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="af269ce5549d8474f11f26c41aefa51bc"></a>
@@ -678,7 +718,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::AudealizeAudioProcessor::settingsFromMap </td>
+          <td class="memname">virtual void Audealize::AudealizeAudioProcessor::settingsFromMap </td>
           <td>(</td>
           <td class="paramtype">vector&lt; float &gt;&#160;</td>
           <td class="paramname"><em>settings</em></td><td>)</td>
@@ -691,7 +731,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Set the states of all parameters with a vector&lt;float&gt;. To be called by a <a class="el" href="class_audealize_1_1_word_map.html">WordMap</a></p>
+<p>Set the states of all parameters with a vector&lt;float&gt;. To be called by a <a class="el" href="class_audealize_1_1_word_map.html" title="A juce::Component containing a map of descriptors for Audealize plugins. ">WordMap</a></p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">settings</td><td>a vector of floats </td></tr>
@@ -701,6 +741,8 @@ Protected Attributes</h2></td></tr>
 
 <p>Reimplemented in <a class="el" href="class_audealize_1_1_audealizeeq_audio_processor.html#adda624ec0e28dbc41777aa76ed9ce974">Audealize::AudealizeeqAudioProcessor</a>, and <a class="el" href="class_audealize_1_1_audealizereverb_audio_processor.html#a4a9a5828a3cbbb084a3025009500faf9">Audealize::AudealizereverbAudioProcessor</a>.</p>
 
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00093">93</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -709,10 +751,12 @@ Protected Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> Audealize::AudealizeAudioProcessor::lastUIHeight</td>
+          <td class="memname">int Audealize::AudealizeAudioProcessor::lastUIHeight</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00018">18</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
 
 </div>
 </div>
@@ -721,10 +765,12 @@ Protected Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> Audealize::AudealizeAudioProcessor::lastUIWidth</td>
+          <td class="memname">int Audealize::AudealizeAudioProcessor::lastUIWidth</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00018">18</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
 
 </div>
 </div>
@@ -746,6 +792,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00209">209</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a8f8e6d2d636f070c9dcce80725bb67f3"></a>
@@ -765,6 +813,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00205">205</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
 
 </div>
 </div>
@@ -786,6 +836,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00203">203</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a799580d9637076562aafa74de6e166b8"></a>
@@ -805,6 +857,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00201">201</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
 
 </div>
 </div>
@@ -826,6 +880,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00197">197</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aad11b053db8e6f9ae61afa610126b23d"></a>
@@ -846,6 +902,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00199">199</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a8c51332f043fbb80c2fa573a7f753c8a"></a>
@@ -865,6 +923,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_audealize_audio_processor_8h_source.html#l00207">207</a> of file <a class="el" href="_audealize_audio_processor_8h_source.html">AudealizeAudioProcessor.h</a>.</p>
 
 </div>
 </div>

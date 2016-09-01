@@ -30,6 +30,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="IALlogo.svg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Audealize
    </div>
@@ -144,13 +145,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a530f042e2ab1c83dddfc344931b0375a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html#a530f042e2ab1c83dddfc344931b0375a">json_reverse_iterator</a> (const <a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html#a9ebc4c99e6fc90c965af0f39ad2ca70e">base_iterator</a> &amp;it) noexcept</td></tr>
 <tr class="memdesc:a530f042e2ab1c83dddfc344931b0375a"><td class="mdescLeft">&#160;</td><td class="mdescRight">create reverse iterator from base class  <a href="#a530f042e2ab1c83dddfc344931b0375a">More...</a><br /></td></tr>
 <tr class="separator:a530f042e2ab1c83dddfc344931b0375a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a545a8204cfd6836eb85abc3113a0bb28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html">json_reverse_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html#a545a8204cfd6836eb85abc3113a0bb28">operator++</a> (<a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>)</td></tr>
+<tr class="memitem:a545a8204cfd6836eb85abc3113a0bb28"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html">json_reverse_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html#a545a8204cfd6836eb85abc3113a0bb28">operator++</a> (int)</td></tr>
 <tr class="memdesc:a545a8204cfd6836eb85abc3113a0bb28"><td class="mdescLeft">&#160;</td><td class="mdescRight">post-increment (it++)  <a href="#a545a8204cfd6836eb85abc3113a0bb28">More...</a><br /></td></tr>
 <tr class="separator:a545a8204cfd6836eb85abc3113a0bb28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4aede52d6ee253a510897518b59e09c0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html">json_reverse_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html#a4aede52d6ee253a510897518b59e09c0">operator++</a> ()</td></tr>
 <tr class="memdesc:a4aede52d6ee253a510897518b59e09c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">pre-increment (++it)  <a href="#a4aede52d6ee253a510897518b59e09c0">More...</a><br /></td></tr>
 <tr class="separator:a4aede52d6ee253a510897518b59e09c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a693439bffe56a9a8cf53bc4a06b911ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html">json_reverse_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html#a693439bffe56a9a8cf53bc4a06b911ff">operator--</a> (<a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>)</td></tr>
+<tr class="memitem:a693439bffe56a9a8cf53bc4a06b911ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html">json_reverse_iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html#a693439bffe56a9a8cf53bc4a06b911ff">operator--</a> (int)</td></tr>
 <tr class="memdesc:a693439bffe56a9a8cf53bc4a06b911ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">post-decrement (it&ndash;)  <a href="#a693439bffe56a9a8cf53bc4a06b911ff">More...</a><br /></td></tr>
 <tr class="separator:a693439bffe56a9a8cf53bc4a06b911ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a563a7bd281e9919798d18396107fb05c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html">json_reverse_iterator</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html#a563a7bd281e9919798d18396107fb05c">operator--</a> ()</td></tr>
@@ -195,6 +196,8 @@ class nlohmann::basic_json&lt; ObjectType, ArrayType, StringType, BooleanType, N
 <li><a href="http://en.cppreference.com/w/cpp/concept/OutputIterator">OutputIterator</a>: It is possible to write to the pointed-to element (only if <em>Base</em> is <a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html">iterator</a>).</li>
 </ul>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00202">202</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a class="anchor" id="a9ebc4c99e6fc90c965af0f39ad2ca70e"></a>
 <div class="memitem">
@@ -211,6 +214,8 @@ template&lt;typename Base &gt; </div>
 </div><div class="memdoc">
 
 <p>shortcut to the reverse iterator adaptor </p>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l07171">7171</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -229,6 +234,8 @@ template&lt;typename Base &gt; </div>
 </div><div class="memdoc">
 
 <p>the reference type for the pointed-to element </p>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l07173">7173</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -261,6 +268,8 @@ template&lt;typename Base &gt; </div>
 
 <p>create reverse iterator from iterator </p>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l07176">7176</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a530f042e2ab1c83dddfc344931b0375a"></a>
@@ -290,6 +299,8 @@ template&lt;typename Base &gt; </div>
 </div><div class="memdoc">
 
 <p>create reverse iterator from base class </p>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l07181">7181</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -321,6 +332,8 @@ template&lt;typename Base &gt; </div>
 
 <p>return the key of an object iterator </p>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l07247">7247</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a99ee137dab7e5c948457f6a5321b54b1"></a>
@@ -351,6 +364,8 @@ template&lt;typename Base &gt; </div>
 
 <p>add to iterator </p>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l07219">7219</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a545a8204cfd6836eb85abc3113a0bb28"></a>
@@ -367,7 +382,7 @@ template&lt;typename Base &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html">json_reverse_iterator</a> <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::<a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html">json_reverse_iterator</a>&lt; Base &gt;::operator++ </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -380,6 +395,8 @@ template&lt;typename Base &gt; </div>
 </div><div class="memdoc">
 
 <p>post-increment (it++) </p>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l07186">7186</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -409,6 +426,8 @@ template&lt;typename Base &gt; </div>
 </div><div class="memdoc">
 
 <p>pre-increment (++it) </p>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l07192">7192</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -440,6 +459,8 @@ template&lt;typename Base &gt; </div>
 
 <p>add to iterator </p>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l07212">7212</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ac2634bee082633671125e909dffad40a"></a>
@@ -469,6 +490,8 @@ template&lt;typename Base &gt; </div>
 </div><div class="memdoc">
 
 <p>subtract from iterator </p>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l07227">7227</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -500,6 +523,8 @@ template&lt;typename Base &gt; </div>
 
 <p>return difference </p>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l07235">7235</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a693439bffe56a9a8cf53bc4a06b911ff"></a>
@@ -516,7 +541,7 @@ template&lt;typename Base &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html">json_reverse_iterator</a> <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::<a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html">json_reverse_iterator</a>&lt; Base &gt;::operator-- </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -529,6 +554,8 @@ template&lt;typename Base &gt; </div>
 </div><div class="memdoc">
 
 <p>post-decrement (it&ndash;) </p>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l07199">7199</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -558,6 +585,8 @@ template&lt;typename Base &gt; </div>
 </div><div class="memdoc">
 
 <p>pre-decrement (&ndash;it) </p>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l07205">7205</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -589,6 +618,8 @@ template&lt;typename Base &gt; </div>
 
 <p>access to successor </p>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l07241">7241</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aca5116682e206dac48f8a56716a3280b"></a>
@@ -603,7 +634,7 @@ template&lt;typename Base &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html#a7265535f39299824f9712a2ca15013c3">reference</a> <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::<a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html">json_reverse_iterator</a>&lt; Base &gt;::<a class="el" href="tk_8h.html#a177a0765f574ef6642002696d9cd82d0">value</a> </td>
+          <td class="memname"><a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html#a7265535f39299824f9712a2ca15013c3">reference</a> <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::<a class="el" href="classnlohmann_1_1basic__json_1_1json__reverse__iterator.html">json_reverse_iterator</a>&lt; Base &gt;::value </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -617,6 +648,8 @@ template&lt;typename Base &gt; </div>
 </div><div class="memdoc">
 
 <p>return the value of an iterator </p>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l07254">7254</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>

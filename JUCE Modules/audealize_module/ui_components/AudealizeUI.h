@@ -1,7 +1,7 @@
 //
 //  AudealizeUI.h
 //
-//  A JUCE AudioProcessorEditor for Audealize plugins. Creates the entire Audealize UI, containting a WordMap, a
+//  A juce::AudioProcessorEditor for Audealize plugins. Creates the entire Audealize UI, containting a WordMap, a
 //  TypeaheadPopupMenu, and a TraditionalUI
 //
 
@@ -17,6 +17,7 @@ using namespace juce;
 
 namespace Audealize
 {
+/// The main UI of an individual Audealize effect.
 class AudealizeUI : public AudioProcessorEditor,
                     public TextEditorListener,
                     public ActionListener,
@@ -52,7 +53,6 @@ public:
      */
     void actionListenerCallback (const String& message) override;
 
-
     void paint (Graphics& g) override;
 
     /**
@@ -71,17 +71,51 @@ public:
     void lookAndFeelChanged () override;
     void childrenChanged () override;
 
-    void setBypassed (bool isBypassed) { processor.setBypass (isBypassed); }
-    bool isTraditionalUIVisible () { return isTradUIVisible; }
-    TextButton* getTraditionalUIButton () { return mTradUIButton; }
-    TextButton* getBypassButton () { return mBypassButton; }
-    TraditionalUI* getTraditionalUI () { return mTradUI; }
-    TypeaheadEditor* getSearchBar () { return mSearchBar; }
-    WordMap* getWordMap () { return mWordMap; }
-    String getEffectName () { return mEffectType; }
-    int getWordMapHeight () { return mWordMap->getHeight (); }
-    bool isPluginMultiEffect () { return isMultiEffect; }
-    bool isEffectEnabled () { return processor.isBypassed (); }
+    void setBypassed (bool isBypassed)
+    {
+        processor.setBypass (isBypassed);
+    }
+    bool isTraditionalUIVisible ()
+    {
+        return isTradUIVisible;
+    }
+    TextButton* getTraditionalUIButton ()
+    {
+        return mTradUIButton;
+    }
+    TextButton* getBypassButton ()
+    {
+        return mBypassButton;
+    }
+    TraditionalUI* getTraditionalUI ()
+    {
+        return mTradUI;
+    }
+    TypeaheadEditor* getSearchBar ()
+    {
+        return mSearchBar;
+    }
+    WordMap* getWordMap ()
+    {
+        return mWordMap;
+    }
+    String getEffectName ()
+    {
+        return mEffectType;
+    }
+    int getWordMapHeight ()
+    {
+        return mWordMap->getHeight ();
+    }
+    bool isPluginMultiEffect ()
+    {
+        return isMultiEffect;
+    }
+    bool isEffectEnabled ()
+    {
+        return processor.isBypassed ();
+    }
+
 private:
     AudealizeAudioProcessor& processor;
 

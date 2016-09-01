@@ -1,0 +1,10 @@
+digraph "/Users/michael/JUCE/projects/audealize-plugin/JUCE Modules/audealize_module/ui_components" {
+  compound=true
+  node [ fontsize="10", fontname="Helvetica"];
+  edge [ labelfontsize="10", labelfontname="Helvetica"];
+  dir_5f9a3e9d527c29d0fbf1c909306917cc [shape=box, label="ui_components", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_5f9a3e9d527c29d0fbf1c909306917cc.html"];
+  dir_cbdb8362360e11eafe2fa3bc74cf0ffd [shape=box label="utils" fillcolor="white" style="filled" color="red" URL="dir_cbdb8362360e11eafe2fa3bc74cf0ffd.html"];
+  dir_b860b630e31e72fcdfec406a44374ffa [shape=box label="audio_processors" URL="dir_b860b630e31e72fcdfec406a44374ffa.html"];
+  dir_5f9a3e9d527c29d0fbf1c909306917cc->dir_cbdb8362360e11eafe2fa3bc74cf0ffd [headlabel="1", labeldistance=1.5 headhref="dir_000004_000005.html"];
+  dir_5f9a3e9d527c29d0fbf1c909306917cc->dir_b860b630e31e72fcdfec406a44374ffa [headlabel="2", labeldistance=1.5 headhref="dir_000004_000000.html"];
+}

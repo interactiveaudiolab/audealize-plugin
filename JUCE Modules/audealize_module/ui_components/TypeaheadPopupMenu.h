@@ -13,6 +13,9 @@
 using nlohmann::json;
 using std::vector;
 
+namespace Audealize
+{
+/// The dropdown menu containing suggestions for a TypeaheadEditor
 class TypeaheadPopupMenu : public ListBoxModel, public Component
 {
 public:
@@ -92,10 +95,7 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TypeaheadPopupMenu);
 };
 
-/**
- *  A TextEditor component that displays a TypeaheadPopupMenu below it with suggestions of words
- *
- */
+/// A TextEditor component that displays a TypeaheadPopupMenu below it with suggestions of words
 class TypeaheadEditor : public Component,
                         public TextEditor::Listener,
                         public KeyListener,
@@ -238,5 +238,5 @@ private:
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TypeaheadEditor);
 };
-
+}
 #endif /* TypeaheadPopupMenu_h */

@@ -5,6 +5,7 @@
 
 namespace Audealize
 {
+/// AudealizeAudioProcessor for EQ effect
 class AudealizeeqAudioProcessor : public AudealizeAudioProcessor
 {
 public:
@@ -42,11 +43,6 @@ public:
     void settingsFromMap (vector<float> settings) override;
 
     inline String getParamID (int index) override;
-
-    bool isParameterAutomatable (int index)
-    {
-        return true;
-    }
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeeqAudioProcessor)

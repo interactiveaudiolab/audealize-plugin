@@ -1,7 +1,7 @@
 //
 //  GraphicEQComponent.h
 //
-//  A JUCE gui component for creating a graphic EQ interface for Audealize-EQ plugin
+//  An Audealize::TraditionalUI with an N slider graphic EQ interface for Audealize-EQ plugin
 //
 
 #ifndef GraphicEQComponent_h
@@ -14,6 +14,7 @@ using namespace juce;
 
 namespace Audealize
 {
+/// A Audealize::TraditionalUI with an N slider graphic EQ interface for Audealize-EQ plugin
 class GraphicEQComponent : public TraditionalUI, public SliderListener
 {
 public:

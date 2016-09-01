@@ -21,6 +21,7 @@ using std::to_string;
 
 namespace Audealize
 {
+/// A parametric reverberator
 class Reverb : AudioEffect
 {
 public:

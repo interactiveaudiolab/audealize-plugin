@@ -1,7 +1,7 @@
 //
 //  WordMap.h
 //
-//  A JUCE gui component that creates a map of descriptors for Audealize plugins
+//  A  juce::Component containing a map of descriptors for Audealize plugins
 //
 //  Instantiate with an AudealizeAudioProcessor and an nlohmann::json dictionary of descriptors and their associated
 //  data
@@ -21,6 +21,7 @@ using std::string;
 
 namespace Audealize
 {
+/// A juce::Component containing a map of descriptors for Audealize plugins.
 class WordMap : public Component, public Timer, public ActionBroadcaster
 {
 public:

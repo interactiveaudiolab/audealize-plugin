@@ -30,6 +30,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="IALlogo.svg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Audealize
    </div>
@@ -113,6 +114,9 @@ $(document).ready(function(){initNavTree('class_audealize_1_1_reverb.html','');}
 </div><!--header-->
 <div class="contents">
 
+<p>A parametric reverberator.  
+ <a href="class_audealize_1_1_reverb.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_reverb_8h_source.html">Reverb.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Audealize::Reverb:</div>
@@ -120,7 +124,7 @@ Inheritance diagram for Audealize::Reverb:</div>
  <div class="center">
   <img src="class_audealize_1_1_reverb.png" usemap="#Audealize::Reverb_map" alt=""/>
   <map id="Audealize::Reverb_map" name="Audealize::Reverb_map">
-<area href="class_audealize_1_1_audio_effect.html" alt="Audealize::AudioEffect" shape="rect" coords="0,0,140,24"/>
+<area href="class_audealize_1_1_audio_effect.html" title="Interface class for audio effects that perform processing on samples either individually or in blocks..." alt="Audealize::AudioEffect" shape="rect" coords="0,0,140,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -130,27 +134,27 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a6bb1409a11f960eafff156ab2a6f60a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53286010677ee1e5a2a81e3ea9688c1c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a53286010677ee1e5a2a81e3ea9688c1c">~Reverb</a> ()</td></tr>
 <tr class="separator:a53286010677ee1e5a2a81e3ea9688c1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e6224a37e50c83e7dbe2f3c9c1814d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a6e6224a37e50c83e7dbe2f3c9c1814d8">processMonoBlock</a> (float *channelData, <a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> blockSize)</td></tr>
+<tr class="memitem:a6e6224a37e50c83e7dbe2f3c9c1814d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a6e6224a37e50c83e7dbe2f3c9c1814d8">processMonoBlock</a> (float *channelData, int blockSize)</td></tr>
 <tr class="separator:a6e6224a37e50c83e7dbe2f3c9c1814d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9351a471cd711bfa2a347bdca084d397"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a9351a471cd711bfa2a347bdca084d397">processStereoBlock</a> (float *channelData1, float *channelData2, <a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> blockSize)</td></tr>
+<tr class="memitem:a9351a471cd711bfa2a347bdca084d397"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a9351a471cd711bfa2a347bdca084d397">processStereoBlock</a> (float *channelData1, float *channelData2, int blockSize)</td></tr>
 <tr class="separator:a9351a471cd711bfa2a347bdca084d397"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a301a030f103e237741614e22498834ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a301a030f103e237741614e22498834ff">init</a> (float d_val, float g_val, float m_val, float f_val, float E_val, float wetdry_val, float sampleRate)</td></tr>
+<tr class="memitem:a301a030f103e237741614e22498834ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a301a030f103e237741614e22498834ff">init</a> (float d_val, float g_val, float m_val, float f_val, float E_val, float wetdry_val, float sampleRate)</td></tr>
 <tr class="separator:a301a030f103e237741614e22498834ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b4ea565c1c25b62911c5b650f84f844"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a1b4ea565c1c25b62911c5b650f84f844">setSampleRate</a> (float sampleRate)</td></tr>
+<tr class="memitem:a1b4ea565c1c25b62911c5b650f84f844"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a1b4ea565c1c25b62911c5b650f84f844">setSampleRate</a> (float sampleRate)</td></tr>
 <tr class="separator:a1b4ea565c1c25b62911c5b650f84f844"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9727c0f0980b94856beb3f3b43a3944a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a9727c0f0980b94856beb3f3b43a3944a">resetBuffs</a> ()</td></tr>
+<tr class="memitem:a9727c0f0980b94856beb3f3b43a3944a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a9727c0f0980b94856beb3f3b43a3944a">resetBuffs</a> ()</td></tr>
 <tr class="separator:a9727c0f0980b94856beb3f3b43a3944a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b4944f1ed31c1226f52fe91e44f6472"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a8b4944f1ed31c1226f52fe91e44f6472">set_d</a> (float d_val)</td></tr>
+<tr class="memitem:a8b4944f1ed31c1226f52fe91e44f6472"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a8b4944f1ed31c1226f52fe91e44f6472">set_d</a> (float d_val)</td></tr>
 <tr class="separator:a8b4944f1ed31c1226f52fe91e44f6472"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae60ddead2f69f41bab5d89f2dc70916c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#ae60ddead2f69f41bab5d89f2dc70916c">set_g</a> (float g_val)</td></tr>
+<tr class="memitem:ae60ddead2f69f41bab5d89f2dc70916c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#ae60ddead2f69f41bab5d89f2dc70916c">set_g</a> (float g_val)</td></tr>
 <tr class="separator:ae60ddead2f69f41bab5d89f2dc70916c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e8039fe4f4a71c4c46fa74ae76e15f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a7e8039fe4f4a71c4c46fa74ae76e15f7">set_m</a> (float m_val)</td></tr>
+<tr class="memitem:a7e8039fe4f4a71c4c46fa74ae76e15f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a7e8039fe4f4a71c4c46fa74ae76e15f7">set_m</a> (float m_val)</td></tr>
 <tr class="separator:a7e8039fe4f4a71c4c46fa74ae76e15f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dd995a1df58a6db8df8213cef896158"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a1dd995a1df58a6db8df8213cef896158">set_f</a> (float f_val)</td></tr>
+<tr class="memitem:a1dd995a1df58a6db8df8213cef896158"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a1dd995a1df58a6db8df8213cef896158">set_f</a> (float f_val)</td></tr>
 <tr class="separator:a1dd995a1df58a6db8df8213cef896158"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81166e0d284f3266f1a5a646e78abe42"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a81166e0d284f3266f1a5a646e78abe42">set_E</a> (float E_val)</td></tr>
+<tr class="memitem:a81166e0d284f3266f1a5a646e78abe42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a81166e0d284f3266f1a5a646e78abe42">set_E</a> (float E_val)</td></tr>
 <tr class="separator:a81166e0d284f3266f1a5a646e78abe42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95bffc24800591faf3458cf489c3bcae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a95bffc24800591faf3458cf489c3bcae">set_wetdry</a> (float wetdry_val)</td></tr>
+<tr class="memitem:a95bffc24800591faf3458cf489c3bcae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a95bffc24800591faf3458cf489c3bcae">set_wetdry</a> (float wetdry_val)</td></tr>
 <tr class="separator:a95bffc24800591faf3458cf489c3bcae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a52f3a5300722b6add8b495fa195b1f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a9a52f3a5300722b6add8b495fa195b1f">get_d</a> ()</td></tr>
 <tr class="separator:a9a52f3a5300722b6add8b495fa195b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,7 +169,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9801b05791b7eef0eb0f04d84d1a27e3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_reverb.html#a9801b05791b7eef0eb0f04d84d1a27e3">get_wetdry</a> ()</td></tr>
 <tr class="separator:a9801b05791b7eef0eb0f04d84d1a27e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>A parametric reverberator. </p>
+
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00025">25</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a6bb1409a11f960eafff156ab2a6f60a3"></a>
 <div class="memitem">
 <div class="memproto">
@@ -186,6 +194,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00028">28</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
 
 </div>
 </div>
@@ -209,6 +219,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00038">38</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
 
 </div>
 </div>
@@ -235,6 +247,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Getters for main reverberator parameters </p>
 
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00254">254</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a4ce71ce2f1677cd3b43db9a22490b7fd"></a>
@@ -257,6 +271,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00274">274</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
 
 </div>
 </div>
@@ -281,6 +297,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00269">269</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a100b4faf2b256968bf7c95c0644a3695"></a>
@@ -303,6 +321,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00259">259</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
 
 </div>
 </div>
@@ -327,6 +347,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00264">264</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a9801b05791b7eef0eb0f04d84d1a27e3"></a>
@@ -350,6 +372,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00279">279</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a301a030f103e237741614e22498834ff"></a>
@@ -360,7 +384,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Reverb::init </td>
+          <td class="memname">void Audealize::Reverb::init </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>d_val</em>, </td>
@@ -415,6 +439,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Set all parameters at once. (Intended to be called from JUCE::AudioProcessor::prepareToPlay) </p>
 
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00155">155</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a6e6224a37e50c83e7dbe2f3c9c1814d8"></a>
@@ -425,7 +451,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Reverb::processMonoBlock </td>
+          <td class="memname">void Audealize::Reverb::processMonoBlock </td>
           <td>(</td>
           <td class="paramtype">float *&#160;</td>
           <td class="paramname"><em>channelData</em>, </td>
@@ -433,7 +459,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>blockSize</em>&#160;</td>
         </tr>
         <tr>
@@ -457,6 +483,8 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00048">48</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a9351a471cd711bfa2a347bdca084d397"></a>
@@ -467,7 +495,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Reverb::processStereoBlock </td>
+          <td class="memname">void Audealize::Reverb::processStereoBlock </td>
           <td>(</td>
           <td class="paramtype">float *&#160;</td>
           <td class="paramname"><em>channelData1</em>, </td>
@@ -481,7 +509,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>blockSize</em>&#160;</td>
         </tr>
         <tr>
@@ -506,6 +534,8 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00095">95</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a9727c0f0980b94856beb3f3b43a3944a"></a>
@@ -516,7 +546,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Reverb::resetBuffs </td>
+          <td class="memname">void Audealize::Reverb::resetBuffs </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -530,6 +560,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Zero out all delay/filter buffers </p>
 
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00183">183</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a8b4944f1ed31c1226f52fe91e44f6472"></a>
@@ -540,7 +572,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Reverb::set_d </td>
+          <td class="memname">void Audealize::Reverb::set_d </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>d_val</em></td><td>)</td>
@@ -555,6 +587,8 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Setters for the main reverberator parameters </p>
 
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00202">202</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a81166e0d284f3266f1a5a646e78abe42"></a>
@@ -565,7 +599,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Reverb::set_E </td>
+          <td class="memname">void Audealize::Reverb::set_E </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>E_val</em></td><td>)</td>
@@ -579,6 +613,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00232">232</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a1dd995a1df58a6db8df8213cef896158"></a>
@@ -589,7 +625,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Reverb::set_f </td>
+          <td class="memname">void Audealize::Reverb::set_f </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>f_val</em></td><td>)</td>
@@ -603,6 +639,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00226">226</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae60ddead2f69f41bab5d89f2dc70916c"></a>
@@ -613,7 +651,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Reverb::set_g </td>
+          <td class="memname">void Audealize::Reverb::set_g </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>g_val</em></td><td>)</td>
@@ -627,6 +665,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00213">213</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a7e8039fe4f4a71c4c46fa74ae76e15f7"></a>
@@ -637,7 +677,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Reverb::set_m </td>
+          <td class="memname">void Audealize::Reverb::set_m </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>m_val</em></td><td>)</td>
@@ -651,6 +691,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00219">219</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a95bffc24800591faf3458cf489c3bcae"></a>
@@ -661,7 +703,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Reverb::set_wetdry </td>
+          <td class="memname">void Audealize::Reverb::set_wetdry </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>wetdry_val</em></td><td>)</td>
@@ -675,6 +717,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00244">244</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a1b4ea565c1c25b62911c5b650f84f844"></a>
@@ -685,7 +729,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Reverb::setSampleRate </td>
+          <td class="memname">void Audealize::Reverb::setSampleRate </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>sampleRate</em></td><td>)</td>
@@ -701,6 +745,8 @@ Public Member Functions</h2></td></tr>
 <p>Overload <a class="el" href="class_audealize_1_1_audio_effect.html#a5ff34c0371f2311dc026bca5ba245faa">AudioEffect::setSampleRate</a> to update any variables dependent on the sample rate </p>
 
 <p>Reimplemented from <a class="el" href="class_audealize_1_1_audio_effect.html#a5ff34c0371f2311dc026bca5ba245faa">Audealize::AudioEffect</a>.</p>
+
+<p>Definition at line <a class="el" href="_reverb_8h_source.html#l00171">171</a> of file <a class="el" href="_reverb_8h_source.html">Reverb.h</a>.</p>
 
 </div>
 </div>

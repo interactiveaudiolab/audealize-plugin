@@ -1,7 +1,7 @@
 //
 //  AudealizeTabbedComponent.h
 //
-//  Defines a JUCE::TabbedComponent class with custom TabbedButtonBar position
+//  A juce::TabbedComponent class with custom TabbedButtonBar position
 //
 
 #ifndef AUDEALIZETABBEDCOMPONENT_H_INCLUDED
@@ -9,6 +9,7 @@
 
 namespace Audealize
 {
+/// A juce::TabbedComponent class with custom TabbedButtonBar position
 class AudealizeTabbedComponent : public TabbedComponent
 {
 public:
@@ -17,7 +18,9 @@ public:
         backgroundColourId = 0x2000600,
     };
 
-    AudealizeTabbedComponent (const TabbedButtonBar::Orientation orientation) : TabbedComponent (orientation) {}
+    AudealizeTabbedComponent (const TabbedButtonBar::Orientation orientation) : TabbedComponent (orientation)
+    {
+    }
     ~AudealizeTabbedComponent (){};
 
     void resized () override
@@ -40,6 +43,5 @@ public:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeTabbedComponent);
 };
 }
-
 
 #endif  // AUDEALIZETABBEDCOMPONENT_H_INCLUDED

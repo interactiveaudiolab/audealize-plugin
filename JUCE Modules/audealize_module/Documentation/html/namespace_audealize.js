@@ -1,5 +1,6 @@
 var namespace_audealize =
 [
+    [ "AboutComponent", "class_audealize_1_1_about_component.html", "class_audealize_1_1_about_component" ],
     [ "AudealizeAudioProcessor", "class_audealize_1_1_audealize_audio_processor.html", "class_audealize_1_1_audealize_audio_processor" ],
     [ "AudealizeeqAudioProcessor", "class_audealize_1_1_audealizeeq_audio_processor.html", "class_audealize_1_1_audealizeeq_audio_processor" ],
     [ "AudealizeFonts", "class_audealize_1_1_audealize_fonts.html", null ],
@@ -21,5 +22,7 @@ var namespace_audealize =
     [ "ReverbComponent", "class_audealize_1_1_reverb_component.html", "class_audealize_1_1_reverb_component" ],
     [ "RotarySliderCentered", "class_audealize_1_1_rotary_slider_centered.html", "class_audealize_1_1_rotary_slider_centered" ],
     [ "TraditionalUI", "class_audealize_1_1_traditional_u_i.html", "class_audealize_1_1_traditional_u_i" ],
+    [ "TypeaheadEditor", "class_audealize_1_1_typeahead_editor.html", "class_audealize_1_1_typeahead_editor" ],
+    [ "TypeaheadPopupMenu", "class_audealize_1_1_typeahead_popup_menu.html", "class_audealize_1_1_typeahead_popup_menu" ],
     [ "WordMap", "class_audealize_1_1_word_map.html", "class_audealize_1_1_word_map" ]
 ];

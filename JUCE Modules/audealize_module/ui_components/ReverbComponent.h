@@ -11,6 +11,7 @@
 
 namespace Audealize
 {
+/// An Audealize::TraditionalUI component for controlling the Audealize reverberator
 class ReverbComponent : public TraditionalUI
 {
 public:

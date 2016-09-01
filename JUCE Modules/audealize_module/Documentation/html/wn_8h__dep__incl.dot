@@ -1,0 +1,28 @@
+digraph "/Users/michael/JUCE/projects/audealize-plugin/JUCE Modules/audealize_module/WordNet-3.0/include/wn.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="/Users/michael/JUCE\l/projects/audealize\l-plugin/JUCE Modules\l/audealize_module/WordNet\l-3.0/include/wn.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="/Users/michael/JUCE\l/projects/audealize\l-plugin/JUCE Modules\l/audealize_module/audealize\l_module.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$audealize__module_8h.html"];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="/Users/michael/JUCE\l/projects/audealize\l-plugin/JUCE Modules\l/audealize_module/audealize\l_module.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$audealize__module_8cpp.html"];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="/Users/michael/JUCE\l/projects/audealize\l-plugin/JUCE Modules\l/audealize_module/audealize\l_module.mm",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$audealize__module_8mm.html"];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="/Users/michael/JUCE\l/projects/audealize\l-plugin/JUCE Modules\l/audealize_module/WordNet\l-3.0/include/wngrind.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$wngrind_8h.html"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="/Users/michael/JUCE\l/projects/audealize\l-plugin/JUCE Modules\l/audealize_module/WordNet\l-3.0/lib/morph.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$morph_8c.html"];
+  Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="/Users/michael/JUCE\l/projects/audealize\l-plugin/JUCE Modules\l/audealize_module/WordNet\l-3.0/lib/search.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$search_8c.html"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="/Users/michael/JUCE\l/projects/audealize\l-plugin/JUCE Modules\l/audealize_module/WordNet\l-3.0/lib/wnhelp.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$wnhelp_8c.html"];
+  Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="/Users/michael/JUCE\l/projects/audealize\l-plugin/JUCE Modules\l/audealize_module/WordNet\l-3.0/lib/wnrtl.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$wnrtl_8c.html"];
+  Node1 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="/Users/michael/JUCE\l/projects/audealize\l-plugin/JUCE Modules\l/audealize_module/WordNet\l-3.0/lib/wnutil.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$wnutil_8c.html"];
+  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node11 [label="/Users/michael/JUCE\l/projects/audealize\l-plugin/JUCE Modules\l/audealize_module/WordNet\l-3.0/src/stubs.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$stubs_8c.html"];
+  Node1 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node12 [label="/Users/michael/JUCE\l/projects/audealize\l-plugin/JUCE Modules\l/audealize_module/WordNet\l-3.0/src/wn.c",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$wn_8c.html"];
+}

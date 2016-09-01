@@ -13,6 +13,7 @@ using std::vector;
 
 namespace Audealize
 {
+/// A Biquad filter class for processing N channels of audio
 class NChannelFilter : public AudioEffect
 {
 public:

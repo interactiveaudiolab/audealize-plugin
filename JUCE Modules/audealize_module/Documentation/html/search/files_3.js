@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['delay_2eh',['delay.h',['../delay_8h.html',1,'']]]
+  ['equalizer_2eh',['Equalizer.h',['../_equalizer_8h.html',1,'']]]
 ];

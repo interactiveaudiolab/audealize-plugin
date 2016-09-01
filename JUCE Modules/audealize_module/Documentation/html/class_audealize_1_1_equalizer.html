@@ -30,6 +30,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="IALlogo.svg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Audealize
    </div>
@@ -113,6 +114,9 @@ $(document).ready(function(){initNavTree('class_audealize_1_1_equalizer.html',''
 </div><!--header-->
 <div class="contents">
 
+<p>An N-band graphic equalizer made up of <a class="el" href="class_audealize_1_1_n_channel_filter.html" title="A Biquad filter class for processing N channels of audio. ">NChannelFilter</a>.  
+ <a href="class_audealize_1_1_equalizer.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_equalizer_8h_source.html">Equalizer.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Audealize::Equalizer:</div>
@@ -120,7 +124,7 @@ Inheritance diagram for Audealize::Equalizer:</div>
  <div class="center">
   <img src="class_audealize_1_1_equalizer.png" usemap="#Audealize::Equalizer_map" alt=""/>
   <map id="Audealize::Equalizer_map" name="Audealize::Equalizer_map">
-<area href="class_audealize_1_1_audio_effect.html" alt="Audealize::AudioEffect" shape="rect" coords="0,0,140,24"/>
+<area href="class_audealize_1_1_audio_effect.html" title="Interface class for audio effects that perform processing on samples either individually or in blocks..." alt="Audealize::AudioEffect" shape="rect" coords="0,0,140,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -128,32 +132,32 @@ Inheritance diagram for Audealize::Equalizer:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a551e481ffa4ac763c51b3fefa8db5a9d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#a551e481ffa4ac763c51b3fefa8db5a9d">Equalizer</a> (vector&lt; float &gt; freqs, float sampleRate)</td></tr>
 <tr class="separator:a551e481ffa4ac763c51b3fefa8db5a9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71cadea6dfac69d667ecda5046177a00"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#a71cadea6dfac69d667ecda5046177a00">processSample</a> (float sample, <a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> channelIdx)</td></tr>
+<tr class="memitem:a71cadea6dfac69d667ecda5046177a00"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#a71cadea6dfac69d667ecda5046177a00">processSample</a> (float sample, int channelIdx)</td></tr>
 <tr class="separator:a71cadea6dfac69d667ecda5046177a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a782dd682924a6d5d00a16407d35851ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#a782dd682924a6d5d00a16407d35851ff">setEqualizer</a> (vector&lt; float &gt; freqs, vector&lt; float &gt; gains)</td></tr>
+<tr class="memitem:a782dd682924a6d5d00a16407d35851ff"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#a782dd682924a6d5d00a16407d35851ff">setEqualizer</a> (vector&lt; float &gt; freqs, vector&lt; float &gt; gains)</td></tr>
 <tr class="separator:a782dd682924a6d5d00a16407d35851ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32f93b1dd52f8fd2ea4445f024b2ab3a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#a32f93b1dd52f8fd2ea4445f024b2ab3a">setFreqs</a> (vector&lt; float &gt; freqs)</td></tr>
+<tr class="memitem:a32f93b1dd52f8fd2ea4445f024b2ab3a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#a32f93b1dd52f8fd2ea4445f024b2ab3a">setFreqs</a> (vector&lt; float &gt; freqs)</td></tr>
 <tr class="separator:a32f93b1dd52f8fd2ea4445f024b2ab3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7105904dc9dad6ab49a6bf9aec82d18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#ab7105904dc9dad6ab49a6bf9aec82d18">setGains</a> (vector&lt; float &gt; gains)</td></tr>
+<tr class="memitem:ab7105904dc9dad6ab49a6bf9aec82d18"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#ab7105904dc9dad6ab49a6bf9aec82d18">setGains</a> (vector&lt; float &gt; gains)</td></tr>
 <tr class="separator:ab7105904dc9dad6ab49a6bf9aec82d18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a281c8f1e77ed51241bf0e5103c47c848"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#a281c8f1e77ed51241bf0e5103c47c848">setBandGain</a> (<a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> bandIdx, float gainDB)</td></tr>
+<tr class="memitem:a281c8f1e77ed51241bf0e5103c47c848"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#a281c8f1e77ed51241bf0e5103c47c848">setBandGain</a> (int bandIdx, float gainDB)</td></tr>
 <tr class="separator:a281c8f1e77ed51241bf0e5103c47c848"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28d3bc5a80540ea5d0c7eae9089643ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#a28d3bc5a80540ea5d0c7eae9089643ed">setQ</a> (float Q)</td></tr>
+<tr class="memitem:a28d3bc5a80540ea5d0c7eae9089643ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#a28d3bc5a80540ea5d0c7eae9089643ed">setQ</a> (float Q)</td></tr>
 <tr class="separator:a28d3bc5a80540ea5d0c7eae9089643ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8206b7f21b22f9c9f223014ab754c1b3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#a8206b7f21b22f9c9f223014ab754c1b3">setSampleRate</a> (float sampleRate)</td></tr>
+<tr class="memitem:a8206b7f21b22f9c9f223014ab754c1b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#a8206b7f21b22f9c9f223014ab754c1b3">setSampleRate</a> (float sampleRate)</td></tr>
 <tr class="separator:a8206b7f21b22f9c9f223014ab754c1b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac73ade538a329b9ba112549b6194712c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#ac73ade538a329b9ba112549b6194712c">getBandFreq</a> (<a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> bandIdx)</td></tr>
+<tr class="memitem:ac73ade538a329b9ba112549b6194712c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#ac73ade538a329b9ba112549b6194712c">getBandFreq</a> (int bandIdx)</td></tr>
 <tr class="separator:ac73ade538a329b9ba112549b6194712c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a33b0c95b6da66e88e64b13fa1f55fb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#a9a33b0c95b6da66e88e64b13fa1f55fb">getBandGain</a> (<a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> bandIdx)</td></tr>
+<tr class="memitem:a9a33b0c95b6da66e88e64b13fa1f55fb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#a9a33b0c95b6da66e88e64b13fa1f55fb">getBandGain</a> (int bandIdx)</td></tr>
 <tr class="separator:a9a33b0c95b6da66e88e64b13fa1f55fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74afbb1c132528c7b2765f5e9b168e7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#a74afbb1c132528c7b2765f5e9b168e7f">getNumChannels</a> ()</td></tr>
+<tr class="memitem:a74afbb1c132528c7b2765f5e9b168e7f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_equalizer.html#a74afbb1c132528c7b2765f5e9b168e7f">getNumChannels</a> ()</td></tr>
 <tr class="separator:a74afbb1c132528c7b2765f5e9b168e7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_audealize_1_1_audio_effect"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_audealize_1_1_audio_effect')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_audealize_1_1_audio_effect.html">Audealize::AudioEffect</a></td></tr>
 <tr class="memitem:ac730d3e11025310b13019073268174de inherit pub_methods_class_audealize_1_1_audio_effect"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audio_effect.html#ac730d3e11025310b13019073268174de">AudioEffect</a> (float sampleRate=44100)</td></tr>
 <tr class="separator:ac730d3e11025310b13019073268174de inherit pub_methods_class_audealize_1_1_audio_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3cd9fc8ee2b2bb4bd313772014651fd0 inherit pub_methods_class_audealize_1_1_audio_effect"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audio_effect.html#a3cd9fc8ee2b2bb4bd313772014651fd0">~AudioEffect</a> ()</td></tr>
 <tr class="separator:a3cd9fc8ee2b2bb4bd313772014651fd0 inherit pub_methods_class_audealize_1_1_audio_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a343c4a44c067e2605d18dcb578ae1302 inherit pub_methods_class_audealize_1_1_audio_effect"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audio_effect.html#a343c4a44c067e2605d18dcb578ae1302">processBlock</a> (float *const samples, <a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> numSamples, <a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> channelIdx)</td></tr>
+<tr class="memitem:a343c4a44c067e2605d18dcb578ae1302 inherit pub_methods_class_audealize_1_1_audio_effect"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audio_effect.html#a343c4a44c067e2605d18dcb578ae1302">processBlock</a> (float *const samples, int numSamples, int channelIdx)</td></tr>
 <tr class="separator:a343c4a44c067e2605d18dcb578ae1302 inherit pub_methods_class_audealize_1_1_audio_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa1d51c95f452a5d71f97908a13751166 inherit pub_methods_class_audealize_1_1_audio_effect"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audio_effect.html#aa1d51c95f452a5d71f97908a13751166">getSampleRate</a> ()</td></tr>
 <tr class="separator:aa1d51c95f452a5d71f97908a13751166 inherit pub_methods_class_audealize_1_1_audio_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,7 +168,11 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:acd609287d863778dcb7e27ea208b17ba inherit pro_attribs_class_audealize_1_1_audio_effect"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_audio_effect.html#acd609287d863778dcb7e27ea208b17ba">mSampleRate</a></td></tr>
 <tr class="separator:acd609287d863778dcb7e27ea208b17ba inherit pro_attribs_class_audealize_1_1_audio_effect"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>An N-band graphic equalizer made up of <a class="el" href="class_audealize_1_1_n_channel_filter.html" title="A Biquad filter class for processing N channels of audio. ">NChannelFilter</a>. </p>
+
+<p>Definition at line <a class="el" href="_equalizer_8h_source.html#l00020">20</a> of file <a class="el" href="_equalizer_8h_source.html">Equalizer.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a551e481ffa4ac763c51b3fefa8db5a9d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -197,6 +205,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Definition at line <a class="el" href="_equalizer_8h_source.html#l00023">23</a> of file <a class="el" href="_equalizer_8h_source.html">Equalizer.h</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -210,7 +220,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">float Audealize::Equalizer::getBandFreq </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>bandIdx</em></td><td>)</td>
           <td></td>
         </tr>
@@ -230,6 +240,8 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the center frequency of the filter </dd></dl>
 
+<p>Definition at line <a class="el" href="_equalizer_8h_source.html#l00142">142</a> of file <a class="el" href="_equalizer_8h_source.html">Equalizer.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a9a33b0c95b6da66e88e64b13fa1f55fb"></a>
@@ -242,7 +254,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="memname">float Audealize::Equalizer::getBandGain </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>bandIdx</em></td><td>)</td>
           <td></td>
         </tr>
@@ -262,6 +274,8 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the gain of the filter </dd></dl>
 
+<p>Definition at line <a class="el" href="_equalizer_8h_source.html#l00154">154</a> of file <a class="el" href="_equalizer_8h_source.html">Equalizer.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a74afbb1c132528c7b2765f5e9b168e7f"></a>
@@ -272,7 +286,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> Audealize::Equalizer::getNumChannels </td>
+          <td class="memname">int Audealize::Equalizer::getNumChannels </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -286,6 +300,8 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns the number of channels (1 = mono, 2 = stereo, etc..) Not bands!</p>
 <dl class="section return"><dt>Returns</dt><dd>int number of channels </dd></dl>
+
+<p>Definition at line <a class="el" href="_equalizer_8h_source.html#l00164">164</a> of file <a class="el" href="_equalizer_8h_source.html">Equalizer.h</a>.</p>
 
 </div>
 </div>
@@ -305,7 +321,7 @@ Additional Inherited Members</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>channelIdx</em>&#160;</td>
         </tr>
         <tr>
@@ -332,6 +348,8 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_audealize_1_1_audio_effect.html#ab77548a457702d189087163a696d4215">Audealize::AudioEffect</a>.</p>
 
+<p>Definition at line <a class="el" href="_equalizer_8h_source.html#l00040">40</a> of file <a class="el" href="_equalizer_8h_source.html">Equalizer.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a281c8f1e77ed51241bf0e5103c47c848"></a>
@@ -342,9 +360,9 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Equalizer::setBandGain </td>
+          <td class="memname">void Audealize::Equalizer::setBandGain </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>&#160;</td>
+          <td class="paramtype">int&#160;</td>
           <td class="paramname"><em>bandIdx</em>, </td>
         </tr>
         <tr>
@@ -368,11 +386,13 @@ Additional Inherited Members</h2></td></tr>
 <p>Sets the gain of an individual EQ band</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bandIdx</td><td><a class="el" href="struct_index.html">Index</a> of band to be set </td></tr>
+    <tr><td class="paramname">bandIdx</td><td>Index of band to be set </td></tr>
     <tr><td class="paramname">gainDB</td><td>Band gain in dB </td></tr>
   </table>
   </dd>
 </dl>
+
+<p>Definition at line <a class="el" href="_equalizer_8h_source.html#l00106">106</a> of file <a class="el" href="_equalizer_8h_source.html">Equalizer.h</a>.</p>
 
 </div>
 </div>
@@ -384,7 +404,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Equalizer::setEqualizer </td>
+          <td class="memname">void Audealize::Equalizer::setEqualizer </td>
           <td>(</td>
           <td class="paramtype">vector&lt; float &gt;&#160;</td>
           <td class="paramname"><em>freqs</em>, </td>
@@ -416,6 +436,8 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="_equalizer_8h_source.html#l00057">57</a> of file <a class="el" href="_equalizer_8h_source.html">Equalizer.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a32f93b1dd52f8fd2ea4445f024b2ab3a"></a>
@@ -426,7 +448,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Equalizer::setFreqs </td>
+          <td class="memname">void Audealize::Equalizer::setFreqs </td>
           <td>(</td>
           <td class="paramtype">vector&lt; float &gt;&#160;</td>
           <td class="paramname"><em>freqs</em></td><td>)</td>
@@ -447,6 +469,8 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="_equalizer_8h_source.html#l00068">68</a> of file <a class="el" href="_equalizer_8h_source.html">Equalizer.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ab7105904dc9dad6ab49a6bf9aec82d18"></a>
@@ -457,7 +481,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Equalizer::setGains </td>
+          <td class="memname">void Audealize::Equalizer::setGains </td>
           <td>(</td>
           <td class="paramtype">vector&lt; float &gt;&#160;</td>
           <td class="paramname"><em>gains</em></td><td>)</td>
@@ -478,6 +502,8 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="_equalizer_8h_source.html#l00091">91</a> of file <a class="el" href="_equalizer_8h_source.html">Equalizer.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a28d3bc5a80540ea5d0c7eae9089643ed"></a>
@@ -488,7 +514,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Equalizer::setQ </td>
+          <td class="memname">void Audealize::Equalizer::setQ </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>Q</em></td><td>)</td>
@@ -509,6 +535,8 @@ Additional Inherited Members</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="_equalizer_8h_source.html#l00117">117</a> of file <a class="el" href="_equalizer_8h_source.html">Equalizer.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a8206b7f21b22f9c9f223014ab754c1b3"></a>
@@ -519,7 +547,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Equalizer::setSampleRate </td>
+          <td class="memname">void Audealize::Equalizer::setSampleRate </td>
           <td>(</td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>sampleRate</em></td><td>)</td>
@@ -541,6 +569,8 @@ Additional Inherited Members</h2></td></tr>
 </dl>
 
 <p>Reimplemented from <a class="el" href="class_audealize_1_1_audio_effect.html#a5ff34c0371f2311dc026bca5ba245faa">Audealize::AudioEffect</a>.</p>
+
+<p>Definition at line <a class="el" href="_equalizer_8h_source.html#l00128">128</a> of file <a class="el" href="_equalizer_8h_source.html">Equalizer.h</a>.</p>
 
 </div>
 </div>

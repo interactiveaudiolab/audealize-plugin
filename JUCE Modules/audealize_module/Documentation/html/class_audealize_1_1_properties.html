@@ -30,6 +30,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="IALlogo.svg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Audealize
    </div>
@@ -114,16 +115,20 @@ $(document).ready(function(){initNavTree('class_audealize_1_1_properties.html','
 </div><!--header-->
 <div class="contents">
 
+<p>Functions for saving/loading properties data.  
+ <a href="class_audealize_1_1_properties.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="properties_8h_source.html">properties.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_audealize_1_1_properties_1_1property_ids.html">propertyIds</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">String Ids of each property.  <a href="struct_audealize_1_1_properties_1_1property_ids.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a5fd61e0b3e2ef18813404e5780dc6682"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_properties.html#a5fd61e0b3e2ef18813404e5780dc6682">writePropertiesToFile</a> (var properties)</td></tr>
+<tr class="memitem:a5fd61e0b3e2ef18813404e5780dc6682"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_properties.html#a5fd61e0b3e2ef18813404e5780dc6682">writePropertiesToFile</a> (var properties)</td></tr>
 <tr class="separator:a5fd61e0b3e2ef18813404e5780dc6682"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a834a6e7a3141abe29d9efac85607e084"><td class="memItemLeft" align="right" valign="top">static File&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_properties.html#a834a6e7a3141abe29d9efac85607e084">loadPropertiesFile</a> ()</td></tr>
 <tr class="separator:a834a6e7a3141abe29d9efac85607e084"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,7 +137,11 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a489f7e3acc8a6c08d32a02f52ca6829d"><td class="memItemLeft" align="right" valign="top">static var&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_audealize_1_1_properties.html#a489f7e3acc8a6c08d32a02f52ca6829d">getProperty</a> (Identifier propertyId)</td></tr>
 <tr class="separator:a489f7e3acc8a6c08d32a02f52ca6829d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Functions for saving/loading properties data. </p>
+
+<p>Definition at line <a class="el" href="properties_8h_source.html#l00029">29</a> of file <a class="el" href="properties_8h_source.html">properties.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a class="anchor" id="a489f7e3acc8a6c08d32a02f52ca6829d"></a>
 <div class="memitem">
 <div class="memproto">
@@ -155,7 +164,9 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Returns a juce::var containing an individual property, referenced by its property</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_audealize_1_1_properties_1_1property_ids.html">Properties::propertyIds</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="struct_audealize_1_1_properties_1_1property_ids.html" title="String Ids of each property. ">Properties::propertyIds</a> </dd></dl>
+
+<p>Definition at line <a class="el" href="properties_8h_source.html#l00110">110</a> of file <a class="el" href="properties_8h_source.html">properties.h</a>.</p>
 
 </div>
 </div>
@@ -182,6 +193,8 @@ Static Public Member Functions</h2></td></tr>
 <p>Loads the user's configuration file or creates a new one if none exists</p>
 <dl class="section return"><dt>Returns</dt><dd>File </dd></dl>
 
+<p>Definition at line <a class="el" href="properties_8h_source.html#l00062">62</a> of file <a class="el" href="properties_8h_source.html">properties.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="afdb11258af4ee48a91d244e6a9cdc6e0"></a>
@@ -206,6 +219,8 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns a juce::var containing a list of properties </p>
 
+<p>Definition at line <a class="el" href="properties_8h_source.html#l00095">95</a> of file <a class="el" href="properties_8h_source.html">properties.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a5fd61e0b3e2ef18813404e5780dc6682"></a>
@@ -216,7 +231,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> Audealize::Properties::writePropertiesToFile </td>
+          <td class="memname">static void Audealize::Properties::writePropertiesToFile </td>
           <td>(</td>
           <td class="paramtype">var&#160;</td>
           <td class="paramname"><em>properties</em></td><td>)</td>
@@ -236,6 +251,8 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+<p>Definition at line <a class="el" href="properties_8h_source.html#l00045">45</a> of file <a class="el" href="properties_8h_source.html">properties.h</a>.</p>
 
 </div>
 </div>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['highlightcolourid',['highlightColourId',['../class_typeahead_popup_menu.html#ab0938f3a6c7b9349f698cd65a97cdbf9ad97aea57b8ccf23a19774c3f64216688',1,'TypeaheadPopupMenu']]]
+  ['highlightcolourid',['highlightColourId',['../class_audealize_1_1_typeahead_popup_menu.html#a73c48af51d115a9cac28d4ecd0354c75afea2f602c1c14d1ffda0bc3de08872e7',1,'Audealize::TypeaheadPopupMenu']]]
 ];

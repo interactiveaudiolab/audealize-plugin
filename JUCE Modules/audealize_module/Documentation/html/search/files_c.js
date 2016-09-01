@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['primefactors_2eh',['PrimeFactors.h',['../_prime_factors_8h.html',1,'']]],
-  ['primitives_2eh',['primitives.h',['../primitives_8h.html',1,'']]],
-  ['properties_2ecpp',['properties.cpp',['../properties_8cpp.html',1,'']]],
-  ['properties_2eh',['properties.h',['../properties_8h.html',1,'']]]
+  ['traditionaluicomponent_2eh',['TraditionalUIComponent.h',['../_traditional_u_i_component_8h.html',1,'']]],
+  ['typeaheadpopupmenu_2ecpp',['TypeaheadPopupMenu.cpp',['../_typeahead_popup_menu_8cpp.html',1,'']]],
+  ['typeaheadpopupmenu_2eh',['TypeaheadPopupMenu.h',['../_typeahead_popup_menu_8h.html',1,'']]]
 ];

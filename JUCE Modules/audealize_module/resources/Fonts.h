@@ -8,6 +8,7 @@
 #define Fonts_h
 namespace Audealize
 {
+/// Binary data resources for fonts
 class AudealizeFonts
 {
 public:

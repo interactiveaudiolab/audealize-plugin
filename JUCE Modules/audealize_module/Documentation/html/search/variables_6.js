@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['gc',['gc',['../struct_tk___outline.html#ab96f1c5c142a4beb60295887384ed97b',1,'Tk_Outline']]],
-  ['getborderwidth',['getBorderWidth',['../struct_tk___element_spec.html#a9df58f19518543330455fef2858b6a30',1,'Tk_ElementSpec']]],
-  ['getbox',['getBox',['../struct_tk___element_spec.html#a33cfa221f84d6d990caea07ae9855642',1,'Tk_ElementSpec']]],
-  ['getproc',['getProc',['../struct_tk___obj_custom_option.html#a0c79eb691380bc360eb088fb372aed6e',1,'Tk_ObjCustomOption::getProc()'],['../struct_tk___image_type.html#ae798f195257d43c5c2245cb8b1f9eda1',1,'Tk_ImageType::getProc()']]],
-  ['getsize',['getSize',['../struct_tk___element_spec.html#a571364fa1ddf1fbff1e895dec371d26e',1,'Tk_ElementSpec']]],
-  ['gotfocus',['gotFocus',['../struct_tk___canvas_text_info.html#a817b1de619d13d4a997e1a21bd4f272e',1,'Tk_CanvasTextInfo']]]
+  ['iallogo_5fsvg',['iallogo_svg',['../class_audealize_1_1_audealize_images.html#abaf4f444d78268f7b4655d1edf9b5337',1,'Audealize::AudealizeImages']]],
+  ['iallogo_5fsvgsize',['iallogo_svgSize',['../class_audealize_1_1_audealize_images.html#a3216060c18fed8e493a28e3f39a020a1',1,'Audealize::AudealizeImages']]],
+  ['initialized',['initialized',['../classdsp_1_1sine__table.html#a8141404e40150c7f5dfa74030c99857f',1,'dsp::sine_table']]],
+  ['isdarkmode',['isDarkMode',['../class_audealize_1_1_audealize_look_and_feel.html#abf69c4abd23d537b60d64affb4043239',1,'Audealize::AudealizeLookAndFeel']]]
 ];

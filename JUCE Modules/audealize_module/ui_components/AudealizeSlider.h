@@ -9,6 +9,7 @@
 
 namespace Audealize
 {
+/// A juce::slider with settable text-to-value and value-to-text functions
 class AudealizeSlider : public Slider
 {
 public:
@@ -19,7 +20,9 @@ public:
         textToValueFunction = [](String s) { return s.getFloatValue (); };
     }
 
-    ~AudealizeSlider () {}
+    ~AudealizeSlider ()
+    {
+    }
     /**
      *  Returns a String representation of the slider's value. Used when displaying value in a textbox
      *  Inherited from juce::Slider
@@ -74,13 +77,20 @@ public:
      *
      *  @param f  a std::function<String (float)>
      */
-    void setValueToTextFunction (std::function<String (float)> f) { valueToTextFunction = f; }
+    void setValueToTextFunction (std::function<String (float)> f)
+    {
+        valueToTextFunction = f;
+    }
     /**
      *  Set a custom text to value function for the slider
      *
      *  @param f  a std::function<float (String)>
      */
-    void setTextToValueFunction (std::function<float(String)> f) { textToValueFunction = f; }
+    void setTextToValueFunction (std::function<float(String)> f)
+    {
+        textToValueFunction = f;
+    }
+
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeSlider);
 

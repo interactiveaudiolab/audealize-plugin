@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['fonts_2ecpp',['Fonts.cpp',['../_fonts_8cpp.html',1,'']]],
-  ['fonts_2eh',['Fonts.h',['../_fonts_8h.html',1,'']]],
-  ['freqtotext_2eh',['FreqToText.h',['../_freq_to_text_8h.html',1,'']]]
+  ['graphiceqcomponent_2ecpp',['GraphicEQComponent.cpp',['../_graphic_e_q_component_8cpp.html',1,'']]],
+  ['graphiceqcomponent_2eh',['GraphicEQComponent.h',['../_graphic_e_q_component_8h.html',1,'']]]
 ];

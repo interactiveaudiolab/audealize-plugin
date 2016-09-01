@@ -18,7 +18,7 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
-        [ "Variables", "functions_vars.html", "functions_vars" ],
+        [ "Variables", "functions_vars.html", null ],
         [ "Typedefs", "functions_type.html", null ],
         [ "Enumerations", "functions_enum.html", null ],
         [ "Enumerator", "functions_eval.html", null ],
@@ -28,13 +28,12 @@ var NAVTREE =
     [ "Files", null, [
       [ "File List", "files.html", "files" ],
       [ "File Members", "globals.html", [
-        [ "All", "globals.html", "globals_dup" ],
-        [ "Functions", "globals_func.html", "globals_func" ],
-        [ "Variables", "globals_vars.html", null ],
+        [ "All", "globals.html", null ],
+        [ "Functions", "globals_func.html", null ],
         [ "Typedefs", "globals_type.html", null ],
         [ "Enumerations", "globals_enum.html", null ],
         [ "Enumerator", "globals_eval.html", null ],
-        [ "Macros", "globals_defs.html", "globals_defs" ]
+        [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]
   ] ]
@@ -43,16 +42,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_about_component_8cpp.html",
-"class_audealize_1_1_audealizeeq_audio_processor.html#a784691486ca80271a1f2fcee9ad32542",
-"classdsp_1_1fixed__size__buffer.html#af51fc2bdaf146ea493c21079f8c7f491",
-"classnlohmann_1_1basic__json_1_1iterator.html#ab4f238aa5fcf452b1884b748b0395b1f",
-"namespaces.html",
-"struct_tk___item_type.html#a71b6b301e239157c4c62322fdf5a8ee2",
-"struct_tk_stubs.html#a994c4d46323832925f346f291cc7a2c1",
-"structsynlist.html#a8d1e2127237274f07903ffa05710f201",
-"tk_8h.html#a950c94fd966369c731e72e5cfd49cc4facc5ab06f0e1aa152205164f1bab956bc",
-"tk_decls_8h.html#a59c3f19f61f91cacc6ab24b9887d7145",
-"wn_8h.html#a97f0f09594373091b44e0c779eab99b9"
+"class_audealize_1_1_audealizeeq_audio_processor.html#a25c85696329c21a201963733bc46d957",
+"classdsp_1_1fixed__size__buffer.html",
+"classnlohmann_1_1basic__json_1_1iterator.html#a97aff5d71246774267a81066460dd1cf"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

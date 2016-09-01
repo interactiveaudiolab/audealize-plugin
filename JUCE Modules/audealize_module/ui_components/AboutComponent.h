@@ -1,8 +1,7 @@
 //
 //  AboutComponent.h
 //
-//  A JUCE component to display "about" info for Audealize plugins
-//  Intended for use as the content component of a DialogWindow
+//  A JUCE component to display "about" info for Audealize plugins. For use as the content of a DialogWindow
 //
 
 #ifndef __JUCE_HEADER_6F5BC92BB0597534__
@@ -10,6 +9,9 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 
+namespace Audealize
+{
+/// A component that displays "about" info for Audealize Plugins
 class AboutComponent : public Component, public ButtonListener
 {
 public:
@@ -38,5 +40,6 @@ private:
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AboutComponent)
 };
+}
 
 #endif  // __JUCE_HEADER_6F5BC92BB0597534__

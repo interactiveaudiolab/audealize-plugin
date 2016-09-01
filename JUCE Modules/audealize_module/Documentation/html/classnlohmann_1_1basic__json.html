@@ -30,6 +30,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
+  <td id="projectlogo"><img alt="Logo" src="IALlogo.svg"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Audealize
    </div>
@@ -165,7 +166,7 @@ Public Types</h2></td></tr>
  }<tr class="memdesc:aea1c863b719b4ca5b77188c171bbfafe"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSON callback events.  <a href="classnlohmann_1_1basic__json.html#aea1c863b719b4ca5b77188c171bbfafe">More...</a><br /></td></tr>
 </td></tr>
 <tr class="separator:aea1c863b719b4ca5b77188c171bbfafe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e35475e2027520a78e09f460dbe048a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a9e35475e2027520a78e09f460dbe048a">parser_callback_t</a> = std::function&lt; bool(<a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> depth, <a class="el" href="classnlohmann_1_1basic__json.html#aea1c863b719b4ca5b77188c171bbfafe">parse_event_t</a> event, <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &amp;parsed)&gt;</td></tr>
+<tr class="memitem:a9e35475e2027520a78e09f460dbe048a"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a9e35475e2027520a78e09f460dbe048a">parser_callback_t</a> = std::function&lt; bool(int depth, <a class="el" href="classnlohmann_1_1basic__json.html#aea1c863b719b4ca5b77188c171bbfafe">parse_event_t</a> event, <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &amp;parsed)&gt;</td></tr>
 <tr class="memdesc:a9e35475e2027520a78e09f460dbe048a"><td class="mdescLeft">&#160;</td><td class="mdescRight">per-element parser callback type  <a href="#a9e35475e2027520a78e09f460dbe048a">More...</a><br /></td></tr>
 <tr class="separator:a9e35475e2027520a78e09f460dbe048a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -280,7 +281,7 @@ constructors and destructors</h2></td></tr>
 <tr class="memitem:a0d838bc7ffca6017f51167e0a8ffd9b6"><td class="memTemplItemLeft" align="right" valign="top">&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a0d838bc7ffca6017f51167e0a8ffd9b6">basic_json</a> (const <a class="el" href="classnlohmann_1_1basic__json.html#ac4b10b2364f26ce47bdb9a413ff04a59">number_integer_t</a> val) noexcept</td></tr>
 <tr class="memdesc:a0d838bc7ffca6017f51167e0a8ffd9b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">create an integer number (explicit)  <a href="#a0d838bc7ffca6017f51167e0a8ffd9b6">More...</a><br /></td></tr>
 <tr class="separator:a0d838bc7ffca6017f51167e0a8ffd9b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70ae1f0747f5b7a89979512866474f1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a70ae1f0747f5b7a89979512866474f1a">basic_json</a> (const <a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> val) noexcept</td></tr>
+<tr class="memitem:a70ae1f0747f5b7a89979512866474f1a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a70ae1f0747f5b7a89979512866474f1a">basic_json</a> (const int val) noexcept</td></tr>
 <tr class="memdesc:a70ae1f0747f5b7a89979512866474f1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">create an integer number from an enum type (explicit)  <a href="#a70ae1f0747f5b7a89979512866474f1a">More...</a><br /></td></tr>
 <tr class="separator:a70ae1f0747f5b7a89979512866474f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2eddc2c13ab084f067eaba65d381ad2"><td class="memTemplParams" colspan="2">template&lt;typename CompatibleNumberIntegerType , typename std::enable_if&lt;                                                              std::is_constructible&lt; number_integer_t, CompatibleNumberIntegerType &gt;::value and                                                           std::numeric_limits&lt; CompatibleNumberIntegerType &gt;::is_integer and                                                           std::numeric_limits&lt; CompatibleNumberIntegerType &gt;::is_signed,                                                           CompatibleNumberIntegerType &gt;::type  = 0&gt; </td></tr>
@@ -321,7 +322,7 @@ constructors and destructors</h2></td></tr>
 <tr class="memitem:a73e150cbcba5643cb89de8f515eb64e2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a73e150cbcba5643cb89de8f515eb64e2">basic_json</a> (<a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &amp;&amp;other) noexcept</td></tr>
 <tr class="memdesc:a73e150cbcba5643cb89de8f515eb64e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">move constructor  <a href="#a73e150cbcba5643cb89de8f515eb64e2">More...</a><br /></td></tr>
 <tr class="separator:a73e150cbcba5643cb89de8f515eb64e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c3182cfabc0bdd9f3a14216fe0e8154"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json.html#a3ec8e17be8732fe436e9d6733f52b7a3">reference</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a7c3182cfabc0bdd9f3a14216fe0e8154">operator=</a> (<a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> other) noexcept(                       std::is_nothrow_move_constructible&lt; <a class="el" href="classnlohmann_1_1basic__json.html#a231b02148577b69a154b2ce2c87a5522">value_t</a> &gt;::<a class="el" href="tk_8h.html#a177a0765f574ef6642002696d9cd82d0">value</a> and                       std::is_nothrow_move_assignable&lt; <a class="el" href="classnlohmann_1_1basic__json.html#a231b02148577b69a154b2ce2c87a5522">value_t</a> &gt;::<a class="el" href="tk_8h.html#a177a0765f574ef6642002696d9cd82d0">value</a> and                       std::is_nothrow_move_constructible&lt; json_value &gt;::<a class="el" href="tk_8h.html#a177a0765f574ef6642002696d9cd82d0">value</a> and                       std::is_nothrow_move_assignable&lt; json_value &gt;::<a class="el" href="tk_8h.html#a177a0765f574ef6642002696d9cd82d0">value</a>       )</td></tr>
+<tr class="memitem:a7c3182cfabc0bdd9f3a14216fe0e8154"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json.html#a3ec8e17be8732fe436e9d6733f52b7a3">reference</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a7c3182cfabc0bdd9f3a14216fe0e8154">operator=</a> (<a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> other) noexcept(                       std::is_nothrow_move_constructible&lt; <a class="el" href="classnlohmann_1_1basic__json.html#a231b02148577b69a154b2ce2c87a5522">value_t</a> &gt;::<a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0">value</a> and                       std::is_nothrow_move_assignable&lt; <a class="el" href="classnlohmann_1_1basic__json.html#a231b02148577b69a154b2ce2c87a5522">value_t</a> &gt;::<a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0">value</a> and                       std::is_nothrow_move_constructible&lt; json_value &gt;::<a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0">value</a> and                       std::is_nothrow_move_assignable&lt; json_value &gt;::<a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0">value</a>       )</td></tr>
 <tr class="memdesc:a7c3182cfabc0bdd9f3a14216fe0e8154"><td class="mdescLeft">&#160;</td><td class="mdescRight">copy assignment  <a href="#a7c3182cfabc0bdd9f3a14216fe0e8154">More...</a><br /></td></tr>
 <tr class="separator:a7c3182cfabc0bdd9f3a14216fe0e8154"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a947b5b2a832e490858dbdddfe7085831"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a947b5b2a832e490858dbdddfe7085831">~basic_json</a> ()</td></tr>
@@ -330,7 +331,7 @@ constructors and destructors</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 object inspection</h2></td></tr>
-<tr class="memitem:a805e3f3a2f374da0e14942eec7400e40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json.html#ab63e618bbb0371042b1bec17f5891f42">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a805e3f3a2f374da0e14942eec7400e40">dump</a> (const <a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> indent=-1) const </td></tr>
+<tr class="memitem:a805e3f3a2f374da0e14942eec7400e40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json.html#ab63e618bbb0371042b1bec17f5891f42">string_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a805e3f3a2f374da0e14942eec7400e40">dump</a> (const int indent=-1) const </td></tr>
 <tr class="memdesc:a805e3f3a2f374da0e14942eec7400e40"><td class="mdescLeft">&#160;</td><td class="mdescRight">serialization  <a href="#a805e3f3a2f374da0e14942eec7400e40">More...</a><br /></td></tr>
 <tr class="separator:a805e3f3a2f374da0e14942eec7400e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a848cbae3bd3502ffbf738320bf5eb3aa"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="classnlohmann_1_1basic__json.html#a231b02148577b69a154b2ce2c87a5522">value_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a848cbae3bd3502ffbf738320bf5eb3aa">type</a> () const  noexcept</td></tr>
@@ -473,7 +474,7 @@ element access</h2></td></tr>
 <tr class="memdesc:a098482190447461f47f80b99bf2519f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">access the last element  <a href="#a098482190447461f47f80b99bf2519f6">More...</a><br /></td></tr>
 <tr class="separator:a098482190447461f47f80b99bf2519f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45e789042a23138eba2b69f34df9fc45"><td class="memTemplParams" colspan="2">template&lt;class InteratorType , typename std::enable_if&lt;                                                                  std::is_same&lt; InteratorType, typename basic_json_t::iterator &gt;::value or                                                               std::is_same&lt; InteratorType, typename basic_json_t::const_iterator &gt;::value                                                               , int &gt;::type  = 0&gt; </td></tr>
-<tr class="memitem:a45e789042a23138eba2b69f34df9fc45"><td class="memTemplItemLeft" align="right" valign="top">InteratorType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a45e789042a23138eba2b69f34df9fc45">erase</a> (InteratorType <a class="el" href="wn_8c.html#a1910d262855b71da353ed0d07a6c7823">pos</a>)</td></tr>
+<tr class="memitem:a45e789042a23138eba2b69f34df9fc45"><td class="memTemplItemLeft" align="right" valign="top">InteratorType&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a45e789042a23138eba2b69f34df9fc45">erase</a> (InteratorType pos)</td></tr>
 <tr class="memdesc:a45e789042a23138eba2b69f34df9fc45"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove element given an iterator  <a href="#a45e789042a23138eba2b69f34df9fc45">More...</a><br /></td></tr>
 <tr class="separator:a45e789042a23138eba2b69f34df9fc45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a263a9ecde33a1f2ff63dcd15d5e42cb7"><td class="memTemplParams" colspan="2">template&lt;class InteratorType , typename std::enable_if&lt;                                                                  std::is_same&lt; InteratorType, typename basic_json_t::iterator &gt;::value or                                                               std::is_same&lt; InteratorType, typename basic_json_t::const_iterator &gt;::value                                                               , int &gt;::type  = 0&gt; </td></tr>
@@ -483,7 +484,7 @@ element access</h2></td></tr>
 <tr class="memitem:aa36e72ffc3241b960fe9186d19e03bc3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json.html#a1579a8f72a230358d6cd1a6e8a62859b">size_type</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#aa36e72ffc3241b960fe9186d19e03bc3">erase</a> (const typename object_t::key_type &amp;key)</td></tr>
 <tr class="memdesc:aa36e72ffc3241b960fe9186d19e03bc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove element from a JSON object given a key  <a href="#aa36e72ffc3241b960fe9186d19e03bc3">More...</a><br /></td></tr>
 <tr class="separator:aa36e72ffc3241b960fe9186d19e03bc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3da254c422ede5495f2815c5e48c00c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a3da254c422ede5495f2815c5e48c00c5">erase</a> (const <a class="el" href="classnlohmann_1_1basic__json.html#a1579a8f72a230358d6cd1a6e8a62859b">size_type</a> idx)</td></tr>
+<tr class="memitem:a3da254c422ede5495f2815c5e48c00c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a3da254c422ede5495f2815c5e48c00c5">erase</a> (const <a class="el" href="classnlohmann_1_1basic__json.html#a1579a8f72a230358d6cd1a6e8a62859b">size_type</a> idx)</td></tr>
 <tr class="memdesc:a3da254c422ede5495f2815c5e48c00c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">remove element from a JSON array given an index  <a href="#a3da254c422ede5495f2815c5e48c00c5">More...</a><br /></td></tr>
 <tr class="separator:a3da254c422ede5495f2815c5e48c00c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -558,58 +559,58 @@ capacity</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="member-group"></a>
 modifiers</h2></td></tr>
-<tr class="memitem:ad6e51670e9c0052856f3fee01df5c44f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#ad6e51670e9c0052856f3fee01df5c44f">clear</a> () noexcept</td></tr>
+<tr class="memitem:ad6e51670e9c0052856f3fee01df5c44f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#ad6e51670e9c0052856f3fee01df5c44f">clear</a> () noexcept</td></tr>
 <tr class="memdesc:ad6e51670e9c0052856f3fee01df5c44f"><td class="mdescLeft">&#160;</td><td class="mdescRight">clears the contents  <a href="#ad6e51670e9c0052856f3fee01df5c44f">More...</a><br /></td></tr>
 <tr class="separator:ad6e51670e9c0052856f3fee01df5c44f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a486b96adbf4886c38e38c952394a220f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a486b96adbf4886c38e38c952394a220f">push_back</a> (<a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &amp;&amp;val)</td></tr>
+<tr class="memitem:a486b96adbf4886c38e38c952394a220f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a486b96adbf4886c38e38c952394a220f">push_back</a> (<a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &amp;&amp;val)</td></tr>
 <tr class="memdesc:a486b96adbf4886c38e38c952394a220f"><td class="mdescLeft">&#160;</td><td class="mdescRight">add an object to an array  <a href="#a486b96adbf4886c38e38c952394a220f">More...</a><br /></td></tr>
 <tr class="separator:a486b96adbf4886c38e38c952394a220f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1c1aa2d148a3e4ce0d4e50cf5b894f41"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json.html#a3ec8e17be8732fe436e9d6733f52b7a3">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a1c1aa2d148a3e4ce0d4e50cf5b894f41">operator+=</a> (<a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &amp;&amp;val)</td></tr>
 <tr class="memdesc:a1c1aa2d148a3e4ce0d4e50cf5b894f41"><td class="mdescLeft">&#160;</td><td class="mdescRight">add an object to an array  <a href="#a1c1aa2d148a3e4ce0d4e50cf5b894f41">More...</a><br /></td></tr>
 <tr class="separator:a1c1aa2d148a3e4ce0d4e50cf5b894f41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f3dfd3e83a1e907d7946b47fcd7ceba"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a6f3dfd3e83a1e907d7946b47fcd7ceba">push_back</a> (const <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &amp;val)</td></tr>
+<tr class="memitem:a6f3dfd3e83a1e907d7946b47fcd7ceba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a6f3dfd3e83a1e907d7946b47fcd7ceba">push_back</a> (const <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &amp;val)</td></tr>
 <tr class="memdesc:a6f3dfd3e83a1e907d7946b47fcd7ceba"><td class="mdescLeft">&#160;</td><td class="mdescRight">add an object to an array  <a href="#a6f3dfd3e83a1e907d7946b47fcd7ceba">More...</a><br /></td></tr>
 <tr class="separator:a6f3dfd3e83a1e907d7946b47fcd7ceba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80c21170db6b5ffd9274b3f351cebadc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json.html#a3ec8e17be8732fe436e9d6733f52b7a3">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a80c21170db6b5ffd9274b3f351cebadc">operator+=</a> (const <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &amp;val)</td></tr>
 <tr class="memdesc:a80c21170db6b5ffd9274b3f351cebadc"><td class="mdescLeft">&#160;</td><td class="mdescRight">add an object to an array  <a href="#a80c21170db6b5ffd9274b3f351cebadc">More...</a><br /></td></tr>
 <tr class="separator:a80c21170db6b5ffd9274b3f351cebadc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5212588544f6d2266384c3be9bfda0c5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a5212588544f6d2266384c3be9bfda0c5">push_back</a> (const typename object_t::value_type &amp;val)</td></tr>
+<tr class="memitem:a5212588544f6d2266384c3be9bfda0c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a5212588544f6d2266384c3be9bfda0c5">push_back</a> (const typename object_t::value_type &amp;val)</td></tr>
 <tr class="memdesc:a5212588544f6d2266384c3be9bfda0c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">add an object to an object  <a href="#a5212588544f6d2266384c3be9bfda0c5">More...</a><br /></td></tr>
 <tr class="separator:a5212588544f6d2266384c3be9bfda0c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9486a272e034c0548305d7a12f3045e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json.html#a3ec8e17be8732fe436e9d6733f52b7a3">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a9486a272e034c0548305d7a12f3045e6">operator+=</a> (const typename object_t::value_type &amp;val)</td></tr>
 <tr class="memdesc:a9486a272e034c0548305d7a12f3045e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">add an object to an object  <a href="#a9486a272e034c0548305d7a12f3045e6">More...</a><br /></td></tr>
 <tr class="separator:a9486a272e034c0548305d7a12f3045e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c9b4932b26a9630e1a3f25ea42a2c43"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a9c9b4932b26a9630e1a3f25ea42a2c43">push_back</a> (std::initializer_list&lt; <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &gt; init)</td></tr>
+<tr class="memitem:a9c9b4932b26a9630e1a3f25ea42a2c43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a9c9b4932b26a9630e1a3f25ea42a2c43">push_back</a> (std::initializer_list&lt; <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &gt; init)</td></tr>
 <tr class="memdesc:a9c9b4932b26a9630e1a3f25ea42a2c43"><td class="mdescLeft">&#160;</td><td class="mdescRight">add an object to an object  <a href="#a9c9b4932b26a9630e1a3f25ea42a2c43">More...</a><br /></td></tr>
 <tr class="separator:a9c9b4932b26a9630e1a3f25ea42a2c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa0033766b4d3134b9bb57d81762d75a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json.html#a3ec8e17be8732fe436e9d6733f52b7a3">reference</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#aa0033766b4d3134b9bb57d81762d75a2">operator+=</a> (std::initializer_list&lt; <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &gt; init)</td></tr>
 <tr class="memdesc:aa0033766b4d3134b9bb57d81762d75a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">add an object to an object  <a href="#aa0033766b4d3134b9bb57d81762d75a2">More...</a><br /></td></tr>
 <tr class="separator:aa0033766b4d3134b9bb57d81762d75a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f7bbb3a9efef2e2442f538a24c1c47b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a7f7bbb3a9efef2e2442f538a24c1c47b">insert</a> (<a class="el" href="classnlohmann_1_1basic__json_1_1const__iterator.html">const_iterator</a> <a class="el" href="wn_8c.html#a1910d262855b71da353ed0d07a6c7823">pos</a>, const <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &amp;val)</td></tr>
+<tr class="memitem:a7f7bbb3a9efef2e2442f538a24c1c47b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a7f7bbb3a9efef2e2442f538a24c1c47b">insert</a> (<a class="el" href="classnlohmann_1_1basic__json_1_1const__iterator.html">const_iterator</a> pos, const <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &amp;val)</td></tr>
 <tr class="memdesc:a7f7bbb3a9efef2e2442f538a24c1c47b"><td class="mdescLeft">&#160;</td><td class="mdescRight">inserts element  <a href="#a7f7bbb3a9efef2e2442f538a24c1c47b">More...</a><br /></td></tr>
 <tr class="separator:a7f7bbb3a9efef2e2442f538a24c1c47b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8468efcfcd95db15f46887b29924ed5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a8468efcfcd95db15f46887b29924ed5c">insert</a> (<a class="el" href="classnlohmann_1_1basic__json_1_1const__iterator.html">const_iterator</a> <a class="el" href="wn_8c.html#a1910d262855b71da353ed0d07a6c7823">pos</a>, <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &amp;&amp;val)</td></tr>
+<tr class="memitem:a8468efcfcd95db15f46887b29924ed5c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a8468efcfcd95db15f46887b29924ed5c">insert</a> (<a class="el" href="classnlohmann_1_1basic__json_1_1const__iterator.html">const_iterator</a> pos, <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &amp;&amp;val)</td></tr>
 <tr class="memdesc:a8468efcfcd95db15f46887b29924ed5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">inserts element  <a href="#a8468efcfcd95db15f46887b29924ed5c">More...</a><br /></td></tr>
 <tr class="separator:a8468efcfcd95db15f46887b29924ed5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a624025acfcf64364d98424402b837bc6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a624025acfcf64364d98424402b837bc6">insert</a> (<a class="el" href="classnlohmann_1_1basic__json_1_1const__iterator.html">const_iterator</a> <a class="el" href="wn_8c.html#a1910d262855b71da353ed0d07a6c7823">pos</a>, <a class="el" href="classnlohmann_1_1basic__json.html#a1579a8f72a230358d6cd1a6e8a62859b">size_type</a> cnt, const <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &amp;val)</td></tr>
+<tr class="memitem:a624025acfcf64364d98424402b837bc6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a624025acfcf64364d98424402b837bc6">insert</a> (<a class="el" href="classnlohmann_1_1basic__json_1_1const__iterator.html">const_iterator</a> pos, <a class="el" href="classnlohmann_1_1basic__json.html#a1579a8f72a230358d6cd1a6e8a62859b">size_type</a> cnt, const <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &amp;val)</td></tr>
 <tr class="memdesc:a624025acfcf64364d98424402b837bc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">inserts elements  <a href="#a624025acfcf64364d98424402b837bc6">More...</a><br /></td></tr>
 <tr class="separator:a624025acfcf64364d98424402b837bc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaa0644fd6b99af364e772092268dfd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#aeaa0644fd6b99af364e772092268dfd6">insert</a> (<a class="el" href="classnlohmann_1_1basic__json_1_1const__iterator.html">const_iterator</a> <a class="el" href="wn_8c.html#a1910d262855b71da353ed0d07a6c7823">pos</a>, <a class="el" href="classnlohmann_1_1basic__json_1_1const__iterator.html">const_iterator</a> first, <a class="el" href="classnlohmann_1_1basic__json_1_1const__iterator.html">const_iterator</a> last)</td></tr>
+<tr class="memitem:aeaa0644fd6b99af364e772092268dfd6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#aeaa0644fd6b99af364e772092268dfd6">insert</a> (<a class="el" href="classnlohmann_1_1basic__json_1_1const__iterator.html">const_iterator</a> pos, <a class="el" href="classnlohmann_1_1basic__json_1_1const__iterator.html">const_iterator</a> first, <a class="el" href="classnlohmann_1_1basic__json_1_1const__iterator.html">const_iterator</a> last)</td></tr>
 <tr class="memdesc:aeaa0644fd6b99af364e772092268dfd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">inserts elements  <a href="#aeaa0644fd6b99af364e772092268dfd6">More...</a><br /></td></tr>
 <tr class="separator:aeaa0644fd6b99af364e772092268dfd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadb4e5be88221e5e28cdb752332f3d13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#aadb4e5be88221e5e28cdb752332f3d13">insert</a> (<a class="el" href="classnlohmann_1_1basic__json_1_1const__iterator.html">const_iterator</a> <a class="el" href="wn_8c.html#a1910d262855b71da353ed0d07a6c7823">pos</a>, std::initializer_list&lt; <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &gt; ilist)</td></tr>
+<tr class="memitem:aadb4e5be88221e5e28cdb752332f3d13"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#aadb4e5be88221e5e28cdb752332f3d13">insert</a> (<a class="el" href="classnlohmann_1_1basic__json_1_1const__iterator.html">const_iterator</a> pos, std::initializer_list&lt; <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> &gt; ilist)</td></tr>
 <tr class="memdesc:aadb4e5be88221e5e28cdb752332f3d13"><td class="mdescLeft">&#160;</td><td class="mdescRight">inserts elements  <a href="#aadb4e5be88221e5e28cdb752332f3d13">More...</a><br /></td></tr>
 <tr class="separator:aadb4e5be88221e5e28cdb752332f3d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af77614992e38b355b9213940051cc582"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#af77614992e38b355b9213940051cc582">swap</a> (<a class="el" href="classnlohmann_1_1basic__json.html#a3ec8e17be8732fe436e9d6733f52b7a3">reference</a> other) noexcept(                       std::is_nothrow_move_constructible&lt; <a class="el" href="classnlohmann_1_1basic__json.html#a231b02148577b69a154b2ce2c87a5522">value_t</a> &gt;::<a class="el" href="tk_8h.html#a177a0765f574ef6642002696d9cd82d0">value</a> and                       std::is_nothrow_move_assignable&lt; <a class="el" href="classnlohmann_1_1basic__json.html#a231b02148577b69a154b2ce2c87a5522">value_t</a> &gt;::<a class="el" href="tk_8h.html#a177a0765f574ef6642002696d9cd82d0">value</a> and                       std::is_nothrow_move_constructible&lt; json_value &gt;::<a class="el" href="tk_8h.html#a177a0765f574ef6642002696d9cd82d0">value</a> and                       std::is_nothrow_move_assignable&lt; json_value &gt;::<a class="el" href="tk_8h.html#a177a0765f574ef6642002696d9cd82d0">value</a>       )</td></tr>
+<tr class="memitem:af77614992e38b355b9213940051cc582"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#af77614992e38b355b9213940051cc582">swap</a> (<a class="el" href="classnlohmann_1_1basic__json.html#a3ec8e17be8732fe436e9d6733f52b7a3">reference</a> other) noexcept(                       std::is_nothrow_move_constructible&lt; <a class="el" href="classnlohmann_1_1basic__json.html#a231b02148577b69a154b2ce2c87a5522">value_t</a> &gt;::<a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0">value</a> and                       std::is_nothrow_move_assignable&lt; <a class="el" href="classnlohmann_1_1basic__json.html#a231b02148577b69a154b2ce2c87a5522">value_t</a> &gt;::<a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0">value</a> and                       std::is_nothrow_move_constructible&lt; json_value &gt;::<a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0">value</a> and                       std::is_nothrow_move_assignable&lt; json_value &gt;::<a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0">value</a>       )</td></tr>
 <tr class="memdesc:af77614992e38b355b9213940051cc582"><td class="mdescLeft">&#160;</td><td class="mdescRight">exchanges the values  <a href="#af77614992e38b355b9213940051cc582">More...</a><br /></td></tr>
 <tr class="separator:af77614992e38b355b9213940051cc582"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8209621de6184d9eabe136b7c8f61935"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a8209621de6184d9eabe136b7c8f61935">swap</a> (<a class="el" href="classnlohmann_1_1basic__json.html#ab00b882d39306d663c23dab110f5cae0">array_t</a> &amp;other)</td></tr>
+<tr class="memitem:a8209621de6184d9eabe136b7c8f61935"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a8209621de6184d9eabe136b7c8f61935">swap</a> (<a class="el" href="classnlohmann_1_1basic__json.html#ab00b882d39306d663c23dab110f5cae0">array_t</a> &amp;other)</td></tr>
 <tr class="memdesc:a8209621de6184d9eabe136b7c8f61935"><td class="mdescLeft">&#160;</td><td class="mdescRight">exchanges the values  <a href="#a8209621de6184d9eabe136b7c8f61935">More...</a><br /></td></tr>
 <tr class="separator:a8209621de6184d9eabe136b7c8f61935"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38ee0f09a318d003add75e0787040794"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a38ee0f09a318d003add75e0787040794">swap</a> (<a class="el" href="classnlohmann_1_1basic__json.html#a0ac9894c9de8dc551cf2e5f1c605537f">object_t</a> &amp;other)</td></tr>
+<tr class="memitem:a38ee0f09a318d003add75e0787040794"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a38ee0f09a318d003add75e0787040794">swap</a> (<a class="el" href="classnlohmann_1_1basic__json.html#a0ac9894c9de8dc551cf2e5f1c605537f">object_t</a> &amp;other)</td></tr>
 <tr class="memdesc:a38ee0f09a318d003add75e0787040794"><td class="mdescLeft">&#160;</td><td class="mdescRight">exchanges the values  <a href="#a38ee0f09a318d003add75e0787040794">More...</a><br /></td></tr>
 <tr class="separator:a38ee0f09a318d003add75e0787040794"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86089c703a2e563b9f760c2f8408efa7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a86089c703a2e563b9f760c2f8408efa7">swap</a> (<a class="el" href="classnlohmann_1_1basic__json.html#ab63e618bbb0371042b1bec17f5891f42">string_t</a> &amp;other)</td></tr>
+<tr class="memitem:a86089c703a2e563b9f760c2f8408efa7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classnlohmann_1_1basic__json.html#a86089c703a2e563b9f760c2f8408efa7">swap</a> (<a class="el" href="classnlohmann_1_1basic__json.html#ab63e618bbb0371042b1bec17f5891f42">string_t</a> &amp;other)</td></tr>
 <tr class="memdesc:a86089c703a2e563b9f760c2f8408efa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">exchanges the values  <a href="#a86089c703a2e563b9f760c2f8408efa7">More...</a><br /></td></tr>
 <tr class="separator:a86089c703a2e563b9f760c2f8408efa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -753,6 +754,8 @@ class nlohmann::basic_json&lt; ObjectType, ArrayType, StringType, BooleanType, N
 </ul>
 <dl class="section see"><dt>See also</dt><dd><a href="http://rfc7159.net/rfc7159">RFC 7159: The JavaScript Object Notation (JSON) Data Interchange Format</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00187">187</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
 <a class="anchor" id="aa44ce84b9ac506b905b8fb56c9a0989d"></a>
 <div class="memitem">
@@ -767,6 +770,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 </div><div class="memdoc">
 
 <p>the allocator type </p>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00226">226</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -806,6 +811,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a0ac9894c9de8dc551cf2e5f1c605537f">object_t</a> &ndash; <a class="el" href="classnlohmann_1_1basic__json.html#a848cbae3bd3502ffbf738320bf5eb3aa" title="return the type of the JSON value (explicit) ">type</a> for an <a class="el" href="classnlohmann_1_1basic__json.html#ad25b2f8c21e241e2d63455537a9294ff" title="explicitly create an object from an initializer list ">object</a> <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00394">394</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="af3bc3e83aa162d7ba4df16a949872723"></a>
@@ -829,6 +836,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>Boolean values are stored directly inside a <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> type.</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00467">467</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a06efb200b69942eacd1ea22d0f6ccebb"></a>
@@ -844,6 +853,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 </div><div class="memdoc">
 
 <p>the type of an element const pointer </p>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00231">231</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -861,6 +872,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 
 <p>the type of an element const reference </p>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00218">218</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae336fff01f4b78e3e16e5008dc8dbc00"></a>
@@ -877,6 +890,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 
 <p>a const reverse iterator for a <a class="el" href="classnlohmann_1_1basic__json.html" title="a class to store JSON values ">basic_json</a> container </p>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00240">240</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aec316934a555dd1acdd3600e5d4a4cdf"></a>
@@ -892,6 +907,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 </div><div class="memdoc">
 
 <p>a type to represent differences between iterators </p>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00221">221</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -931,6 +948,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#a60a04166c122072ab11eaf9845d9cd1d">number_unsigned_t</a> &ndash; <a class="el" href="classnlohmann_1_1basic__json.html#a848cbae3bd3502ffbf738320bf5eb3aa" title="return the type of the JSON value (explicit) ">type</a> for number values (unsigned integer)</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00679">679</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -975,6 +994,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <a class="el" href="classnlohmann_1_1basic__json.html#a60a04166c122072ab11eaf9845d9cd1d">number_unsigned_t</a> &ndash; <a class="el" href="classnlohmann_1_1basic__json.html#a848cbae3bd3502ffbf738320bf5eb3aa" title="return the type of the JSON value (explicit) ">type</a> for number values (unsigned integer)</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00539">539</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a60a04166c122072ab11eaf9845d9cd1d"></a>
@@ -1017,6 +1038,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#ac4b10b2364f26ce47bdb9a413ff04a59">number_integer_t</a> &ndash; <a class="el" href="classnlohmann_1_1basic__json.html#a848cbae3bd3502ffbf738320bf5eb3aa" title="return the type of the JSON value (explicit) ">type</a> for number values (integer)</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 2.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00611">611</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -1066,6 +1089,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>The order name/value pairs are added to the object is <em>not</em> preserved by the library. Therefore, iterating an object may return name/value pairs in a different order than they were originally stored. In fact, keys will be traversed in alphabetical order as <code>std::map</code> with <code>std::less</code> is used by default. Please note this behavior conforms to <a href="http://rfc7159.net/rfc7159">RFC 7159</a>, because any order implements the specified "unordered" nature of JSON objects. </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00348">348</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a9e35475e2027520a78e09f460dbe048a"></a>
@@ -1075,7 +1100,7 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 template&lt;template&lt; typename U, typename V, typename...Args &gt; class ObjectType = std::map, template&lt; typename U, typename...Args &gt; class ArrayType = std::vector, class StringType  = std::string, class BooleanType  = bool, class NumberIntegerType  = std::int64_t, class NumberUnsignedType  = std::uint64_t, class NumberFloatType  = double, template&lt; typename U &gt; class AllocatorType = std::allocator&gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::<a class="el" href="classnlohmann_1_1basic__json.html#a9e35475e2027520a78e09f460dbe048a">parser_callback_t</a> =  std::function&lt;bool(<a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a> depth, <a class="el" href="classnlohmann_1_1basic__json.html#aea1c863b719b4ca5b77188c171bbfafe">parse_event_t</a> event, <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a>&amp; parsed)&gt;</td>
+          <td class="memname">using <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::<a class="el" href="classnlohmann_1_1basic__json.html#a9e35475e2027520a78e09f460dbe048a">parser_callback_t</a> =  std::function&lt;bool(int depth, <a class="el" href="classnlohmann_1_1basic__json.html#aea1c863b719b4ca5b77188c171bbfafe">parse_event_t</a> event, <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a>&amp; parsed)&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -1116,6 +1141,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a13c4d2ab4e7ee2f92be785a7b12948ff">parse(std::istream&amp;, parser_callback_t)</a> or <a class="el" href="classnlohmann_1_1basic__json.html#a35303ad045a06c2a79dc28ac29652e86">parse(const string_t&amp;, parser_callback_t)</a> for examples</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00985">985</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a9d1b58099dc64695fcf2847ab0b2a7c7"></a>
@@ -1131,6 +1158,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 </div><div class="memdoc">
 
 <p>the type of an element pointer </p>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00229">229</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -1148,6 +1177,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 
 <p>the type of an element reference </p>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00216">216</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a2f1f83aa187a56dc5ec7a7027065ac8a"></a>
@@ -1164,6 +1195,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 
 <p>a reverse iterator for a <a class="el" href="classnlohmann_1_1basic__json.html" title="a class to store JSON values ">basic_json</a> container </p>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00238">238</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a1579a8f72a230358d6cd1a6e8a62859b"></a>
@@ -1179,6 +1212,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 </div><div class="memdoc">
 
 <p>a type to represent container sizes </p>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00223">223</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -1216,6 +1251,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>String values are stored as pointers in a <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> type. That is, for any access to string values, a pointer of type <code>string_t*</code> must be dereferenced.</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00441">441</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ac8d45b57874b4a6e9c07f7d3b5daa1f9"></a>
@@ -1231,6 +1268,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 </div><div class="memdoc">
 
 <p>the type of elements in a <a class="el" href="classnlohmann_1_1basic__json.html" title="a class to store JSON values ">basic_json</a> container </p>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00213">213</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -1278,6 +1317,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>the parser finished reading a JSON value </p>
 </td></tr>
 </table>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00920">920</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -1333,6 +1374,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>discarded by the the parser callback function </p>
 </td></tr>
 </table>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00698">698</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -1410,6 +1453,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <a class="el" href="classnlohmann_1_1basic__json.html#a85b09b03916d3d1e73373f49cdd4136d">basic_json(const number_unsigned_t)</a> &ndash; create a number (unsigned) <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01034">1034</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a53771a7a4f2787125e55f64448f24ce6"></a>
@@ -1481,6 +1526,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a53771a7a4f2787125e55f64448f24ce6">basic_json()</a> &ndash; default constructor (implicitly creating a <code>null</code> <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a>)</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01086">1086</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a9af5ea68c88f423ddf35216aff7f1813"></a>
@@ -1525,6 +1572,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The following code shows the constructor with an <a class="el" href="classnlohmann_1_1basic__json.html#a0ac9894c9de8dc551cf2e5f1c605537f">object_t</a> parameter.,basic_json__object_t}</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#ab7be2bc58ae0c2c2c30d40f15d6399f8">basic_json(const CompatibleObjectType&amp;)</a> &ndash; create an <a class="el" href="classnlohmann_1_1basic__json.html#ad25b2f8c21e241e2d63455537a9294ff" title="explicitly create an object from an initializer list ">object</a> <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> from a compatible STL container</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01109">1109</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -1579,6 +1628,8 @@ template&lt;class CompatibleObjectType , typename std::enable_if&lt;            
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a9af5ea68c88f423ddf35216aff7f1813">basic_json(const object_t&amp;)</a> &ndash; create an <a class="el" href="classnlohmann_1_1basic__json.html#ad25b2f8c21e241e2d63455537a9294ff" title="explicitly create an object from an initializer list ">object</a> <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01144">1144</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a3aaf41d385f0d9a93deb92f9b14ae0cf"></a>
@@ -1623,6 +1674,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The following code shows the constructor with an <a class="el" href="classnlohmann_1_1basic__json.html#ab00b882d39306d663c23dab110f5cae0">array_t</a> parameter.,basic_json__array_t}</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a81aaaab0f3b326afda2d226daab4f1e1">basic_json(const CompatibleArrayType&amp;)</a> &ndash; create an <a class="el" href="classnlohmann_1_1basic__json.html#a5685815624b086caa532f41e853d4b0f" title="explicitly create an array from an initializer list ">array</a> <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> from a compatible STL containers</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01171">1171</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -1677,6 +1730,8 @@ template&lt;class CompatibleArrayType , typename std::enable_if&lt;             
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a3aaf41d385f0d9a93deb92f9b14ae0cf">basic_json(const array_t&amp;)</a> &ndash; create an <a class="el" href="classnlohmann_1_1basic__json.html#a5685815624b086caa532f41e853d4b0f" title="explicitly create an array from an initializer list ">array</a> <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01211">1211</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ab8b43d92a042dde96c28aeea81dd52de"></a>
@@ -1719,10 +1774,12 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
   </dd>
 </dl>
 <p>{The following code shows the constructor with an <a class="el" href="classnlohmann_1_1basic__json.html#ab63e618bbb0371042b1bec17f5891f42">string_t</a> parameter.,basic_json__string_t}</p>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a3654da9a84deaf61899c4eee5b93c2c5">basic_json(const typename string_t::value_type*)</a> &ndash; create a string <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> from a character <a class="el" href="structpointer.html">pointer</a> </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a3654da9a84deaf61899c4eee5b93c2c5">basic_json(const typename string_t::value_type*)</a> &ndash; create a string <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> from a character <a class="el" href="classnlohmann_1_1basic__json.html#a9d1b58099dc64695fcf2847ab0b2a7c7" title="the type of an element pointer ">pointer</a> </dd>
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#ae85d91b0620650bcd9993e09d0e287d9">basic_json(const CompatibleStringType&amp;)</a> &ndash; create a string <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> from a compatible string container</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01240">1240</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -1770,6 +1827,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#ae85d91b0620650bcd9993e09d0e287d9">basic_json(const CompatibleStringType&amp;)</a> &ndash; create a string <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> from a compatible string container</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01264">1264</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -1823,8 +1882,10 @@ template&lt;class CompatibleStringType , typename std::enable_if&lt;            
 <p>{The following code shows the construction of a string value from a compatible type.,basic_json__CompatibleStringType}</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#ab8b43d92a042dde96c28aeea81dd52de">basic_json(const string_t&amp;)</a> &ndash; create a string <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> </dd>
 <dd>
-<a class="el" href="classnlohmann_1_1basic__json.html#a3654da9a84deaf61899c4eee5b93c2c5">basic_json(const typename string_t::value_type*)</a> &ndash; create a string <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> from a character <a class="el" href="structpointer.html">pointer</a></dd></dl>
+<a class="el" href="classnlohmann_1_1basic__json.html#a3654da9a84deaf61899c4eee5b93c2c5">basic_json(const typename string_t::value_type*)</a> &ndash; create a string <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> from a character <a class="el" href="classnlohmann_1_1basic__json.html#a9d1b58099dc64695fcf2847ab0b2a7c7" title="the type of an element pointer ">pointer</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01295">1295</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -1863,6 +1924,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>Constant.</p>
 <p>{The example below demonstrates boolean values.,basic_json__boolean_t}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01313">1313</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -1913,6 +1976,8 @@ template&lt;typename T , typename std::enable_if&lt;                            
 <a class="el" href="classnlohmann_1_1basic__json.html#ad2eddc2c13ab084f067eaba65d381ad2">basic_json(const CompatibleNumberIntegerType)</a> &ndash; create a number <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> (integer) from a compatible number <a class="el" href="classnlohmann_1_1basic__json.html#a848cbae3bd3502ffbf738320bf5eb3aa" title="return the type of the JSON value (explicit) ">type</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01346">1346</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a70ae1f0747f5b7a89979512866474f1a"></a>
@@ -1927,7 +1992,7 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
         <tr>
           <td class="memname"><a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::<a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>val</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1954,6 +2019,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#ad2eddc2c13ab084f067eaba65d381ad2">basic_json(const CompatibleNumberIntegerType)</a> &ndash; create a number <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> (integer) from a compatible number <a class="el" href="classnlohmann_1_1basic__json.html#a848cbae3bd3502ffbf738320bf5eb3aa" title="return the type of the JSON value (explicit) ">type</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01375">1375</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -2004,6 +2071,8 @@ template&lt;typename CompatibleNumberIntegerType , typename std::enable_if&lt;  
 <a class="el" href="classnlohmann_1_1basic__json.html#a70ae1f0747f5b7a89979512866474f1a">basic_json(const int)</a> &ndash; create a number <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> (integer)</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01412">1412</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a85b09b03916d3d1e73373f49cdd4136d"></a>
@@ -2049,6 +2118,8 @@ template&lt;typename T , typename std::enable_if&lt;                            
 <p>Constant.</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a68a5f34b164a07b8ced13fcf2b7ec834">basic_json(const CompatibleNumberUnsignedType)</a> &ndash; create a number <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> (unsigned integer) from a compatible number <a class="el" href="classnlohmann_1_1basic__json.html#a848cbae3bd3502ffbf738320bf5eb3aa" title="return the type of the JSON value (explicit) ">type</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 2.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01440">1440</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -2096,6 +2167,8 @@ template&lt;typename CompatibleNumberUnsignedType , typename std::enable_if&lt; 
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a85b09b03916d3d1e73373f49cdd4136d">basic_json(const number_unsigned_t)</a> &ndash; create a number <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> (unsigned)</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 2.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01471">1471</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a2badcf191deabf579abcf8d3654da26f"></a>
@@ -2138,6 +2211,8 @@ In case the parameter <em>val</em> is not a number, a JSON null value is created
 <p>{The following example creates several floating-point values.,basic_json__number_float_t}</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a4bbdfd6dd8d2e6fc9ac5d81ef61ba3fe">basic_json(const CompatibleNumberFloatType)</a> &ndash; create a number <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> (floating-point) from a compatible number <a class="el" href="classnlohmann_1_1basic__json.html#a848cbae3bd3502ffbf738320bf5eb3aa" title="return the type of the JSON value (explicit) ">type</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01500">1500</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -2189,6 +2264,8 @@ In case the parameter <em>val</em> is not a number, a JSON null value is created
 <p>{The example below shows the construction of several floating-point number values from compatible types.,basic_json__CompatibleNumberFloatType}</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a2badcf191deabf579abcf8d3654da26f">basic_json(const number_float_t)</a> &ndash; create a number <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> (floating-point)</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01547">1547</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -2273,6 +2350,8 @@ initializer list"</code></td></tr>
 <a class="el" href="classnlohmann_1_1basic__json.html#ad25b2f8c21e241e2d63455537a9294ff">object(std::initializer_list&lt;basic_json&gt;)</a> &ndash; create a JSON <a class="el" href="classnlohmann_1_1basic__json.html#ad25b2f8c21e241e2d63455537a9294ff" title="explicitly create an object from an initializer list ">object</a> <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> from an initializer list</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01620">1620</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a112a2d8e76345ea64f71e2985fee4c52"></a>
@@ -2321,6 +2400,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>Linear in <em>cnt</em>.</p>
 <p>{The following code shows examples for the <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a>(size_type\, const <a class="el" href="classnlohmann_1_1basic__json.html" title="a class to store JSON values ">basic_json</a>&amp;) constructor.,basic_json__size_type_basic_json}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01776">1776</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -2393,6 +2474,8 @@ use construct with iterators from null"</code></td></tr>
 <p>{The example below shows several ways to create JSON values by specifying a subrange with iterators.,basic_json__InputIt_InputIt}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01822">1822</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a9857835334d38ba04959e348ca6be208"></a>
@@ -2442,6 +2525,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example below demonstrates constructing a JSON value from a <code>std::stringstream</code> with and without callback function.,basic_json__istream}</p>
 <dl class="section since"><dt>Since</dt><dd>version 2.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01929">1929</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a4ab93491f82545342562c7ee7e3166c7"></a>
@@ -2490,6 +2575,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The following code shows an example for the copy constructor.,basic_json__basic_json}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01960">1960</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a73e150cbcba5643cb89de8f515eb64e2"></a>
@@ -2529,6 +2616,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The code below shows the move constructor explicitly called via std::move.,basic_json__moveconstructor}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02035">2035</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a947b5b2a832e490858dbdddfe7085831"></a>
@@ -2562,6 +2651,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <li>All stored elements are destroyed and all memory is freed.</li>
 </ul>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02095">2095</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -2611,6 +2702,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <a class="el" href="classnlohmann_1_1basic__json.html#ad25b2f8c21e241e2d63455537a9294ff">object(std::initializer_list&lt;basic_json&gt;)</a> &ndash; create a JSON <a class="el" href="classnlohmann_1_1basic__json.html#ad25b2f8c21e241e2d63455537a9294ff" title="explicitly create an object from an initializer list ">object</a> <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> from an initializer list</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01712">1712</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a214a8c22d616fd3567b88932c07436c9"></a>
@@ -2657,6 +2750,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example below shows how array elements can be read and written using <code><a class="el" href="classnlohmann_1_1basic__json.html#a214a8c22d616fd3567b88932c07436c9" title="access specified array element with bounds checking ">at()</a></code>.,at__size_type}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03104">3104</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ab31368c0b67f8e4f291a45e6498018be"></a>
@@ -2702,6 +2797,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>Constant.</p>
 <p>{The example below shows how array elements can be read using <code><a class="el" href="classnlohmann_1_1basic__json.html#a214a8c22d616fd3567b88932c07436c9" title="access specified array element with bounds checking ">at()</a></code>.,at__size_type_const}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03148">3148</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -2752,6 +2849,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0">value()</a> for access by <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> with a default <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03196">3196</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a674de1ee73e6bf4843fc5dc1351fb726"></a>
@@ -2801,6 +2900,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0">value()</a> for access by <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> with a default <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03244">3244</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a649aef71e5d952499da7ad3b8e7c9236"></a>
@@ -2847,6 +2948,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 </dl>
 <p>{The behavior is shown in the example.,at_json_pointer}</p>
 <dl class="section since"><dt>Since</dt><dd>version 2.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l09533">9533</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -2895,6 +2998,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The behavior is shown in the example.,at_json_pointer_const}</p>
 <dl class="section since"><dt>Since</dt><dd>version 2.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l09558">9558</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a71b1d38ef402dfee58fba1fe01fa67f5"></a>
@@ -2935,6 +3040,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#aa45753034bea87f9d2c0c42ace9ff75c">front()</a> &ndash; access the first element</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03750">3750</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a098482190447461f47f80b99bf2519f6"></a>
@@ -2974,6 +3081,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The following code shows an example for <code><a class="el" href="classnlohmann_1_1basic__json.html#a71b1d38ef402dfee58fba1fe01fa67f5" title="access the last element ">back()</a></code>.,back}</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#aa45753034bea87f9d2c0c42ace9ff75c">front()</a> &ndash; access the first element</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03760">3760</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -3018,6 +3127,8 @@ Illustration from cppreference.com</div></div>
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#a19dfb04c297ffb5f0ef84abfa4a5a087">cend()</a> &ndash; returns a const <a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html" title="a mutable random access iterator for the basic_json class ">iterator</a> to the <a class="el" href="classnlohmann_1_1basic__json.html#a12ccf14d39ddae52f6c7e126105a230b" title="returns an iterator to one past the last element ">end</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04187">4187</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -3064,6 +3175,8 @@ Illustration from cppreference.com</div></div>
 <a class="el" href="classnlohmann_1_1basic__json.html#a19dfb04c297ffb5f0ef84abfa4a5a087">cend()</a> &ndash; returns a const <a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html" title="a mutable random access iterator for the basic_json class ">iterator</a> to the <a class="el" href="classnlohmann_1_1basic__json.html#a12ccf14d39ddae52f6c7e126105a230b" title="returns an iterator to one past the last element ">end</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04197">4197</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aa7205e1926d3aea98adeced91b0ff5fb"></a>
@@ -3108,6 +3221,8 @@ Illustration from cppreference.com</div></div>
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#a19dfb04c297ffb5f0ef84abfa4a5a087">cend()</a> &ndash; returns a const <a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html" title="a mutable random access iterator for the basic_json class ">iterator</a> to the <a class="el" href="classnlohmann_1_1basic__json.html#a12ccf14d39ddae52f6c7e126105a230b" title="returns an iterator to one past the last element ">end</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04227">4227</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -3154,6 +3269,8 @@ Illustration from cppreference.com</div></div>
 <a class="el" href="classnlohmann_1_1basic__json.html#aa7205e1926d3aea98adeced91b0ff5fb">cbegin()</a> &ndash; returns a const <a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html" title="a mutable random access iterator for the basic_json class ">iterator</a> to the beginning</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04298">4298</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ad6e51670e9c0052856f3fee01df5c44f"></a>
@@ -3166,7 +3283,7 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::clear </td>
+          <td class="memname">void <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::clear </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -3201,6 +3318,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>Linear in the size of the JSON value.</p>
 <p>{The example below shows the effect of <code><a class="el" href="classnlohmann_1_1basic__json.html#ad6e51670e9c0052856f3fee01df5c44f" title="clears the contents ">clear()</a></code> to different JSON types.,clear}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04697">4697</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -3240,6 +3359,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>Logarithmic in the size of the JSON object.</p>
 <p>{The example shows how <code><a class="el" href="classnlohmann_1_1basic__json.html#a51b0036310d8aa5858fecc0d91127f27" title="returns the number of occurrences of a key in a JSON object ">count()</a></code> is used.,count}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04146">4146</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -3285,6 +3406,8 @@ Illustration from cppreference.com</div></div>
 <a class="el" href="classnlohmann_1_1basic__json.html#aae7eb3b91d7f68e86396c5c6b683445f">crend()</a> &ndash; returns a const reverse <a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html" title="a mutable random access iterator for the basic_json class ">iterator</a> to the <a class="el" href="classnlohmann_1_1basic__json.html#a12ccf14d39ddae52f6c7e126105a230b" title="returns an iterator to one past the last element ">end</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04402">4402</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aae7eb3b91d7f68e86396c5c6b683445f"></a>
@@ -3328,6 +3451,8 @@ Illustration from cppreference.com</div></div>
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#a43c08a393368eb674d0dcdbe301aafe3">crbegin()</a> &ndash; returns a const reverse <a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html" title="a mutable random access iterator for the basic_json class ">iterator</a> to the beginning</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04431">4431</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -3391,6 +3516,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <a href="https://tools.ietf.org/html/rfc6902">RFC 6902 (JSON Patch)</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 2.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l09962">9962</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a805e3f3a2f374da0e14942eec7400e40"></a>
@@ -3405,7 +3532,7 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
         <tr>
           <td class="memname"><a class="el" href="classnlohmann_1_1basic__json.html#ab63e618bbb0371042b1bec17f5891f42">string_t</a> <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::dump </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="tk_8h.html#a83f82f76e7fed06f4c49d2db94028a6d">int</a>&#160;</td>
+          <td class="paramtype">const int&#160;</td>
           <td class="paramname"><em>indent</em> = <code>-1</code></td><td>)</td>
           <td> const</td>
         </tr>
@@ -3430,6 +3557,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The following example shows the effect of different <em>indent</em> parameters to the result of the serialization.,dump}</p>
 <dl class="section see"><dt>See also</dt><dd><a href="https://docs.python.org/2/library/json.html#json.dump">https://docs.python.org/2/library/json.html#json.dump</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02164">2164</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -3483,6 +3612,8 @@ Constant, as long as <a class="el" href="classnlohmann_1_1basic__json.html#ab00b
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a01833b332b68d9af1f7cd7a816c39e49">size()</a> &ndash; returns the number of elements</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04508">4508</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a12ccf14d39ddae52f6c7e126105a230b"></a>
@@ -3526,6 +3657,8 @@ Illustration from cppreference.com</div></div>
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#aa7205e1926d3aea98adeced91b0ff5fb">cbegin()</a> &ndash; returns a const <a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html" title="a mutable random access iterator for the basic_json class ">iterator</a> to the beginning</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04258">4258</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -3571,6 +3704,8 @@ Illustration from cppreference.com</div></div>
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#aa7205e1926d3aea98adeced91b0ff5fb">cbegin()</a> &ndash; returns a const <a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html" title="a mutable random access iterator for the basic_json class ">iterator</a> to the beginning</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04268">4268</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -3640,6 +3775,8 @@ out of range"</code></td></tr>
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#a3da254c422ede5495f2815c5e48c00c5">erase(const size_type)</a> &ndash; removes the element from an <a class="el" href="classnlohmann_1_1basic__json.html#a5685815624b086caa532f41e853d4b0f" title="explicitly create an array from an initializer list ">array</a> <a class="el" href="classnlohmann_1_1basic__json.html#a214a8c22d616fd3567b88932c07436c9" title="access specified array element with bounds checking ">at</a> the given index</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03818">3818</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -3720,6 +3857,8 @@ use erase() with null"</code> </td></tr>
 <a class="el" href="classnlohmann_1_1basic__json.html#a3da254c422ede5495f2815c5e48c00c5">erase(const size_type)</a> &ndash; removes the element from an <a class="el" href="classnlohmann_1_1basic__json.html#a5685815624b086caa532f41e853d4b0f" title="explicitly create an array from an initializer list ">array</a> <a class="el" href="classnlohmann_1_1basic__json.html#a214a8c22d616fd3567b88932c07436c9" title="access specified array element with bounds checking ">at</a> the given index</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03926">3926</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aa36e72ffc3241b960fe9186d19e03bc3"></a>
@@ -3771,6 +3910,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <a class="el" href="classnlohmann_1_1basic__json.html#a3da254c422ede5495f2815c5e48c00c5">erase(const size_type)</a> &ndash; removes the element from an <a class="el" href="classnlohmann_1_1basic__json.html#a5685815624b086caa532f41e853d4b0f" title="explicitly create an array from an initializer list ">array</a> <a class="el" href="classnlohmann_1_1basic__json.html#a214a8c22d616fd3567b88932c07436c9" title="access specified array element with bounds checking ">at</a> the given index</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04013">4013</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a3da254c422ede5495f2815c5e48c00c5"></a>
@@ -3783,7 +3924,7 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::erase </td>
+          <td class="memname">void <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::erase </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classnlohmann_1_1basic__json.html#a1579a8f72a230358d6cd1a6e8a62859b">size_type</a>&#160;</td>
           <td class="paramname"><em>idx</em></td><td>)</td>
@@ -3821,6 +3962,8 @@ is out of range"</code></td></tr>
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#aa36e72ffc3241b960fe9186d19e03bc3">erase(const typename object_t::key_type&amp;)</a> &ndash; removes the element from an <a class="el" href="classnlohmann_1_1basic__json.html#ad25b2f8c21e241e2d63455537a9294ff" title="explicitly create an object from an initializer list ">object</a> <a class="el" href="classnlohmann_1_1basic__json.html#a214a8c22d616fd3567b88932c07436c9" title="access specified array element with bounds checking ">at</a> the given key</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04051">4051</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -3861,6 +4004,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example shows how <code><a class="el" href="classnlohmann_1_1basic__json.html#affe7e160e7bb06eed83c8b437af4692f" title="find an element in a JSON object ">find()</a></code> is used.,find__key_type}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04098">4098</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aaa687595d7627925fbf6d6eb97e2021e"></a>
@@ -3900,6 +4045,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example shows how <code><a class="el" href="classnlohmann_1_1basic__json.html#affe7e160e7bb06eed83c8b437af4692f" title="find an element in a JSON object ">find()</a></code> is used.,find__key_type}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04115">4115</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a5327abb014dec211593b00959830650e"></a>
@@ -3933,6 +4080,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The following code shows how a JSON object is flattened to an object whose keys consist of JSON pointers.,flatten}</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a0389c5dd86adc512e5826d7ff610f776">unflatten()</a> for the reverse function</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 2.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l09585">9585</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -3975,6 +4124,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a71b1d38ef402dfee58fba1fe01fa67f5">back()</a> &ndash; access the last element</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03708">3708</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a8032645ce3109a7a4899badd90fa3480"></a>
@@ -4015,6 +4166,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The following code shows an example for <code><a class="el" href="classnlohmann_1_1basic__json.html#aa45753034bea87f9d2c0c42ace9ff75c" title="access the first element ">front()</a></code>.,front}</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a71b1d38ef402dfee58fba1fe01fa67f5">back()</a> &ndash; access the last element</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03716">3716</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -4065,6 +4218,8 @@ template&lt;typename ValueType , typename std::enable_if&lt;                    
 <a class="el" href="classnlohmann_1_1basic__json.html#ac5693cff1df0775cd3fbe960412cde4b">get()</a> for pointer-member access</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02874">2874</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ac5693cff1df0775cd3fbe960412cde4b"></a>
@@ -4106,6 +4261,8 @@ template&lt;typename PointerType , typename std::enable_if&lt;                  
 <p>{The example below shows how pointers to internal values of a JSON value can be requested. Note that no type conversions are made and a <code>nullptr</code> is returned if the value and the requested pointer type does not match.,get__PointerType}</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a7ab11375ed2e29c2fcb6119386851445">get_ptr()</a> for explicit pointer-member access</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02909">2909</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -4149,6 +4306,8 @@ template&lt;typename PointerType , typename std::enable_if&lt;                  
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a7ab11375ed2e29c2fcb6119386851445">get_ptr()</a> for explicit pointer-member access</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02923">2923</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a1a446a48beed4ea564addfd12d235793"></a>
@@ -4175,6 +4334,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 </div><div class="memdoc">
 
 <p>returns the allocator associated with the container </p>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l00248">248</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -4217,6 +4378,8 @@ template&lt;typename PointerType , typename std::enable_if&lt;                  
 <p>{The example below shows how pointers to internal values of a JSON value can be requested. Note that no type conversions are made and a <code>nullptr</code> is returned if the value and the requested pointer type does not match.,get_ptr}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02958">2958</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aad65e0bc388897192bf361c24c1d6dda"></a>
@@ -4257,6 +4420,8 @@ template&lt;typename PointerType , typename std::enable_if&lt;                  
 <p>Constant.</p>
 <p>{The example below shows how pointers to internal values of a JSON value can be requested. Note that no type conversions are made and a <code>nullptr</code> is returned if the value and the requested pointer type does not match.,get_ptr}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02973">2973</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -4305,6 +4470,8 @@ template&lt;typename ReferenceType , typename std::enable_if&lt;                
 <p>{The example shows several calls to <code><a class="el" href="classnlohmann_1_1basic__json.html#a4f332e90f3cae562d0c3fa6ba48f74f9" title="get a reference value (implicit) ">get_ref()</a></code>.,get_ref}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.1.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03009">3009</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aa669d997ddc03566de5438781254b32b"></a>
@@ -4351,6 +4518,8 @@ template&lt;typename ReferenceType , typename std::enable_if&lt;                
 <p>Constant.</p>
 <p>{The example shows several calls to <code><a class="el" href="classnlohmann_1_1basic__json.html#a4f332e90f3cae562d0c3fa6ba48f74f9" title="get a reference value (implicit) ">get_ref()</a></code>.,get_ref}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.1.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03024">3024</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -4409,6 +4578,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example shows how <code><a class="el" href="classnlohmann_1_1basic__json.html#a7f7bbb3a9efef2e2442f538a24c1c47b" title="inserts element ">insert()</a></code> is used.,insert}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04959">4959</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a8468efcfcd95db15f46887b29924ed5c"></a>
@@ -4465,6 +4636,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>Constant plus linear in the distance between pos and end of the container.</p>
 <p>{The example shows how <code><a class="el" href="classnlohmann_1_1basic__json.html#a7f7bbb3a9efef2e2442f538a24c1c47b" title="inserts element ">insert()</a></code> is used.,insert}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04986">4986</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -4529,6 +4702,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>Linear in <em>cnt</em> plus linear in the distance between <em>pos</em> and end of the container.</p>
 <p>{The example shows how <code><a class="el" href="classnlohmann_1_1basic__json.html#a7f7bbb3a9efef2e2442f538a24c1c47b" title="inserts element ">insert()</a></code> is used.,insert__count}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05015">5015</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -4597,6 +4772,8 @@ belong to container"</code></td></tr>
 <p>{The example shows how <code><a class="el" href="classnlohmann_1_1basic__json.html#a7f7bbb3a9efef2e2442f538a24c1c47b" title="inserts element ">insert()</a></code> is used.,insert__range}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05068">5068</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aadb4e5be88221e5e28cdb752332f3d13"></a>
@@ -4654,6 +4831,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example shows how <code><a class="el" href="classnlohmann_1_1basic__json.html#a7f7bbb3a9efef2e2442f538a24c1c47b" title="inserts element ">insert()</a></code> is used.,insert__ilist}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05127">5127</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a1af360cb513cc32f28e80ddd0b9d7666"></a>
@@ -4687,6 +4866,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The following code exemplifies <code><a class="el" href="classnlohmann_1_1basic__json.html#a1af360cb513cc32f28e80ddd0b9d7666" title="return whether value is an array ">is_array()</a></code> for all JSON types.,is_array}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02458">2458</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a8f7e67d903f918cd08261219fb47a9f0"></a>
@@ -4719,6 +4900,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>No-throw guarantee: this member function never throws exceptions.</p>
 <p>{The following code exemplifies <code><a class="el" href="classnlohmann_1_1basic__json.html#a8f7e67d903f918cd08261219fb47a9f0" title="return whether value is a boolean ">is_boolean()</a></code> for all JSON types.,is_boolean}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02299">2299</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -4754,6 +4937,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The following code exemplifies <code><a class="el" href="classnlohmann_1_1basic__json.html#a66c051561828b2c4eeaad896a72bec99" title="return whether value is discarded ">is_discarded()</a></code> for all JSON types.,is_discarded}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02507">2507</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a685d9d6a8a45bfcb8455b147257cdffb"></a>
@@ -4786,6 +4971,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>No-throw guarantee: this member function never throws exceptions.</p>
 <p>{The following code exemplifies <code><a class="el" href="classnlohmann_1_1basic__json.html#a685d9d6a8a45bfcb8455b147257cdffb" title="return whether value is null ">is_null()</a></code> for all JSON types.,is_null}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02277">2277</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -4825,6 +5012,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <a class="el" href="classnlohmann_1_1basic__json.html#a628733b45cd0e32bd59efea149f40b4b">is_number_float()</a> &ndash; check if <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> is a floating-point number</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02329">2329</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a628733b45cd0e32bd59efea149f40b4b"></a>
@@ -4862,6 +5051,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#a693b411d9c5ad0d168a0013cfb80b8e5">is_number_unsigned()</a> &ndash; check if <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> is an unsigned integer number</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02414">2414</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -4901,6 +5092,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <a class="el" href="classnlohmann_1_1basic__json.html#a628733b45cd0e32bd59efea149f40b4b">is_number_float()</a> &ndash; check if <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> is a floating-point number</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02358">2358</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a693b411d9c5ad0d168a0013cfb80b8e5"></a>
@@ -4939,6 +5132,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <a class="el" href="classnlohmann_1_1basic__json.html#a628733b45cd0e32bd59efea149f40b4b">is_number_float()</a> &ndash; check if <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> is a floating-point number</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 2.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02386">2386</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a0d96ff13001977a93d65f0a97279d316"></a>
@@ -4971,6 +5166,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>No-throw guarantee: this member function never throws exceptions.</p>
 <p>{The following code exemplifies <code><a class="el" href="classnlohmann_1_1basic__json.html#a0d96ff13001977a93d65f0a97279d316" title="return whether value is an object ">is_object()</a></code> for all JSON types.,is_object}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02436">2436</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -5014,6 +5211,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <a class="el" href="classnlohmann_1_1basic__json.html#a1407f91b4689bbc56d1a3c401a5bb649">is_number()</a> &ndash; returns whether JSON <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> is a number</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02228">2228</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ab22c8d61eca51f0308c263487bd35f03"></a>
@@ -5046,6 +5245,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>No-throw guarantee: this member function never throws exceptions.</p>
 <p>{The following code exemplifies <code><a class="el" href="classnlohmann_1_1basic__json.html#ab22c8d61eca51f0308c263487bd35f03" title="return whether value is a string ">is_string()</a></code> for all JSON types.,is_string}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02480">2480</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -5085,6 +5286,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <a class="el" href="classnlohmann_1_1basic__json.html#a0d96ff13001977a93d65f0a97279d316">is_object()</a> &ndash; returns whether <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> is an <a class="el" href="classnlohmann_1_1basic__json.html#ad25b2f8c21e241e2d63455537a9294ff" title="explicitly create an object from an initializer list ">object</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02255">2255</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ab936779c70bec68343ef440ed13251e5"></a>
@@ -5115,6 +5318,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>This function allows to access <a class="el" href="classnlohmann_1_1basic__json_1_1const__iterator.html#a5d4320e24fcb7df041ff2c95d976dba0">iterator::key()</a> and <a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html#a8ffbf287736048e683f58306fdb8701f">iterator::value()</a> during range-based for loops. In these loops, a reference to the JSON values is returned, so there is no access to the underlying iterator.</p>
 <dl class="section note"><dt>Note</dt><dd>The name of this function is not yet final and may change in the future. </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04452">4452</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="af148cdab12df5bf86119fac735ccaac5"></a>
@@ -5144,6 +5349,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>wrapper to access iterator member functions in range-based for </p>
 <p>This function allows to access <a class="el" href="classnlohmann_1_1basic__json_1_1const__iterator.html#a5d4320e24fcb7df041ff2c95d976dba0">iterator::key()</a> and <a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html#a8ffbf287736048e683f58306fdb8701f">iterator::value()</a> during range-based for loops. In these loops, a reference to the JSON values is returned, so there is no access to the underlying iterator.</p>
 <dl class="section note"><dt>Note</dt><dd>The name of this function is not yet final and may change in the future. </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04460">4460</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -5197,6 +5404,8 @@ Constant, as long as <a class="el" href="classnlohmann_1_1basic__json.html#ab00b
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a01833b332b68d9af1f7cd7a816c39e49">size()</a> &ndash; returns the number of elements</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04638">4638</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ad25b2f8c21e241e2d63455537a9294ff"></a>
@@ -5246,6 +5455,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <a class="el" href="classnlohmann_1_1basic__json.html#a5685815624b086caa532f41e853d4b0f">array(std::initializer_list&lt;basic_json&gt;)</a> &ndash; create a JSON <a class="el" href="classnlohmann_1_1basic__json.html#a5685815624b086caa532f41e853d4b0f" title="explicitly create an array from an initializer list ">array</a> <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> from an initializer list</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l01752">1752</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a101cd941eb8a5c299660449c71d0e75e"></a>
@@ -5278,6 +5489,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>No-throw guarantee: this member function never throws exceptions.</p>
 <p>{The following code exemplifies the <a class="el" href="classnlohmann_1_1basic__json.html#a231b02148577b69a154b2ce2c87a5522">value_t</a> operator for all JSON types.,operator__value_t}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02530">2530</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -5325,6 +5538,8 @@ template&lt;typename ValueType , typename std::enable_if&lt;                    
 <p>{The example below shows several conversions from JSON values to other types. There a few things to note: (1) Floating-point numbers can be converted to integers\, (2) A JSON array can be converted to a standard <code>std::vector&lt;short&gt;</code>\, (3) A JSON object can be converted to C++ associative containers such as <code>std::unordered_map&lt;std::string\, json&gt;</code>.,operator__ValueType}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03066">3066</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a1c1aa2d148a3e4ce0d4e50cf5b894f41"></a>
@@ -5368,6 +5583,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>Amortized constant.</p>
 <p>{The example shows how <code><a class="el" href="classnlohmann_1_1basic__json.html#a486b96adbf4886c38e38c952394a220f" title="add an object to an array ">push_back()</a></code> and <code>+=</code> can be used to add elements to a JSON array. Note how the <code>null</code> value was silently converted to a JSON array.,push_back}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04799">4799</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -5413,6 +5630,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example shows how <code><a class="el" href="classnlohmann_1_1basic__json.html#a486b96adbf4886c38e38c952394a220f" title="add an object to an array ">push_back()</a></code> and <code>+=</code> can be used to add elements to a JSON array. Note how the <code>null</code> value was silently converted to a JSON array.,push_back}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04833">4833</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a9486a272e034c0548305d7a12f3045e6"></a>
@@ -5456,6 +5675,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>Logarithmic in the size of the container, O(log(<code><a class="el" href="classnlohmann_1_1basic__json.html#a01833b332b68d9af1f7cd7a816c39e49" title="returns the number of elements ">size()</a></code>)).</p>
 <p>{The example shows how <code><a class="el" href="classnlohmann_1_1basic__json.html#a486b96adbf4886c38e38c952394a220f" title="add an object to an array ">push_back()</a></code> and <code>+=</code> can be used to add elements to a JSON object. Note how the <code>null</code> value was silently converted to a JSON object.,push_back__object_t__value}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04883">4883</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -5501,6 +5722,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <dl class="section note"><dt>Note</dt><dd>This function is required to resolve an ambiguous overload error, because pairs like <code>{"key", "value"}</code> can be both interpreted as <code>object_t::value_type</code> or <code>std::initializer_list&lt;<a class="el" href="classnlohmann_1_1basic__json.html" title="a class to store JSON values ">basic_json</a>&gt;</code>, see <a href="https://github.com/nlohmann/json/issues/235">https://github.com/nlohmann/json/issues/235</a> for more information.</dd></dl>
 <p>{The example shows how initializer lists are treated as objects when possible.,push_back__initializer_list} </p>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04931">4931</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a7c3182cfabc0bdd9f3a14216fe0e8154"></a>
@@ -5541,6 +5764,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 </ul>
 <p>{The code below shows and example for the copy assignment. It creates a copy of value <code>a</code> which is then swapped with <code>b</code>. Finally\, the copy of <code>a</code> (which is the null value after the swap) is destroyed.,basic_json__copyassignment}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02067">2067</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -5588,6 +5813,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example below shows how array elements can be read and written using <code>[]</code> operator. Note the addition of <code>null</code> values.,operatorarray__size_type}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03291">3291</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a99f2e765029e51dd0fff018650f92eea"></a>
@@ -5633,6 +5860,8 @@ operator[] with null"</code></td></tr>
 <p>Constant.</p>
 <p>{The example below shows how array elements can be read using the <code>[]</code> operator.,operatorarray__size_type_const}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03337">3337</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -5682,6 +5911,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0">value()</a> for access by <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> with a default <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03378">3378</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -5733,6 +5964,8 @@ operator[] with null"</code></td></tr>
 <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0">value()</a> for access by <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> with a default <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03426">3426</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a140b8251f82e99ad279dcad5c977e26b"></a>
@@ -5783,6 +6016,8 @@ template&lt;typename T , std::size_t n&gt; </div>
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0">value()</a> for access by <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> with a default <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03469">3469</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -5837,6 +6072,8 @@ operator[] with null"</code></td></tr>
 <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0">value()</a> for access by <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> with a default <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03504">3504</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ac7c006e2345a76859c4802db7d130e0e"></a>
@@ -5887,6 +6124,8 @@ template&lt;typename T &gt; </div>
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0">value()</a> for access by <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> with a default <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.1.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03537">3537</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -5940,6 +6179,8 @@ operator[] with null"</code></td></tr>
 <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0">value()</a> for access by <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a> with a default <a class="el" href="classnlohmann_1_1basic__json.html#a0a2cbbd95862a623e7dc5c37e67dead0" title="access specified object element with default value ">value</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.1.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03586">3586</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a7605b20debcc12fc44bd9f2075122a87"></a>
@@ -5992,6 +6233,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The behavior is shown in the example.,operatorjson_pointer}</p>
 <dl class="section since"><dt>Since</dt><dd>version 2.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l09481">9481</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a76347b37f07c75049f5164053a6cf81a"></a>
@@ -6038,6 +6281,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 </dl>
 <p>{The behavior is shown in the example.,operatorjson_pointer_const}</p>
 <dl class="section since"><dt>Since</dt><dd>version 2.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l09508">9508</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -6090,6 +6335,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a13c4d2ab4e7ee2f92be785a7b12948ff">parse(std::istream&amp;, parser_callback_t)</a> for a version that reads from an input stream</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05774">5774</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a13c4d2ab4e7ee2f92be785a7b12948ff"></a>
@@ -6141,6 +6388,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a35303ad045a06c2a79dc28ac29652e86">parse(const string_t&amp;, parser_callback_t)</a> for a version that reads from a string</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05803">5803</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ab81f2801779e6cb9d98770860af2e39a"></a>
@@ -6191,6 +6440,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example below demonstrates the <code><a class="el" href="classnlohmann_1_1basic__json.html#a35303ad045a06c2a79dc28ac29652e86" title="deserialize from string ">parse()</a></code> function with and without callback function.,parse__istream__parser_callback_t}</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a35303ad045a06c2a79dc28ac29652e86">parse(const string_t&amp;, parser_callback_t)</a> for a version that reads from a string</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05811">5811</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -6245,6 +6496,8 @@ not found"</code> </td></tr>
 <a href="https://tools.ietf.org/html/rfc6901">RFC 6901 (JSON Pointer)</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 2.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l09669">9669</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a486b96adbf4886c38e38c952394a220f"></a>
@@ -6257,7 +6510,7 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::push_back </td>
+          <td class="memname">void <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::push_back </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt; &amp;&amp;&#160;</td>
           <td class="paramname"><em>val</em></td><td>)</td>
@@ -6289,6 +6542,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example shows how <code><a class="el" href="classnlohmann_1_1basic__json.html#a486b96adbf4886c38e38c952394a220f" title="add an object to an array ">push_back()</a></code> and <code>+=</code> can be used to add elements to a JSON array. Note how the <code>null</code> value was silently converted to a JSON array.,push_back}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04773">4773</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a6f3dfd3e83a1e907d7946b47fcd7ceba"></a>
@@ -6301,7 +6556,7 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::push_back </td>
+          <td class="memname">void <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::push_back </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt; &amp;&#160;</td>
           <td class="paramname"><em>val</em></td><td>)</td>
@@ -6333,6 +6588,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example shows how <code><a class="el" href="classnlohmann_1_1basic__json.html#a486b96adbf4886c38e38c952394a220f" title="add an object to an array ">push_back()</a></code> and <code>+=</code> can be used to add elements to a JSON array. Note how the <code>null</code> value was silently converted to a JSON array.,push_back}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04809">4809</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a5212588544f6d2266384c3be9bfda0c5"></a>
@@ -6345,7 +6602,7 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::push_back </td>
+          <td class="memname">void <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::push_back </td>
           <td>(</td>
           <td class="paramtype">const typename object_t::value_type &amp;&#160;</td>
           <td class="paramname"><em>val</em></td><td>)</td>
@@ -6377,6 +6634,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example shows how <code><a class="el" href="classnlohmann_1_1basic__json.html#a486b96adbf4886c38e38c952394a220f" title="add an object to an array ">push_back()</a></code> and <code>+=</code> can be used to add elements to a JSON object. Note how the <code>null</code> value was silently converted to a JSON object.,push_back__object_t__value}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04859">4859</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a9c9b4932b26a9630e1a3f25ea42a2c43"></a>
@@ -6389,7 +6648,7 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::push_back </td>
+          <td class="memname">void <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::push_back </td>
           <td>(</td>
           <td class="paramtype">std::initializer_list&lt; <a class="el" href="classnlohmann_1_1basic__json.html">basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt; &gt;&#160;</td>
           <td class="paramname"><em>init</em></td><td>)</td>
@@ -6420,6 +6679,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>Linear in the size of the initializer list <em>init</em>.</p>
 <dl class="section note"><dt>Note</dt><dd>This function is required to resolve an ambiguous overload error, because pairs like <code>{"key", "value"}</code> can be both interpreted as <code>object_t::value_type</code> or <code>std::initializer_list&lt;<a class="el" href="classnlohmann_1_1basic__json.html" title="a class to store JSON values ">basic_json</a>&gt;</code>, see <a href="https://github.com/nlohmann/json/issues/235">https://github.com/nlohmann/json/issues/235</a> for more information.</dd></dl>
 <p>{The example shows how initializer lists are treated as objects when possible.,push_back__initializer_list} </p>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04914">4914</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -6465,6 +6726,8 @@ Illustration from cppreference.com</div></div>
 <a class="el" href="classnlohmann_1_1basic__json.html#aae7eb3b91d7f68e86396c5c6b683445f">crend()</a> &ndash; returns a const reverse <a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html" title="a mutable random access iterator for the basic_json class ">iterator</a> to the <a class="el" href="classnlohmann_1_1basic__json.html#a12ccf14d39ddae52f6c7e126105a230b" title="returns an iterator to one past the last element ">end</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04328">4328</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a4635e8c6d5a4599f12a76368e325acd8"></a>
@@ -6508,6 +6771,8 @@ Illustration from cppreference.com</div></div>
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#aae7eb3b91d7f68e86396c5c6b683445f">crend()</a> &ndash; returns a const reverse <a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html" title="a mutable random access iterator for the basic_json class ">iterator</a> to the <a class="el" href="classnlohmann_1_1basic__json.html#a12ccf14d39ddae52f6c7e126105a230b" title="returns an iterator to one past the last element ">end</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04336">4336</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -6553,6 +6818,8 @@ Illustration from cppreference.com</div></div>
 <a class="el" href="classnlohmann_1_1basic__json.html#a43c08a393368eb674d0dcdbe301aafe3">crbegin()</a> &ndash; returns a const reverse <a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html" title="a mutable random access iterator for the basic_json class ">iterator</a> to the beginning</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04365">4365</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a018ea61dbc973192d2ffc6bccc50696b"></a>
@@ -6596,6 +6863,8 @@ Illustration from cppreference.com</div></div>
 <dd>
 <a class="el" href="classnlohmann_1_1basic__json.html#a43c08a393368eb674d0dcdbe301aafe3">crbegin()</a> &ndash; returns a const reverse <a class="el" href="classnlohmann_1_1basic__json_1_1iterator.html" title="a mutable random access iterator for the basic_json class ">iterator</a> to the beginning</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04373">4373</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -6651,6 +6920,8 @@ Constant, as long as <a class="el" href="classnlohmann_1_1basic__json.html#ab00b
 <a class="el" href="classnlohmann_1_1basic__json.html#ad5514a7435f246fc5335856465022a7a">max_size()</a> &ndash; returns the maximal number of elements</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l04572">4572</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="af77614992e38b355b9213940051cc582"></a>
@@ -6663,7 +6934,7 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::swap </td>
+          <td class="memname">void <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::swap </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classnlohmann_1_1basic__json.html#a3ec8e17be8732fe436e9d6733f52b7a3">reference</a>&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
@@ -6689,6 +6960,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example below shows how JSON values can be swapped with <code><a class="el" href="classnlohmann_1_1basic__json.html#af77614992e38b355b9213940051cc582" title="exchanges the values ">swap()</a></code>.,swap__reference}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05165">5165</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a8209621de6184d9eabe136b7c8f61935"></a>
@@ -6701,7 +6974,7 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::swap </td>
+          <td class="memname">void <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::swap </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classnlohmann_1_1basic__json.html#ab00b882d39306d663c23dab110f5cae0">array_t</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
@@ -6734,6 +7007,8 @@ use swap() with string"</code></td></tr>
 <p>{The example below shows how arrays can be swapped with <code><a class="el" href="classnlohmann_1_1basic__json.html#af77614992e38b355b9213940051cc582" title="exchanges the values ">swap()</a></code>.,swap__array_t}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05196">5196</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a38ee0f09a318d003add75e0787040794"></a>
@@ -6746,7 +7021,7 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::swap </td>
+          <td class="memname">void <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::swap </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classnlohmann_1_1basic__json.html#a0ac9894c9de8dc551cf2e5f1c605537f">object_t</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
@@ -6778,6 +7053,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example below shows how objects can be swapped with <code><a class="el" href="classnlohmann_1_1basic__json.html#af77614992e38b355b9213940051cc582" title="exchanges the values ">swap()</a></code>.,swap__object_t}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05230">5230</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a86089c703a2e563b9f760c2f8408efa7"></a>
@@ -6790,7 +7067,7 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="tk_8h.html#aba408b7cd755a96426e004c015f5de8e">void</a> <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::swap </td>
+          <td class="memname">void <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::swap </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classnlohmann_1_1basic__json.html#ab63e618bbb0371042b1bec17f5891f42">string_t</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
@@ -6822,6 +7099,8 @@ use swap() with boolean"</code></td></tr>
 <p>Constant.</p>
 <p>{The example below shows how strings can be swapped with <code><a class="el" href="classnlohmann_1_1basic__json.html#af77614992e38b355b9213940051cc582" title="exchanges the values ">swap()</a></code>.,swap__string_t}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05264">5264</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -6855,6 +7134,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>No-throw guarantee: this member function never throws exceptions.</p>
 <p>{The following code exemplifies <code><a class="el" href="classnlohmann_1_1basic__json.html#a848cbae3bd3502ffbf738320bf5eb3aa" title="return the type of the JSON value (explicit) ">type()</a></code> for all JSON types.,type}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l02198">2198</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -6894,6 +7175,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a5327abb014dec211593b00959830650e">flatten()</a> for the reverse function</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 2.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l09619">9619</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a0a2cbbd95862a623e7dc5c37e67dead0"></a>
@@ -6908,7 +7191,7 @@ template&lt;class ValueType , typename std::enable_if&lt;                       
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ValueType <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::<a class="el" href="tk_8h.html#a177a0765f574ef6642002696d9cd82d0">value</a> </td>
+          <td class="memname">ValueType <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::value </td>
           <td>(</td>
           <td class="paramtype">const typename object_t::key_type &amp;&#160;</td>
           <td class="paramname"><em>key</em>, </td>
@@ -6965,6 +7248,8 @@ value() with null"</code></td></tr>
 <a class="el" href="classnlohmann_1_1basic__json.html#a92fbb711a36b5ce78ee228b26787c034">operator[](const typename object_t::key_type&amp;)</a> for unchecked access by <a class="el" href="classnlohmann_1_1basic__json.html#a3ec8e17be8732fe436e9d6733f52b7a3" title="the type of an element reference ">reference</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03653">3653</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="af071057ebab57744f5767eb369e99d42"></a>
@@ -6977,7 +7262,7 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classnlohmann_1_1basic__json.html#ab63e618bbb0371042b1bec17f5891f42">string_t</a> <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::<a class="el" href="tk_8h.html#a177a0765f574ef6642002696d9cd82d0">value</a> </td>
+          <td class="memname"><a class="el" href="classnlohmann_1_1basic__json.html#ab63e618bbb0371042b1bec17f5891f42">string_t</a> <a class="el" href="classnlohmann_1_1basic__json.html">nlohmann::basic_json</a>&lt; ObjectType, ArrayType, StringType, BooleanType, NumberIntegerType, NumberUnsignedType, NumberFloatType, AllocatorType &gt;::value </td>
           <td>(</td>
           <td class="paramtype">const typename object_t::key_type &amp;&#160;</td>
           <td class="paramname"><em>key</em>, </td>
@@ -7034,6 +7319,8 @@ value() with null"</code></td></tr>
 <a class="el" href="classnlohmann_1_1basic__json.html#a92fbb711a36b5ce78ee228b26787c034">operator[](const typename object_t::key_type&amp;)</a> for unchecked access by <a class="el" href="classnlohmann_1_1basic__json.html#a3ec8e17be8732fe436e9d6733f52b7a3" title="the type of an element reference ">reference</a></dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l03679">3679</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Friends And Related Function Documentation</h2>
@@ -7085,6 +7372,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example demonstrates comparing several JSON types.,operator__notequal}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05474">5474</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae347859ec88176ef76a0cbe5b4514fcf"></a>
@@ -7133,6 +7422,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>Constant.</p>
 <p>{The example compares several JSON types to the null pointer. ,operator__notequal__nullptr_t}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05497">5497</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -7183,6 +7474,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example compares several JSON types to the null pointer. ,operator__notequal__nullptr_t}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05506">5506</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a24d7df0b5b41319dbab2713d3641faf7"></a>
@@ -7225,6 +7518,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <li>furthermore, each type is not smaller than itself</li>
 </ul>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05298">5298</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -7280,6 +7575,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example demonstrates comparing several JSON types.,operator__less}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05535">5535</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a5e34c5435e557d0bf666bd7311211405"></a>
@@ -7329,6 +7626,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>Linear.</p>
 <p>{The example below shows the serialization with different parameters to <code>width</code> to adjust the indentation level.,operator_serialize}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05717">5717</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -7387,6 +7686,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a13c4d2ab4e7ee2f92be785a7b12948ff" title="deserialize from stream ">parse(std::istream&amp;, parser_callback_t)</a> for a variant with a parser callback function to filter values while parsing</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05839">5839</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a5c8bb5200f5eac10d31e26be46e5b1ac"></a>
@@ -7436,6 +7737,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>Linear.</p>
 <p>{The example demonstrates comparing several JSON types.,operator__greater}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05636">5636</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -7491,6 +7794,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example demonstrates comparing several JSON types.,operator__equal}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05345">5345</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a9730b9f7bc2150e641fe20198d4477c7"></a>
@@ -7540,6 +7845,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example compares several JSON types to the null pointer. ,operator__equal__nullptr_t}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05444">5444</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a98e05a2c9b8f74bd60442772cddeee52"></a>
@@ -7588,6 +7895,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>Constant.</p>
 <p>{The example compares several JSON types to the null pointer. ,operator__equal__nullptr_t}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05453">5453</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -7639,6 +7948,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example demonstrates comparing several JSON types.,operator__lessequal}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05658">5658</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a74a943800c7f103d0990d7eef82c6453"></a>
@@ -7689,6 +8000,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example demonstrates comparing several JSON types.,operator__greaterequal}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
 
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05680">5680</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a34d6a60dd99e9f33b8273a1c8db5669b"></a>
@@ -7738,6 +8051,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>Linear.</p>
 <p>{The example below shows the serialization with different parameters to <code>width</code> to adjust the indentation level.,operator_serialize}</p>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05735">5735</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>
@@ -7795,6 +8110,8 @@ template&lt;template&lt; typename U, typename V, typename...Args &gt; class Obje
 <p>{The example below shows how a JSON value is constructed by reading a serialization from a stream.,operator_deserialize}</p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classnlohmann_1_1basic__json.html#a13c4d2ab4e7ee2f92be785a7b12948ff" title="deserialize from stream ">parse(std::istream&amp;, parser_callback_t)</a> for a variant with a parser callback function to filter values while parsing</dd></dl>
 <dl class="section since"><dt>Since</dt><dd>version 1.0.0 </dd></dl>
+
+<p>Definition at line <a class="el" href="json_8hpp_source.html#l05849">5849</a> of file <a class="el" href="json_8hpp_source.html">json.hpp</a>.</p>
 
 </div>
 </div>

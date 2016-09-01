@@ -3,6 +3,7 @@
 
 namespace Audealize
 {
+/// AudealizeAudioProcessor for reverb effect
 class AudealizereverbAudioProcessor : public AudealizeAudioProcessor
 {
 public:
@@ -43,14 +44,6 @@ public:
     inline String getParamID (int index) override;
 
     inline int getParamIdx (String paramId);
-
-    /**
-     *  Returns true - all parameters should be automateable
-     */
-    bool isParameterAutomatable (int index)
-    {
-        return true;
-    }
 
     /**
      * Enumerate parameter indices for easy vector access

@@ -3404,7 +3404,7 @@
 						<key>VALUE</key>
 						<dict>
 							<key>PATH</key>
-							<string>../LICENSE.txt</string>
+							<string>Resources/License.rtf</string>
 							<key>PATH_TYPE</key>
 							<integer>1</integer>
 						</dict>

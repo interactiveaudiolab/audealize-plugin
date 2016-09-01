@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['nchannelfilter_2eh',['NChannelFilter.h',['../_n_channel_filter_8h.html',1,'']]]
+  ['primefactors_2eh',['PrimeFactors.h',['../_prime_factors_8h.html',1,'']]],
+  ['primitives_2eh',['primitives.h',['../primitives_8h.html',1,'']]],
+  ['properties_2ecpp',['properties.cpp',['../properties_8cpp.html',1,'']]],
+  ['properties_2eh',['properties.h',['../properties_8h.html',1,'']]]
 ];

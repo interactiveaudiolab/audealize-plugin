@@ -25,12 +25,11 @@
 
 namespace Audealize
 {
+/// Functions for saving/loading properties data.
 class Properties
 {
 public:
-    /**
-     *  String Ids of each property
-     */
+    /// String Ids of each property
     struct propertyIds
     {
         static const Identifier darkMode;

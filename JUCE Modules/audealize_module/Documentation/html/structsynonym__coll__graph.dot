@@ -1,0 +1,26 @@
+digraph "synonym"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="synonym",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node1 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" synnext" ,fontname="Helvetica"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" word" ,fontname="Helvetica"];
+  Node2 [label="symbol",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structsymbol.html"];
+  Node3 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" syns" ,fontname="Helvetica"];
+  Node3 [label="synlist",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structsynlist.html"];
+  Node1 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" psyn" ,fontname="Helvetica"];
+  Node3 -> Node3 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" snext" ,fontname="Helvetica"];
+  Node2 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" symnext" ,fontname="Helvetica"];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ss" ,fontname="Helvetica"];
+  Node4 [label="synset",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structsynset.html"];
+  Node1 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" syns" ,fontname="Helvetica"];
+  Node4 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" fans\nssnext" ,fontname="Helvetica"];
+  Node5 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" frames" ,fontname="Helvetica"];
+  Node5 [label="framelist",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structframelist.html"];
+  Node5 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" fnext" ,fontname="Helvetica"];
+  Node6 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" ptrs" ,fontname="Helvetica"];
+  Node6 [label="pointer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structpointer.html"];
+  Node4 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" psynset" ,fontname="Helvetica"];
+  Node2 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" pslite\npword" ,fontname="Helvetica"];
+  Node6 -> Node6 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" pnext" ,fontname="Helvetica"];
+}

@@ -13,7 +13,6 @@ var class_audealize_1_1_audealizeeq_audio_processor =
     [ "getProgramName", "class_audealize_1_1_audealizeeq_audio_processor.html#adce52ddadf23a6731b91685eb2693ca1", null ],
     [ "getTailLengthSeconds", "class_audealize_1_1_audealizeeq_audio_processor.html#a2c3fb8c06b4ffe89c921b961fa73af25", null ],
     [ "hasEditor", "class_audealize_1_1_audealizeeq_audio_processor.html#a97650263b1f2399d88f51bef0d2ad0a3", null ],
-    [ "isParameterAutomatable", "class_audealize_1_1_audealizeeq_audio_processor.html#a1e14e27cbd9ea51776deccfd0ec4f4a8", null ],
     [ "parameterChanged", "class_audealize_1_1_audealizeeq_audio_processor.html#a25c85696329c21a201963733bc46d957", null ],
     [ "prepareToPlay", "class_audealize_1_1_audealizeeq_audio_processor.html#a4bba4adcf5b948a1e1e1d78d21432efd", null ],
     [ "processBlock", "class_audealize_1_1_audealizeeq_audio_processor.html#a215bf8fc1c14a5a8f586ad9463b33d0a", null ],

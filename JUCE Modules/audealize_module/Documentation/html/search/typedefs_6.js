@@ -1,9 +1,6 @@
 var searchData=
 [
-  ['filename',['fileName',['../tk_8h.html#acad27910b49625b1b4dc8f18fc80da2d',1,'tk.h']]],
-  ['flags',['flags',['../tk_8h.html#ad69672397d9b83691bf9a26eb31af69f',1,'tk.h']]],
-  ['flist',['Flist',['../wngrind_8h.html#a0e54f0cba75d552bcd3e99645d259eb9',1,'wngrind.h']]],
-  ['format',['format',['../tk_8h.html#a0ba71cf135249ea84ec2787d3eab31b2',1,'tk.h']]],
-  ['fr',['Fr',['../wngrind_8h.html#abb563d87834abbf9dd640777bcd87c26',1,'wngrind.h']]],
-  ['framelist',['Framelist',['../wngrind_8h.html#acc0bb3ab2761bc3e4f254c46557edfc1',1,'wngrind.h']]]
+  ['number_5ffloat_5ft',['number_float_t',['../classnlohmann_1_1basic__json.html#a74a0013e847fdc574b48f931f0e757e1',1,'nlohmann::basic_json']]],
+  ['number_5finteger_5ft',['number_integer_t',['../classnlohmann_1_1basic__json.html#ac4b10b2364f26ce47bdb9a413ff04a59',1,'nlohmann::basic_json']]],
+  ['number_5funsigned_5ft',['number_unsigned_t',['../classnlohmann_1_1basic__json.html#a60a04166c122072ab11eaf9845d9cd1d',1,'nlohmann::basic_json']]]
 ];

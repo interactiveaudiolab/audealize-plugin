@@ -1,7 +1,7 @@
 //
 // AudealizeImages.h
 //
-// Defines binary data resources for images used for Audealize plugins
+// Defines binary data resources for images used in Audealize plugins
 //
 
 #ifndef AudealizeImages_h
@@ -9,6 +9,7 @@
 
 namespace Audealize
 {
+/// Binary data resources for images
 class AudealizeImages
 {
 public:

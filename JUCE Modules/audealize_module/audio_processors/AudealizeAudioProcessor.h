@@ -1,10 +1,8 @@
 //
-//  AudealizeInterfaces.h
+// AudealizeAudioProcessor.h
 //
-//  Interface class for Audealize plugin AudioProcessors to facilitate communication of state/param data with UI
-//  components
+// Interface class for Audealize plugin AudioProcessors to facilitate communication of state/param data with UI
 //
-
 #ifndef AudealizeAudioProcessor_h
 #define AudealizeAudioProcessor_h
 
@@ -13,6 +11,7 @@ using namespace juce;
 
 namespace Audealize
 {
+/// Interface class for Audealize plugin AudioProcessors to facilitate communication of state/param data with UI
 class AudealizeAudioProcessor : public juce::AudioProcessor, public AudioProcessorValueTreeState::Listener
 {
 public:
@@ -147,7 +146,7 @@ public:
     /**
      *  Returns true if AudioProcessor is bypassed (not applying its effect)
      *
-     *  @return <#return value description#>
+     *  @return bool
      */
     bool isBypassed ()
     {
@@ -195,8 +194,8 @@ public:
     }
 
 protected:
-    AudioProcessorValueTreeState*
-        mState;  // and AudioProcessorValueTreeState containing the parameter state information
+    AudioProcessorValueTreeState* mState;  // and AudioProcessorValueTreeState containing the parameter state
+                                           // information
     UndoManager* mUndoManager;
 
     vector<float> mParamSettings;

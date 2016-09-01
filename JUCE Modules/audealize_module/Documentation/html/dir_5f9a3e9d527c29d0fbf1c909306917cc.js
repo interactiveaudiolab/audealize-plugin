@@ -2,7 +2,7 @@ var dir_5f9a3e9d527c29d0fbf1c909306917cc =
 [
     [ "AboutComponent.cpp", "_about_component_8cpp.html", null ],
     [ "AboutComponent.h", "_about_component_8h.html", [
-      [ "AboutComponent", "class_about_component.html", "class_about_component" ]
+      [ "AboutComponent", "class_audealize_1_1_about_component.html", "class_audealize_1_1_about_component" ]
     ] ],
     [ "AudealizeMultiUI.cpp", "_audealize_multi_u_i_8cpp.html", null ],
     [ "AudealizeMultiUI.h", "_audealize_multi_u_i_8h.html", [
@@ -37,8 +37,8 @@ var dir_5f9a3e9d527c29d0fbf1c909306917cc =
     ] ],
     [ "TypeaheadPopupMenu.cpp", "_typeahead_popup_menu_8cpp.html", null ],
     [ "TypeaheadPopupMenu.h", "_typeahead_popup_menu_8h.html", [
-      [ "TypeaheadPopupMenu", "class_typeahead_popup_menu.html", "class_typeahead_popup_menu" ],
-      [ "TypeaheadEditor", "class_typeahead_editor.html", "class_typeahead_editor" ]
+      [ "TypeaheadPopupMenu", "class_audealize_1_1_typeahead_popup_menu.html", "class_audealize_1_1_typeahead_popup_menu" ],
+      [ "TypeaheadEditor", "class_audealize_1_1_typeahead_editor.html", "class_audealize_1_1_typeahead_editor" ]
     ] ],
     [ "WordMap.cpp", "_word_map_8cpp.html", "_word_map_8cpp" ],
     [ "WordMap.h", "_word_map_8h.html", "_word_map_8h" ]

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['aboutcomponent',['AboutComponent',['../class_about_component.html',1,'']]],
+  ['aboutcomponent',['AboutComponent',['../class_audealize_1_1_about_component.html',1,'Audealize']]],
   ['audealizeaudioprocessor',['AudealizeAudioProcessor',['../class_audealize_1_1_audealize_audio_processor.html',1,'Audealize']]],
   ['audealizeeqaudioprocessor',['AudealizeeqAudioProcessor',['../class_audealize_1_1_audealizeeq_audio_processor.html',1,'Audealize']]],
   ['audealizefonts',['AudealizeFonts',['../class_audealize_1_1_audealize_fonts.html',1,'Audealize']]],

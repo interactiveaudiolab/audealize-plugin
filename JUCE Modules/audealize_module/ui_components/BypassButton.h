@@ -10,6 +10,7 @@
 
 namespace Audealize
 {
+/// A toggleable juce::DrawableButton with an on/off glyph graphic
 class BypassButton : public DrawableButton
 {
 public:

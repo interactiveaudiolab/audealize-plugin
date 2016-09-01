@@ -1,7 +1,7 @@
 //
 //  RotarySliderCentered.h
 //
-//  A rotary slider that draws track fill starting from center
+//  A rotary slider that draws its track fill starting from center
 //
 
 #ifndef RotarySliderCentered_h
@@ -11,6 +11,7 @@
 
 namespace Audealize
 {
+/// A rotary slider that draws its track fill starting from center
 class RotarySliderCentered : public AudealizeSlider
 {
 public:

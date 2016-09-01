@@ -1,22 +1,4 @@
 var searchData=
 [
-  ['recordptr',['recordPtr',['../struct_tk___saved_options.html#a7f2d523f73ed349fad480ebc3d56f00c',1,'Tk_SavedOptions']]],
-  ['redraw_5fflags',['redraw_flags',['../struct_tk___item.html#a50941534e2fba5830217ee44f25dc799',1,'Tk_Item']]],
-  ['reqheight',['reqHeight',['../struct_tk___fake_win.html#a3164fa753117e5c1315ed4d734d27e91',1,'Tk_FakeWin']]],
-  ['requestproc',['requestProc',['../struct_tk___geom_mgr.html#a6121b0d4e6cb73c29c35000edbb15fe6',1,'Tk_GeomMgr']]],
-  ['reqwidth',['reqWidth',['../struct_tk___fake_win.html#a478b1536f5936629a9002d2af2b6e445',1,'Tk_FakeWin']]],
-  ['reserved',['reserved',['../struct_tk___image_type.html#a358fe063076b6d9b70966e5fc500c41f',1,'Tk_ImageType']]],
-  ['reserved1',['reserved1',['../struct_tk___item.html#a60db64f7b86f16c19861f9ac5c6b4a41',1,'Tk_Item::reserved1()'],['../struct_tk___item_type.html#afa36a3c3c1e14b426482d6f07d05fe7f',1,'Tk_ItemType::reserved1()'],['../struct_tk___outline.html#af8b13602a9d770d590642795c402cd81',1,'Tk_Outline::reserved1()']]],
-  ['reserved2',['reserved2',['../struct_tk___item_type.html#a360bb68ffba4fec3daee44194fd48ede',1,'Tk_ItemType::reserved2()'],['../struct_tk___outline.html#a31ae2768cfa61e05cb7f792a47cb22cd',1,'Tk_Outline::reserved2()']]],
-  ['reserved218',['reserved218',['../struct_tk_stubs.html#aaaa64061caa69206db19c2a818ab2de6',1,'TkStubs']]],
-  ['reserved219',['reserved219',['../struct_tk_stubs.html#aa20e10a582c6fe434d88073d5a21c7c9',1,'TkStubs']]],
-  ['reserved3',['reserved3',['../struct_tk___item_type.html#ac1941c0ea1d2657068c60dcb7fa71d35',1,'Tk_ItemType::reserved3()'],['../struct_tk___outline.html#a62836603a85a2d0cfbe1626105c7c8d9',1,'Tk_Outline::reserved3()']]],
-  ['reserved4',['reserved4',['../struct_tk___item_type.html#a45856e8d3d31e75f8e3f9fd8d18f1871',1,'Tk_ItemType']]],
-  ['restoreproc',['restoreProc',['../struct_tk___obj_custom_option.html#ac506ef6f955f558df4bd86c14d2aac87',1,'Tk_ObjCustomOption']]],
-  ['reverbdatapath',['reverbDataPath',['../struct_audealize_1_1_properties_1_1property_ids.html#a55966884d5356be5b001664c9a175f42',1,'Audealize::Properties::propertyIds']]],
-  ['revkeyindexfp',['revkeyindexfp',['../wn_8h.html#a2f118d104ce44e5e51a30c6b3fdf0567',1,'revkeyindexfp():&#160;wnrtl.c'],['../wnrtl_8c.html#a2f118d104ce44e5e51a30c6b3fdf0567',1,'revkeyindexfp():&#160;wnrtl.c']]],
-  ['right',['right',['../structdsp_1_1stereo__sample.html#a9fb6419f7d1167ff3e26bbbf14d48500',1,'dsp::stereo_sample']]],
-  ['robotoregular_5fttf',['RobotoRegular_ttf',['../class_audealize_1_1_audealize_fonts.html#a1fea272dd7aae1975ddd34c53c2c7733',1,'Audealize::AudealizeFonts']]],
-  ['robotoregular_5fttfsize',['RobotoRegular_ttfSize',['../class_audealize_1_1_audealize_fonts.html#a39ba7d9c918c682a7551e41d3dc15ae7',1,'Audealize::AudealizeFonts']]],
-  ['root',['root',['../struct_x_virtual_event.html#abf43af16321970ff60633711902760de',1,'XVirtualEvent']]]
+  ['x1',['x1',['../classdsp_1_1onepole.html#a43750f73796581da8310aa56fc0914a8',1,'dsp::onepole']]]
 ];

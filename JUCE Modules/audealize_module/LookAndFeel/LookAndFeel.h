@@ -43,11 +43,7 @@ static TextLayout layoutTooltipText (const String& text, Colour colour) noexcept
 
 namespace Audealize
 {
-//=====================================================
-// AudealizeLookAndFeel
-// (light theme)
-//=====================================================
-
+/// A juce::LookAndFeel for Audealize plugins with a light color scheme
 class AudealizeLookAndFeel : public LookAndFeel_V3
 {
 public:
@@ -127,11 +123,7 @@ protected:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeLookAndFeel);
 };
 
-//=====================================================
-// AudealizeLookAndFeelDark
-// (dark theme)
-//=====================================================
-
+/// A juce::LookAndFeel for Audealize plugins with a dark color scheme
 class AudealizeLookAndFeelDark : public AudealizeLookAndFeel
 {
 public:

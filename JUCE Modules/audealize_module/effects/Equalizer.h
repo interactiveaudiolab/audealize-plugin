@@ -1,7 +1,8 @@
 //
 //  Equalizer.h
 //
-//  Implements an N-band graphic equalizer. Construct with a vector of center frequencies and a sample rate.
+//  An N-band graphic equalizer made up of NChannelFilters
+//  Construct with a vector of center frequencies and a sample rate.
 //  Set individual band gains with Equalizer::setBandGain(), set all band gains with a vector of gain values in dB using
 //  Equalizer::setGains()
 //
@@ -15,6 +16,7 @@ using std::vector;
 
 namespace Audealize
 {
+/// An N-band graphic equalizer made up of NChannelFilter
 class Equalizer : public AudioEffect
 {
 public:

@@ -12,6 +12,7 @@
 
 namespace Audealize
 {
+/// An interface class for Audealize traditional user interfaces (interfaces with knobs sliders)
 class TraditionalUI : public Component
 {
 public:

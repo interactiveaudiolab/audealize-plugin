@@ -2,20 +2,5 @@ var searchData=
 [
   ['a0',['a0',['../class_biquad.html#a3935a031426afb5b553eb610f7e1244d',1,'Biquad::a0()'],['../classdsp_1_1onepole.html#add0620a77694639de6532365beb0c73c',1,'dsp::onepole::a0()']]],
   ['a1',['a1',['../class_biquad.html#a855ab8ca17ada2b0e2adfa88ef2af654',1,'Biquad::a1()'],['../classdsp_1_1onepole.html#a43906c356c0006dfbf32d7b989749767',1,'dsp::onepole::a1()']]],
-  ['a2',['a2',['../class_biquad.html#a4459dce473745d248a911e2451f9308c',1,'Biquad']]],
-  ['abortsearch',['abortsearch',['../wn_8h.html#acec116db5e5c1de52c410fcd3601d019',1,'abortsearch():&#160;wnrtl.c'],['../wnrtl_8c.html#acec116db5e5c1de52c410fcd3601d019',1,'abortsearch():&#160;wnrtl.c']]],
-  ['activecolor',['activeColor',['../struct_tk___outline.html#ad3c00a64f63e9d4553714f2180c5ae82',1,'Tk_Outline']]],
-  ['activedash',['activeDash',['../struct_tk___outline.html#ada5e71c0394238bae873ce2d0bbeb8a0',1,'Tk_Outline']]],
-  ['activestipple',['activeStipple',['../struct_tk___outline.html#a1a0045aa6dfd0f3e8230ea52bad79f7f',1,'Tk_Outline']]],
-  ['activewidth',['activeWidth',['../struct_tk___outline.html#a43d738d7c3b9ec91a12a1c14f1088e8d',1,'Tk_Outline']]],
-  ['adjclass',['adjclass',['../structsynonym.html#a4950ed90421213474467e7e809c7b1cf',1,'synonym::adjclass()'],['../wn_8h.html#a213c0ae08f839bf0d95cf481341d8a50',1,'adjclass():&#160;wnglobal.c'],['../wngrind_8h.html#a213c0ae08f839bf0d95cf481341d8a50',1,'adjclass():&#160;wnglobal.c'],['../wnglobal_8c.html#a213c0ae08f839bf0d95cf481341d8a50',1,'adjclass():&#160;wnglobal.c']]],
-  ['alwaysredraw',['alwaysRedraw',['../struct_tk___item_type.html#a8da252dbcc6a33571a750bbdce75eb4b',1,'Tk_ItemType']]],
-  ['anchoritemptr',['anchorItemPtr',['../struct_tk___canvas_text_info.html#ac237925f3940fa261bc70e1944209471',1,'Tk_CanvasTextInfo']]],
-  ['areaproc',['areaProc',['../struct_tk___item_type.html#a41b3f409e52b00c97fbf53ab0811a019',1,'Tk_ItemType']]],
-  ['argc',['Argc',['../wngrind_8h.html#a34296df812d7c5468ae201c7eeca5877',1,'wngrind.h']]],
-  ['argv',['Argv',['../wngrind_8h.html#ab4fad31452ea2612bd37240026dd6e44',1,'wngrind.h']]],
-  ['argvname',['argvName',['../struct_tk___config_spec.html#a73ae3f47967e7adaca96ce13b1e9a7eb',1,'Tk_ConfigSpec']]],
-  ['array',['array',['../struct_tk___dash.html#ab742573724fff29cccf795cd12eba93e',1,'Tk_Dash']]],
-  ['ascent',['ascent',['../struct_tk___font_metrics.html#a02b61ee0e57ffa73569b90a7cb11c98a',1,'Tk_FontMetrics']]],
-  ['atts',['atts',['../struct_tk___fake_win.html#a9c99251c375ca65b21f8320ffd732708',1,'Tk_FakeWin']]]
+  ['a2',['a2',['../class_biquad.html#a4459dce473745d248a911e2451f9308c',1,'Biquad']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['key',['key',['../struct_tk___argv_info.html#a22bb0557bd6b65aca1eb686371c38561',1,'Tk_ArgvInfo::key()'],['../structss.html#a6b5c53f2fdb6f7ed6a6f481635243d91',1,'ss::key()'],['../structsynset.html#a84f62854ad2a5034801fc54270ebb8cc',1,'synset::key()']]],
-  ['keyindexfp',['keyindexfp',['../wn_8h.html#a335aaa9c67bc65e83b88413fd5150715',1,'keyindexfp():&#160;wnrtl.c'],['../wnrtl_8c.html#a335aaa9c67bc65e83b88413fd5150715',1,'keyindexfp():&#160;wnrtl.c']]]
+  ['name',['name',['../class_audealize_1_1_traditional_u_i.html#a109b231a9fd2e92f49d74ce297283fae',1,'Audealize::TraditionalUI::name()'],['../structdsp_1_1note__desc.html#a15af0c113deeaec3f7c67ad6377f1316',1,'dsp::note_desc::name()']]],
+  ['note',['note',['../structdsp_1_1note__desc.html#a84886c1623012754e704bccceff2bf77',1,'dsp::note_desc']]]
 ];

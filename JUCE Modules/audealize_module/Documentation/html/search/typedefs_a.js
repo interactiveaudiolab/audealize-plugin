@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['json',['json',['../_audealize_u_i_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d',1,'json():&#160;AudealizeUI.cpp'],['../_word_map_8cpp.html#ab701e3ac61a85b337ec5c1abaad6742d',1,'json():&#160;WordMap.cpp'],['../_word_map_8h.html#ab701e3ac61a85b337ec5c1abaad6742d',1,'json():&#160;WordMap.h'],['../namespacenlohmann.html#a2bfd99e845a2e5cd90aeaf1b1431f474',1,'nlohmann::json()']]]
+  ['size_5ftype',['size_type',['../classnlohmann_1_1basic__json.html#a1579a8f72a230358d6cd1a6e8a62859b',1,'nlohmann::basic_json']]],
+  ['string_5ft',['string_t',['../classnlohmann_1_1basic__json.html#ab63e618bbb0371042b1bec17f5891f42',1,'nlohmann::basic_json']]]
 ];

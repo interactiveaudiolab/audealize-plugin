@@ -4,10 +4,8 @@ var searchData=
   ['db2amp',['dB2amp',['../namespacedsp.html#a726ba9431c151f703cc5a69eb5aa6209',1,'dsp']]],
   ['deactivate',['deactivate',['../classdsp_1_1decay.html#a5d7e77ead25f75a32d8cc759a827bb80',1,'dsp::decay']]],
   ['decay',['decay',['../classdsp_1_1decay.html#aeffae2bc061f4917e195befd61ff5748',1,'dsp::decay']]],
-  ['default_5fdisplay_5fmessage',['default_display_message',['../wn_8h.html#a7472dc06e8b7af10b21d4ded935b91f4',1,'default_display_message(char *):&#160;wnutil.c'],['../wnrtl_8c.html#a7472dc06e8b7af10b21d4ded935b91f4',1,'default_display_message(char *):&#160;wnutil.c'],['../wnutil_8c.html#af91ab55c520601f93cbc2866d212b278',1,'default_display_message(char *msg):&#160;wnutil.c']]],
   ['diff',['diff',['../classnlohmann_1_1basic__json.html#a618a5c5c9f8889032657370c8247a587',1,'nlohmann::basic_json']]],
-  ['dismissmenu',['dismissMenu',['../class_typeahead_editor.html#ae1c47bed0eac90df9affad67cd9f755c',1,'TypeaheadEditor']]],
-  ['do_5ftrace',['do_trace',['../wn_8h.html#a7d976189bc647b159f6f214bf3bf9c7d',1,'do_trace(SynsetPtr, int, int, int):&#160;search.c'],['../search_8c.html#a3a6806609d82d8f339eff3dffc939b90',1,'do_trace(SynsetPtr synptr, int ptrtyp, int dbase, int depth):&#160;search.c']]],
+  ['dismissmenu',['dismissMenu',['../class_audealize_1_1_typeahead_editor.html#ae1c47bed0eac90df9affad67cd9f755c',1,'Audealize::TypeaheadEditor']]],
   ['drawbuttonbackground',['drawButtonBackground',['../class_audealize_1_1_audealize_look_and_feel.html#a935f07ee09a1c4e1252515d789aebde7',1,'Audealize::AudealizeLookAndFeel']]],
   ['drawbuttonshape',['drawButtonShape',['../class_audealize_1_1_audealize_look_and_feel.html#a152c1f980c72b1287ba02dc1b2dd2b24',1,'Audealize::AudealizeLookAndFeel']]],
   ['drawcornerresizer',['drawCornerResizer',['../class_audealize_1_1_audealize_look_and_feel.html#ac6fbb1cbd9835cda592405c3d6bfbbe0',1,'Audealize::AudealizeLookAndFeel']]],
@@ -21,8 +19,5 @@ var searchData=
   ['drawtexteditoroutline',['drawTextEditorOutline',['../class_audealize_1_1_audealize_look_and_feel.html#ad54c6fe23f965ec0658f591b8c4875d2',1,'Audealize::AudealizeLookAndFeel']]],
   ['drawtickbox',['drawTickBox',['../class_audealize_1_1_audealize_look_and_feel.html#a259295272bbe8d0519e613095b11969f',1,'Audealize::AudealizeLookAndFeel']]],
   ['dump',['dump',['../classnlohmann_1_1basic__json.html#a805e3f3a2f374da0e14942eec7400e40',1,'nlohmann::basic_json']]],
-  ['dumpdata',['DumpData',['../wngrind_8h.html#a88d718bd281a8150c9bb2d8c1e8e0a09',1,'wngrind.h']]],
-  ['dumpindex',['DumpIndex',['../wngrind_8h.html#aca358a1c51c24a41850feb925a05091d',1,'wngrind.h']]],
-  ['dumpsenseindex',['DumpSenseIndex',['../wngrind_8h.html#a9182c5f2a93f944d66fab79d21ce0149',1,'wngrind.h']]],
   ['dynamic_5fbuffer',['dynamic_buffer',['../classdsp_1_1dynamic__buffer.html#a748581ae60aad9f3ef18b751700dd640',1,'dsp::dynamic_buffer::dynamic_buffer()'],['../classdsp_1_1dynamic__buffer.html#a9acd3f9a910db3843c15f252218f33d5',1,'dsp::dynamic_buffer::dynamic_buffer(T *_buf, int _buf_size, bool _own)'],['../classdsp_1_1dynamic__buffer.html#aab21f527b264c8b77384c5406a4d2658',1,'dsp::dynamic_buffer::dynamic_buffer(int _size)']]]
 ];

@@ -8,6 +8,7 @@ using std::vector;
 
 namespace Audealize
 {
+/// An AudioProcessorEditor for Audealize multi effect plugins containing multiple AudealizeUI
 class AudealizeMultiUI : public AudioProcessorEditor, public ActionListener, public ButtonListener
 {
 public:

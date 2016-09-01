@@ -1,7 +1,7 @@
 //
 //  AudioEffect.h
 //
-//  Interface class for Audio effects that perform processing on samples either individually or in blocks
+//  Interface class for audio effects that perform processing on samples either individually or in blocks
 //
 
 #ifndef AudioEffect_h
@@ -9,6 +9,7 @@
 
 namespace Audealize
 {
+/// Interface class for audio effects that perform processing on samples either individually or in blocks
 class AudioEffect
 {
 public:

@@ -1,14 +1,14 @@
 var searchData=
 [
-  ['magic',['magic',['../struct_tk_stubs.html#a562f2a3f8399590ac2757edecb5bd084',1,'TkStubs']]],
-  ['mamount',['mAmount',['../class_audealize_1_1_audealize_audio_processor.html#af232a68cdeacc57765eed0122da6ce27',1,'Audealize::AudealizeAudioProcessor']]],
-  ['mbypass',['mBypass',['../class_audealize_1_1_audealize_audio_processor.html#a8f8e6d2d636f070c9dcce80725bb67f3',1,'Audealize::AudealizeAudioProcessor']]],
-  ['minreqheight',['minReqHeight',['../struct_tk___fake_win.html#a9b04053b8ac572102882817392e3b4ba',1,'Tk_FakeWin']]],
-  ['minreqwidth',['minReqWidth',['../struct_tk___fake_win.html#a7155d939b5cd9cf75bdf42b9b5c16ab8',1,'Tk_FakeWin']]],
-  ['modalproc',['modalProc',['../struct_tk___class_procs.html#a8c86cd6fc798790df9566604a4d09db2',1,'Tk_ClassProcs']]],
-  ['mowner',['mOwner',['../class_audealize_1_1_audealize_audio_processor.html#acd64a89d7e6550c2db7ec1d2a0c8281e',1,'Audealize::AudealizeAudioProcessor']]],
-  ['mparamsettings',['mParamSettings',['../class_audealize_1_1_audealize_audio_processor.html#a799580d9637076562aafa74de6e166b8',1,'Audealize::AudealizeAudioProcessor']]],
-  ['msamplerate',['mSampleRate',['../class_audealize_1_1_audio_effect.html#acd609287d863778dcb7e27ea208b17ba',1,'Audealize::AudioEffect']]],
-  ['mstate',['mState',['../class_audealize_1_1_audealize_audio_processor.html#a91e3f2ebc485c04a2ae0c651c9dd4a1e',1,'Audealize::AudealizeAudioProcessor']]],
-  ['mundomanager',['mUndoManager',['../class_audealize_1_1_audealize_audio_processor.html#aad11b053db8e6f9ae61afa610126b23d',1,'Audealize::AudealizeAudioProcessor']]]
+  ['paramamountid',['paramAmountId',['../class_audealize_1_1_audealize_audio_processor.html#a8c51332f043fbb80c2fa573a7f753c8a',1,'Audealize::AudealizeAudioProcessor']]],
+  ['paramd',['paramD',['../class_audealize_1_1_audealizereverb_audio_processor.html#a5075b2df5f4540e479d2dddc6f5178a9',1,'Audealize::AudealizereverbAudioProcessor']]],
+  ['parame',['paramE',['../class_audealize_1_1_audealizereverb_audio_processor.html#a9aba74977dd6a007c7c0bee781204750',1,'Audealize::AudealizereverbAudioProcessor']]],
+  ['paramf',['paramF',['../class_audealize_1_1_audealizereverb_audio_processor.html#a44f3dca41c6e7237c5c1898b1048c1c4',1,'Audealize::AudealizereverbAudioProcessor']]],
+  ['paramg',['paramG',['../class_audealize_1_1_audealizereverb_audio_processor.html#a2a3fc9c4b12a08e68aa8457cae9ce3ff',1,'Audealize::AudealizereverbAudioProcessor']]],
+  ['paramm',['paramM',['../class_audealize_1_1_audealizereverb_audio_processor.html#a3e3ec2690abdac5cbca63fccd0f0d362',1,'Audealize::AudealizereverbAudioProcessor']]],
+  ['peakgain',['peakGain',['../class_biquad.html#aa3c93d845d4e455481c0ccbe52c58ff3',1,'Biquad']]],
+  ['pos',['pos',['../structdsp_1_1simple__delay.html#a52cf3237061eecf494828977959bcbd8',1,'dsp::simple_delay']]],
+  ['powerbutton_5fsvg',['powerButton_svg',['../class_audealize_1_1_audealize_images.html#a603300f72b88442487d1862ecc025337',1,'Audealize::AudealizeImages']]],
+  ['powerbutton_5fsvgsize',['powerButton_svgSize',['../class_audealize_1_1_audealize_images.html#afb26f9d7d3a8496bb571eea5b5de1077',1,'Audealize::AudealizeImages']]],
+  ['processor',['processor',['../class_audealize_1_1_traditional_u_i.html#a8907d173ae02664d30ef7eeb09f54bb3',1,'Audealize::TraditionalUI']]]
 ];

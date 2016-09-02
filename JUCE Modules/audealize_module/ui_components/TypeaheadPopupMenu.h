@@ -1,11 +1,35 @@
-//
-//  TypeaheadPopupMenu.h
-//
-//  Defines classes for creating the search bar for Audealize Plugins
-//
-//  Based on code written by user bazrush from the JUCE community forums.
-//  https://forum.juce.com/t/type-ahead-dropdown-box/5600/8
-//
+/*
+ Audealize
+ 
+ http://music.cs.northwestern.edu
+ http://github.com/interactiveaudiolab/audealize-plugin
+ 
+ Licensed under the GNU GPLv2 <https://opensource.org/licenses/GPL-2.0>
+ 
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License
+ as published by the Free Software Foundation; either version 2
+ of the License, or (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+
+/*
+    TypeaheadPopupMenu.h
+
+    Defines classes for creating the search bar for Audealize Plugins
+
+    Based on code written by user bazrush from the JUCE community forums.
+    https://forum.juce.com/t/type-ahead-dropdown-box/5600/8
+*/
 
 #ifndef TypeaheadPopupMenu_h
 #define TypeaheadPopupMenu_h
@@ -51,7 +75,7 @@ public:
     /**
      *  Sets the function to be executed when an item is selected
      *
-     *  @param std::function<void(String)> function
+     *  @param function A std::function<void(String)>
      */
     void setActionOnItemSelected (std::function<void(String)> function);
 

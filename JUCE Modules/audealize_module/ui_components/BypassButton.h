@@ -1,9 +1,25 @@
-//
-//  BypassButton.h
-//
-//  A toggleable juce::DrawableButton with an on/off glyph graphic
-//  Intended for use as bypass buttons in a TabbedButtonBar component in an AudealizeMultiUI
-//
+/*
+ Audealize
+ 
+ http://music.cs.northwestern.edu
+ http://github.com/interactiveaudiolab/audealize-plugin
+ 
+ Licensed under the GNU GPLv2 <https://opensource.org/licenses/GPL-2.0>
+ 
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License
+ as published by the Free Software Foundation; either version 2
+ of the License, or (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
 
 #ifndef BypassButton_h
 #define BypassButton_h
@@ -16,8 +32,8 @@ class BypassButton : public DrawableButton
 public:
     enum ColourIds
     {
-        offColourId = 0x2000900,
-        onColourId = 0x2000901,
+        offColourId = 0x2000800,
+        onColourId = 0x2000801,
     };
 
     BypassButton () : DrawableButton ("", ButtonStyle::ImageOnButtonBackground)

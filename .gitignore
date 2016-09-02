@@ -3,3 +3,4 @@ build/
 /misc/*
 /Installers/Latest
 /Installers/Old
+*.swp

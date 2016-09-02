@@ -1,9 +1,25 @@
-//
-//  AudealizeUI.h
-//
-//  A juce::AudioProcessorEditor for Audealize plugins. Creates the entire Audealize UI, containting a WordMap, a
-//  TypeaheadPopupMenu, and a TraditionalUI
-//
+/*
+ Audealize
+ 
+ http://music.cs.northwestern.edu
+ http://github.com/interactiveaudiolab/audealize-plugin
+ 
+ Licensed under the GNU GPLv2 <https://opensource.org/licenses/GPL-2.0>
+ 
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License
+ as published by the Free Software Foundation; either version 2
+ of the License, or (at your option) any later version.
+ 
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ 
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
 
 #ifndef __JUCE_HEADER_EB0317DAAAA56B94__
 #define __JUCE_HEADER_EB0317DAAAA56B94__
@@ -35,6 +51,10 @@ public:
                  bool isPluginMultiEffect = false);
     ~AudealizeUI ();
 
+    void paint (Graphics& g) override;
+    void lookAndFeelChanged () override;
+    void childrenChanged () override;
+
     /**
      *  Called when return key is pressed in search bar, selects word on map
      */
@@ -53,8 +73,6 @@ public:
      */
     void actionListenerCallback (const String& message) override;
 
-    void paint (Graphics& g) override;
-
     /**
      *  Called when the plugin window is resized.
      *  This is where the layout of the UI is defined
@@ -68,52 +86,94 @@ public:
      */
     void buttonClicked (Button* buttonThatWasClicked) override;
 
-    void lookAndFeelChanged () override;
-    void childrenChanged () override;
-
+    /**
+     *  Set the bypass state of the audio effect. (true = off)
+     *
+     *  @param isBypassed True = effect off
+     */
     void setBypassed (bool isBypassed)
     {
         processor.setBypass (isBypassed);
     }
+
+    /**
+     *  Returns true if the effect is currently bypassed
+     */
+    bool isBypassed ()
+    {
+        return processor.isBypassed ();
+    }
+
+    /**
+     *  Returns true if the TraditionalUI is currently visible
+     */
     bool isTraditionalUIVisible ()
     {
         return isTradUIVisible;
     }
+
+    /**
+     *  Returns a pointer to the TraditionalUI toggle button
+     */
     TextButton* getTraditionalUIButton ()
     {
         return mTradUIButton;
     }
+
+    /**
+     *  Returns a pointer to the effect bypass button
+     */
     TextButton* getBypassButton ()
     {
         return mBypassButton;
     }
+
+    /**
+     *  Returns a pointer to the TraditionalUI
+     */
     TraditionalUI* getTraditionalUI ()
     {
         return mTradUI;
     }
+
+    /**
+     *  Returns a pointer to the TypeaheadEditor search bar
+     */
     TypeaheadEditor* getSearchBar ()
     {
         return mSearchBar;
     }
+
+    /**
+     *  Returns a pointer to the WordMap
+     */
     WordMap* getWordMap ()
     {
         return mWordMap;
     }
+
+    /**
+     *  Returns the String name of the effect
+     */
     String getEffectName ()
     {
         return mEffectType;
     }
+
+    /**
+     *  Returns the current height in pixels of the WordMap
+     */
     int getWordMapHeight ()
     {
         return mWordMap->getHeight ();
     }
+
+    /**
+     *  Returns true if this AudealizeUI is a member of a multi effect plugin
+     */
     bool isPluginMultiEffect ()
     {
         return isMultiEffect;
-    }
-    bool isEffectEnabled ()
-    {
-        return processor.isBypassed ();
     }
 
 private:

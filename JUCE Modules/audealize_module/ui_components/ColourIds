@@ -1,0 +1,8 @@
+0x20001xx : AudealizeUI
+0x20002xx : AudealizeMultiUI
+0x20003xx : WordMap
+0x20004xx : TypeaheadPopupMenu
+0x20005xx : GraphicEQComponent
+0x20006xx : AudealizeTabbedComponent
+0x20007xx : AboutComponent
+0x20008xx : BypassButton

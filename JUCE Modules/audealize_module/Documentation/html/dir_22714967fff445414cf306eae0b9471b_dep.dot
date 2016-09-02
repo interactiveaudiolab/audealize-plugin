@@ -1,8 +1,0 @@
-digraph "/Users/michael/JUCE/projects/audealize-plugin/JUCE Modules/audealize_module/LookAndFeel" {
-  compound=true
-  node [ fontsize="10", fontname="Helvetica"];
-  edge [ labelfontsize="10", labelfontname="Helvetica"];
-  dir_22714967fff445414cf306eae0b9471b [shape=box, label="LookAndFeel", style="filled", fillcolor="#eeeeff", pencolor="black", URL="dir_22714967fff445414cf306eae0b9471b.html"];
-  dir_0fc3f8f3ef96ce2d45d66d6e29832317 [shape=box label="resources" URL="dir_0fc3f8f3ef96ce2d45d66d6e29832317.html"];
-  dir_22714967fff445414cf306eae0b9471b->dir_0fc3f8f3ef96ce2d45d66d6e29832317 [headlabel="1", labeldistance=1.5 headhref="dir_000002_000003.html"];
-}

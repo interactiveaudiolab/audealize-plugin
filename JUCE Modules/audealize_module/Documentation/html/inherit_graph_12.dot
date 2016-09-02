@@ -1,7 +1,0 @@
-digraph "Graphical Class Hierarchy"
-{
-  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
-  node [fontname="Helvetica",fontsize="10",shape=record];
-  rankdir="LR";
-  Node1 [label="dsp::buffer_traits\l\< fixed_size_buffer\l\< N, T \> \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structdsp_1_1buffer__traits_3_01fixed__size__buffer_3_01_n_00_01_t_01_4_01_4.html",tooltip="this class template defines some basic position operations for fixed_size_buffers ..."];
-}

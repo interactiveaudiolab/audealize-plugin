@@ -1,12 +1,25 @@
 /*
-  ==============================================================================
+ Audealize
 
-    This file was auto-generated!
+ http://music.cs.northwestern.edu
+ http://github.com/interactiveaudiolab/audealize-plugin
 
-    It contains the basic framework code for a JUCE plugin processor.
+ Licensed under the GNU GPLv2 <https://opensource.org/licenses/GPL-2.0>
 
-  ==============================================================================
-*/
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License
+ as published by the Free Software Foundation; either version 2
+ of the License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
 
 #ifndef PLUGINPROCESSOR_H_INCLUDED
 #define PLUGINPROCESSOR_H_INCLUDED
@@ -58,10 +71,24 @@ public:
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
-    void parameterChanged (const juce::String& parameterID, float newValue) override {}
-    void settingsFromMap (vector<float> settings) override {}
-    inline String getParamID (int index) override { return ""; }
-    bool isParameterAutomatable (int index) { return true; }
+    void parameterChanged (const juce::String& parameterID, float newValue) override
+    {
+    }
+
+    void settingsFromMap (vector<float> settings) override
+    {
+    }
+
+    inline String getParamID (int index) override
+    {
+        return "";  // this AudioProcessor has no parameters of its own
+    }
+
+    bool isParameterAutomatable (int index)
+    {
+        return true;
+    }
+
 private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeMultiAudioProcessor)

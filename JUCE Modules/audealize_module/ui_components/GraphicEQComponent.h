@@ -14,7 +14,7 @@ using namespace juce;
 
 namespace Audealize
 {
-/// A Audealize::TraditionalUI with an N slider graphic EQ interface for Audealize-EQ plugin
+/// A TraditionalUI with an N slider graphic EQ interface for Audealize-EQ plugin
 class GraphicEQComponent : public TraditionalUI, public SliderListener
 {
 public:

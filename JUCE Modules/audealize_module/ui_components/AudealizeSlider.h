@@ -23,6 +23,7 @@ public:
     ~AudealizeSlider ()
     {
     }
+
     /**
      *  Returns a String representation of the slider's value. Used when displaying value in a textbox
      *  Inherited from juce::Slider
@@ -81,6 +82,7 @@ public:
     {
         valueToTextFunction = f;
     }
+
     /**
      *  Set a custom text to value function for the slider
      *

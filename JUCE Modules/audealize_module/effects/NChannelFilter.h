@@ -144,7 +144,7 @@ public:
 
     /**
      *  Returns the type of filter as an int
-     *  @see Biquad::bq_types
+     *  @see NChannelFilter::type
      *
      *  @return filter type
      */
@@ -153,11 +153,17 @@ public:
         return mType;
     }
 
+    /**
+     *  Returns the frequency of the filter
+     */
     float getFreq ()
     {
         return mFc;
     }
 
+    /**
+     *  Returns the gain of the filter in dB
+     */
     float getGain ()
     {
         return mGain;

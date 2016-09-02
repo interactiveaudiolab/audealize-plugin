@@ -11,7 +11,7 @@
 
 namespace Audealize
 {
-/// An Audealize::TraditionalUI component for controlling the Audealize reverberator
+/// A TraditionalUI component for controlling the Audealize reverberator
 class ReverbComponent : public TraditionalUI
 {
 public:
@@ -23,6 +23,7 @@ public:
 
 private:
     ScopedPointer<AudealizeSlider> mSliderD, mSliderG, mSliderM, mSliderF, mSliderE;
+
     ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mSliderAttachmentD, mSliderAttachmentG,
         mSliderAttachmentM, mSliderAttachmentF, mSliderAttachmentE;
 

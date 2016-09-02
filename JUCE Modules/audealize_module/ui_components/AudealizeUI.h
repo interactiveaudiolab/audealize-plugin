@@ -35,6 +35,10 @@ public:
                  bool isPluginMultiEffect = false);
     ~AudealizeUI ();
 
+    void paint (Graphics& g) override;
+    void lookAndFeelChanged () override;
+    void childrenChanged () override;
+
     /**
      *  Called when return key is pressed in search bar, selects word on map
      */
@@ -53,8 +57,6 @@ public:
      */
     void actionListenerCallback (const String& message) override;
 
-    void paint (Graphics& g) override;
-
     /**
      *  Called when the plugin window is resized.
      *  This is where the layout of the UI is defined
@@ -68,52 +70,96 @@ public:
      */
     void buttonClicked (Button* buttonThatWasClicked) override;
 
-    void lookAndFeelChanged () override;
-    void childrenChanged () override;
-
+    /**
+     *  Set the bypass state of the audio effect. (true = off)
+     *
+     *  @param isBypassed True = effect off
+     */
     void setBypassed (bool isBypassed)
     {
         processor.setBypass (isBypassed);
     }
+
+    /**
+     *  Returns true if the effect is currently bypassed
+     */
+    bool isBypassed ()
+    {
+        return processor.isBypassed ();
+    }
+
+    /**
+     *  Returns true if the TraditionalUI is currently visible
+     */
     bool isTraditionalUIVisible ()
     {
         return isTradUIVisible;
     }
+
+    /**
+     *  Returns a pointer to the TraditionalUI toggle button
+     */
     TextButton* getTraditionalUIButton ()
     {
         return mTradUIButton;
     }
+
+    /**
+     *  Returns a pointer to the effect bypass button
+     */
     TextButton* getBypassButton ()
     {
         return mBypassButton;
     }
+
+    /**
+     *  Returns a pointer to the TraditionalUI
+     */
     TraditionalUI* getTraditionalUI ()
     {
         return mTradUI;
     }
+
+    /**
+     *  Returns a pointer to the TypeaheadEditor search bar
+     */
     TypeaheadEditor* getSearchBar ()
     {
         return mSearchBar;
     }
+
+    /**
+     *  Returns a pointer to the WordMap
+     */
     WordMap* getWordMap ()
     {
         return mWordMap;
     }
+
+    /**
+     *  Returns the String name of the effect
+     */
     String getEffectName ()
     {
         return mEffectType;
     }
+
+    /**
+     *  Returns the current height in pixels of the WordMap
+     */
     int getWordMapHeight ()
     {
         return mWordMap->getHeight ();
     }
+
+    /**
+     *  Returns true if this AudealizeUI is a member of a multi effect plugin
+     *
+     *  @return <#return value description#>
+     */
     bool isPluginMultiEffect ()
     {
         return isMultiEffect;
-    }
-    bool isEffectEnabled ()
-    {
-        return processor.isBypassed ();
     }
 
 private:

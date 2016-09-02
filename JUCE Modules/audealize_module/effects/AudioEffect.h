@@ -73,7 +73,6 @@ public:
 protected:
     float mSampleRate;
 };
-
-}  // namespace Audealize
+}
 
 #endif /* AudioEffect_h */

@@ -16,8 +16,8 @@ class BypassButton : public DrawableButton
 public:
     enum ColourIds
     {
-        offColourId = 0x2000900,
-        onColourId = 0x2000901,
+        offColourId = 0x2000800,
+        onColourId = 0x2000801,
     };
 
     BypassButton () : DrawableButton ("", ButtonStyle::ImageOnButtonBackground)

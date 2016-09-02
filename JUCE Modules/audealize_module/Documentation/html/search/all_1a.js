@@ -1,6 +1,0 @@
-var searchData=
-[
-  ['z1',['z1',['../class_biquad.html#abe704b2b7ed691ca061cd3fac1cf52c9',1,'Biquad']]],
-  ['z2',['z2',['../class_biquad.html#a9ff7a9ffd22d135eda519b9fb5950d38',1,'Biquad']]],
-  ['zero',['zero',['../namespacedsp.html#a3c28527ad9c78172345c5ff2175d2e1b',1,'dsp::zero(float &amp;v)'],['../namespacedsp.html#a61fb61ea0337243a287f6065184d0434',1,'dsp::zero(double &amp;v)'],['../namespacedsp.html#ad6e8bc40c7492bab0993568bf6a7bd14',1,'dsp::zero(uint64_t &amp;v)'],['../namespacedsp.html#a9f9990a5a2bac29871bff5f6c11b1e59',1,'dsp::zero(uint32_t &amp;v)'],['../namespacedsp.html#a4a5c4476f87676c2e648162a07500e3d',1,'dsp::zero(uint16_t &amp;v)'],['../namespacedsp.html#a8098836a83f20758ef5919b21daf6c82',1,'dsp::zero(uint8_t &amp;v)'],['../namespacedsp.html#ae91e184a11c5b13e38f8d4b68450753a',1,'dsp::zero(int64_t &amp;v)'],['../namespacedsp.html#aedf4fcf41ff9169d33f6cdcc20aa3847',1,'dsp::zero(int32_t &amp;v)'],['../namespacedsp.html#a50b7baf4a4f14897839d37d5f58de63b',1,'dsp::zero(int16_t &amp;v)'],['../namespacedsp.html#af140a0801d6191807b799173dd6440f8',1,'dsp::zero(int8_t &amp;v)'],['../namespacedsp.html#a1aaff1d9c2e57d505ac50b4f616f8b3a',1,'dsp::zero(T *data, unsigned int size)'],['../namespacedsp.html#ae9696253f1153142a082f212d1d0083f',1,'dsp::zero(stereo_sample&lt; T &gt; &amp;v)']]]
-];

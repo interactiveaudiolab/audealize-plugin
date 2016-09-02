@@ -3,6 +3,7 @@
 //
 // Interface class for Audealize plugin AudioProcessors to facilitate communication of state/param data with UI
 //
+
 #ifndef AudealizeAudioProcessor_h
 #define AudealizeAudioProcessor_h
 
@@ -101,6 +102,7 @@ public:
     {
         return *mState;
     }
+
     /**
      *  Normalizes a vector of floats
      *
@@ -145,8 +147,6 @@ public:
 
     /**
      *  Returns true if AudioProcessor is bypassed (not applying its effect)
-     *
-     *  @return bool
      */
     bool isBypassed ()
     {

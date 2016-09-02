@@ -51,7 +51,7 @@ public:
     /**
      *  Sets the function to be executed when an item is selected
      *
-     *  @param std::function<void(String)> function
+     *  @param function A std::function<void(String)>
      */
     void setActionOnItemSelected (std::function<void(String)> function);
 

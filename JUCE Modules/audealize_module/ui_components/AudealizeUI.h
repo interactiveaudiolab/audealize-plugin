@@ -154,8 +154,6 @@ public:
 
     /**
      *  Returns true if this AudealizeUI is a member of a multi effect plugin
-     *
-     *  @return <#return value description#>
      */
     bool isPluginMultiEffect ()
     {

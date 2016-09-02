@@ -1,12 +1,33 @@
-//
-//  Reverb.h
-//
-//  Implements a parametric reverberator as described in this paper:
-//  http://music.cs.northwestern.edu/publications/Rafii-Pardo%20-%20A%20Digital%20Reverberator%20Controlled%20through%20Measures%20of%20the%20Reverberation%20-%20NU%20EECS%202009.pdf
-//
-//  Requires delay.h from the Calf DSP Library, licensed under The GNU Lesser General Public License v2.1
-//  https://github.com/calf-studio-gear/calf
-//
+/*
+ Audealize
+
+ http://music.cs.northwestern.edu
+ http://github.com/interactiveaudiolab/audealize-plugin
+
+ Licensed under the GNU GPLv2 <https://opensource.org/licenses/GPL-2.0>
+
+ This program is free software; you can redistribute it and/or
+ modify it under the terms of the GNU General Public License
+ as published by the Free Software Foundation; either version 2
+ of the License, or (at your option) any later version.
+
+ This program is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+
+ You should have received a copy of the GNU General Public License
+ along with this program; if not, write to the Free Software
+ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ */
+
+/*
+    Implements a parametric reverberator as described in this paper:
+    http://music.cs.northwestern.edu/publications/Rafii-Pardo%20-%20A%20Digital%20Reverberator%20Controlled%20through%20Measures%20of%20the%20Reverberation%20-%20NU%20EECS%202009.pdf
+
+    Requires delay.h from the Calf DSP Library, licensed under The GNU Lesser General Public License v2.1
+    https://github.com/calf-studio-gear/calf
+*/
 
 #ifndef REVERB_H_INCLUDED
 #define REVERB_H_INCLUDED

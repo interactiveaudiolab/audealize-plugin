@@ -1,21 +1,21 @@
 /*
  Audealize
- 
+
  http://music.cs.northwestern.edu
  http://github.com/interactiveaudiolab/audealize-plugin
- 
+
  Licensed under the GNU GPLv2 <https://opensource.org/licenses/GPL-2.0>
- 
+
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
  as published by the Free Software Foundation; either version 2
  of the License, or (at your option) any later version.
- 
+
  This program is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
- 
+
  You should have received a copy of the GNU General Public License
  along with this program; if not, write to the Free Software
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
@@ -100,7 +100,6 @@ void WordMap::loadPoints ()
 
         point.setX ((float) it.value ()["x"]);
         point.setY ((float) it.value ()["y"]);
-
 
         // if word is in selected language(s), add to map
         if (languages[lang])
@@ -229,7 +228,6 @@ void WordMap::paint (Graphics& g)
             plot_word (word, color, font_size, point, g);
         }
 
-
         plotted.push_back (point);
     }  // end word loop
 
@@ -243,12 +241,11 @@ void WordMap::paint (Graphics& g)
     }
 
     // mouse circle
-    if (has_been_hovered && !isMouseButtonDown ())
+    if (has_been_hovered)
     {
         g.setColour (findColour (circleColourId));
         g.drawEllipse (getMouseXYRelative ().getX () - 16, getMouseXYRelative ().getY () - 16, 32, 32, 2);
     }
-
 
     // Draw info text
     String info_text = String ("Map built with " + String (word_count) + " words. Nearby words have similar effects.");

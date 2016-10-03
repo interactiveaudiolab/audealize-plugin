@@ -1,21 +1,21 @@
 /*
  Audealize
- 
+
  http://music.cs.northwestern.edu
  http://github.com/interactiveaudiolab/audealize-plugin
- 
+
  Licensed under the GNU GPLv2 <https://opensource.org/licenses/GPL-2.0>
- 
+
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
  as published by the Free Software Foundation; either version 2
  of the License, or (at your option) any later version.
- 
+
  This program is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
- 
+
  You should have received a copy of the GNU General Public License
  along with this program; if not, write to the Free Software
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
@@ -201,11 +201,16 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
     mTradUIButton->setButtonText (TRANS ("+ Show " + String (mTradUI->getName ())));
 
     // set initial size of plugin window
-    setSize (840, 560);
+    var windowHeight = Properties::getProperty (Properties::propertyIds::windowHeight);
+    var windowWidth = Properties::getProperty (Properties::propertyIds::windowWidth);
+    setSize (windowWidth, windowHeight);
 }
 
 AudealizeUI::~AudealizeUI ()
 {
+    Properties::setProperty (Properties::propertyIds::windowHeight, getHeight ());
+    Properties::setProperty (Properties::propertyIds::windowWidth, getWidth ());
+
     mAlertBox = nullptr;
     mAmountSliderAttachment = nullptr;
     mResizer = nullptr;

@@ -116,7 +116,9 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
     addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
     mResizer->setAlwaysOnTop (true);
 
-    setSize (840, 560);
+    var windowHeight = Properties::getProperty (Properties::propertyIds::windowHeight);
+    var windowWidth = Properties::getProperty (Properties::propertyIds::windowWidth);
+    setSize (windowWidth, windowHeight);
 
     // post-resize
 
@@ -152,6 +154,10 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
 
 AudealizeMultiUI::~AudealizeMultiUI ()
 {
+    
+    Properties::setProperty (Properties::propertyIds::windowHeight, getHeight ());
+    Properties::setProperty (Properties::propertyIds::windowWidth, getWidth ());
+    
     for (auto au : mAudealizeUIs)
     {
         au = nullptr;
@@ -268,7 +274,7 @@ void AudealizeMultiUI::buttonClicked (juce::Button* buttonThatWasClicked)
                                         mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
         }
 
-        properties.getDynamicObject ()->setProperty ("darkmode", !isDark);
+        properties.getDynamicObject ()->setProperty (Properties::propertyIds::darkMode, !isDark);
         Properties::writePropertiesToFile (properties);
     }
 

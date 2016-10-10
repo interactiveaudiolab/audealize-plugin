@@ -24,7 +24,9 @@
 #include "AudealizeMultiUI.h"
 
 AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> AudealizeUIs)
-    : AudioProcessorEditor (&p), mAudealizeUIs (AudealizeUIs)
+    : AudioProcessorEditor (&p),
+      mAudealizeUIs (AudealizeUIs),
+      mShadow (DropShadow (Colours::black.withAlpha (0.6f), 10, Point<int> (0, 3)))
 {
     // load properties, set dark mode accordingly
     properties = Properties::loadPropertiesVar ();
@@ -102,17 +104,12 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
     mInfoButton->setAlpha (.9);
 
     // about dialog window
-    mAboutComponent = new AboutComponent ();
-    mDialogOpts.content.setOwned (mAboutComponent);
-    mDialogOpts.escapeKeyTriggersCloseButton = true;
-    mDialogOpts.useNativeTitleBar = false;
-    mDialogOpts.resizable = false;
-    mAboutWindow = mDialogOpts.create ();
-    mAboutWindow->setVisible (false);
+    addChildComponent (mAboutComponent = new AboutComponent ());
+    mShadow.setOwner (mAboutComponent);
 
     // reziser corner
     mResizeLimits = new ComponentBoundsConstrainer ();
-    mResizeLimits->setSizeLimits (600, 500, 1180, 800);
+    mResizeLimits->setSizeLimits (MIN_WIDTH, MIN_HEIGHT, MAX_WIDTH, MAX_HEIGHT);
     addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
     mResizer->setAlwaysOnTop (true);
 
@@ -154,10 +151,9 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
 
 AudealizeMultiUI::~AudealizeMultiUI ()
 {
-    
-    Properties::setProperty (Properties::propertyIds::windowHeight, getHeight ());
-    Properties::setProperty (Properties::propertyIds::windowWidth, getWidth ());
-    
+    Properties::setProperty (Properties::propertyIds::windowHeight, std::min (getHeight (), MIN_HEIGHT));
+    Properties::setProperty (Properties::propertyIds::windowWidth, std::min (getWidth (), MIN_WIDTH));
+
     for (auto au : mAudealizeUIs)
     {
         au = nullptr;
@@ -167,7 +163,6 @@ AudealizeMultiUI::~AudealizeMultiUI ()
     label = nullptr;
     mInfoButton = nullptr;
     mAboutComponent = nullptr;
-    mAboutWindow = nullptr;
     mDarkModeButton = nullptr;
     mDarkModeGraphic = nullptr;
 }
@@ -193,6 +188,8 @@ void AudealizeMultiUI::resized ()
 
     mTabbedComponent->setBounds (0, 54, getWidth () - 0, getHeight () - 54);
     label->setBounds (22, 10, 179, 32);
+
+    mAboutComponent->setCentrePosition (getWidth () * .5f, getHeight () * .5f);
 
     prevChildHeight = mAudealizeUIs[0]->getHeight ();
 }
@@ -252,7 +249,7 @@ void AudealizeMultiUI::buttonClicked (juce::Button* buttonThatWasClicked)
 {
     if (buttonThatWasClicked == mInfoButton)
     {
-        mAboutWindow->setVisible (true);
+        mAboutComponent->setVisible (true);
     }
     else if (buttonThatWasClicked == mDarkModeButton)
     {
@@ -294,5 +291,13 @@ void AudealizeMultiUI::lookAndFeelChanged ()
     for (auto b : mTabBypassButtons)
     {
         b->setLookAndFeel (&getLookAndFeel ());
+    }
+}
+
+void AudealizeMultiUI::mouseDown (const MouseEvent& event)
+{
+    if (mAboutComponent->isVisible () && !mAboutComponent->getBounds ().contains (event.getPosition ()))
+    {
+        mAboutComponent->setVisible (false);
     }
 }

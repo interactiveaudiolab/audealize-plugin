@@ -30,7 +30,11 @@ namespace Audealize
 {
 AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints,
                           String effectType, bool isPluginMultiEffect)
-    : AudioProcessorEditor (&p), processor (p), mPathToPoints (pathToPoints), mTradUI (t)
+    : AudioProcessorEditor (&p),
+      processor (p),
+      mPathToPoints (pathToPoints),
+      mTradUI (t),
+      mShadow (DropShadow (Colours::black.withAlpha (0.6f), 10, Point<int> (0, 3)))
 {
     setBypassed (true);
 
@@ -159,13 +163,8 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
         mInfoButton->setAlpha (0.8);
 
         // about dialog window
-        mAboutComponent = new AboutComponent ();
-        mDialogOpts.content.setOwned (mAboutComponent);
-        mDialogOpts.escapeKeyTriggersCloseButton = true;
-        mDialogOpts.useNativeTitleBar = false;
-        mDialogOpts.resizable = false;
-        mAboutWindow = mDialogOpts.create ();
-        mAboutWindow->setVisible (false);
+        addChildComponent (mAboutComponent = new AboutComponent ());
+        mShadow.setOwner (mAboutComponent);
 
         // effect bypass button
         addAndMakeVisible (mBypassButton = new TextButton ("Turn " + effectType + " Off"));
@@ -208,8 +207,11 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
 
 AudealizeUI::~AudealizeUI ()
 {
-    Properties::setProperty (Properties::propertyIds::windowHeight, getHeight ());
-    Properties::setProperty (Properties::propertyIds::windowWidth, getWidth ());
+    if (!isMultiEffect)
+    {
+        Properties::setProperty (Properties::propertyIds::windowHeight, std::min (getHeight (), MIN_HEIGHT));
+        Properties::setProperty (Properties::propertyIds::windowWidth, std::min (getWidth (), MIN_WIDTH));
+    }
 
     mAlertBox = nullptr;
     mAmountSliderAttachment = nullptr;
@@ -227,7 +229,6 @@ AudealizeUI::~AudealizeUI ()
     mSearchBar = nullptr;
     mAboutComponent = nullptr;
     mInfoButton = nullptr;
-    mAboutWindow = nullptr;
     mDarkModeButton = nullptr;
     mDarkModeGraphic = nullptr;
 }
@@ -256,6 +257,8 @@ void AudealizeUI::resized ()
         width =
             std::min (140, width);  // limit the width to 140 so that it doesn't interfere with language select buttons
         mBypassButton->setBounds (getWidth () - width - 32, 60 + titleTextOffset, width, 32);
+
+        mAboutComponent->setCentrePosition (getWidth () * .5f, getHeight () * .5f);
     }
     else
     {
@@ -362,7 +365,8 @@ void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
 
             if (!isMultiEffect)
                 mResizeLimits->setSizeLimits (
-                    600, 400, 1180, 800);  // window size limits depend on whether or not the traditional UI is visible
+                    MIN_WIDTH, MIN_HEIGHT, MAX_WIDTH,
+                    MAX_HEIGHT);  // window size limits depend on whether or not the traditional UI is visible
         }
         else
         {
@@ -404,7 +408,7 @@ void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
     // infobutton
     else if (buttonThatWasClicked == mInfoButton)
     {
-        mAboutWindow->setVisible (true);
+        mAboutComponent->setVisible (true);
     }
 
     // dark mode
@@ -489,4 +493,13 @@ void AudealizeUI::actionListenerCallback (const String& message)
         setBypassed (false);
     }
 }
+}
+
+void AudealizeUI::mouseDown (const MouseEvent& event)
+{
+    if (!isMultiEffect && mAboutComponent->isVisible () &&
+        !mAboutComponent->getBounds ().contains (event.getPosition ()))
+    {
+        mAboutComponent->setVisible (false);
+    }
 }

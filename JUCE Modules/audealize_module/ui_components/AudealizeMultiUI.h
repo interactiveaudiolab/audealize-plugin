@@ -27,6 +27,11 @@
 #include "AboutComponent.h"
 #include "AudealizeTabbedComponent.h"
 
+#define MIN_WIDTH 600
+#define MAX_WIDTH 1180
+#define MIN_HEIGHT 500
+#define MAX_HEIGHT 800
+
 using std::vector;
 
 namespace Audealize
@@ -56,6 +61,8 @@ public:
 
     void buttonClicked (Button* buttonThatWasClicked) override;
 
+    void mouseDown (const MouseEvent& event) override;
+
 private:
     var properties;
 
@@ -75,9 +82,8 @@ private:
     AudealizeLookAndFeelDark mLookAndFeelDark;
 
     ScopedPointer<AboutComponent> mAboutComponent;
-    DialogWindow::LaunchOptions mDialogOpts;
-    ScopedPointer<DialogWindow> mAboutWindow;
     ScopedPointer<TextButton> mInfoButton;
+    DropShadower mShadow;
 
     ScopedPointer<Drawable> mDarkModeGraphic;
     ScopedPointer<DrawableButton> mDarkModeButton;

@@ -1,21 +1,21 @@
 /*
  Audealize
- 
+
  http://music.cs.northwestern.edu
  http://github.com/interactiveaudiolab/audealize-plugin
- 
+
  Licensed under the GNU GPLv2 <https://opensource.org/licenses/GPL-2.0>
- 
+
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
  as published by the Free Software Foundation; either version 2
  of the License, or (at your option) any later version.
- 
+
  This program is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
- 
+
  You should have received a copy of the GNU General Public License
  along with this program; if not, write to the Free Software
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
@@ -44,7 +44,7 @@ ReverbComponent::ReverbComponent (AudealizeAudioProcessor& p) : TraditionalUI (p
     mLabelG->setColour (TextEditor::textColourId, Colours::black);
     mLabelG->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    addAndMakeVisible (mLabelM = new Label ("new label", TRANS ("Channel Delay\n")));
+    addAndMakeVisible (mLabelM = new Label ("new label", TRANS ("Stereo Effect\n")));
     mLabelM->setFont (Font (15.00f, Font::plain));
     mLabelM->setJustificationType (Justification::centredTop);
     mLabelM->setEditable (false, false, false);
@@ -68,12 +68,10 @@ ReverbComponent::ReverbComponent (AudealizeAudioProcessor& p) : TraditionalUI (p
     mLabelE->setColour (TextEditor::textColourId, Colours::black);
     mLabelE->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-
     //=========================================================================
     // Sliders
     std::function<String (float)> valToText;
     std::function<float(String)> textToVal;
-
 
     // d slider
     addAndMakeVisible (mSliderD = new AudealizeSlider ());
@@ -89,7 +87,6 @@ ReverbComponent::ReverbComponent (AudealizeAudioProcessor& p) : TraditionalUI (p
 
     mSliderD->setValueToTextFunction (valToText);
     mSliderD->setTextToValueFunction (textToVal);
-
 
     // g slider
     addAndMakeVisible (mSliderG = new AudealizeSlider ());
@@ -112,7 +109,6 @@ ReverbComponent::ReverbComponent (AudealizeAudioProcessor& p) : TraditionalUI (p
     mSliderG->setValueToTextFunction (valToText);
     mSliderG->setTextToValueFunction (textToVal);
 
-
     // m slider
     addAndMakeVisible (mSliderM = new RotarySliderCentered ());
     mSliderM->setTextBoxStyle (Slider::TextBoxBelow, false, 80, 20);
@@ -131,7 +127,6 @@ ReverbComponent::ReverbComponent (AudealizeAudioProcessor& p) : TraditionalUI (p
     mSliderM->setValueToTextFunction (valToText);
     mSliderM->setTextToValueFunction (textToVal);
 
-
     // F slider
     addAndMakeVisible (mSliderF = new AudealizeSlider ());
     mSliderF->setSliderStyle (Slider::RotaryVerticalDrag);
@@ -140,7 +135,6 @@ ReverbComponent::ReverbComponent (AudealizeAudioProcessor& p) : TraditionalUI (p
     mSliderF->setRange (20, 20000);
     mSliderF->setSkewFactor (.22);
     mSliderF->setValueToTextFunction (freqToText);
-
 
     // E slider
     addAndMakeVisible (mSliderE = new AudealizeSlider ());
@@ -156,7 +150,6 @@ ReverbComponent::ReverbComponent (AudealizeAudioProcessor& p) : TraditionalUI (p
 
     mSliderE->setValueToTextFunction (valToText);
     mSliderE->setTextToValueFunction (textToVal);
-
 
     //=========================================================================
     // SliderAttachments

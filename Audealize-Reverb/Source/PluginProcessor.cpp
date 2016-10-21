@@ -1,21 +1,21 @@
 /*
  Audealize
- 
+
  http://music.cs.northwestern.edu
  http://github.com/interactiveaudiolab/audealize-plugin
- 
+
  Licensed under the GNU GPLv2 <https://opensource.org/licenses/GPL-2.0>
- 
+
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
  as published by the Free Software Foundation; either version 2
  of the License, or (at your option) any later version.
- 
+
  This program is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
- 
+
  You should have received a copy of the GNU General Public License
  along with this program; if not, write to the Free Software
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
@@ -27,6 +27,7 @@
 ReverbPluginProcessor::ReverbPluginProcessor ()
 {
     mAudealizeAudioProcessor = new AudealizereverbAudioProcessor (this);
+    mState->state = ValueTree (Identifier ("AudealizeReverb"));
 }
 
 ReverbPluginProcessor::~ReverbPluginProcessor ()
@@ -146,14 +147,17 @@ void ReverbPluginProcessor::getStateInformation (MemoryBlock& destData)
     // You should use this method to store your parameters in the memory block.
     // You could do that either as raw data, or use the XML or ValueTree classes
     // as intermediaries to make it easy to save and load complex data.
-    mAudealizeAudioProcessor->getStateInformation (destData);
+    ScopedPointer<XmlElement> xml (mState->state.createXml ());
+    copyXmlToBinary (*xml, destData);
 }
 
 void ReverbPluginProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
-    mAudealizeAudioProcessor->setStateInformation (data, sizeInBytes);
+    ScopedPointer<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
+    if (xmlState != nullptr)
+        if (xmlState->hasTagName (mState->state.getType ())) mState->state = ValueTree::fromXml (*xmlState);
 }
 
 //==============================================================================

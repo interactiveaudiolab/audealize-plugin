@@ -29,6 +29,7 @@ using namespace Audealize;
 EQPluginProcessor::EQPluginProcessor () : AudealizeAudioProcessor ()
 {
     mAudealizeAudioProcessor = new AudealizeeqAudioProcessor (this);
+    mState->state = ValueTree (Identifier ("AudealizeEQ"));
 }
 
 EQPluginProcessor::~EQPluginProcessor ()
@@ -148,14 +149,17 @@ void EQPluginProcessor::getStateInformation (MemoryBlock& destData)
     // You should use this method to store your parameters in the memory block.
     // You could do that either as raw data, or use the XML or ValueTree classes
     // as intermediaries to make it easy to save and load complex data.
-    mAudealizeAudioProcessor->getStateInformation (destData);
+    ScopedPointer<XmlElement> xml (mState->state.createXml ());
+    copyXmlToBinary (*xml, destData);
 }
 
 void EQPluginProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
-    mAudealizeAudioProcessor->setStateInformation (data, sizeInBytes);
+    ScopedPointer<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
+    if (xmlState != nullptr)
+        if (xmlState->hasTagName (mState->state.getType ())) mState->state = ValueTree::fromXml (*xmlState);
 }
 
 //==============================================================================

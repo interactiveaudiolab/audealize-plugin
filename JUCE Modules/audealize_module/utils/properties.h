@@ -83,6 +83,8 @@ public:
      */
     static var getProperty (Identifier propertyId);
 
+    static var getDefaultForProperty (Identifier propertyId);
+
     template <typename Type>
     static void setProperty (Identifier propertyId, Type t);
 

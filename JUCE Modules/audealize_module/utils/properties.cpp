@@ -91,9 +91,23 @@ var Properties::loadPropertiesVar ()
 
 var Properties::getProperty (Identifier propertyId)
 {
-    var property = loadPropertiesVar ().getDynamicObject ()->getProperty (propertyId);
+    var properties = loadPropertiesVar ();
+    if (!properties.getDynamicObject ()->hasProperty (propertyId))
+    {
+        setProperty (propertyId, getDefaultForProperty (propertyId));
+        return getDefaultForProperty (propertyId);
+    }
+    return properties.getDynamicObject ()->getProperty (propertyId);
+}
 
-    return loadPropertiesVar ().getDynamicObject ()->getProperty (propertyId);
+var Properties::getDefaultForProperty (Identifier propertyId)
+{
+    if (propertyId == propertyIds::darkMode) return DEFAULT_DARKMODE;
+    if (propertyId == propertyIds::eqDataPath) return DEFAULT_EQ_DATA_PATH;
+    if (propertyId == propertyIds::reverbDataPath) return DEFAULT_REVERB_DATA_PATH;
+    if (propertyId == propertyIds::windowWidth) return DEFAULT_WINDOWWIDTH;
+    if (propertyId == propertyIds::windowHeight) return DEFAULT_WINDOWHEIGHT;
+    return var ();
 }
 
 template <typename Type>

@@ -36,8 +36,6 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
       mTradUI (t),
       mShadow (DropShadow (Colours::black.withAlpha (0.6f), 10, Point<int> (0, 3)))
 {
-    setBypassed (true);
-
     // load properties, set dark mode accordingly
     properties = Properties::loadPropertiesVar ();
 
@@ -166,17 +164,21 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
         addChildComponent (mAboutComponent = new AboutComponent ());
         mShadow.setOwner (mAboutComponent);
 
-        // effect bypass button
-        addAndMakeVisible (mBypassButton = new TextButton ("Turn " + effectType + " Off"));
-        mBypassButton->setClickingTogglesState (true);
-        mBypassButton->addListener (this);
-
         // resize limits + ResizableCornerComponent
         // if this AudealizeUI is a child component of an AudealizeMultiUI, resizing will be handled there
         mResizeLimits = new ComponentBoundsConstrainer ();
         mResizeLimits->setSizeLimits (600, 400, 1180, 800);
         addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
     }
+    // effect bypass button
+    addAndMakeVisible (mBypassButton = new TextButton ("Turn " + effectType + " Off"));
+    mBypassButton->setClickingTogglesState (true);
+    mBypassButton->addListener (this);
+    mBypassButtonAttachment = new AudioProcessorValueTreeState::ButtonAttachment (
+        p.getValueTreeState (), p.getParamBypassId (), *mBypassButton);
+    if (isMultiEffect) mBypassButton->setVisible (false);
+
+    setEnabled (false);
 
     // search bar
     addAndMakeVisible (mSearchBar = new TypeaheadEditor ());
@@ -218,6 +220,7 @@ AudealizeUI::~AudealizeUI ()
     mResizer = nullptr;
     mResizeLimits = nullptr;
     mBypassButton = nullptr;
+    mBypassButtonAttachment = nullptr;
     mWordMap = nullptr;
     mAmountSlider = nullptr;
     mLabelLess = nullptr;
@@ -253,10 +256,6 @@ void AudealizeUI::resized ()
         mDarkModeButton->setBounds (getWidth () - 110, 22, 24, 24);
         mAudealizeLabel->setBounds (28, 17, 200, 32);
         // bypass button
-        int width = mBypassButton->getBestWidthForHeight (32);
-        width =
-            std::min (140, width);  // limit the width to 140 so that it doesn't interfere with language select buttons
-        mBypassButton->setBounds (getWidth () - width - 32, 60 + titleTextOffset, width, 32);
 
         mAboutComponent->setCentrePosition (getWidth () * .5f, getHeight () * .5f);
     }
@@ -264,6 +263,10 @@ void AudealizeUI::resized ()
     {
         titleTextOffset = -40;
     }
+
+    int width = mBypassButton->getBestWidthForHeight (32);
+    width = std::min (140, width);  // limit the width to 140 so that it doesn't interfere with language select buttons
+    mBypassButton->setBounds (getWidth () - width - 32, 60 + titleTextOffset, width, 32);
 
     // reduce word map font size if width of window is less than fontSizeThresh
     int fontSizeThresh = 750;
@@ -393,15 +396,13 @@ void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
     // effect bypass button
     else if (buttonThatWasClicked == mBypassButton)
     {
-        if (processor.isBypassed ())
+        if (processor.isEnabled ())
         {
             mBypassButton->setButtonText ("Turn " + mEffectType + " Off");
-            processor.setBypass (false);
         }
         else
         {
             mBypassButton->setButtonText ("Turn " + mEffectType + " On");
-            processor.setBypass (true);
         }
     }
 
@@ -490,7 +491,7 @@ void AudealizeUI::actionListenerCallback (const String& message)
             sendActionMessage ("Enabled" + mEffectType);
         }
 
-        setBypassed (false);
+        if (!processor.isEnabled ()) setEnabled (true);
     }
 }
 }

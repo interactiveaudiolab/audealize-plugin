@@ -1,11 +1,11 @@
 /*
-Audealize 
+Audealize
 
 http://music.cs.northwestern.edu
 http://github.com/interactiveaudiolab/audealize-plugin
- 
+
 Licensed under the GNU GPLv2 <https://opensource.org/licenses/GPL-2.0>
- 
+
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License
 as published by the Free Software Foundation; either version 2
@@ -51,13 +51,12 @@ public:
         }
 
         paramAmountId = "paramAmount";
+        paramBypassId = "paramBypass";
 
         mAmount = 0.5f;
 
         lastUIWidth = 840;
         lastUIHeight = 560;
-
-        mBypass = false;
     };
 
     ~AudealizeAudioProcessor ()
@@ -74,159 +73,154 @@ public:
      *
      *  @param destData Memory block in which to store parameter data
      */
-void getStateInformation (MemoryBlock& destData) override
-{
-    MemoryOutputStream stream (destData, false);
-    mState->state.writeToStream (stream);
-}
-
-/**
- *  Restores parameters from state data saved in a memory block
- *
- *  @param data        Pointer to the memory block
- *  @param sizeInBytes Size of the memory block in bytes
- */
-void setStateInformation (const void* data, int sizeInBytes) override
-{
-    ValueTree tree = ValueTree::readFromData (data, sizeInBytes);
-    if (tree.isValid ())
+    void getStateInformation (MemoryBlock& destData) override
     {
-        mState->state = tree;
+        MemoryOutputStream stream (destData, false);
+        mState->state.writeToStream (stream);
     }
-}
 
-/**
- *  Called by an AudioProcessorEditor to notify AudioProcessor of parameter value changes
- *
- *  @param parameterID The ID of the parameter that was changed
- *  @param newValue    The new value for that parameter
- */
-virtual void parameterChanged (const juce::String& parameterID, float newValue) override{};
-
-/**
- *  Set the states of all parameters with a vector<float>. To be called by a WordMap
- *
- *  @param settings a vector of floats
- */
-virtual void settingsFromMap (vector<float> settings){};
-
-/**
- *  Returns the AudioProcessorValueTreeState
- *
- *  @return an AudioProcessorValueTreeState
- */
-AudioProcessorValueTreeState& getValueTreeState ()
-{
-    return *mState;
-}
-
-/**
- *  Normalizes a vector of floats
- *
- *  @param vals
- */
-void normalize (vector<float>* vals)
-{
-    float max = *std::max_element (vals->begin (), vals->end ());
-    float min = *std::min_element (vals->begin (), vals->end ());
-    for (int i = 0; i < vals->size (); i++)
+    /**
+     *  Restores parameters from state data saved in a memory block
+     *
+     *  @param data        Pointer to the memory block
+     *  @param sizeInBytes Size of the memory block in bytes
+     */
+    void setStateInformation (const void* data, int sizeInBytes) override
     {
-        (*vals)[i] = ((*vals)[i] - min) / (max - min);
+        ValueTree tree = ValueTree::readFromData (data, sizeInBytes);
+        if (tree.isValid ())
+        {
+            mState->state = tree;
+        }
     }
-}
 
-/**
- *  Returns a string with the parameter ID of one of the parameters
- *
- *  @param index
- */
-inline virtual String getParamID (int index)
-{
-    return "";
-};
+    /**
+     *  Called by an AudioProcessorEditor to notify AudioProcessor of parameter value changes
+     *
+     *  @param parameterID The ID of the parameter that was changed
+     *  @param newValue    The new value for that parameter
+     */
+    virtual void parameterChanged (const juce::String& parameterID, float newValue) override{};
 
-/**
- *  Returns the parameter ID String for the "Amount" parameter. (will be different depending on effect type)
- *  Needed for differentiating between different effect amount controls in multi effect plugins
- */
-inline String getParamAmountID ()
-{
-    return paramAmountId;
-}
+    /**
+     *  Set the states of all parameters with a vector<float>. To be called by a WordMap
+     *
+     *  @param settings a vector of floats
+     */
+    virtual void settingsFromMap (vector<float> settings){};
 
-/**
- *  Set the bypass state of the AudioProcessor. If true, processor will not apply its effect.
- */
-void setBypass (bool bypass)
-{
-    mBypass = bypass;
-}
+    /**
+     *  Returns the AudioProcessorValueTreeState
+     *
+     *  @return an AudioProcessorValueTreeState
+     */
+    AudioProcessorValueTreeState& getValueTreeState ()
+    {
+        return *mState;
+    }
 
-/**
- *  Returns true if AudioProcessor is bypassed (not applying its effect)
- */
-bool isBypassed ()
-{
-    return mBypass;
-}
+    /**
+     *  Normalizes a vector of floats
+     *
+     *  @param vals
+     */
+    void normalize (vector<float>* vals)
+    {
+        float max = *std::max_element (vals->begin (), vals->end ());
+        float min = *std::min_element (vals->begin (), vals->end ());
+        for (int i = 0; i < vals->size (); i++)
+        {
+            (*vals)[i] = ((*vals)[i] - min) / (max - min);
+        }
+    }
 
-/**
- *  Returns a pointer to the AudioProcessor's ValueTreeState
- */
-AudioProcessorValueTreeState* getState ()
-{
-    return mState;
-}
+    /**
+     *  Returns a string with the parameter ID of one of the parameters
+     *
+     *  @param index
+     */
+    inline virtual String getParamID (int index)
+    {
+        return "";
+    };
 
-/**
- *  Returns the AudioProcessor's UndoManager. Not currently used in Audealize plugins
- */
-UndoManager* getUndoManager ()
-{
-    return mUndoManager;
-}
+    /**
+     *  Returns the parameter ID String for the "Amount" parameter. (will be different depending on effect type)
+     *  Needed for differentiating between different effect amount controls in multi effect plugins
+     */
+    inline String getParamAmountID ()
+    {
+        return paramAmountId;
+    }
 
-/**
- *  Returns a pointer to an AudioProcessorParameter, referenced by its index
- */
-AudioProcessorParameter* getParameterPtr (int idx)
-{
-    return mState->getParameter (getParamID (idx));
-}
+    inline String getParamBypassId ()
+    {
+        return paramBypassId;
+    }
 
-/**
- *  Returns a pointer to an AudioProcessorParameter, referenced by its ID string
- */
-AudioProcessorParameter* getParameterPtrFromID (String paramID)
-{
-    return mState->getParameter (paramID);
-}
+    /**
+     *  Returns true if AudioProcessor is bypassed (not applying its effect)
+     */
+    bool isEnabled ()
+    {
+        return mState->getParameter (paramBypassId)->getValue () == 1;
+    }
 
-/**
- *  Returns true - all parameters should be flagged meta
- */
-bool isMetaParameter (int parameterIndex) const override
-{
-    return true;
-}
+    /**
+     *  Returns a pointer to the AudioProcessor's ValueTreeState
+     */
+    AudioProcessorValueTreeState* getState ()
+    {
+        return mState;
+    }
+
+    /**
+     *  Returns the AudioProcessor's UndoManager. Not currently used in Audealize plugins
+     */
+    UndoManager* getUndoManager ()
+    {
+        return mUndoManager;
+    }
+
+    /**
+     *  Returns a pointer to an AudioProcessorParameter, referenced by its index
+     */
+    AudioProcessorParameter* getParameterPtr (int idx)
+    {
+        return mState->getParameter (getParamID (idx));
+    }
+
+    /**
+     *  Returns a pointer to an AudioProcessorParameter, referenced by its ID string
+     */
+    AudioProcessorParameter* getParameterPtrFromID (String paramID)
+    {
+        return mState->getParameter (paramID);
+    }
+
+    /**
+     *  Returns true - all parameters should be flagged meta
+     */
+    bool isMetaParameter (int parameterIndex) const override
+    {
+        return true;
+    }
 
 protected:
-AudioProcessorValueTreeState* mState;  // and AudioProcessorValueTreeState containing the parameter state
-                                       // information
-UndoManager* mUndoManager;
+    AudioProcessorValueTreeState* mState;  // and AudioProcessorValueTreeState containing the parameter state
+                                           // information
+    UndoManager* mUndoManager;
 
-vector<float> mParamSettings;
+    vector<float> mParamSettings;
 
-AudealizeAudioProcessor* mOwner;  // The main PluginProcessor of the plugin
+    AudealizeAudioProcessor* mOwner;  // The main PluginProcessor of the plugin
 
-bool mBypass;
+    String paramAmountId;
+    String paramBypassId;
 
-String paramAmountId;
+    float mAmount;  // value in range [0,1]. dictates the amount of the effect to be applied.
 
-float mAmount;  // value in range [0,1]. dictates the amount of the effect to be applied.
-
-JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeAudioProcessor);
-}
-;
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AudealizeAudioProcessor);
+};
 }  // namespace audealize
 #endif /* AudealizeInterfaces_h */

@@ -313,7 +313,7 @@ void WordMap::mouseDrag (const MouseEvent& e)
 
 void WordMap::wordSelected (String word)
 {
-    sendActionMessage (word);  // broadcast a message containing the descriptor to all ActionListeners. this will
+    sendActionMessage (word);  // broadcast a message containing the descriptor to all ActionListeners
 
     init_map = false;  // word has been selected, map is no longer in initial state
 

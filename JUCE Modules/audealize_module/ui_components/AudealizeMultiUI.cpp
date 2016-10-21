@@ -70,6 +70,8 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
             mTabBypassButtons[i], TabBarButton::ExtraComponentPlacement::beforeText);
         mTabBypassButtons[i]->addListener (this);
         mTabBypassButtons[i]->setToggleState (false, sendNotification);
+
+        mAudealizeUIs[i]->getBypassButton ()->addListener (this);
     }
 
     // Audealize Label
@@ -271,15 +273,23 @@ void AudealizeMultiUI::buttonClicked (juce::Button* buttonThatWasClicked)
                                         mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic, mDarkModeGraphic);
         }
 
-        properties.getDynamicObject ()->setProperty (Properties::propertyIds::darkMode, !isDark);
-        Properties::writePropertiesToFile (properties);
+        Properties::setProperty (Properties::propertyIds::darkMode, !isDark);
     }
 
     for (int i = 0; i < mTabBypassButtons.size (); ++i)
     {
-        if (buttonThatWasClicked == mTabBypassButtons[i])
+        if (mAudealizeUIs[i]->getBypassButton ()->getToggleState () !=
+            mTabBypassButtons[i]->getToggleState ())  // do nothing if toggle states match, prevent infinite loop
         {
-            mAudealizeUIs[i]->setBypassed (!mTabBypassButtons[i]->getToggleState ());
+            if (buttonThatWasClicked == mTabBypassButtons[i])
+            {
+                mAudealizeUIs[i]->setEnabled (mTabBypassButtons[i]->getToggleState ());
+            }
+            else if (buttonThatWasClicked == mAudealizeUIs[i]->getBypassButton ())
+            {
+                mTabBypassButtons[i]->setToggleState (mAudealizeUIs[i]->getBypassButton ()->getToggleState (),
+                                                      sendNotification);
+            }
         }
     }
 }

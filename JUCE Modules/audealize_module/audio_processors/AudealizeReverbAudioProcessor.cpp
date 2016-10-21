@@ -62,6 +62,9 @@ AudealizereverbAudioProcessor::AudealizereverbAudioProcessor (AudealizeAudioProc
                                    NormalisableRange<float> (0.0f, 1.0f), 0.5f, nullptr, nullptr);
     mState->addParameterListener (paramAmountId, this);
 
+    mState->createAndAddParameter (paramBypassId, "Reverb: Bypass", "Reverb: Bypass",
+                                   NormalisableRange<float> (0.f, 1.f, 1.f), 1.f, nullptr, nullptr);
+
     // Add Listeners
     for (int i = 0; i < kNumParams - 1; i++)
     {
@@ -231,7 +234,7 @@ void AudealizereverbAudioProcessor::processBlock (AudioSampleBuffer& buffer, Mid
     // end parameter smoothing
 
     // Process reverb
-    if (!mBypass)
+    if (mState->getParameter (paramBypassId)->getValue () == 1)
     {
         if (totalNumInputChannels == 1)
         {
@@ -284,11 +287,20 @@ AudioProcessorEditor* AudealizereverbAudioProcessor::createEditor ()
 
 void AudealizereverbAudioProcessor::parameterChanged (const juce::String& parameterID, float newValue)
 {
-    // DBG("param changed :" << parameterID << newValue);
-    int idx = getParamIdx (parameterID);
-    mSmoothedVals[idx].setValue (newValue);
-    // DBG(mSmoothedVals[idx].getTargetValue());
-    // debugParams();
+    if (parameterID.equalsIgnoreCase (getParamBypassId ()))
+    {
+        mState->getParameter (getParamBypassId ())->beginChangeGesture ();
+        mState->getParameter (getParamBypassId ())->setValueNotifyingHost (newValue);
+        mState->getParameter (getParamBypassId ())->beginChangeGesture ();
+    }
+    else
+    {
+        // DBG("param changed :" << parameterID << newValue);
+        int idx = getParamIdx (parameterID);
+        mSmoothedVals[idx].setValue (newValue);
+        // DBG(mSmoothedVals[idx].getTargetValue());
+        // debugParams();
+    }
 }
 
 void AudealizereverbAudioProcessor::debugParams ()

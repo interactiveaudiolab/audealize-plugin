@@ -92,21 +92,23 @@ public:
     void buttonClicked (Button* buttonThatWasClicked) override;
 
     /**
-     *  Set the bypass state of the audio effect. (true = off)
+     *  Set the bypass state of the audio effect. (true = on)
      *
-     *  @param isBypassed True = effect off
+     *  @param shouldBeEnabled True = effect on
      */
-    void setBypassed (bool isBypassed)
+    void setEnabled (bool shouldBeEnabled)
     {
-        processor.setBypass (isBypassed);
+        if (mBypassButton->getToggleState () != shouldBeEnabled)
+            mBypassButton
+                ->triggerClick ();  // setToggleState won't notify the host that the parameter value has changed
     }
 
     /**
      *  Returns true if the effect is currently bypassed
      */
-    bool isBypassed ()
+    bool isEnabled ()
     {
-        return processor.isBypassed ();
+        return processor.isEnabled ();
     }
 
     /**
@@ -199,7 +201,7 @@ private:
     TooltipWindow mToolTip;
 
     ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mAmountSliderAttachment;
-
+    ScopedPointer<AudioProcessorValueTreeState::ButtonAttachment> mBypassButtonAttachment;
     ScopedPointer<ResizableCornerComponent> mResizer;         // handles resizing of the plugin window
     ScopedPointer<ComponentBoundsConstrainer> mResizeLimits;  // sets size limits for the plugin window
 

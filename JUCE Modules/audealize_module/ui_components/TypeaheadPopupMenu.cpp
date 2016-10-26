@@ -291,18 +291,24 @@ void TypeaheadEditor::actionListenerCallback (const juce::String& message)
 {
     if (!message.equalsIgnoreCase ("_languagechanged"))
     {
+        setFromMap = true;
         editor.setText (message);
 
         setWithoutPressingReturn = false;
 
         dismissMenu ();
-        setFromMap = true;
     }
 }
 
 TextEditor* TypeaheadEditor::getEditor ()
 {
     return &editor;
+}
+
+void TypeaheadEditor::setTextNoNotification (String text)
+{
+    setFromMap = true;
+    editor.setText (text);
 }
 
 void TypeaheadEditor::setMultiEffect (vector<String> effectNames, vector<StringArray> descriptors)

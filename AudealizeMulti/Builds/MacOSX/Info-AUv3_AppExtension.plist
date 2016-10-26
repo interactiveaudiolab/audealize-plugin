@@ -18,9 +18,15 @@
     <key>CFBundleSignature</key>
     <string>????</string>
     <key>CFBundleShortVersionString</key>
+<<<<<<< HEAD
     <string>0.2.2b</string>
     <key>CFBundleVersion</key>
     <string>0.2.2b</string>
+=======
+    <string>0.2.3b</string>
+    <key>CFBundleVersion</key>
+    <string>0.2.3b</string>
+>>>>>>> dev
     <key>NSHumanReadableCopyright</key>
     <string>Northwestern University Interactive Audio Lab</string>
     <key>NSHighResolutionCapable</key>
@@ -47,9 +53,13 @@
             <key>type</key>
             <string>aufx</string>
             <key>subtype</key>
-            <string>adzm</string>
+            <string>Adzm</string>
             <key>version</key>
+<<<<<<< HEAD
             <integer>514</integer>
+=======
+            <integer>515</integer>
+>>>>>>> dev
             <key>sandboxSafe</key>
             <true/>
             <key>tags</key>

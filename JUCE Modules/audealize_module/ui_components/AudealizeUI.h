@@ -1,21 +1,21 @@
 /*
  Audealize
- 
+
  http://music.cs.northwestern.edu
  http://github.com/interactiveaudiolab/audealize-plugin
- 
+
  Licensed under the GNU GPLv2 <https://opensource.org/licenses/GPL-2.0>
- 
+
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
  as published by the Free Software Foundation; either version 2
  of the License, or (at your option) any later version.
- 
+
  This program is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
- 
+
  You should have received a copy of the GNU General Public License
  along with this program; if not, write to the Free Software
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
@@ -23,6 +23,11 @@
 
 #ifndef __JUCE_HEADER_EB0317DAAAA56B94__
 #define __JUCE_HEADER_EB0317DAAAA56B94__
+
+#define MIN_WIDTH 600
+#define MAX_WIDTH 1180
+#define MIN_HEIGHT 500
+#define MAX_HEIGHT 800
 
 #include <fstream>
 #include "AboutComponent.h"
@@ -87,21 +92,23 @@ public:
     void buttonClicked (Button* buttonThatWasClicked) override;
 
     /**
-     *  Set the bypass state of the audio effect. (true = off)
+     *  Set the bypass state of the audio effect. (true = on)
      *
-     *  @param isBypassed True = effect off
+     *  @param shouldBeEnabled True = effect on
      */
-    void setBypassed (bool isBypassed)
+    void setEnabled (bool shouldBeEnabled)
     {
-        processor.setBypass (isBypassed);
+        if (mBypassButton->getToggleState () != shouldBeEnabled)
+            mBypassButton
+                ->triggerClick ();  // setToggleState won't notify the host that the parameter value has changed
     }
 
     /**
      *  Returns true if the effect is currently bypassed
      */
-    bool isBypassed ()
+    bool isEnabled ()
     {
-        return processor.isBypassed ();
+        return processor.isEnabled ();
     }
 
     /**
@@ -176,6 +183,8 @@ public:
         return isMultiEffect;
     }
 
+    void mouseDown (const MouseEvent& event) override;
+
 private:
     AudealizeAudioProcessor& processor;
 
@@ -192,7 +201,7 @@ private:
     TooltipWindow mToolTip;
 
     ScopedPointer<AudioProcessorValueTreeState::SliderAttachment> mAmountSliderAttachment;
-
+    ScopedPointer<AudioProcessorValueTreeState::ButtonAttachment> mBypassButtonAttachment;
     ScopedPointer<ResizableCornerComponent> mResizer;         // handles resizing of the plugin window
     ScopedPointer<ComponentBoundsConstrainer> mResizeLimits;  // sets size limits for the plugin window
 
@@ -213,12 +222,10 @@ private:
     ScopedPointer<TypeaheadEditor> mSearchBar;
     ScopedPointer<Button> mInfoButton;
     ScopedPointer<AboutComponent> mAboutComponent;
+    DropShadower mShadow;
 
     AudealizeLookAndFeel mLookAndFeel;
     AudealizeLookAndFeelDark mLookAndFeelDark;
-
-    DialogWindow::LaunchOptions mDialogOpts;
-    ScopedPointer<DialogWindow> mAboutWindow;
 
     ScopedPointer<Drawable> mDarkModeGraphic;
     ScopedPointer<DrawableButton> mDarkModeButton;

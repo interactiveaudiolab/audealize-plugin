@@ -1,21 +1,21 @@
 /*
  Audealize
- 
+
  http://music.cs.northwestern.edu
  http://github.com/interactiveaudiolab/audealize-plugin
- 
+
  Licensed under the GNU GPLv2 <https://opensource.org/licenses/GPL-2.0>
- 
+
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
  as published by the Free Software Foundation; either version 2
  of the License, or (at your option) any later version.
- 
+
  This program is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
- 
+
  You should have received a copy of the GNU General Public License
  along with this program; if not, write to the Free Software
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
@@ -27,6 +27,7 @@ AudealizeeqAudioProcessor::AudealizeeqAudioProcessor (AudealizeAudioProcessor* o
     : AudealizeAudioProcessor (owner), mEqualizer (mFreqs, 0.0f)
 {
     paramAmountId = "paramAmountEQ";
+    paramBypassId = "paramBypassEQ";
 
     // DBG(std::to_string(getSampleRate()));
     mParamSettings.resize (NUMBANDS, 0);
@@ -48,6 +49,8 @@ AudealizeeqAudioProcessor::AudealizeeqAudioProcessor (AudealizeAudioProcessor* o
     mState->createAndAddParameter (paramAmountId, "EQ: Amount", "EQ: Amount", NormalisableRange<float> (0.0f, 1.0f),
                                    0.5f, nullptr, nullptr);
     mState->addParameterListener (paramAmountId, this);
+    mState->createAndAddParameter (paramBypassId, "EQ: Bypass", "EQ: Bypass", NormalisableRange<float> (0.f, 1.f, 1.f),
+                                   0.f, nullptr, nullptr);
 }
 
 AudealizeeqAudioProcessor::~AudealizeeqAudioProcessor ()
@@ -176,7 +179,7 @@ void AudealizeeqAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuf
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
 
-    if (!mBypass)
+    if (mState->getParameter (paramBypassId)->getValue () == 1)
     {
         for (int channel = 0; channel < totalNumInputChannels; ++channel)
         {
@@ -250,6 +253,12 @@ void AudealizeeqAudioProcessor::parameterChanged (const juce::String& parameterI
 
             mState->getParameter (getParamID (i))->setValueNotifyingHost (gain);
         }
+    }
+    else if (parameterID.equalsIgnoreCase (getParamBypassId ()))
+    {
+        mState->getParameter (getParamBypassId ())->beginChangeGesture ();
+        mState->getParameter (getParamBypassId ())->setValueNotifyingHost (newValue);
+        mState->getParameter (getParamBypassId ())->beginChangeGesture ();
     }
 }
 

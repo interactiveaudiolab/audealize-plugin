@@ -206,6 +206,13 @@ public:
     TextEditor* getEditor ();
 
     /**
+     *  Set the text of the editor without notifying the wordmap and selecting a descriptor
+     *
+     *  @param text The new text
+     */
+    void setTextNoNotification (String text);
+
+    /**
      *  Finds synonyms of a given word using WordNet
      *
      *  @param word

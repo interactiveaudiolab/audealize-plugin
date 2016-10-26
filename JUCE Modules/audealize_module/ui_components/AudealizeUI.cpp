@@ -1,21 +1,21 @@
 /*
  Audealize
- 
+
  http://music.cs.northwestern.edu
  http://github.com/interactiveaudiolab/audealize-plugin
- 
+
  Licensed under the GNU GPLv2 <https://opensource.org/licenses/GPL-2.0>
- 
+
  This program is free software; you can redistribute it and/or
  modify it under the terms of the GNU General Public License
  as published by the Free Software Foundation; either version 2
  of the License, or (at your option) any later version.
- 
+
  This program is distributed in the hope that it will be useful,
  but WITHOUT ANY WARRANTY; without even the implied warranty of
  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  GNU General Public License for more details.
- 
+
  You should have received a copy of the GNU General Public License
  along with this program; if not, write to the Free Software
  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
@@ -30,10 +30,12 @@ namespace Audealize
 {
 AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalUI> t, String pathToPoints,
                           String effectType, bool isPluginMultiEffect)
-    : AudioProcessorEditor (&p), processor (p), mPathToPoints (pathToPoints), mTradUI (t)
+    : AudioProcessorEditor (&p),
+      processor (p),
+      mPathToPoints (pathToPoints),
+      mTradUI (t),
+      mShadow (DropShadow (Colours::black.withAlpha (0.6f), 10, Point<int> (0, 3)))
 {
-    setBypassed (true);
-
     // load properties, set dark mode accordingly
     properties = Properties::loadPropertiesVar ();
 
@@ -159,18 +161,8 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
         mInfoButton->setAlpha (0.8);
 
         // about dialog window
-        mAboutComponent = new AboutComponent ();
-        mDialogOpts.content.setOwned (mAboutComponent);
-        mDialogOpts.escapeKeyTriggersCloseButton = true;
-        mDialogOpts.useNativeTitleBar = false;
-        mDialogOpts.resizable = false;
-        mAboutWindow = mDialogOpts.create ();
-        mAboutWindow->setVisible (false);
-
-        // effect bypass button
-        addAndMakeVisible (mBypassButton = new TextButton ("Turn " + effectType + " Off"));
-        mBypassButton->setClickingTogglesState (true);
-        mBypassButton->addListener (this);
+        addChildComponent (mAboutComponent = new AboutComponent ());
+        mShadow.setOwner (mAboutComponent);
 
         // resize limits + ResizableCornerComponent
         // if this AudealizeUI is a child component of an AudealizeMultiUI, resizing will be handled there
@@ -178,6 +170,12 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
         mResizeLimits->setSizeLimits (600, 400, 1180, 800);
         addAndMakeVisible (mResizer = new ResizableCornerComponent (this, mResizeLimits));
     }
+    // effect bypass button
+    addAndMakeVisible (mBypassButton = new TextButton ("Turn " + effectType + " Off"));
+    mBypassButton->setClickingTogglesState (true);
+    mBypassButton->addListener (this);
+    mBypassButtonAttachment = new AudioProcessorValueTreeState::ButtonAttachment (
+        p.getValueTreeState (), p.getParamBypassId (), *mBypassButton);
 
     // search bar
     addAndMakeVisible (mSearchBar = new TypeaheadEditor ());
@@ -187,6 +185,10 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
     mSearchBar->getEditor ()->setSelectAllWhenFocused (true);
     mSearchBar->getEditor ()->setTextToShowWhenEmpty ("Search for a word to apply", Colour (0xff888888));
     mSearchBar->setOptions (mWordMap->getWords ());
+    String lastDescriptor =
+        processor.getState ()->state.getProperty (getEffectName () + "Descriptor");  // recall last selected descriptor
+    if (lastDescriptor.isNotEmpty ()) mSearchBar->setTextNoNotification (lastDescriptor);
+
     mWordMap->addActionListener (mSearchBar);
 
     // traditional UI
@@ -201,16 +203,25 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
     mTradUIButton->setButtonText (TRANS ("+ Show " + String (mTradUI->getName ())));
 
     // set initial size of plugin window
-    setSize (840, 560);
+    var windowHeight = Properties::getProperty (Properties::propertyIds::windowHeight);
+    var windowWidth = Properties::getProperty (Properties::propertyIds::windowWidth);
+    setSize (windowWidth, windowHeight);
 }
 
 AudealizeUI::~AudealizeUI ()
 {
+    if (!isMultiEffect)
+    {
+        Properties::setProperty (Properties::propertyIds::windowHeight, std::min (getHeight (), MIN_HEIGHT));
+        Properties::setProperty (Properties::propertyIds::windowWidth, std::min (getWidth (), MIN_WIDTH));
+    }
+
     mAlertBox = nullptr;
     mAmountSliderAttachment = nullptr;
     mResizer = nullptr;
     mResizeLimits = nullptr;
     mBypassButton = nullptr;
+    mBypassButtonAttachment = nullptr;
     mWordMap = nullptr;
     mAmountSlider = nullptr;
     mLabelLess = nullptr;
@@ -222,7 +233,6 @@ AudealizeUI::~AudealizeUI ()
     mSearchBar = nullptr;
     mAboutComponent = nullptr;
     mInfoButton = nullptr;
-    mAboutWindow = nullptr;
     mDarkModeButton = nullptr;
     mDarkModeGraphic = nullptr;
 }
@@ -247,15 +257,17 @@ void AudealizeUI::resized ()
         mDarkModeButton->setBounds (getWidth () - 110, 22, 24, 24);
         mAudealizeLabel->setBounds (28, 17, 200, 32);
         // bypass button
-        int width = mBypassButton->getBestWidthForHeight (32);
-        width =
-            std::min (140, width);  // limit the width to 140 so that it doesn't interfere with language select buttons
-        mBypassButton->setBounds (getWidth () - width - 32, 60 + titleTextOffset, width, 32);
+
+        mAboutComponent->setCentrePosition (getWidth () * .5f, getHeight () * .5f);
     }
     else
     {
         titleTextOffset = -40;
     }
+
+    int width = mBypassButton->getBestWidthForHeight (32);
+    width = std::min (140, width);  // limit the width to 140 so that it doesn't interfere with language select buttons
+    mBypassButton->setBounds (getWidth () - width - 32, 60 + titleTextOffset, width, 32);
 
     // reduce word map font size if width of window is less than fontSizeThresh
     int fontSizeThresh = 750;
@@ -357,7 +369,8 @@ void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
 
             if (!isMultiEffect)
                 mResizeLimits->setSizeLimits (
-                    600, 400, 1180, 800);  // window size limits depend on whether or not the traditional UI is visible
+                    MIN_WIDTH, MIN_HEIGHT, MAX_WIDTH,
+                    MAX_HEIGHT);  // window size limits depend on whether or not the traditional UI is visible
         }
         else
         {
@@ -384,22 +397,20 @@ void AudealizeUI::buttonClicked (Button* buttonThatWasClicked)
     // effect bypass button
     else if (buttonThatWasClicked == mBypassButton)
     {
-        if (processor.isBypassed ())
+        if (processor.isEnabled ())
         {
             mBypassButton->setButtonText ("Turn " + mEffectType + " Off");
-            processor.setBypass (false);
         }
         else
         {
             mBypassButton->setButtonText ("Turn " + mEffectType + " On");
-            processor.setBypass (true);
         }
     }
 
     // infobutton
     else if (buttonThatWasClicked == mInfoButton)
     {
-        mAboutWindow->setVisible (true);
+        mAboutComponent->setVisible (true);
     }
 
     // dark mode
@@ -470,18 +481,27 @@ void AudealizeUI::actionListenerCallback (const String& message)
         mSearchBar->setOptions (mWordMap->getWords ());  // update the set of words that will be searched by the search
                                                          // bar to include only the selected languages
     }
-    else
+    else  // a word on the map was selected
     {
+        processor.getState ()->state.setProperty (Identifier (getEffectName () + "Descriptor"), message, nullptr);
         mLabelLess->setText ("Less \"" + message + "\"", NotificationType::sendNotification);  // change the text of the
                                                                                                // amount slider label to
                                                                                                // include the descriptor
-
         if (isMultiEffect)
         {
             sendActionMessage ("Enabled" + mEffectType);
         }
 
-        setBypassed (false);
+        if (!processor.isEnabled ()) setEnabled (true);
     }
 }
+}
+
+void AudealizeUI::mouseDown (const MouseEvent& event)
+{
+    if (!isMultiEffect && mAboutComponent->isVisible () &&
+        !mAboutComponent->getBounds ().contains (event.getPosition ()))
+    {
+        mAboutComponent->setVisible (false);
+    }
 }

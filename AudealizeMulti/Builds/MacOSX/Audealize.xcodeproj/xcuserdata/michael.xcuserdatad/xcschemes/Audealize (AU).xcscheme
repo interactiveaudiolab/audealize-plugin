@@ -44,8 +44,7 @@
       allowLocationSimulation = "YES">
       <PathRunnable
          runnableDebuggingMode = "0"
-         BundleIdentifier = "com.apple.logic10"
-         FilePath = "/Applications/Logic Pro X.app">
+         FilePath = "/Applications/Logic Pro X - 10.2.1.app">
       </PathRunnable>
       <MacroExpansion>
          <BuildableReference

@@ -30,6 +30,7 @@ AudealizeMultiAudioProcessor::AudealizeMultiAudioProcessor ()
 {
     mEQAudioProcessor = new AudealizeeqAudioProcessor (this);
     mReverbAudioProcessor = new AudealizereverbAudioProcessor (this);
+    mState->state = ValueTree (Identifier ("AudealizeMulti"));
 }
 
 AudealizeMultiAudioProcessor::~AudealizeMultiAudioProcessor ()
@@ -171,12 +172,22 @@ void AudealizeMultiAudioProcessor::getStateInformation (MemoryBlock& destData)
     // You should use this method to store your parameters in the memory block.
     // You could do that either as raw data, or use the XML or ValueTree classes
     // as intermediaries to make it easy to save and load complex data.
+    DBG ("getStateInformation");
+    ScopedPointer<XmlElement> xml (mState->state.createXml ());
+    DBG (xml->createDocument (""));
+    copyXmlToBinary (*xml, destData);
 }
 
 void AudealizeMultiAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
+    DBG ("setStateInformation");
+
+    ScopedPointer<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
+    if (xmlState != nullptr)
+        if (xmlState->hasTagName (mState->state.getType ())) mState->state = ValueTree::fromXml (*xmlState);
+    DBG (xmlState->createDocument (""));
 }
 
 //==============================================================================

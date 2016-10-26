@@ -258,7 +258,7 @@
  #define JucePlugin_ManufacturerCode       0x49414c78 // 'IALx'
 #endif
 #ifndef  JucePlugin_PluginCode
- #define JucePlugin_PluginCode             0x61646c7a // 'adlz'
+ #define JucePlugin_PluginCode             0x41646c7a // 'Adlz'
 #endif
 #ifndef  JucePlugin_IsSynth
  #define JucePlugin_IsSynth                0
@@ -276,13 +276,13 @@
  #define JucePlugin_EditorRequiresKeyboardFocus  0
 #endif
 #ifndef  JucePlugin_Version
- #define JucePlugin_Version                0.2.2b
+ #define JucePlugin_Version                0.2.3b
 #endif
 #ifndef  JucePlugin_VersionCode
- #define JucePlugin_VersionCode            0x202
+ #define JucePlugin_VersionCode            0x203
 #endif
 #ifndef  JucePlugin_VersionString
- #define JucePlugin_VersionString          "0.2.2b"
+ #define JucePlugin_VersionString          "0.2.3b"
 #endif
 #ifndef  JucePlugin_VSTUniqueID
  #define JucePlugin_VSTUniqueID            JucePlugin_PluginCode

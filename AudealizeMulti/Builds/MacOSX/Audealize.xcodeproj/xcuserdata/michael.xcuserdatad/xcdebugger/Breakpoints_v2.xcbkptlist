@@ -15,8 +15,10 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
+                  symbolName = "std::__1::enable_if&lt;(__is_forward_iterator&lt;POOLSEG*&gt;::value) &amp;&amp; (is_constructible&lt;POOLSEG, std::__1::iterator_traits&lt;POOLSEG*&gt;::reference&gt;::value), void&gt;::type std::__1::vector&lt;POOLSEG, std::__1::allocator&lt;POOLSEG&gt; &gt;::assign&lt;POOLSEG*&gt;(POOLSEG*, POOLSEG*)"
+                  moduleName = "Logic Pro X"
                   usesParentBreakpointCondition = "Yes"
-                  offsetFromSymbolStart = "0">
+                  offsetFromSymbolStart = "321">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -35,6 +37,52 @@
             endingLineNumber = "25"
             landmarkName = "class AudealizeTabBarButton"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../JUCE Modules/audealize_module/utils/properties.cpp"
+            timestampString = "498764383.098998"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
+            landmarkName = "Properties::getProperty (Identifier propertyId)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../JUCE Modules/audealize_module/audio_processors/AudealizeEQAudioProcessor.cpp"
+            timestampString = "498777194.857951"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
+            landmarkName = "AudealizeeqAudioProcessor::settingsFromMap (vector&lt;float&gt; settings)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Source/PluginProcessor.cpp"
+            timestampString = "499212087.478409"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "194"
+            endingLineNumber = "194">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

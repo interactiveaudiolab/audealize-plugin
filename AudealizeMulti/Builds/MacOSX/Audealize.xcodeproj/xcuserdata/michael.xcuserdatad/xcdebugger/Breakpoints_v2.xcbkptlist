@@ -15,8 +15,10 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
+                  symbolName = "std::__1::enable_if&lt;(__is_forward_iterator&lt;POOLSEG*&gt;::value) &amp;&amp; (is_constructible&lt;POOLSEG, std::__1::iterator_traits&lt;POOLSEG*&gt;::reference&gt;::value), void&gt;::type std::__1::vector&lt;POOLSEG, std::__1::allocator&lt;POOLSEG&gt; &gt;::assign&lt;POOLSEG*&gt;(POOLSEG*, POOLSEG*)"
+                  moduleName = "Logic Pro X"
                   usesParentBreakpointCondition = "Yes"
-                  offsetFromSymbolStart = "0">
+                  offsetFromSymbolStart = "321">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -66,7 +68,21 @@
             startingLineNumber = "278"
             endingLineNumber = "278"
             landmarkName = "AudealizeeqAudioProcessor::settingsFromMap (vector&lt;float&gt; settings)"
-            landmarkType = "5">
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../Source/PluginProcessor.cpp"
+            timestampString = "499209470.47671"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "193"
+            endingLineNumber = "193">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

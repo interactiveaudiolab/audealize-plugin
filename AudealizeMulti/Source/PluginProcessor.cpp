@@ -187,6 +187,7 @@ void AudealizeMultiAudioProcessor::setStateInformation (const void* data, int si
     ScopedPointer<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
     if (xmlState != nullptr)
         if (xmlState->hasTagName (mState->state.getType ())) mState->state = ValueTree::fromXml (*xmlState);
+    DBG (xmlState->createDocument (""));
 }
 
 //==============================================================================

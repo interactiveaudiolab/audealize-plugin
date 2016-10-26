@@ -70,7 +70,7 @@ AudealizeMultiUI::AudealizeMultiUI (AudioProcessor& p, vector<AudealizeUI*> Aude
             mTabBypassButtons[i], TabBarButton::ExtraComponentPlacement::beforeText);
         mTabBypassButtons[i]->addListener (this);
         mTabBypassButtons[i]->setToggleState (mAudealizeUIs[i]->getBypassButton ()->getToggleState (),
-                                                sendNotification);
+                                              sendNotification);
 
         mAudealizeUIs[i]->getBypassButton ()->addListener (this);
     }

@@ -176,8 +176,6 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
     mBypassButton->addListener (this);
     mBypassButtonAttachment = new AudioProcessorValueTreeState::ButtonAttachment (
         p.getValueTreeState (), p.getParamBypassId (), *mBypassButton);
-    if (isMultiEffect) mBypassButton->setVisible (false);
-
 
     // search bar
     addAndMakeVisible (mSearchBar = new TypeaheadEditor ());
@@ -187,6 +185,10 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
     mSearchBar->getEditor ()->setSelectAllWhenFocused (true);
     mSearchBar->getEditor ()->setTextToShowWhenEmpty ("Search for a word to apply", Colour (0xff888888));
     mSearchBar->setOptions (mWordMap->getWords ());
+    String lastDescriptor =
+        processor.getState ()->state.getProperty (getEffectName () + "Descriptor");  // recall last selected descriptor
+    if (lastDescriptor.isNotEmpty ()) mSearchBar->setTextNoNotification (lastDescriptor);
+
     mWordMap->addActionListener (mSearchBar);
 
     // traditional UI
@@ -479,12 +481,12 @@ void AudealizeUI::actionListenerCallback (const String& message)
         mSearchBar->setOptions (mWordMap->getWords ());  // update the set of words that will be searched by the search
                                                          // bar to include only the selected languages
     }
-    else
+    else  // a word on the map was selected
     {
+        processor.getState ()->state.setProperty (Identifier (getEffectName () + "Descriptor"), message, nullptr);
         mLabelLess->setText ("Less \"" + message + "\"", NotificationType::sendNotification);  // change the text of the
                                                                                                // amount slider label to
                                                                                                // include the descriptor
-
         if (isMultiEffect)
         {
             sendActionMessage ("Enabled" + mEffectType);

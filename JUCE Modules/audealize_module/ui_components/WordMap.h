@@ -120,6 +120,11 @@ public:
         return languages;
     }
 
+    String getSelectedWord ()
+    {
+        return center_index >= 0 ? words[center_index] : "";
+    }
+
 private:
     AudealizeAudioProcessor& processor;  // the main plugin audio processor
 

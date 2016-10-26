@@ -258,7 +258,7 @@
  #define JucePlugin_ManufacturerCode       0x49414c78 // 'IALx'
 #endif
 #ifndef  JucePlugin_PluginCode
- #define JucePlugin_PluginCode             0x61646c76 // 'adlv'
+ #define JucePlugin_PluginCode             0x41646c76 // 'Adlv'
 #endif
 #ifndef  JucePlugin_IsSynth
  #define JucePlugin_IsSynth                0

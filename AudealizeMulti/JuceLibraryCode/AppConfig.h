@@ -258,7 +258,7 @@
  #define JucePlugin_ManufacturerCode       0x49414c78 // 'IALx'
 #endif
 #ifndef  JucePlugin_PluginCode
- #define JucePlugin_PluginCode             0x61647a6d // 'adzm'
+ #define JucePlugin_PluginCode             0x41647a6d // 'Adzm'
 #endif
 #ifndef  JucePlugin_IsSynth
  #define JucePlugin_IsSynth                0

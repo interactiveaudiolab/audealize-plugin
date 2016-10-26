@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="x1TFuX" name="Audealize EQ" projectType="audioplug" version="0.2.1b"
+<JUCERPROJECT id="x1TFuX" name="Audealize EQ" projectType="audioplug" version="0.2.2b"
               bundleIdentifier="com.InteractiveAudioLab.AudealizeEQ" includeBinaryInAppConfig="1"
               buildVST="1" buildVST3="1" buildAU="1" buildAUv3="1" buildRTAS="0"
               buildAAX="1" pluginName="Audealize EQ" pluginDesc="Audealize EQ"
               pluginManufacturer="Interactive Audio Lab" pluginManufacturerCode="IALx"
-              pluginCode="adlz" pluginChannelConfigs="" pluginIsSynth="0" pluginWantsMidiIn="0"
+              pluginCode="Adlz" pluginChannelConfigs="" pluginIsSynth="0" pluginWantsMidiIn="0"
               pluginProducesMidiOut="0" pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="0"
               pluginAUExportPrefix="AudealizeEQAU" pluginRTASCategory="" aaxIdentifier="com.InteractiveAudioLab.AudealizeEQ"
-              pluginAAXCategory="AAX_ePlugInCategory_EQ" jucerVersion="4.2.3"
+              pluginAAXCategory="AAX_ePlugInCategory_EQ" jucerVersion="4.2.4"
               companyName="Northwestern University Interactive Audio Lab" companyWebsite="http://music.eecs.northwestern.edu">
   <MAINGROUP id="zCKhNw" name="Audealize EQ">
     <GROUP id="{4E48FC2E-FC0A-72E1-7953-37D9CC5AA9E2}" name="Source">

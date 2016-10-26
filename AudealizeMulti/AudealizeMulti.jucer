@@ -4,11 +4,11 @@
               bundleIdentifier="com.InteractiveAudioLab.Audealize" includeBinaryInAppConfig="1"
               buildVST="1" buildVST3="1" buildAU="1" buildAUv3="1" buildRTAS="0"
               buildAAX="1" pluginName="Audealize" pluginDesc="Audealize" pluginManufacturer="Interactive Audio Lab"
-              pluginManufacturerCode="IALx" pluginCode="adzm" pluginChannelConfigs=""
+              pluginManufacturerCode="IALx" pluginCode="Adzm" pluginChannelConfigs=""
               pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
               pluginIsMidiEffectPlugin="0" pluginEditorRequiresKeys="1" pluginAUExportPrefix="AudealizeAU"
               pluginRTASCategory="" aaxIdentifier="com.InteractiveAudioLab.Audealize"
-              pluginAAXCategory="AAX_ePlugInCategory_Effect" jucerVersion="4.2.3"
+              pluginAAXCategory="AAX_ePlugInCategory_Effect" jucerVersion="4.2.4"
               companyName="Northwestern University Interactive Audio Lab" companyWebsite="http://music.eecs.northwestern.edu">
   <MAINGROUP id="p3OXR6" name="Audealize">
     <GROUP id="{2F4B4BC1-A568-54B1-C2A9-5E208C6C4FD5}" name="Source">

@@ -50,7 +50,7 @@ AudealizeeqAudioProcessor::AudealizeeqAudioProcessor (AudealizeAudioProcessor* o
                                    0.5f, nullptr, nullptr);
     mState->addParameterListener (paramAmountId, this);
     mState->createAndAddParameter (paramBypassId, "EQ: Bypass", "EQ: Bypass", NormalisableRange<float> (0.f, 1.f, 1.f),
-                                   1.f, nullptr, nullptr);
+                                   0.f, nullptr, nullptr);
 }
 
 AudealizeeqAudioProcessor::~AudealizeeqAudioProcessor ()

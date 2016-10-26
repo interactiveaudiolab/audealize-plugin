@@ -63,7 +63,7 @@ AudealizereverbAudioProcessor::AudealizereverbAudioProcessor (AudealizeAudioProc
     mState->addParameterListener (paramAmountId, this);
 
     mState->createAndAddParameter (paramBypassId, "Reverb: Bypass", "Reverb: Bypass",
-                                   NormalisableRange<float> (0.f, 1.f, 1.f), 1.f, nullptr, nullptr);
+                                   NormalisableRange<float> (0.f, 1.f, 1.f), 0.f, nullptr, nullptr);
 
     // Add Listeners
     for (int i = 0; i < kNumParams - 1; i++)

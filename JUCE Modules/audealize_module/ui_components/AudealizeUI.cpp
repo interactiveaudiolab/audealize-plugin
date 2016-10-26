@@ -178,7 +178,6 @@ AudealizeUI::AudealizeUI (AudealizeAudioProcessor& p, ScopedPointer<TraditionalU
         p.getValueTreeState (), p.getParamBypassId (), *mBypassButton);
     if (isMultiEffect) mBypassButton->setVisible (false);
 
-    setEnabled (false);
 
     // search bar
     addAndMakeVisible (mSearchBar = new TypeaheadEditor ());

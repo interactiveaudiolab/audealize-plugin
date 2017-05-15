@@ -19,8 +19,8 @@ ___
 
 # Papers
 
-[Seetharaman, Prem, and Pardo, Bryan. "Audealize: Crowdsourced Audio Production Tools"(http://music.cs.northwestern.edu/publications/seetharaman_pardo_audealize_jaes.pdf)
+[Seetharaman, Prem, and Pardo, Bryan. "Audealize: Crowdsourced Audio Production Tools"](http://music.cs.northwestern.edu/publications/seetharaman_pardo_audealize_jaes.pdf)
 
-[Cartwright, Mark, and Pardo, Bryan. "Social-EQ: Crowdsourcing an Equalization Descriptor Map"(http://music.cs.northwestern.edu/publications/cartwright-pardo-ismir13.pdf)
+[Cartwright, Mark, and Pardo, Bryan. "Social-EQ: Crowdsourcing an Equalization Descriptor Map"](http://music.cs.northwestern.edu/publications/cartwright-pardo-ismir13.pdf)
 
-[Seetharaman, Prem, and Pardo, Bryan. "Crowdsourcing a Reverberation Descriptor Map"(http://music.cs.northwestern.edu/publications/seetharaman_pardo_acmmm14.pdf)
+[Seetharaman, Prem, and Pardo, Bryan. "Crowdsourcing a Reverberation Descriptor Map"](http://music.cs.northwestern.edu/publications/seetharaman_pardo_acmmm14.pdf)

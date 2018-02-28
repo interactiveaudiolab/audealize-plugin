@@ -4,7 +4,7 @@ Audealize is a new way of looking at audio production tools. Instead of the trad
 
 [**Use Audealize Online**](https://audealize.appspot.com)
 
-#Installation
+# Installation
 
 Audealize is available in AudioUnit, VST, VST3 and AAX versions for Mac OSX 10.9 and above.
 
